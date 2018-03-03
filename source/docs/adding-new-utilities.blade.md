@@ -65,6 +65,19 @@ If you're using a preprocessor like Less, Sass, or Stylus, consider keeping your
 
 @@import "custom-utilities";
 ```
+If you're using Post-CSS, you need to import Tailwinds from its own file to import other utilities. Otherwise you may get the error: `@import must precede all other statements`. For example:
+
+tailwind.css
+```
+@tailwind preflight;
+@tailwind utilities;
+```
+
+main.css
+```
+@import "tailwind";
+@import "custom-utilities";
+```
 
 ## Responsive Variants
 
