@@ -80,6 +80,7 @@ main.css
 ```
 Or, you can call Tailwinds directly from Node.js modules, like this:
 
+main.css
 ```
 @import "tailwindcss/css/preflight";
 @import "tailwindcss/css/utilities";
