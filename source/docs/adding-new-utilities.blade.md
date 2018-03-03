@@ -78,6 +78,14 @@ main.css
 @import "tailwind";
 @import "custom-utilities";
 ```
+Or, you can call Tailwinds directly from Node.js modules, like this:
+
+```
+@import "tailwindcss/css/preflight";
+@import "tailwindcss/css/utilities";
+@import "custom-utilities";
+```
+
 
 ## Responsive Variants
 
