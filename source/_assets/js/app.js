@@ -21,6 +21,13 @@ Mousetrap.bind('/', function (e) {
   document.getElementById('docsearch').focus()
 })
 
+// Disable jump to top by dummy links (<a href="#">Link</a>)
+document.querySelectorAll('.markdown a[href="#"]').forEach(function (i) {
+  i.addEventListener('click', function (e) {
+    e.preventDefault()
+  })
+})
+
 ;(function () {
   var s = document.createElement('script')
   s.setAttribute('async', '')
