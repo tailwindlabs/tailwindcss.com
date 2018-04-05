@@ -11,15 +11,17 @@ features:
 
 @include('_partials.work-in-progress')
 
-@include('_partials.class-table', [
+@include('_partials.class-color-table', [
   'rows' => $page->config['colors']->map(function ($value, $name) {
     $class = ".text-{$name}";
     $code = "color: {$value};";
+    $output = "bg-{$name}";
     $color = implode(' ', array_reverse(explode('-', $name)));
     $description = "Set the text color of an element to {$color}.";
     return [
       $class,
       $code,
+      $output,
       $description,
     ];
   })->values()->all()
