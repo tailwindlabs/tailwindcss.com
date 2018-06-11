@@ -49,6 +49,11 @@ We've provided a CLI utility to do this easily:
   <div class="text-purple-dark">./node_modules/.bin/tailwind <span class="text-blue-dark">init</span> <span class="text-grey-dark">[filename]</span></div>
 </div>
 
+If you are on Windows and have used `--no-bin-links` you can run the node script directly:
+
+<div class="rounded bg-grey-lightest border border-grey-light font-mono text-xs p-4">
+  <div class="text-purple-dark">node ./node_modules/tailwindcss/lib/cli.js <span class="text-blue-dark">init</span> <span class="text-grey-dark">[filename]</span></div>
+
 ### 3. Use Tailwind in your CSS
 
 Use the `@@tailwind` directive to inject Tailwind's `preflight` and `utilities` styles into your CSS.
