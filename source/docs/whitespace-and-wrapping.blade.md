@@ -40,13 +40,18 @@ features:
     ],
     [
       '.break-words',
-      'word-wrap: break-word;',
+      'overflow-wrap: break-word;',
       'Add line breaks mid-word if needed.',
     ],
     [
       '.break-normal',
-      'word-wrap: normal;',
+      'overflow-wrap: normal;',
       'Only add line breaks at normal word break points.',
+    ],
+    [
+      '.break-all',
+      'word-break: break-all;',
+      'Add line breaks between any two characters.',
     ],
     [
       '.truncate',
