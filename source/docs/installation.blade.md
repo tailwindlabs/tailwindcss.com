@@ -194,12 +194,11 @@ If you're using a preprocessor, use the `options` method to add `tailwindcss` as
 ```js
 var tailwindcss = require('tailwindcss');
 
-mix.less('resources/less/app.less', 'public/css')
-  .options({
-    postCss: [
+mix.less('resources/less/app.less', 'public/css', {
+postCss: [
       tailwindcss('./path/to/your/tailwind.js'),
     ]
-  });
+});
 ```
 
 **Note for Sass users:** Due to [an unresolved issue](https://github.com/bholloway/resolve-url-loader/issues/28) with one of Mix's dependencies, to use Sass with Tailwind you'll need to disable `processCssUrls`:
@@ -207,8 +206,7 @@ mix.less('resources/less/app.less', 'public/css')
 ```js
 var tailwindcss = require('tailwindcss');
 
-mix.sass('resources/sass/app.scss', 'public/css')
-  .options({
+mix.sass('resources/sass/app.scss', 'public/css', {
     processCssUrls: false,
     postCss: [ tailwindcss('./path/to/your/tailwind.js') ],
   });
