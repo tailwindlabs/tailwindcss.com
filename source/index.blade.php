@@ -31,6 +31,16 @@
         <a class="mt-6 sm:mt-0 mx-auto sm:mx-2 max-w-xs rounded-full text-center leading-none font-semibold block px-12 py-3 border-2 border-tailwind-teal bg-tailwind-teal text-white hover:border-tailwind-teal-light hover:bg-tailwind-teal-light hover:bg-tailwind-teal-light" href="/docs/what-is-tailwind">Learn More</a>
         <a class="mt-6 sm:mt-0 mx-auto sm:mx-2 max-w-xs rounded-full text-center leading-none font-semibold block px-12 py-3 border-2 border-tailwind-teal text-tailwind-teal hover:text-white hover:border-tailwind-teal-light hover:bg-tailwind-teal-light hover:bg-tailwind-teal-light" href="https://github.com/tailwindcss/tailwindcss">GitHub</a>
       </div>
+
+      {{-- Search section --}}
+      <div class="max-w-xs mx-auto mt-6">
+        <div class="relative">
+          <input id="docsearch" class="transition focus:outline-0 border-2 border-tailwind-teal focus:bg-white focus:border-tailwind-teal-light placeholder-grey-darkest rounded-full bg-transparent py-2 pr-4 pl-10 block w-full appearance-none leading-normal" type="text" placeholder="Search the docs">
+          <div class="pointer-events-none absolute pin-y pin-l pl-3 flex items-center">
+            <svg class="fill-current pointer-events-none text-grey-dark w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/></svg>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
