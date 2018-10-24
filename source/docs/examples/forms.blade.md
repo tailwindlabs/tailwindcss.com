@@ -25,7 +25,7 @@ Tailwind doesn't include purpose-built form control classes out of the box, but 
       <p class="text-red text-xs italic">Please choose a password.</p>
     </div>
     <div class="flex items-center justify-between">
-      <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+      <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
         Sign In
       </button>
       <a class="inline-block align-baseline font-bold text-sm text-blue hover:text-blue-darker" href="#">
@@ -75,7 +75,7 @@ Tailwind doesn't include purpose-built form control classes out of the box, but 
   <div class="md:flex md:items-center">
     <div class="md:w-1/3"></div>
     <div class="md:w-2/3">
-      <button class="shadow bg-purple hover:bg-purple-light focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
+      <button class="shadow bg-purple hover:bg-purple-light focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
         Sign Up
       </button>
     </div>
@@ -149,10 +149,10 @@ Tailwind doesn't include purpose-built form control classes out of the box, but 
 <form class="w-full max-w-sm">
   <div class="flex items-center border-b border-b-2 border-teal py-2">
     <input class="appearance-none bg-transparent border-none w-full text-grey-darker mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Jane Doe" aria-label="Full name">
-    <button class="flex-no-shrink bg-teal hover:bg-teal-dark border-teal hover:border-teal-dark text-sm border-4 text-white py-1 px-2 rounded" type="button">
+    <button class="flex-no-shrink bg-teal hover:bg-teal-dark border-teal hover:border-teal-dark text-sm border-4 text-white py-1 px-2 rounded" type="submit">
       Sign Up
     </button>
-    <button class="flex-no-shrink border-transparent border-4 text-teal hover:text-teal-darker text-sm py-1 px-2 rounded" type="button">
+    <button class="flex-no-shrink border-transparent border-4 text-teal hover:text-teal-darker text-sm py-1 px-2 rounded" type="reset">
       Cancel
     </button>
   </div>
