@@ -141,7 +141,7 @@ We've included the Tailwind-specific instructions for a few popular tools below,
 Add `tailwindcss` as a plugin in your  `postcss.config.js` file, passing the path to your config file:
 
 ```js
-var tailwindcss = require('tailwindcss');
+const tailwindcss = require('tailwindcss');
 
 module.exports = {
   plugins: [
@@ -161,8 +161,8 @@ Add `tailwindcss` to the list of plugins you pass to [gulp-postcss](https://gith
 
 ```js
 gulp.task('css', function () {
-  var postcss = require('gulp-postcss');
-  var tailwindcss = require('tailwindcss');
+  const postcss = require('gulp-postcss');
+  const tailwindcss = require('tailwindcss');
 
   return gulp.src('src/styles.css')
     // ...
@@ -182,7 +182,7 @@ gulp.task('css', function () {
 If you're writing your project in plain CSS, use Mix's `postCss` method to process your CSS. Include `tailwindcss` as a plugin and pass the path to your config file:
 
 ```js
-var tailwindcss = require('tailwindcss');
+const tailwindcss = require('tailwindcss');
 
 mix.postCss('resources/css/main.css', 'public/css', [
   tailwindcss('./path/to/your/tailwind.js'),
@@ -192,7 +192,7 @@ mix.postCss('resources/css/main.css', 'public/css', [
 If you're using a preprocessor, use the `options` method to add `tailwindcss` as a PostCSS plugin:
 
 ```js
-var tailwindcss = require('tailwindcss');
+const tailwindcss = require('tailwindcss');
 
 mix.less('resources/less/app.less', 'public/css')
   .options({
@@ -205,7 +205,7 @@ mix.less('resources/less/app.less', 'public/css')
 **Note for Sass users:** Due to [an unresolved issue](https://github.com/bholloway/resolve-url-loader/issues/28) with one of Mix's dependencies, to use Sass with Tailwind you'll need to disable `processCssUrls`:
 
 ```js
-var tailwindcss = require('tailwindcss');
+const tailwindcss = require('tailwindcss');
 
 mix.sass('resources/sass/app.scss', 'public/css')
   .options({
@@ -215,6 +215,24 @@ mix.sass('resources/sass/app.scss', 'public/css')
 ```
 
 For more information on what this feature does and the implications of disabling it, [see the Laravel Mix documentation](https://github.com/JeffreyWay/laravel-mix/blob/master/docs/css-preprocessors.md#css-url-rewriting).
+
+**For zero configuration installation** install the `laravel-mix-tailwind` package :
+<div class="rounded bg-grey-lightest border border-grey-light font-mono text-xs p-4">
+  <div class="text-grey-dark"># Using npm</div>
+  <div class="text-purple-dark">npm install <span class="text-blue-dark">laravel-mix-tailwind</span></div>
+  <div class="text-grey-dark mt-6"># Using Yarn</div>
+  <div class="text-purple-dark">yarn add <span class="text-blue-dark">laravel-mix-tailwind</span></div>
+</div>
+
+[Inject Tailwind](#3-use-tailwind-in-your-css) on your `app.scss` file usually it is localed on `resources/sass/app.scss` and use the `tailwind()` function on your webpack.mix.js :
+ 
+```js
+const mix = require('laravel-mix');
+require('laravel-mix-tailwind');
+mix.js('resources/js/app.js', 'public/js')
+   .sass('resources/sass/app.scss', 'public/css');
+   .tailwind();
+```
 
 #### Webpack Encore
 
@@ -231,7 +249,7 @@ module.exports = {
 Within `webpack.config.js`, create a style entry and enable the PostCSS loader.
 
 ```js
-var Encore = require('@symfony/webpack-encore');
+const Encore = require('@symfony/webpack-encore');
 
 Encore
     .setOutputPath('public/build/')
