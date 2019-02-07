@@ -47,9 +47,9 @@ We've provided a CLI utility to do this easily:
 
 <div class="rounded bg-grey-lightest border border-grey-light font-mono text-xs p-4">
   <div class="text-grey-dark"># Using npm</div>
-  <div class="text-purple-dark">npx tailwind <span class="text-blue-dark">init</span> <span class="text-grey-dark">[filename]</span></div>
+  <div class="text-purple-dark">npx tailwindcss <span class="text-blue-dark">init</span> <span class="text-grey-dark">[filename]</span></div>
   <div class="text-grey-dark mt-6"># Using Yarn</div>
-  <div class="text-purple-dark">yarn tailwind <span class="text-blue-dark">init</span> <span class="text-grey-dark">[filename]</span></div>
+  <div class="text-purple-dark">yarn tailwindcss <span class="text-blue-dark">init</span> <span class="text-grey-dark">[filename]</span></div>
 </div>
 
 If you're an experienced Tailwind user who doesn't need the comments in the config file, use the `--no-comments` flag when generating your config file to strip them out.
@@ -132,10 +132,10 @@ To avoid specificity issues, we highly recommend structuring your main styleshee
 For simple projects or just giving Tailwind a spin, you can use the Tailwind CLI tool to process your CSS:
 
 <div class="bg-grey-lightest border rounded font-mono text-sm p-4">
-  <div class="text-purple-dark">npx tailwind <span class="text-blue-dark">build styles.css</span> <span class="text-grey-dark">[-c ./tailwind.js] [-o ./output.css] [--no-autoprefixer]</span></div>
+  <div class="text-purple-dark">npx tailwindcss <span class="text-blue-dark">build styles.css</span> <span class="text-grey-dark">[-c ./tailwind.js] [-o ./output.css] [--no-autoprefixer]</span></div>
 </div>
 
-Use the `npx tailwind help build` command to learn more about the various CLI options.
+Use the `npx tailwindcss help build` command to learn more about the various CLI options.
 
 #### Using Tailwind with PostCSS
 
