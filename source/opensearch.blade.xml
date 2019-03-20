@@ -4,10 +4,10 @@
 
 <Description>Search TailwindCSS Docs</Description>
 <InputEncoding>UTF-8</InputEncoding>
-<Url type="text/html" method="get" template="https://tailwindcss.com/docs/search">
+<Url type="text/html" method="get" template="{{ $page->baseUrl }}/docs/search">
   <Param name="q" value="{searchTerms}"/>
 </Url>
 <Url type="application/opensearchdescription+xml"
      rel="self"
-     template="https://tailwindcss.com/opensearch.xml"/>
+     template="{{ $page->baseUrl }}/opensearch.xml"/>
 </OpenSearchDescription>
