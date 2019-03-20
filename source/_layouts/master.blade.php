@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="{{ mix('/css/main.css') }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css">
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <link rel="search" type="application/opensearchdescription+xml" title="TailwindCSS Docs Search" href="/opensearch.xml">
   @stack('headScripts')
 </head>
 <body data-sidebar-visible="true" class="font-source-sans font-normal text-black leading-normal">
