@@ -55,12 +55,14 @@ config.height = Object.assign(config.height, {
   '20': '5rem',
   '128': '32rem',
   '(screen-16)': 'calc(100vh - 4rem)',
+  '(screen-28)': 'calc(100vh - 7rem)',
 })
 
 config.maxHeight = Object.assign(config.maxHeight, {
   'xs': '20rem',
   'sm': '30rem',
   '(screen-16)': 'calc(100vh - 4rem)',
+  '(screen-28)': 'calc(100vh - 7rem)',
 })
 
 config.padding = Object.assign(config.padding, {
@@ -71,6 +73,8 @@ config.padding = Object.assign(config.padding, {
   '24': '6rem',
   '28': '7rem',
   '32': '8rem',
+  '36': '9rem',
+  '40': '10rem',
   '80': '20rem',
 })
 

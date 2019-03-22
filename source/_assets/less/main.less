@@ -51,12 +51,18 @@ ul:not(.default) {
   .top-16 {
     top: 4rem;
   }
+  .top-28 {
+    top: 7rem;
+  }
 }
 
 @supports (position: sticky) {
   @media (min-width: config('screens.lg')) {
     .sticky\?lg\:h-\(screen-16\) {
       height: ~"calc(100vh - 4rem)";
+    }
+    .sticky\?lg\:h-\(screen-28\) {
+      height: ~"calc(100vh - 7rem)";
     }
   }
 }
