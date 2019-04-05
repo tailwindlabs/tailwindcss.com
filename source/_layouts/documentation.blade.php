@@ -204,6 +204,7 @@
       apiKey: '3df93446658cd9c4e314d4c02a052188',
       indexName: 'tailwindcss',
       inputSelector: '#docsearch',
+      algoliaOptions: { 'facetFilters': ["version:{{$page->docSearchVersion}}"] },
     });
   </script>
 {{-- @endif --}}
