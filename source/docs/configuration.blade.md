@@ -234,7 +234,7 @@ For example, you could add a `tw-` prefix by setting the `prefix` option like so
 }
 ```
 
-+You can also pass a function to the `prefix` option if you need more fine-grained control:
+You can also pass a function to the `prefix` option if you need more fine-grained control:
 
 ```js
 {
