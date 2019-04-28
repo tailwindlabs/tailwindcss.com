@@ -89,7 +89,7 @@ To control the background color of an element on hover, add the `hover:` prefix 
 @endslot
 @endcomponent
 
-Hover utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `focus:` prefix.
+Hover utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `hover:` prefix.
 
 ```html
 <button class="... md:bg-blue md:hover:bg-blue-dark ...">Button</button>
