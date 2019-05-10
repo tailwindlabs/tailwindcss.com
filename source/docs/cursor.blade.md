@@ -172,6 +172,31 @@ By default Tailwind provides six `cursor` utilities. You change, add, or remove 
 + 'zoom-in': 'zoom-in',
 @endcomponent
 
+You can also use `cursor` to generate custom utilities using images instead of the system defaults. Learn more about how custom cursor images work over at [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/cursor).
+
+@component('_partials.customized-config', ['key' => 'theme.cursor'])
+  pointer: 'pointer',
+  'custom-bitmap': "url('http://127.0.0.1:8080/apple-touch-icon.png')",
+@endcomponent
+
+Using SVGs from your project is also a possibility. You can do so by adding [`postcss-inline-svg`](https://github.com/TrySound/postcss-inline-svg) to your PostCSS config file.
+
+@component('_partials.customized-config', ['key' => 'theme.cursor'])
+  pointer: 'pointer',
+  'custom-vector': "svg-load('cross.svg', fill=#fff, width=50, height=50) 25 25, not-allowed",
+@endcomponent
+
+```js
+// postcss.config.js
+module.exports = {
+  plugins: [
+    require('tailwindcss'),
+    require('postcss-inline-svg'),
+    require('autoprefixer'),
+  ],
+}
+```
+
 @include('_partials.variants-and-disabling', [
     'utility' => [
         'name' => 'cursor',
