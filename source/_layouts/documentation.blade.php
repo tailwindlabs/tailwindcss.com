@@ -25,9 +25,9 @@
 <div class="bg-white border-b border-grey-lighter fixed pin-t pin-x z-100">
   <div class="bg-teal h-12 flex items-center">
     <div class="max-w-screen-xl mx-auto px-6 text-white font-semibold">
-      Tailwind <span class="hidden sm:inline">CSS</span> v1.0 is almost here!
-      <a href="https://next.tailwindcss.com" class="underline hidden sm:inline">Learn more and try the beta &rarr;</a>
-      <a href="https://next.tailwindcss.com" class="underline sm:hidden">Try the beta &rarr;</a>
+      Tailwind <span class="hidden sm:inline">CSS</span> v1.0 is here!
+      <a href="https://next.tailwindcss.com" class="underline hidden sm:inline">Learn more &rarr;</a>
+      <a href="https://next.tailwindcss.com" class="underline sm:hidden">Learn more &rarr;</a>
     </div>
   </div>
   <div class="h-16 flex items-center">
