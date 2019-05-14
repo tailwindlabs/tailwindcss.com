@@ -5,13 +5,13 @@
 <meta name="twitter:site" content="@tailwindcss">
 <meta name="twitter:title" content="{{ $page->title ? $page->title . ' - Tailwind CSS' : 'Tailwind CSS - A Utility-First CSS Framework for Rapid UI Development' }}">
 <meta name="twitter:description" content="{{ $page->description ? $page->description : 'Documentation for the Tailwind CSS framework.' }}">
-<meta name="twitter:image" content="https://tailwindcss.com/img/tailwind-square.png">
+<meta name="twitter:image" content="https://v0.tailwindcss.com/img/tailwind-square.png">
 <meta name="twitter:creator" content="@tailwindcss">
-<meta property="og:url" content="https://tailwindcss.com/" />
+<meta property="og:url" content="https://v0.tailwindcss.com/" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="{{ $page->title ? $page->title . ' - Tailwind CSS' : 'Tailwind CSS - A Utility-First CSS Framework for Rapid UI Development' }}" />
 <meta property="og:description" content="{{ $page->description ? $page->description : 'Documentation for the Tailwind CSS framework.' }}" />
-<meta property="og:image" content="https://tailwindcss.com/img/twitter-card.png" />
+<meta property="og:image" content="https://v0.tailwindcss.com/img/twitter-card.png" />
 @endsection
 
 @push('headScripts')
@@ -25,9 +25,8 @@
 <div class="bg-white border-b border-grey-lighter fixed pin-t pin-x z-100">
   <div class="bg-teal h-12 flex items-center">
     <div class="max-w-screen-xl mx-auto px-6 text-white font-semibold">
-      Tailwind <span class="hidden sm:inline">CSS</span> v1.0 is almost here!
-      <a href="https://next.tailwindcss.com" class="underline hidden sm:inline">Learn more and try the beta &rarr;</a>
-      <a href="https://next.tailwindcss.com" class="underline sm:hidden">Try the beta &rarr;</a>
+      Tailwind CSS v1.0 is here!
+      <a href="https://tailwindcss.com" class="underline">Learn more &rarr;</a>
     </div>
   </div>
   <div class="h-16 flex items-center">
