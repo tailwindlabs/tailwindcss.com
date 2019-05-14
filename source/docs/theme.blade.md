@@ -40,13 +40,13 @@ module.exports = {
 }
 ```
 
-We provide a sensible [default theme](https://github.com/tailwindcss/tailwindcss/blob/next/stubs/defaultConfig.stub.js#L5) with a very generous set of values to get you started, but don't be afraid to change it or extend; you're encouraged to customize it as much as you need to to fit the goals of your design.
+We provide a sensible [default theme](https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js#L5) with a very generous set of values to get you started, but don't be afraid to change it or extend; you're encouraged to customize it as much as you need to to fit the goals of your design.
 
 ## Theme structure
 
 The `theme` object contains keys for `screens`, `colors`, and `spacing`, as well as a key for each customizable [core plugin](/docs/core-plugins).
 
-See the [theme configuration reference](#configuration-reference) or the [default theme](https://github.com/tailwindcss/tailwindcss/blob/next/stubs/defaultConfig.stub.js#L5) for a complete list of theme options.
+See the [theme configuration reference](#configuration-reference) or the [default theme](https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js#L5) for a complete list of theme options.
 
 ### Screens
 
