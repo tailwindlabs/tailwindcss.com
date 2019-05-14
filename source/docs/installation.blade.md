@@ -11,17 +11,17 @@ Before getting started please note, **many of the features that make Tailwind CS
 To pull in Tailwind for quick demos or just giving the framework a spin, grab the latest default configuration build via CDN:
 
 ```html
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@0.7.4/dist/tailwind.min.css" rel="stylesheet">
 ```
 
 Or if you'd like to pull in the base styles separate from the utility classes:
 
 ```html
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/preflight.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@0.7.4/dist/preflight.min.css" rel="stylesheet">
 
 <!-- Any of your own CSS would go here -->
 
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/utilities.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@0.7.4/dist/utilities.min.css" rel="stylesheet">
 ```
 
 ## NPM
@@ -34,9 +34,9 @@ Tailwind is [available on npm](https://www.npmjs.com/package/tailwindcss) and ca
 
 <div class="rounded bg-grey-lightest border border-grey-light font-mono text-xs p-4">
   <div class="text-grey-dark"># Using npm</div>
-  <div class="text-purple-dark">npm install <span class="text-blue-dark">tailwindcss</span> <span class="text-grey-darker">--save-dev</span></div>
+  <div class="text-purple-dark">npm install <span class="text-blue-dark">tailwindcss@0.7.4</span> <span class="text-grey-darker">--save-dev</span></div>
   <div class="text-grey-dark mt-6"># Using Yarn</div>
-  <div class="text-purple-dark">yarn add <span class="text-blue-dark">tailwindcss</span> <span class="text-grey-darker">--dev</span></div>
+  <div class="text-purple-dark">yarn add <span class="text-blue-dark">tailwindcss@0.7.4</span> <span class="text-grey-darker">--dev</span></div>
 </div>
 
 ### 2. Create a Tailwind config file
