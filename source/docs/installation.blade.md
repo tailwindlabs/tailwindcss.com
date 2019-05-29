@@ -277,6 +277,121 @@ module.exports = function(defaults) {
 
 <hr class="my-16">
 
+#### Angular & Angular Universal Starter Kit
+
+In order to get tailwindcss working properly with Angular ClI we need to append the Postcss configuration into
+Angular CLI without ejecting it. This way we don't need to update the webpack configuration on our own each time 
+a new update comes out.
+
+
+#### Requirements
+
+- @angular-builders/custom-webpack v.7.4.3
+- @angular-builders/dev-server v7.3.1
+- @angular/cli v7.3.9+
+
+#### Instructions
+
+1. Install the dependicies 
+
+    ```bash
+    npm install --save-dev @angular-builders/custom-webpack@7.4.3 @angular-builders/dev-server@7.3.1 tailwindcss @angular/cli@7.3.9
+    ```
+
+2. Change the following lines in `angular.json`.
+
+    ```js
+    {
+        // ...
+        "build": {
+            "builder": "@angular-devkit/build-angular:browser",
+        }
+        //...
+        "serve": {
+            "builder": "@angular-devkit/build-angular:dev-server",
+        }
+        //...
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+        }
+    }
+    ```
+
+    to 
+    
+    ```js
+    {
+        // ...
+        "build": {
+            "builder": "@angular-builders/custom-webpack:browser",
+            "options": {
+                "customWebpackConfig": {
+                  "path": "./extra-webpack.config.js",
+                },
+                //...
+            }
+        }
+        //...
+        "serve": {
+            "builder": "@angular-builders/dev-server:generic",
+            //...
+        }
+        //...
+        "server": {
+          "builder": "@angular-builders/custom-webpack:server",
+          "options": {
+              "customWebpackConfig": {
+                "path": "./extra-webpack.config.js",
+              },
+              //...
+            }
+        }
+    }
+    ```
+
+3. Add a file called `extra-webpack.config.js`. In this file we will have the configurations that will be
+appended to webpack.
+
+    ```js
+    module.exports = {
+      module: {
+        rules: [
+          {
+            test: /\.css$/,
+            use: [
+              {
+                loader: 'postcss-loader',
+                options: {
+                  ident: 'postcss',
+                  plugins: [
+                    require('postcss-import')({ root: process.cwd() }),
+                    require('tailwindcss')('./tailwind.js'),
+                    require('autoprefixer'),
+                  ],
+                },
+              }
+            ]
+          }
+        ]
+      }
+    };
+    
+    ```
+
+4. Add tailwind config file `tailwind.js` to your project.
+5. In `<root>/src/styles.css`.
+    ```css
+    @tailwind base;
+    
+    @tailwind components;
+    
+    @tailwind utilities;
+
+    ```
+
+
+<hr class="my-16">
+
 ## Using Tailwind via CDN
 
 Before using the CDN build please note, many of the features that make Tailwind CSS great are not available without incorporating Tailwind into your build process.
