@@ -245,9 +245,11 @@ module.exports = {
 
 ### Referencing other values
 
-If you need to reference another value in your theme, you can do so by providing a closure instead of a static value. The closure will receive a `theme()` function that you can use to look up other values in your theme using dot notation.
+If you need to reference another value in your theme, you can do so by providing a closure instead of a static value. The closure will receive a `theme()` function as its first argument, and as the second argument, it will receive an object containing utility functions.
 
-For example, you could generate `fill` utilities for every color in your color palette by referencing `theme('colors')` in your `fill` configuration:
+#### The `theme()` function
+
+You can use the `theme()` function to look up other values in your theme using dot notation. For example, you could generate `fill` utilities for every color in your color palette by referencing `theme('colors')` in your `fill` configuration:
 
 ```js
 // tailwind.config.js
@@ -262,6 +264,36 @@ module.exports = {
 ```
 
 The `theme()` function attempts to find the value you are looking for from the fully merged theme object, so it can reference your own customizations as well as the default theme values. It also works recursively, so as long as there is a static value at the end of the chain it will be able to resolve the value you are looking for.
+
+#### Config utilities
+
+Currently, the only utility function available is `negative()`, which you can use to generate negative values from a set of positive values. The `negative()` function should receive one argument: the set of positive values, which you'll look up using the `theme()` function.
+
+Under the hood, `negative()` is what Tailwind's default theme uses to create `negativeMargin` utilities:
+
+```js
+// tailwind.config.js
+module.exports = {
+  margin: (theme, { negative }) => ({
+    auto: 'auto',
+    ...theme('spacing'),
+    ...negative(theme('spacing')),
+  })
+}
+```
+
+If you use a lot of absolute or relative positioning in your design, it might be useful to take the same approach with the `inset` plugin:
+
+```js
+// tailwind.config.js
+module.exports = {
+  inset: (theme, { negative }) => ({
+    auto: 'auto',
+    ...theme('spacing'),
+    ...negative(theme('spacing')),
+  })
+}
+```
 
 ### Referencing the default theme
 
@@ -412,6 +444,3 @@ All of these keys are also available under the `theme.extend` key to enable [ext
 | `textColor` | Values for the `text-color` property |
 | `width` | Values for the `width` property |
 | `zIndex` | Values for the `z-index` property |
-
-
-
