@@ -160,7 +160,7 @@ mix.postCss('resources/css/main.css', 'public/css', [
 ])
 ```
 
-If you're using a preprocessor, use the `options` method to add `tailwindcss` as a PostCSS plugin:
+If you're using a preprocessor, use the `options` method to add `tailwindcss` as a PostCSS plugin, you will also need to generate your [configuration file](https://tailwindcss.com/docs/configuration/#creating-your-configuration-file) if you haven't already done so:
 
 ```js
 const tailwindcss = require('tailwindcss')
