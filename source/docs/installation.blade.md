@@ -63,10 +63,10 @@ If you're using `postcss-import` (or a tool that uses it under the hood, such as
 For simple projects or just giving Tailwind a spin, you can use the Tailwind CLI tool to process your CSS:
 
 ```bash
-npx tailwind build styles.css -o output.css
+npx tailwindcss build styles.css -o output.css
 ```
 
-Use the `npx tailwind help build` command to learn more about the various CLI options.
+Use the `npx tailwindcss help build` command to learn more about the various CLI options.
 
 ### Using Tailwind with PostCSS
 
