@@ -243,9 +243,9 @@ module.exports = {
 }
 ```
 
-### Referencing other values
+### Referencing other plugins' values
 
-If you need to reference another value in your theme, you can do so by providing a closure instead of a static value. The closure will receive a `theme()` function that you can use to look up other values in your theme using dot notation.
+If you need to reference a value from another plugin in your theme, you can do so by providing a closure instead of a static value. The closure will receive a `theme()` function that you can use to look up other values in your theme using dot notation.
 
 For example, you could generate `fill` utilities for every color in your color palette by referencing `theme('colors')` in your `fill` configuration:
 
@@ -262,6 +262,64 @@ module.exports = {
 ```
 
 The `theme()` function attempts to find the value you are looking for from the fully merged theme object, so it can reference your own customizations as well as the default theme values. It also works recursively, so as long as there is a static value at the end of the chain it will be able to resolve the value you are looking for.
+
+Note that you can only use this kind of closure with plugin keys, not the keys inside of plugins:
+
+```js
+// tailwind.config.js
+
+/* This is supported */
+module.exports = {
+  theme: {
+    fill: theme => theme('colors')
+  }
+}
+
+/* This is also supported */
+module.exports = {
+  theme: {
+    fill: theme => ({
+      gray: theme('colors.gray')
+    })
+  }
+}
+
+/* This is not supported */
+module.exports = {
+  theme: {
+    fill: {
+      gray: theme => theme('colors.gray')
+    }
+  }
+}
+```
+
+### Referencing values within the same plugin
+
+To reference values within the same plugin, use standard JavaScript variables inside a closure:
+
+```js
+// tailwind.config.js
+
+module.exports = {
+  theme: {
+    textComponents: theme => {
+      const paragraph = {
+        fontFamily: theme('fontFamily.sans'),
+        color: theme('colors.gray.900'),
+      }
+
+      return {
+        paragraph,
+        heading: {
+          ...paragraph, // Value from within the same plugin
+          fontSize: theme('fontSize.2xl')
+        }
+      }
+    }
+  }
+}
+```
 
 ### Referencing the default theme
 
@@ -412,6 +470,3 @@ All of these keys are also available under the `theme.extend` key to enable [ext
 | `textColor` | Values for the `text-color` property |
 | `width` | Values for the `width` property |
 | `zIndex` | Values for the `z-index` property |
-
-
-
