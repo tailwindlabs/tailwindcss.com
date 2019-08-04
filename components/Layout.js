@@ -1,7 +1,16 @@
 import Head from 'next/head'
+import { MDXProvider } from '@mdx-js/react'
 import map from 'lodash/map'
 import tailwindMeta from 'tailwindcss/package.json'
 
+const components = {
+  // h1: Heading.H1,
+  // h2: Heading.H2,
+  // // …
+  p: ({ children }) => <p className="text-base mt-6">{children}</p>,
+  // code: Pre,
+  // inlineCode: Code
+}
 
 const navigation = {
   'Documentation': {
@@ -207,7 +216,7 @@ const navigation = {
 
 export default function Layout({ meta, children }) {
   return (
-    <div class="antialiased">
+    <div className="antialiased">
       <Head>
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@tailwindcss" />
@@ -424,8 +433,10 @@ export default function Layout({ meta, children }) {
                     {meta.titleBorder && <hr className="my-8 border-b-2 border-gray-200"/>}
                   </div>
                   <div className="flex">
-                    <div className="markdown px-6 xl:px-12 w-full max-w-3xl mx-auto lg:ml-0 lg:mr-auto xl:mx-0 xl:w-3/4">
-                      @yield('content')
+                    <div className="markdown text-gray-700 leading-relaxed px-6 xl:px-12 w-full max-w-3xl mx-auto lg:ml-0 lg:mr-auto xl:mx-0 xl:w-3/4">
+                      <MDXProvider components={components}>
+                        {children}
+                      </MDXProvider>
                     </div>
 
                     {/*Table of contents*/}

@@ -3,12 +3,12 @@ import Layout from '@/components/Layout'
 export default Layout
 
 export const meta = {
-  title: "Utility-First",
-  description: "Building complex components from a constrained set of primitive utilities.",
-  titleBorder: true,
+title: "Utility-First",
+description: "Building complex components from a constrained set of primitive utilities.",
+titleBorder: true,
 }
 
-<h2 style={{ fontSize: 0 }} class="invisible m-0 -mb-6">Overview</h2>
+<h2 style={{ fontSize: 0 }} className="invisible m-0 -mb-6">Overview</h2>
 
 Traditionally, whenever you need to style something on the web, you write CSS.
 
@@ -23,7 +23,7 @@ Traditionally, whenever you need to style something on the web, you write CSS.
 <div className="bg-gray-200 px-8 py-12">
   <div className="max-w-sm mx-auto flex p-6 bg-white rounded-lg shadow-xl">
     <div className="flex-shrink-0">
-      <svg className="h-12 w-12" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#2397B3" offset="0%"/><stop stop-color="#13577E" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#73DFF2" offset="0%"/><stop stop-color="#47B1EB" offset="100%"/></linearGradient></defs><g fill="none" fillRule="evenodd"><path d="M28.872 22.096c.084.622.128 1.258.128 1.904 0 7.732-6.268 14-14 14-2.176 0-4.236-.496-6.073-1.382l-6.022 2.007c-1.564.521-3.051-.966-2.53-2.53l2.007-6.022A13.944 13.944 0 0 1 1 24c0-7.331 5.635-13.346 12.81-13.95A9.967 9.967 0 0 0 13 14c0 5.523 4.477 10 10 10a9.955 9.955 0 0 0 5.872-1.904z" fill="url(#a)" transform="translate(1 1)"/><path d="M35.618 20.073l2.007 6.022c.521 1.564-.966 3.051-2.53 2.53l-6.022-2.007A13.944 13.944 0 0 1 23 28c-7.732 0-14-6.268-14-14S15.268 0 23 0s14 6.268 14 14c0 2.176-.496 4.236-1.382 6.073z" fill="url(#b)" transform="translate(1 1)"/><path d="M18 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM24 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM30 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" fill="#FFF"/></g></svg>
+      <svg className="h-12 w-12" viewBox="0 0 40 40"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stopColor="#2397B3" offset="0%"/><stop stopColor="#13577E" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stopColor="#73DFF2" offset="0%"/><stop stopColor="#47B1EB" offset="100%"/></linearGradient></defs><g fill="none" fillRule="evenodd"><path d="M28.872 22.096c.084.622.128 1.258.128 1.904 0 7.732-6.268 14-14 14-2.176 0-4.236-.496-6.073-1.382l-6.022 2.007c-1.564.521-3.051-.966-2.53-2.53l2.007-6.022A13.944 13.944 0 0 1 1 24c0-7.331 5.635-13.346 12.81-13.95A9.967 9.967 0 0 0 13 14c0 5.523 4.477 10 10 10a9.955 9.955 0 0 0 5.872-1.904z" fill="url(#a)" transform="translate(1 1)"/><path d="M35.618 20.073l2.007 6.022c.521 1.564-.966 3.051-2.53 2.53l-6.022-2.007A13.944 13.944 0 0 1 23 28c-7.732 0-14-6.268-14-14S15.268 0 23 0s14 6.268 14 14c0 2.176-.496 4.236-1.382 6.073z" fill="url(#b)" transform="translate(1 1)"/><path d="M18 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM24 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM30 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" fill="#FFF"/></g></svg>
     </div>
     <div className="ml-6 pt-1">
       <div className="text-xl text-gray-900 leading-tight">ChitChat</div>
@@ -31,19 +31,19 @@ Traditionally, whenever you need to style something on the web, you write CSS.
     </div>
   </div>
 
-```html
-<div class="chat-notification">
-  <div class="chat-notification-logo-wrapper">
-    <img class="chat-notification-logo" src="/img/logo.svg" alt="ChitChat Logo">
+  ```html
+  <div class="chat-notification">
+    <div class="chat-notification-logo-wrapper">
+      <img class="chat-notification-logo" src="/img/logo.svg" alt="ChitChat Logo">
+    </div>
+    <div class="chat-notification-content">
+      <h4 class="chat-notification-title">ChitChat</h4>
+      <p class="chat-notification-message">You have a new message!</p>
+    </div>
   </div>
-  <div class="chat-notification-content">
-    <h4 class="chat-notification-title">ChitChat</h4>
-    <p class="chat-notification-message">You have a new message!</p>
-  </div>
-</div>
 
-<style>
-  .chat-notification {
+  <style>
+    .chat-notification {
     display: flex;
     max-width: 24rem;
     margin: 0 auto;
@@ -53,65 +53,66 @@ Traditionally, whenever you need to style something on the web, you write CSS.
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
   .chat-notification-logo-wrapper {
-    flex-shrink: 0;
-  }
-  .chat-notification-logo {
-    height: 3rem;
-    width: 3rem;
-  }
-  .chat-notification-content {
-    margin-left: 1.5rem;
-    padding-top: 0.25rem;
-  }
-  .chat-notification-title {
-    color: #1a202c;
-    font-size: 1.25rem;
-    line-height: 1.25;
-  }
-  .chat-notification-message {
-    color: #718096;
-    font-size: 1rem;
-    line-height: 1.5;
-  }
+  flex-shrink: 0;
+}
+.chat-notification-logo {
+height: 3rem;
+width: 3rem;
+}
+.chat-notification-content {
+margin-left: 1.5rem;
+padding-top: 0.25rem;
+}
+.chat-notification-title {
+color: #1a202c;
+font-size: 1.25rem;
+line-height: 1.25;
+}
+.chat-notification-message {
+color: #718096;
+font-size: 1rem;
+line-height: 1.5;
+}
 </style>
 ```
 
 </div>
 
-@component('_partials.code-sample', ['class' => 'bg-gray-200 px-8 py-12'])
-
-@slot('code')
-@endslot
-@endcomponent
-
 With Tailwind, you style elements by applying pre-existing classes directly in your HTML.
 
-@component('_partials.tip-good')
-Using utility classes to build custom designs without writing CSS
-@endcomponent
+<p className="flex items-start mt-8 mb-0">
+  <svg className="h-6 w-6 mr-2 flex-shrink-0" viewBox="0 0 24 24">
+    <circle className="text-green-200 fill-current" cx="12" cy="12" r="10"/>
+    <path className="text-green-600 fill-current" d="M10 14.59l6.3-6.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-3-3a1 1 0 0 1 1.4-1.42l2.3 2.3z"/>
+  </svg>
+  <strong className="text-base font-semibold text-gray-800">
+    Using utility classes to build custom designs without writing CSS
+  </strong>
+</p>
+
 
 <div className="bg-gray-200 px-8 py-12">
+  <div className="max-w-sm mx-auto flex p-6 bg-white rounded-lg shadow-xl">
+    <div className="flex-shrink-0">
+      <svg className="h-12 w-12" viewBox="0 0 40 40"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stopColor="#2397B3" offset="0%"/><stop stopColor="#13577E" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stopColor="#73DFF2" offset="0%"/><stop stopColor="#47B1EB" offset="100%"/></linearGradient></defs><g fill="none" fillRule="evenodd"><path d="M28.872 22.096c.084.622.128 1.258.128 1.904 0 7.732-6.268 14-14 14-2.176 0-4.236-.496-6.073-1.382l-6.022 2.007c-1.564.521-3.051-.966-2.53-2.53l2.007-6.022A13.944 13.944 0 0 1 1 24c0-7.331 5.635-13.346 12.81-13.95A9.967 9.967 0 0 0 13 14c0 5.523 4.477 10 10 10a9.955 9.955 0 0 0 5.872-1.904z" fill="url(#a)" transform="translate(1 1)"/><path d="M35.618 20.073l2.007 6.022c.521 1.564-.966 3.051-2.53 2.53l-6.022-2.007A13.944 13.944 0 0 1 23 28c-7.732 0-14-6.268-14-14S15.268 0 23 0s14 6.268 14 14c0 2.176-.496 4.236-1.382 6.073z" fill="url(#b)" transform="translate(1 1)"/><path d="M18 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM24 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM30 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" fill="#FFF"/></g></svg>
+    </div>
+    <div className="ml-6 pt-1">
+      <div className="text-xl text-gray-900 leading-tight">ChitChat</div>
+      <p className="text-base text-gray-600 leading-normal">You have a new message!</p>
+    </div>
+  </div>
+
+  ```html
   <div class="max-w-sm mx-auto flex p-6 bg-white rounded-lg shadow-xl">
     <div class="flex-shrink-0">
-      <svg class="h-12 w-12" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#2397B3" offset="0%"/><stop stop-color="#13577E" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#73DFF2" offset="0%"/><stop stop-color="#47B1EB" offset="100%"/></linearGradient></defs><g fill="none" fillRule="evenodd"><path d="M28.872 22.096c.084.622.128 1.258.128 1.904 0 7.732-6.268 14-14 14-2.176 0-4.236-.496-6.073-1.382l-6.022 2.007c-1.564.521-3.051-.966-2.53-2.53l2.007-6.022A13.944 13.944 0 0 1 1 24c0-7.331 5.635-13.346 12.81-13.95A9.967 9.967 0 0 0 13 14c0 5.523 4.477 10 10 10a9.955 9.955 0 0 0 5.872-1.904z" fill="url(#a)" transform="translate(1 1)"/><path d="M35.618 20.073l2.007 6.022c.521 1.564-.966 3.051-2.53 2.53l-6.022-2.007A13.944 13.944 0 0 1 23 28c-7.732 0-14-6.268-14-14S15.268 0 23 0s14 6.268 14 14c0 2.176-.496 4.236-1.382 6.073z" fill="url(#b)" transform="translate(1 1)"/><path d="M18 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM24 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM30 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" fill="#FFF"/></g></svg>
+      <img class="h-12 w-12" src="/img/logo.svg" alt="ChitChat Logo">
     </div>
     <div class="ml-6 pt-1">
-      <div class="text-xl text-gray-900 leading-tight">ChitChat</div>
+      <h4 class="text-xl text-gray-900 leading-tight">ChitChat</h4>
       <p class="text-base text-gray-600 leading-normal">You have a new message!</p>
     </div>
   </div>
-
-```html
-<div class="max-w-sm mx-auto flex p-6 bg-white rounded-lg shadow-xl">
-  <div class="flex-shrink-0">
-    <img class="h-12 w-12" src="/img/logo.svg" alt="ChitChat Logo">
-  </div>
-  <div class="ml-6 pt-1">
-    <h4 class="text-xl text-gray-900 leading-tight">ChitChat</h4>
-    <p class="text-base text-gray-600 leading-normal">You have a new message!</p>
-  </div>
-</div>
-```
+  ```
 
 </div>
 
@@ -152,14 +153,14 @@ But using utility classes has a few important advantages over inline styles:
 This component is fully responsive and includes a button with hover styles, and is built entirely with utility classes:
 
 <div className="p-8 bg-gray-200">
-  <div class="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-    <div class="sm:flex sm:items-center px-6 py-4">
-      <img class="block mx-auto sm:mx-0 sm:flex-shrink-0 h-16 sm:h-24 rounded-full" src="https://randomuser.me/api/portraits/women/17.jpg" alt="Woman's Face"/>
-      <div class="mt-4 sm:mt-0 sm:ml-4 text-center sm:text-left">
-        <p class="text-xl leading-tight">Erin Lindford</p>
-        <p class="text-sm leading-tight text-gray-600">Customer Support Specialst</p>
-        <div class="mt-4">
-          <button class="text-purple-500 hover:text-white hover:bg-purple-500 border border-purple-500 text-xs font-semibold rounded-full px-4 py-1 leading-normal">Message</button>
+  <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+    <div className="sm:flex sm:items-center px-6 py-4">
+      <img className="block mx-auto sm:mx-0 sm:flex-shrink-0 h-16 sm:h-24 rounded-full" src="https://randomuser.me/api/portraits/women/17.jpg" alt="Woman's Face"/>
+      <div className="mt-4 sm:mt-0 sm:ml-4 text-center sm:text-left">
+        <p className="text-xl leading-tight">Erin Lindford</p>
+        <p className="text-sm leading-tight text-gray-600">Customer Support Specialst</p>
+        <div className="mt-4">
+          <button className="text-purple-500 hover:text-white hover:bg-purple-500 border border-purple-500 text-xs font-semibold rounded-full px-4 py-1 leading-normal">Message</button>
         </div>
       </div>
     </div>
@@ -174,10 +175,12 @@ The biggest maintainability concern when using a utility-first approach is manag
 
 This is easily solved by [extracting components](/docs/extracting-components), either as template partials/JavaScript components, or using Tailwind's `@@apply` feature to create abstractions around common utility patterns.
 
-<div className="text-center">
-  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-    Button
-  </button>
+<div>
+  <div className="text-center">
+    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      Button
+    </button>
+  </div>
 
 ```html
 <!-- Using utilities -->
@@ -191,15 +194,15 @@ This is easily solved by [extracting components](/docs/extracting-components), e
 </button>
 
 <style>
-  .btn {
-    @apply font-bold py-2 px-4 rounded;
-  }
-  .btn-blue {
-    @apply bg-blue-500 text-white;
-  }
-  .btn-blue:hover {
-    @apply bg-blue-700;
-  }
+.btn {
+  @apply font-bold py-2 px-4 rounded;
+}
+.btn-blue {
+  @apply bg-blue-500 text-white;
+}
+.btn-blue:hover {
+  @apply bg-blue-700;
+}
 </style>
 ```
 
