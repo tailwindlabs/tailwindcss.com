@@ -2,6 +2,10 @@ import Head from 'next/head'
 import { MDXProvider } from '@mdx-js/react'
 import map from 'lodash/map'
 import tailwindMeta from 'tailwindcss/package.json'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import theme from '@/assets/theme'
+
+console.log(theme)
 
 // > ol {
 //   @apply list-none;
@@ -41,7 +45,9 @@ const components = {
     </li>
   ),
   hr: () => <hr className="border-t-0 border-r-0 border-l-0 border-b-2 border-gray-200 my-16"/>,
-  // code: Pre,
+  code: ({ children, language }) => (
+    <SyntaxHighlighter language={language} children={children}/>
+  ),
   // inlineCode: Code
 }
 

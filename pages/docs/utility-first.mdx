@@ -2,6 +2,7 @@ import Layout from '@/components/Layout'
 import CodeSample from '@/components/CodeSample'
 import DoThis from '@/components/DoThis'
 import DontDoThis from '@/components/DontDoThis'
+import InvisibleHeading from '@/components/InvisibleHeading'
 import dedent from 'dedent'
 
 export default Layout
@@ -12,7 +13,7 @@ export const meta = {
   titleBorder: true,
 }
 
-<h2 style={{ fontSize: 0 }} className="invisible m-0 -mb-6">Overview</h2>
+<InvisibleHeading>Overview</InvisibleHeading>
 
 Traditionally, whenever you need to style something on the web, you write CSS.
 
@@ -210,38 +211,38 @@ The biggest maintainability concern when using a utility-first approach is manag
 
 This is easily solved by [extracting components](/docs/extracting-components), either as template partials/JavaScript components, or using Tailwind's `@apply` feature to create abstractions around common utility patterns.
 
-<div>
-  <div className="text-center">
-    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+
+<CodeSample
+  preview={dedent`
+    <div class="text-center">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Button
+      </button>
+    </div>
+  `}
+  code={dedent`
+    <!-- Using utilities -->
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
       Button
-    </button>
-  </div>
-
-```html
-<!-- Using utilities -->
-<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-  Button
-</button>
-
-<!-- Extracting classes using @apply -->
-<button class="btn btn-blue">
-  Button
-</button>
-
-<style>
-.btn {
-  @apply font-bold py-2 px-4 rounded;
-}
-.btn-blue {
-  @apply bg-blue-500 text-white;
-}
-.btn-blue:hover {
-  @apply bg-blue-700;
-}
-</style>
-```
-
-</div>
+    </button>\n
+    <!-- Extracting classes using @apply -->
+    <button class="btn btn-blue">
+      Button
+    </button>\n
+    <style>
+      .btn {
+        @apply font-bold py-2 px-4 rounded;
+        background: "hello";
+      }
+      .btn-blue {
+        @apply bg-blue-500 text-white;
+      }
+      .btn-blue:hover {
+        @apply bg-blue-700;
+      }
+    </style>
+  `}
+/>
 
 Aside from that, maintaining a utility-first CSS project turns out to be a lot easier than maintaining a large CSS codebase, simply because HTML is so much easier to maintain than CSS. Large companies like GitHub, Heroku, Kickstarter, Twitch, Segment, and more are using this approach with great success.
 

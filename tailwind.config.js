@@ -18,6 +18,7 @@ module.exports = {
           red: 'var(--color-code-red)',
           blue: 'var(--color-code-blue)',
           white: 'var(--color-code-white)',
+          gray: 'var(--color-code-gray)',
         }
       },
       spacing: {
