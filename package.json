@@ -17,6 +17,7 @@
     "@zeit/next-css": "^1.0.1",
     "anchor-js": "^4.1.0",
     "autoprefixer": "^9.6.1",
+    "dedent": "^0.7.0",
     "gsap": "^2.1.2",
     "lodash": "^4.17.15",
     "mousetrap": "^1.6.1",

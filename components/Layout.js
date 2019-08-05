@@ -3,11 +3,44 @@ import { MDXProvider } from '@mdx-js/react'
 import map from 'lodash/map'
 import tailwindMeta from 'tailwindcss/package.json'
 
+// > ol {
+//   @apply list-none;
+//   counter-reset: item;
+//   > li {
+//     @apply relative pl-10;
+//   }
+//   > li::before {
+//     @apply absolute top-0 left-0 mt-px;
+//     @apply flex items-center justify-center;
+//     @apply h-6 w-6 bg-gray-300 rounded-full;
+//     @apply text-gray-700 text-xs font-bold;
+//     content: counter(item);
+//     counter-increment: item;
+//   }
+// }
+
 const components = {
-  // h1: Heading.H1,
-  // h2: Heading.H2,
-  // // …
-  p: ({ children }) => <p className="text-base mt-6">{children}</p>,
+  h1: ({ children, className }) => <h1 className={`mb-1 leading-none text-gray-900 font-light text-3xl ${className}`}>{children}</h1>,
+  h2: ({ children, className }) => <h2 className={`mt-16 mb-4 text-gray-900 leading-none font-normal text-2xl ${className}`}>{children}</h2>,
+  h3: ({ children, className }) => <h3 className={`mt-12 -mb-3 text-gray-900 leading-tight font-medium text-xl ${className}`}>{children}</h3>,
+  p: ({ children, className }) => <p className={`text-base mt-6`}>{children}</p>,
+  a: ({ children, href }) => <a href={href} className="text-blue-500 underline font-medium hover:text-blue-700">{children}</a>,
+  // strong {
+  //   @apply text-blue-500;
+  // }
+  // code {
+  //   @apply underline text-blue-500;
+  // }
+  strong: ({ children }) => <strong className="font-semibold text-gray-800">{children}</strong>,
+  inlineCode: ({ children }) => <code className="inline-block bg-gray-100 rounded-sm text-sm px-1 leading-none whitespace-no-wrap text-purple-600 font-mono align-baseline font-normal">{children}</code>,
+  ul: ({ children }) => <ul className="mt-6">{children}</ul>,
+  'ul.li': ({ children }) => (
+    <li className="mt-4 relative pl-5">
+      <span className="absolute left-0 text-gray-400">&bull;</span>
+      {children}
+    </li>
+  ),
+  hr: () => <hr className="border-t-0 border-r-0 border-l-0 border-b-2 border-gray-200 my-16"/>,
   // code: Pre,
   // inlineCode: Code
 }
@@ -422,7 +455,7 @@ export default function Layout({ meta, children }) {
                 {/*Main content area*/}
                 <div className="pt-24 pb-16 lg:pt-28 w-full">
                   <div className="markdown mb-6 px-6 max-w-3xl mx-auto lg:ml-0 lg:mr-auto xl:mx-0 xl:px-12 xl:w-3/4">
-                    {meta.title && <h1>{meta.title}</h1>}
+                    {meta.title && <h1 className="mb-1 leading-none text-gray-900 font-light text-3xl">{meta.title}</h1>}
 
                     {meta.description &&
                       <div className="mt-0 mb-4 text-gray-600">
