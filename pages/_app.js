@@ -1,5 +1,6 @@
 import React from 'react'
 import App, { Container } from 'next/app'
+import Layout from '@/components/Layout'
 import '../assets/tailwind.css'
 
 class MyApp extends App {
@@ -8,7 +9,9 @@ class MyApp extends App {
 
     return (
       <Container>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </Container>
     )
   }

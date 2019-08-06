@@ -1,11 +1,10 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import { MDXProvider } from '@mdx-js/react'
 import map from 'lodash/map'
 import tailwindMeta from 'tailwindcss/package.json'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import theme from '@/assets/theme'
-
-console.log(theme)
 
 // > ol {
 //   @apply list-none;
@@ -253,7 +252,7 @@ const navigation = {
 }
 
 
-export default function Layout({ meta, children }) {
+export default function Layout({children }) {
   return (
     <div className="antialiased">
       <Head>
@@ -428,14 +427,18 @@ export default function Layout({ meta, children }) {
                               {
                                 link === '/course/coming-soon'
                                   /* If external don't make this a Next link */
-                                  ? <a className="px-2 -mx-2 py-1 relative block text-gray-400 font-medium" href={link}>
-                                      <span className="rounded absolute inset-0 bg-teal-200 opacity-0"></span>
-                                      <span className="relative">{name}</span>
-                                    </a>
-                                  : <a className="px-2 -mx-2 py-1 transition-fast relative block hover:translate-r-2px hover:text-gray-900 text-gray-600 font-medium" href={link}>
-                                      <span className="rounded absolute inset-0 bg-teal-200 opacity-0"></span>
-                                      <span className="relative">{name}</span>
-                                    </a>
+                                  ? <Link href={link}>
+                                      <a className="px-2 -mx-2 py-1 relative block text-gray-400 font-medium">
+                                        <span className="rounded absolute inset-0 bg-teal-200 opacity-0"></span>
+                                        <span className="relative">{name}</span>
+                                      </a>
+                                    </Link>
+                                  : <Link href={link}>
+                                      <a className="px-2 -mx-2 py-1 transition-fast relative block hover:translate-r-2px hover:text-gray-900 text-gray-600 font-medium">
+                                        <span className="rounded absolute inset-0 bg-teal-200 opacity-0"></span>
+                                        <span className="relative">{name}</span>
+                                      </a>
+                                    </Link>
                               }
                             </li>
                           ))
@@ -454,46 +457,7 @@ export default function Layout({ meta, children }) {
 
             {/* "Turbolinks" */}
             <div id="content">
-
-              {/*Vue-enabled area*/}
-              <div id="app" className="flex">
-
-                {/*Main content area*/}
-                <div className="pt-24 pb-16 lg:pt-28 w-full">
-                  <div className="markdown mb-6 px-6 max-w-3xl mx-auto lg:ml-0 lg:mr-auto xl:mx-0 xl:px-12 xl:w-3/4">
-                    {meta.title && <h1 className="mb-1 leading-none text-gray-900 font-light text-3xl">{meta.title}</h1>}
-
-                    {meta.description &&
-                      <div className="mt-0 mb-4 text-gray-600">
-                        {meta.description}
-                      </div>
-                    }
-
-                    {meta.titleBorder && <hr className="my-8 border-b-2 border-gray-200"/>}
-                  </div>
-                  <div className="flex">
-                    <div className="markdown text-gray-700 leading-relaxed px-6 xl:px-12 w-full max-w-3xl mx-auto lg:ml-0 lg:mr-auto xl:mx-0 xl:w-3/4">
-                      <MDXProvider components={components}>
-                        {children}
-                      </MDXProvider>
-                    </div>
-
-                    {/*Table of contents*/}
-                    <div className="hidden xl:text-sm xl:block xl:w-1/4 xl:px-6">
-                      <div className="flex flex-col justify-between overflow-y-auto sticky top-16 max-h-(screen-16) pt-12 pb-4 -mt-12">
-                        @unless($page->hideTableOfContents)
-                        <table-of-contents className="mb-8"></table-of-contents>
-                        @endunless
-                        <div id="ad"></div>
-                      </div>
-                    </div>
-                    {/* /Table of contents */}
-
-                  </div>
-                </div>
-                {/* /Main content area */}
-              </div>
-              {/* /Vue-enabled area */}
+              {children}
             </div>
             {/* /Turbolinks */}
           </div>
