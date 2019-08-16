@@ -108,6 +108,7 @@ return [
             'Opacity' => '/docs/opacity',
         ],
         'Interactivity' => [
+            'Accessibility' => '/docs/accessibility',
             'Appearance' => '/docs/appearance',
             'Cursor' => '/docs/cursor',
             'Outline' => '/docs/outline',
