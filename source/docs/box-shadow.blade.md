@@ -127,7 +127,7 @@ For more information about Tailwind's responsive design features, check out the 
 
 ### Box Shadows
 
-By default Tailwind provides three drop shadow utilities, one inner shadow utility, and a utility for removing existing shadows. You can change, add, or remove these by editing the `theme.boxShadow` section of your Tailwind config.
+By default Tailwind provides three box shadow utilities, one inner shadow utility, and a utility for removing existing shadows. You can change, add, or remove these by editing the `theme.boxShadow` section of your Tailwind config.
 
 If a `default` shadow is provided, it will be used for the non-suffixed `.shadow` utility. Any other keys will be used as suffixes, for example the key `'2'` will create a corresponding `.shadow-2` utility.
 
@@ -143,6 +143,16 @@ If a `default` shadow is provided, it will be used for the non-suffixed `.shadow
 + focus: '0 0 0 3px rgba(66,153,225,0.5)'
   'none': 'none',
 @endcomponent
+
+### Negative values
+
+If you'd like to add additional negative box shadow utilities, prefix the keys in your config file with a dash:
+
+@component('_partials.customized-config', ['key' => 'theme.boxShadow'])
++ '-sm': 'inset 0 2px 4px rgba(0, 0 , 0.1)',
+@endcomponent
+
+Tailwind is smart enough to generate classes like `-shadow-sm` when it sees the leading dash, not `shadow--sm` like you might expect.
 
 @include('_partials.variants-and-disabling', [
     'utility' => [

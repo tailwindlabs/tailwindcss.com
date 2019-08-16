@@ -127,6 +127,16 @@ By default Tailwind provides six tracking utilities. You can change, add, or rem
 + widest: '.25em',
 @endcomponent
 
+### Negative values
+
+If you'd like to add additional negative tracking utilities, prefix the keys in your config file with a dash:
+
+@component('_partials.customized-config', ['key' => 'theme.letterSpacing'])
++ '-1': '-.05em',
+@endcomponent
+
+Tailwind is smart enough to generate classes like `-tracking-1` when it sees the leading dash, not `tracking--1` like you might expect.
+
 @include('_partials.variants-and-disabling', [
     'utility' => [
         'name' => 'tracking',
