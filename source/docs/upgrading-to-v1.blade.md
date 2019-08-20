@@ -1014,7 +1014,7 @@ You can fix this by setting a text color on form elements explicitly:
 ```diff
   <div class="text-red">
 -   <input type="text">
-+   <input type="text" class="text-grey-darkest">
++   <input type="text" class="text-gray-900">
   </div>
 ```
 
