@@ -220,6 +220,23 @@ module.exports = {
 }
 ```
 
+Note that if you are wanting to add a new breakpoint at a smaller size than the default `sm` breakpoint then the process is slightly different due to the fact that values added to the `theme.extend` key will appear at the end once merged with the default config resulting in a higher specificity.
+
+```js
+// tailwind.config.js
+const defaultConfig = require('tailwindcss/defaultConfig')
+
+module.exports = {
+  theme: {
+    screens: {
+      xs: '430px', // Smaller breakpoints go before the defaultConfig
+      ...defaultConfig.theme.screens,
+      xxl: '1600px' // Larger breakpoints go after
+    }
+  }
+}
+```
+
 You can of course both override some parts of the default theme and extend other parts of the default theme within the same configuration:
 
 ```js
