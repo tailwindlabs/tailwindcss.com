@@ -4,7 +4,7 @@
 
 Tailwind uses the [Jigsaw](http://jigsaw.tighten.co/) static site generator for its documentation. Here is how you can generate the documentation locally:
 
-1. Go to your Tailwind folder
+1. Go to your Tailwind docs folder
 
     ```sh
     cd docs
@@ -13,7 +13,7 @@ Tailwind uses the [Jigsaw](http://jigsaw.tighten.co/) static site generator for 
 2. Install JS dependencies
 
     ```sh
-    npm install
+    yarn
     ```
 
 3. Install PHP dependencies for docs (requires Composer: https://getcomposer.org)
@@ -25,7 +25,7 @@ Tailwind uses the [Jigsaw](http://jigsaw.tighten.co/) static site generator for 
 4. Run the build to generate the static site
 
     ```sh
-    npm run dev
+    yarn dev
     ```
 
 5. View the static site at `/build_local`, or you can run the Jigsaw server:
