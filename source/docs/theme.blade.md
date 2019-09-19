@@ -243,6 +243,24 @@ module.exports = {
 }
 ```
 
+There's one important caveat though, `extend` only works one level deep, so something like the example below won't work.
+
+```js
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        blue: {
+          // this won't work, extend only goes one level deep
+          brand: '#0096D6',
+        }
+      }
+    }
+  }
+}
+```
+
 ### Referencing other values
 
 If you need to reference another value in your theme, you can do so by providing a closure instead of a static value. The closure will receive a `theme()` function that you can use to look up other values in your theme using dot notation.
