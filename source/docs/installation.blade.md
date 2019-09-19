@@ -277,7 +277,7 @@ exports.config = {
 }
 ```
 
-#### Ember.js
+### Ember.js
 
 Add `tailwindcss` to the list of plugins you pass to [ember-cli-postcss](https://github.com/jeffjewiss/ember-cli-postcss):
 
@@ -300,6 +300,38 @@ module.exports = function(defaults) {
   return app.toTree();
 };
 ```
+
+### GatsbyJS (Sass/SCSS)
+
+Add `tailwindcss` as a PostCSS plugin into [gatsby-plugin-sass](https://www.gatsbyjs.org/packages/gatsby-plugin-sass/) in `gatsby-config.js`.
+
+```js
+// gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        postCssPlugins: [
+          require('tailwindcss'),
+          // require('./tailwind.config.js') // Optionally add a custom configuration
+        ]
+      },
+    },
+  // ...
+  ],
+  // ...
+}
+```
+
+**Note:** GatsbyJS does not support Sass/SCSS natively. Therefore [gatsby-plugin-sass](https://www.gatsbyjs.org/packages/gatsby-plugin-sass/) has to be installed manually:
+
+```bash
+npm i --save gatsby-plugin-sass
+or
+yarn add gatsby-plugin-sass
+```
+
 
 <hr class="my-16">
 
