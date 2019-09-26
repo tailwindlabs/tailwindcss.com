@@ -144,6 +144,16 @@ If a `default` shadow is provided, it will be used for the non-suffixed `.shadow
   'none': 'none',
 @endcomponent
 
+### Negative values
+
+If you'd like to add any inset box-shadow classes that take the same form as Tailwind's [negative margin](/docs/margin#negative-margins) classes, prefix the keys in your config file with a dash:
+
+@component('_partials.customized-config', ['key' => 'theme.boxShadow'])
++ '-sm': '-inset 0 2px 4px rgba(0,0,0.1)',
+@endcomponent
+
+Tailwind is smart enough to generate classes like `-shadow-sm` when it sees the leading dash, not `shadow--sm` like you might expect.
+
 @include('_partials.variants-and-disabling', [
     'utility' => [
         'name' => 'box shadow',
