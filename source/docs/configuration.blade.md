@@ -151,9 +151,9 @@ The `plugins` section allows you to register third-party plugins with Tailwind t
 // tailwind.config.js
 module.exports = {
   plugins: [
-    require('tailwindcss-transforms'),
-    require('tailwindcss-transitions'),
-    require('tailwindcss-border-gradients'),
+    require('tailwindcss-transforms')(),
+    require('tailwindcss-transitions')(),
+    require('tailwindcss-border-gradients')(),
   ],
 }
 ```
