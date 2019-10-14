@@ -133,6 +133,7 @@ But using utility classes has a few important advantages over inline styles:
 - **Designing with constraints**. Using inline styles, every value is a magic number. With utilities, you're choosing styles from a predefined [design system](/docs/theme), which makes it much easier to build visually consistent UIs.
 - **Responsive design**. You can't use media queries in inline styles, but you can use Tailwind's [responsive utilities](/docs/responsive-design) to build fully responsive interfaces easily.
 - **Pseudo-classes**. Inline styles can't target states like hover or focus, but Tailwind's [pseudo-class variants](/docs/pseudo-class-variants) make it easy to style those states with utility classes.
+- **Browser caching**. As Tailwind still generates a regular CSS file, the end user's browser can cache this between requests for a smaller payload. Because Tailwind's class naming has a lot of repetition, it results in very small file sizes in both the HTML and CSS with compression algorithms like Gzip or Brotli.
 
 This component is fully responsive and includes a button with hover styles, and is built entirely with utility classes:
 
