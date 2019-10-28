@@ -298,7 +298,7 @@ Now you'd apply two classes any time you needed to style a button:
 @endslot
 @endcomponent
 
-This makes it easy to change the shared styles in one place by just editing the `.btn` class.
+This makes it possible to change the shared styles in one place by just editing the `.btn` class.
 
 It also allows you to add new one-off button styles without being forced to create a new component class or duplicate the shared styles:
 

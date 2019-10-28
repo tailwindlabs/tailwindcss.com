@@ -34,9 +34,9 @@ If you're sick of fighting the framework, overriding unwanted styles, and battli
 
 ## Responsive to the core
 
-Every Tailwind utility also comes with responsive variants, making it extremely easy to build responsive interfaces without resorting to custom CSS.
+Every Tailwind utility also comes with responsive variants, so that you can build responsive interfaces without resorting to custom CSS.
 
-Tailwind uses an intuitive `{screen}:` prefix that makes it easy to notice responsive classes in your markup while keeping the original class name recognizable and intact.
+Tailwind uses an intuitive `{screen}:` prefix that makes it easier to notice responsive classes in your markup while keeping the original class name recognizable and intact.
 
 @component('_partials.responsive-code-sample')
 @slot('none')
@@ -89,7 +89,7 @@ Tailwind uses an intuitive `{screen}:` prefix that makes it easy to notice respo
 
 While you can do a *lot* with just utility classes, as a project grows it can be useful to codify common patterns into higher level abstractions.
 
-Tailwind provides tools for [extracting component classes](/docs/extracting-components) from repeated utility patterns, making it easy to update multiple instances of a component from one place:
+Tailwind provides tools for [extracting component classes](/docs/extracting-components) from repeated utility patterns, making it possible to update multiple instances of a component from one place:
 
 @component('_partials.code-sample', ['lang' => 'html', 'class' => 'text-center'])
 <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">

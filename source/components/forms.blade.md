@@ -5,7 +5,7 @@ description: Examples of building forms with Tailwind CSS.
 titleBorder: true
 ---
 
-Tailwind doesn't include purpose-built form control classes out of the box, but form controls are easy to style using existing utilities.
+Tailwind doesn't include purpose-built form control classes out of the box, but form controls are can be styled using existing utilities.
 
 Here are a few examples to help you get an idea of how to build components like this using Tailwind.
 

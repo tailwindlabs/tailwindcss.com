@@ -46,7 +46,7 @@ We use Unsplash any time we need example photos in the documentation, like for o
 
 [![](/img/resources/undraw.png)](https://undraw.co/)
 
-They're easy to customize and perfect for landing pages, empty states, and more.
+They can be customized and are perfect for landing pages, empty states, and more.
 
 [Find free illustrations on unDraw &rarr;](https://undraw.co/)
 
@@ -56,7 +56,7 @@ They're easy to customize and perfect for landing pages, empty states, and more.
 
 ### Heroicons UI
 
-[Heroicons UI](https://github.com/sschoger/heroicons-ui) is a free SVG icon set created by [Steve Schoger](https://twitter.com/steveschoger). They're pre-optimized and easy to use directly in your HTML where you can customize them using Tailwind's color and sizing utilities.
+[Heroicons UI](https://github.com/sschoger/heroicons-ui) is a free SVG icon set created by [Steve Schoger](https://twitter.com/steveschoger). They're pre-optimized and can be used directly in your HTML where you can customize them using Tailwind's color and sizing utilities.
 
 [![](/img/resources/heroicons-ui.png)](https://github.com/sschoger/heroicons-ui)
 

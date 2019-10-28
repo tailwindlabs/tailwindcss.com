@@ -16,7 +16,7 @@ description: "Utilities for styling the fill of SVG elements."
 
 ## Usage
 
-Use `.fill-current` to set the fill color of an SVG to the current text color. This makes it easy to set an element's fill color by combining this class with an existing [text color utility](/docs/text-color).
+Use `.fill-current` to set the fill color of an SVG to the current text color. This makes it possible to set an element's fill color by combining this class with an existing [text color utility](/docs/text-color).
 
 Useful for styling icon sets like [Zondicons](http://www.zondicons.com/) that are drawn entirely with fills.
 

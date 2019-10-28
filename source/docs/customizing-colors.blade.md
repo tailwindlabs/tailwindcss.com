@@ -245,7 +245,7 @@ module.exports = {
 }
 ```
 
-You could even define these colors using CSS custom properties (variables) to make it easy to switch themes on the client:
+You could even define these colors using CSS custom properties (variables) to make it possible to switch themes on the client:
 
 ```js
 // tailwind.config.js

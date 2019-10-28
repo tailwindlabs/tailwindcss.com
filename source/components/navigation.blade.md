@@ -5,7 +5,7 @@ description: Examples of building navigation components with Tailwind CSS.
 titleBorder: true
 ---
 
-Tailwind doesn't include pre-designed navigation components out of the box, but they're easy to build using existing utilities.
+Tailwind doesn't include pre-designed navigation components out of the box, but they can be built using existing utilities.
 
 Here are a few examples to help you get an idea of how to build components like this using Tailwind.
 

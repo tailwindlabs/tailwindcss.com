@@ -113,7 +113,7 @@ Won't work, `@@import` statements must come first
 @@import "./custom-utilities.css";
 ```
 
-You can solve this by putting your `@@tailwind` declarations each in their own file. To make this easy, we provide separate files for each `@@tailwind` declaration with the framework itself that you can import directly from `node_modules`.
+You can solve this by putting your `@@tailwind` declarations each in their own file. To do this, we provide separate files for each `@@tailwind` declaration with the framework itself that you can import directly from `node_modules`.
 
 @component('_partials.tip-good')
 Import our provided CSS files

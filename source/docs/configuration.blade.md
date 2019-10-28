@@ -411,7 +411,7 @@ Here's a list of every core plugin for reference:
 
 It can often be useful to reference your configuration values in your own client-side JavaScript — for example to access some of your theme values when dynamically applying inline styles in a React or Vue component.
 
-To make this easy, Tailwind provides a `resolveConfig` helper you can use to generate a fully merged version of your configuration object:
+To do this, Tailwind provides a `resolveConfig` helper you can use to generate a fully merged version of your configuration object:
 
 ```js
 import resolveConfig from 'tailwindcss/resolveConfig'

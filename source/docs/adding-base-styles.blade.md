@@ -110,5 +110,5 @@ In general, it's simpler to add base styles to your project in CSS than it is to
 
 You should prefer a plugin if:
 
-- You want to publish your base styles publicly and make them easy for other users to install.
+- You want to publish your base styles publicly and make them available for other users to install.
 - You want to re-use your base styles across multiple projects in your company and prefer sharing JS dependencies instead of CSS dependencies.
