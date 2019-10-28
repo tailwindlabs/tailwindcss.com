@@ -139,7 +139,7 @@ The above example uses [Vue](https://vuejs.org/v2/guide/components.html), but th
 
 ## Extracting CSS components with @@apply
 
-For small components like buttons and form elements, creating a template partial or JavaScript component can often feel too heavy compared to a simple CSS class.
+For small components like buttons and form elements, creating a template partial or JavaScript component can often feel too heavy compared to a CSS class.
 
 In these situations, you can use Tailwind's `@apply` directive to easily extract common utility patterns to CSS component classes.
 

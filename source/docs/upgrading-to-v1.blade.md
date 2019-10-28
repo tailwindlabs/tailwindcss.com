@@ -719,7 +719,7 @@ The `config()` helper function that Tailwind makes available to your CSS files h
   }
 ```
 
-A simple find and replace across your CSS files that switches `config(` to `theme(` should do it.
+A find and replace across your CSS files that switches `config(` to `theme(` should do it.
 
 <h3 class="no-toc">6. Explicitly style any headings</h3>
 

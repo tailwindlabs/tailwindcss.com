@@ -86,7 +86,7 @@ Learn more about configuration Tailwind in the [configuration documentation](/do
 
 ### Using Tailwind CLI
 
-For simple projects or just giving Tailwind a spin, you can use the Tailwind CLI tool to process your CSS:
+For smaller projects or just giving Tailwind a spin, you can use the Tailwind CLI tool to process your CSS:
 
 ```bash
 npx tailwind build styles.css -o output.css

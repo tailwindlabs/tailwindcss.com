@@ -5,7 +5,7 @@ description: Examples of building grid layouts with Tailwind CSS.
 titleBorder: true
 ---
 
-Tailwind doesn't include purpose-built grid classes out of the box, but grid layouts are simple to build using the existing [Flexbox](/docs/flexbox-display) and [width](/docs/width) utilities.
+Tailwind doesn't include purpose-built grid classes out of the box, but grid layouts can be built using the existing [Flexbox](/docs/flexbox-display) and [width](/docs/width) utilities.
 
 Here are a few examples to help you get an idea of how to build grids using Tailwind.
 

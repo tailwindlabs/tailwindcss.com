@@ -1,7 +1,7 @@
 ---
 extends: _layouts.course-lesson
 title: "Designing a Badge"
-description: "Learn how to build and style a simple badge component."
+description: "Learn how to build and style a badge component."
 titleBorder: true
 hideTableOfContents: true
 vimeoId: 352533407

@@ -67,7 +67,7 @@ module.exports = {
 }
 ```
 
-This makes it a lot easier to know what values are custom for your project and which ones are built in to Tailwind by default, and in general keeps your config file a lot simpler and more manageable.
+This makes it a lot easier to know what values are custom for your project and which ones are built in to Tailwind by default, and in general keeps your config file a lot more manageable.
 
 Learn more about the new configuration format in [the configuration documentation](/docs/configuration).
 

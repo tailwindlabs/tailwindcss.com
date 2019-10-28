@@ -186,7 +186,7 @@ return [
             'Using a custom color palette'  => '/course/coming-soon',
             'Adding custom utilities'  => '/course/coming-soon',
             'Working with third-party plugins'  => '/course/coming-soon',
-            'Writing your own simple plugin'  => '/course/coming-soon',
+            'Writing your own plugin'  => '/course/coming-soon',
         ]
     ],
     'Resources' => [

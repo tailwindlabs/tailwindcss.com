@@ -1,7 +1,7 @@
 ---
 extends: _layouts.course-lesson
 title: "Setting up Tailwind and PostCSS"
-description: "Learn how to install Tailwind and get it compiling in a simple HTML project."
+description: "Learn how to install Tailwind and get it compiling in a small HTML project."
 titleBorder: true
 hideTableOfContents: true
 vimeoId: 345586861

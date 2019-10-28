@@ -26,7 +26,7 @@ By default these colors are automatically shared by the `textColor`, `borderColo
 
 ### Nested object syntax
 
-You can define your colors as a simple list of key-value pairs as we've done above, or using a nested object notation where the nested keys are added to the base color name as modifiers:
+You can define your colors as a list of key-value pairs as we've done above, or using a nested object notation where the nested keys are added to the base color name as modifiers:
 
 ```js
 // tailwind.config.js

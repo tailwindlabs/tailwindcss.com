@@ -105,7 +105,7 @@ By default Tailwind provides three font family utilities: a cross-browser sans-s
 + 'body': ['Open Sans', ...],
 @endcomponent
 
-Font families can be specified as an array or as a simple comma-delimited string:
+Font families can be specified as an array or as a comma-delimited string:
 
 ```js
 {

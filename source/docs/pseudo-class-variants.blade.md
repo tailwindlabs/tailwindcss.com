@@ -468,7 +468,7 @@ For more information, see the [@@variants directive documentation](/docs/functio
 
 You can create your own variants for any pseudo-classes Tailwind doesn't include by default by writing a custom variant plugin.
 
-For example, this simple plugin adds support for the `disabled` pseudo-class variant:
+For example, this plugin adds support for the `disabled` pseudo-class variant:
 
 ```js
 // tailwind.config.js

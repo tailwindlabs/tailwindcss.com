@@ -34,7 +34,7 @@ To add a utility but only have it take effect at a certain breakpoint, all you n
 
 This works for **every utility class in the framework**, which means you can change literally anything at a given breakpoint — even things like letter spacing or cursor styles.
 
-Here's a simple example of a marketing page component that uses a stacked layout on small screens, and a side-by-side layout on larger screens *(resize your browser to see it in action)*:
+Here's an example of a marketing page component that uses a stacked layout on small screens, and a side-by-side layout on larger screens *(resize your browser to see it in action)*:
 
 @component('_partials.code-sample', ['class' => 'p-8'])
 <div class="md:flex">
@@ -66,7 +66,7 @@ By default, Tailwind uses a mobile first breakpoint system, similar to what you 
 
 What this means is that unprefixed utilities (like `uppercase`) take effect on all screen sizes, while prefixed utilities (like `md:uppercase`) only take effect at the specified breakpoint *and above*.
 
-Here's a simple example that cycles through several background colors at different breakpoints *(resize your browser to see the background color change)*:
+Here's an example that cycles through several background colors at different breakpoints *(resize your browser to see the background color change)*:
 
 @component('_partials.code-sample', ['class' => 'p-0'])
 <div class="h-20 w-20 mx-auto rounded-lg bg-red-500 sm:bg-green-500 md:bg-blue-500 lg:bg-pink-500 xl:bg-teal-500"></div>

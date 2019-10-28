@@ -7,7 +7,7 @@ titleBorder: true
 
 <h2 style="font-size: 0" class="invisible m-0 -mb-6">Overview</h2>
 
-At their simplest, plugins are just functions that register new styles for Tailwind to inject into the user's stylesheet. That means that to get started authoring your own plugin, all you need to do is add an anonymous function to the `plugins` list in your config file:
+Plugins are functions that register new styles for Tailwind to inject into the user's stylesheet. That means that to get started authoring your own plugin, all you need to do is add an anonymous function to the `plugins` list in your config file:
 
 ```js
 // tailwind.config.js
@@ -560,7 +560,7 @@ It often makes sense for a plugin to expose its own options that the user can co
 
 The best way to accomplish this is to claim your own key in the user's `theme` and `variants` configuration and ask them to provide any options there so you can access them with the `theme` and `variants` functions.
 
-For example, here's a plugin *(extracted to its own module)* for creating simple gradient utilities that accepts the gradients and variants to generate as options:
+For example, here's a plugin *(extracted to its own module)* for creating gradient utilities that accepts the gradients and variants to generate as options:
 
 ```js
 // ./plugins/gradients.js
@@ -607,7 +607,7 @@ module.exports = {
 
 Each of `addUtilities`, `addComponents`, and `addBase` expect CSS rules written as JavaScript objects. Tailwind uses the same sort of syntax you might recognize from CSS-in-JS libraries like [Emotion](https://emotion.sh/docs/object-styles), and is powered by [postcss-js](https://github.com/postcss/postcss-js) under the hood.
 
-Consider this simple CSS rule:
+Consider this CSS rule:
 
 ```css
 .card {
@@ -738,7 +738,7 @@ The callback receives an object that can be destructured into the following part
 
 ### Basic variants
 
-If you want to add a simple variant that only needs to change the selector, use the `modifySelectors` helper.
+If you want to add a variant that only needs to change the selector, use the `modifySelectors` helper.
 
 The `modifySelectors` helper accepts a function that receives an object that can be destructured into the following parts:
 
