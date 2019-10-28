@@ -89,7 +89,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
 })
 ```
 
-The way it works is intentionally very naive. It doesn't try to parse your HTML and look for class attributes or dynamically execute your JavaScript — it simply looks for any strings in the entire file that match this regular expression:
+The way it works is intentionally very naive. It doesn't try to parse your HTML and look for class attributes or dynamically execute your JavaScript — it looks for any strings in the entire file that match this regular expression:
 
 ```js
 /[\w-:/]+(?<!:)/g

@@ -351,7 +351,7 @@ module.exports = {
 }
 ```
 
-This can be a good choice if you want to publish your Tailwind components as a library or make it easier to share components across multiple projects.
+This can be a good choice if you want to publish your Tailwind components as a library or make it available to share components across multiple projects.
 
 Learn more in the [component plugin documentation](/docs/plugins#adding-components).
 

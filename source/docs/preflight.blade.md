@@ -7,7 +7,7 @@ titleBorder: true
 
 <h2 style="font-size: 0" class="invisible m-0 -mb-6">Overview</h2>
 
-Built on top of [normalize.css](https://github.com/necolas/normalize.css/), Preflight is a set of base styles for Tailwind projects that are designed to smooth over cross-browser inconsistencies and make it easier for you work within the constraints of your design system.
+Built on top of [normalize.css](https://github.com/necolas/normalize.css/), Preflight is a set of base styles for Tailwind projects that are designed to smooth over cross-browser inconsistencies and make it possible for you work within the constraints of your design system.
 
 Tailwind automatically injects these styles when you include `@@tailwind base` in your CSS:
 
@@ -19,7 +19,7 @@ Tailwind automatically injects these styles when you include `@@tailwind base` i
 @@tailwind utilities;
 ```
 
-While most of the styles in Preflight are meant to go unnoticed — they simply make things behave more like you'd expect them to — some are more opinionated and can be surprising when you first encounter them.
+While most of the styles in Preflight are meant to go unnoticed — they are designed to make things behave more like you'd expect them to — some are more opinionated and can be surprising when you first encounter them.
 
 For a complete reference of all the styles applied by Preflight, [see the stylesheet](https://unpkg.com/tailwindcss/dist/base.css).
 
@@ -123,7 +123,7 @@ object {
 
 This helps to avoid unexpected alignment issues that you often run into using the browser default of `display: inline`.
 
-If you ever need to make one of these elements `inline` instead of `block`, simply use the `inline` utility:
+If you ever need to make one of these elements `inline` instead of `block`, use the `inline` utility:
 
 ```html
 <img class="inline" src="..." alt="...">
@@ -161,7 +161,7 @@ When you run into situations like this, you can work around them by overriding t
 
 ## Extending Preflight
 
-If you'd like to add your own base styles on top of Preflight, simply add them to your CSS after `@@tailwind base`:
+If you'd like to add your own base styles on top of Preflight, add them to your CSS after `@@tailwind base`:
 
 ```css
 @@tailwind base;

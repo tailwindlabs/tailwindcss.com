@@ -100,7 +100,7 @@ Any rules inlined with `@@apply` will have `!important` **removed** by default t
 }
 ```
 
-If you'd like to `@@apply` an existing class and make it `!important`, simply add `!important` to the end of the declaration:
+If you'd like to `@@apply` an existing class and make it `!important`, add `!important` to the end of the declaration:
 
 
 ```css

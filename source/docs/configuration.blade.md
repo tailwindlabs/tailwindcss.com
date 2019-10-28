@@ -325,7 +325,7 @@ module.exports = {
 }
 ```
 
-If you'd like to disable all of Tailwind's core plugins and simply use Tailwind as a tool for processing your own custom plugins, provide an empty array:
+If you'd like to disable all of Tailwind's core plugins and use Tailwind as a tool for processing your own custom plugins, provide an empty array:
 
 ```js
 // tailwind.config.js

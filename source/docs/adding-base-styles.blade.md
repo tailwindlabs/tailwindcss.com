@@ -31,7 +31,7 @@ If you want to apply some global styling to the `html` or `body` elements, consi
 
 ## Using CSS
 
-If you want to apply some base styles to specific elements, the easiest way is to simply add them in your CSS.
+If you want to apply some base styles to specific elements, one way is to add them in your CSS.
 
 Define any of your own custom base styles directly after `@@tailwind base` and before `@@tailwind components` to avoid specificity issues:
 
@@ -106,7 +106,7 @@ Any styles you added using `addBase` will automatically be included in your `@@t
 
 ### When to use a plugin
 
-In general, it's simpler to add base styles to your project in CSS than it is to write a plugin.
+In general, it's less complex to add base styles to your project in CSS than it is to write a plugin.
 
 You should prefer a plugin if:
 

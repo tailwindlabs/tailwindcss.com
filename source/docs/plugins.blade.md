@@ -478,7 +478,7 @@ prefix('.btn-blue .w-1\/4 > h1.text-xl + a .bar')
 
 The `config`, `theme`, and `variants` functions allow you to ask for a value from the user's Tailwind configuration using dot notation, providing a default value if that path doesn't exist.
 
-For example, this simplified version of the built-in [container](/docs/container) plugin uses the `theme` function to get the user's configured breakpoints:
+For example, this version of the built-in [container](/docs/container) plugin uses the `theme` function to get the user's configured breakpoints:
 
 ```js
 // tailwind.config.js
@@ -534,7 +534,7 @@ Use unprefixed utilities to target mobile, and override them at larger breakpoin
 addUtilities(newUtilities, variants('customPlugin'))
 ```
 
-Since `variants` could simply be a global list of variants to configure for every plugin in the whole project, using the `variants()` function lets you easily respect the user's configuration without reimplementing that logic yourself.
+Since `variants` could be a global list of variants to configure for every plugin in the whole project, using the `variants()` function lets you easily respect the user's configuration without reimplementing that logic yourself.
 
 ```js
 // tailwind.config.js
@@ -732,7 +732,7 @@ module.exports = {
 
 The callback receives an object that can be destructured into the following parts:
 
-- `modifySelectors`, a helper function to simplify adding basic variants
+- `modifySelectors`, a helper function for adding basic variants
 - `separator`, the user's configured [separator string](/docs/configuration#separator)
 - `container`, a [PostCSS Container](http://api.postcss.org/Container.html) containing all of the rules the variant is being applied to, for creating complex variants
 
@@ -745,7 +745,7 @@ The `modifySelectors` helper accepts a function that receives an object that can
 - `selector`, the complete unmodified selector for the current rule
 - `className`, the class name of the current rule *with the leading dot removed*
 
-The function you pass to `modifySelectors` should simply return the modified selector.
+The function you pass to `modifySelectors` should return the modified selector.
 
 For example, a `first-child` variant plugin could be written like this:
 
@@ -766,7 +766,7 @@ module.exports = {
 
 ### Complex variants
 
-If you need to do anything beyond simply modifying selectors (like changing the actual rule declarations, or wrapping the rules in another at-rule), you'll need to use the `container` instance.
+If you need to do anything beyond modifying selectors (like changing the actual rule declarations, or wrapping the rules in another at-rule), you'll need to use the `container` instance.
 
 Using the `container` instance, you can traverse all of the rules within a given module or `@variants` block and manipulate them however you like using the standard PostCSS API.
 

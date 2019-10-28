@@ -290,7 +290,7 @@ Won't work, Less doesn't realise it's a media query
 }
 ```
 
-Instead, use a regular media query along with the `theme()` function to reference your screen sizes, or simply don't nest your `@@screen` directives.
+Instead, use a regular media query along with the `theme()` function to reference your screen sizes, or don't nest your `@@screen` directives.
 
 @component('_partials.tip-good')
 Use a regular media query and theme()
@@ -379,7 +379,7 @@ Won't work, Stylus doesn't realise it's a media query
 }
 ```
 
-Instead, use a regular media query along with the `theme()` function to reference your screen sizes, or simply don't nest your `@@screen` directives.
+Instead, use a regular media query along with the `theme()` function to reference your screen sizes, or don't nest your `@@screen` directives.
 
 @component('_partials.tip-good')
 Use a regular media query and theme()

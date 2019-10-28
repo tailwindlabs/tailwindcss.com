@@ -36,7 +36,7 @@ If you're sick of fighting the framework, overriding unwanted styles, and battli
 
 Every Tailwind utility also comes with responsive variants, so that you can build responsive interfaces without resorting to custom CSS.
 
-Tailwind uses an intuitive `{screen}:` prefix that makes it easier to notice responsive classes in your markup while keeping the original class name recognizable and intact.
+Tailwind uses a `{screen}:` prefix that is designed to be easier to notice responsive classes in your markup while keeping the original class name recognizable and intact.
 
 @component('_partials.responsive-code-sample')
 @slot('none')

@@ -75,7 +75,7 @@ Here's an example that cycles through several background colors at different bre
 @endslot
 @endcomponent
 
-Throughout the documentation, you'll often see this interactive widget which we use to quickly demonstrate how some code would look on different screen sizes without forcing you to resize the browser — simply click the device icons at the top to see how the code below would render at that breakpoint:
+Throughout the documentation, you'll often see this interactive widget which we use to quickly demonstrate how some code would look on different screen sizes without forcing you to resize the browser — click the device icons at the top to see how the code below would render at that breakpoint:
 
 @component('_partials.responsive-code-sample')
 @slot('none')

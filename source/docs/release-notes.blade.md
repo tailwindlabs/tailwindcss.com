@@ -67,7 +67,7 @@ module.exports = {
 }
 ```
 
-This makes it a lot easier to know what values are custom for your project and which ones are built in to Tailwind by default, and in general keeps your config file a lot more manageable.
+This makes it clearer to know what values are custom for your project and which ones are built in to Tailwind by default, and in general keeps your config file a lot more manageable.
 
 Learn more about the new configuration format in [the configuration documentation](/docs/configuration).
 
@@ -101,7 +101,7 @@ module.exports = {
 }
 ```
 
-The new breakpoints are more practical to work with and make it a bit easier to avoid annoying compromises in your responsive designs.
+The new breakpoints are more practical to work with and are designed to avoid annoying compromises in your responsive designs.
 
 New to responsive design with Tailwind? Check out our [responsive design documentation](/docs/responsive-design) to learn more.
 

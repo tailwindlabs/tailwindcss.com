@@ -114,7 +114,7 @@ This will generate classes like `bg-regal-blue` in addition to all of Tailwind's
 
 ## Overriding a default color
 
-If you'd like to override one of Tailwind's default colors but preserve the rest, simply provide the new values in the `theme.extend.colors` section of your `tailwind.config.js` file.
+If you'd like to override one of Tailwind's default colors but preserve the rest, provide the new values in the `theme.extend.colors` section of your `tailwind.config.js` file.
 
 For example, here we've replaced the default cool grays with a neutral gray palette:
 
@@ -194,7 +194,7 @@ module.exports = {
 }
 ```
 
-You could also use [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to simplify the above example if you're comfortable with it:
+You could also use [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) in the above example if you're comfortable with it:
 
 ```js
 // tailwind.config.js

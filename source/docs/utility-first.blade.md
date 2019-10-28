@@ -130,7 +130,7 @@ A common reaction to this approach is wondering, "isn't this inline styles?" and
 
 But using utility classes has a few important advantages over inline styles:
 
-- **Designing with constraints**. Using inline styles, every value is a magic number. With utilities, you're choosing styles from a predefined [design system](/docs/theme), which makes it much easier to build visually consistent UIs.
+- **Designing with constraints**. Using inline styles, every value is a magic number. With utilities, you're choosing styles from a predefined [design system](/docs/theme), which allows you to build visually consistent UIs.
 - **Responsive design**. You can't use media queries in inline styles, but you can use Tailwind's [responsive utilities](/docs/responsive-design) to build fully responsive interfaces easily.
 - **Pseudo-classes**. Inline styles can't target states like hover or focus, but Tailwind's [pseudo-class variants](/docs/pseudo-class-variants) make it possible to style those states with utility classes.
 
@@ -189,7 +189,7 @@ This is easily solved by [extracting components](/docs/extracting-components), e
 @endslot
 @endcomponent
 
-Aside from that, maintaining a utility-first CSS project turns out to be a lot easier than maintaining a large CSS codebase, simply because HTML is so much easier to maintain than CSS. Large companies like GitHub, Heroku, Kickstarter, Twitch, Segment, and more are using this approach with great success.
+Aside from that, maintaining a utility-first CSS project often turns out to be a lot easier than maintaining a large CSS codebase, mainly because HTML is generally easier to maintain than CSS. Large companies like GitHub, Heroku, Kickstarter, Twitch, Segment, and more are using this approach with great success.
 
 If you'd like to hear about others' experiences with this approach, check out the following resources:
 

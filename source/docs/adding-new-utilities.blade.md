@@ -13,7 +13,7 @@ Deciding on the best way to extend a framework can be paralyzing, so here are so
 
 ## Using CSS
 
-The easiest way to add your own utilities to Tailwind is to simply add them to your CSS.
+One way to add your own utilities to Tailwind is to add them to your CSS.
 
 @component('_partials.tip-good')
 Add any custom utilities to the end of your CSS file
@@ -225,6 +225,6 @@ module.exports = {
 
 ```
 
-This can be a good choice if you want to publish your custom utilities as a library or make it easier to share them across multiple projects.
+This can be a good choice if you want to publish your custom utilities as a library or make them available to be shared across multiple projects.
 
 Learn more in the [utility plugin documentation](/docs/plugins#adding-utilities).

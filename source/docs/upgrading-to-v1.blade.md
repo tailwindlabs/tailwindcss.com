@@ -342,7 +342,7 @@ Note that in some cases (`position`, `whitespace`) the original section still ex
 
 You should reference the new [default config file](https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js) if you are ever unsure if you are making the right changes.
 
-The simplest way to make these changes is to copy the value you were using for the old section (something like `['responsive']`) to all of the new sections that replace that section, but if you choose you can also use this as an opportunity to cull generated utilities you don't actually need.
+One way to make these changes is to copy the value you were using for the old section (something like `['responsive']`) to all of the new sections that replace that section, but if you choose you can also use this as an opportunity to cull generated utilities you don't actually need.
 
 For example, if you never use the responsive variants of `antialiased` or `subpixel-antialiased`, you could set `fontSmoothing` to `[]` while still using `['responsive']` for `fontStyle`, `textDecoration`, and `textTransform`.
 
@@ -549,7 +549,7 @@ Next, update any sections that were referencing the `colors` variable using the 
 
 In v0.x, `require('tailwindcss/defaultConfig')` returned a function that returned the default config when invoked.
 
-In v1.0, it simply returns the object:
+In v1.0, it returns the object:
 
 ```diff
 - let defaultConfig = require('tailwindcss/defaultConfig')()
@@ -799,7 +799,7 @@ If you chose override our base styles and give lists a default style, you can us
 + <ul class="list-none p-0"><!-- ... --></ul>
 ```
 
-Again, **if you are using our `preflight` styles unmodified (you probably are), you can simply remove `list-reset` from your markup and nothing will change**.
+Again, **if you are using our `preflight` styles unmodified (you probably are), you can remove `list-reset` from your markup and nothing will change**.
 
 This change only really affects you if you are _not_ using our `preflight` styles, or overriding our global list reset.
 
