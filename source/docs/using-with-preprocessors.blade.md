@@ -5,9 +5,9 @@ description: "A guide to using Tailwind with common CSS preprocessors like Sass,
 titleBorder: true
 ---
 
-Since Tailwind is a PostCSS plugin, there's nothing stopping you from using it with Sass, Less, Stylus, or other preprocessors, just like you can with other PostCSS plugins like [Autoprefixer](https://github.com/postcss/autoprefixer).
+Since Tailwind is a PostCSS plugin, there's nothing stopping you from using it with Sass, Less, Stylus, or other preprocessors, like you can with other PostCSS plugins like [Autoprefixer](https://github.com/postcss/autoprefixer).
 
-It's important to note that **you don't need to use a preprocessor with Tailwind** — you typically write very little CSS on a Tailwind project anyways so using a preprocessor just isn't as beneficial as it would be in a project where you write a lot of custom CSS.
+It's important to note that **you don't need to use a preprocessor with Tailwind** — you typically write very little CSS on a Tailwind project anyways so using a preprocessor probably isn't as beneficial as it would be in a project where you write a lot of custom CSS.
 
 This guide only exists as a reference for people who need to or would like to integrate Tailwind with a preprocessor for one reason or another.
 

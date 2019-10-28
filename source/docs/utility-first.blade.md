@@ -116,7 +116,7 @@ Now I know what you're thinking, _"this is an atrocity, what a horrible mess!"_ 
 
 But once you've actually built something this way, you'll quickly notice some really important benefits:
 
-- **You aren't wasting energy inventing class names**. No more adding silly class names like `sidebar-inner-wrapper` just to be able to style something, and no more agonizing over the perfect abstract name for something that's really just a flex container.
+- **You aren't wasting energy inventing class names**. No more adding silly class names like `sidebar-inner-wrapper` to be able to style something, and no more agonizing over the perfect abstract name for something that's really just a flex container.
 - **Your CSS stops growing**. Using a traditional approach, your CSS files get bigger every time you add a new feature. With utilities, everything is reusable so you rarely need to write new CSS.
 - **Making changes feels safer**. CSS is global and you never know what you're breaking when you make a change. Classes in your HTML are local, so you can change them without worrying about something else breaking.
 
@@ -124,9 +124,9 @@ When you realize how productive you can be working exclusively in HTML with pred
 
 ---
 
-## Why not just use inline styles?
+## Why not use inline styles?
 
-A common reaction to this approach is wondering, "isn't this just inline styles?" and in some ways it is — you're applying styles directly to elements instead of assigning them a class name and then styling that class.
+A common reaction to this approach is wondering, "isn't this inline styles?" and in some ways it is — you're applying styles directly to elements instead of assigning them a class name and then styling that class.
 
 But using utility classes has a few important advantages over inline styles:
 

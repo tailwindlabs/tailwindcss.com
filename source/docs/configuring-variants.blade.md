@@ -287,7 +287,7 @@ Note that enabling all variants for all plugins will result in much bigger file 
 
 ## Using custom variants
 
-If you've written or installed a [plugin](/docs/plugins) that adds a new variant, you can enable that variant by including it in your variants configuration just like if it were a built-in variant.
+If you've written or installed a [plugin](/docs/plugins) that adds a new variant, you can enable that variant by including it in your variants configuration as if it were a built-in variant.
 
 For example, the [tailwindcss-interaction-variants plugin](https://github.com/benface/tailwindcss-interaction-variants) adds a `visited` variant (among others):
 

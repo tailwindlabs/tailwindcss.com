@@ -6,7 +6,7 @@ titleBorder: true
 hideTableOfContents: false
 ---
 
-We think Tailwind is an amazing CSS framework, but you need more than just a CSS framework to produce visually awesome work.
+We think Tailwind is an amazing CSS framework, but you need more than a CSS framework alone to produce visually awesome work.
 
 Here are some resources that can help you take your Tailwind projects to the next level.
 

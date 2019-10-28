@@ -87,7 +87,7 @@ Tailwind uses an intuitive `{screen}:` prefix that makes it easier to notice res
 
 ## Component-friendly
 
-While you can do a *lot* with just utility classes, as a project grows it can be useful to codify common patterns into higher level abstractions.
+While you can do a *lot* with utility classes alone, as a project grows it can be useful to codify common patterns into higher level abstractions.
 
 Tailwind provides tools for [extracting component classes](/docs/extracting-components) from repeated utility patterns, making it possible to update multiple instances of a component from one place:
 

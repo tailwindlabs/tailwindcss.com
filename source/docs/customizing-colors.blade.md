@@ -169,7 +169,7 @@ module.exports = {
 
 ## Disabling a default color
 
-If you'd like to disable a default color because you aren't using it in your project, the easiest approach is to just build a new color palette that references the default theme.
+If you'd like to disable a default color because you aren't using it in your project, the easiest approach is to build a new color palette that references the default theme.
 
 For example, this `tailwind.config.js` file excludes teal, orange, and pink, but includes the rest of the default colors:
 

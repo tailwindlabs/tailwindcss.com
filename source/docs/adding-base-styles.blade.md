@@ -7,7 +7,7 @@ titleBorder: true
 
 Base (or global) styles are the styles at the beginning of a stylesheet that set useful defaults for basic HTML elements like `<a>` tags, headings, etc. or apply opinionated resets like the popular [box-sizing reset](https://www.paulirish.com/2012/box-sizing-border-box-ftw/).
 
-Tailwind includes a useful set of base styles out of the box that we call [Preflight](/docs/preflight), which is really just [normalize.css](https://github.com/necolas/normalize.css/) plus a thin layer of additional more opinionated styles.
+Tailwind includes a useful set of base styles out of the box that we call [Preflight](/docs/preflight), which is essentially [normalize.css](https://github.com/necolas/normalize.css/) plus a thin layer of additional more opinionated styles.
 
 Preflight is a great starting point for most projects, but if you'd ever like to add your own additional base styles, here are some recommendations for doing it idiomatically.
 
@@ -15,7 +15,7 @@ Preflight is a great starting point for most projects, but if you'd ever like to
 
 ## Using classes in your HTML
 
-If you just want to apply some global styling to the `html` or `body` elements, consider just adding existing classes to those elements in your HTML instead of writing new CSS:
+If you want to apply some global styling to the `html` or `body` elements, consider adding existing classes to those elements in your HTML instead of writing new CSS:
 
 ```html
 <!doctype html>

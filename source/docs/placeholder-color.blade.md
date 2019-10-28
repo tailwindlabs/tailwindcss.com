@@ -100,7 +100,7 @@ Focus utilities can also be combined with responsive utilities by adding the res
 
 By default Tailwind makes the entire [default color palette](/docs/customizing-colors#default-color-palette) available as placeholder colors.
 
-You can [customize your color palette](/docs/colors#customizing) by editing `theme.colors` in your `tailwind.config.js` file, or customize just your placeholder colors in the `theme.textColor` section.
+You can [customize your color palette](/docs/colors#customizing) by editing `theme.colors` in your `tailwind.config.js` file, or customize your placeholder colors in the `theme.textColor` section.
 
 @component('_partials.customized-config', ['key' => 'theme'])
 - placeholderColor: theme => theme('colors'),

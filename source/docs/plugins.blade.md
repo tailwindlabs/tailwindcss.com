@@ -421,7 +421,7 @@ This plugin would generate the following CSS:
 
 Be careful to only escape content you actually want to escape; don't pass the leading `.` in a class name or the `:` at the beginning pseudo-classes like `:hover` or `:focus` or those characters will be escaped.
 
-Additionally, because CSS has rules about the characters a class name can *start* with (a class can't start with a number, but it can contain one), it's a good idea to escape your complete class name (not just the user-provided portion) or you may end up with unnecessary escape sequences:
+Additionally, because CSS has rules about the characters a class name can *start* with (a class can't start with a number, but it can contain one), it's a good idea to escape your complete class name (not only the user-provided portion) or you may end up with unnecessary escape sequences:
 
 ```js
 // Will unnecessarily escape `1`
@@ -508,7 +508,7 @@ module.exports = {
 }
 ```
 
-Note that the `theme` function is really just a shortcut for using the `config` function to access the theme section of the user's config:
+Note that the `theme` function is a shortcut for using the `config` function to access the theme section of the user's config:
 
 ```js
 // These are equivalent
@@ -711,7 +711,7 @@ addComponents([
 
 ## Adding variants
 
-The `addVariant` function allows you to register your own custom [variants](/docs/pseudo-class-variants) that can be used just like the built-in hover, focus, active, etc. variants.
+The `addVariant` function allows you to register your own custom [variants](/docs/pseudo-class-variants) that can be used like the built-in hover, focus, active, etc. variants.
 
 To add a new variant, call the `addVariant` function, passing in the name of your custom variant, and a callback that modifies the affected CSS rules as needed.
 

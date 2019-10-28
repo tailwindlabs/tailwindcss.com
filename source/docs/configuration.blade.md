@@ -226,7 +226,7 @@ That means if you add your own responsive utility like this:
 }
 ```
 
-If you'd like to prefix your own utilities as well, just add the prefix to the class definition:
+If you'd like to prefix your own utilities as well, add the prefix to the class definition:
 
 ```css
 @responsive {
@@ -264,7 +264,7 @@ Now all of Tailwind's utility classes will be generated as `!important`:
 
 Note that any of your own custom utilities **will not** automatically be marked as `!important` by enabling this option.
 
-If you'd like to make your own utilities `!important`, just add `!important` to the end of each declaration yourself:
+If you'd like to make your own utilities `!important`, add `!important` to the end of each declaration yourself:
 
 ```css
 @responsive {

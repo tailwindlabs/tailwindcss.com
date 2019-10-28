@@ -11,7 +11,7 @@ So while there's not a ton of exciting new features, you can at least be excited
 
 ## Upgrade steps for all users
 
-These changes affect all users, whether you are using Tailwind with PostCSS and your own custom config file, or just using the default config file or CDN.
+These changes affect all users, whether you are using Tailwind with PostCSS and your own custom config file, or using the default config file or CDN.
 
 1. [Update Tailwind](#1-update-tailwind)
 2. [Update your config file](#2-update-your-config-file)
@@ -132,7 +132,7 @@ Your config file should look generally like this at this point:
 
 "Modules" was a word we just kinda grabbed because we needed *something*, and we wanted to use that section of the config to both specify variants and disable modules if necessary.
 
-Now that all of Tailwind's internal "modules" are actually just core plugins, I've decided to deprecate this terminology entirely, and make this section of the config purely about configuring variants for core plugins.
+Now that all of Tailwind's internal "modules" are now core plugins, I've decided to deprecate this terminology entirely, and make this section of the config purely about configuring variants for core plugins.
 
 After making this change, your config file should look like this:
 
@@ -342,7 +342,7 @@ Note that in some cases (`position`, `whitespace`) the original section still ex
 
 You should reference the new [default config file](https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js) if you are ever unsure if you are making the right changes.
 
-The simplest way to make these changes is to just copy the value you were using for the old section (something like `['responsive']`) to all of the new sections that replace that section, but if you choose you can also use this as an opportunity to cull generated utilities you don't actually need.
+The simplest way to make these changes is to copy the value you were using for the old section (something like `['responsive']`) to all of the new sections that replace that section, but if you choose you can also use this as an opportunity to cull generated utilities you don't actually need.
 
 For example, if you never use the responsive variants of `antialiased` or `subpixel-antialiased`, you could set `fontSmoothing` to `[]` while still using `['responsive']` for `fontStyle`, `textDecoration`, and `textTransform`.
 
@@ -386,7 +386,7 @@ This change was made to make it possible to disable other core plugins where `va
 
 #### 2.8. Remove the `container` plugin from `plugins` and move any configuration to `theme`
 
-In v1.0, the `container` plugin is a core plugin just like `padding`, `margin`, etc. and should not be listed in your `plugins` section:
+In v1.0, the `container` plugin is a core plugin like `padding`, `margin`, etc. and should not be listed in your `plugins` section:
 
 ```diff
   let defaultConfig = require('tailwindcss/defaultConfig')()
@@ -634,7 +634,7 @@ If you haven't customized the `opacity` values, remove them:
 
 We will not change any of this configuration outside of a major version bump, so you are totally safe to depend on inheriting the default values.
 
-The way your configuration is merged with the defaults is designed to be very intuitive and mostly just work, but for the curious:
+The way your configuration is merged with the defaults is designed to be intuitive and mostly just work, but for the curious:
 
 - `prefix` is replaced
 - `separator` is replaced
@@ -681,7 +681,7 @@ If you keep your config file in a different folder, you'll still need to provide
 
 <p class="italic font-normal text-gray-600 mt-4">Impact: All users, Effort: Trivial</p>
 
-One of the new features in v1.0 is the ability for plugins to register base styles. As a result, our `preflight` styles are actually just another core plugin now, and the general "bucket" for base styles has been renamed from `preflight` to `base`.
+One of the new features in v1.0 is the ability for plugins to register base styles. As a result, our `preflight` styles are actually now another core plugin, and the general "bucket" for base styles has been renamed from `preflight` to `base`.
 
 Replace any instance of `@@tailwind preflight` in your CSS files with `@@tailwind base`:
 
@@ -735,7 +735,7 @@ By using the user agent styles for headings, we also made it far too easy to acc
 
 By unstyling headings by default, we make it a lot easier to avoid this pitfall by ensuring that any size or weight you set is explicit and intentional.
 
-This change might not affect you at all if you are already specifying a font-weight and font-size on all your headings, but if you aren't, you just need to assign an explicit size and weight wherever it's missing:
+This change might not affect you at all if you are already specifying a font-weight and font-size on all your headings, but if you aren't, you’ll need to assign an explicit size and weight wherever it's missing:
 
 ```diff
 - <h1>Manage Account<h1>
@@ -785,7 +785,7 @@ ol {
 
 <p class="italic font-normal text-gray-600 mt-4">Impact: Moderate, Effort: Low</p>
 
-Since lists are now unstyled by default, `.list-reset` has been removed. You technically don't need to change anything, but you're encouraged to remove any usage of it as it's now just dead code:
+Since lists are now unstyled by default, `.list-reset` has been removed. You technically don't need to change anything, but you're encouraged to remove any usage of it as it's now dead code:
 
 ```diff
 - <ul class="list-reset"><!-- ... --></ul>

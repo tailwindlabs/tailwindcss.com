@@ -364,7 +364,7 @@ module.exports = {
 }
 ```
 
-Since the entire `theme` object is available in your CSS using the [theme function](/docs/functions-and-directives#theme), you might also add a key just to be able to reference it in your CSS.
+Since the entire `theme` object is available in your CSS using the [theme function](/docs/functions-and-directives#theme), you might also add a key to be able to reference it in your CSS.
 
 ## Configuration reference
 
