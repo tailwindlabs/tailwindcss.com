@@ -61,7 +61,7 @@ If you're using `postcss-import` (or a tool that uses it under the hood, such as
 If you'd like to customize your Tailwind installation, you can generate a config file for your project using the Tailwind CLI utility included when you install the `tailwindcss` npm package:
 
 ```bash
-npx tailwind init
+npx tailwindcss init
 ```
 
 This will create a minimal `tailwind.config.js` file at the root of your project:
