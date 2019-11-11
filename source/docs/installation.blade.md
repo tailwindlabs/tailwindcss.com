@@ -303,6 +303,25 @@ module.exports = function(defaults) {
 };
 ```
 
+## Create React App
+
+Custom PostCSS plugins (including `tailwindcss`) can be added to Create React App apps using [craco](https://github.com/gsoft-inc/craco/). Follow the [craco installation instructions](https://github.com/gsoft-inc/craco/blob/master/packages/craco/README.md#installation), then add the `tailwindcss` plugin to its config:
+
+```js
+// craco.config.js
+module.exports = {
+  style: {
+    postcss: {
+      plugins: [
+        require('tailwindcss'),
+        require('autoprefixer'),
+      ],
+    },
+  },
+};
+
+```
+
 <hr class="my-16">
 
 ## Using Tailwind via CDN
