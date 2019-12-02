@@ -468,3 +468,19 @@ fullConfig.theme.screens.md
 fullConfig.theme.boxShadow['2xl']
 // => '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
 ```
+
+Note: `resolveConfig` will give you the full configugration object with all plugins. If you have whitelisted/blacklisted some `corePlugins` you have to filter the theme properties if you only want enabled ones:
+
+```js
+// if you also need sreens values and another custom property
+const wantedKeys = fullConfig.corePlugins.concat(["screens", "myCustomProp"])
+const myTheme = wantedKeys.reduce((theme, key) => {
+    if (fullConfig.theme.hasOwnProperty(key)) {
+        return {
+            ...theme,
+            [key]: fullConfig.theme[key]
+        };
+    }
+    return theme;
+}, {});
+```
