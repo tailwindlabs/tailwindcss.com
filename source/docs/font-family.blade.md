@@ -32,6 +32,8 @@ Use `.font-sans` to apply a web safe sans-serif font family:
 </p>
 @endcomponent
 
+Note that the [Inter](https://rsms.me/inter/) font files are not included with Tailwind. It is recommended to use the cdn link [here](https://rsms.me/inter/inter.css).
+
 ### Serif
 
 Use `.font-serif` to apply a web safe serif font family:
