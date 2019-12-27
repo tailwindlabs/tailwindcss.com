@@ -214,9 +214,25 @@ module.exports = {
 }
 ```
 
+If you only need a handful of utilities, tailwind offers an opt-in solution to keep your tailwind.config.js file to a minimal. Simply pass an array to `corePlugins` with a list of whitelisted utilities.
+
+```js
+// tailwind.config.js
+module.exports = {
+  // ...
+  corePlugins: [
+    margin,
+    padding
+  ]
+}
+```
+
+This will disable all utilities except margin and padding.
+
 If you need a utility but don't need the responsive versions, set its variants to an empty array to generate 80% fewer classes:
 	
 ```js
+// tailwind.config.js
 module.exports = {
   // ...
   variants: {
