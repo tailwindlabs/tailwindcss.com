@@ -121,8 +121,8 @@ Add `tailwindcss` as a plugin in your  `postcss.config.js` file:
 module.exports = {
   plugins: [
     // ...
-    require('tailwindcss'),
-    require('autoprefixer'),
+    require('tailwindcss')(),
+    require('autoprefixer')(),
     // ...
   ]
 }
