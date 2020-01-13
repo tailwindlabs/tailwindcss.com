@@ -12,7 +12,7 @@ Similar to how Tailwind handles [responsive design](/docs/responsive-design), st
 @component('_partials.code-sample')
 <form class="flex w-full max-w-sm mx-auto">
   <input class="flex-1 bg-gray-200 hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:shadow-outline focus:border-gray-300 appearance-none border border-transparent rounded w-full py-2 px-4 text-gray-700 leading-tight " type="email" placeholder="Your email">
-  <button class="ml-4 flex-shrink-0 bg-teal-500 hover:bg-teal-600 focus:outline-none focus:shadow-outline text-white font-bold py-2 px-4 rounded" type="button">
+  <button class="ml-4 flex-shrink-0 bg-teal-500 hover:bg-teal-600 focus:outline-none focus:shadow-outline text-white font-bold py-2 px-4 rounded" type="submit">
     Sign Up
   </button>
 </form>
@@ -365,7 +365,7 @@ Add the `focus-within:` prefix to only apply a utility when a child element has 
 <form class="w-full max-w-sm mx-auto">
   <div class="flex items-center border-b-2 border-gray-400 focus-within:border-teal-500 py-2">
     <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Jane Doe" aria-label="Full name">
-    <button class="focus:shadow-outline focus:outline-none flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
+    <button class="focus:shadow-outline focus:outline-none flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit">
       Sign Up
     </button>
   </div>
