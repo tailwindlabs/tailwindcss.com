@@ -214,7 +214,7 @@ module.exports = {
 }
 ```
 
-If you only need a handful of utilities, tailwind offers an opt-in solution to keep your tailwind.config.js file to a minimal. Simply pass an array to `corePlugins` with a list of whitelisted utilities.
+If you only need a handful of utilities, Tailwind offers an opt-in solution to keep your tailwind.config.js file to a minimum. Simply pass an array to `corePlugins` with a list of whitelisted utilities.
 
 ```js
 // tailwind.config.js
