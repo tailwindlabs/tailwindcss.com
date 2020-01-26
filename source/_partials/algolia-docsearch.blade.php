@@ -5,5 +5,8 @@
     indexName: 'tailwindcss',
     inputSelector: '#docsearch',
     algoliaOptions: { 'facetFilters': ["version:{{$page->docSearchVersion}}"] },
+    queryHook: function(query) {
+      return query.replace(/-/g, ' ');
+    }
   });
 </script>
