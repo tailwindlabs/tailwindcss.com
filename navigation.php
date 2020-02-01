@@ -88,7 +88,11 @@ return [
             'Order' => '/docs/order',
         ],
         'Grid' => [
-            'Grid Gap' => '/docs/grid-gap',
+            'Gap' => '/docs/grid-gap',
+            'Column Span' => '/docs/grid-column-span',
+            'Column Templates' => '/docs/grid-column-templates',
+            'Column Start / End' => '/docs/grid-column-start-end',
+            'Row Utilities' => '/docs/grid-row',
         ],
         'Spacing' => [
             'Padding' => '/docs/padding',
