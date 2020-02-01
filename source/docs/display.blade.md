@@ -32,6 +32,11 @@ description: "Utilities for controlling the display box type of an element."
       "Set the box type of the element to <code>inline-flex</code>.",
     ],
     [
+      '.grid',
+      'display: grid;',
+      "Set the box type of the element to <code>grid</code>.",
+    ],
+    [
       '.table',
       'display: table;',
       "Set the box type of the element to <code>table</code>.",
@@ -111,6 +116,18 @@ Use `.inline-flex` to create an inline flex container.
   <div class="flex-1 text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">1</div>
   <div class="flex-1 text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">2</div>
   <div class="flex-1 text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">3</div>
+</div>
+@endcomponent
+
+## Grid
+
+Use `.grid` to create an grid container.
+
+@component('_partials.code-sample')
+<div class="grid grid-cols-4 bg-gray-200">
+  <div class="text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">1</div>
+  <div class="col-span-2 text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">2</div>
+  <div class="text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">3</div>
 </div>
 @endcomponent
 
