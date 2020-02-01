@@ -87,6 +87,9 @@ return [
             'Flex Shrink' => '/docs/flex-shrink',
             'Order' => '/docs/order',
         ],
+        'Grid' => [
+            'Grid Gap' => '/docs/grid-gap',
+        ],
         'Spacing' => [
             'Padding' => '/docs/padding',
             'Margin' => '/docs/margin',

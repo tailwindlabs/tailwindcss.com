@@ -124,10 +124,10 @@ Use `.inline-flex` to create an inline flex container.
 Use `.grid` to create an grid container.
 
 @component('_partials.code-sample')
-<div class="grid grid-cols-4 bg-gray-200">
-  <div class="text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">1</div>
-  <div class="col-span-2 text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">2</div>
-  <div class="text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">3</div>
+<div class="grid grid-cols-4 bg-gray-200 gap-4 p-2">
+  <div class="text-gray-700 text-center bg-gray-400 px-4 py-2">1</div>
+  <div class="col-span-2 text-gray-700 text-center bg-gray-400 px-4 py-2">2</div>
+  <div class="text-gray-700 text-center bg-gray-400 px-4 py-2">3</div>
 </div>
 @endcomponent
 
