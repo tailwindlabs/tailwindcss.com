@@ -107,6 +107,11 @@ return [
             'Box Shadow' => '/docs/box-shadow',
             'Opacity' => '/docs/opacity',
         ],
+        'Transitions' => [
+            'Property' => '/docs/transition-property',
+            'Duration' => '/docs/transition-duration',
+            'Timing Function' => '/docs/transition-timing-function',
+        ],
         'Interactivity' => [
             'Appearance' => '/docs/appearance',
             'Cursor' => '/docs/cursor',
