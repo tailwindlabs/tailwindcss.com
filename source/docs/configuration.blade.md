@@ -476,7 +476,7 @@ To make this easy, Tailwind provides a `resolveConfig` helper you can use to gen
 
 ```js
 import resolveConfig from 'tailwindcss/resolveConfig'
-import tailwindConfig from './tailwind.config.js'
+import * as tailwindConfig from './tailwind.config.js'
 
 const fullConfig = resolveConfig(tailwindConfig)
 
