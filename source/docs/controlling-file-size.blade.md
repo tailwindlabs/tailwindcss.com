@@ -27,17 +27,17 @@ By comparison Tailwind definitely seems on the heavy side *(although if you use 
 
 Mozilla's [Firefox Send](https://send.firefox.com/) is built with Tailwind, yet somehow their CSS is only 13.1kb minified, and only 4.7kb gzipped! How?
 
-They're using [Purgecss](https://www.purgecss.com/), a tool for removing CSS that you're not actually using in your project. Purgecss is particularly effective with Tailwind because Tailwind generates thousands of utility classes for you, most of which you probably won't actually use.
+They're using [PurgeCSS](https://www.purgecss.com/), a tool for removing CSS that you're not actually using in your project. PurgeCSS is particularly effective with Tailwind because Tailwind generates thousands of utility classes for you, most of which you probably won't actually use.
 
 For example, Tailwind generates margin utilities for every size in your spacing scale, for every side of an element you might want to apply margin to, at every breakpoint you are using in your project. This leads to hundreds of different combinations that are all important to have available, but not all likely to be needed.
 
-When using Purgecss with Tailwind, it's very hard to end up with more than 10kb of compressed CSS.
+When using PurgeCSS with Tailwind, it's very hard to end up with more than 10kb of compressed CSS.
 
-### Setting up Purgecss
+### Setting up PurgeCSS
 
-In the future we may incorporate Purgecss directly into Tailwind, but for now the best way to use it in your project is as a PostCSS plugin.
+In the future we may incorporate PurgeCSS directly into Tailwind, but for now the best way to use it in your project is as a PostCSS plugin.
 
-To get started with Purgecss, first install `@fullhuman/postcss-purgecss`:
+To get started with PurgeCSS, first install `@fullhuman/postcss-purgecss`:
 
 ```bash
 # Using npm
@@ -76,9 +76,9 @@ module.exports = {
 }
 ```
 
-Note that in this example, **we're only enabling Purgecss in production**. We recommend configuring Purgecss this way because it can be slow to run, and during development it's nice to have every class available so you don't need to wait for a rebuild every time you change some HTML.
+Note that in this example, **we're only enabling PurgeCSS in production**. We recommend configuring PurgeCSS this way because it can be slow to run, and during development it's nice to have every class available so you don't need to wait for a rebuild every time you change some HTML.
 
-Finally, we recommend only applying Purgecss to Tailwind's utility classes, and not to [base styles](https://tailwindcss.com/docs/adding-base-styles) or [component classes](https://tailwindcss.com/docs/extracting-components#extracting-css-components-with-apply). The easiest way to do this is to use Purgecss's [whitelisting](https://github.com/FullHuman/purgecss-docs/blob/master/whitelisting.md) feature to disable Purgecss for non-utility classes:
+Finally, we recommend only applying PurgeCSS to Tailwind's utility classes, and not to [base styles](https://tailwindcss.com/docs/adding-base-styles) or [component classes](https://tailwindcss.com/docs/extracting-components#extracting-css-components-with-apply). The easiest way to do this is to use PurgeCSS's [whitelisting](https://github.com/FullHuman/purgecss-docs/blob/master/whitelisting.md) feature to disable PurgeCSS for non-utility classes:
 
 ```css
 /* purgecss start ignore */
@@ -93,7 +93,7 @@ This will ensure you don't accidentally purge important base styles when working
 
 ### Writing purgeable HTML
 
-Purgecss uses "extractors" to determine what strings in your templates are classes. In the example above, we use a custom extractor that will find all of the classes Tailwind generates by default:
+PurgeCSS uses "extractors" to determine what strings in your templates are classes. In the example above, we use a custom extractor that will find all of the classes Tailwind generates by default:
 
 ```js
 const purgecss = require('@fullhuman/postcss-purgecss')({
@@ -108,7 +108,7 @@ The way it works is intentionally very naive. It doesn't try to parse your HTML 
 /[\w-:/]+(?<!:)/g
 ```
 
-That means that **it is important to avoid dynamically creating class strings in your templates with string concatenation**, otherwise Purgecss won't know to preserve those classes.
+That means that **it is important to avoid dynamically creating class strings in your templates with string concatenation**, otherwise PurgeCSS won't know to preserve those classes.
 
 @component('_partials.tip-bad')
 Don't use string concatenation to create class names
@@ -122,7 +122,7 @@ Do dynamically select a complete class name
 
 <pre class="language-html mt-4" v-pre><code>&lt;div :class="@{{ error ? 'text-red-600' : 'text-green-600' }}"&gt;&lt;/div&gt;</code></pre>
 
-As long as a class name appears in your template _in its entirety_, Purgecss will not remove it.
+As long as a class name appears in your template _in its entirety_, PurgeCSS will not remove it.
 
 ### Understanding the regex
 
@@ -159,7 +159,7 @@ For example, if you have customized Tailwind to create classes like `w-50%`, you
 
 ## Removing unused theme values
 
-If you can't use Purgecss for one reason or another, you can also reduce Tailwind's footprint by removing unused values from [your configuration file](/docs/configuration).
+If you can't use PurgeCSS for one reason or another, you can also reduce Tailwind's footprint by removing unused values from [your configuration file](/docs/configuration).
 
 The default theme provides a very generous set of colors, breakpoints, sizes, margins, etc. to make sure that when you pull Tailwind down to prototype something, create a CodePen demo, or just try out the workflow, the experience is as enjoyable and fluid as possible.
 
