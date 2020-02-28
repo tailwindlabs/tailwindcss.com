@@ -393,6 +393,34 @@ module.exports = {
 
 Since base styles are meant to target bare selectors like `div`, `h1`, etc., they do not respect the user's `prefix` or `important` configuration.
 
+### Adding base styles at specific screen sizes
+
+To add base styles at a specific screen size, wrap your styles in the `@@screen {screen}` at-rule:
+
+```js
+// tailwind.config.js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  plugins: [
+    plugin(function({ addBase, config }) {
+      addBase({
+        // Base styles on mobile
+        'h1': { fontSize: config('theme.fontSize.xl') },
+        'h2': { fontSize: config('theme.fontSize.lg') },
+        'h3': { fontSize: config('theme.fontSize.base') },
+        // Base styles on medium screens
+        '@screen md': {
+          'h1': { fontSize: config('theme.fontSize.2xl') },
+          'h2': { fontSize: config('theme.fontSize.xl') },
+          'h3': { fontSize: config('theme.fontSize.lg') },
+         }
+      })
+    })
+  ]
+}
+```
+
 ---
 
 ## Escaping class names
