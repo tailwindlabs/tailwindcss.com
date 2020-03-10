@@ -276,7 +276,7 @@ You can control whether `odd` variants are enabled for a utility in the `variant
 module.exports = {
   // ...
   variants: {
-    borderWidth: ['responsive', 'odd', 'hover', 'focus'],
+    backgroundColor: ['responsive', 'odd', 'hover', 'focus'],
   },
 }
 ```
@@ -310,7 +310,7 @@ You can control whether `even` variants are enabled for a utility in the `varian
 module.exports = {
   // ...
   variants: {
-    borderWidth: ['responsive', 'even', 'hover', 'focus'],
+    backgroundColor: ['responsive', 'even', 'hover', 'focus'],
   },
 }
 ```
