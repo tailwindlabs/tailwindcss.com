@@ -1002,7 +1002,7 @@ In v0.x, form elements used black text by default, even though true black was no
 In v1.0, form elements inherit their text color from the parent, which means if you have any markup like this:
 
 ```html
-<div class="text-red">
+<div class="text-red-700">
   <input type="text">
 </div>
 ```
@@ -1012,9 +1012,9 @@ In v1.0, form elements inherit their text color from the parent, which means if 
 You can fix this by setting a text color on form elements explicitly:
 
 ```diff
-  <div class="text-red">
+  <div class="text-red-700">
 -   <input type="text">
-+   <input type="text" class="text-grey-darkest">
++   <input type="text" class="text-gray-700">
   </div>
 ```
 
