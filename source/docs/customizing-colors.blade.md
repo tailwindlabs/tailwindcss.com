@@ -319,6 +319,12 @@ Tailwind includes a generous palette of great-looking, well-balanced colors that
 ])
 
 @include('_partials.color-palette', [
+  'colorName' => 'Pink',
+  'color' => 'pink',
+  'breakpoint' => '400',
+])
+
+@include('_partials.color-palette', [
   'colorName' => 'Red',
   'color' => 'red',
   'breakpoint' => '500',
@@ -363,12 +369,6 @@ Tailwind includes a generous palette of great-looking, well-balanced colors that
 @include('_partials.color-palette', [
   'colorName' => 'Purple',
   'color' => 'purple',
-  'breakpoint' => '400',
-])
-
-@include('_partials.color-palette', [
-  'colorName' => 'Pink',
-  'color' => 'pink',
   'breakpoint' => '400',
 ])
 </div>
