@@ -105,7 +105,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
 The way it works is intentionally very naive. It doesn't try to parse your HTML and look for class attributes or dynamically execute your JavaScript — it simply looks for any strings in the entire file that match this regular expression:
 
 ```js
-/[\w-:/]+(?<!:)/g
+/[\w-/:]+(?<!:)/g
 ```
 
 That means that **it is important to avoid dynamically creating class strings in your templates with string concatenation**, otherwise Purgecss won't know to preserve those classes.
