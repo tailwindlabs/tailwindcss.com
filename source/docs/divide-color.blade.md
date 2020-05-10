@@ -85,6 +85,35 @@ Control the border color between elements using the `divide-{color}` utilities.
 @endslot
 @endcomponent
 
+<h3>
+  <span class="flex items-center" data-heading-text>
+    Changing opacity
+    <span class="ml-3 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium leading-4 bg-green-150 text-green-900">
+      v1.4.0+
+    </span>
+  </span>
+</h3>
+
+Control the opacity of borders between elements using the `.divide-opacity-{amount}` utilities.
+
+@component('_partials.code-sample', ['style' => "background-image: url('/img/transparent-bg.svg')"])
+<div class="divide-y-4 divide-black divide-opacity-25">
+  <div class="text-center py-2">1</div>
+  <div class="text-center py-2">2</div>
+  <div class="text-center py-2">3</div>
+</div>
+
+@slot('code')
+<div class="divide-y-4 divide-black divide-opacity-25">
+  <div class="text-center py-2">1</div>
+  <div class="text-center py-2">2</div>
+  <div class="text-center py-2">3</div>
+</div>
+@endslot
+@endcomponent
+
+Learn more in the [divide opacity documentation](/docs/divide-opacity).
+
 ---
 
 ## Responsive

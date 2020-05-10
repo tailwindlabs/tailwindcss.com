@@ -41,6 +41,33 @@ Control the border color of an element using the `.border-{color}` utilities.
 @endslot
 @endcomponent
 
+<h3>
+  <span class="flex items-center" data-heading-text>
+    Changing opacity
+    <span class="ml-3 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium leading-4 bg-green-150 text-green-900">
+      v1.4.0+
+    </span>
+  </span>
+</h3>
+
+Control the opacity of an element's background color using the `.border-opacity-{amount}` utilities.
+
+@component('_partials.code-sample', ['style' => "background-image: url('/img/transparent-bg.svg')"])
+<div class="flex justify-around" >
+  @foreach ($page->config['theme']['backgroundOpacity']->reverse() as $name => $value)
+    <div class="h-16 w-16 rounded border-4 border-blue-500 border-opacity-{{ $name }}">
+    </div>
+  @endforeach
+</div>
+@slot('code')
+@foreach ($page->config['theme']['opacity']->reverse() as $name => $value)
+<div class="bg-blue-500 bg-opacity-{{ $name }}"></div>
+@endforeach
+@endslot
+@endcomponent
+
+Learn more in the [border opacity documentation](/docs/border-opacity).
+
 ## Responsive
 
 To control the border color of an element at a specific breakpoint, add a `{screen}:` prefix to any existing border color utility. For example, use `md:border-green-500` to apply the `border-green-500` utility at only medium screen sizes and above.
