@@ -7,7 +7,7 @@ titleBorder: true
 
 <h2 style="visibility: hidden; font-size: 0; margin: 0;">Overview</h2>
 
-Using the default configuration, the development build of Tailwind CSS is 1996kb uncompressed, 144.6kb minified and compressed with [Gzip](https://www.gnu.org/software/gzip/), and 37.kb when compressed with [Brotli](https://github.com/google/brotli).
+Using the default configuration, the development build of Tailwind CSS is 1996kb uncompressed, 144.6kb minified and compressed with [Gzip](https://www.gnu.org/software/gzip/), and 37.6kb when compressed with [Brotli](https://github.com/google/brotli).
 
 | Uncompressed | Minified |    Gzip | Brotli |
 | ------------ | ------- | ------ | ----- |
