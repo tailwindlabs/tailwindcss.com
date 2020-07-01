@@ -30,7 +30,7 @@ Similar to how Tailwind handles [responsive design](/docs/responsive-design), st
 
 For a complete list of which variants are enabled by default, see the [reference table](#default-variants-reference) at the end of this page.
 
-Tailwind includes first-class support for styling elements on [hover](#hover), [focus](#focus), [active](#active), [disabled](#disabled), [visited](#visited), [first-child](#first-child), [last-child](#last-child), [odd-child](#odd-child), [even-child](#even-child), [group-hover](#group-hover), [group-focus](#group-focus), and [focus-within](#focus-within).
+Tailwind includes first-class support for styling elements on [hover](#hover), [focus](#focus), [active](#active), [disabled](#disabled), [visited](#visited), [first-child](#first-child), [last-child](#last-child), [odd-child](#odd-child), [even-child](#even-child), [group-hover](#group-hover), [group-focus](#group-focus), [focus-within](#focus-within), and [focus-visible](#focus-visible).
 
 If you need to target a pseudo-class that Tailwind doesn't support, you can extend the supported variants by [writing a variant plugin](#creating-custom-variants).
 
@@ -461,6 +461,49 @@ module.exports = {
   // ...
   variants: {
     borderColor: ['responsive', 'hover', 'focus', 'focus-within'],
+  },
+}
+```
+
+## Focus-visible
+
+<div class="text-sm bg-blue-100 text-blue-700 font-semi-bold px-4 py-2 mb-4 rounded">
+  <div class="flex items-center">
+    <div class="mr-2">
+      <svg class="block text-blue-400 h-5 w-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.432 15C14.387 9.893 12 8.547 12 6V3h.5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5H8v3c0 2.547-2.387 3.893-4.432 9-.651 1.625-2.323 4 6.432 4s7.083-2.375 6.432-4zm-1.617 1.751c-.702.21-2.099.449-4.815.449s-4.113-.239-4.815-.449c-.249-.074-.346-.363-.258-.628.22-.67.635-1.828 1.411-3.121 1.896-3.159 3.863.497 5.5.497s1.188-1.561 1.824-.497a15.353 15.353 0 0 1 1.411 3.121c.088.265-.009.553-.258.628z"/></svg>
+    </div>
+    <div>
+      <p class="font-semibold">Note that focus-visible requires a polyfill for consistent browser support.</p>
+    </div>
+  </div>
+</div>
+
+Add the `focus-visible:` prefix to apply a utility based on the user's [input modality](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible)
+(mouse vs. keyboard).
+
+```html
+<form>
+  <!-- Shows outline when interacted with mouse and keyboard -->
+  <input class="focus-visible:shadow-outline focus:outline-none" />
+
+  <!-- Shows outline when interacted with keyboard only -->
+  <button class="focus-visible:shadow-outline focus:outline-none">
+    Sign Up
+  </button>
+</form>
+```
+
+For consistent browser support you are able to use the [postcss-focus-visible](https://github.com/csstools/postcss-focus-visible)
+plugin and the companion [focus-visible polyfill](https://github.com/WICG/focus-visible).
+
+You can control whether `focus-visible` variants are enabled for a utility in the `variants` section of your `tailwind.config.js` file:
+
+```js
+// tailwind.config.js
+module.exports = {
+  // ...
+  variants: {
+    boxShadow: ['responsive', 'hover', 'focus', 'focus-visible']
   },
 }
 ```
