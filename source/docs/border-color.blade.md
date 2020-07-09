@@ -54,7 +54,7 @@ Control the opacity of an element's background color using the `.border-opacity-
 
 @component('_partials.code-sample', ['style' => "background-image: url('/img/transparent-bg.svg')"])
 <div class="flex justify-around" >
-  @foreach ($page->config['theme']['backgroundOpacity']->reverse() as $name => $value)
+  @foreach ($page->config['theme']['borderOpacity']->reverse() as $name => $value)
     <div class="h-16 w-16 rounded border-4 border-blue-500 border-opacity-{{ $name }}">
     </div>
   @endforeach
