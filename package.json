@@ -10,7 +10,8 @@
   "dependencies": {
     "next": "9.4.4",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "tailwindcss": "^1.5.1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "2.x",
