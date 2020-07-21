@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@mdx-js/loader": "^1.6.13",
+    "@next/bundle-analyzer": "^9.4.4",
     "@next/mdx": "^9.4.4",
     "autoprefixer": "^9.8.5",
     "next": "9.4.4",
