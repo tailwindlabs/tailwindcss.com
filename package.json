@@ -8,7 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "autoprefixer": "^9.8.5",
     "next": "9.4.4",
+    "postcss-nested": "^4.2.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "tailwindcss": "^1.5.1"
