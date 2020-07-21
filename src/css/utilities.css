@@ -38,7 +38,7 @@
       height: 100vh !important;
     }
     .sticky\?lg\:h-\(screen-16\) {
-      height: ~'calc(100vh - 4rem)' !important;
+      height: calc(100vh - 4rem) !important;
     }
   }
 }
