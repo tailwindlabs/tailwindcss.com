@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@mdx-js/loader": "^1.6.13",
+    "@next/mdx": "^9.4.4",
     "autoprefixer": "^9.8.5",
     "next": "9.4.4",
     "postcss-nested": "^4.2.3",
