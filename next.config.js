@@ -9,6 +9,10 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
+function isSubDirectory(parent, child) {
+  return path.relative(child, parent).startsWith('..')
+}
+
 function getRewrites() {
   return glob
     .sync('*/*.mdx', { cwd: path.resolve(__dirname, 'src/pages/docs') })
@@ -54,7 +58,19 @@ module.exports = withBundleAnalyzer({
               }
             }
           }
+
+          let layout = []
+          if (!/^\s*export default /m.test(source)) {
+            if (isSubDirectory(path.resolve(__dirname, 'src/pages/docs'), this.context)) {
+              layout = [
+                `import { ContentsLayout } from '@/layouts/ContentsLayout'`,
+                'export default ContentsLayout',
+              ]
+            }
+          }
+
           return [
+            ...layout,
             typeof fields === 'undefined' ? body : '',
             `export const meta = ${JSON.stringify(meta)}`,
           ].join('\n\n')
