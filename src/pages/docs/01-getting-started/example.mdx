@@ -3,6 +3,7 @@ description: Lorem ipsum dolor sit amet
 ---
 
 import backgroundColorPlugin from 'tailwindcss/lib/plugins/backgroundColor'
+import { ResponsiveExample } from '@/components/ResponsiveExample'
 
 export const classes = {
   plugin: backgroundColorPlugin,
@@ -44,3 +45,8 @@ Ea amet a nisi. Veniam aut sit nostrum doloremque nihil omnis ex vitae. Quam per
 Voluptates praesentium iste recusandae quis fugiat in. Eos quas sit ducimus doloremque corrupti officiis. Est amet maiores dolores dolor minima amet.
 
 Nam adipisci vitae quisquam. Quia repellat repudiandae molestiae sit debitis non repellat et. Natus magni voluptas expedita voluptatibus.
+
+<ResponsiveExample
+  classNames={['bg-red-500', 'bg-green-500', 'bg-blue-500', 'bg-pink-500', 'bg-teal-500']}
+  preview={(className) => <div className={`h-20 w-20 mx-auto rounded-lg ${className}`} />}
+/>
