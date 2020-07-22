@@ -45,7 +45,7 @@ module.exports = withBundleAnalyzer({
         {
           loader: '@mdx-js/loader',
           options: {
-            remarkPlugins: [withTableOfContents, withProse],
+            remarkPlugins: [withProse, withTableOfContents],
           },
         },
         createLoader(function (source, ...args) {

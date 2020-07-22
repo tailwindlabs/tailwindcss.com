@@ -1,5 +1,6 @@
 import dlv from 'dlv'
 import preval from 'preval.macro'
+import { memo } from 'react'
 
 const config = preval`
   const defaultTheme = require('tailwindcss/defaultTheme')
@@ -43,64 +44,62 @@ function stringifyProperties(properties, filter = () => true, transformValue = (
     .flat()
 }
 
-export function UtilityTable({
-  plugin,
-  filterProperties,
-  preview,
-  transformSelector = (x) => x,
-  transformValue,
-}) {
-  const utilities = getUtilities(plugin)
+export const UtilityTable = memo(
+  ({ plugin, filterProperties, preview, transformSelector = (x) => x, transformValue }) => {
+    const utilities = getUtilities(plugin)
 
-  return (
-    <div className="mt-0 border-t border-b border-gray-300 overflow-hidden relative">
-      <div className="lg:max-h-xs overflow-y-auto scrollbar-w-2 scrollbar-track-gray-lighter scrollbar-thumb-rounded scrollbar-thumb-gray scrolling-touch">
-        <table className="w-full text-left table-collapse">
-          <thead>
-            <tr>
-              <th className="z-20 sticky top-0 text-sm font-semibold text-gray-700 bg-gray-100 p-0">
-                <div className="p-2 border-b border-gray-300">Class</div>
-              </th>
-              <th className="z-20 sticky top-0 text-sm font-semibold text-gray-700 bg-gray-100 p-0">
-                <div className="p-2 border-b border-gray-300">Properties</div>
-              </th>
-              {preview && (
+    console.log('rdnder')
+
+    return (
+      <div className="mt-0 border-t border-b border-gray-300 overflow-hidden relative">
+        <div className="lg:max-h-xs overflow-y-auto scrollbar-w-2 scrollbar-track-gray-lighter scrollbar-thumb-rounded scrollbar-thumb-gray scrolling-touch">
+          <table className="w-full text-left table-collapse">
+            <thead>
+              <tr>
                 <th className="z-20 sticky top-0 text-sm font-semibold text-gray-700 bg-gray-100 p-0">
-                  <div className="p-2 border-b border-gray-300">
-                  <span className="invisible">Preview</span>
-                  </div>
+                  <div className="p-2 border-b border-gray-300">Class</div>
                 </th>
-              )}
-            </tr>
-          </thead>
-          <tbody className="align-baseline">
-            {Object.keys(utilities).map((utility, i) => (
-              <tr key={utility}>
-                <td
-                  className={`p-2 font-mono text-xs text-purple-700 whitespace-no-wrap ${
-                    i === 0 ? '' : 'border-t border-gray-200'
-                  }`}
-                >
-                  {transformSelector(utility)}
-                </td>
-                <td
-                  className={`p-2 font-mono text-xs text-blue-700 whitespace-pre ${
-                    i === 0 ? '' : 'border-t border-gray-200'
-                  }`}
-                >
-                  {stringifyProperties(utilities[utility], filterProperties, transformValue)}
-                </td>
-                {preview &&
-                  preview(utilities[utility], {
-                    className: `p-2 font-mono text-xs whitespace-pre ${
-                      i === 0 ? '' : 'border-t border-gray-200'
-                    }`,
-                  })}
+                <th className="z-20 sticky top-0 text-sm font-semibold text-gray-700 bg-gray-100 p-0">
+                  <div className="p-2 border-b border-gray-300">Properties</div>
+                </th>
+                {preview && (
+                  <th className="z-20 sticky top-0 text-sm font-semibold text-gray-700 bg-gray-100 p-0">
+                    <div className="p-2 border-b border-gray-300">
+                      <span className="invisible">Preview</span>
+                    </div>
+                  </th>
+                )}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="align-baseline">
+              {Object.keys(utilities).map((utility, i) => (
+                <tr key={utility}>
+                  <td
+                    className={`p-2 font-mono text-xs text-purple-700 whitespace-no-wrap ${
+                      i === 0 ? '' : 'border-t border-gray-200'
+                    }`}
+                  >
+                    {transformSelector(utility)}
+                  </td>
+                  <td
+                    className={`p-2 font-mono text-xs text-blue-700 whitespace-pre ${
+                      i === 0 ? '' : 'border-t border-gray-200'
+                    }`}
+                  >
+                    {stringifyProperties(utilities[utility], filterProperties, transformValue)}
+                  </td>
+                  {preview &&
+                    preview(utilities[utility], {
+                      className: `p-2 font-mono text-xs whitespace-pre ${
+                        i === 0 ? '' : 'border-t border-gray-200'
+                      }`,
+                    })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-  )
-}
+    )
+  }
+)

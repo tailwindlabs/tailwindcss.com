@@ -33,15 +33,10 @@
     }
   }
 
-  /* Ridiculous scroll offset trash */
-  > h2::before,
-  > h3::before,
-  > .heading::before {
-    display: block;
-    height: 6rem;
-    margin-top: -6rem;
-    visibility: hidden;
-    content: '';
+  > h2,
+  > h3,
+  > .heading {
+    scroll-margin-block: 6rem;
   }
 
   > hr {
