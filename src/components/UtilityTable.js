@@ -59,7 +59,11 @@ export const UtilityTable = memo(
                 <th className="z-20 sticky top-0 text-sm font-semibold text-gray-700 bg-gray-100 p-0">
                   <div className="p-2 border-b border-gray-300">Class</div>
                 </th>
-                <th className="z-20 sticky top-0 text-sm font-semibold text-gray-700 bg-gray-100 p-0">
+                <th
+                  className={`z-20 sticky top-0 text-sm font-semibold text-gray-700 bg-gray-100 p-0 ${
+                    preview && 'hidden sm:table-cell'
+                  }`}
+                >
                   <div className="p-2 border-b border-gray-300">Properties</div>
                 </th>
                 {preview && (
@@ -84,7 +88,7 @@ export const UtilityTable = memo(
                   <td
                     className={`p-2 font-mono text-xs text-blue-700 whitespace-pre ${
                       i === 0 ? '' : 'border-t border-gray-200'
-                    }`}
+                    } ${preview && 'hidden sm:table-cell'}`}
                   >
                     {stringifyProperties(utilities[utility], filterProperties, transformValue)}
                   </td>
