@@ -1,10 +1,11 @@
 import { useState, useEffect, createContext, Fragment } from 'react'
 import { useRouter } from 'next/router'
 import { kebabToTitleCase } from '@/utils/kebabToTitleCase'
+import { UtilityTable } from '@/components/UtilityTable'
 
 export const DocumentContext = createContext()
 
-export function ContentsLayout({ children, meta, tableOfContents }) {
+export function ContentsLayout({ children, meta, classes, tableOfContents }) {
   const router = useRouter()
   let [currentSection, setCurrentSection] = useState(tableOfContents[0]?.slug)
   let [atBottom, setAtBottom] = useState(false)
@@ -46,10 +47,11 @@ export function ContentsLayout({ children, meta, tableOfContents }) {
             {meta.title || kebabToTitleCase(router.pathname.split('/').pop())}
           </h1>
           <div className="mt-0 mb-4 text-gray-600">{meta.description}</div>
-          <hr className="my-8 border-b-2 border-gray-200" />
+          {!classes && <hr className="my-8 border-b-2 border-gray-200" />}
         </div>
         <div className="flex">
           <div className="px-6 xl:px-12 w-full max-w-3xl mx-auto lg:ml-0 lg:mr-auto xl:mx-0 xl:w-3/4">
+            {classes && <UtilityTable {...classes} />}
             {children}
           </div>
           <div className="hidden xl:text-sm xl:block xl:w-1/4 xl:px-6">
