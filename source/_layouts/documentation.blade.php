@@ -157,7 +157,7 @@
               </svg>
               <span class="ml-3">Screencasts</span>
             </a>
-            <a href="https://blog.tailwindcss.com" data-external class="mt-3 lg:mt-1 flex items-center px-2 -mx-2 py-1 hover:text-gray-900 font-medium {{ $page->active('/resources') ? 'text-gray-900' : 'text-gray-600' }}">
+            <a href="https://blog.tailwindcss.com" data-external class="mt-3 lg:mt-1 flex items-center px-2 -mx-2 py-1 hover:text-gray-900 font-medium text-gray-600">
               <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <g fill-rule="evenodd" clip-rule="evenodd">
                   <path fill="#CBD5E0" d="M5 3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2H5zm2 3a1 1 0 00-1 1v4a1 1 0 001 1h3a1 1 0 001-1V7a1 1 0 00-1-1H7z"/>
