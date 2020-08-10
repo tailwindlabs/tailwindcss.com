@@ -3,11 +3,11 @@ title: "Border Collapse"
 description: "Utilities for controlling whether table borders should collapse or be separated."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/borderCollapse'
+import utilities from /* preval('borderCollapse') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Collapse
 

@@ -4,14 +4,14 @@ description: "Utilities for controlling the border color between elements."
 featureVersion: "v1.3.0+"
 ---
 
-import plugin from 'tailwindcss/lib/plugins/divideColor'
+import utilities from /* preval('divideColor') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 import { Heading } from '@/components/Heading'
 
 export const classes = {
-  plugin,
+  classes: utilities,
   filterProperties: (prop, value) => !prop.includes('--') && !value.includes('--'),
   transformSelector: (selector) => (
     <>

@@ -4,12 +4,12 @@ description: "Utilities for specifying the origin for an element's transformatio
 featureVersion: "v1.2.0+"
 ---
 
-import plugin from 'tailwindcss/lib/plugins/transformOrigin'
+import utilities from /* preval('transformOrigin') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Usage
 

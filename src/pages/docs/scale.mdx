@@ -4,12 +4,12 @@ description: "Utilities for scaling elements with transform."
 featureVersion: "v1.2.0+"
 ---
 
-import plugin from 'tailwindcss/lib/plugins/scale'
+import utilities from /* preval('scale') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Usage
 

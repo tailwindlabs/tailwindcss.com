@@ -8,10 +8,10 @@ features:
   focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/alignSelf'
+import utilities from /* preval('alignSelf') */ '../../utils/getUtilities'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Auto
 

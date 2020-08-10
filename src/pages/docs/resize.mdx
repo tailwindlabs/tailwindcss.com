@@ -3,11 +3,11 @@ title: "Resize"
 description: "Utilities for controlling how an element can be resized."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/resize'
+import utilities from /* preval('resize') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Resize in all directions
 

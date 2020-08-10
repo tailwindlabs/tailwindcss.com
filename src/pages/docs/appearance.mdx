@@ -8,9 +8,9 @@ features:
   focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/appearance'
+import utilities from /* preval('appearance') */ '../../utils/getUtilities'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Usage
 

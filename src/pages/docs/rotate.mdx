@@ -4,12 +4,12 @@ description: "Utilities for rotating elements with transform."
 featureVersion: "v1.2.0+"
 ---
 
-import plugin from 'tailwindcss/lib/plugins/rotate'
+import utilities from /* preval('rotate') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Usage
 

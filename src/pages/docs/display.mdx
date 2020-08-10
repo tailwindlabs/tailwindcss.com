@@ -3,12 +3,12 @@ title: "Display"
 description: "Utilities for controlling the display box type of an element."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/display'
+import utilities from /* preval('display') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Block
 

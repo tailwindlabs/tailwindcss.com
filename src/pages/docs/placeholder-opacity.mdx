@@ -4,12 +4,12 @@ description: "Utilities for controlling the opacity of an element's placeholder 
 featureVersion: "v1.4.0+"
 ---
 
-import plugin from 'tailwindcss/lib/plugins/placeholderOpacity'
+import utilities from /* preval('placeholderOpacity') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 
 export const classes = {
-  plugin,
+  classes: utilities,
   transformSelector: (selector) => selector.split('::')[0],
 }
 

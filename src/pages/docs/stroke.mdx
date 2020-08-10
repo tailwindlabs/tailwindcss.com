@@ -3,11 +3,11 @@ title: "Stroke"
 description: "Utilities for styling the stroke of SVG elements."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/stroke'
+import utilities from /* preval('stroke') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Usage
 

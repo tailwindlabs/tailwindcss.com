@@ -8,10 +8,10 @@ features:
   focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/alignItems'
+import utilities from /* preval('alignItems') */ '../../utils/getUtilities'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Stretch
 

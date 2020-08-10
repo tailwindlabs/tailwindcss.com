@@ -8,11 +8,11 @@ features:
   focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/tableLayout'
+import utilities from /* preval('tableLayout') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Auto
 

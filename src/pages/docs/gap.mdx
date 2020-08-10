@@ -4,12 +4,12 @@ description: "Utilities for controlling gutters between grid rows and columns."
 featureVersion: "v1.2.0+"
 ---
 
-import plugin from 'tailwindcss/lib/plugins/gap'
+import utilities from /* preval('gap') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 
 export const classes = {
-  plugin,
+  classes: utilities,
   filterProperties: (property) => !property.startsWith('grid-'),
 }
 

@@ -3,12 +3,12 @@ title: "Object Fit"
 description: "Utilities for controlling how a replaced element's content should be resized."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/objectFit'
+import utilities from /* preval('objectFit') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Contain
 

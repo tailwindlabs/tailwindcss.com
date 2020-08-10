@@ -1,42 +1,8 @@
-import dlv from 'dlv'
 import { memo } from 'react'
-import { defaultConfig } from '@/utils/defaultConfig'
 import { isObject } from '@/utils/isObject'
 import { castArray } from '@/utils/castArray'
 import clsx from 'clsx'
 import { Heading } from '@/components/Heading'
-
-let normalizeProperties = function (input) {
-  if (typeof input !== 'object') return input
-  if (Array.isArray(input)) return input.map(normalizeProperties)
-  return Object.keys(input).reduce((newObj, key) => {
-    let val = input[key]
-    let newVal = typeof val === 'object' ? normalizeProperties(val) : val
-    newObj[key.replace(/([a-z])([A-Z])/g, (m, p1, p2) => `${p1}-${p2.toLowerCase()}`)] = newVal
-    return newObj
-  }, {})
-}
-
-function getUtilities(plugin) {
-  if (!plugin) return {}
-  const utilities = {}
-  plugin()({
-    addUtilities: (utils) => {
-      utils = Array.isArray(utils) ? utils : [utils]
-      for (let i = 0; i < utils.length; i++) {
-        for (let prop in utils[i]) {
-          utilities[prop] = normalizeProperties(utils[i][prop])
-        }
-      }
-    },
-    theme: (path, defaultValue) => dlv(defaultConfig.theme, path, defaultValue),
-    variants: () => [],
-    e: (x) => x.replace(/([:.])/g, '\\$1'),
-    target: () => 'modern',
-    corePlugins: () => true,
-  })
-  return utilities
-}
 
 function stringifyProperties(
   properties,
@@ -62,7 +28,7 @@ function stringifyProperties(
 
 export const ClassTable = memo(
   ({
-    plugin,
+    classes = {},
     filterProperties,
     preview,
     transformSelector = (x) => x,
@@ -70,11 +36,6 @@ export const ClassTable = memo(
     transformValue,
     custom,
   }) => {
-    const utilities = {}
-    castArray(plugin).forEach((p) => {
-      Object.assign(utilities, getUtilities(p))
-    })
-
     return (
       <div className="mt-0 border-t border-b border-gray-300 overflow-hidden relative">
         <Heading
@@ -89,7 +50,7 @@ export const ClassTable = memo(
         <div
           className={clsx(
             'overflow-y-auto scrollbar-w-2 scrollbar-track-gray-lighter scrollbar-thumb-rounded scrollbar-thumb-gray scrolling-touch',
-            { 'lg:max-h-xs': Object.keys(utilities).length > 12 }
+            { 'lg:max-h-xs': Object.keys(classes).length > 12 }
           )}
         >
           {custom || (
@@ -116,9 +77,9 @@ export const ClassTable = memo(
                 </tr>
               </thead>
               <tbody className="align-baseline">
-                {Object.keys(utilities).map((utility, i) => {
+                {Object.keys(classes).map((utility, i) => {
                   let selector = utility
-                  let properties = utilities[selector]
+                  let properties = classes[selector]
 
                   return (
                     <tr key={utility}>

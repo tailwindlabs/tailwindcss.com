@@ -4,12 +4,12 @@ description: "Utilities for translating elements with transform."
 featureVersion: "v1.2.0+"
 ---
 
-import plugin from 'tailwindcss/lib/plugins/translate'
+import utilities from /* preval('translate') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Usage
 

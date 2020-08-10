@@ -3,12 +3,12 @@ title: "Max-Width"
 description: "Utilities for setting the maximum width of an element"
 ---
 
-import plugin from 'tailwindcss/lib/plugins/maxWidth'
+import utilities from /* preval('maxWidth') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Usage
 

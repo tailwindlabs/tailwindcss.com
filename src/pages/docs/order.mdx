@@ -3,12 +3,12 @@ title: "Order"
 description: "Utilities for controlling the order of flex items."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/order'
+import utilities from /* preval('order') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Usage
 

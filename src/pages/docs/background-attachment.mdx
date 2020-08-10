@@ -8,10 +8,10 @@ features:
   focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/backgroundAttachment'
+import utilities from /* preval('backgroundAttachment') */ '../../utils/getUtilities'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Fixed
 

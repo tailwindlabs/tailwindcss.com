@@ -8,12 +8,12 @@ features:
   focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/backgroundColor'
+import utilities from /* preval('backgroundColor') */ '../../utils/getUtilities'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 import { Heading } from '@/components/Heading'
 
 export const classes = {
-  plugin,
+  classes: utilities,
   filterProperties: (prop, value) => prop.indexOf('--') === -1 && value.indexOf('--') === -1,
   preview: (css) => (
     <td

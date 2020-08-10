@@ -4,12 +4,12 @@ description: "Utilities for controlling the opacity borders between elements."
 featureVersion: "v1.4.0+"
 ---
 
-import plugin from 'tailwindcss/lib/plugins/divideOpacity'
+import utilities from /* preval('divideOpacity') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 
 export const classes = {
-  plugin,
+  classes: utilities,
   transformSelector: (selector) => {
     return selector.split('>')[0].trim()
   }

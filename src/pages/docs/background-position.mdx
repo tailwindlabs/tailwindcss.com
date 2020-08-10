@@ -8,13 +8,13 @@ features:
   focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/backgroundPosition'
+import utilities from /* preval('backgroundPosition') */ '../../utils/getUtilities'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 import { ConfigSample } from '@/components/ConfigSample'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Usage
 

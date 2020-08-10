@@ -3,12 +3,12 @@ title: "Whitespace"
 description: "Utilities for controlling an element's white-space property."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/whitespace'
+import utilities from /* preval('whitespace') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Normal
 

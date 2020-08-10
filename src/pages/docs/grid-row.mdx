@@ -4,13 +4,11 @@ description: "Utilities for controlling how elements are sized and placed across
 featureVersion: "v1.2.0+"
 ---
 
-import gridRowPlugin from 'tailwindcss/lib/plugins/gridRow'
-import gridRowStartPlugin from 'tailwindcss/lib/plugins/gridRowStart'
-import gridRowEndPlugin from 'tailwindcss/lib/plugins/gridRowEnd'
 import { Disabling } from '@/components/Disabling'
+import utilities from /* preval(['gridRow', 'gridRowStart', 'gridRowEnd']) */ '../../utils/getUtilities'
 
 export const classes = {
-  plugin: [gridRowPlugin, gridRowStartPlugin, gridRowEndPlugin]
+  classes: utilities,
 }
 
 ## Spanning rows

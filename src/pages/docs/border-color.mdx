@@ -8,14 +8,14 @@ features:
   focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/borderColor'
+import utilities from /* preval('borderColor') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 import { Heading } from '@/components/Heading'
 
 export const classes = {
-  plugin,
+  classes: utilities,
   filterProperties: (prop, value) => !prop.includes('--') && !value.includes('--'),
   preview: (css, { className }) => (
     <td className={`relative w-16 p-2 font-mono text-xs whitespace-pre ${className}`}>

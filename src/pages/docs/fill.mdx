@@ -3,11 +3,11 @@ title: "Fill"
 description: "Utilities for styling the fill of SVG elements."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/fill'
+import utilities from /* preval('fill') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Usage
 

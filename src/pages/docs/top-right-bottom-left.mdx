@@ -3,12 +3,12 @@ title: "Top / Right / Bottom / Left"
 description: "Utilities for controlling the placement of positioned elements."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/inset'
+import utilities from /* preval('inset') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Usage
 

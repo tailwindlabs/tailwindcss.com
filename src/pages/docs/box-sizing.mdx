@@ -4,11 +4,11 @@ description: "Utilities for controlling how the browser should calculate an elem
 featureVersion: "v1.2.0+"
 ---
 
-import plugin from 'tailwindcss/lib/plugins/boxSizing'
+import utilities from /* preval('boxSizing') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Include borders and padding
 

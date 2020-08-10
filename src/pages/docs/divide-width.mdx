@@ -4,13 +4,13 @@ description: "Utilities for controlling the border width between elements."
 featureVersion: "v1.3.0+"
 ---
 
-import plugin from 'tailwindcss/lib/plugins/divideWidth'
+import utilities from /* preval('divideWidth') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
 export const classes = {
-  plugin,
+  classes: utilities,
   filterProperties: (prop, value, properties) => {
     if (Object.keys(properties).length === 1) return true
     return !prop.includes('--') && !prop.includes('bottom') && !prop.includes('right')

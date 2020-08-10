@@ -8,13 +8,13 @@ features:
   focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/position'
+import utilities from /* preval('position') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 import { TipCompat } from '@/components/Tip'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Static
 

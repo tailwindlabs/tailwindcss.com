@@ -8,12 +8,12 @@ features:
   focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/fontSmoothing'
+import utilities from /* preval('fontSmoothing') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Subpixel Antialiasing
 

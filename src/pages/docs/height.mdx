@@ -3,12 +3,12 @@ title: "Height"
 description: "Utilities for setting the height of an element"
 ---
 
-import plugin from 'tailwindcss/lib/plugins/height'
+import utilities from /* preval('height') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Auto
 

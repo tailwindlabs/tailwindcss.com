@@ -9,12 +9,12 @@ features:
   focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/textAlign'
+import utilities from /* preval('textAlign') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Usage
 

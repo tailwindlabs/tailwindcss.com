@@ -8,13 +8,13 @@ features:
   focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/float'
+import utilities from /* preval('float') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
 export const classes = {
-  plugin,
+  classes: utilities,
   transformSelector: (selector) => {
     if (selector === '.clearfix:after') {
       return '.clearfix'

@@ -9,9 +9,9 @@ features:
 ---
 
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
-import plugin from 'tailwindcss/lib/plugins/alignContent'
+import utilities from /* preval('alignContent') */ '../../utils/getUtilities'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Start
 

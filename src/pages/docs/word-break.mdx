@@ -3,12 +3,12 @@ title: "Word Break"
 description: "Utilities for controlling word breaks in an element."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/wordBreak'
+import utilities from /* preval('wordBreak') */ '../../utils/getUtilities'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
-export const classes = { plugin }
+export const classes = { classes: utilities }
 
 ## Normal
 
