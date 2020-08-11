@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { VersionSwitcher } from '@/components/VersionSwitcher'
 import { Search } from '@/components/Search'
 import dynamic from 'next/dynamic'
+import clsx from 'clsx'
 
 const WorkflowAnimation = dynamic(() =>
   import('@/components/WorkflowAnimation').then((mod) => mod.WorkflowAnimation)
@@ -103,7 +104,10 @@ function HeaderInner({ navIsOpen, onNavToggle }) {
           <Link href="/">
             <a className="block lg:mr-4">
               <svg
-                className={`w-auto hidden md:block ${isHome ? 'h-12' : 'h-10'}`}
+                className={clsx('w-auto hidden md:block', {
+                  'h-12': isHome,
+                  'h-10': !isHome,
+                })}
                 viewBox="0 0 273 64"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -158,16 +162,19 @@ function HeaderInner({ navIsOpen, onNavToggle }) {
           </Link>
         </div>
       </div>
-      <div className="flex flex-grow lg:w-3/4 xl:w-4/5">
-        <div className="w-full lg:px-6 xl:w-3/4 xl:px-12">
+      <div className="flex flex-grow min-w-0 lg:w-3/4 xl:w-4/5">
+        <div className="w-full min-w-0 lg:px-6 xl:w-3/4 xl:px-12">
           <Search />
         </div>
         <button
           type="button"
           id="sidebar-open"
-          className={`flex px-6 items-center lg:hidden text-gray-500 focus:outline-none focus:text-gray-700 ${
-            navIsOpen ? 'hidden' : ''
-          }`}
+          className={clsx(
+            'flex px-6 items-center lg:hidden text-gray-500 focus:outline-none focus:text-gray-700',
+            {
+              hidden: navIsOpen,
+            }
+          )}
           onClick={() => onNavToggle(true)}
         >
           <svg
@@ -181,9 +188,12 @@ function HeaderInner({ navIsOpen, onNavToggle }) {
         <button
           type="button"
           id="sidebar-close"
-          className={`flex px-6 items-center lg:hidden text-gray-500 focus:outline-none focus:text-gray-700 ${
-            navIsOpen ? '' : 'hidden'
-          }`}
+          className={clsx(
+            'flex px-6 items-center lg:hidden text-gray-500 focus:outline-none focus:text-gray-700',
+            {
+              hidden: !navIsOpen,
+            }
+          )}
           onClick={() => onNavToggle(false)}
         >
           <svg
