@@ -10,7 +10,11 @@ export function TuiBanner() {
 
   useEffect(() => {
     if (state === 'waiting') {
-      if (window.localStorage.getItem('hideBanner') !== null) {
+      try {
+        if (window.localStorage.getItem('hideBanner') !== null) {
+          return
+        }
+      } catch (_) {
         return
       }
       let current = true
