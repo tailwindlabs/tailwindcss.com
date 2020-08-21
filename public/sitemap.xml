@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://tailwindcss.com/community</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/resources</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/components/alerts</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/components/buttons</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/components/cards</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/components/flexbox-grids</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/components/forms</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/components/index</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/components/navigation</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/course/adapting-the-dropdown-for-mobile</loc>
+  </url>
+
+  <url>
+    <loc
+      >https://tailwindcss.com/course/building-a-navbar-layout-with-flexbox</loc
+    >
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/course/coming-soon</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/course/composing-utilities-with-apply</loc>
+  </url>
+
+  <url>
+    <loc
+      >https://tailwindcss.com/course/creating-depth-with-shadows-and-layers</loc
+    >
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/course/cropping-and-positioning-images</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/course/customizing-your-design-system</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/course/designing-a-badge</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/course/extracting-reusable-components</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/course/hover-focus-and-active-styles</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/course/index</loc>
+  </url>
+
+  <url>
+    <loc
+      >https://tailwindcss.com/course/locking-images-to-a-fixed-aspect-ratio</loc
+    >
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/course/making-text-content-feel-designed</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/course/making-the-dropdown-interactive</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/course/making-the-navbar-responsive</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/course/optimizing-for-production</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/course/positioning-the-dropdown-area</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/course/responsive-design</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/course/setting-up-tailwind-and-postcss</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/course/structuring-a-basic-card</loc>
+  </url>
+
+  <url>
+    <loc
+      >https://tailwindcss.com/course/styling-the-basic-dropdown-elements</loc
+    >
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/course/the-utility-first-workflow</loc>
+  </url>
+
+  <url>
+    <loc
+      >https://tailwindcss.com/course/toggling-the-navbar-links-on-mobile</loc
+    >
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/course/working-with-svg-icons</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/adding-base-styles</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/adding-new-utilities</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/align-content</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/align-items</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/align-self</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/animation</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/appearance</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/background-attachment</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/background-clip</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/background-color</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/background-image</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/background-opacity</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/background-position</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/background-repeat</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/background-size</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/border-collapse</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/border-color</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/border-opacity</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/border-radius</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/border-style</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/border-width</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/box-shadow</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/box-sizing</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/breakpoints</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/browser-support</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/clear</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/configuration</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/configuring-variants</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/container</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/controlling-file-size</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/cursor</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/customizing-colors</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/customizing-spacing</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/display</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/divide-color</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/divide-opacity</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/divide-style</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/divide-width</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/extracting-components</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/fill</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/flex-direction</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/flex-grow</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/flex-shrink</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/flex-wrap</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/flex</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/float</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/font-family</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/font-size</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/font-smoothing</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/font-style</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/font-weight</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/functions-and-directives</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/gap</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/gradient-color-stops</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/grid-auto-flow</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/grid-column</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/grid-row</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/grid-template-columns</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/grid-template-rows</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/height</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/installation</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/intellisense</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/justify-content</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/letter-spacing</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/line-height</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/list-style-position</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/list-style-type</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/margin</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/max-height</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/max-width</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/min-height</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/min-width</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/object-fit</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/object-position</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/opacity</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/order</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/outline</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/overflow</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/overscroll-behavior</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/padding</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/placeholder-color</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/placeholder-opacity</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/plugins</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/pointer-events</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/position</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/preflight</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/pseudo-class-variants</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/release-notes</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/resize</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/responsive-design</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/rotate</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/scale</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/screen-readers</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/skew</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/space</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/stroke-width</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/stroke</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/table-layout</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/text-align</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/text-color</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/text-decoration</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/text-opacity</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/text-transform</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/theme</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/top-right-bottom-left</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/transform-origin</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/transition-delay</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/transition-duration</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/transition-property</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/transition-timing-function</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/translate</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/typography-plugin</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/upcoming-changes</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/upgrading-to-v1</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/user-select</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/using-with-preprocessors</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/utility-first</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/vertical-align</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/visibility</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/whitespace</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/width</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/word-break</loc>
+  </url>
+
+  <url>
+    <loc>https://tailwindcss.com/docs/z-index</loc>
+  </url>
+</urlset>
