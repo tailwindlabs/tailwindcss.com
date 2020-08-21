@@ -107,6 +107,10 @@ module.exports = withBundleAnalyzer({
       ],
     })
 
+    if (options.isServer) {
+      require('./src/utils/generateSitemap');
+    }
+
     return config
   },
 })
