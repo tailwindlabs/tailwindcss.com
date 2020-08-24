@@ -31,7 +31,7 @@
     "gsap": "^3.4.2",
     "gzip-size": "^5.1.1",
     "minimatch": "^3.0.4",
-    "next": "^9.5.1",
+    "next": "^9.5.3-canary.21",
     "postcss-nested": "^4.2.3",
     "prismjs": "^1.20.0",
     "react": "16.13.1",
@@ -53,5 +53,8 @@
     "eslint-plugin-jsx-a11y": "6.x",
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "2.x"
+  },
+  "resolutions": {
+    "webpack": "^5.0.0-beta.28"
   }
 }

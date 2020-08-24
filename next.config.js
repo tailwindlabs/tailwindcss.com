@@ -26,7 +26,7 @@ const fallbackDefaultExports = {
 module.exports = withBundleAnalyzer({
   pageExtensions: ['js', 'jsx', 'mdx'],
   experimental: {
-    modern: true,
+    unstable_webpack5cache: true,
   },
   webpack(config, options) {
     config.module.rules.push({
