@@ -137,6 +137,7 @@ const nav = {
     pages['animation'],
   ],
   Transforms: [
+    pages['transform'],
     pages['scale'],
     pages['rotate'],
     pages['translate'],

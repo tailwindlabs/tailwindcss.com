@@ -1,0 +1,49 @@
+---
+title: "Transform"
+description: "Utilities for enabling and disabling an element's transformations."
+featureVersion: "v1.2.0+"
+---
+
+import plugin from 'tailwindcss/lib/plugins/transform'
+import { Variants } from '@/components/Variants'
+import { Disabling } from '@/components/Disabling'
+
+export const classes = { plugin }
+
+## Usage
+
+You must specify `transform` or `transform-none` to enable or disable other utilties that transform an element.
+
+```html
+<template preview class="bg-white lg:flex justify-around items-center text-sm p-4 py-12">
+  <div class="bg-gray-600">
+    <img class="h-16 w-16 transform rotate-45" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80">
+  </div>
+  <div class="bg-gray-600">
+    <img class="h-16 w-16 rotate-45" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80">
+  </div>
+  <div class="bg-gray-600">
+    <img class="h-16 w-16 transform-none rotate-45" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80">
+  </div>
+</template>
+
+<img class="transform rotate-45 ...">
+<img class="rotate-45 ...">
+<img class="transform-none rotate-45 ...">
+```
+
+## Responsive
+
+To control the transform of an element at a specific breakpoint, add a `{screen}:` prefix. For example, use `md:transform` to apply the `transform` utility at only medium screen sizes and above.
+
+For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+
+## Customizing
+
+### Responsive and pseudo-class variants
+
+<Variants plugin="transform" />
+
+### Disabling
+
+<Disabling plugin="transform" />
