@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'baseUrl' => 'https://v0.tailwindcss.com',
+    'baseUrl' => 'https://tailwindcss-v0.netlify.app/',
     'production' => true,
 ];

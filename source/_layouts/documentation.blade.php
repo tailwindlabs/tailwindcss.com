@@ -5,13 +5,13 @@
 <meta name="twitter:site" content="@tailwindcss">
 <meta name="twitter:title" content="{{ $page->title ? $page->title . ' - Tailwind CSS' : 'Tailwind CSS - A Utility-First CSS Framework for Rapid UI Development' }}">
 <meta name="twitter:description" content="{{ $page->description ? $page->description : 'Documentation for the Tailwind CSS framework.' }}">
-<meta name="twitter:image" content="https://v0.tailwindcss.com/img/tailwind-square.png">
+<meta name="twitter:image" content="https://tailwindcss-v0.netlify.app/img/tailwind-square.png">
 <meta name="twitter:creator" content="@tailwindcss">
-<meta property="og:url" content="https://v0.tailwindcss.com/" />
+<meta property="og:url" content="https://tailwindcss-v0.netlify.app/" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="{{ $page->title ? $page->title . ' - Tailwind CSS' : 'Tailwind CSS - A Utility-First CSS Framework for Rapid UI Development' }}" />
 <meta property="og:description" content="{{ $page->description ? $page->description : 'Documentation for the Tailwind CSS framework.' }}" />
-<meta property="og:image" content="https://v0.tailwindcss.com/img/twitter-card.png" />
+<meta property="og:image" content="https://tailwindcss-v0.netlify.app/img/twitter-card.png" />
 @endsection
 
 @push('headScripts')
