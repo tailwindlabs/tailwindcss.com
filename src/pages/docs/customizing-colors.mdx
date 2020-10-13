@@ -39,14 +39,17 @@ module.exports = {
       indigo: {
         lighter: '#b3bcf5',
         default: '#5c6ac4',
-        dark: '#202e78',
-      }
+        dark: {
+          default: '#202e78',
+          50: 'rgba(32,46,120,.5)'
+        },
+      },
     }
   }
 }
 ```
 
-Like many other places in Tailwind, the `default` key is special and means "no modifier", so this configuration would generate classes like `.text-indigo-lighter`, `.text-indigo`, and `.text-indigo-dark`.
+Like many other places in Tailwind, the `default` key is special and means "no modifier", so this configuration would generate classes like `.text-indigo-lighter`, `.text-indigo`, `.text-indigo-dark` and `.text-indigo-dark-50`.
 
 Note that you need to use dot notation to access nested colors when using the `theme()` function — the colors are only converted to dash-case for the actual CSS class names. The `default` key also needs to be specified when accessed via the `theme()` function: `theme('colors.indigo.default')`.
 
