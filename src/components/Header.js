@@ -44,7 +44,10 @@ export function Header({ navIsOpen, onNavToggle }) {
       </div>
       <button
         type="button"
-        className="fixed z-50 bottom-4 right-4 w-16 h-16 rounded-full bg-gray-900 text-white block lg:hidden"
+        className={clsx(
+          'fixed bottom-4 right-4 w-16 h-16 rounded-full bg-gray-900 text-white block lg:hidden',
+          navIsOpen ? 'z-50' : 'z-30'
+        )}
         onClick={() => onNavToggle(!navIsOpen)}
       >
         <span className="sr-only">Open site navigation</span>
