@@ -9,6 +9,7 @@ import { ReactComponent as Icon } from '@/img/icons/home/component-driven.svg'
 import { Tabs } from '@/components/Tabs'
 import { ReactComponent as ReactLogo } from '@/img/icons/react.svg'
 import { ReactComponent as VueLogo } from '@/img/icons/vue.svg'
+import { ReactComponent as AngularLogo } from '@/img/icons/angular.svg';
 import { ReactComponent as LaravelLogo } from '@/img/icons/laravel.svg'
 import { AnimatePresence, AnimateSharedLayout, motion, useIsPresent } from 'framer-motion'
 import clsx from 'clsx'
@@ -144,6 +145,134 @@ export default function Recipes({ recipes }) {
   )
 }
 `).lines,
+  },
+  angular: {
+    'recipes.component.ts': tokenizeWithLines.jsx(`import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-recipes',
+  template: \`
+    <div class="divide-y divide-gray-100">
+      <app-nav>
+        <app-nav-item routerLink="/featured" [isActive]="true">Featured</app-nav-item>
+        <app-nav-item routerLink="/popular">Popular</app-nav-item>
+        <app-nav-item routerLink="/recent">Recent</app-nav-item>
+      </app-nav>
+      <app-list>
+        <app-list-item *ngFor="let recipe of recipes" [recipe]="recipe"></app-list-item>
+      </app-list>
+    </div>
+  \`
+})
+export class RecipesComponent {
+  @Input() recipes: {
+    image: string;
+    title: string;
+    time: string;
+    difficulty: string;
+    servings: number;
+    author: string;
+    rating: number;
+  }[];
+}`).lines,
+    'nav.component.ts': tokenizeWithLines.jsx(`import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-nav',
+  template: \`
+    <nav class="p-4">
+      <ul class="flex space-x-2">
+        <ng-content></ng-content>
+      </ul>
+    </nav>
+  \`
+})
+export class NavComponent {}`).lines,
+    'nav-item.component.ts': tokenizeWithLines.jsx(`import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-nav-item',
+  template: \`
+    <li>
+      <a 
+        [routerLink]="link"
+        class="block px-4 py-2 rounded-md {{isActive ? 'bg-amber-100 text-amber-700' : ''}}"
+      >
+        <ng-content></ng-content>
+      </a>
+    </li>
+  \`
+})
+export class NavItemComponent {
+  @Input() link: string;
+  @Input() isActive: boolean = false;
+}`).lines,
+    'list.component.ts': tokenizeWithLines.jsx(`import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-list',
+  template: \`
+    <ul class="divide-y divide-gray-100">
+      <ng-content></ng-content>
+    </ul>
+  \`
+})
+export class ListComponent {}`).lines,
+    'list-item.component.ts': tokenizeWithLines.jsx(`import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-list-item',
+  template: \`
+    <article class="p-4 flex space-x-4">
+      <img [src]="recipe.image" alt="" class="flex-none w-18 h-18 rounded-lg object-cover bg-gray-100" width="144" height="144" />
+      <div class="min-w-0 relative flex-auto sm:pr-20 lg:pr-0 xl:pr-20">
+        <h2 class="text-lg font-semibold text-black mb-0.5">
+          {{recipe.title}}
+        </h2>
+        <dl class="flex flex-wrap text-sm font-medium whitespace-pre">
+          <div>
+            <dt class="sr-only">Time</dt>
+            <dd>
+              <abbr [title]="recipe.time + ' minutes'">{{recipe.time}}m</abbr>
+            </dd>
+          </div>
+          <div>
+            <dt class="sr-only">Difficulty</dt>
+            <dd> · {{recipe.difficulty}}</dd>
+          </div>
+          <div>
+            <dt class="sr-only">Servings</dt>
+            <dd> · {{recipe.servings}} servings</dd>
+          </div>
+          <div class="flex-none w-full mt-0.5 font-normal">
+            <dt class="inline">By</dt>{{' '}}
+            <dd class="inline text-black">{{recipe.author}}</dd>
+          </div>
+          <div class="absolute top-0 right-0 rounded-full bg-amber-50 text-amber-900 px-2 py-0.5 hidden sm:flex lg:hidden xl:flex items-center space-x-1">
+            <dt class="text-amber-500">
+              <span class="sr-only">Rating</span>
+              <svg width="16" height="20" fill="currentColor">
+                <path d="M7.05 3.691c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.372 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.539 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118L.98 9.483c-.784-.57-.381-1.81.587-1.81H5.03a1 1 0 00.95-.69L7.05 3.69z" />
+              </svg>
+            </dt>
+            <dd>{{recipe.rating}}</dd>
+          </div>
+        </dl>
+      </div>
+    </article>
+  \`
+})
+export class ListItemComponent {
+  @Input() recipe: {
+    image: string;
+    title: string;
+    time: string;
+    difficulty: string;
+    servings: number;
+    author: string;
+    rating: number;
+  };
+}`).lines,
   },
   vue: {
     'Recipes.vue': tokenizeWithLines.html(`<template>
@@ -717,6 +846,12 @@ export function ComponentDriven() {
                   <div className="flex flex-col items-center py-1">
                     <VueLogo className="mb-2" />
                     Vue
+                  </div>
+                ),
+                angular: (
+                  <div className="flex flex-col items-center py-1">
+                    <AngularLogo className="mb-2" />
+                    Angular
                   </div>
                 ),
                 blade: (
