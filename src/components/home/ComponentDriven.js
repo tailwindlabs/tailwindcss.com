@@ -196,7 +196,8 @@ export class NavComponent {}`).lines,
     <li>
       <a 
         [routerLink]="link"
-        class="block px-4 py-2 rounded-md {{isActive ? 'bg-amber-100 text-amber-700' : ''}}"
+        [ngClass]="{ 'bg-amber-100 text-amber-700': isActive }"
+        class="block px-4 py-2 rounded-md"
       >
         <ng-content></ng-content>
       </a>
