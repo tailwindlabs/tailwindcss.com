@@ -21,6 +21,7 @@
     "@svgr/webpack": "^5.4.0",
     "@tailwindcss/typography": "^0.0.0-caa70b6",
     "autoprefixer": "^10.0.2",
+    "babel-plugin-macros": "^2.8.0",
     "brotli-size": "^4.0.0",
     "clean-css": "^4.2.3",
     "clsx": "^1.1.1",
