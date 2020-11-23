@@ -14,6 +14,7 @@ import debounce from 'debounce'
 import dlv from 'dlv'
 import { fit } from '@/utils/fit'
 import clsx from 'clsx'
+import { ResizeObserver } from '@/utils/ResizeObserver'
 
 const themes = {
   simple: {
