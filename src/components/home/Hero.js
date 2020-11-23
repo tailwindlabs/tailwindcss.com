@@ -10,7 +10,6 @@ import styles from './Hero.module.css'
 import { useMedia } from '@/hooks/useMedia'
 import { wait } from '@/utils/wait'
 import { createInViewPromise } from '@/utils/createInViewPromise'
-import { ResizeObserver } from '@/utils/ResizeObserver'
 
 const CHAR_DELAY = 75
 const GROUP_DELAY = 1000
@@ -261,7 +260,7 @@ export function Hero() {
   }, [wide, finished])
 
   useEffect(() => {
-    const observer = new ResizeObserver(
+    const observer = new window.ResizeObserver(
       debounce(() => {
         if (containerRef.current) {
           setContainerRect(containerRef.current.getBoundingClientRect())

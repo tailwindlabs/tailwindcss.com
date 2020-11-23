@@ -14,7 +14,6 @@ import debounce from 'debounce'
 import dlv from 'dlv'
 import { fit } from '@/utils/fit'
 import clsx from 'clsx'
-import { ResizeObserver } from '@/utils/ResizeObserver'
 
 const themes = {
   simple: {
@@ -317,7 +316,7 @@ export function HtmlZenGarden({ theme }) {
   )
 
   useEffect(() => {
-    const observer = new ResizeObserver(updateWidth)
+    const observer = new window.ResizeObserver(updateWidth)
     observer.observe(containerRef.current)
     updateWidth()
     return () => {
