@@ -7,7 +7,8 @@
       "@/utils/*": ["src/utils/*"],
       "@/hooks/*": ["src/hooks/*"],
       "@/img/*": ["src/img/*"],
-      "@/navs/*": ["src/navs/*"]
+      "@/navs/*": ["src/navs/*"],
+      "@/preval/*": ["src/preval/*"]
     }
   }
 }

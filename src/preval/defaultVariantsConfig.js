@@ -1,4 +1,3 @@
-// @preval
 const { defaultConfig } = require('./defaultConfig')
 const Prism = require('prismjs')
 const stringify = require('stringify-object')

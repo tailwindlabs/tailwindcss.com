@@ -1,0 +1,46 @@
+{
+  "stats": {
+    "1-screen": {
+      "original": "1197.7kB",
+      "minified": "984.3kB",
+      "gzipped": "98.3kB",
+      "brotlified": "52.0kB"
+    },
+    "2-screens": {
+      "original": "1827.8kB",
+      "minified": "1488.2kB",
+      "gzipped": "147.3kB",
+      "brotlified": "57.5kB"
+    },
+    "25-colors": {
+      "original": "2161.0kB",
+      "minified": "1692.6kB",
+      "gzipped": "191.9kB",
+      "brotlified": "48.1kB"
+    },
+    "3-screens": {
+      "original": "2458.2kB",
+      "minified": "1992.3kB",
+      "gzipped": "196.0kB",
+      "brotlified": "62.0kB"
+    },
+    "35-colors-3-screens": {
+      "original": "1596.8kB",
+      "minified": "1265.1kB",
+      "gzipped": "139.4kB",
+      "brotlified": "45.8kB"
+    },
+    "50-colors": {
+      "original": "2836.8kB",
+      "minified": "2261.8kB",
+      "gzipped": "234.9kB",
+      "brotlified": "57.8kB"
+    },
+    "default": {
+      "original": "3739.4kB",
+      "minified": "3020.7kB",
+      "gzipped": "293.9kB",
+      "brotlified": "73.2kB"
+    }
+  }
+}

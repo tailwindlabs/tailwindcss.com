@@ -1,6 +1,6 @@
 import dlv from 'dlv'
 import { memo } from 'react'
-import { defaultConfig } from '@/utils/defaultConfig'
+import { defaultConfig } from '@/preval/output/defaultConfig'
 import { isObject } from '@/utils/isObject'
 import { castArray } from '@/utils/castArray'
 import clsx from 'clsx'

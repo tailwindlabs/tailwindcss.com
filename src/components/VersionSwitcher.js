@@ -1,4 +1,4 @@
-import { tailwindVersion } from '@/utils/tailwindVersion'
+import { tailwindVersion } from '@/preval/output/tailwindVersion'
 import clsx from 'clsx'
 import { useRef } from 'react'
 

@@ -1,0 +1,478 @@
+{
+  "corePluginsWithExamples": [
+    {
+      "plugin": "preflight"
+    },
+    {
+      "plugin": "container"
+    },
+    {
+      "plugin": "accessibility",
+      "example": "sr-only"
+    },
+    {
+      "plugin": "alignContent",
+      "example": "content-end"
+    },
+    {
+      "plugin": "alignItems",
+      "example": "items-center"
+    },
+    {
+      "plugin": "alignSelf",
+      "example": "self-end"
+    },
+    {
+      "plugin": "animation",
+      "example": "animate-none"
+    },
+    {
+      "plugin": "appearance",
+      "example": "appearance-none"
+    },
+    {
+      "plugin": "backgroundAttachment",
+      "example": "bg-local"
+    },
+    {
+      "plugin": "backgroundClip",
+      "example": "bg-clip-padding"
+    },
+    {
+      "plugin": "backgroundColor",
+      "example": "bg-green-700"
+    },
+    {
+      "plugin": "backgroundImage",
+      "example": "bg-gradient-to-br"
+    },
+    {
+      "plugin": "backgroundOpacity",
+      "example": "bg-opacity-50"
+    },
+    {
+      "plugin": "backgroundPosition",
+      "example": "bg-left-top"
+    },
+    {
+      "plugin": "backgroundRepeat",
+      "example": "bg-repeat-x"
+    },
+    {
+      "plugin": "backgroundSize",
+      "example": "bg-cover"
+    },
+    {
+      "plugin": "borderCollapse",
+      "example": "border-collapse"
+    },
+    {
+      "plugin": "borderColor",
+      "example": "border-green-700"
+    },
+    {
+      "plugin": "borderOpacity",
+      "example": "border-opacity-50"
+    },
+    {
+      "plugin": "borderRadius",
+      "example": "rounded-l-3xl"
+    },
+    {
+      "plugin": "borderStyle",
+      "example": "border-dotted"
+    },
+    {
+      "plugin": "borderWidth",
+      "example": "border-l-2"
+    },
+    {
+      "plugin": "boxShadow",
+      "example": "shadow-lg"
+    },
+    {
+      "plugin": "boxSizing",
+      "example": "box-border"
+    },
+    {
+      "plugin": "clear",
+      "example": "clear-right"
+    },
+    {
+      "plugin": "cursor",
+      "example": "cursor-wait"
+    },
+    {
+      "plugin": "display",
+      "example": "table-column-group"
+    },
+    {
+      "plugin": "divideColor",
+      "example": "divide-green-700"
+    },
+    {
+      "plugin": "divideOpacity",
+      "example": "divide-opacity-50"
+    },
+    {
+      "plugin": "divideStyle",
+      "example": "divide-dotted"
+    },
+    {
+      "plugin": "divideWidth",
+      "example": "divide-x-4"
+    },
+    {
+      "plugin": "fill",
+      "example": "fill-current"
+    },
+    {
+      "plugin": "flex",
+      "example": "flex-auto"
+    },
+    {
+      "plugin": "flexDirection",
+      "example": "flex-row-reverse"
+    },
+    {
+      "plugin": "flexGrow",
+      "example": "flex-grow-0"
+    },
+    {
+      "plugin": "flexShrink",
+      "example": "flex-shrink-0"
+    },
+    {
+      "plugin": "flexWrap",
+      "example": "flex-wrap-reverse"
+    },
+    {
+      "plugin": "float",
+      "example": "float-left"
+    },
+    {
+      "plugin": "fontFamily",
+      "example": "font-serif"
+    },
+    {
+      "plugin": "fontSize",
+      "example": "text-3xl"
+    },
+    {
+      "plugin": "fontSmoothing",
+      "example": "antialiased"
+    },
+    {
+      "plugin": "fontStyle",
+      "example": "italic"
+    },
+    {
+      "plugin": "fontVariantNumeric",
+      "example": "lining-nums"
+    },
+    {
+      "plugin": "fontWeight",
+      "example": "font-medium"
+    },
+    {
+      "plugin": "gap",
+      "example": "gap-x-28"
+    },
+    {
+      "plugin": "gradientColorStops",
+      "example": "via-green-700"
+    },
+    {
+      "plugin": "gridAutoColumns",
+      "example": "auto-cols-min"
+    },
+    {
+      "plugin": "gridAutoFlow",
+      "example": "grid-flow-col"
+    },
+    {
+      "plugin": "gridAutoRows",
+      "example": "auto-rows-min"
+    },
+    {
+      "plugin": "gridColumn",
+      "example": "col-span-6"
+    },
+    {
+      "plugin": "gridColumnEnd",
+      "example": "col-end-7"
+    },
+    {
+      "plugin": "gridColumnStart",
+      "example": "col-start-7"
+    },
+    {
+      "plugin": "gridRow",
+      "example": "row-span-3"
+    },
+    {
+      "plugin": "gridRowEnd",
+      "example": "row-end-4"
+    },
+    {
+      "plugin": "gridRowStart",
+      "example": "row-start-4"
+    },
+    {
+      "plugin": "gridTemplateColumns",
+      "example": "grid-cols-7"
+    },
+    {
+      "plugin": "gridTemplateRows",
+      "example": "grid-rows-4"
+    },
+    {
+      "plugin": "height",
+      "example": "h-64"
+    },
+    {
+      "plugin": "inset",
+      "example": "bottom-10"
+    },
+    {
+      "plugin": "justifyContent",
+      "example": "justify-center"
+    },
+    {
+      "plugin": "justifyItems",
+      "example": "justify-items-end"
+    },
+    {
+      "plugin": "justifySelf",
+      "example": "justify-self-end"
+    },
+    {
+      "plugin": "letterSpacing",
+      "example": "tracking-normal"
+    },
+    {
+      "plugin": "lineHeight",
+      "example": "leading-9"
+    },
+    {
+      "plugin": "listStylePosition",
+      "example": "list-inside"
+    },
+    {
+      "plugin": "listStyleType",
+      "example": "list-disc"
+    },
+    {
+      "plugin": "margin",
+      "example": "ml-8"
+    },
+    {
+      "plugin": "maxHeight",
+      "example": "max-h-32"
+    },
+    {
+      "plugin": "maxWidth",
+      "example": "max-w-5xl"
+    },
+    {
+      "plugin": "minHeight",
+      "example": "min-h-full"
+    },
+    {
+      "plugin": "minWidth",
+      "example": "min-w-full"
+    },
+    {
+      "plugin": "objectFit",
+      "example": "object-fill"
+    },
+    {
+      "plugin": "objectPosition",
+      "example": "object-left-top"
+    },
+    {
+      "plugin": "opacity",
+      "example": "opacity-50"
+    },
+    {
+      "plugin": "order",
+      "example": "order-8"
+    },
+    {
+      "plugin": "outline",
+      "example": "outline-white"
+    },
+    {
+      "plugin": "overflow",
+      "example": "overflow-y-auto"
+    },
+    {
+      "plugin": "overscrollBehavior",
+      "example": "overscroll-y-contain"
+    },
+    {
+      "plugin": "padding",
+      "example": "pr-4"
+    },
+    {
+      "plugin": "placeContent",
+      "example": "place-content-between"
+    },
+    {
+      "plugin": "placeholderColor",
+      "example": "placeholder-green-700"
+    },
+    {
+      "plugin": "placeholderOpacity",
+      "example": "placeholder-opacity-50"
+    },
+    {
+      "plugin": "placeItems",
+      "example": "place-items-end"
+    },
+    {
+      "plugin": "placeSelf",
+      "example": "place-self-end"
+    },
+    {
+      "plugin": "pointerEvents",
+      "example": "pointer-events-none"
+    },
+    {
+      "plugin": "position",
+      "example": "absolute"
+    },
+    {
+      "plugin": "resize",
+      "example": "resize-y"
+    },
+    {
+      "plugin": "ringColor",
+      "example": "ring-green-700"
+    },
+    {
+      "plugin": "ringOffsetColor",
+      "example": "ring-offset-green-700"
+    },
+    {
+      "plugin": "ringOffsetWidth",
+      "example": "ring-offset-2"
+    },
+    {
+      "plugin": "ringOpacity",
+      "example": "ring-opacity-50"
+    },
+    {
+      "plugin": "ringWidth",
+      "example": "ring-2"
+    },
+    {
+      "plugin": "rotate",
+      "example": "rotate-180"
+    },
+    {
+      "plugin": "scale",
+      "example": "scale-x-95"
+    },
+    {
+      "plugin": "skew",
+      "example": "-skew-x-1"
+    },
+    {
+      "plugin": "space",
+      "example": "-space-y-0"
+    },
+    {
+      "plugin": "stroke",
+      "example": "stroke-current"
+    },
+    {
+      "plugin": "strokeWidth",
+      "example": "stroke-1"
+    },
+    {
+      "plugin": "tableLayout",
+      "example": "table-auto"
+    },
+    {
+      "plugin": "textAlign",
+      "example": "text-center"
+    },
+    {
+      "plugin": "textColor",
+      "example": "text-green-700"
+    },
+    {
+      "plugin": "textDecoration",
+      "example": "line-through"
+    },
+    {
+      "plugin": "textOpacity",
+      "example": "text-opacity-50"
+    },
+    {
+      "plugin": "textOverflow",
+      "example": "overflow-ellipsis"
+    },
+    {
+      "plugin": "textTransform",
+      "example": "lowercase"
+    },
+    {
+      "plugin": "transform",
+      "example": "transform-gpu"
+    },
+    {
+      "plugin": "transformOrigin",
+      "example": "origin-bottom-right"
+    },
+    {
+      "plugin": "transitionDelay",
+      "example": "delay-200"
+    },
+    {
+      "plugin": "transitionDuration",
+      "example": "duration-200"
+    },
+    {
+      "plugin": "transitionProperty",
+      "example": "transition-colors"
+    },
+    {
+      "plugin": "transitionTimingFunction",
+      "example": "ease-in"
+    },
+    {
+      "plugin": "translate",
+      "example": "-translate-x-full"
+    },
+    {
+      "plugin": "userSelect",
+      "example": "select-text"
+    },
+    {
+      "plugin": "verticalAlign",
+      "example": "align-middle"
+    },
+    {
+      "plugin": "visibility",
+      "example": "visible"
+    },
+    {
+      "plugin": "whitespace",
+      "example": "whitespace-pre"
+    },
+    {
+      "plugin": "width",
+      "example": "w-0.5"
+    },
+    {
+      "plugin": "wordBreak",
+      "example": "break-words"
+    },
+    {
+      "plugin": "zIndex",
+      "example": "z-30"
+    }
+  ]
+}

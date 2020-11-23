@@ -1,4 +1,4 @@
-import { defaultConfig } from '@/utils/defaultConfig'
+import { defaultConfig } from '@/preval/output/defaultConfig'
 
 const scale = Object.keys(defaultConfig.theme.spacing)
   .map((name) => ({

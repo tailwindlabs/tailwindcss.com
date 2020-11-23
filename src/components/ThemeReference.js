@@ -1,4 +1,4 @@
-import { defaultConfig } from '@/utils/defaultConfig'
+import { defaultConfig } from '@/preval/output/defaultConfig'
 
 const descriptions = {
   screens: "Your project's responsive breakpoints",

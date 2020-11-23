@@ -1,4 +1,4 @@
-import { defaultConfig } from '@/utils/defaultConfig'
+import { defaultConfig } from '@/preval/output/defaultConfig'
 import { joinWithAnd } from '@/utils/joinWithAnd'
 import { ConfigSample } from '@/components/ConfigSample'
 
