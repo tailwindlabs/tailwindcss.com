@@ -137,7 +137,7 @@ export function ResizableCodeSample({
         ref={previewContainerRef}
         className={`relative rounded-t-xl ${containerBackground[color]}`}
       >
-        <div className={min ? 'w-88' : undefined}>
+        <div className={min ? 'md:w-88' : undefined}>
           <motion.div className="relative" style={{ marginRight: useTransform(x, (x) => -x) }}>
             {preview ? (
               <div
@@ -166,8 +166,8 @@ export function ResizableCodeSample({
             dragMomentum={false}
             dragElastic={0.08}
             dragConstraints={constraintsRef}
-            className={`pointer-events-auto absolute top-1/2 -mt-4 w-8 flex items-center justify-center cursor-grab active:cursor-grabbing ${
-              min ? 'left-0' : 'right-0'
+            className={`pointer-events-auto absolute top-1/2 -mt-4 w-8 hidden md:flex items-center justify-center cursor-grab active:cursor-grabbing ${
+              min ? 'right-0 md:left-0 md:right-auto' : 'right-0'
             }`}
             style={{ x }}
             onDragStart={() => {
