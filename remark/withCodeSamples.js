@@ -42,8 +42,8 @@ module.exports = () => {
       snippet = highlightCode(redent(snippet).trim(), 'html')
 
       const meta = node.meta ? node.meta.trim().split(/\s+/) : []
-      const resizable = meta.includes('resizable')
-      const color = meta.find((x) => x !== 'resizable')
+      const resizable = meta.find((x) => /^resizable(:|$)/.test(x))
+      const color = meta.find((x) => !/^resizable(:|$)/.test(x))
 
       if (resizable && !resizableComponent) {
         resizableComponent = addImport(tree, '@/components/CodeSample', 'ResizableCodeSample')
@@ -59,6 +59,7 @@ module.exports = () => {
           snippet={${JSON.stringify(snippet)}}
           previewClassName={${JSON.stringify(previewClassName)}}
           color={${JSON.stringify(color)}}
+          min={${JSON.stringify(resizable === 'resizable:min')}}
         />
       `.trim()
     })

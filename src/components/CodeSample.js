@@ -108,8 +108,14 @@ export function CodeSample({ preview, src, snippet, previewClassName, color = 'g
   )
 }
 
-export function ResizableCodeSample({ preview, src, previewClassName, snippet, color = 'gray' }) {
-  const [containerWidth, setContainerWidth] = useState()
+export function ResizableCodeSample({
+  preview,
+  src,
+  previewClassName,
+  snippet,
+  color = 'gray',
+  min = false,
+}) {
   const previewContainerRef = useRef()
   const x = useMotionValue(0)
   const constraintsRef = useRef()
@@ -117,9 +123,8 @@ export function ResizableCodeSample({ preview, src, previewClassName, snippet, c
 
   useEffect(() => {
     const observer = new window.ResizeObserver(() => {
-      setContainerWidth(previewContainerRef.current.offsetWidth)
+      x.set(0)
     })
-    setContainerWidth(previewContainerRef.current.offsetWidth)
     observer.observe(previewContainerRef.current)
     return () => {
       observer.disconnect()
@@ -132,26 +137,28 @@ export function ResizableCodeSample({ preview, src, previewClassName, snippet, c
         ref={previewContainerRef}
         className={`relative rounded-t-xl ${containerBackground[color]}`}
       >
-        <motion.div className="relative" style={{ marginRight: useTransform(x, (x) => -x) }}>
-          {preview ? (
-            <div
-              className={clsx('rounded-t-xl', previewClassName, previewBackground[color], {
-                'p-10': !previewClassName,
-              })}
-              dangerouslySetInnerHTML={{ __html: preview }}
-            />
-          ) : (
-            <Frame
-              src={src}
-              className={clsx('w-full rounded-t-xl', previewBackground[color], {
-                'pointer-events-none': dragging,
-              })}
-            />
-          )}
-        </motion.div>
+        <div className={min ? 'w-88' : undefined}>
+          <motion.div className="relative" style={{ marginRight: useTransform(x, (x) => -x) }}>
+            {preview ? (
+              <div
+                className={clsx('rounded-t-xl', previewClassName, previewBackground[color], {
+                  'p-10': !previewClassName,
+                })}
+                dangerouslySetInnerHTML={{ __html: preview }}
+              />
+            ) : (
+              <Frame
+                src={src}
+                className={clsx('w-full rounded-t-xl', previewBackground[color], {
+                  'pointer-events-none': dragging,
+                })}
+              />
+            )}
+          </motion.div>
+        </div>
         <div
           ref={constraintsRef}
-          className="absolute inset-y-0 -right-4 left-80 pointer-events-none"
+          className="absolute inset-y-0 -right-4 left-80 ml-4 pointer-events-none"
         >
           <motion.div
             drag="x"
@@ -159,7 +166,9 @@ export function ResizableCodeSample({ preview, src, previewClassName, snippet, c
             dragMomentum={false}
             dragElastic={0.08}
             dragConstraints={constraintsRef}
-            className="pointer-events-auto absolute top-1/2 right-0 -mt-4 w-8 flex items-center justify-center cursor-grab active:cursor-grabbing"
+            className={`pointer-events-auto absolute top-1/2 -mt-4 w-8 flex items-center justify-center cursor-grab active:cursor-grabbing ${
+              min ? 'left-0' : 'right-0'
+            }`}
             style={{ x }}
             onDragStart={() => {
               document.body.classList.add('cursor-grabbing')
