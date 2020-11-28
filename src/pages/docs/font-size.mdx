@@ -102,6 +102,25 @@ To control the font size of an element at a specific breakpoint, add a `{screen}
 
 For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
 
+### Interactions with line-height classes
+
+Since v2.0, `text-{size}` classes all include a specific line height as well. This means that if you set a different line height using one of the `leading-{size}` classes, you'll need to set it for each responsive size you choose for your text. This trade-off was chosen because as you change font sizes, you _probably will want to change the line height as well_, since there is no single, perfect line height for all sizes of a font.
+
+But if your design does call for a single line height across different font sizes, you have two options:
+
+#### Additional line-height classes for each screen size
+If there are only a few places in your design that this is a concern, use a `{screen}:leading-{size}` for each `{screen}:text-{size}` you have.
+
+```diff-html purple
+- <div class="leading-normal text-size-md **lg**:text-lg ">
++ <div class="leading-normal text-size-md **lg**:text-lg **lg**:leading-normal">
+    ...
+  </div>
+```
+
+#### Remove line-height from config
+If you'd rather `leading-{size}` stay consistent across responsive font sizes, you can override the default `fontSize` property in your tailwind config to _not_ include a line height for each size. (Such as the first example below.)
+
 ## Customizing
 
 ### Font Sizes
