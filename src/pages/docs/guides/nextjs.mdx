@@ -111,12 +111,12 @@ If you aren't planning to use them, you can safely delete any CSS files Next.js 
 
 #### Include Tailwind in a CSS file
 
-If you _are_ planning to write some custom CSS in your project, use the `@tailwind` directive to include Tailwind's `base`, `components`, and `utilities` styles inside your main CSS file.
+If you _are_ planning to write some custom CSS in your project, use the `@tailwind` directive to include Tailwind's `base`, `components`, and `utilities` styles inside a CSS file.
 
-You can use the `globals.css` file that is included when you create a Next.js application, or create your own CSS file from scratch.
+Create a Tailwind CSS file specifically for the Tailwind directives:
 
 ```css
-/* ./styles/global.css */
+/* ./styles/tailwind.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -124,13 +124,25 @@ You can use the `globals.css` file that is included when you create a Next.js ap
 
 Tailwind will swap these directives out at build-time with all of the styles it generates based on your configured design system.
 
+Your custom CSS should go in a separate global CSS file:
+
+```css
+/* ./styles/global.css */
+html {
+  /* ... */
+}
+```
+
+Separating your custom CSS from the Tailwind directives improves Next.js recompile time during development.
+
 Read our documentation on [adding base styles](/docs/adding-base-styles), [extracting components](/docs/extracting-components), and [adding new utilities](/docs/adding-new-utilities) for best practices on extending Tailwind with your own custom CSS.
 
-Finally, ensure your CSS file is being imported in your `pages/_app.js` component:
+Finally, ensure your CSS files are being imported in your `pages/_app.js` component:
 
 ```js
 // pages/_app.js
-import '../styles/globals.css'
+import '../styles/tailwind.css'
+import '../styles/global.css'
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
@@ -139,7 +151,7 @@ function MyApp({ Component, pageProps }) {
 export default MyApp
 ```
 
-If you've chosen to use a different file than the default `globals.css` file, you'll want to update the import accordingly.
+If you've chosen to use a different file than the default `tailwind.css` or `global.css` files, you'll want to update the import accordingly.
 
 ---
 
