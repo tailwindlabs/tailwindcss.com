@@ -112,4 +112,18 @@ Now, let's do something very similar in `architect.serve`:
   }
 ```
 
+## Automated add Tailwind in your Angular project with `ng add` command:
+
+You can optimize your time adding tailwind automatically. After create a Angular project running the `ng new my-project` command, in your project folder, run the following command:
+
+```bash
+ng add @ngneat/tailwind
+```
+
+This command will be install `tailwindcss`, `postcss`, `autoprefixer`, `postcss-loader` and `@angular-builders/custom-webpack`. Will also create `webpack.config.js` and `tailwind.config.js` files.
+
+`@ngneat/tailwind` uses built-in `purge` functionality by `tailwindcss`. By default, `@ngneat/tailwind` sets the content to any HTML and any TS files in the project.
+
+This behavior can be modified as the consumers see fit.
+
 You did it! 😅 Tailwind CSS is now available throughout our entire Angular application 🎉
