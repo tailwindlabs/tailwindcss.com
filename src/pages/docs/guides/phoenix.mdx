@@ -1,0 +1,185 @@
+---
+title: "Install Tailwind CSS with Phoenix"
+description: "Setting up Tailwind CSS in a Phoenix project."
+---
+
+## Creating your project
+
+Start by creating a new Phoenix project if you don't have one set up already.
+[Follow the Phoenix installation
+guide](https://hexdocs.pm/phoenix/installation.html#content) to get your project
+setup.
+
+If you're generating a new Phoenix application, the Phoenix generator will
+provide a Webpack configuration unless you opt out of it. Below, we will use the
+default Webpack configuration.
+
+```shell
+mix local.hex
+mix archive.install hex phx_new 1.5.7  # Make sure you get the latest version
+mix phx.new my_app
+# ... Phoenix will list files it creates...
+Fetch and install dependencies? [Yn] y
+cd my_app
+```
+
+Phoenix will prompt you to install dependencies; selecting `y` which will also
+fetch node dependencies with `npm`.
+
+The root folder for assets in Phoenix projects is in `./assets`, so to use `npm`
+you can either change into the assets directory and use `npm` normally, or use
+npm's `--prefix` flag from the project root folder, eg `npm --prefix assets
+my-command`.
+
+---
+
+### Install Tailwind via npm
+
+Install Tailwind and its peer-dependencies using `npm`:
+
+```shell
+npm --prefix assets install -D tailwindcss postcss@^8 autoprefixer@^10 postcss-loader
+```
+
+### Add Tailwind as a PostCSS plugin
+
+Add `tailwindcss` and `autoprefixer` to your PostCSS configuration. Most of the
+time this is a `assets/postcss.config.js` file at the root of your project, but
+it could also be a `assets/.postcssrc` file, or `postcss` key in your
+`assets/package.json` file.
+
+```js
+// assets/postcss.config.js
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  }
+}
+```
+
+If you're using any other PostCSS plugins, you should read our documentation on
+[using PostCSS as your preprocessor](/docs/using-with-preprocessors) for more
+details about the best way to order them with Tailwind.
+
+### Create your configuration file
+
+If you'd like to customize your Tailwind installation, generate a configuration
+file for your project using the Tailwind CLI utility included when you install
+the `tailwindcss` npm package:
+
+```shell
+(cd assets && npx tailwindcss init)
+```
+
+This will create a minimal `assets/tailwind.config.js` for your project:
+
+```js
+// assets/tailwind.config.js
+module.exports = {
+  purge: [],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+Learn more about configuring Tailwind in the [configuration documentation](/docs/configuration).
+
+### Configure Tailwind with Webpack
+
+In `assets/webpack.config.js`, add `postcss-loader` _above_ other preprocessors
+such as sass, and below the other loaders. Remember, Webpack runs these
+processors from bottom to top; we want pre-processors to process before
+`postcss-loader`.
+
+Learn more about [configuring postcss-loader](https://webpack.js.org/loaders/postcss-loader/).
+
+```diff-js
+// assets/webpack.config.js
+{
+  test: /\.[s]?css$/,
+  use: [
+    MiniCssExtractPlugin.loader,
+    'css-loader',
++   'postcss-loader',
+    'sass-loader',
+  ],
+}
+```
+
+### Configure Tailwind to remove unused styles in production
+
+In your `assets/tailwind.config.js` file, configure the `purge` option with the
+paths to all of your Phoenix templates and JavaScript components so Tailwind can
+tree-shake unused styles in production builds:
+
+```diff-js
+  // tailwind.config.js
+  module.exports = {
+-   purge: [],
++   purge: [
++     '../lib/my_app_web/live/**/*.ex',
++     '../lib/my_app_web/live/**/*.leex',
++     '../lib/my_app_web/templates/**/*.eex',
++     '../lib/my_app_web/templates/**/*.leex',
++     '../lib/my_app_web/views/**/*.ex',
++     './js/**/*.js'
++   ],
+    darkMode: false, // or 'media' or 'class'
+    theme: {
+      extend: {}
+    },
+    variants: {},
+    plugins: []
+  }
+```
+
+You will need to ensure PostCSS is ran with `NODE_ENV=production` when compiling
+your assets for production, otherwise purging may not actually run. To ensure
+this, edit `assets/package.json` script `deploy`:
+
+```diff-js
+- "deploy": "webpack --mode production",
++ "deploy": "NODE_ENV=production webpack --mode production",
+```
+
+Read our separate guide on [optimizing for
+production](/docs/optimizing-for-production) to learn more about tree-shaking
+unused styles for best performance.
+
+### Include Tailwind in your CSS
+
+In `assets/css/app.scss`, remove the placeholder Phoenix CSS, and add the
+tailwind directives.
+
+```diff-css
+// assets/css/app.scss
+- @import "./phoenix.css";
++ @tailwind base;
++ @tailwind components;
++ @tailwind utilities;
+```
+
+Phoenix generated with a Webpack configuration that extracts CSS from JavaScript
+and outputs compiled CSS into a separate file. This makes Phoenix flexible to
+use in conjunction with other front-end frameworks. You'll find the app.scss
+imported in `assets/js/app.js`.
+
+```js
+// assets/js/app.js
+import "../css/app.scss"
+```
+
+---
+
+You're finished! Now when you run `mix phx.server`, Phoenix will start Webpack
+in watch mode and live-reload CSS changes in your browser. Tailwind CSS is ready
+to use in your project.
+
+[Next learn about the utility-first workflow &rarr;](/docs/utility-first)

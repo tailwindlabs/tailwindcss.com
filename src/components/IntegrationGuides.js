@@ -6,6 +6,7 @@ import { ReactComponent as NextJsLogo } from '@/img/guides/nextjs.svg'
 import { ReactComponent as NuxtJsLogo } from '@/img/guides/nuxtjs.svg'
 import { ReactComponent as RailsLogo } from '@/img/guides/rails.svg'
 import { ReactComponent as SvelteLogo } from '@/img/guides/svelte.svg'
+import { ReactComponent as PhoenixLogo } from '@/img/guides/phoenix.svg'
 import { ReactComponent as Vue3Logo } from '@/img/guides/vue-3.svg'
 import Link from 'next/link'
 
@@ -39,6 +40,11 @@ const guides = [
     name: 'Gatsby',
     logo: GatsbyLogo,
     link: '/docs/guides/gatsby',
+  },
+  {
+    name: 'Phoenix',
+    logo: PhoenixLogo,
+    link: '/docs/guides/phoenix',
   },
 ]
 
