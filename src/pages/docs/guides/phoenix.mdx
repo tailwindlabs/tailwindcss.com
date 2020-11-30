@@ -59,7 +59,7 @@ module.exports = {
 ```
 
 If you're using any other PostCSS plugins, you should read our documentation on
-[using PostCSS as your preprocessor](/docs/using-with-preprocessors) for more
+[using PostCSS as your pre-processor](/docs/using-with-preprocessors) for more
 details about the best way to order them with Tailwind.
 
 ### Create your configuration file
@@ -93,9 +93,9 @@ Learn more about configuring Tailwind in the [configuration documentation](/docs
 
 ### Configure Tailwind with Webpack
 
-In `assets/webpack.config.js`, add `postcss-loader` _above_ other preprocessors
+In `assets/webpack.config.js`, add `postcss-loader` _above_ other pre-processors
 such as sass, and below the other loaders. Remember, Webpack runs these
-processors from bottom to top; we want pre-processors to process before
+processors from bottom to top, and we want pre-processors to process before
 `postcss-loader`.
 
 Learn more about [configuring postcss-loader](https://webpack.js.org/loaders/postcss-loader/).
