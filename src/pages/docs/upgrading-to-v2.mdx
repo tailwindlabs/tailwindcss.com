@@ -492,7 +492,7 @@ We don't support this anymore, so update any `@apply` statements and remove the 
 
 To speed up the removal of the dots you can use the following regex to find all leading dots that need to be removed and replace them with an empty string:
 
-```
+```regex
 (?<=@apply.*)\.
 ```
 
