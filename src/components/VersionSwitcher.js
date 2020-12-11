@@ -8,6 +8,8 @@ export function VersionSwitcher() {
     e.preventDefault()
     if (selectRef.current.value === 'v0') {
       window.location = 'https://tailwindcss-v0.netlify.app/'
+    } else if (selectRef.current.value === 'v2') {
+      window.location = 'https://tailwindcss.com/docs/'
     }
   }
 
@@ -20,7 +22,8 @@ export function VersionSwitcher() {
           className="appearance-none block bg-transparent pl-2 pr-8 py-1 text-gray-500 font-medium text-base focus:outline-none focus:text-gray-800"
           onChange={submit}
         >
-          <option value="v1">v{tailwindVersion}</option>
+          <option value="v2">v2.0</option>
+          <option value="v1" selected>v{tailwindVersion}</option>
           <option value="v0">v0.7.4</option>
         </select>
       </label>
