@@ -264,7 +264,7 @@ It also uses a negative lookbehind to make sure that if a string ends in `:`, th
 <div :class="{ hidden: !isOpen, ... }"><!-- ... --></div>
 ```
 
-It's important to note that because of the negative lookbehind in this regex, it's only compatible with Node.js 9.11.2 and above. If you need to use an older version of Node.js to build your assets, you can use this regular expression instead:
+It's important to note that because of the negative lookbehind in this regex, it's only compatible with Node.js 8.10.0 and above. If you need to use an older version of Node.js to build your assets, you can use this regular expression instead:
 
 
 ```diff
