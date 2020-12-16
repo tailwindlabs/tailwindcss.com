@@ -36,7 +36,7 @@ If this is a bit over your head and you'd like to try Tailwind without configuri
 For most projects (and to take advantage of Tailwind's customization features), you'll want to install Tailwind and its peer-dependencies via npm.
 
 ```shell
-npm install tailwindcss postcss autoprefixer
+npm install tailwindcss@latest postcss@latest autoprefixer@latest
 ```
 
 Since Tailwind [does not automatically add vendor prefixes](/docs/browser-support#vendor-prefixes) to the CSS it generates, we recommend installing [autoprefixer](https://github.com/postcss/autoprefixer) to handle this for you like we've shown in the snippet above.
@@ -187,7 +187,7 @@ Now you can pull this file into your HTML just like any other stylesheet:
 
 ### Using a custom CSS file
 
-If you'd like to process any custom CSS alongside the default styles Tailwind generates, create a CSS file wherever you normally would and use the `@tailwind` directive to including Tailwind's `base`, `components`, and `utilities` styles:
+If you'd like to process any custom CSS alongside the default styles Tailwind generates, create a CSS file wherever you normally would and use the `@tailwind` directive to include Tailwind's `base`, `components`, and `utilities` styles:
 
 ```css
 /* ./src/tailwind.css */
@@ -325,7 +325,7 @@ If you run into the error mentioned above, uninstall Tailwind and re-install usi
 
 ```shell
 npm uninstall tailwindcss postcss autoprefixer
-npm install tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+npm install tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
 ```
 
 The compatibility build is identical to the main build in every way, so you aren't missing out on any features or anything like that.

@@ -1,6 +1,7 @@
 ---
 title: "Install Tailwind CSS with Angular"
 description: "Setting up Tailwind CSS in an Angular project."
+tool: Angular
 ---
 
 <!--
@@ -9,32 +10,43 @@ Launch day test: Angular works with the normal tailwindcss package 🎉
 #####
 -->
 
-## Creating your project
+## Automated add Tailwind in your Angular project with `ng add` command:
 
-Start by creating a new Angular project if you don't have one set up already. The most common approach is to use the [Angular CLI](https://angular.io/guide/setup-local#install-the-angular-cli):
+You can save time by adding tailwind automatically. After creating a Angular project running the `ng new my-project` command, in your project folder, run the following command:
 
-```shell
-ng new my-project
+```bash
+ng add @ngneat/tailwind
 ```
 
-## Setting up Tailwind CSS
+This command will be install `tailwindcss`, `postcss`, `autoprefixer`, `postcss-loader` and `@angular-builders/custom-webpack`. Will also create `webpack.config.js` and `tailwind.config.js` files.
 
-Install Tailwind, Autoprefixer using `npm` or `yarn`:
+`@ngneat/tailwind` uses built-in `purge` functionality by `tailwindcss`. By default, `@ngneat/tailwind` sets the content to any HTML and any TS files in the project.
 
-```shell
-npm install tailwindcss postcss autoprefixer
+This behavior can be modified as the consumers see fit.
+
+
+```preval installation
+tool: Angular 
+reference:
+  name: Angular CLI
+  link: https://angular.io/guide/setup-local#install-the-angular-cli
+script: ng new 
 ```
 
-We'll also need to install `postcss-loader` and `@angular-builders/custom-webpack` to provide a custom webpack config to our Angular project, which handles PostCSS for us:
-
-```shell
-npm i -D postcss-loader @angular-builders/custom-webpack
+```preval setup
+version: latest 
+dependencies:
+  - postcss-loader
+  - '@angular-builders/custom-webpack'
 ```
 
-Next, let's generate default `tailwind.config.js` and `postcss.config.js` files:
 
-```shell
-npx tailwindcss init -p
+```preval configuration
+postcss: false
+purge: 
+  - ./resources/**/*.blade.php
+  - ./resources/**/*.js
+  - ./resources/**/*.vue
 ```
 
 Next, let's create a `webpack.config.js` at the root of our project, and tell webpack to handle CSS files with the `postcss-loader`:
@@ -58,12 +70,8 @@ module.exports = {
 }
 ```
 
-In our Angular project, let's add our three `@tailwind` directives to our global stylesheet in `src/styles.css`:
-
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+```preval include
+file: ./src/styles.css
 ```
 
 Finally, we need to update the `angular.json` file to let it know about our custom webpack config. We'll need to update the `architect.build` and `architect.serve` sections of the config.
@@ -112,18 +120,14 @@ Now, let's do something very similar in `architect.serve`:
   }
 ```
 
-## Automated add Tailwind in your Angular project with `ng add` command:
-
-You can optimize your time adding tailwind automatically. After create a Angular project running the `ng new my-project` command, in your project folder, run the following command:
-
-```bash
-ng add @ngneat/tailwind
+```preval configuration
+purge: 
+  - ./path/to/files 
 ```
 
-This command will be install `tailwindcss`, `postcss`, `autoprefixer`, `postcss-loader` and `@angular-builders/custom-webpack`. Will also create `webpack.config.js` and `tailwind.config.js` files.
+---
 
-`@ngneat/tailwind` uses built-in `purge` functionality by `tailwindcss`. By default, `@ngneat/tailwind` sets the content to any HTML and any TS files in the project.
-
-This behavior can be modified as the consumers see fit.
-
-You did it! 😅 Tailwind CSS is now available throughout our entire Angular application 🎉
+```preval finish
+scripts:
+  - npm run start
+```
