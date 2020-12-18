@@ -3,6 +3,8 @@ title: Browser Support
 description: Understanding which browsers Tailwind supports and how to manage vendor prefixes.
 ---
 
+import { CodeBlock, CodeGroup } from '@/components/CodeGroup'
+
 As of v2.0, Tailwind CSS is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. Tailwind CSS v2.0 does not support any version of IE, including IE 11.
 
 If you need to support IE 11, we recommend using Tailwind CSS v1.9, which is still an excellent and very productive framework.
@@ -15,15 +17,24 @@ If you're compiling your CSS using the `tailwindcss` CLI tool, vendor prefixes w
 
 If not, we recommend that you use [Autoprefixer](https://github.com/postcss/autoprefixer).
 
-To use it, install it via npm:
+To use it, install it using your favorite package manager:
+
+<CodeGroup>
+  <CodeBlock label="NPM">
 
 ```shell
-# Using npm
 npm install autoprefixer
+```
 
-# Using Yarn
+  </CodeBlock>
+  <CodeBlock label="Yarn">
+
+```shell
 yarn add autoprefixer
 ```
+
+  </CodeBlock>
+</CodeGroup>
 
 Then add it to the very end of your plugin list in your PostCSS configuration:
 

@@ -3,6 +3,8 @@ title: "Upgrade Guide"
 description: "Upgrading from Tailwind CSS v1.x to v2.0."
 ---
 
+import { CodeGroup, CodeBlock } from '@/components/CodeGroup'
+
 Tailwind CSS v2.0 is the first new major version since v1.0 was released in May 2019, and as such it includes a handful of small breaking changes.
 
 We don't take breaking changes lightly and have worked hard to make sure the upgrade path is as simple as possible. For most projects, upgrading should take less than 30 minutes.
@@ -15,11 +17,24 @@ If your project uses the `@tailwindcss/ui` plugin, be sure to read the [Tailwind
 
 Tailwind CSS v2.0 has been updated for the latest PostCSS release which requires installing `postcss` and `autoprefixer` as peer dependencies alongside Tailwind itself.
 
-Update Tailwind and install PostCSS and autoprefixer using npm:
+Update Tailwind and install PostCSS and autoprefixer:
+
+<CodeGroup>
+  <CodeBlock label="NPM">
 
 ```shell
 npm install tailwindcss@latest postcss@latest autoprefixer@latest
 ```
+
+  </CodeBlock>
+  <CodeBlock label="Yarn">
+
+```shell
+yarn add tailwindcss@latest postcss@latest autoprefixer@latest
+```
+
+  </CodeBlock>
+</CodeGroup>
 
 If you run into issues, you may need to use our [PostCSS 7 compatibility build](/docs/installation#post-css-7-compatibility-build) instead.
 

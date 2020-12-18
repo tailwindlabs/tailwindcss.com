@@ -8,8 +8,7 @@ import { List, ListItemBad } from '@/components/List'
 import { IntegrationGuides } from '@/components/IntegrationGuides'
 import Link from 'next/link'
 import stats from '@/utils/stats'
-
-
+import { CodeGroup, CodeBlock } from '@/components/CodeGroup'
 
 ## Integration guides
 
@@ -31,13 +30,27 @@ If you've never heard of PostCSS or are wondering how it's different from tools 
 
 If this is a bit over your head and you'd like to try Tailwind without configuring PostCSS, read our instructions on [using Tailwind without PostCSS](#using-tailwind-without-post-css) instead.
 
-### Install Tailwind via npm
+### Install Tailwind
 
-For most projects (and to take advantage of Tailwind's customization features), you'll want to install Tailwind and its peer-dependencies via npm.
+For most projects (and to take advantage of Tailwind's customization features), you'll want to install Tailwind and its peer-dependencies.
+
+<CodeGroup>
+  <CodeBlock label="NPM">
 
 ```shell
 npm install tailwindcss@latest postcss@latest autoprefixer@latest
 ```
+
+  </CodeBlock>
+  <CodeBlock label="Yarn">
+
+```shell
+yarn add tailwindcss@latest postcss@latest autoprefixer@latest
+```
+
+  </CodeBlock>
+</CodeGroup>
+
 
 Since Tailwind [does not automatically add vendor prefixes](/docs/browser-support#vendor-prefixes) to the CSS it generates, we recommend installing [autoprefixer](https://github.com/postcss/autoprefixer) to handle this for you like we've shown in the snippet above.
 
@@ -122,7 +135,7 @@ import "tailwindcss/tailwind.css"
 
 ### Building your CSS
 
-How you actually build your project will depend on the tools that you're using. Your framework may include a command like `npm run dev` to start a development server that compiles your CSS in the background, you may be running `webpack` yourself, or maybe you're using `postcss-cli` and running a command like `postcss styles.css -o compiled.css`.
+How you actually build your project will depend on the tools that you're using. Your framework may include a command like `npm run dev` / `yarn dev` to start a development server that compiles your CSS in the background, you may be running `webpack` yourself, or maybe you're using `postcss-cli` and running a command like `postcss styles.css -o compiled.css`.
 
 If you're already familiar with PostCSS you probably know what you need to do, if not refer to the documentation for the tool you are using.
 
@@ -323,16 +336,46 @@ To help bridge the gap until everyone has updated, we also publish a PostCSS 7 c
 
 If you run into the error mentioned above, uninstall Tailwind and re-install using the compatibility build instead:
 
+<CodeGroup>
+  <CodeBlock label="NPM">
+
 ```shell
 npm uninstall tailwindcss postcss autoprefixer
 npm install tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
 ```
 
+  </CodeBlock>
+  <CodeBlock label="Yarn">
+
+```shell
+yarn remove tailwindcss postcss autoprefixer
+yarn add tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+```
+
+  </CodeBlock>
+</CodeGroup>
+
+
 The compatibility build is identical to the main build in every way, so you aren't missing out on any features or anything like that.
 
 Once the rest of your tools have added support for PostCSS 8, you can move off of the compatibility build by re-installing Tailwind and its peer-dependencies using the `latest` tag:
+
+<CodeGroup>
+  <CodeBlock label="NPM">
 
 ```shell
 npm uninstall tailwindcss @tailwindcss/postcss7-compat
 npm install tailwindcss@latest postcss@latest autoprefixer@latest
 ```
+
+  </CodeBlock>
+  <CodeBlock label="Yarn">
+
+```shell
+yarn remove tailwindcss @tailwindcss/postcss7-compat
+yarn add tailwindcss@latest postcss@latest autoprefixer@latest
+```
+
+  </CodeBlock>
+</CodeGroup>
+

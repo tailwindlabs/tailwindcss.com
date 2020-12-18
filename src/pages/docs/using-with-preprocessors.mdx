@@ -4,6 +4,7 @@ description: A guide to using Tailwind with common CSS preprocessors like Sass, 
 ---
 
 import { TipGood, TipBad } from '@/components/Tip'
+import { CodeGroup, CodeBlock } from '@/components/CodeGroup'
 
 Since Tailwind is a PostCSS plugin, there's nothing stopping you from using it with Sass, Less, Stylus, or other preprocessors, just like you can with other PostCSS plugins like [Autoprefixer](https://github.com/postcss/autoprefixer).
 
@@ -30,15 +31,24 @@ One of the most useful features preprocessors offer is the ability to organize y
 
 The canonical plugin for handling this with PostCSS is [postcss-import](https://github.com/postcss/postcss-import).
 
-To use it, install the plugin via npm:
+To use it, install the plugin:
+
+<CodeGroup>
+  <CodeBlock label="NPM">
 
 ```shell
-# npm
 npm install postcss-import
+```
 
-# yarn
+  </CodeBlock>
+  <CodeBlock label="Yarn">
+
+```shell
 yarn add postcss-import
 ```
+
+  </CodeBlock>
+</CodeGroup>
 
 Then add it as the very first plugin in your PostCSS configuration:
 
@@ -132,15 +142,24 @@ To add support for nested declarations, you have two options:
 
 - [postcss-nesting](https://github.com/jonathantneal/postcss-nesting), which follows the [CSS Nesting](https://drafts.csswg.org/css-nesting-1/) specification that will hopefully be available directly in the browser in the future.
 
-To use either of these plugins, install them via npm:
+To use either of these plugins, install them:
+
+<CodeGroup>
+  <CodeBlock label="NPM">
 
 ```shell
-# npm
 npm install postcss-nested  # or postcss-nesting
+```
 
-# yarn
+  </CodeBlock>
+  <CodeBlock label="Yarn">
+
+```shell
 yarn add postcss-nested  # or postcss-nesting
 ```
+
+  </CodeBlock>
+</CodeGroup>
 
 Then add them to your PostCSS configuration, somewhere after Tailwind itself but before Autoprefixer:
 
@@ -162,15 +181,24 @@ These days CSS variables (officially known as custom properties) have really goo
 
 However if you need to support IE11, you can use the [postcss-custom-properties](https://github.com/postcss/postcss-custom-properties) plugin to automatically create fallbacks for your variables.
 
-To use it, install it via npm:
+To use it, install it using your favorite package manager:
+
+<CodeGroup>
+  <CodeBlock label="NPM">
 
 ```shell
-# npm
 npm install postcss-custom-properties
+```
 
-# yarn
+  </CodeBlock>
+  <CodeBlock label="Yarn">
+
+```shell
 yarn add postcss-custom-properties
 ```
+
+  </CodeBlock>
+</CodeGroup>
 
 Then add it to your PostCSS configuration, somewhere after Tailwind itself but before Autoprefixer:
 
@@ -191,15 +219,24 @@ module.exports = {
 
 You can add support for dozens of upcoming CSS features to your project using the [postcss-preset-env](https://github.com/csstools/postcss-preset-env) plugin.
 
-To use it, install it via npm:
+To use it, install it using your favorite package manager:
+
+<CodeGroup>
+  <CodeBlock label="NPM">
 
 ```shell
-# npm
 npm install postcss-preset-env
+```
 
-# yarn
+  </CodeBlock>
+  <CodeBlock label="Yarn">
+
+```shell
 yarn add postcss-preset-env
 ```
+
+  </CodeBlock>
+</CodeGroup>
 
 Then add it to your PostCSS configuration somewhere after Tailwind itself:
 
