@@ -59,7 +59,7 @@ module.exports = {
 ```
 
 If you're using any other PostCSS plugins, you should read our documentation on
-[using PostCSS as your pre-processor](/docs/using-with-preprocessors) for more
+[using PostCSS as your preprocessor](/docs/using-with-preprocessors) for more
 details about the best way to order them with Tailwind.
 
 ### Create your configuration file
@@ -93,9 +93,9 @@ Learn more about configuring Tailwind in the [configuration documentation](/docs
 
 ### Configure Tailwind with Webpack
 
-In `assets/webpack.config.js`, add `postcss-loader` _above_ other pre-processors
+In `assets/webpack.config.js`, add `postcss-loader` _above_ other preprocessors
 such as sass, and below the other loaders. Remember, Webpack runs these
-processors from bottom to top, and we want pre-processors to process before
+processors from bottom to top, and we want preprocessors to process before
 `postcss-loader`.
 
 Learn more about [configuring postcss-loader](https://webpack.js.org/loaders/postcss-loader/).
@@ -183,3 +183,87 @@ in watch mode and live-reload CSS changes in your browser. Tailwind CSS is ready
 to use in your project.
 
 [Next learn about the utility-first workflow &rarr;](/docs/utility-first)
+
+However, since Phoenix generates with the Sass preprocessor by default and
+Tailwind CSS uses PostCSS as a processor, you should be aware of how these tools
+may conflict with each other.
+
+[Read how to use Tailwind with preprocessors &rarr;](/docs/using-with-preprocessors#using-sass-less-or-stylus).
+
+To avoid these conflicts, continue on to remove Sass.
+
+### Remove Sass
+
+We recommend using PostCSS as your preprocessor instead of Sass to avoid
+conflicts. Therefore we will remove Sass from your project and rely only on
+PostCSS. At the same time, we will add PostCSS plugins which provide Sass-like
+features.
+
+If you're migrating an existing Phoenix project to Tailwind CSS, it may require
+more effort and is outside the scope of this "Getting Started" guide.
+
+Remove Sass tools from the npm package.
+
+```shell
+npm --prefix assets uninstall -D sass node-sass sass-loader
+mv assets/css/app.{s,}css
+```
+
+Update Webpack CSS loader file matchers and loaders:
+
+```diff-js
+// assets/webpack.config.js
+{
++ test: /\.css$/,
+- test: /\.[s]?css$/,
+  use: [
+    MiniCssExtractPlugin.loader,
+    'css-loader',
+    'postcss-loader',
+-   'sass-loader',
+  ],
+}
+```
+
+Update the reference to your CSS files in the JavaScript bundles:
+
+```diff-js
+// assets/js/app.js
+- import "../css/app.scss"
++ import "../css/app.css"
+```
+
+Add PostCSS plugins to provide Sass-like features. Ensure you place
+`postcss-import` above the other plugins.
+
+```shell
+npm --prefix assets install -D postcss-import postcss-nested
+```
+
+```diff-js
+// assets/postcss.config.js
+module.exports = {
+  plugins: {
++   'postcss-import': {},
++   'postcss-nested': {},
+    tailwindcss: {},
+    autoprefixer: {},
+  }
+}
+```
+
+Lastly, change the `@tailwind` directives to `@import` directives:
+
+```diff-css
+// assets/js/app.css
+- @tailwind base;
+- @tailwind components;
+- @tailwind utilities;
++ @import "tailwindcss/base";
++ @import "tailwindcss/components";
++ @import "tailwindcss/utilities";
+```
+
+That's it! Now PostCSS is your preprocessor.
+
+[Read more about using PostCSS as your preprocessor &rarr;](/docs/using-with-preprocessors#using-post-css-as-your-preprocessor)
