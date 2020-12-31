@@ -238,7 +238,30 @@ module.exports = {
 }
 ```
 
-A list of available options can be found in the [PurgeCSS documentation](https://purgecss.com/configuration.html#options).
+A list of available options can be found in the [PurgeCSS documentation](https://purgecss.com/plugins/postcss.html#options).
+
+### Purging conditionally
+
+It is possible to use `contentFunction` that is available in PostCSS plugin for PurgeCSS to conditionally purge unused CSS.
+This function allows you to define content based on filename, so styles can be purged per module, page or even single component.
+
+```js
+// tailwind.config.js
+module.exports = {
+  purge: {
+      options: {
+          contentFunction: (filename) => {
+            if (filename.includes('css/admin.css') {
+              return ['./src/admin/**/*.html'];
+            }
+            
+            return ['./src/app/**/*.html'];
+          },
+      }
+  },
+  // ...
+}
+```
 
 ---
 
