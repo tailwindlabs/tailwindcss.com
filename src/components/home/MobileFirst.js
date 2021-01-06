@@ -95,7 +95,7 @@ const { code: html, lines, classNames } = tokenizeWithLines.html(
         imgSmContainer: 'relative hidden',
       },
       md: {
-        container: 'grid grid-cols-2 px-8 py-12 gap-x-8',
+        container: 'grid grid-cols-2 px-8 py-12 gap-x-8 pt-0',
         header: 'relative z-10 col-start-1 row-start-1 bg-none',
         preheading: 'text-sm font-medium mb-1 text-gray-500',
         heading: 'text-2xl leading-7 font-semibold text-black',
