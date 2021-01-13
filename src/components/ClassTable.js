@@ -123,6 +123,14 @@ export const ClassTable = memo(
                 {sort(Object.keys(utilities)).map((utility, i) => {
                   let selector = utility
                   let properties = utilities[selector]
+                  let tailwindClass = transformSelector(selector)
+                  let tailwindProperties = stringifyProperties(
+                    transformProperties({ selector, properties }),
+                    {
+                      filter: filterProperties,
+                      transformValue,
+                    }
+                  )
 
                   return (
                     <tr key={utility}>
@@ -133,8 +141,23 @@ export const ClassTable = memo(
                             'border-t border-gray-200': i !== 0,
                           }
                         )}
+                        onClick={() => {
+                          /**
+                           * Returns a promise which is resolved once the clipboard's contents have been updated.
+                           * The promise is rejected if the caller does not have permission to write to the clipboard.
+                           *
+                           * Source: https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText#return_value
+                           */
+                          if (typeof navigator.clipboard === 'object') {
+                            navigator.clipboard.writeText(tailwindClass)
+                            /**
+                             * .then((res) => console.log(res)) // returns undefined
+                             *  .catch((error) => console.error(error))
+                             *  */
+                          }
+                        }}
                       >
-                        {transformSelector(selector)}
+                        {tailwindClass}
                       </td>
                       <td
                         className={clsx(
@@ -144,11 +167,17 @@ export const ClassTable = memo(
                             'hidden sm:table-cell sm:pr-2': preview,
                           }
                         )}
+                        onClick={() => {
+                          if (typeof navigator.clipboard === 'object') {
+                            navigator.clipboard.writeText(tailwindProperties)
+                            /**
+                             * .then(() => console.log(tailwindProperties))
+                             * .catch((error) => console.error(error))
+                             */
+                          }
+                        }}
                       >
-                        {stringifyProperties(transformProperties({ selector, properties }), {
-                          filter: filterProperties,
-                          transformValue,
-                        })}
+                        {tailwindProperties}
                       </td>
                       {preview &&
                         preview(properties, {
