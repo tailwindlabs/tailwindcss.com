@@ -18,7 +18,7 @@ npmInstall: true
 ```preval setup
 dev: true
 soon: true
-version: compat-7
+version: latest
 ```
 
 ```preval configuration
@@ -27,6 +27,7 @@ types:
   - Blade templates
   - JavaScript components
 purge: 
+  - ./app/**/*.php
   - ./resources/**/*.blade.php
   - ./resources/**/*.js
   - ./resources/**/*.vue
