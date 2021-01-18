@@ -657,3 +657,29 @@ If you are referencing any configured keyframes in custom CSS, you'll want to ma
 ```
 
 This only matters if you've configured a prefix _and_ you're referencing configured keyframes in custom CSS files. If this affects more than two people on the entire planet I will be absolutely amazed.
+
+## Breakpoint changes
+
+Tailwind 2.0 adds the 2xl breakpoint, which will mess up some uses of ``container``. To get around this, remove the 2xl breakpoint.
+```diff-js
+// tailwind.config.js
+module.exports = {
+  purge: [
+  // ...
+  ],
+  theme: {
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+    }
+    // ...
+   },
+  variants: {
+    // ...
+  }
+}
+
+```
+
