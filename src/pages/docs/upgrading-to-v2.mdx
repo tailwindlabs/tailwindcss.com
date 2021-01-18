@@ -660,7 +660,7 @@ This only matters if you've configured a prefix _and_ you're referencing configu
 
 ## Breakpoint changes
 
-Tailwind 2.0 adds the 2xl breakpoint, which will mess up some uses of ``container``. To get around this, remove the 2xl breakpoint.
+Tailwind 2.0 adds the 2xl breakpoint, which will mess up some uses of ``container``. In some cases, you may lose margins, causing layouts to fail. If this happens to you, remove the 2xl breakpoint.
 ```diff-js
 // tailwind.config.js
 module.exports = {
@@ -668,12 +668,12 @@ module.exports = {
   // ...
   ],
   theme: {
-    screens: {
-      sm: '640px',
-      md: '768px',
-      lg: '1024px',
-      xl: '1280px',
-    }
++    screens: {
++      sm: '640px',
++      md: '768px',
++      lg: '1024px',
++      xl: '1280px',
++    }
     // ...
    },
   variants: {
