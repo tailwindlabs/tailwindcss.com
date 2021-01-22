@@ -55,10 +55,10 @@ export function Search() {
         ref={searchButtonRef}
         onClick={onOpen}
         className={clsx(
-          'transition-colors duration-100 ease-in-out text-gray-600 py-2 pr-4 pl-10 block w-full appearance-none leading-normal border border-transparent rounded-lg focus:outline-none text-left select-none truncate',
+          'transition-colors duration-100 ease-in-out text-gray-600 py-2 pr-4 pl-10 block w-full appearance-none leading-normal border border-transparent rounded-lg text-left select-none truncate',
           {
-            'bg-white shadow-md focus:shadow-outline': isHome,
-            'focus:bg-white focus:border-gray-300 bg-gray-200': !isHome,
+            'bg-white shadow-md': isHome,
+            'bg-gray-200': !isHome,
           }
         )}
       >
