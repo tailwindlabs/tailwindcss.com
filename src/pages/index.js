@@ -87,7 +87,7 @@ export default function Home() {
         <div className="px-4 sm:px-6 md:px-8 mb-14 sm:mb-20 xl:mb-8">
           <div className="border-b border-gray-200 py-4 flex items-center justify-between mb-16 sm:mb-20 -mx-4 px-4 sm:mx-0 sm:px-0">
             <Search />
-            <div className="flex space-x-6 sm:space-x-10">
+            <div className="flex space-x-6 sm:space-x-10 ml-6 sm:ml-10">
               <NextLink href="/docs">
                 <a className="text-base leading-6 font-medium hover:text-gray-600 transition-colors duration-200">
                   <span className="sm:hidden">Docs</span>
