@@ -106,9 +106,9 @@ You can always add default list styles to your project by [adding your own base 
 
 If you'd like to selectively introduce default list styles into article-style parts of a page, we recommend the [@tailwindcss/typography plugin](/docs/typography-plugin/).
 
-### Accessibility of unstyled lists
+### Accessibility considerations
 
-Unstyled lists are not announced as lists by Apple's VoiceOver screen reader (as noted in this [article by Gerard K. Cohen](https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/)). One fix (recommended in this [arcticle by Scott O'Hara](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html)) is to add the ARIA role of "list" to the element like this:
+Unstyled lists are [not announced as lists by VoiceOver](https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/). If your content is truly a list but you would like to keep it unstyled, [add a "list" role](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html) to the element:
 
 ```html
 <ul role="list">
@@ -117,8 +117,6 @@ Unstyled lists are not announced as lists by Apple's VoiceOver screen reader (as
   <li>Three</li>
 </ul>
 ```
-
-This should be done if the contents truly represent a list so that VoiceOver users will have that information announced correctly to them.
 
 ---
 
