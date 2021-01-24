@@ -685,18 +685,16 @@ export function ComponentDriven() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-amber-500 mb-3">
-          Component-driven
+          组件驱动
         </Caption>
         <BigText className="mb-8">
-          <Widont>Worried about duplication? Don’t be.</Widont>
+          <Widont>担心重复？想多了</Widont>
         </BigText>
         <Paragraph className="mb-6">
-          If you're repeating the same utilities over and over and over again, all you have to do is
-          extract them into a component or template partial and boom — you've got a single source of
-          truth so you can make changes in one place.
+          如果你使用了很多相同的工具类名, 那么你需要做的就是把他们提起到组件或者魔板中。只需要修改一处地方，即可修改全部应用到的地方。
         </Paragraph>
         <Link href="/docs/extracting-components" className="text-amber-500 hover:text-amber-700">
-          Learn more -&gt;
+          了解更多 -&gt;
         </Link>
       </div>
       <GradientLockup
@@ -802,12 +800,10 @@ export function ComponentDriven() {
       />
       <div className="px-4 sm:px-6 md:px-8 mt-16 sm:mt-24 md:mt-32 mb-10 sm:mb-16 md:mb-20 lg:mb-8">
         <Paragraph className="mb-6">
-          Not into component frameworks and like to keep it old school? Use Tailwind's @apply
-          directive to extract repeated utility patterns into custom CSS classes just by copying and
-          pasting the list of class names.
+          如果你喜欢传统的写法，你可以使用Tailwind的@apply指令将工具类继承到自定义的css类中。
         </Paragraph>
         <Link href="/docs/extracting-components" className="text-orange-500 hover:text-orange-700">
-          Learn more -&gt;
+          了解更多 -&gt;
         </Link>
       </div>
       <AtApplySection />

@@ -269,17 +269,16 @@ export function MobileFirst() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-violet-600 mb-3">
-          Mobile-first
+          移动优先
         </Caption>
-        <BigText className="mb-8">Responsive everything.</BigText>
+        <BigText className="mb-8">一切都可以自适应</BigText>
         <Paragraph as="div" className="mb-6">
           <p>
-            Wrestling with a bunch of complex media queries in your CSS sucks, so Tailwind lets you
-            build responsive designs right in your HTML instead.
+          在CSS中处理一堆复杂的媒体查询很蛋疼，所以Tailwind可以让你在HTML中构建响应式设计。就像我们说的：专注于HTML。
+
           </p>
           <p>
-            Throw a screen size in front of literally any utility class and watch it magically apply
-            at a specific breakpoint.
+          在任何类名面前设置一个屏幕大小，然后看着它神奇地应用于特定的屏幕尺寸断点。
           </p>
         </Paragraph>
         <Link href="/docs/responsive-design" className="text-violet-600 hover:text-violet-800">

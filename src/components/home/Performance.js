@@ -105,16 +105,14 @@ export function Performance() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-teal-500 mb-3">
-          Performance
+          性能
         </Caption>
-        <BigText className="mb-8">It’s tiny in production.</BigText>
+        <BigText className="mb-8">体积非常小</BigText>
         <Paragraph className="mb-6">
-          Tailwind automatically removes all unused CSS when building for production, which means
-          your final CSS bundle is the smallest it could possibly be. In fact, most Tailwind
-          projects ship less than 10KB of CSS to the client.
+          在构建production的时候，Tailwind 自动移除那些没有使用过的类名，这意味着你最终的css包会尽可能的小。实际上，大部分Tailwind的项目css文件都不会超过10KB。
         </Paragraph>
         <Link href="/docs/optimizing-for-production" className="text-teal-500 hover:text-teal-700">
-          Learn more -&gt;
+          了解更多 -&gt;
         </Link>
       </div>
       <GradientLockup
