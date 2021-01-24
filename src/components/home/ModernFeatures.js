@@ -140,24 +140,21 @@ export function ModernFeatures() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-purple-600 mb-3">
-          Modern features
+        现代化特性
         </Caption>
         <BigText className="mb-8">
-          <Widont>Cutting-edge is our comfort zone.</Widont>
+          <Widont>前沿高新的特性才是我们的舒适区。</Widont>
         </BigText>
         <Paragraph as="div" className="mb-6">
           <p>
-            Tailwind is unapologetically modern, and takes advantage of all the latest and greatest
-            CSS features to make the developer experience as enjoyable as possible.
+            Tailwind提供最新最好的css前沿特性，让开发人员的体验更加完美。
           </p>
           <p>
-            We've got first-class CSS grid support, composable transforms and gradients powered by
-            CSS variables, support for modern state selectors like <code>:focus-visible</code>, and
-            tons more.
+            我们有一流的css网格支持，以及组合的transforms，css变量驱动渐变，以及现代化状态选择器，如：focus-visible等。
           </p>
         </Paragraph>
         <Link href="/docs/grid-template-columns" className="text-purple-600 hover:text-purple-800">
-          Learn more -&gt;
+          了解更多 -&gt;
         </Link>
       </div>
       <GradientLockup

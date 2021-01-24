@@ -189,19 +189,16 @@ export function ConstraintBased() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-purple-600 mb-3">
-          Constraint-based
+          基本规范
         </Caption>
         <BigText className="mb-8">
-          <Widont>An API for your design system.</Widont>
+          <Widont>你的设计系统API</Widont>
         </BigText>
         <Paragraph className="mb-6">
-          Utility classes help you work within the constraints of a system instead of littering your
-          stylesheets with arbitrary values. They make it easy to be consistent with color choices,
-          spacing, typography, shadows, and everything else that makes up a well-engineered design
-          system.
+          工具集css框架，让你根据设计规范内去工作，不能任意修改样式表里面的内容.工具集很轻松就可以预设好颜色、间距、排版、阴影以及其他的设计元素.让你像调用API一样，直接使用对应的类名来完成设计.
         </Paragraph>
         <Link href="/docs/utility-first" className="text-purple-600 hover:text-purple-800">
-          Learn more -&gt;
+          了解更多 -&gt;
         </Link>
       </div>
       <GradientLockup

@@ -7,36 +7,102 @@ const pages = createPageList(
 
 export const documentationNav = {
   'Getting started': [
-    pages['installation'],
     {
-      title: 'Release Notes',
+      ...pages['installation'],
+      title: '安装',
+    },
+    {
+      title: '发布说明',
       href: 'https://blog.tailwindcss.com/tailwindcss-v2',
     },
-    pages['upgrading-to-v2'],
-    pages['using-with-preprocessors'],
-    pages['optimizing-for-production'],
-    pages['browser-support'],
-    pages['intellisense'],
+    {
+      ...pages['upgrading-to-v2'],
+      title: '升级到V2',
+    },
+    {
+      ...pages['using-with-preprocessors'],
+      title: '使用预处理器',
+    },
+    {
+      ...pages['optimizing-for-production'],
+      title: '优化生产环境',
+    },
+    {
+      ...pages['browser-support'],
+      title: '浏览器兼容性',
+    },
+    {
+      ...pages['intellisense'],
+      title: '智能提示',
+    },
   ],
   'Core Concepts': [
-    pages['utility-first'],
-    pages['responsive-design'],
-    pages['hover-focus-and-other-states'],
-    pages['dark-mode'],
-    pages['adding-base-styles'],
-    pages['extracting-components'],
-    pages['adding-new-utilities'],
-    pages['functions-and-directives'],
+    {
+      ...pages['utility-first'],
+      title: '工具类优先',
+    },
+    {
+      ...pages['responsive-design'],
+      title: '自适应设计',
+    },
+    {
+      ...pages['hover-focus-and-other-states'],
+      title: 'hover & focus & 其他各种状态',
+    },
+    {
+      ...pages['dark-mode'],
+      title: '暗黑模式',
+    },
+    {
+      ...pages['adding-base-styles'],
+      title: '添加基础样式',
+    },
+    {
+      ...pages['extracting-components'],
+      title: '扩展组件',
+    },
+    {
+      ...pages['adding-new-utilities'],
+      title: '添加工具类',
+    },
+    {
+      ...pages['functions-and-directives'],
+      title: '方法 & 指令',
+    },
   ],
   Customization: [
-    pages['configuration'],
-    pages['theme'],
-    pages['breakpoints'],
-    pages['customizing-colors'],
-    pages['customizing-spacing'],
-    pages['configuring-variants'],
-    pages['plugins'],
-    pages['presets'],
+    {
+      ...pages['configuration'],
+      title: '配置',
+    },
+    {
+      ...pages['theme'],
+      title: '主題',
+    },
+    {
+      ...pages['breakpoints'],
+      title: '媒体查询断点',
+    },
+    {
+      ...pages['customizing-colors'],
+      title: '自定义颜色',
+    },
+    {
+      ...pages['customizing-spacing'],
+      title: '自定义间距 & 尺寸',
+    },
+    {
+      ...pages['configuring-variants'],
+      title: '配置变体',
+    },
+    {
+      ...pages['plugins'],
+      title: '插件',
+    },
+    {
+      ...pages['presets'],
+      title: '预设',
+    },
   ],
   'Base Styles': [pages['preflight']],
   Layout: [

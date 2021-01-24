@@ -168,19 +168,16 @@ export function DarkMode() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-green-600 mb-3">
-          Dark mode
+        暗黑模式
         </Caption>
         <BigText className="mb-8">
-          <Widont>Now with Dark Mode.</Widont>
+          <Widont>我们支持了暗黑模式.</Widont>
         </BigText>
         <Paragraph className="mb-6">
-          Don’t want to be one of those websites that blinds people when they open it on their phone
-          at 2am? Throw <InlineCode>dark:</InlineCode> in front of any color utility to apply it
-          when dark mode is active. Works for background colors, text colors, border colors, and
-          even gradients out-of-the-box — no configuration required.
+          不用担心用户在凌晨两点打开你的网站时被亮瞎。设置暗黑模式，把<InlineCode>dark:</InlineCode> 前缀放到任何颜色工具类前面即可。暗黑模式支持修改背景色，字体颜色，边框颜色，甚至渐变色。
         </Paragraph>
         <Link href="/docs/dark-mode" className="text-green-600 hover:text-green-800">
-          Learn more -&gt;
+          了解更多 -&gt;
         </Link>
       </div>
       <GradientLockup

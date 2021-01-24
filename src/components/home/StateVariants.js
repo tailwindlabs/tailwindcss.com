@@ -140,23 +140,21 @@ export function StateVariants() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-light-blue-500 mb-3">
-          State variants
+          状态变换
         </Caption>
         <BigText className="mb-8">
-          <Widont>Hover and focus states? We got ’em.</Widont>
+          <Widont>Hover 和 focus 伪类？放心，都有。</Widont>
         </BigText>
         <Paragraph className="mb-6">
-          Want to style something on hover? Stick <InlineCode>hover:</InlineCode> at the beginning
-          of the class you want to add. Works for <InlineCode>focus</InlineCode>,{' '}
+          像给某个元素添加hover样式么? 直接添加 <InlineCode>hover:</InlineCode> 到你想添加给元素的类名。同理 <InlineCode>focus</InlineCode>,{' '}
           <InlineCode>active</InlineCode>, <InlineCode>disabled</InlineCode>,{' '}
-          <InlineCode>focus-within</InlineCode>, <InlineCode>focus-visible</InlineCode>, and even
-          fancy states we invented ourselves like <InlineCode>group-hover</InlineCode>.
+          <InlineCode>focus-within</InlineCode>, <InlineCode>focus-visible</InlineCode>都适用。甚至我们还发明了一些实用的状态，比如<InlineCode>group-hover</InlineCode>.
         </Paragraph>
         <Link
           href="/docs/hover-focus-and-other-states"
           className="text-light-blue-500 hover:text-light-blue-700"
         >
-          Learn more -&gt;
+          了解更多 -&gt;
         </Link>
       </div>
       <GradientLockup

@@ -311,17 +311,15 @@ export function EditorTools() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-light-blue-600 mb-3">
-          Editor tools
+        编辑器工具
         </Caption>
-        <BigText className="mb-8">World-class IDE integration.</BigText>
+        <BigText className="mb-8">世界级的IDE集成</BigText>
         <Paragraph as="div" className="mb-6">
           <p>
-            Worried about remembering all of these class names? The Tailwind CSS IntelliSense
-            extension for VS Code has you covered.
+            担心记不住那么多域名？可以在VS Code里面添加智能提示插件。
           </p>
           <p>
-            Get intelligent autocomplete suggestions, linting, class definitions and more, all
-            within your editor and with no configuration required.
+            包含了自动补全建议、类名检测、类名定义等，无需任何额外配置。
           </p>
         </Paragraph>
         <Link href="/docs/intellisense" className="text-light-blue-600 hover:text-light-blue-800">
