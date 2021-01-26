@@ -126,23 +126,19 @@ You can solve this by putting your `@tailwind` declarations each in their own fi
 
 ### Nesting
 
-To add support for nested declarations, you have two options:
+To can add support for nested declarations using [postcss-nested](https://github.com/postcss/postcss-nested) plugin
 
-- [postcss-nested](https://github.com/postcss/postcss-nested), which uses a syntax much like Sass.
-
-- [postcss-nesting](https://github.com/jonathantneal/postcss-nesting), which follows the [CSS Nesting](https://drafts.csswg.org/css-nesting-1/) specification that will hopefully be available directly in the browser in the future.
-
-To use either of these plugins, install them via npm:
+To use it, install it via npm:
 
 ```shell
 # npm
-npm install postcss-nested  # or postcss-nesting
+npm install postcss-nested
 
 # yarn
-yarn add postcss-nested  # or postcss-nesting
+yarn add postcss-nested
 ```
 
-Then add them to your PostCSS configuration, somewhere after Tailwind itself but before Autoprefixer:
+Then add it to your PostCSS configuration, somewhere after Tailwind itself but before Autoprefixer:
 
 ```js
 // postcss.config.js
@@ -150,7 +146,7 @@ module.exports = {
   plugins: [
     require('postcss-import'),
     require('tailwindcss'),
-    require('postcss-nested'), // or require('postcss-nesting')
+    require('postcss-nested'),
     require('autoprefixer'),
   ]
 }
