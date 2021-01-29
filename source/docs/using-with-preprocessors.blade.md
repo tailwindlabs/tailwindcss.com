@@ -115,7 +115,7 @@ Won't work, `@@import` statements must come first
 @@import "./custom-utilities.css";
 ```
 
-To help you get around this, we provide separate CSS files for each `@@tailwind` declaration out of the box that you can import directly from `node_modules`. The `postcss-import` is smart enough to look for files in the `node_modules` folder automatically, so you don't need to provide the entire path — `"tailwindcss/base"` for example is enough. 
+To help you get around this, we provide separate CSS files for each `@@tailwind` declaration out of the box that you can import directly from `node_modules`.
 
 @component('_partials.tip-good')
 Import our provided CSS files
@@ -131,6 +131,8 @@ Import our provided CSS files
 @@import "tailwindcss/utilities";
 @@import "./custom-utilities.css";
 ```
+
+The `postcss-import` plugin is smart enough to look for files in the `node_modules` folder automatically, so you don't need to provide the entire path — `"tailwindcss/base"` for example is enough. 
 
 ### Nesting
 
