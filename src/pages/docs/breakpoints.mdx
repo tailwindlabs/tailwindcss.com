@@ -75,6 +75,35 @@ These screen names will be reflected in your utilities, so your `text-center` ut
 }
 ```
 
+## Adding smaller breakpoints
+
+If you want to add smaller custom breakpoints, the best approach is the following: 
+
+```js
+// tailwind.config.js
+const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
+
+module.exports = {
+  theme: {
+      screen: {
+        'cbp': '450px',
+        ...defaultTheme.screens,
+      },
+    extend: {
+      colors: {
+        'light-blue': colors.lightBlue,
+        cyan: colors.cyan,
+      },
+    },
+  },
+  variants: {},
+  plugins: [],
+}
+```
+
+Notice that the default screens are added after the custom breakpoint. That's because if you add a smaller breakpoint than the default ones, it can override them. So in order to solve this problem you need to add the default breakpoint after your smaller custom breakpoints.
+
 ## Max-width breakpoints
 
 If you want to work with max-width breakpoints instead of min-width, you can specify your screens as objects with a `max` key:
