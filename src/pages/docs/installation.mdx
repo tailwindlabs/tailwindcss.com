@@ -10,7 +10,6 @@ import Link from 'next/link'
 import stats from '@/utils/stats'
 
 
-
 ## Integration guides
 
 Installing Tailwind CSS can be a slightly different process depending on what other frameworks/tools you're using, so we've put together a bunch of guides that cover popular setups.
@@ -21,9 +20,9 @@ Don't see your favorite tool in the list? We're always working on new guides, bu
 
 ---
 
-
-
 ## Installing Tailwind CSS as a PostCSS plugin
+
+*Tailwind CSS requires Node.js 12.13.0 or higher.*
 
 For most real-world projects, we recommend installing Tailwind as a PostCSS plugin. Most modern frameworks use PostCSS under the hood already, and there's a good chance you've used or are currently using other PostCSS plugins like [autoprefixer](https://github.com/postcss/autoprefixer).
 
@@ -158,6 +157,8 @@ In this case, you should [switch to our PostCSS 7 compatibility build](#post-css
 
 ## Using Tailwind without PostCSS
 
+*Tailwind CSS requires Node.js 12.13.0 or higher.*
+
 For simple projects or just giving Tailwind a spin, you can use the Tailwind CLI tool to generate your CSS without configuring PostCSS or even installing Tailwind as a dependency if you don't want to.
 
 Use `npx` which is a tool that is automatically installed alongside `npm` to generate a fully compiled Tailwind CSS file:
@@ -247,6 +248,14 @@ npx tailwindcss-cli@latest build ./src/tailwind.css -c ./.config/tailwind.config
 
 Learn more about configuring Tailwind in the [configuration documentation](/docs/configuration).
 
+### Disabling Autoprefixer
+
+By default, the Tailwind CLI tool will run your CSS through [Autoprefixer](https://github.com/postcss/autoprefixer) to add any necessary vendor prefixes. If you already have Autoprefixer set up in your build pipeline somewhere further down the chain, you can disable it in the Tailwind CLI tool using the `--no-autoprefixer` flag to avoid running it twice:
+
+```shell
+npx tailwindcss-cli@latest build --no-autoprefixer -o tailwind.css
+```
+
 ### Building for production
 
 When building for production, set `NODE_ENV=production` on the command line when building your CSS:
@@ -255,7 +264,7 @@ When building for production, set `NODE_ENV=production` on the command line when
 NODE_ENV=production npx tailwindcss-cli@latest build ./src/tailwind.css -o ./dist/tailwind.css
 ```
 
-This will make sure Tailwind removes any unused CSS and minifies the CSS file for best performance. Read our separate guide on [optimizing for production](/docs/optimizing-for-production) to learn more.
+This will make sure Tailwind removes any unused CSS for best performance. Read our separate guide on [optimizing for production](/docs/optimizing-for-production) to learn more.
 
 
 ---
@@ -272,7 +281,7 @@ Before using the CDN build, please note that many of the features that make Tail
   <ListItemBad>You can't tree-shake unused styles</ListItemBad>
 </List>
 
-To get the most out of Tailwind, you really should [install it as a PostCSS plugin](#installing-tailwind-as-a-post-css-plugin).
+To get the most out of Tailwind, you really should [install it as a PostCSS plugin](#installing-tailwind-css-as-a-post-css-plugin).
 
 To pull in Tailwind for quick demos or just giving the framework a spin, grab the latest default configuration build via CDN:
 
