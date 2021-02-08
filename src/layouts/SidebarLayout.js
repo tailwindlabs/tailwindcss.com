@@ -173,7 +173,7 @@ function TopLevelNav() {
           </>
         }
       >
-        Documentation
+      文档
       </TopLevelLink>
       <TopLevelLink
         href="https://tailwindui.com/components?utm_source=tailwindcss&utm_medium=navigation"
@@ -187,7 +187,7 @@ function TopLevelNav() {
           </>
         }
       >
-        Components
+      组件
       </TopLevelLink>
       <TopLevelLink
         href="https://play.tailwindcss.com"
@@ -210,7 +210,7 @@ function TopLevelNav() {
           </>
         }
       >
-        Playground
+        在线练习
       </TopLevelLink>
       <TopLevelLink
         href="https://blog.tailwindcss.com"
@@ -230,7 +230,7 @@ function TopLevelNav() {
           </>
         }
       >
-        News
+        新闻
       </TopLevelLink>
       <TopLevelLink
         href="/resources"
@@ -249,7 +249,7 @@ function TopLevelNav() {
           </>
         }
       >
-        Resources
+        资源
       </TopLevelLink>
       <TopLevelLink
         href="https://www.youtube.com/tailwindlabs"
@@ -265,7 +265,7 @@ function TopLevelNav() {
           </>
         }
       >
-        Screencasts
+        视频
       </TopLevelLink>
     </>
   )

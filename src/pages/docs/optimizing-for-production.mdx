@@ -5,11 +5,10 @@ description: Removing unused CSS from your production builds for maximum perform
 
 import { Heading } from '@/components/Heading'
 import { TipGood, TipBad } from '@/components/Tip'
-import stats from '@/utils/stats'
 
 ## <Heading hidden>Overview</Heading>
 
-<p>Using the default configuration, the development build of Tailwind CSS is {stats.default.original} uncompressed, {stats.default.gzipped} minified and compressed with <a href="https://www.gnu.org/software/gzip/">Gzip</a>, and {stats.default.brotlified} when compressed with <a href="https://github.com/google/brotli">Brotli</a>.</p>
+<p>Using the default configuration, the development build of Tailwind CSS is 3739.4kB uncompressed, 293.9kB minified and compressed with <a href="https://www.gnu.org/software/gzip/">Gzip</a>, and 73.2kB when compressed with <a href="https://github.com/google/brotli">Brotli</a>.</p>
 
 <table>
   <thead>
@@ -22,10 +21,10 @@ import stats from '@/utils/stats'
   </thead>
   <tbody>
     <tr>
-      <td>{stats.default.original}</td>
-      <td>{stats.default.minified}</td>
-      <td>{stats.default.gzipped}</td>
-      <td>{stats.default.brotlified}</td>
+      <td>3739.4kB</td>
+      <td>3020.7kB</td>
+      <td>293.9kB</td>
+      <td>73.2kB</td>
     </tr>
   </tbody>
 </table>
@@ -297,24 +296,24 @@ Here's how using a smaller color palette affects the final size:
   <tbody>
     <tr>
       <td>84 <em>(default)</em></td>
-      <td>{stats.default.original}</td>
-      <td>{stats.default.minified}</td>
-      <td>{stats.default.gzipped}</td>
-      <td>{stats.default.brotlified}</td>
+      <td>3739.4kB</td>
+      <td>3020.7kB</td>
+      <td>293.9kB</td>
+      <td>73.2kB</td>
     </tr>
     <tr>
       <td>50</td>
-      <td>{stats['50-colors'].original}</td>
-      <td>{stats['50-colors'].minified}</td>
-      <td>{stats['50-colors'].gzipped}</td>
-      <td>{stats['50-colors'].brotlified}</td>
+      <td>2836.8kB</td>
+      <td>2261.8kB</td>
+      <td>234.9kB</td>
+      <td>57.8kB</td>
     </tr>
     <tr>
       <td>25</td>
-      <td>{stats['25-colors'].original}</td>
-      <td>{stats['25-colors'].minified}</td>
-      <td>{stats['25-colors'].gzipped}</td>
-      <td>{stats['25-colors'].brotlified}</td>
+      <td>2161.0kB</td>
+      <td>1692.6kB</td>
+      <td>191.9kB</td>
+      <td>48.1kB</td>
     </tr>
   </tbody>
 </table>
@@ -338,36 +337,36 @@ Here's how defining fewer screens affects the output:
   <tbody>
     <tr>
       <td>5 <em>(default)</em></td>
-      <td>{stats.default.original}</td>
-      <td>{stats.default.minified}</td>
-      <td>{stats.default.gzipped}</td>
-      <td>{stats.default.brotlified}</td>
+      <td>3739.4kB</td>
+      <td>3020.7kB</td>
+      <td>293.9kB</td>
+      <td>73.2kB</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>{stats['3-screens'].original}</td>
-      <td>{stats['3-screens'].minified}</td>
-      <td>{stats['3-screens'].gzipped}</td>
-      <td>{stats['3-screens'].brotlified}</td>
+      <td>2458.2kB</td>
+      <td>1992.3kB</td>
+      <td>196.0kB</td>
+      <td>62.0kB</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>{stats['2-screens'].original}</td>
-      <td>{stats['2-screens'].minified}</td>
-      <td>{stats['2-screens'].gzipped}</td>
-      <td>{stats['2-screens'].brotlified}</td>
+      <td>1827.8kB</td>
+      <td>1488.2kB</td>
+      <td>147.3kB</td>
+      <td>57.5kB</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>{stats['1-screen'].original}</td>
-      <td>{stats['1-screen'].minified}</td>
-      <td>{stats['1-screen'].gzipped}</td>
-      <td>{stats['1-screen'].brotlified}</td>
+      <td>1197.7kB</td>
+      <td>984.3kB</td>
+      <td>98.3kB</td>
+      <td>52.0kB</td>
     </tr>
   </tbody>
 </table>
 
-<p>If you only need 3 screen sizes and 35 colors, you're down to {stats['35-colors-3-screens'].brotlified} compressed without changing anything else.</p>
+<p>If you only need 3 screen sizes and 35 colors, you're down to 45.8kB compressed without changing anything else.</p>
 
 ### Disabling unused core plugins and variants
 
