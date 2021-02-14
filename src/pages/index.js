@@ -81,7 +81,7 @@ export default function Home() {
           property="og:title"
           content="Tailwind CSS - Rapidly build modern websites without ever leaving your HTML."
         />
-        <title>Tailwind CSS - 快速简历现代网站，你只需关注HTML</title>
+        <title>Tailwind CSS - 快速构建现代网站，你只需关注HTML</title>
       </Head>
       <header className="relative z-10 max-w-screen-lg xl:max-w-screen-xl mx-auto">
         <div className="px-4 sm:px-6 md:px-8 mb-14 sm:mb-20 xl:mb-8">
@@ -110,7 +110,7 @@ export default function Home() {
           </div>
           <Logo className="w-auto h-7 sm:h-8" />
           <h1 className="text-4xl sm:text-6xl lg:text-7xl leading-none font-extrabold tracking-tight text-gray-900 mt-10 mb-8 sm:mt-14 sm:mb-10">
-          快速简历现代网站，你只需关注HTML
+          快速构建现代网站，你只需关注HTML
           </h1>
           <p className="max-w-screen-lg text-lg sm:text-2xl sm:leading-10 font-medium mb-10 sm:mb-11">
             一个以工具类为主的css框架，我们提供了类似 <InlineCode>flex</InlineCode>,{' '}
