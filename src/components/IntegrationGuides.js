@@ -40,6 +40,11 @@ const guides = [
     logo: GatsbyLogo,
     link: '/docs/guides/gatsby',
   },
+  {
+    name: 'Angular',
+    logo: AngularLogo,
+    link: '/docs/guides/angular',
+  },
 ]
 
 export function IntegrationGuides() {
