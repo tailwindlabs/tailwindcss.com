@@ -1,6 +1,6 @@
 ---
-title: Hover, Focus, & Other States
-description: Using utilities to style elements on hover, focus, and more.
+title: Hover、Focus以及其他状态
+description: 直接使用工具类去添加hover、focus等效果
 ---
 
 import { Heading } from '@/components/Heading'
@@ -10,7 +10,7 @@ import { VariantEnabledList } from '@/components/VariantEnabledList'
 
 ## <Heading hidden>Overview</Heading>
 
-Similar to how Tailwind handles [responsive design](/docs/responsive-design), styling elements on hover, focus, and more can be accomplished by prefixing utilities with the appropriate state variant.
+类似于Tailwind处理[自适应设计](/docs/responsive-design)，hover、focus等样式元素可以通过使用对应的前缀加工具类来完成。
 
 ```html purple
 <template preview>
@@ -30,17 +30,17 @@ Similar to how Tailwind handles [responsive design](/docs/responsive-design), st
 </form>
 ```
 
-**Not all state variants are enabled for all utilities by default due to file-size considerations**, but we've tried our best to enable the most commonly used combinations out of the box.
+**出于文件大小的考虑，并不是所有的状态都默认为所有的工具类启用**，但是我们已经尽了最大的努力来启用最常用的组合。
 
-For a complete list of which variants are enabled by default, see the [reference table](#default-variants-reference) at the end of this page.
+有关默认启用的状态的完整列表，请查看本页末尾的[参考表](#default-variants-reference)。
 
-If you need to target a state that Tailwind doesn't support, you can extend the supported variants by [writing a variant plugin](#creating-custom-variants).
+如果你需要一个Tailwind不支持的状态，你可以通过[编写一个状态插件](#creating-custom-variants)来扩展。
 
 ---
 
 ## Hover
 
-Add the `hover:` prefix to only apply a utility on hover.
+添加`hover:`前缀到工具类来实现hover效果。
 
 ```html rose
 <template preview>
@@ -60,7 +60,7 @@ Add the `hover:` prefix to only apply a utility on hover.
   <VariantEnabledList variant="hover"/>
 </div>
 
-You can control whether `hover` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+你可以在你的`tailwind.config.js`配置文件为你想支持的工具类组开启`hover`:
 
 ```js
 // tailwind.config.js
@@ -78,7 +78,7 @@ module.exports = {
 
 ## Focus
 
-Add the `focus:` prefix to only apply a utility on focus.
+添加`focus:`前缀到工具类来实现focus效果。
 
 ```html lightBlue
 <template preview>
@@ -94,7 +94,7 @@ Add the `focus:` prefix to only apply a utility on focus.
   <VariantEnabledList variant="focus"/>
 </div>
 
-You can control whether `focus` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+你可以在你的`tailwind.config.js`配置文件为你想支持的工具类组开启`focus`:
 
 ```js
 // tailwind.config.js
@@ -112,7 +112,7 @@ module.exports = {
 
 ## Active
 
-Add the `active:` prefix to only apply a utility when an element is active.
+添加`active:`前缀到工具类来实现active效果。
 
 ```html emerald
 <template preview>
@@ -132,7 +132,7 @@ Add the `active:` prefix to only apply a utility when an element is active.
   <VariantEnabledList variant="active"/>
 </div>
 
-You can control whether `active` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+你可以在你的`tailwind.config.js`配置文件为你想支持的工具类组开启`active`:
 
 ```js
 // tailwind.config.js
@@ -150,7 +150,7 @@ module.exports = {
 
 ## Group-hover
 
-If you need to style a child element when hovering over a specific parent element, add the `group` class to the parent element and add the `group-hover:` prefix to the utility on the child element.
+当鼠标悬停在特定的父元素上时，如果你需要样式化子元素，可以在父元素上添加`group`类，并在子元素上添加`group-hover:`前缀。
 
 ```html indigo
 <template preview>
@@ -170,7 +170,7 @@ If you need to style a child element when hovering over a specific parent elemen
   <VariantEnabledList variant="group-hover"/>
 </div>
 
-You can control whether `group-hover` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+你可以在你的`tailwind.config.js`配置文件为你想支持的工具类组开启`group-hover`:
 
 ```js
 // tailwind.config.js
@@ -188,7 +188,7 @@ module.exports = {
 
 ## Group-focus
 
-The `group-focus` variant works just like [`group-hover`](#group-hover) except for focus:
+`group-focus`的原理和使用跟[`group-hover`](#group-hover)一样：
 
 ```html amber
 <template preview>
@@ -210,7 +210,7 @@ The `group-focus` variant works just like [`group-hover`](#group-hover) except f
   <VariantEnabledList variant="group-focus"/>
 </div>
 
-You can control whether `group-focus` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+你可以在你的`tailwind.config.js`配置文件为你想支持的工具类组开启`group-focus`:
 
 ```js
 // tailwind.config.js
@@ -228,7 +228,7 @@ module.exports = {
 
 ## Focus-within
 
-Add the `focus-within:` prefix to only apply a utility when a child element has focus.
+父元素添加`focus-within:`前缀到对应工具类，当子元素focus时，父元素就会应用该工具类。
 
 ```html purple
 <template preview>
@@ -256,7 +256,7 @@ Add the `focus-within:` prefix to only apply a utility when a child element has 
   <VariantEnabledList variant="focus-within"/>
 </div>
 
-You can control whether `focus-within` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+你可以在你的`tailwind.config.js`配置文件为你想支持的工具类组开启`focus-within`:
 
 ```js
 // tailwind.config.js
@@ -274,9 +274,9 @@ module.exports = {
 
 ## Focus-visible
 
-<TipCompat>Note that focus-visible currently requires JS and PostCSS polyfills for sufficient browser support.</TipCompat>
+<TipCompat>注意，Focus-visible目前需要JS和PostCSS polyfills来获得足够的浏览器支持。</TipCompat>
 
-Add the `focus-visible:` prefix to only apply a utility when an element has focus but only if the user is using the keyboard.
+添加`focus-visible:`前缀到工具类，只有用户使用键盘使该元素获得焦点的时候，才会应用该工具类。
 
 ```html rose
 <template preview>
@@ -298,7 +298,7 @@ Add the `focus-visible:` prefix to only apply a utility when an element has focu
 </button>
 ```
 
-Note that currently only [Chrome, Edge, and Firefox](https://caniuse.com/?search=focus-visible) support `focus-visible` natively, so for sufficient browser support you should install and configure both the [focus-visible JS polyfill](https://github.com/WICG/focus-visible) and the [focus-visible PostCSS polyfill](https://github.com/csstools/postcss-focus-visible). Make sure to include the PostCSS plugin _after_ Tailwind in your list of PostCSS plugins:
+注意，目前只有[Chrome、Edg、Firefox](https://caniuse.com/?search=focus-visible)本地支持焦点可见，因此为了获得足够的浏览器支持，你应该同时安装和配置[focus-visible JS polyfill](https://github.com/WICG/focus-visible)和[focus-visible PostCSS polyfill](https://github.com/csstools/postcss-focus-visible)。并确保在你的PostCSS插件配置在Tailwind插件之后:
 
 ```js
 // postcss.config.js
@@ -315,7 +315,7 @@ module.exports = {
   <VariantEnabledList variant="focus-visible"/>
 </div>
 
-You can control whether `focus-visible` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+你可以在你的`tailwind.config.js`配置文件为你想支持的工具类组开启`focus-visible`:
 
 ```js
 // tailwind.config.js
@@ -333,9 +333,9 @@ module.exports = {
 
 ## Motion-safe
 
-Add the `motion-safe:` prefix to only apply a utility when the `prefers-reduced-motion` media feature matches `no-preference`.
+添加`motion-safe:`前缀到工具类， 当设备的媒体查询特性[prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)为`no-preference`时应用该工具类。
 
-For example, this button will only animate on hover if the user hasn't enabled "Reduce motion" on their system.
+例如，如果用户没有在系统中启用“Reduce motion”，这个按钮会在鼠标hover时显示动画。
 
 ```html lightBlue
 <template preview>
@@ -351,7 +351,7 @@ For example, this button will only animate on hover if the user hasn't enabled "
 </button>
 ```
 
-Note that unlike most other variants, `motion-safe` can be combined with both responsive variants _and_ other variants like `hover`, by stacking them in this order:
+注意，与大多数其他变体不同的是，`motion-safe`可以与响应式前缀以及其他状态(如`hover`)结合在一起，按以下顺序堆叠它们:
 
 ```html
 <div class="**sm:motion-safe:hover:animate-spin**">
@@ -363,7 +363,7 @@ Note that unlike most other variants, `motion-safe` can be combined with both re
   <VariantEnabledList variant="motion-safe"/>
 </div>
 
-You can control whether `motion-safe` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+你可以在你的`tailwind.config.js`配置文件为你想支持的工具类组开启`motion-safe`:
 
 ```js
 // tailwind.config.js
@@ -381,9 +381,9 @@ module.exports = {
 
 ## Motion-reduce
 
-Add the `motion-reduce:` prefix to only apply a utility when the `prefers-reduced-motion` media feature matches `reduce`.
+添加`motion-reduce:`前缀到工具类， 当设备的媒体查询特性[prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)为`reduce`时应用该工具类。
 
-For example, this button will animate on hover by default, but the animations will be disabled if the user has enabled "Reduce motion" on their system.
+例如，默认情况下，这个按钮会在`hover`时变大，但是如果用户在系统中启用了“Reduce motion”，动画将会被禁用。
 
 ```html fuchsia
 <template preview>
@@ -399,7 +399,7 @@ For example, this button will animate on hover by default, but the animations wi
 </button>
 ```
 
-Note that unlike most other variants, `motion-reduce` can be combined with both responsive variants _and_ other variants like `hover`, by stacking them in this order:
+注意，与大多数其他变体不同的是，`motion-reduce`可以与响应式前缀以及其他状态(如`hover`)结合在一起，按以下顺序堆叠它们:
 
 ```html
 <div class="**sm:motion-reduce:hover:animate-none**">
@@ -411,7 +411,7 @@ Note that unlike most other variants, `motion-reduce` can be combined with both 
   <VariantEnabledList variant="motion-reduce"/>
 </div>
 
-You can control whether `motion-reduce` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+你可以在你的`tailwind.config.js`配置文件为你想支持的工具类组开启`motion-reduce`:
 
 ```js
 // tailwind.config.js
@@ -429,7 +429,7 @@ module.exports = {
 
 ## Disabled
 
-Add the `disabled:` prefix to only apply a utility when an element is disabled.
+添加`disabled:`前缀到工具类，当元素disabled的时候应用该工具类。
 
 ```html emerald
 <template preview>
@@ -455,7 +455,7 @@ Add the `disabled:` prefix to only apply a utility when an element is disabled.
   <VariantEnabledList variant="disabled"/>
 </div>
 
-You can control whether `disabled` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+你可以在你的`tailwind.config.js`配置文件为你想支持的工具类组开启`disabled`:
 
 ```js
 // tailwind.config.js
@@ -473,7 +473,7 @@ module.exports = {
 
 ## Visited
 
-Add the `visited:` prefix to only apply a utility when a link has been visited.
+为链接添加`visited:`到工具类，当链接被访问过了就会应用该工具类。
 
 ```html indigo
 <template preview>
@@ -490,7 +490,7 @@ Add the `visited:` prefix to only apply a utility when a link has been visited.
   <VariantEnabledList variant="visited"/>
 </div>
 
-You can control whether `visited` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+你可以在你的`tailwind.config.js`配置文件为你想支持的工具类组开启`visited`:
 
 ```js
 // tailwind.config.js
@@ -508,7 +508,7 @@ module.exports = {
 
 ## Checked
 
-Add the `checked:` prefix to only apply a utility when a radio or checkbox is currently checked.
+为radio或者checkbox添加`visited:`到工具类，当它们checked的时候应用该工具类。
 
 ```html lightBlue
 <template preview>
@@ -527,7 +527,7 @@ Add the `checked:` prefix to only apply a utility when a radio or checkbox is cu
   <VariantEnabledList variant="checked"/>
 </div>
 
-You can control whether `checked` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+你可以在你的`tailwind.config.js`配置文件为你想支持的工具类组开启`checked`:
 
 ```js
 // tailwind.config.js
@@ -546,7 +546,7 @@ module.exports = {
 
 ## First-child
 
-Add the `first:` prefix to only apply a utility when it is the first-child of its parent. This is mostly useful when elements are being generated in some kind of loop.
+添加`first:`前缀到工具类，当该元素是父标签的第一个元素的时候，就会应用该工具类。这在循环输出元素的时候非常有用。
 
 ```html indigo
 <template preview>
@@ -565,13 +565,13 @@ Add the `first:` prefix to only apply a utility when it is the first-child of it
 </div>
 ```
 
-It's important to note that you should add any `first:` utilities to the child element, not the parent element.
+需要格外注意的是，应该将`first:`添加到子元素，而不是父元素。
 
 <div>
   <VariantEnabledList variant="first-child"/>
 </div>
 
-You can control whether `first` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+你可以在你的`tailwind.config.js`配置文件为你想支持的工具类组开启`first`:
 
 ```js
 // tailwind.config.js
@@ -589,7 +589,7 @@ module.exports = {
 
 ## Last-child
 
-Add the `last:` prefix to only apply a utility when it is the last-child of its parent. This is mostly useful when elements are being generated in some kind of loop.
+添加`last:`前缀到工具类，当该元素是父标签的最后一个元素的时候，就会应用该工具类。这在循环输出元素的时候非常有用。
 
 ```html amber
 <template preview>
@@ -608,13 +608,13 @@ Add the `last:` prefix to only apply a utility when it is the last-child of its 
 </div>
 ```
 
-It's important to note that you should add any `last:` utilities to the child element, not the parent element.
+需要格外注意的是，应该将`last:`添加到子元素，而不是父元素。
 
 <div>
   <VariantEnabledList variant="last-child"/>
 </div>
 
-You can control whether `last` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+你可以在你的`tailwind.config.js`配置文件为你想支持的工具类组开启`last`:
 
 ```js
 // tailwind.config.js
@@ -632,7 +632,7 @@ module.exports = {
 
 ## Odd-child
 
-Add the `odd:` prefix to only apply a utility when it is an odd-child of its parent. This is mostly useful when elements are being generated in some kind of loop.
+添加`odd:`前缀到工具类，当该元素是父标签的第奇数个元素的时候，就会应用该工具类。这在循环输出元素的时候非常有用。
 
 ```html rose
 <template preview>
@@ -651,13 +651,13 @@ Add the `odd:` prefix to only apply a utility when it is an odd-child of its par
 </div>
 ```
 
-It's important to note that you should add any `odd:` utilities to the child element, not the parent element.
+需要格外注意的是，应该将`odd:`添加到子元素，而不是父元素。
 
 <div>
   <VariantEnabledList variant="odd-child"/>
 </div>
 
-You can control whether `odd` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+你可以在你的`tailwind.config.js`配置文件为你想支持的工具类组开启`odd`:
 
 ```js
 // tailwind.config.js
@@ -675,7 +675,7 @@ module.exports = {
 
 ## Even-child
 
-Add the `even:` prefix to only apply a utility when it is an even-child of its parent. This is mostly useful when elements are being generated in some kind of loop.
+添加`even:`前缀到工具类，当该元素是父标签的第奇数个元素的时候，就会应用该工具类。这在循环输出元素的时候非常有用。
 
 ```html fuchsia
 <template preview>
@@ -694,13 +694,13 @@ Add the `even:` prefix to only apply a utility when it is an even-child of its p
 </div>
 ```
 
-It's important to note that you should add any `even:` utilities to the child element, not the parent element.
+需要格外注意的是，应该将`even:`添加到子元素，而不是父元素。
 
 <div>
   <VariantEnabledList variant="even-child"/>
 </div>
 
-You can control whether `even` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+你可以在你的`tailwind.config.js`配置文件为你想支持的工具类组开启`even`:
 
 ```js
 // tailwind.config.js
@@ -716,11 +716,11 @@ module.exports = {
 
 ---
 
-## Combining with responsive prefixes
+## 与响应式前缀组合
 
-State variants are also responsive, meaning you can do things like change an element's hover style at different breakpoints for example.
+状态也具有响应性，这意味着你可以做一些事情，比如在不同的断点更改元素的hover样式。
 
-To apply a state variant at a specific breakpoint, add the responsive prefix first, before the state prefix:
+要在特定的断点上应用一个状态，在状态前缀之前先添加响应式前缀:
 
 ```html
 <button class="... hover:bg-green-500 **sm:hover:bg-blue-500**">
@@ -730,9 +730,9 @@ To apply a state variant at a specific breakpoint, add the responsive prefix fir
 
 ---
 
-## Generating variants for custom utilities
+## 为自定义的类创建生成状态
 
-You can generate state variants for your own custom CSS classes by wrapping them with the `@variants` directive:
+你可以为你自己的CSS类生成状态，用`@variant`指令包装它们:
 
 ```css
 /* Input: */
@@ -758,15 +758,15 @@ You can generate state variants for your own custom CSS classes by wrapping them
 
 ```
 
-For more information, see the [@variants directive documentation](/docs/functions-and-directives#variants).
+更多细节，查看[@variants指令](/docs/functions-and-directives#variants).
 
 ---
 
-## Creating custom variants
+## 创建自定义状态
 
-You can create your own variants for any states Tailwind doesn't support by default by writing a custom variant plugin.
+你可以创建Tailwind默认不支持的状态，方法是编写一个自定义的变量插件。
 
-For example, this simple plugin adds support for the `required` pseudo-class variant:
+例如，这个简单的插件增加了对`required`伪类状态的支持:
 
 ```js
 // tailwind.config.js
@@ -785,15 +785,15 @@ module.exports = {
 }
 ```
 
-Learn more about writing variant plugins in the [variant plugin documentation](/docs/plugins#adding-variants).
+更多细节，查看[状态插件](/docs/plugins#adding-variants).
 
 ---
 
-## Default variants reference
+## 默认状态支持
 
-Due to file-size considerations, Tailwind does not include all variants for all utilities by default.
+由于文件大小的考虑，默认情况下，Tailwind并不包括所有工具类的所有状态。
 
-To configure which variants are enabled for your project, see the [configuring variants documentation](/docs/configuring-variants).
+要为你的项目配置启用哪些状态，查看[配置状态](/docs/configuring-variants).
 
 <div>
   <DefaultVariantsConfig />

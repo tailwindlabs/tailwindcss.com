@@ -25,7 +25,7 @@ import Link from 'next/link'
 
 对于大多数实际项目，我们建议安装Tailwind作为一个PostCSS插件。大多数现代框架已经在底层使用了PostCSS，而且很有可能你已经或正在使用其他的PostCSS插件，比如 [autoprefixer](https://github.com/postcss/autoprefixer).
 
-如果您从未听说过PostCSS，或者想知道它与Sass等工具有何不同，请阅读[使用PostCSS当做预处理器](/docs/using-with-preprocessors#using-post-css-as-your-preprocessor)。
+如果你从未听说过PostCSS，或者想知道它与Sass等工具有何不同，请阅读[使用PostCSS当做预处理器](/docs/using-with-preprocessors#using-post-css-as-your-preprocessor)。
 
 如果这对你来说有点困难，你想尝试不用配置PostCSS的Tailwind，请阅读[直接使用Tailwind CSS而不是PostCSS](#using-tailwind-without-post-css)。
 
@@ -60,7 +60,7 @@ module.exports = {
 }
 ```
 
-如果您不确定您使用的工具的PostCSS插件配置在哪里，您可以参考这些工具的文档，查看应该放在哪里。 直接Google搜索"configure postcss {my tool}"也可以很快得到答案。
+如果你不确定你使用的工具的PostCSS插件配置在哪里，你可以参考这些工具的文档，查看应该放在哪里。 直接Google搜索"configure postcss {my tool}"也可以很快得到答案。
 
 如果你有在使用其他的PostCSS插件，你最好阅读一下[使用PostCSS作为你的预处理器](/docs/using-with-preprocessors)了解更多细节，以便更好的与Tailwind CSS配合。
 
@@ -297,7 +297,7 @@ NODE_ENV=production npx tailwindcss-cli@latest build ./src/tailwind.css -o ./dis
 
 ## HTML模板
 
-为了让顺风的样式像预期的那样工作，你需要使用HTML5 doctype并包括响应视口元标签来正确处理所有设备上的响应样式。
+为了让Tailwind的样式像预期的那样工作，你需要使用HTML5 doctype并包括响应视口元标签来正确处理所有设备上的响应样式。
 
 ```html
 <!doctype html>

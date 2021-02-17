@@ -20,7 +20,7 @@ export function VariantEnabledList({ variant }) {
     return (
       <p>
         <strong>
-          By default, the <code>{variant}</code> variant is not enabled for any core plugins
+          默认情况下，<code>{variant}</code>对于全部工具类都是未启用的。
         </strong>
         .
       </p>
@@ -30,7 +30,7 @@ export function VariantEnabledList({ variant }) {
   return (
     <>
       <p>
-        By default, the <code>{variant}</code> variant is enabled for the following core plugins:
+        默认情况下，<code>{variant}</code>只为以下工具类开启:
       </p>
 
       <ul>

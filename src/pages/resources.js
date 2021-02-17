@@ -21,28 +21,27 @@ function Logo({ title, component: Component }) {
 export default function Resources() {
   return (
     <div className="px-4 sm:px-6 md:px-8 pt-10 pb-16">
-      <h1 className="text-3xl text-gray-900 font-extrabold mb-4">Resources</h1>
+      <h1 className="text-3xl text-gray-900 font-extrabold mb-4">资源</h1>
       <div className="max-w-3xl">
         <div className="text-lg mb-5 space-y-5">
           <p>
-            We think Tailwind is an amazing CSS framework, but you need more than just a CSS
-            framework to produce visually awesome work.
+            我们认为Tailwind是一个令人惊叹的CSS框架，但你需要的不仅仅是一个CSS框架，来制作视觉上令人惊叹的工作。
           </p>
           <p>
-            Here are some resources that can help you take your Tailwind projects to the next level.
+            这里有一些资源可以帮助你把你的Tailwind项目提升到更高一个层次。
           </p>
         </div>
         <p>
-          For Tailwind CSS brand assets and usage guidelines, please visit our{' '}
+          有关Tailwind CSS品牌资产和使用指南，请访问我们的
           <Link href="/brand">
-            <a className="text-cyan-700 font-medium shadow-link">Brand page</a>
+            <a className="text-cyan-700 font-medium shadow-link">品牌页面</a>
           </Link>
           .
         </p>
       </div>
       <div className="grid md:grid-cols-2 gap-8 md:gap-6 xl:gap-8 my-8 sm:my-12">
         <section>
-          <h2 className="text-xl text-gray-900 font-bold mb-4">Learn UI Design</h2>
+          <h2 className="text-xl text-gray-900 font-bold mb-4">学习UI设计</h2>
           <a
             href="https://refactoringui.com/book"
             className="h-40 sm:h-56 xl:h-64 bg-gray-900 bg-cover rounded-3xl mb-6 flex items-center justify-center"
@@ -54,13 +53,10 @@ export default function Resources() {
           </a>
           <div className="space-y-5">
             <p>
-              Refactoring UI is a design-for-developers book + video series put together by Adam
-              Wathan and Steve Schoger. It covers literally everything we know about making things
-              look awesome.
+              Refactoring UI是Adam Wathan和Steve Schoger为开发人员制作的书籍和视频系列。它涵盖了一切我们所知道的关于如何让东西看起来很棒的内容。
             </p>
             <p>
-              Almost 10,000 people have picked it up so far and have all sorts of awesome things to
-              say about how it helped them improve their work.
+              到目前为止，已经有近一万人选择了它，并做了各种很棒的事情，来说说它是如何帮助他们改进工作的。
             </p>
           </div>
         </section>
@@ -83,12 +79,10 @@ export default function Resources() {
           </a>
           <div className="space-y-5">
             <p>
-              Tailwind UI is a collection of professionally designed, pre-built, fully responsive
-              HTML snippets you can drop into your Tailwind projects.
+              Tailwind UI是一个专业设计、预构建、完全响应式的、HTML片段的集合，你可以把它很方便的引入你的Tailwind项目。
             </p>
             <p>
-              There are currently over 350 components available in two different categories
-              (Marketing and Application UI) and we’re always adding more.
+              目前有超过350个组件，分别有两个不同的类型(市场营销和应用UI)，我们一直在添加更多内容。
             </p>
           </div>
         </section>
@@ -105,8 +99,7 @@ export default function Resources() {
             <Logo title="Headless UI" component={HeadlessUi} />
           </a>
           <p>
-            Completely unstyled, fully accessible UI components, designed to integrate beautifully
-            with Tailwind CSS.
+            完全无样式，完全可访问的UI组件，设计与TailwindCSS漂亮地集成。
           </p>
         </section>
         <section>
@@ -127,7 +120,7 @@ export default function Resources() {
             </div>
           </a>
           <p>
-            A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.
+          一组免费的MIT-licensed的高质量SVG图标，供你在web项目中使用。
           </p>
         </section>
         <section>
@@ -148,8 +141,7 @@ export default function Resources() {
             </div>
           </a>
           <p>
-            A set of free MIT-licensed high-quality SVG patterns for you to use in your web
-            projects.
+            一组免费的MIT-licensed的高质量SVG纹理，供你在web项目中使用。
           </p>
         </section>
       </div>
@@ -165,7 +157,7 @@ export default function Resources() {
 
 Resources.layoutProps = {
   meta: {
-    title: 'Resources',
+    title: '资源',
   },
   Layout: DocumentationLayout,
 }

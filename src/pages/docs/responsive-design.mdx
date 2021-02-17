@@ -1,6 +1,6 @@
 ---
-title: Responsive Design
-description: Using responsive utility variants to build adaptive user interfaces.
+title: 响应式设计
+description: 使用响应式工具类变体来构建自适应用户界面。
 ---
 
 import { Heading } from '@/components/Heading'
@@ -8,9 +8,9 @@ import { TipGood, TipBad } from '@/components/Tip'
 
 ## <Heading hidden>Overview</Heading>
 
-Every utility class in Tailwind can be applied conditionally at different breakpoints, which makes it a piece of cake to build complex responsive interfaces without ever leaving your HTML.
+Tailwind中的每个工具类都可以在不同的断点有条件地应用，这使得无需离开HTML就可以非常容易的构建复杂的响应式内容。
 
-There are five breakpoints by default, inspired by common device resolutions:
+默认情况下有5个断点，灵感来自常见的设备分辨率:
 
 | Breakpoint prefix | Minimum width | CSS |
 | --- | --- | --- |
@@ -20,16 +20,17 @@ There are five breakpoints by default, inspired by common device resolutions:
 | `xl` | 1280px | `@media (min-width: 1280px) { ... }` |
 | `2xl` | 1536px | `@media (min-width: 1536px) { ... }` |
 
-To add a utility but only have it take effect at a certain breakpoint, all you need to do is prefix the utility with the breakpoint name, followed by the `:` character:
+要添加一个工具类，但只在某个断点生效，你需要做的就是在该工具类的前面加上断点名，后跟`:`字符:
 
 ```html
 <!-- Width of 16 by default, 32 on medium screens, and 48 on large screens -->
 <img class="w-16 **md:w-32** **lg:w-48**" src="...">
 ```
 
-This works for **every utility class in the framework**, which means you can change literally anything at a given breakpoint — even things like letter spacing or cursor styles.
+这适用于**所有的工具类**，这意味着你可以在给定的断点上改变任何东西——甚至像字母间距或光标样式这样的东西。
 
-Here's a simple example of a marketing page component that uses a stacked layout on small screens, and a side-by-side layout on larger screens *(resize your browser to see it in action)*:
+以下是一个简单的营销页面组件的例子，它在小屏幕上使用堆叠布局，在大屏幕上使用并排布局(调整浏览器的大小以查看实际效果)：
+
 
 ```html indigo
 <template preview class="px-6 py-8">
@@ -61,49 +62,49 @@ Here's a simple example of a marketing page component that uses a stacked layout
 </div>
 ```
 
-Here's how the example above works:
+上面的例子的工作原理如下：
 
-- By default, the outer `div` is `display: block`, but by adding the `md:flex` utility, it becomes `display: flex` on medium screens and larger.
-- When the parent is a flex container, we want to make sure the image never shrinks, so we've added `md:flex-shrink-0` to prevent shrinking on medium screens and larger. Technically we could have just used `flex-shrink-0` since it would do nothing on smaller screens, but since it only matters on `md` screens, it's a good idea to make that clear in the class name.
-- On small screens the image is automatically full width by default. On medium screens and up, we've constrained that width to a fixed size using `md:w-48`.
+- 默认情况下，外部的`div`是`display: block`，但是通过添加`md:flex`工具类，它在中等或更大的屏幕上变成了`display: flex`。
+- 当父对象是伸缩容器时，我们希望确保图像永远不会收缩，因此我们添加了`md:flex-shrink-0`来防止在中屏幕或更大屏幕上收缩。从技术上讲，我们本来可以只使用`flex-shrink-0`，因为它在较小的屏幕上不会做任何事情，但因为它只在`md`屏幕上有影响，所以在类名中明确表示是一个好主意。
+- 在小屏幕上，图像默认自动全宽。对于中屏及以上的屏幕，我们使用`md:w-48`将宽度限制为固定大小。
 
-We've only used one breakpoint in this example, but you could easily customize this component at other sizes using the `sm`, `lg`, or `xl` responsive prefixes as well.
+在本例中我们只使用了一个断点，但是你也可以使用`sm`、`lg`或`xl`响应前缀轻松地定制其他大小的组件。
 
 ---
 
-## Mobile First
+## 移动端优先
 
-By default, Tailwind uses a mobile first breakpoint system, similar to what you might be used to in other frameworks like Bootstrap.
+默认情况下，Tailwind使用一个“移动端优先”的断点系统，类似于Bootstrap等其他框架中使用的功能。
 
-What this means is that unprefixed utilities (like `uppercase`) take effect on all screen sizes, while prefixed utilities (like `md:uppercase`) only take effect at the specified breakpoint *and above*.
+这意味着无前缀的工具类(如`uppercase`)对所有屏幕大小都有效，而带前缀的工具类(如`md:uppercase`)只在指定的断点及更大屏幕上生效。
 
-### Targeting mobile screens
+### 针对手机屏幕
 
-Where this approach surprises people most often is that to style something for mobile, you need to use the unprefixed version of a utility, not the `sm:` prefixed version. Don't think of `sm:` as meaning "on small screens", think of it as "at the small *breakpoint*".
+这种方法最让人惊讶的地方在于，要为移动设备设计样式，你需要使用无前缀的工具类版本，而不是带有`sm:`前缀的版本。不要把`sm:`想成是“在小屏幕上”，而是把它想成是“在小的断点上”。
 
-<TipBad>Don't use <code className="text-sm font-bold text-gray-800">sm:</code> to target mobile devices</TipBad>
+<TipBad>不要使用<code className="text-sm font-bold text-gray-800">sm:</code>去针对移动端来设计样式</TipBad>
 
 ```html
 <!-- This will only center text on screens 640px and wider, not on small screens -->
 <div class="sm:text-center"></div>
 ```
 
-<TipGood>Use unprefixed utilities to target mobile, and override them at larger breakpoints</TipGood>
+<TipGood>使用无前缀工具类来设计移动端行为样式，并在较大的断点覆盖它们</TipGood>
 
 ```html
 <!-- This will center text on mobile, and left align it on screens 640px and wider -->
 <div class="text-center sm:text-left"></div>
 ```
 
-For this reason, it's often a good idea to implement the mobile layout for a design first, then layer on any changes that make sense for `sm` screens, followed by `md` screens, etc.
+出于这个原因，我们最好先执行手机布局，然后再对`sm`屏幕进行调整，然后再对`md`屏幕进行调整。
 
-### Targeting a single breakpoint
+### 以单个断点为目标
 
-Tailwind's breakpoints only include a `min-width` and don't include a `max-width`, which means any utilities you add at a smaller breakpoint will also be applied at larger breakpoints.
+Tailwind的断点只包括一个“最小宽度”，不包括一个“最大宽度”，这意味着你在一个较小的断点上添加的任何工具类也会被应用到更大的断点上。
 
-If you'd like to apply a utility at one breakpoint only, the solution is to *undo* that utility at larger sizes by adding another utility that counteracts it.
+如果你想只在一个断点上应用一个工具类，解决方案是通过添加另一个工具类来抵消它，以便更大的尺寸*覆盖*该工具类。
 
-Here is an example where the background color is red at the `md` breakpoint, but teal at every other breakpoint:
+下面是一个背景色在`md`断点为红色，而在其他断点为蓝绿色的例子:
 
 ```html
 <div class="bg-teal-500 md:bg-red-500 lg:bg-teal-500">
@@ -113,11 +114,13 @@ Here is an example where the background color is red at the `md` breakpoint, but
 
 Notice that **we did not** have to specify a background color for the `sm` breakpoint or the `xl` breakpoint — you only need to specify when a utility should *start* taking effect, not when it should stop.
 
+请注意，**我们没有**必须为`sm`断点或`xl`断点指定背景颜色——你只需要指定一个工具类应该*开始*生效的时间，而不是应该停止的时间。
+
 ---
 
-## Customizing breakpoints
+## 自定义断点
 
-You can completely customize your breakpoints in your `tailwind.config.js` file:
+你可以在你的`tailwind.config`中完全自定义你的断点。配置文件:`tailwind.config.js`：
 
 ```js
 // tailwind.config.js
@@ -137,4 +140,4 @@ module.exports = {
 }
 ```
 
-Learn more in the [customizing breakpoints documentation](/docs/breakpoints).
+更多配置查看文档[断点](/docs/breakpoints).

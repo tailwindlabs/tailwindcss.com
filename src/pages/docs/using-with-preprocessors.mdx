@@ -19,7 +19,7 @@ import { TipGood, TipBad } from '@/components/Tip'
 
 这有几个好处:
 
-- **您的构建将更快**。因为你的CSS不需要被多种工具解析和处理，你的CSS只使用PostCSS会编译得更快。
+- **你的构建将更快**。因为你的CSS不需要被多种工具解析和处理，你的CSS只使用PostCSS会编译得更快。
 - **没有奇怪的写法**。因为Tailwind添加了一些新的非标准的关键字到CSS(如`@tailwind`， `@apply`， `theme()`等)，你经常不得不写一些不直观的CSS，以获得你想要的预处理器的输出。只使用PostCSS可以避免这种情况。
 
 要获得一个全面的可用的PostCSS插件列表，请参阅[PostCSS GitHub知识库](https://github.com/postcss/postcss/blob/master/docs/plugins.md)，但这里有一些我们在自己的项目中使用的重要插件，可以推荐给大家。
@@ -68,7 +68,7 @@ module.exports = {
 @import "./components/card";
 ```
 
-这个问题的最简单的解决方案是永远不要在同一个文件中写常规CSS和导入其他CSS文件。相反，为您的导入创建一个主要入口点文件，并将所有实际的CSS保存在单独的文件中。
+这个问题的最简单的解决方案是永远不要在同一个文件中写常规CSS和导入其他CSS文件。相反，为你的导入创建一个主要入口点文件，并将所有实际的CSS保存在单独的文件中。
 
 <TipGood>使用单独的文件来放置导入文件以及编写的CSS</TipGood>
 
@@ -92,7 +92,7 @@ module.exports = {
 }
 ```
 
-您最有可能遇到这种情况的地方是在主CSS文件中，其中包括您的`@tailwind`声明。
+你最有可能遇到这种情况的地方是在主CSS文件中，其中包括你的`@tailwind`声明。
 
 <TipBad>无效, `@import`语句必须放在最上面</TipBad>
 
@@ -191,7 +191,7 @@ module.exports = {
 
 ### 未来的CSS特性
 
-您可以使用[postcss-preset-env](https://github.com/csstools/postcss-preset-env)插件为您的项目添加数十个即将到来的CSS特性。
+你可以使用[postcss-preset-env](https://github.com/csstools/postcss-preset-env)插件为你的项目添加数十个即将到来的CSS特性。
 
 要使用它，请通过npm安装它:
 
@@ -222,7 +222,7 @@ module.exports = {
 
 ## 使用Sass, Less,或者Stylus
 
-要使用Tailwind和预处理工具(如Sass、Less或Stylus)一起使用，您需要向项目添加额外的构建步骤，让您通过PostCSS运行预处理后的CSS。如果您在项目中使用Autoprefixer，那么您已经设置了类似的东西。
+要使用Tailwind和预处理工具(如Sass、Less或Stylus)一起使用，你需要向项目添加额外的构建步骤，让你通过PostCSS运行预处理后的CSS。如果你在项目中使用Autoprefixer，那么你已经设置了类似的东西。
 
 具体的说明会根据你使用的构建工具而有所不同，所以请参阅我们的[安装文档](/docs/installation#3-process-your-css-with-tailwind)来了解更多关于将Tailwind集成到你现有的构建过程的信息。
 
@@ -236,7 +236,7 @@ module.exports = {
 }
 ```
 
-为了更好结合具体开发过程，建议您[专门使用PostCSS](#post-css)。
+为了更好结合具体开发过程，建议你[专门使用PostCSS](#post-css)。
 
 除此之外，在使用Tailwind时，每个预处理器都有自己的一两个特点，下面将介绍一些解决方案。
 

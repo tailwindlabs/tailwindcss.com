@@ -1,6 +1,6 @@
 ---
-title: Utility-First
-description: Building complex components from a constrained set of primitive utilities.
+title: 工具类优先
+description: 从一组受约束的基本工具类构建复杂组件。
 ---
 
 import { Heading } from '@/components/Heading'
@@ -9,9 +9,9 @@ import { CodeSample } from '@/components/CodeSample'
 
 ## <Heading hidden>Overview</Heading>
 
-Traditionally, whenever you need to style something on the web, you write CSS.
+传统写法，每当需要在web上设置样式时，就需要编写CSS。
 
-<TipBad>Using a traditional approach where custom designs require custom CSS</TipBad>
+<TipBad>使用传统方法，定制设计需要定制CSS</TipBad>
 
 ```html lightBlue
 <template preview class="px-6 py-12">
@@ -70,9 +70,9 @@ Traditionally, whenever you need to style something on the web, you write CSS.
 </style>
 ```
 
-With Tailwind, you style elements by applying pre-existing classes directly in your HTML.
+有了Tailwind，你可以通过直接在HTML中应用预先存在的类来添加样式。
 
-<TipGood>Using utility classes to build custom designs without writing CSS</TipGood>
+<TipGood>使用工具类来构建定制设计，而不需要编写CSS</TipGood>
 
 ```html lightBlue
 <template preview class="px-6 py-12">
@@ -98,40 +98,40 @@ With Tailwind, you style elements by applying pre-existing classes directly in y
 </div>
 ```
 
-In the example above, we've used:
+上面的例子，我们使用了：
 
-- Tailwind's [flexbox](/docs/display#flex) and [padding](/docs/padding) utilities (`flex`, `flex-shrink-0`, and `p-6`) to control the overall card layout
-- The [max-width](/docs/max-width) and [margin](/docs/margin) utilities (`max-w-sm` and `mx-auto`) to constrain the card width and center it horizontally
-- The [background color](/docs/background-color), [border radius](/docs/border-radius), and [box-shadow](/docs/box-shadow) utilities (`bg-white`, `rounded-xl`, and `shadow-md`) to style the card's appearance
-- The [width](/docs/width) and [height](/docs/height) utilities (`w-12` and `h-12`) to size the logo image
-- The [space-between](/docs/space) utilities (`space-x-4`) to handle the spacing between the logo and the text
-- The [font size](/docs/font-size), [text color](/docs/text-color), and [font-weight](/docs/font-weight) utilities (`text-xl`, `text-black`, `font-medium`, etc.) to style the card text
+- [flexbox](/docs/display#flex)和[padding](/docs/padding)类组的`flex`、`flex-shrink-0`以及`p-6`来设置卡片布局。
+- [max-width](/docs/max-width)和[margin](/docs/margin)类组的`max-w-sm`、`mx-auto`让卡片水平居中。
+- [background color](/docs/background-color)、[border radius](/docs/border-radius)以及[box-shadow](/docs/box-shadow)类组的`bg-white`、`rounded-xl`以及`shadow-md`来设置卡片的外观。
+- [width](/docs/width)以及[height](/docs/height)类组的`w-12`以及`h-12`)来设置logo的尺寸。
+- [space-between](/docs/space)类组的`space-x-4`)设置logo和文字的边距。
+- [font size](/docs/font-size)、[text color](/docs/text-color)以及[font-weight](/docs/font-weight)类组的`text-xl`、`text-black`、`font-medium`等来设置文字样式。
 
-This approach allows us to implement a completely custom component design without writing a single line of custom CSS.
+这种方法允许我们实现一个完全定制的组件设计，而不需要编写任何定制的CSS。
 
-Now I know what you're thinking, _"this is an atrocity, what a horrible mess!"_ and you're right, it's kind of ugly. In fact it's just about impossible to think this is a good idea the first time you see it — **you have to actually try it**.
+现在我知道你在想什么，“this is an atrocity, what a horrible mess!”，没错，这是有点丑陋。事实上，当你第一次看到它时，你绝对不会认为它是一个好主意——你必须真正地去尝试它。
 
-But once you've actually built something this way, you'll quickly notice some really important benefits:
+但一旦你真的用这种方式构建了一些东西，你很快就会注意到一些真正重要的好处:
 
-- **You aren't wasting energy inventing class names**. No more adding silly class names like `sidebar-inner-wrapper` just to be able to style something, and no more agonizing over the perfect abstract name for something that's really just a flex container.
-- **Your CSS stops growing**. Using a traditional approach, your CSS files get bigger every time you add a new feature. With utilities, everything is reusable so you rarely need to write new CSS.
-- **Making changes feels safer**. CSS is global and you never know what you're breaking when you make a change. Classes in your HTML are local, so you can change them without worrying about something else breaking.
+- **你没有浪费精力去想类名**。不再需要添加像sidebar-inner-wrapper这样愚蠢的类名，只是为了能够对某些东西进行样式化，也不再需要为真正只是flex容器的东西的完美抽象名称而烦恼。
+- **你的css文件不会再变大了**。使用传统方法，每次添加新特性时，CSS文件都会变大。有了Tailwind，一切都可以重用，所以你很少需要编写新的CSS。
+- **更安全的改动**。CSS是全局的，当你做更改时，你永远不知道你破坏了什么。HTML中的类是本地的，所以可以更改它们，而不必担心其他东西会破坏。
 
-When you realize how productive you can be working exclusively in HTML with predefined utility classes, working any other way will feel like torture.
+当你意识到只使用HTML和预定义的工具类可以提高工作效率时，使用其他任何方式都将是一种折磨！！！
 
 ---
 
-## Why not just use inline styles?
+## 为什么不直接使用内联样式呢？
 
-A common reaction to this approach is wondering, "isn't this just inline styles?" and in some ways it is — you're applying styles directly to elements instead of assigning them a class name and then styling that class.
+对于这种方法，一个常见的反应是:“这不就是内联样式吗?”，在某些方面确实是这样——你直接将样式应用到元素上，而不是：给它们指定一个类名，然后给这个类添加样式。
 
-But using utility classes has a few important advantages over inline styles:
+但是与内联样式相比，使用工具类有几个重要的优点:
 
-- **Designing with constraints**. Using inline styles, every value is a magic number. With utilities, you're choosing styles from a predefined [design system](/docs/theme), which makes it much easier to build visually consistent UIs.
-- **Responsive design**. You can't use media queries in inline styles, but you can use Tailwind's [responsive utilities](/docs/responsive-design) to build fully responsive interfaces easily.
-- **Hover, focus, and other states**. Inline styles can't target states like hover or focus, but Tailwind's [state variants](/docs/hover-focus-and-other-states) make it easy to style those states with utility classes.
+- **设计约束**。使用内联样式，每个值都是一个魔法数字。使用工具类，你可以从预定义的设计系统中选择样式，这使得构建视觉上一致的ui变得更加容易。
+- **响应式设计**. 你不能使用内联样式的媒体查询，但是你可以使用Tailwind的[响应式类组](/docs/responsive-design)轻松地构建完全响应的接口。
+- **Hover, focus以及其他状态**. 内联样式不能设置hover或者focus，但Tailwind的[变体](/docs/hover-focus-and-other-states)可以很轻松实现。
 
-This component is fully responsive and includes a button with hover and focus styles, and is built entirely with utility classes:
+下面这个组件是完全响应的，包括一个带有hover和focus样式的按钮，并且完全是用工具类构建的:
 
 ```html purple
 <template preview class="px-6 py-12">
@@ -169,11 +169,11 @@ This component is fully responsive and includes a button with hover and focus st
 
 ---
 
-## Maintainability concerns
+## 可维护性问题
 
-The biggest maintainability concern when using a utility-first approach is managing commonly repeated utility combinations.
+当使用工具类组的方法时，最大的可维护性问题是管理常见的重复工具类组合。
 
-This is easily solved by [extracting components](/docs/extracting-components), usually as template partials or components.
+通过[提取组件](/docs/extracting-components)可以很轻松实现。
 
 ```html
 <!-- PrimaryButton.vue -->
@@ -184,7 +184,7 @@ This is easily solved by [extracting components](/docs/extracting-components), u
 </template>
 ```
 
-You can also use Tailwind's `@apply` feature to create CSS abstractions around common utility patterns.
+你还可以使用Tailwind的`@apply`指令来围绕公共样式创建CSS抽象。
 
 ```html emerald
 <template preview>
@@ -215,12 +215,12 @@ You can also use Tailwind's `@apply` feature to create CSS abstractions around c
 </style>
 ```
 
-Aside from that, maintaining a utility-first CSS project turns out to be a lot easier than maintaining a large CSS codebase, simply because HTML is so much easier to maintain than CSS. Large companies like GitHub, Heroku, Kickstarter, Twitch, Segment, and more are using this approach with great success.
+除此之外，维护一个工具类优先的CSS项目比维护一个大型CSS代码库要容易得多，因为HTML比CSS容易维护得多。像GitHub, Heroku, Kickstarter, Twitch, Segment等大公司都在使用这种方法并取得了巨大的成功。
 
-If you'd like to hear about others' experiences with this approach, check out the following resources:
+如果你想了解其他人使用这种方法的经验，请查看以下资源:
 
 - [By The Numbers: A Year and a Half with Atomic CSS](https://medium.com/@johnpolacek/by-the-numbers-a-year-and-half-with-atomic-css-39d75b1263b4) by John Polacek
 - [Building a Scalable CSS Architecture](https://blog.algolia.com/redesigning-our-docs-part-4-building-a-scalable-css-architecture/) by Sarah Dayan of Algolia
 - [Diana Mounter on using utility classes at GitHub](http://www.fullstackradio.com/75), a podcast interview
 
-For even more, check out [The Case for Atomic/Utility-First CSS](https://johnpolacek.github.io/the-case-for-atomic-css/), curated by [John Polacek](https://twitter.com/johnpolacek).
+更多的可以阅读[The Case for Atomic/Utility-First CSS](https://johnpolacek.github.io/the-case-for-atomic-css/), curated by [John Polacek](https://twitter.com/johnpolacek).

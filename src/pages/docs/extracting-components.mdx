@@ -1,11 +1,11 @@
 ---
-title: Extracting Components
-description: Dealing with duplication and keeping utility-first projects maintainable.
+title: 扩展组件
+description: 把项目重复的内容变得可维护.
 ---
 
 import { TipGood, TipBad } from '@/components/Tip'
 
-Tailwind encourages a [utility-first](/docs/utility-first) workflow, where designs are initially implemented using only utility classes to avoid premature abstraction.
+Tailwind鼓励[工具类优先](/docs/utility-first)的工作流，在这种工作流中，设计最初只使用工具类来实现，以避免过早的抽象。
 
 ```html indigo
 <template preview class="px-6 py-8">
@@ -37,7 +37,7 @@ Tailwind encourages a [utility-first](/docs/utility-first) workflow, where desig
 </div>
 ```
 
-But as a project grows, you'll inevitably find yourself repeating common utility combinations to recreate the same component in many different places. This is most apparent with small components, like buttons, form elements, badges, etc.
+但随着项目的发展，你会发现自己在许多不同的地方重复使用常见的工具类组合来重新创建相同的组件。这在小组件上表现得最为明显，如按钮、表单元素、徽章等。
 
 ```html emerald
 <template preview>
@@ -54,15 +54,15 @@ But as a project grows, you'll inevitably find yourself repeating common utility
 </button>
 ```
 
-Keeping a long list of utility classes in sync across many component instances can quickly become a real maintenance burden, so when you start running into painful duplication like this, it's a good idea to extract a component.
+在许多组件实例之间保持一长串的工具类同步会很快成为真正的维护噩梦，所以当开始遇到这样痛苦的重复时，提取一个组件是一个好主意。
 
 ---
 
-## Extracting template components
+## 提取模板组件
 
-It's very rare that all of the information needed to define a UI component can live entirely in CSS — there's almost always some important corresponding HTML structure you need to use as well.
+定义UI组件所需的所有信息都完全存在于CSS中是非常罕见的——几乎总是有一些重要的相应的HTML结构需要使用。
 
-<TipBad>Don't rely on CSS classes to extract complex components</TipBad>
+<TipBad>不要依赖CSS类来提取复杂的组件</TipBad>
 
 ```html
 <template preview class="p-8">
@@ -103,11 +103,11 @@ It's very rare that all of the information needed to define a UI component can l
 </div>
 ```
 
-For this reason, it's often better to extract reusable pieces of your UI into _template partials_ or _JavaScript components_ instead of writing custom CSS classes.
+出于这个原因，通常最好将UI的可重用部分提取到_template分块_或_JavaScript组件_中，而不是编写自定义CSS类。
 
-By creating a single source of truth for a template, you can keep using utility classes without any of the maintenance burden created by duplicating the same classes in multiple places.
+通过组件引入，不需要在多个地方复制相同的类，从而产生任何维护负担。
 
-<TipGood>Create a template partial or JavaScript component</TipGood>
+<TipGood>创建一个组件</TipGood>
 
 ```html
 <!-- In use -->
@@ -143,18 +143,17 @@ By creating a single source of truth for a template, you can keep using utility 
 </script>
 ```
 
-The above example uses [Vue](https://vuejs.org/v2/guide/components.html), but the same approach can be used with [React components](https://reactjs.org/docs/components-and-props.html), [ERB partials](https://guides.rubyonrails.org/v5.2/layouts_and_rendering.html#using-partials), [Blade components](https://laravel.com/docs/5.8/blade#components-and-slots), [Twig includes](https://twig.symfony.com/doc/2.x/templates.html#including-other-templates), etc.
+上面的例子使用了[Vue](https://vuejs.org/v2/guide/components.html)，同样的方法也可以用在[React components](https://reactjs.org/docs/components-and-props.html), [ERB partials](https://guides.rubyonrails.org/v5.2/layouts_and_rendering.html#using-partials), [Blade components](https://laravel.com/docs/5.8/blade#components-and-slots), [Twig includes](https://twig.symfony.com/doc/2.x/templates.html#including-other-templates)等上面。
 
 ---
 
-## Extracting component classes with @apply
+## 使用@apply提取组件类
 
-For small components like buttons and form elements, creating a template partial or JavaScript component can often feel too heavy compared to a simple CSS class.
+对于像按钮和表单元素这样的小组件，与简单的CSS类相比，创建一个组件可能显得过于繁重。
 
-In these situations, you can use Tailwind's `@apply` directive to easily extract common utility patterns to CSS component classes.
+在这些情况下，你可以使用Tailwind的`@apply`指令来轻松地将通用工具类提取到CSS类中。
 
-Here's what a `btn-indigo` class might look like using `@apply` to compose it from existing utilities:
-
+下面是使用`@apply`从现有的工具类中组合`btn-indigo`类的样子:
 
 ```html indigo
 <template preview>
@@ -176,7 +175,7 @@ Here's what a `btn-indigo` class might look like using `@apply` to compose it fr
 </style>
 ```
 
-To avoid unintended specificity issues, we recommend wrapping your custom component styles with the `@layer components { ... }` directive to tell Tailwind what layer those styles belong to:
+为了保证一致性，我们建议用`@layer components{…}`指令告诉Tailwind这些样式属于哪个图层:
 
 ```css
 @tailwind base;
@@ -190,13 +189,15 @@ To avoid unintended specificity issues, we recommend wrapping your custom compon
 }
 ```
 
-Tailwind will automatically move those styles to the same place as `@tailwind components`, so you don't have to worry about getting the order right in your source files.
+Tailwind会自动将这些样式移动到与`@tailwind components`相同的位置，这样你就不用担心源文件中的顺序了。
 
 Using the `@layer` directive will also instruct Tailwind to consider those styles for purging when purging the `components` layer. Read our [documentation on optimizing for production](/docs/optimizing-for-production) for more details.
 
-### Writing a component plugin
+使用`@layer`指令也会指示Tailwind在清除`components`图层时考虑这些样式。更多详情请阅读我们的[优化生产环境](/docs/optimizing-for-production)。
 
-In addition to writing component classes directly in your CSS files, you can also add component classes to Tailwind by writing your own plugin:
+### 编写组件插件
+
+除了在你的CSS文件中直接编写组件类，你还可以通过编写你自己的插件将组件类添加到Tailwind:
 
 ```js
 // tailwind.config.js
@@ -226,6 +227,6 @@ module.exports = {
 }
 ```
 
-This can be a good choice if you want to publish your Tailwind components as a library or make it easier to share components across multiple projects.
+如果你想要将Tailwind组件作为一个库发布，或者让跨多个项目共享组件变得更容易，那么这是一个很好的选择。
 
-Learn more in the [component plugin documentation](/docs/plugins#adding-components).
+更多内容，查看[组件插件](/docs/plugins#adding-components)。
