@@ -21,6 +21,7 @@ const footerNav = {
     items: [
       { title: 'GitHub', href: 'https://github.com/tailwindlabs/tailwindcss' },
       { title: 'Discord', href: '/discord' },
+      { title: 'DEV Community', href: 'https://dev.to/t/tailwindcss' },
       { title: 'Twitter', href: 'https://twitter.com/tailwindcss' },
       { title: 'YouTube', href: 'https://www.youtube.com/tailwindlabs' },
     ],
