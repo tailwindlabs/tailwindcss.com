@@ -11,13 +11,18 @@ export const classes = { plugin }
 
 ## Contain
 
-Resize an element's content to stay contained within its container using `.object-contain`.
+Resize an element's content to fit within its container while maintaining aspect ratio using `.object-contain`.
 
 ```html rose
 <template preview>
-  <div class="bg-rose-300 bg-stripes bg-stripes-white rounded-md overflow-hidden">
-    <img class="h-48 w-full object-contain" src="/img/placeholder-rose.svg" alt="">
+<div class="flex space-x-2">
+  <div class="bg-rose-300 bg-stripes bg-stripes-white rounded-md w-1/5">
+    <img class="h-48 object-contain" src="/img/placeholder-rose.svg" alt="">
   </div>
+  <div class="bg-rose-300 bg-stripes bg-stripes-white rounded-md w-4/5">
+    <img class="h-48 mx-auto object-contain" src="/img/placeholder-rose.svg" alt="">
+  </div>
+</div>
 </template>
 
 <div class="bg-rose-300 ...">
@@ -27,7 +32,7 @@ Resize an element's content to stay contained within its container using `.objec
 
 ## Cover
 
-Resize an element's content to cover its container using `.object-cover`.
+Resize an element's content to fill its container while maintaining aspect ratio using `.object-cover`.
 
 ```html indigo
 <template preview>
