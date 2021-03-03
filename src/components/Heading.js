@@ -38,26 +38,29 @@ export function Heading({
       style={{ ...(hidden ? { marginBottom: 0 } : {}), ...style }}
       {...props}
     >
-      {!hidden && (
-        // eslint-disable-next-line
-        <a
-          href={`#${id}`}
-          className="absolute after:hash opacity-0 group-hover:opacity-100"
-          style={{ marginLeft: '-1em', paddingRight: '0.5em', boxShadow: 'none', color: '#a1a1aa' }}
-          aria-label="Anchor"
-        />
-      )}
-      {number && (
-        <span className="bg-cyan-100 w-8 h-8 inline-flex items-center justify-center rounded-full text-cyan-700 text-xl mr-3 flex-none">
-          {number}
-        </span>
-      )}
-      <span className={hidden ? 'sr-only' : undefined}>{children}</span>
-      {badge && (
-        <span className="ml-3 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium leading-4 bg-green-150 text-green-900">
-          {badge}
-        </span>
-      )}
+      <a
+        href={`#${id}`}
+        style={{ fontWeight: 700, boxShadow: 'none', color: '#111827' }}
+      >
+        {!hidden && (
+            <nav
+              className="absolute after:hash opacity-0 group-hover:opacity-100 hidden lg:block"
+              style={{ marginLeft: '-1em', paddingRight: '0.5em', boxShadow: 'none', fontWeight: 500, color: '#a1a1aa' }}
+              aria-label="Anchor"
+            />
+        )}
+        {number && (
+          <span className="bg-cyan-100 w-8 h-8 inline-flex items-center justify-center rounded-full text-cyan-700 text-xl mr-3 flex-none">
+            {number}
+          </span>
+        )}
+        <span className={clsx({ 'sr-only': hidden }, 'pb-1 border-b border-transparent border-dashed group-hover:border-gray-200')}>{children}</span>
+        {badge && (
+          <span className="ml-3 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium leading-4 bg-green-150 text-green-900">
+            {badge}
+          </span>
+        )}
+      </a>
     </Component>
   )
 }
