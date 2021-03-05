@@ -47,7 +47,7 @@ export const documentationNav = {
     },
     {
       ...pages['hover-focus-and-other-states'],
-      shortTitle: 'hover & focus & 其他各种状态',
+      shortTitle: 'hover & focus & 其他各种变体',
     },
     {
       ...pages['dark-mode'],

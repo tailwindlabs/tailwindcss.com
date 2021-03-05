@@ -1,5 +1,5 @@
 ---
-title: Hover、Focus以及其他状态
+title: Hover、Focus以及其他变体
 description: 直接使用工具类去添加hover、focus等效果
 ---
 
@@ -30,11 +30,11 @@ import { VariantEnabledList } from '@/components/VariantEnabledList'
 </form>
 ```
 
-**出于文件大小的考虑，并不是所有的状态都默认为所有的工具类启用**，但是我们已经尽了最大的努力来启用最常用的组合。
+**出于文件大小的考虑，并不是所有的变体都默认为所有的工具类启用**，但是我们已经尽了最大的努力来启用最常用的组合。
 
-有关默认启用的状态的完整列表，请查看本页末尾的[参考表](#default-variants-reference)。
+有关默认启用的变体的完整列表，请查看本页末尾的[参考表](#default-variants-reference)。
 
-如果你需要一个Tailwind不支持的状态，你可以通过[编写一个状态插件](#creating-custom-variants)来扩展。
+如果你需要一个Tailwind不支持的变体，你可以通过[编写一个变体插件](#creating-custom-variants)来扩展。
 
 ---
 
@@ -351,7 +351,7 @@ module.exports = {
 </button>
 ```
 
-注意，与大多数其他变体不同的是，`motion-safe`可以与响应式前缀以及其他状态(如`hover`)结合在一起，按以下顺序堆叠它们:
+注意，与大多数其他变体不同的是，`motion-safe`可以与响应式前缀以及其他变体(如`hover`)结合在一起，按以下顺序堆叠它们:
 
 ```html
 <div class="**sm:motion-safe:hover:animate-spin**">
@@ -399,7 +399,7 @@ module.exports = {
 </button>
 ```
 
-注意，与大多数其他变体不同的是，`motion-reduce`可以与响应式前缀以及其他状态(如`hover`)结合在一起，按以下顺序堆叠它们:
+注意，与大多数其他变体不同的是，`motion-reduce`可以与响应式前缀以及其他变体(如`hover`)结合在一起，按以下顺序堆叠它们:
 
 ```html
 <div class="**sm:motion-reduce:hover:animate-none**">
@@ -718,9 +718,9 @@ module.exports = {
 
 ## 与响应式前缀组合
 
-状态也具有响应性，这意味着你可以做一些事情，比如在不同的断点更改元素的hover样式。
+变体也具有响应性，这意味着你可以做一些事情，比如在不同的断点更改元素的hover样式。
 
-要在特定的断点上应用一个状态，在状态前缀之前先添加响应式前缀:
+要在特定的断点上应用一个变体，在变体前缀之前先添加响应式前缀:
 
 ```html
 <button class="... hover:bg-green-500 **sm:hover:bg-blue-500**">
@@ -730,9 +730,9 @@ module.exports = {
 
 ---
 
-## 为自定义的类创建生成状态
+## 为自定义的类创建生成变体
 
-你可以为你自己的CSS类生成状态，用`@variant`指令包装它们:
+你可以为你自己的CSS类生成变体，用`@variant`指令包装它们:
 
 ```css
 /* Input: */
@@ -762,11 +762,11 @@ module.exports = {
 
 ---
 
-## 创建自定义状态
+## 创建自定义变体
 
-你可以创建Tailwind默认不支持的状态，方法是编写一个自定义的变量插件。
+你可以创建Tailwind默认不支持的变体，方法是编写一个自定义的变量插件。
 
-例如，这个简单的插件增加了对`required`伪类状态的支持:
+例如，这个简单的插件增加了对`required`伪类变体的支持:
 
 ```js
 // tailwind.config.js
@@ -785,15 +785,15 @@ module.exports = {
 }
 ```
 
-更多细节，查看[状态插件](/docs/plugins#adding-variants).
+更多细节，查看[变体插件](/docs/plugins#adding-variants).
 
 ---
 
-## 默认状态支持
+## 默认变体支持
 
-由于文件大小的考虑，默认情况下，Tailwind并不包括所有工具类的所有状态。
+由于文件大小的考虑，默认情况下，Tailwind并不包括所有工具类的所有变体。
 
-要为你的项目配置启用哪些状态，查看[配置状态](/docs/configuring-variants).
+要为你的项目配置启用哪些变体，查看[配置变体](/docs/configuring-variants).
 
 <div>
   <DefaultVariantsConfig />

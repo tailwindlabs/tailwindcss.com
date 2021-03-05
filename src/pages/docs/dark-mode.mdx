@@ -9,7 +9,7 @@ import { Heading } from '@/components/Heading'
 
 现在暗模式已经成为许多操作系统的头等功能，因此按照默认设计来设计暗版本的网站也变得越来越普遍。
 
-为了使这变得尽可能简单，Tailwind包含了一个`dark`状态，当启用黑色模式时，你可以用不同的风格来设计你的网站:
+为了使这变得尽可能简单，Tailwind包含了一个`dark`变体，当启用黑色模式时，你可以用不同的风格来设计你的网站:
 
 ```html
 <div class="bg-white **dark:bg-gray-800**">
@@ -20,7 +20,7 @@ import { Heading } from '@/components/Heading'
 </div>
 ```
 
-需要格外注意的是，由于文件大小的考虑，默认情况下，Tailwind不启用暗模式状态。
+需要格外注意的是，由于文件大小的考虑，默认情况下，Tailwind不启用暗模式变体。
 
 你可以在配置文件`tailwind.config.js`中设置`darkMode`为`media`来启用：
 
@@ -38,9 +38,9 @@ module.exports = {
 
 ---
 
-## 与其他状态叠加
+## 与其他变体叠加
 
-`dark`可以跟[响应式前缀](/docs/responsive-design)以及其他[状态](/docs/hover-focus-and-other-states)叠加：
+`dark`可以跟[响应式前缀](/docs/responsive-design)以及其他[变体](/docs/hover-focus-and-other-states)叠加：
 
 ```html
 <button class="lg:dark:hover:bg-white ...">
@@ -48,13 +48,13 @@ module.exports = {
 </button>
 ```
 
-响应式前缀必须在第一位，然后是`dark`，最后是其他状态。
+响应式前缀必须在第一位，然后是`dark`，最后是其他变体。
 
 ---
 
 ## 为其他工具类开启
 
-要开启`dark`，方法跟其他状态一样，在配置文件添加即可：
+要开启`dark`，方法跟其他变体一样，在配置文件添加即可：
 
 ```js
 // tailwind.config.js

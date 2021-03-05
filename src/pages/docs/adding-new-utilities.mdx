@@ -40,7 +40,7 @@ import { TipGood, TipBad } from '@/components/Tip'
 
 ### 响应式设计
 
-如果你想根据你在`tailwind.config.js`中定义的断点生成你自己的工具类的[响应式状态](/docs/responsive-design)。将你的工具类放在`@variants responsive`指令里面:
+如果你想根据你在`tailwind.config.js`中定义的断点生成你自己的工具类的[响应式变体](/docs/responsive-design)。将你的工具类放在`@variants responsive`指令里面:
 
 ```css
 @tailwind base;
@@ -73,7 +73,7 @@ Tailwind将自动生成每个自定义工具类的前缀版本，你可以使用
 
 ### 暗黑模式
 
-如果你想要给你的工具类生成[暗黑状态](/docs/dark-mode)，首先确保你的配置文件`tailwind.config.js`有把`darkMode`设置为`media`或者`class`。
+如果你想要给你的工具类生成[暗黑变体](/docs/dark-mode)，首先确保你的配置文件`tailwind.config.js`有把`darkMode`设置为`media`或者`class`。
 
 ```js
 // tailwind.config.js
@@ -110,11 +110,9 @@ Tailwind将自动生成每个自定义工具类的前缀版本，你可以使用
 
 更多细节，查看[暗黑模式](/docs/dark-mode).
 
-### 其他状态
+### 其他变体
 
-如果[state variants](/docs/hover-focus-and-other-states) for your own utilities, wrap your utilities in the `@variants` directive and list the variants you'd like to enable:
-
-如果你想要给你的工具类生成其他[状态](/docs/hover-focus-and-other-states)，将你的工具类包裹在`@variants`指令里面，你可以选择任何你需要的状态值:
+如果你想要给你的工具类生成其他[变体](/docs/hover-focus-and-other-states)，将你的工具类包裹在`@variants`指令里面，你可以选择任何你需要的变体值:
 
 
 ```css
@@ -140,7 +138,7 @@ Tailwind将自动生成每个自定义工具类的前缀版本，你可以使用
 <div class="filter-grayscale **hover:filter-none**"></div>
 ```
 
-状态的权重与你在`@variant`指令中列出它们的顺序相同，所以如果你想让一个变量优先于另一个变量，确保你最后列出了一个:
+变体的权重与你在`@variant`指令中列出它们的顺序相同，所以如果你想让一个变量优先于另一个变量，确保你最后列出了一个:
 
 ```css
 /* Focus will take precedence over hover */
@@ -160,7 +158,7 @@ Tailwind将自动生成每个自定义工具类的前缀版本，你可以使用
 }
 ```
 
-更多细节，查看[hover&focus&其他状态](/docs/hover-focus-and-other-states).
+更多细节，查看[hover&focus&其他变体](/docs/hover-focus-and-other-states).
 
 ---
 
