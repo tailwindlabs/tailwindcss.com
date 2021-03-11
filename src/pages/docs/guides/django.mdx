@@ -1,0 +1,110 @@
+---
+title: "Install Tailwind CSS with Django"
+description: "Setting up Tailwind CSS in a Django project."
+tool: Django
+---
+
+# Using Tailwind CSS with Django
+
+## Creating a dedicated app
+
+Start by creating a new Django app in your project. We'll call it **theme**:
+
+```shell
+cd YOUR_PROJECT_ROOT
+django-admin startapp theme
+```
+
+Add the newly created app to `INSTALLED_APPS`, along with `django.contrib.staticfiles`.
+
+```py
+# in settings.pyA
+
+INSTALLED_APPS = [
+   ...    
+  'django.contrib.staticfiles',
+  'theme',
+]
+```
+
+## Setting up Tailwind CSS
+
+
+### Install Tailwind using yarn or npm:
+
+```shell
+yarn add tailwindcss postcss autoprefixer postcss-cli
+# or
+npm install tailwindcss postcss autoprefixer postcss-cli
+```
+
+Next, let's add Tailwind to our project's `postcss.config.js` file:
+
+```diff-js
+  module.exports = {
+    plugins: [
++     require('tailwindcss'),
++     require('autoprefixer'),
+    ]
+  }
+
+```
+
+Next, let's create a default Tailwind config file:
+
+```shell
+npx tailwindcss init
+```
+
+```diff-js
+  module.exports = {
+    purge: [
++       'templates/**/*.html', // purge css classes used in django html templates
+    ],
+    darkMode: false, 
+    theme: {
+      extend: {},
+    },
+    variants: {
+      extend: {},
+    },
+    plugins: [],
+  }
+```
+
+In our Django project, let's create a new file called `tailwind.css` inside the `theme/` directory. This file will contain three `@tailwind` declaratives:
+
+```css
+/* in PROJECT_ROOT/theme/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+### Compile 
+
+```diff-js
+  "script": {
++   "theme:dev": "postcss tailwind.css -w -d static/theme/ --verbose",
++   "theme:build": "NODE_ENV=production postcss tailwind.css -d static/theme/ --verbose"
+  }
+```
+
+### Include Tailwind in your templates
+
+
+Finally, in our project layout file, let's reference our compiled `tailwind.css` file:
+
+```diff-html
+  <html>
+    <head>
+      ...
++     {% load static %}
++     <link rel="stylesheet" href="{% static 'theme/tailwind.css' %}" />
+    </head>
+
+    <!-- ... -->
+  </html>
+```
+
+That's it! Tailwind CSS is now available throughout our entire Django application 🎉
