@@ -2,6 +2,7 @@ import { ReactComponent as AngularLogo } from '@/img/guides/angular.svg'
 import { ReactComponent as CreateReactAppLogo } from '@/img/guides/create-react-app.svg'
 import { ReactComponent as GatsbyLogo } from '@/img/guides/gatsby.svg'
 import { ReactComponent as LaravelLogo } from '@/img/guides/laravel.svg'
+import { ReactComponent as DjangoLogo } from '@/img/guides/django.svg'
 import { ReactComponent as NextJsLogo } from '@/img/guides/nextjs.svg'
 import { ReactComponent as NuxtJsLogo } from '@/img/guides/nuxtjs.svg'
 import { ReactComponent as RailsLogo } from '@/img/guides/rails.svg'
@@ -24,6 +25,11 @@ const guides = [
     name: 'Laravel',
     logo: LaravelLogo,
     link: '/docs/guides/laravel',
+  },
+  {
+    name: 'Django',
+    logo: DjangoLogo,
+    link: '/docs/guides/django',
   },
   {
     name: 'Nuxt.js',
