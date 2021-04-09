@@ -110,7 +110,7 @@ export default function Home() {
           </div>
           <Logo className="w-auto h-7 sm:h-8" />
           <h1 className="text-4xl sm:text-6xl lg:text-7xl leading-none font-extrabold tracking-tight text-gray-900 mt-10 mb-8 sm:mt-14 sm:mb-10">
-            快速地建立現代網站而不需要離開您的HTML。
+            無需捨棄HTML，即可快速建立最潮的網站。
           </h1>
           <p className="max-w-screen-lg text-lg sm:text-2xl sm:leading-10 font-medium mb-10 sm:mb-11">
             A utility-first CSS framework packed with classes like <InlineCode>flex</InlineCode>,{' '}
