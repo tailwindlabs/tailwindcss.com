@@ -113,10 +113,9 @@ export default function Home() {
             無需捨棄HTML，即可快速建立最潮的網站。
           </h1>
           <p className="max-w-screen-lg text-lg sm:text-2xl sm:leading-10 font-medium mb-10 sm:mb-11">
-            A utility-first CSS framework packed with classes like <InlineCode>flex</InlineCode>,{' '}
-            <InlineCode>pt-4</InlineCode>, <InlineCode>text-center</InlineCode> and{' '}
-            <InlineCode>rotate-90</InlineCode> that can be composed to build any design, directly in
-            your markup.
+            一個功能優先的 CSS 框架，集合了 <InlineCode>flex</InlineCode>,{' '}
+            <InlineCode>pt-4</InlineCode>, <InlineCode>text-center</InlineCode> 和{' '}
+            <InlineCode>rotate-90</InlineCode> 等 class 屬性，並將其組合起來建構出任意的設計。
           </p>
           <div className="flex flex-wrap space-y-4 sm:space-y-0 sm:space-x-4 text-center">
             <NextLink href="/docs">
