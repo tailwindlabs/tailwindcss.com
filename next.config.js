@@ -25,6 +25,7 @@ const fallbackDefaultExports = {
 }
 
 module.exports = withBundleAnalyzer({
+  assetPrefix: '.',
   pageExtensions: ['js', 'jsx', 'mdx'],
   experimental: {
     modern: true,
