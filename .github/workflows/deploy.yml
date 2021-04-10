@@ -14,7 +14,7 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1.1.3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: ashramwen/tailwindcss.com
           event-type: sync-event
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
