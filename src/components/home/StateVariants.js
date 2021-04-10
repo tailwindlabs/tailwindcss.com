@@ -18,9 +18,9 @@ import { usePrevious } from '@/hooks/usePrevious'
 import clsx from 'clsx'
 
 const projects = [
-  { title: 'API Integration', category: 'Engineering' },
-  { title: 'New Benefits Plan', category: 'Human Resources' },
-  { title: 'Onboarding Emails', category: 'Customer Success' },
+  { title: 'API 整合', category: '開發組' },
+  { title: '薪資調整方案', category: '人資組' },
+  { title: '求職信', category: '客戶關係組' },
 ]
 
 const faces = [
@@ -50,7 +50,7 @@ const {
       <svg class="(new-btn-hover)group-hover:text-light-blue-600 text-light-blue-500 mr-2" width="12" height="20" fill="currentColor">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M6 5a1 1 0 011 1v3h3a1 1 0 110 2H7v3a1 1 0 11-2 0v-3H2a1 1 0 110-2h3V6a1 1 0 011-1z"/>
       </svg>
-      New
+      建立
     </button>
   </header>
   <form class="relative">
@@ -64,19 +64,19 @@ const {
       <a :href="item.url" class="(item-hover)hover:bg-light-blue-500 (item-hover)hover:border-transparent (item-hover)hover:shadow-lg group block rounded-lg p-4 border border-gray-200">
         <dl class="grid sm:block lg:grid xl:block grid-cols-2 grid-rows-2 items-center">
           <div>
-            <dt class="sr-only">Title</dt>
+            <dt class="sr-only">標題</dt>
             <dd class="(item-hover)group-hover:text-white leading-6 font-medium text-black">
               {item.title}
             </dd>
           </div>
           <div>
-            <dt class="sr-only">Category</dt>
+            <dt class="sr-only">類別</dt>
             <dd class="(item-hover)group-hover:text-light-blue-200 text-sm font-medium sm:mb-4 lg:mb-0 xl:mb-4">
               {item.category}
             </dd>
           </div>
           <div class="col-start-2 row-start-1 row-end-3">
-            <dt class="sr-only">Users</dt>
+            <dt class="sr-only">用戶群</dt>
             <dd class="flex justify-end sm:justify-start lg:justify-end xl:justify-start -space-x-2">
               <img x-for="user in item.users" :src="user.avatar" :alt="user.name" width="48" height="48" class="w-7 h-7 rounded-full bg-gray-100 border-2 border-white" />
             </dd>
@@ -86,7 +86,7 @@ const {
     </li>
     <li class="(new-hover)hover:shadow-lg flex rounded-lg">
       <a href="/new" class="(new-hover)hover:border-transparent (new-hover)hover:shadow-xs w-full flex items-center justify-center rounded-lg border-2 border-dashed border-gray-200 text-sm font-medium py-4">
-        New Project
+        新增專案
       </a>
     </li>
   </ul>
@@ -140,23 +140,23 @@ export function StateVariants() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-light-blue-500 mb-3">
-          State variants
+          狀態變化
         </Caption>
         <BigText className="mb-8">
-          <Widont>Hover and focus states? We got ’em.</Widont>
+          <Widont>想要 Hover 和 focus 的狀態？ 我們準備給你。</Widont>
         </BigText>
         <Paragraph className="mb-6">
-          Want to style something on hover? Stick <InlineCode>hover:</InlineCode> at the beginning
-          of the class you want to add. Works for <InlineCode>focus</InlineCode>,{' '}
-          <InlineCode>active</InlineCode>, <InlineCode>disabled</InlineCode>,{' '}
-          <InlineCode>focus-within</InlineCode>, <InlineCode>focus-visible</InlineCode>, and even
-          fancy states we invented ourselves like <InlineCode>group-hover</InlineCode>.
+		  想要在滑鼠經過時有不同的樣式嗎？那就在你想用的 class 前面加上 <InlineCode>hover:</InlineCode>！
+		  同樣，你也能加上 <InlineCode>focus</InlineCode>、{' '}
+          <InlineCode>active</InlineCode>、<InlineCode>disabled</InlineCode>、{' '}
+          <InlineCode>focus-within</InlineCode>、<InlineCode>focus-visible</InlineCode>，甚至是
+		  我們自己發明的超酷炫狀態 <InlineCode>group-hover</InlineCode> 。
         </Paragraph>
         <Link
           href="/docs/hover-focus-and-other-states"
           className="text-light-blue-500 hover:text-light-blue-700"
         >
-          Learn more -&gt;
+          詳細說明 -&gt;
         </Link>
       </div>
       <GradientLockup
@@ -166,7 +166,7 @@ export function StateVariants() {
           <div className="relative z-10 bg-white rounded-tr-xl sm:rounded-t-xl lg:rounded-xl shadow-lg lg:-mr-8">
             <section className="px-4 sm:px-6 lg:px-4 xl:px-6 pt-4 pb-4 sm:pb-6 lg:pb-4 xl:pb-6 space-y-4">
               <header className="flex items-center justify-between">
-                <h2 className="text-lg leading-6 font-medium text-black">Projects</h2>
+                <h2 className="text-lg leading-6 font-medium text-black">專案</h2>
                 <div
                   className="hover:bg-light-blue-200 hover:text-light-blue-800 group flex items-center rounded-md bg-light-blue-100 text-light-blue-600 text-sm font-medium px-4 py-2 cursor-pointer"
                   onMouseEnter={() => {
@@ -188,7 +188,7 @@ export function StateVariants() {
                       d="M6 5a1 1 0 011 1v3h3a1 1 0 110 2H7v3a1 1 0 11-2 0v-3H2a1 1 0 110-2h3V6a1 1 0 011-1z"
                     />
                   </svg>
-                  New
+                  建立
                 </div>
               </header>
               <form className="relative">
@@ -214,7 +214,7 @@ export function StateVariants() {
                   }}
                   type="text"
                   aria-label="Filter projects"
-                  placeholder="Filter projects"
+                  placeholder="搜尋專案"
                   className="w-full text-sm text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-10 focus:border-light-blue-500 focus:outline-none focus:ring-1 focus:ring-light-blue-500"
                 />
               </form>
@@ -235,19 +235,19 @@ export function StateVariants() {
                     >
                       <dl className="grid sm:block lg:grid xl:block grid-cols-2 grid-rows-2 items-center">
                         <div>
-                          <dt className="sr-only">Title</dt>
+                          <dt className="sr-only">標題</dt>
                           <dd className="leading-6 font-medium text-black group-hover:text-white">
                             {project.title}
                           </dd>
                         </div>
                         <div>
-                          <dt className="sr-only">Category</dt>
+                          <dt className="sr-only">類別</dt>
                           <dd className="text-sm font-medium group-hover:text-light-blue-200 sm:mb-4 lg:mb-0 xl:mb-4">
                             {project.category}
                           </dd>
                         </div>
                         <div className="col-start-2 row-start-1 row-end-3">
-                          <dt className="sr-only">Users</dt>
+                          <dt className="sr-only">用戶群</dt>
                           <dd className="flex justify-end sm:justify-start lg:justify-end xl:justify-start -space-x-2">
                             {Array.from({ length: 5 }).map((_, j) => (
                               <img
@@ -278,7 +278,7 @@ export function StateVariants() {
                       setStates((states) => states.filter((x) => x !== 'new-hover'))
                     }}
                   >
-                    New Project
+                    ＋ 新增專案
                   </div>
                 </li>
               </ul>

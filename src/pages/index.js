@@ -145,7 +145,7 @@ export default function Home() {
           <figure>
             <blockquote>
               <Paragraph className="max-w-4xl mx-auto mb-6">
-                我大概已經寫了{' '}
+                我大概寫了有{' '}
                 <a
                   href="https://adamwathan.me/css-utility-classes-and-separation-of-concerns/"
                   className="text-light-blue-600 font-semibold"
@@ -157,7 +157,7 @@ export default function Home() {
                   幾千字
                 </a>{' '}
                 <Widont>
-                  就為了說明「為什麼傳統語義類 class 名稱的 CSS 會這麼難維護」這件事，
+                  ，就為了說明「為什麼傳統語義類 class 名稱的 CSS 會這麼難維護」這件事，
                   但事實上，如果你沒有親自嘗試過，你永遠不會相信我。 要是
 				  你不要著急，肯給它一個機會，我相信你絕對會想知道怎麼透過其他的方式使用 CSS。
                 </Widont>
@@ -173,7 +173,7 @@ export default function Home() {
                 />
               </div>
               <div className="text-gray-900">Adam Wathan</div>
-              <div className="text-light-blue-600">Creator of Tailwind CSS</div>
+              <div className="text-light-blue-600">Tailwind CSS 的作者</div>
             </figcaption>
           </figure>
         </div>

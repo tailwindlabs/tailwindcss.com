@@ -25,8 +25,8 @@ const images = {
 const { code: html, lines, classNames } = tokenizeWithLines.html(
   `<div class="{container}">
   <div class="{header}">
-    <p class="{preheading}">Entire house</p>
-    <h2 class="{heading}">Beach House in Collingwood</h2>
+    <p class="{preheading}">整個房源</p>
+    <h2 class="{heading}">科林伍德海濱別墅</h2>
   </div>
   <div class="{metaContainer}">
     <div class="{meta}">
@@ -38,16 +38,16 @@ const { code: html, lines, classNames } = tokenizeWithLines.html(
         <span class="{ratingCount}">(128)</span>
       </div>
       <div class="text-base font-normal mx-2">·</div>
-      <div>Collingwood, Ontario</div>
+      <div>安大略省 科林伍德</div>
     </div>
     <hr class="{hr}">
   </div>
   <div class="{footerContainer}">
     <p class="flex items-center text-black text-sm font-medium">
       <img src="/kevin-francis.jpg" alt="" class="w-6 h-6 rounded-full mr-2 bg-gray-100">
-      Hosted by Kevin Francis
+      房東：Kevin Francis
     </p>
-    <button type="button" class="bg-violet-100 text-violet-700 text-base font-semibold px-6 py-2 rounded-lg">Check availability</button>
+    <button type="button" class="bg-violet-100 text-violet-700 text-base font-semibold px-6 py-2 rounded-lg">預約入住</button>
   </div>
   <div class="{imgContainer}">
     <div class="w-full grid grid-cols-3 grid-rows-2 gap-2">
@@ -269,21 +269,20 @@ export function MobileFirst() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-violet-600 mb-3">
-          Mobile-first
+          行動裝置為主
         </Caption>
-        <BigText className="mb-8">Responsive everything.</BigText>
+        <BigText className="mb-8">任何東西，都能是響應式的</BigText>
         <Paragraph as="div" className="mb-6">
           <p>
-            Wrestling with a bunch of complex media queries in your CSS sucks, so Tailwind lets you
-            build responsive designs right in your HTML instead.
+			CSS裡，有一堆令人頭痛又複雜的 media 查詢語法，
+			所以 Tailwind 直接讓你的 HTML 建造出響應式設計。
           </p>
           <p>
-            Throw a screen size in front of literally any utility class and watch it magically apply
-            at a specific breakpoint.
+			將螢幕的尺寸擺在任何功能性 class 前面，看看它如何神奇的變化。
           </p>
         </Paragraph>
         <Link href="/docs/responsive-design" className="text-violet-600 hover:text-violet-800">
-          Learn more -&gt;
+          快去看看 -&gt;
         </Link>
       </div>
       <GradientLockup

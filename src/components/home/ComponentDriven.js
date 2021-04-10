@@ -17,28 +17,28 @@ import styles from './ComponentDriven.module.css'
 
 const recipes = [
   {
-    title: 'Hank’s Juiciest Beef Burger',
+    title: 'Hank 的多汁牛肉堡',
     rating: 4.94,
     time: 20,
-    difficulty: 'Easy',
+    difficulty: '簡單',
     servings: 4,
     author: 'Hank Douglas',
     image: require('@/img/jucy-beef-burger.jpg').default,
   },
   {
-    title: 'Southern Fried Chicken Sandwich',
+    title: '南方咔啦脆雞三明治',
     rating: 4.94,
     time: 30,
-    difficulty: 'Intermediate',
+    difficulty: '中級',
     servings: 4,
     author: 'Nicholas Denver',
     image: require('@/img/chicken-sandwich.jpg').default,
   },
   {
-    title: 'Lily’s Healthy Beef Burger',
+    title: 'Lily健康牛肉堡',
     rating: 4.94,
     time: 20,
-    difficulty: 'Easy',
+    difficulty: '簡單',
     servings: 6,
     author: 'Lily Ford',
     image: require('@/img/healthy-beef-burger.jpg').default,
@@ -57,9 +57,9 @@ export default function Recipes({ recipes }) {
   return (
     <div className="divide-y divide-gray-100">
       <Nav>
-        <NavItem href="/featured" isActive>Featured</NavItem>
-        <NavItem href="/popular">Popular</NavItem>
-        <NavItem href="/recent">Recent</NavItem>
+        <NavItem href="/featured" isActive>特色</NavItem>
+        <NavItem href="/popular">超人氣</NavItem>
+        <NavItem href="/recent">最近</NavItem>
       </Nav>
       <List>
         {recipes.map((recipe) => (
@@ -112,18 +112,18 @@ export default function Recipes({ recipes }) {
         </h2>
         <dl className="flex flex-wrap text-sm font-medium whitespace-pre">
           <div>
-            <dt className="sr-only">Time</dt>
+            <dt className="sr-only">時間</dt>
             <dd>
-              <abbr title={\`\${recipe.time} minutes\`}>{recipe.time}m</abbr>
+              <abbr title={\`\${recipe.time} 分鐘\`}>{recipe.time}m</abbr>
             </dd>
           </div>
           <div>
-            <dt className="sr-only">Difficulty</dt>
+            <dt className="sr-only">難易度</dt>
             <dd> · {recipe.difficulty}</dd>
           </div>
           <div>
-            <dt className="sr-only">Servings</dt>
-            <dd> · {recipe.servings} servings</dd>
+            <dt className="sr-only">份量</dt>
+            <dd> · {recipe.servings} 人份</dd>
           </div>
           <div className="flex-none w-full mt-0.5 font-normal">
             <dt className="inline">By</dt>{' '}
@@ -131,7 +131,7 @@ export default function Recipes({ recipes }) {
           </div>
           <div class="absolute top-0 right-0 rounded-full bg-amber-50 text-amber-900 px-2 py-0.5 hidden sm:flex lg:hidden xl:flex items-center space-x-1">
             <dt className="text-amber-500">
-              <span className="sr-only">Rating</span>
+              <span className="sr-only">評價</span>
               <svg width="16" height="20" fill="currentColor">
                 <path d="M7.05 3.691c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.372 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.539 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118L.98 9.483c-.784-.57-.381-1.81.587-1.81H5.03a1 1 0 00.95-.69L7.05 3.69z" />
               </svg>
@@ -149,9 +149,9 @@ export default function Recipes({ recipes }) {
     'Recipes.vue': tokenizeWithLines.html(`<template>
   <div class="divide-y divide-gray-100">
     <Nav>
-      <NavItem href="/featured" isActive>Featured</NavItem>
-      <NavItem href="/popular">Popular</NavItem>
-      <NavItem href="/recent">Recent</NavItem>
+      <NavItem href="/featured" isActive>特色</NavItem>
+      <NavItem href="/popular">超人氣</NavItem>
+      <NavItem href="/recent">最近</NavItem>
     </Nav>
     <List>
       <ListItem v-for="recipe in recipes" :key="recipe.id" :recipe="recipe" />
@@ -222,18 +222,18 @@ export default {
       </h2>
       <dl class="flex flex-wrap text-sm font-medium whitespace-pre">
         <div>
-          <dt class="sr-only">Time</dt>
+          <dt class="sr-only">時間</dt>
           <dd>
-            <abbr :title="\`\${recipe.time} minutes\`">{{ recipe.time }}m</abbr>
+            <abbr :title="\`\${recipe.time} 分鐘\`">{{ recipe.time }}m</abbr>
           </dd>
         </div>
         <div>
-          <dt class="sr-only">Difficulty</dt>
+          <dt class="sr-only">難易度</dt>
           <dd> · {{ recipe.difficulty }}</dd>
         </div>
         <div>
-          <dt class="sr-only">Servings</dt>
-          <dd> · {{ recipe.servings }} servings</dd>
+          <dt class="sr-only">份量</dt>
+          <dd> · {{ recipe.servings }} 人份</dd>
         </div>
         <div class="flex-none w-full mt-0.5 font-normal">
           <dt class="inline">By</dt>
@@ -241,7 +241,7 @@ export default {
         </div>
         <div class="absolute top-0 right-0 rounded-full bg-amber-50 text-amber-900 px-2 py-0.5 hidden sm:flex lg:hidden xl:flex items-center space-x-1">
           <dt class="text-amber-500">
-            <span class="sr-only">Rating</span>
+            <span class="sr-only">評價</span>
             <svg width="16" height="20" fill="currentColor">
               <path d="M7.05 3.691c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.372 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.539 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118L.98 9.483c-.784-.57-.381-1.81.587-1.81H5.03a1 1 0 00.95-.69L7.05 3.69z" />
             </svg>
@@ -263,9 +263,9 @@ export default {
   blade: {
     'recipes.blade.php': tokenizeWithLines.html(`<div class="divide-y divide-gray-100">
   <x-nav>
-    <x-nav-item href="/featured" :isActive="true">Featured</x-nav-item>
-    <x-nav-item href="/popular">Popular</x-nav-item>
-    <x-nav-item href="/recent">Recent</x-nav-item>
+    <x-nav-item href="/featured" :isActive="true">特色</x-nav-item>
+    <x-nav-item href="/popular">超人氣</x-nav-item>
+    <x-nav-item href="/recent">最近</x-nav-item>
   </x-nav>
   <x-list>
     @foreach ($recipes as $recipe)
@@ -301,18 +301,18 @@ export default {
     </h2>
     <dl class="flex flex-wrap text-sm font-medium whitespace-pre">
       <div>
-        <dt class="sr-only">Time</dt>
+        <dt class="sr-only">時間</dt>
         <dd>
-          <abbr title="{{ $recipe->time }} minutes">{{ $recipe->time }}m</abbr>
+          <abbr title="{{ $recipe->time }} 分鐘">{{ $recipe->time }}m</abbr>
         </dd>
       </div>
       <div>
-        <dt class="sr-only">Difficulty</dt>
+        <dt class="sr-only">難易度</dt>
         <dd> · {{ $recipe->difficulty }}</dd>
       </div>
       <div>
-        <dt class="sr-only">Servings</dt>
-        <dd> · {{ $recipe->servings }} servings</dd>
+        <dt class="sr-only">份量</dt>
+        <dd> · {{ $recipe->servings }} 人份</dd>
       </div>
       <div class="flex-none w-full mt-0.5 font-normal">
         <dt class="inline">By</dt>
@@ -320,7 +320,7 @@ export default {
       </div>
       <div class="absolute top-0 right-0 rounded-full bg-amber-50 text-amber-900 px-2 py-0.5 hidden sm:flex lg:hidden xl:flex items-center space-x-1">
         <dt class="text-amber-500">
-          <span class="sr-only">Rating</span>
+          <span class="sr-only">評價</span>
           <svg width="16" height="20" fill="currentColor">
             <path d="M7.05 3.691c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.372 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.539 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118L.98 9.483c-.784-.57-.381-1.81.587-1.81H5.03a1 1 0 00.95-.69L7.05 3.69z" />
           </svg>
@@ -519,8 +519,8 @@ const html = tokenizeWithLines.html(`      </dd>
     </div>
   </dl>
   <footer class="grid grid-cols-2 gap-x-6">
-    <button class="btn btn--secondary">Decline</button>
-    <button class="btn btn--primary">Accept</button>
+    <button class="btn btn--secondary">拒絕</button>
+    <button class="btn btn--primary">接受</button>
   </footer>
 </article>
 `).lines
@@ -607,7 +607,7 @@ function AtApplySection() {
                 { 'opacity-25': inView }
               )}
             >
-              Weekly one-on-one
+              每周1對1教學
             </h2>
             <dl
               className={clsx(
@@ -616,17 +616,17 @@ function AtApplySection() {
               )}
             >
               <div className="px-4 sm:px-6 pb-6">
-                <dt className="sr-only">Date and time</dt>
+                <dt className="sr-only">日期與時間</dt>
                 <dd className="text-sm sm:text-base">
-                  <time dateTime="2020-11-15T10:00:00-05:00">Thu Nov 15, 2020 10:00am</time> -{' '}
+                  <time dateTime="2020-11-15T10:00:00-05:00">2020/11/15 (二) 上午 10:00</time> -{' '}
                   <time dateTime="2020-11-15T11:00:00-05:00">
-                    11:00am<span className="sr-only sm:not-sr-only"> EST</span>
+                    11:00 <span className="hidden sr-only sm:not-sr-only"> UTC+8</span>
                   </time>
                 </dd>
               </div>
               <div className="w-full flex-none flex items-baseline px-4 sm:px-6 py-4">
                 <dt className="w-2/5 sm:w-1/3 flex-none uppercase text-xs sm:text-sm font-semibold tracking-wide">
-                  Location
+                  地點
                 </dt>
                 <dd className="text-black text-sm sm:text-base">
                   Kitchener, <abbr title="Ontario">ON</abbr>
@@ -634,13 +634,13 @@ function AtApplySection() {
               </div>
               <div className="w-full flex-none flex items-baseline px-4 sm:px-6 py-4">
                 <dt className="w-2/5 sm:w-1/3 flex-none uppercase text-xs sm:text-sm font-semibold tracking-wide">
-                  Description
+                  描述
                 </dt>
-                <dd className="italic text-sm sm:text-base">No meeting description</dd>
+                <dd className="italic text-sm sm:text-base">無任何描述</dd>
               </div>
               <div className="w-full flex-none flex items-center px-4 sm:px-6 py-4">
                 <dt className="w-2/5 sm:w-1/3 flex-none uppercase text-xs sm:text-sm font-semibold tracking-wide">
-                  Attendees
+                  參與者
                 </dt>
                 <dd className="text-sm sm:text-base font-medium text-gray-700 bg-gray-100 rounded-full py-1 pl-2 pr-4 flex items-center">
                   <svg
@@ -661,10 +661,10 @@ function AtApplySection() {
             </dl>
             <div className="grid grid-cols-2 gap-x-4 sm:gap-x-6 px-4 sm:px-6 py-4">
               <div className="text-base font-medium rounded-lg bg-gray-100 text-black py-3 text-center cursor-pointer">
-                Decline
+                拒絕
               </div>
               <div className="text-base font-medium rounded-lg bg-rose-500 text-white py-3 text-center cursor-pointer">
-                Accept
+                接受
               </div>
             </div>
           </article>
@@ -685,18 +685,17 @@ export function ComponentDriven() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-amber-500 mb-3">
-          Component-driven
+          元件驅動
         </Caption>
         <BigText className="mb-8">
-          <Widont>Worried about duplication? Don’t be.</Widont>
+          <Widont>擔心重複的問題？ 免了啦</Widont>
         </BigText>
         <Paragraph className="mb-6">
-          If you're repeating the same utilities over and over and over again, all you have to do is
-          extract them into a component or template partial and boom — you've got a single source of
-          truth so you can make changes in one place.
+          如果你想要一直、一直、一直地重複使用你的功能或設計，那你需要的是
+		  把它們做成元件或樣板，這樣你只要改變一次，就能應用在所有地方。
         </Paragraph>
         <Link href="/docs/extracting-components" className="text-amber-500 hover:text-amber-700">
-          Learn more -&gt;
+          閱讀更多 -&gt;
         </Link>
       </div>
       <GradientLockup
@@ -740,14 +739,14 @@ export function ComponentDriven() {
               <ul className="flex space-x-2">
                 <li>
                   <div className="px-4 py-2 rounded-md bg-amber-100 text-amber-700 cursor-pointer">
-                    Featured
+                    特色
                   </div>
                 </li>
                 <li>
-                  <div className="px-4 py-2 cursor-pointer">Popular</div>
+                  <div className="px-4 py-2 cursor-pointer">超人氣</div>
                 </li>
                 <li>
-                  <div className="px-4 py-2 cursor-pointer">Recent</div>
+                  <div className="px-4 py-2 cursor-pointer">最近</div>
                 </li>
               </ul>
             </nav>
@@ -768,7 +767,7 @@ export function ComponentDriven() {
                   <dl className="flex flex-wrap text-sm font-medium whitespace-pre">
                     <div className="absolute top-0 right-0 rounded-full bg-amber-50 text-amber-900 px-2 py-0.5 hidden sm:flex lg:hidden xl:flex items-center space-x-1">
                       <dt className="text-amber-500">
-                        <span className="sr-only">Rating</span>
+                        <span className="sr-only">評價</span>
                         <svg width="16" height="20" fill="currentColor">
                           <path d="M7.05 3.691c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.372 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.539 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118L.98 9.483c-.784-.57-.381-1.81.587-1.81H5.03a1 1 0 00.95-.69L7.05 3.69z" />
                         </svg>
@@ -776,18 +775,18 @@ export function ComponentDriven() {
                       <dd>{rating}</dd>
                     </div>
                     <div>
-                      <dt className="sr-only">Time</dt>
+                      <dt className="sr-only">時間</dt>
                       <dd>
-                        <abbr title={`${time} minutes`}>{time}m</abbr>
+                        <abbr title={`${time} minutes`}>{time}分鐘</abbr>
                       </dd>
                     </div>
                     <div>
-                      <dt className="sr-only">Difficulty</dt>
+                      <dt className="sr-only">難度</dt>
                       <dd> · {difficulty}</dd>
                     </div>
                     <div>
-                      <dt className="sr-only">Servings</dt>
-                      <dd> · {servings} servings</dd>
+                      <dt className="sr-only">份量</dt>
+                      <dd> · {servings} 人份</dd>
                     </div>
                     <div className="flex-none w-full mt-0.5 font-normal">
                       <dt className="inline">By</dt> <dd className="inline text-black">{author}</dd>
@@ -802,12 +801,11 @@ export function ComponentDriven() {
       />
       <div className="px-4 sm:px-6 md:px-8 mt-16 sm:mt-24 md:mt-32 mb-10 sm:mb-16 md:mb-20 lg:mb-8">
         <Paragraph className="mb-6">
-          Not into component frameworks and like to keep it old school? Use Tailwind's @apply
-          directive to extract repeated utility patterns into custom CSS classes just by copying and
-          pasting the list of class names.
+		  想要保持老派格調，不想加入元件框架的世界中嗎？那用 Tailwind 的 @apply 指令把你重複的
+		  功能樣式集中到自訂的 CSS class裡吧。
         </Paragraph>
         <Link href="/docs/extracting-components" className="text-orange-500 hover:text-orange-700">
-          Learn more -&gt;
+          了解更多 -&gt;
         </Link>
       </div>
       <AtApplySection />
