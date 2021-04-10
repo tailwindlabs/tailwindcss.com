@@ -74,24 +74,30 @@ export default function Home() {
         <meta
           key="twitter:title"
           name="twitter:title"
-          content="Tailwind CSS - Rapidly build modern websites without ever leaving your HTML."
+          content="Tailwind CSS - 不用拋棄HTML，你還是可以極速建立最潮的網站。"
         />
         <meta
           key="og:title"
           property="og:title"
-          content="Tailwind CSS - Rapidly build modern websites without ever leaving your HTML."
+          content="Tailwind CSS - 不用拋棄HTML，你還是可以極速建立最潮的網站。"
         />
-        <title>Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.</title>
+        <title>Tailwind CSS - 不用拋棄HTML，你還是可以極速建立最潮的網站。</title>
       </Head>
       <header className="relative z-10 max-w-screen-lg xl:max-w-screen-xl mx-auto">
         <div className="px-4 sm:px-6 md:px-8 mb-14 sm:mb-20 xl:mb-8">
           <div className="border-b border-gray-200 py-4 flex items-center justify-between mb-16 sm:mb-20 -mx-4 px-4 sm:mx-0 sm:px-0">
             <Search />
             <div className="flex items-center space-x-6 sm:space-x-10 ml-6 sm:ml-10">
-              <NextLink href="/docs">
+			  <NextLink href="/docs">
+				<a className="text-base leading-6 font-medium hover:text-gray-600 transition-colors duration-200 py-2">
+                  <span className="sm:hidden">文件</span>
+                  <span className="hidden sm:inline">繁中文件</span>
+                </a>
+              </NextLink>
+              <NextLink href="https://tailwindcss.com/">
                 <a className="text-base leading-6 font-medium hover:text-gray-600 transition-colors duration-200 py-2">
-                  <span className="sm:hidden">Docs</span>
-                  <span className="hidden sm:inline">Documentation</span>
+                  <span className="sm:hidden">官方</span>
+				  <span className="hidden sm:inline">官方網站</span>
                 </a>
               </NextLink>
               <a
@@ -110,17 +116,20 @@ export default function Home() {
           </div>
           <Logo className="w-auto h-7 sm:h-8" />
           <h1 className="text-4xl sm:text-6xl lg:text-7xl leading-none font-extrabold tracking-tight text-gray-900 mt-10 mb-8 sm:mt-14 sm:mb-10">
-            無需捨棄HTML，即可快速建立最潮的網站。
+            不用拋棄HTML，你還是可以極速建立最潮的網站。
           </h1>
           <p className="max-w-screen-lg text-lg sm:text-2xl sm:leading-10 font-medium mb-10 sm:mb-11">
             一個功能優先的 CSS 框架，集合了 <InlineCode>flex</InlineCode>,{' '}
             <InlineCode>pt-4</InlineCode>, <InlineCode>text-center</InlineCode> 和{' '}
             <InlineCode>rotate-90</InlineCode> 等 class 屬性，並將其組合起來建構出任意的設計。
           </p>
+		  <div className="p-3">
+			心動，不如
+		  </div>
           <div className="flex flex-wrap space-y-4 sm:space-y-0 sm:space-x-4 text-center">
-            <NextLink href="/docs">
+			<NextLink href="/docs">
               <a className="w-full sm:w-auto flex-none bg-gray-900 hover:bg-gray-700 text-white text-lg leading-6 font-semibold py-3 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200">
-                Get started
+                馬上行動
               </a>
             </NextLink>
             <NpmInstallButton />
@@ -131,12 +140,12 @@ export default function Home() {
       <section className="relative z-10 text-center max-w-screen-lg xl:max-w-screen-xl mx-auto">
         <div className="px-4 sm:px-6 md:px-8">
           <BigText as="h2" className="mb-8">
-            <Widont>“Best practices” don’t actually work.</Widont>
+            <Widont>實際上，「最佳做法」是沒用的。</Widont>
           </BigText>
           <figure>
             <blockquote>
               <Paragraph className="max-w-4xl mx-auto mb-6">
-                I’ve written{' '}
+                我大概已經寫了{' '}
                 <a
                   href="https://adamwathan.me/css-utility-classes-and-separation-of-concerns/"
                   className="text-light-blue-600 font-semibold"
@@ -145,13 +154,12 @@ export default function Home() {
                       'inset 0 -0.1666666667em 0 0 #fff, inset 0 -0.3333333333em 0 0 #bae6fd',
                   }}
                 >
-                  a few thousand words
+                  幾千字
                 </a>{' '}
                 <Widont>
-                  on why traditional “semantic class names” are the reason CSS is hard to maintain,
-                  but the truth is you’re never going to believe me until you actually try it. If
-                  you can suppress the urge to retch long enough to give it a chance, I really think
-                  you'll wonder how you ever worked with CSS any other way.
+                  就為了說明「為什麼傳統語義類 class 名稱的 CSS 會這麼難維護」這件事，
+                  但事實上，如果你沒有親自嘗試過，你永遠不會相信我。 要是
+				  你不要著急，肯給它一個機會，我相信你絕對會想知道怎麼透過其他的方式使用 CSS。
                 </Widont>
               </Paragraph>
             </blockquote>

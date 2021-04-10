@@ -85,7 +85,7 @@ export function Search() {
           />
         </svg>
         <span>
-          Quick search<span className="hidden sm:inline"> for anything</span>
+          快速搜尋
         </span>
         <span
           style={{ opacity: browserDetected ? '1' : '0' }}

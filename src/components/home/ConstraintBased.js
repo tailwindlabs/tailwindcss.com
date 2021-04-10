@@ -189,19 +189,18 @@ export function ConstraintBased() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-purple-600 mb-3">
-          Constraint-based
+          以約束(Constraint)為基底
         </Caption>
         <BigText className="mb-8">
-          <Widont>An API for your design system.</Widont>
+          <Widont>為您設計系統而生的 API</Widont>
         </BigText>
         <Paragraph className="mb-6">
-          Utility classes help you work within the constraints of a system instead of littering your
-          stylesheets with arbitrary values. They make it easy to be consistent with color choices,
-          spacing, typography, shadows, and everything else that makes up a well-engineered design
-          system.
+		  功能類 class 可以約束您的系統，而不會讓您在樣式表中胡亂地填數值。
+		  它們讓顏色、間距、文字排版、陰影，以及其他的一切都能井然有序的保持一致性，
+		  締造精良的設計系統。
         </Paragraph>
         <Link href="/docs/utility-first" className="text-purple-600 hover:text-purple-800">
-          Learn more -&gt;
+          了解詳情 -&gt;
         </Link>
       </div>
       <GradientLockup
@@ -211,10 +210,10 @@ export function ConstraintBased() {
           <div className="flex overflow-auto py-0.5 -my-0.5 -mx-4 sm:-mx-6 md:-mx-8 xl:-ml-4 xl:mr-0 pl-0.5">
             <Tabs
               tabs={{
-                sizing: 'Sizing',
-                color: 'Color',
-                typography: 'Typography',
-                shadows: 'Shadows',
+                sizing: '大小',
+                color: '顏色',
+                typography: '字型',
+                shadows: '陰影',
               }}
               selected={tab}
               onChange={setTab}
@@ -236,10 +235,10 @@ export function ConstraintBased() {
                 >
                   {
                     {
-                      sizing: 'Width',
-                      color: 'Color',
-                      typography: 'Typography',
-                      shadows: 'Shadows',
+                      sizing: '寬度 (Width)',
+                      color: '顏色 (Color)',
+                      typography: '字型 (Typography)',
+                      shadows: '陰影 (Shadows)',
                     }[tab]
                   }
                 </motion.span>

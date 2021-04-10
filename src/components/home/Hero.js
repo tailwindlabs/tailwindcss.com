@@ -21,9 +21,9 @@ const { tokens, code } = tokenize.html(
   <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
     <blockquote>
       <p class="text-lg font-semibold">
-        “Tailwind CSS is the only framework that I've seen scale
-        on large teams. It’s easy to customize, adapts to any design,
-        and the build size is tiny.”
+		“Tailwind CSS 是我見過唯一一個可以在大型團隊中擴展
+		開來的框架。它可以輕鬆的客製化、適應任何設計，
+        而且 build 後又很輕巧。”
       </p>
     </blockquote>
     <figcaption class="font-medium">
@@ -364,8 +364,9 @@ export function Hero() {
                 >
                   <motion.div layout={layout} className="mb-4" transition={TRANSITION}>
                     <Words bolder={step >= 3} layout={layout} transition={TRANSITION}>
-                      “Tailwind CSS is the only framework that I've seen scale on large teams. It’s
-                      easy to customize, adapts to any design, and the build size is tiny.”
+					  “Tailwind CSS 是我見過唯一一個可以在大型團隊中擴展
+					  開來的框架。它可以輕鬆的客製化、適應任何設計，
+					  而且 build 後又很輕巧。”
                     </Words>
                   </motion.div>
                   <motion.div
