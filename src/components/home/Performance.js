@@ -44,10 +44,10 @@ const { lines } = tokenizeWithLines.html(
           </div>
           <div class="ml-3 w-0 flex-1 pt-0.5">
             <p class="text-sm font-medium text-gray-900">
-              Successfully saved!
+              儲存成功！
             </p>
             <p class="mt-1 text-sm text-gray-500">
-              Anyone with a link can now view this file.
+              任何知道連結的人都能瀏覽這個檔案
             </p>
           </div>
           <div class="ml-4 flex-shrink-0 flex">
@@ -105,16 +105,16 @@ export function Performance() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-teal-500 mb-3">
-          Performance
+          效能
         </Caption>
-        <BigText className="mb-8">It’s tiny in production.</BigText>
+        <BigText className="mb-8">輕巧的生產環境</BigText>
         <Paragraph className="mb-6">
-          Tailwind automatically removes all unused CSS when building for production, which means
-          your final CSS bundle is the smallest it could possibly be. In fact, most Tailwind
-          projects ship less than 10KB of CSS to the client.
+		  Tailwind 會在生產環境編譯時自動移除沒用到的CSS樣式，這表示
+		  你最終的CSS樣式會盡可能的壓縮到最小。事實上，大部分的 Tailwind 專案
+		  在交給客戶時，CSS 大小都低於 10KB。
         </Paragraph>
         <Link href="/docs/optimizing-for-production" className="text-teal-500 hover:text-teal-700">
-          Learn more -&gt;
+          繼續閱讀 -&gt;
         </Link>
       </div>
       <GradientLockup
@@ -167,20 +167,20 @@ export function Performance() {
               </div>
               <dl className="p-4 pb-0 sm:p-6 sm:pb-0">
                 <div className="flex-none w-full pl-18 sm:pl-20 sm:py-0.5">
-                  <dt className="text-sm font-medium">Production build</dt>
+                  <dt className="text-sm font-medium">生產環境編譯</dt>
                   <dd className="text-3xl sm:text-4xl font-extrabold text-gray-900">
                     <Counter from={2413.4} to={8.7} round={1} progress={progress} />
                     KB
                   </dd>
                 </div>
                 <div className="flex items-center border-t border-gray-100 -mx-4 sm:-mx-6 mt-4 sm:mt-6 px-4 sm:px-6 py-3 font-mono text-xs leading-5">
-                  <dt className="whitespace-pre">Purged </dt>
+                  <dt className="whitespace-pre">已經清除了 </dt>
                   <dd className="flex-auto">
-                    <Counter from={0} to={20144} progress={progress} /> unused classes
+                    <Counter from={0} to={20144} progress={progress} /> 個未使用的 class
                   </dd>
                   <dd className="text-rose-700 hidden sm:flex lg:hidden xl:flex items-center">
                     <span>
-                      -<Counter from={0} to={160215} progress={progress} /> lines
+                      - 減少<Counter from={0} to={160215} progress={progress} /> 行
                     </span>
                     <svg viewBox="0 0 82 12" width="82" height="12" className="flex-none ml-2">
                       <motion.rect
