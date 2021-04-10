@@ -1,19 +1,19 @@
 ---
-title: Adding Base Styles
-description: Best practices for adding your own global base styles on top of Tailwind.
+title: 增加基底樣式
+description: 在Tailwind的基底上增加屬於自己的基底（全局）樣式的最佳實踐
 ---
 
-Base (or global) styles are the styles at the beginning of a stylesheet that set useful defaults for basic HTML elements like `<a>` tags, headings, etc. or apply opinionated resets like the popular [box-sizing reset](https://www.paulirish.com/2012/box-sizing-border-box-ftw/).
+基底（全局）樣式是位於樣式表開頭的樣式，它可以用來定義基本 HTML 元素如：`<a>` 標籤、標題等的預設值，也可以用在有目的的重置，像是常見的 [box-sizing reset](https://www.paulirish.com/2012/box-sizing-border-box-ftw/)。
 
-Tailwind includes a useful set of base styles out of the box that we call [Preflight](/docs/preflight), which is really just [modern-normalize](https://github.com/sindresorhus/modern-normalize) plus a thin layer of additional more opinionated styles.
+Tailwind 提供了一組有用的基底樣式，稱為 [Preflight](/docs/preflight)，實際上它就是 [modern-normalize](https://github.com/sindresorhus/modern-normalize) 再加上一些些額外的樣式。
 
-Preflight is a great starting point for most projects, but if you'd ever like to add your own additional base styles, here are some recommendations for doing it idiomatically.
-
+對於大多數的專案來說，Preflight 是一個很好的起點，但是如果您想添加自訂的其他基底樣式，以下是一些慣用作法的建議。
 ---
 
-## Using classes in your HTML
+## 在 HTML 裡使用 class
 
-If you just want to apply some global styling to the `html` or `body` elements, consider just adding existing classes to those elements in your HTML instead of writing new CSS:
+如果你只是想為 `html` 或 `body` 等元素設定某種基底樣式，只需要將現有的 class 加入到 HTML 中，不需要撰寫新的 CSS:
+
 
 ```html
 <!doctype html>
@@ -27,9 +27,9 @@ If you just want to apply some global styling to the `html` or `body` elements, 
 
 ---
 
-## Using CSS
+## 使用 CSS
 
-If you want to apply some base styles to specific elements, the easiest way is to simply add them in your CSS.
+如果要將某些基底樣式應用於特定元素，最簡單的方法是單純把它加到CSS中。
 
 ```css
 @tailwind base;
@@ -46,15 +46,15 @@ If you want to apply some base styles to specific elements, the easiest way is t
 }
 ```
 
-By using the `@layer` directive, Tailwind will automatically move those styles to the same place as `@tailwind base` to avoid unintended specificity issues.
+透過 `@layer` 指令，Tailwind 將自動把這些樣式移到 `@tailwind base` 相同的位置，以避免發生一些意外問題。
 
-Using the `@layer` directive will also instruct Tailwind to consider those styles for purging when purging the `base` layer. Read our [documentation on optimizing for production](/docs/optimizing-for-production) for more details.
+使用 `@layer` 指令還能告訴 Tailwind 在清理基底樣式時該保留哪些樣式，請閱讀 [documentation on optimizing for production](/docs/optimizing-for-production) 了解更多細節。
 
-It's a good idea to use [@apply](/docs/functions-and-directives#apply) or [theme()](/docs/functions-and-directives#theme) to define these styles to avoid accidentally deviating from your design system.
+最好使用 [@apply](/docs/functions-and-directives#apply) 或 [theme()](/docs/functions-and-directives#theme) 定義這些樣式，以避免它們意外偏離你的設計系統。
 
-### @font-face rules
+### @font-face 規則
 
-You can use the same approach to add your `@font-face` rules for any custom fonts you're using:
+你可以用相同的方式為所使用的任何自訂字體增加 `@font-face` 規則：
 
 ```css
 @tailwind base;
@@ -77,9 +77,9 @@ You can use the same approach to add your `@font-face` rules for any custom font
 
 ---
 
-## Using a plugin
+## 使用 plugin
 
-You can also add base styles by [writing a plugin](/docs/plugins#adding-base-styles) and using the `addBase` function:
+你還可以透過 [writing a plugin](/docs/plugins#adding-base-styles) 並使用 `addBase` 函式來增加基底樣式：
 
 ```js
 // tailwind.config.js
@@ -98,4 +98,4 @@ module.exports = {
 }
 ```
 
-Any styles added using `addBase` will be inserted into the `base` layer alongside Tailwind's other base styles.
+任何使用 `addBase` 增加的樣式，都會與 Tailwind 的其他基底樣式一起加入到 `base` 層中。
