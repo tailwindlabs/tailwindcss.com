@@ -1,0 +1,20 @@
+# This is a basic workflow that is manually triggered
+
+name: Deploy workflow
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  dispatch_event:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1.1.3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ashramwen/tailwindcss.com
+          event-type: sync-event
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
