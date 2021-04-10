@@ -140,24 +140,23 @@ export function ModernFeatures() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-purple-600 mb-3">
-          Modern features
+          現代趨勢
         </Caption>
         <BigText className="mb-8">
-          <Widont>Cutting-edge is our comfort zone.</Widont>
+          <Widont>我們，只活在尖端。</Widont>
         </BigText>
         <Paragraph as="div" className="mb-6">
           <p>
-            Tailwind is unapologetically modern, and takes advantage of all the latest and greatest
-            CSS features to make the developer experience as enjoyable as possible.
+            Tailwind，很潮。
+            因為它具備最新最棒的 CSS 特色，只為了讓你的開發過程輕鬆愉快。
           </p>
           <p>
-            We've got first-class CSS grid support, composable transforms and gradients powered by
-            CSS variables, support for modern state selectors like <code>:focus-visible</code>, and
-            tons more.
+            我們用 CSS 變數提供一流的 CSS 網格、組合式變形，和漸層，也支援像是 <code>:focus-visible</code> 
+            這種的現代狀態選擇器，以及更多其他功能。
           </p>
         </Paragraph>
         <Link href="/docs/grid-template-columns" className="text-purple-600 hover:text-purple-800">
-          Learn more -&gt;
+          了解去 -&gt;
         </Link>
       </div>
       <GradientLockup
@@ -172,7 +171,7 @@ export function ModernFeatures() {
         header={
           <div className="flex overflow-auto py-0.5 -my-0.5 pl-0.5 -mx-4 sm:-mx-6 md:-mx-8 xl:-ml-4 xl:mr-0">
             <Tabs
-              tabs={{ grid: 'CSS Grid', transforms: 'Transforms', gradients: 'Gradients' }}
+              tabs={{ grid: 'CSS 網格 (Grid)', transforms: '變形', gradients: '漸層' }}
               selected={feature}
               onChange={setFeature}
               className="mx-auto xl:mx-0 px-4 sm:px-6 md:px-8 xl:px-0"

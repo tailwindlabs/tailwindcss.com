@@ -688,7 +688,7 @@ export function ComponentDriven() {
           元件驅動
         </Caption>
         <BigText className="mb-8">
-          <Widont>擔心重複的問題？ 免了啦</Widont>
+          <Widont>擔心複用性的問題？ 免了啦</Widont>
         </BigText>
         <Paragraph className="mb-6">
           如果你想要一直、一直、一直地重複使用你的功能或設計，那你需要的是
@@ -802,7 +802,7 @@ export function ComponentDriven() {
       <div className="px-4 sm:px-6 md:px-8 mt-16 sm:mt-24 md:mt-32 mb-10 sm:mb-16 md:mb-20 lg:mb-8">
         <Paragraph className="mb-6">
 		  想要保持老派格調，不想加入元件框架的世界中嗎？那用 Tailwind 的 @apply 指令把你重複的
-		  功能樣式集中到自訂的 CSS class裡吧。
+		  功能樣式集中到自訂的 CSS class 裡吧。
         </Paragraph>
         <Link href="/docs/extracting-components" className="text-orange-500 hover:text-orange-700">
           了解更多 -&gt;

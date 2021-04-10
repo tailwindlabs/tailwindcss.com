@@ -6,18 +6,22 @@ import { Logo } from '@/components/Logo'
 
 const footerNav = {
   'Getting started': {
+    showName: '起手式',
     className: 'row-span-2',
     items: documentationNav['Getting started'],
   },
   'Core concepts': {
+    showName: '核心概念',
     className: 'row-span-2',
     items: documentationNav['Core Concepts'],
   },
   Customization: {
+    showName: '客製化',
     className: 'row-span-2',
     items: documentationNav['Customization'],
   },
   Community: {
+    showName: '官方社群',
     items: [
       { title: 'GitHub', href: 'https://github.com/tailwindlabs/tailwindcss' },
       { title: 'Discord', href: '/discord' },
@@ -37,7 +41,7 @@ export function Footer() {
           {Object.keys(footerNav).map((section, i) => (
             <li key={section} className={clsx('space-y-5', footerNav[section].className)}>
               <h2 className="text-xs font-semibold tracking-wide text-gray-900 uppercase">
-                {section}
+                {footerNav[section].showName}
               </h2>
               <ul className="space-y-4">
                 {footerNav[section].items.map((item) => (

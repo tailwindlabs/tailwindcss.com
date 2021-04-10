@@ -196,7 +196,7 @@ export function ConstraintBased() {
         </BigText>
         <Paragraph className="mb-6">
 		  功能類 class 可以約束您的系統，而不會讓您在樣式表中胡亂地填數值。
-		  它們讓顏色、間距、文字排版、陰影，以及其他的一切都能井然有序的保持一致性，
+		  它們讓顏色、間距、文字版式、陰影，以及其他的一切都能井然有序的保持一致性，
 		  締造精良的設計系統。
         </Paragraph>
         <Link href="/docs/utility-first" className="text-purple-600 hover:text-purple-800">
@@ -212,7 +212,7 @@ export function ConstraintBased() {
               tabs={{
                 sizing: '大小',
                 color: '顏色',
-                typography: '字型',
+                typography: '文字版式',
                 shadows: '陰影',
               }}
               selected={tab}
@@ -237,7 +237,7 @@ export function ConstraintBased() {
                     {
                       sizing: '寬度 (Width)',
                       color: '顏色 (Color)',
-                      typography: '字型 (Typography)',
+                      typography: '文字版式 (Typography)',
                       shadows: '陰影 (Shadows)',
                     }[tab]
                   }

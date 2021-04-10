@@ -265,7 +265,7 @@ export function BuildAnything() {
           <div className="flex overflow-auto py-0.5 -my-0.5 pl-0.5 -mx-4 sm:-mx-6 md:-mx-8 xl:-ml-4 xl:mr-0">
             <Tabs
               tabs={{
-                simple: '簡潔',
+                simple: '簡約',
                 playful: '生動',
                 elegant: '典雅',
                 brutalist: '狂野',

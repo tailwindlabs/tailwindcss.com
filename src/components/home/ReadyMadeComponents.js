@@ -26,19 +26,17 @@ export function ReadyMadeComponents() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-violet-600 mb-3">
-          Ready-made components
+          現成的元件
         </Caption>
         <BigText className="mb-8">
-          <Widont>Move even faster with Tailwind UI.</Widont>
+          <Widont>用 Tailwind UI 快速前進</Widont>
         </BigText>
         <Paragraph className="mb-6">
-          Tailwind UI is a collection of beautiful, fully responsive UI components, designed and
-          developed by us, the creators of Tailwind CSS. It's got hundreds of ready-to-use examples
-          to choose from, and is guaranteed to help you find the perfect starting point for what you
-          want to build.
+          Tailwind UI 集結了我們以及所有 Tailwind CSS 的創作者所設計研發的漂亮且完全響應式的 UI 元件。
+          那裏有數百個現成的範例讓你選擇，而且保證你能找到心目中想建構的完美起點。
         </Paragraph>
         <Link href="https://tailwindui.com/" className="text-violet-600 hover:text-violet-800">
-          Learn more -&gt;
+          了解詳情 -&gt;
         </Link>
       </div>
       <GradientLockup

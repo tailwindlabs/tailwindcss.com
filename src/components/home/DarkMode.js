@@ -25,13 +25,13 @@ const { code, tokens } = tokenize.html(
     <img src="/full-stack-radio.png" alt="" width="160" height="160" class="flex-none w-20 h-20 rounded-lg bg-gray-100" />
     <div class="min-w-0 flex-auto space-y-0.5">
       <p class="(light)text-lime-600 dark:text-lime-400 text-sm sm:text-base lg:text-sm xl:text-base font-semibold uppercase">
-        <abbr title="Episode">Ep.</abbr> 128
+        <abbr title="Episode">章節</abbr> 128
       </p>
       <h2 class="(light)text-black dark:text-white text-base sm:text-xl lg:text-base xl:text-xl font-semibold truncate">
-        Scaling CSS at Heroku with Utility Classes
+        讓 Heroku 上的 CSS 變靈活：使用 Utility Class
       </h2>
       <p class="(light)text-gray-500 dark:text-gray-400 text-base sm:text-lg lg:text-base xl:text-lg font-medium">
-        Full Stack Radio
+        Full Stack 電台
       </p>
     </div>
   </div>
@@ -168,19 +168,18 @@ export function DarkMode() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-green-600 mb-3">
-          Dark mode
+          深色模式
         </Caption>
         <BigText className="mb-8">
-          <Widont>Now with Dark Mode.</Widont>
+          <Widont>現在，有深色模式了</Widont>
         </BigText>
         <Paragraph className="mb-6">
-          Don’t want to be one of those websites that blinds people when they open it on their phone
-          at 2am? Enable dark mode in your configuration file then throw{' '}
-          <InlineCode>dark:</InlineCode> in front of any color utility to apply it when dark mode is
-          active. Works for background colors, text colors, border colors, and even gradients.
+		  不想在凌晨兩點，用戶在手機打開你的網站時眼睛被閃瞎嗎？ 在設定文件中開啟深色模式並在任何
+		  顏色功能前加上 <InlineCode>dark:</InlineCode>，這麼一來，當深色模式開啟時，背景顏色、文字顏色、
+		  邊框顏色和漸層色都能發生變化。
         </Paragraph>
         <Link href="/docs/dark-mode" className="text-green-600 hover:text-green-800">
-          Learn more -&gt;
+          閱讀更多 -&gt;
         </Link>
       </div>
       <GradientLockup

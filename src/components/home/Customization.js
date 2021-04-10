@@ -111,24 +111,23 @@ export function Customization() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-rose-600 mb-3">
-          Customization
+          客製化
         </Caption>
         <BigText className="mb-8">
-          <Widont>Extend it, tweak it, change it.</Widont>
+          <Widont>延伸、微調和改變， 隨你喜好。</Widont>
         </BigText>
         <Paragraph as="div" className="mb-6">
           <p>
-            Tailwind includes an expertly crafted set of defaults out-of-the-box, but literally
-            everything can be customized — from the color palette to the spacing scale to the box
-            shadows to the mouse cursor.
+            Tailwind 包含了一組專家所設計的、可以直接使用的預設值，但是其實，從色票、間距、陰影到滑鼠游標，
+            任何東西，都是可以自訂的。
           </p>
           <p>
-            Use the tailwind.config.js file to craft your own design system, then let Tailwind
-            transform it into your own custom CSS framework.
+            用 tailwind.config.js 設定檔來創造自己的設計系統， 讓 Tailwind 來把它轉換成
+            屬於你客製化的 CSS 框架。
           </p>
         </Paragraph>
         <Link href="/docs/configuration" className="text-rose-600 hover:text-rose-800">
-          Learn more -&gt;
+          了解詳情 -&gt;
         </Link>
       </div>
       <GradientLockup
@@ -138,10 +137,10 @@ export function Customization() {
           <div className="flex overflow-auto py-0.5 -my-0.5 pl-0.5 -mx-4 sm:-mx-6 md:-mx-8 xl:-ml-4 xl:mr-0">
             <Tabs
               tabs={{
-                simple: 'Simple',
-                playful: 'Playful',
-                elegant: 'Elegant',
-                brutalist: 'Brutalist',
+                simple: '簡約',
+                playful: '生動',
+                elegant: '典雅',
+                brutalist: '狂野',
               }}
               selected={theme}
               onChange={setTheme}
@@ -155,11 +154,11 @@ export function Customization() {
           >
             <section className="flex flex-col sm:flex-row lg:flex-col xl:flex-row">
               <h3 className="flex-none w-full sm:w-48 lg:w-full xl:w-48 bg-rose-50 rounded-tr-xl sm:rounded-tr-none sm:rounded-tl-xl lg:rounded-tr-xl xl:rounded-tr-none text-lg leading-6 font-semibold text-rose-800 px-4 py-3 sm:p-8 lg:px-6 lg:py-4 xl:p-8">
-                Typography
+                文字版式 (Typography)
               </h3>
               <dl className="flex-auto bg-white sm:rounded-tr-xl lg:rounded-tr-none xl:rounded-tr-xl px-4 py-6 sm:p-6 space-y-6">
                 <div className="space-y-1">
-                  <dt className="font-mono text-xs">font-display</dt>
+                  <dt className="font-mono text-xs">字型名稱</dt>
                   <AnimatePresence initial={false} exitBeforeEnter>
                     <motion.dd
                       key={theme}
@@ -175,7 +174,7 @@ export function Customization() {
                   </AnimatePresence>
                 </div>
                 <div className="space-y-1">
-                  <dt className="font-mono text-xs">font-body</dt>
+                  <dt className="font-mono text-xs">字型預覽</dt>
                   <AnimatePresence initial={false} exitBeforeEnter>
                     <motion.dd
                       key={theme}
@@ -193,7 +192,7 @@ export function Customization() {
             </section>
             <section className="flex flex-col sm:flex-row lg:flex-col xl:flex-row overflow-hidden">
               <h3 className="flex-none w-full sm:w-48 lg:w-full xl:w-48 bg-rose-50 xl:rounded-bl-xl text-lg leading-6 font-semibold text-rose-800 px-4 py-3 sm:p-8 lg:px-6 lg:py-4 xl:p-8">
-                Color
+                顏色
               </h3>
               <div className="relative flex-auto bg-white lg:rounded-b-xl xl:rounded-bl-none overflow-hidden">
                 <dl className="px-4 py-6 sm:p-6 space-y-6">

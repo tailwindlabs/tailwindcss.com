@@ -61,7 +61,7 @@ const { lines } = tokenizeWithLines.html(`<div class="__CONFLICT__">
   <div class="flex-1 truncate">
     <div class="flex items-center space-x-3">
       <h3 class="text-gray-900 text-sm font-medium truncate">Jane Cooper</h3>
-      <span class="__COMPLETION__">Admin</span>
+      <span class="__COMPLETION__">管理員</span>
     </div>
     <p class="mt-1 text-gray-500 text-sm truncate">Regional Paradigm Technician</p>
   </div>
@@ -75,7 +75,7 @@ const { lines } = tokenizeWithLines.html(`<div class="__CONFLICT__">
           <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
           <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
         </svg>
-        <span class="ml-3">Email</span>
+        <span class="ml-3">電子郵件</span>
       </a>
     </div>
   </div>
@@ -311,21 +311,21 @@ export function EditorTools() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-light-blue-600 mb-3">
-          Editor tools
+          編輯器插件
         </Caption>
-        <BigText className="mb-8">World-class IDE integration.</BigText>
+        <BigText className="mb-8">世界級的 IDE 整合</BigText>
         <Paragraph as="div" className="mb-6">
           <p>
-            Worried about remembering all of these class names? The Tailwind CSS IntelliSense
-            extension for VS Code has you covered.
+            擔心記不住所有的 class 名稱嗎？ Tailwind CSS IntelliSense 
+            這個 VS Code 擴充套件可以掩護你！
           </p>
           <p>
-            Get intelligent autocomplete suggestions, linting, class definitions and more, all
-            within your editor and with no configuration required.
+            智慧的語法建議、整理以及 class 定義等，全部
+            在你的編輯器裡，而且還不用設定。
           </p>
         </Paragraph>
         <Link href="/docs/intellisense" className="text-light-blue-600 hover:text-light-blue-800">
-          Learn more -&gt;
+          閱讀更多 -&gt;
         </Link>
       </div>
       <GradientLockup
