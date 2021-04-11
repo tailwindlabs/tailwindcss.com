@@ -17,3 +17,4 @@ jobs:
           owner: ashramwen
           base: master
           head: master
+          merge_method: rebase
