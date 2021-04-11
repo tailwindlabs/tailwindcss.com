@@ -5,6 +5,8 @@ name: Deploy workflow
 on:
   pull_request:
     types: [closed]
+    branches:
+      - master
 
 jobs:
   dispatch_event:
