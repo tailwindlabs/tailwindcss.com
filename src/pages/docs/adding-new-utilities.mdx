@@ -1,19 +1,18 @@
 ---
-title: Adding New Utilities
-description: Extending Tailwind with your own custom utility classes.
+title: 增加新功能
+description: 使用自訂的功能 class 來擴充 Tailwind
 ---
 
 import { TipGood, TipBad } from '@/components/Tip'
 
-Although Tailwind provides a pretty comprehensive set of utility classes out of the box, you may run into situations where you need to add a few of your own.
+儘管 Tailwind 提供了一組非常實用的功能 class，但是你可能還是會遇到需要增加自訂功能 class 的情況。
 
-Deciding on the best way to extend a framework can be paralyzing, so here are some best practices to help you add your own utilities in the most idiomatic way possible.
-
+決定擴充框架的最佳方法是很累人的，因此這裡有一些最佳的實作方法，全力幫助你使用最慣用的方法來增加自訂功能。
 ---
 
-## Using CSS
+## 使用 CSS
 
-The easiest way to add your own utilities to Tailwind is to simply add them to your CSS.
+將自訂功能加入 Tailwind 的最簡單方法是直接將它們放在 CSS 中：
 
 ```css
 @tailwind base;
@@ -33,13 +32,13 @@ The easiest way to add your own utilities to Tailwind is to simply add them to y
 }
 ```
 
-By using the `@layer` directive, Tailwind will automatically move those styles to the same place as `@tailwind utilities` to avoid unintended specificity issues.
+透過 `@layer` 指令，Tailwind 將自動把這些樣式移到 `@tailwind base` 相同的位置，以避免發生一些意外問題。
 
-Using the `@layer` directive will also instruct Tailwind to consider those styles for purging when purging the `utilities` layer. Read our [documentation on optimizing for production](/docs/optimizing-for-production) for more details.
+使用 `@layer` 指令還能告訴 Tailwind 在清理基底樣式時該保留哪些樣式，請閱讀 [documentation on optimizing for production](/docs/optimizing-for-production) 了解更多細節。
 
-### Generating responsive variants
+### 生成響應式變數
 
-If you'd like to generate [responsive variants](/docs/responsive-design) of your own utilities based on the breakpoints defined in your `tailwind.config.js` file, wrap your utilities in the `@variants` directive and add `responsive` to the list of variants:
+如果你想根據在 `tailwind.config.js` 檔案中定義的斷點生成自訂功能的[響應式變數](/docs/responsive-design)，請將自訂功能包在 `@variants` 指令中，並且在變數清單中加入 `responsive`：
 
 ```css
 @tailwind base;
@@ -61,18 +60,18 @@ If you'd like to generate [responsive variants](/docs/responsive-design) of your
 }
 ```
 
-Tailwind will automatically generate prefixed versions of each custom utility that you can use to conditionally apply those styles at different breakpoints:
+Tailwind 將自動產生每個自訂功能的前綴版本，你可以有條件地將它們用在不同的斷點處：
 
 ```html
 <!-- Use `scroll-snap-type: none` by default, then use `scroll-snap-type: x` on medium screens and up -->
 <div class="scroll-snap-none **md:scroll-snap-x**"></div>
 ```
 
-Learn more about responsive utilities in the [responsive design documentation](/docs/responsive-design).
+要了解更多資訊，請見 [響應式設計](/docs/responsive-design)。
 
-### Generating dark mode variants
+### 生成深色模式變數
 
-If you'd like to generate [dark mode variants](/docs/dark-mode) of your own utilities, first make sure `darkMode` is set to either `media` or `class` in your `tailwind.config.js` file:
+如果你想產生自訂功能 class 的 [深色模式變數](/docs/dark-mode)，首先要確定 `tailwind.config.js` 檔案中 `darkMode` 需設置為 `media` 或 `class`：
 
 ```js
 // tailwind.config.js
@@ -82,7 +81,7 @@ module.exports = {
 }
 ```
 
-Next, wrap your utilities in the `@variants` directive and add `dark` to the list of variants:
+接下來，將自訂功能 class 包到 `@variants` 指令中，並且在變數清單中加入 `dark`：
 
 ```css
 @tailwind base;
@@ -101,17 +100,17 @@ Next, wrap your utilities in the `@variants` directive and add `dark` to the lis
 }
 ```
 
-Tailwind will automatically generate prefixed versions of each custom utility that you can use to conditionally apply those styles at different states:
+Tailwind 將自動產生每個自訂功能的前綴版本，你可以有條件地將它們應用在不同的狀態下：
 
 ```html
 <div class="filter-grayscale **dark:filter-none**"></div>
 ```
 
-Learn more about dark mode utilities in the [dark mode documentation](/docs/dark-mode).
+要了解更多資訊，請見 [深色模式](/docs/dark-mode)。
 
-### Generating state variants
+### 生成狀態變數
 
-If you'd like to create [state variants](/docs/hover-focus-and-other-states) for your own utilities, wrap your utilities in the `@variants` directive and list the variants you'd like to enable:
+如果你想為自訂功能建立[狀態變數](/docs/hover-focus-and-other-states)，請將自訂程序包裝在 `@variants` 指令中，並列出要啟用的變數：
 
 ```css
 @tailwind base;
@@ -130,13 +129,13 @@ If you'd like to create [state variants](/docs/hover-focus-and-other-states) for
 }
 ```
 
-Tailwind will automatically generate prefixed versions of each custom utility that you can use to conditionally apply those styles at different states:
+Tailwind 將自動產生每個自訂功能的前綴版本，你可以有條件地將它們應用在不同的狀態下：
 
 ```html
 <div class="filter-grayscale **hover:filter-none**"></div>
 ```
 
-State variants are generated in the same order you list them in the `@variants` directive, so if you'd like one variant to take precedence over another, make sure you list that one last:
+狀態變數的生成順序與在 `@variants` 指令中的順序相同，因此，如果你希望一個變數優先於另一個變數，請確保該變數列在後面：
 
 ```css
 /* Focus will take precedence over hover */
@@ -156,13 +155,13 @@ State variants are generated in the same order you list them in the `@variants` 
 }
 ```
 
-Learn more about state variants in the [state variants documentation](/docs/hover-focus-and-other-states).
+要了解更多資訊，請見[狀態變數](/docs/hover-focus-and-other-states)。
 
 ---
 
-## Using a plugin
+## 使用插件
 
-In addition to adding new utility classes directly in your CSS files, you can also add utilities to Tailwind by writing your own plugin:
+除了直接在 CSS 文件中增加新的自訂功能 class 外，你還可以撰寫自己的插件將自訂功能添加到 Tailwind：
 
 ```js
 // tailwind.config.js
@@ -187,6 +186,5 @@ module.exports = {
 
 ```
 
-This can be a good choice if you want to publish your custom utilities as a library or make it easier to share them across multiple projects.
-
-Learn more in the [utility plugin documentation](/docs/plugins#adding-utilities).
+如果要將自訂功能發佈為函式庫，或者讓它更容易共享給不同專案使用，這可能是一個不錯的選擇。
+要了解更多資訊，請見[功能插件](/docs/plugins#adding-utilities)。
