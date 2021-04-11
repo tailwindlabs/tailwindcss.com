@@ -143,7 +143,7 @@ export function StateVariants() {
           狀態變化
         </Caption>
         <BigText className="mb-8">
-          <Widont>想要 Hover 和 focus 的狀態？ 我們準備給你。</Widont>
+          <Widont>想要 hover 和 focus 的狀態？ 我們準備給你。</Widont>
         </BigText>
         <Paragraph className="mb-6">
 		  想要在滑鼠經過時有不同的樣式嗎？那就在你想用的 class 前面加上 <InlineCode>hover:</InlineCode>！
