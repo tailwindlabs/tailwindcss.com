@@ -6,21 +6,21 @@ import { Logo } from '@/components/Logo'
 
 const footerNav = {
   'Getting started': {
-    showName: '起手式',
+    showName: '起手式 (Getting started)',
     className: 'row-span-2',
-    items: documentationNav['Getting started'],
+    items: documentationNav['起手式 (Getting started)'],
   },
   'Core concepts': {
-    showName: '核心概念',
+    showName: '核心概念 (Core Concepts)',
     className: 'row-span-2',
-    items: documentationNav['Core Concepts'],
+    items: documentationNav['核心概念 (Core Concepts)'],
   },
-  Customization: {
-    showName: '客製化',
+  'Customization': {
+    showName: '客製化 (Customization)',
     className: 'row-span-2',
-    items: documentationNav['Customization'],
+    items: documentationNav['客製化 (Customization)'],
   },
-  Community: {
+  'Community': {
     showName: '官方社群',
     items: [
       { title: 'GitHub', href: 'https://github.com/tailwindlabs/tailwindcss' },

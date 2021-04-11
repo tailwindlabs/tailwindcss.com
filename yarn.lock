@@ -4490,6 +4490,11 @@ get-value@^2.0.3, get-value@^2.0.6:
   resolved "https://registry.yarnpkg.com/get-value/-/get-value-2.0.6.tgz"
   integrity sha1-3BXKHGcjh8p2vTesCjlbogQqLCg=
 
+git-cz@^4.7.6:
+  version "4.7.6"
+  resolved "https://registry.yarnpkg.com/git-cz/-/git-cz-4.7.6.tgz#1250c486f01724e801a630b848fd8786f7e67e90"
+  integrity sha512-WtQEXqetJSi9LKPI77bMdSQWvLGjE93egVbR0zjXd1KFKrFvo/YE/UuGNcMeBDiwzxfQBhjyV7Hn0YUZ8Q0BcQ==
+
 github-from-package@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/github-from-package/-/github-from-package-0.0.0.tgz#97fb5d96bfde8973313f20e8288ef9a167fa64ce"

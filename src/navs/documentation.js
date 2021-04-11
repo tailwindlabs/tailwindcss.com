@@ -6,7 +6,7 @@ const pages = createPageList(
 )
 
 export const documentationNav = {
-  'Getting started': [
+  '起手式 (Getting started)': [
     pages['installation'],
     {
       title: 'Release Notes',
@@ -18,7 +18,7 @@ export const documentationNav = {
     pages['browser-support'],
     pages['intellisense'],
   ],
-  'Core Concepts': [
+  '核心概念 (Core Concepts)': [
     pages['utility-first'],
     pages['responsive-design'],
     pages['hover-focus-and-other-states'],
@@ -28,7 +28,7 @@ export const documentationNav = {
     pages['adding-new-utilities'],
     pages['functions-and-directives'],
   ],
-  Customization: [
+  '客製化 (Customization)': [
     pages['configuration'],
     pages['just-in-time-mode'],
     pages['theme'],
@@ -39,8 +39,10 @@ export const documentationNav = {
     pages['plugins'],
     pages['presets'],
   ],
-  'Base Styles': [pages['preflight']],
-  Layout: [
+  '基底樣式 (Base Styles)': [
+    pages['preflight']
+  ],
+  '排版 (Layout)': [
     pages['container'],
     pages['box-decoration-break'],
     pages['box-sizing'],
@@ -57,7 +59,7 @@ export const documentationNav = {
     pages['visibility'],
     pages['z-index'],
   ],
-  Flexbox: [
+  '彈性化排版 (Flexbox)': [
     pages['flex-direction'],
     pages['flex-wrap'],
     pages['flex'],
@@ -65,7 +67,7 @@ export const documentationNav = {
     pages['flex-shrink'],
     pages['order'],
   ],
-  Grid: [
+  '網格 (Grid)': [
     pages['grid-template-columns'],
     pages['grid-column'],
     pages['grid-template-rows'],
@@ -75,7 +77,7 @@ export const documentationNav = {
     pages['grid-auto-rows'],
     pages['gap'],
   ],
-  'Box Alignment': [
+  '對齊 (Box Alignment)': [
     pages['justify-content'],
     pages['justify-items'],
     pages['justify-self'],
@@ -86,8 +88,12 @@ export const documentationNav = {
     pages['place-items'],
     pages['place-self'],
   ],
-  Spacing: [pages['padding'], pages['margin'], pages['space']],
-  Sizing: [
+  '邊距 (Spacing)': [
+    pages['padding'], 
+    pages['margin'], 
+    pages['space']
+  ],
+  '尺寸大小 (Sizing)': [
     pages['width'],
     pages['min-width'],
     pages['max-width'],
@@ -95,7 +101,7 @@ export const documentationNav = {
     pages['min-height'],
     pages['max-height'],
   ],
-  Typography: [
+  '文字版式 (Typography)': [
     pages['font-family'],
     pages['font-size'],
     pages['font-smoothing'],
@@ -118,7 +124,7 @@ export const documentationNav = {
     pages['whitespace'],
     pages['word-break'],
   ],
-  Backgrounds: [
+  '背景 (Backgrounds)': [
     pages['background-attachment'],
     pages['background-clip'],
     pages['background-color'],
@@ -129,7 +135,7 @@ export const documentationNav = {
     pages['background-image'],
     pages['gradient-color-stops'],
   ],
-  Borders: [
+  '邊框 (Borders)': [
     pages['border-radius'],
     pages['border-width'],
     pages['border-color'],
@@ -145,13 +151,13 @@ export const documentationNav = {
     pages['ring-offset-width'],
     pages['ring-offset-color'],
   ],
-  Effects: [
+  '特效 (Effects)': [
     pages['box-shadow'],
     pages['opacity'],
     pages['mix-blend-mode'],
     pages['background-blend-mode'],
   ],
-  Filters: [
+  '過濾器 (Filters)': [
     pages['filter'],
     pages['blur'],
     pages['brightness'],
@@ -173,15 +179,18 @@ export const documentationNav = {
     pages['backdrop-saturate'],
     pages['backdrop-sepia'],
   ],
-  Tables: [pages['border-collapse'], pages['table-layout']],
-  'Transitions and Animation': [
+  '表格 (Tables)': [
+    pages['border-collapse'], 
+    pages['table-layout']
+  ],
+  '動畫 (Transitions and Animation)': [
     pages['transition-property'],
     pages['transition-duration'],
     pages['transition-timing-function'],
     pages['transition-delay'],
     pages['animation'],
   ],
-  Transforms: [
+  '變形 (Transforms)': [
     pages['transform'],
     pages['transform-origin'],
     pages['scale'],
@@ -189,7 +198,7 @@ export const documentationNav = {
     pages['translate'],
     pages['skew'],
   ],
-  Interactivity: [
+  '互動性 (Interactivity)': [
     pages['appearance'],
     pages['cursor'],
     pages['outline'],
@@ -197,9 +206,15 @@ export const documentationNav = {
     pages['resize'],
     pages['user-select'],
   ],
-  SVG: [pages['fill'], pages['stroke'], pages['stroke-width']],
-  Accessibility: [pages['screen-readers']],
-  'Official Plugins': [
+  '向量圖 (SVG)': [
+    pages['fill'], 
+    pages['stroke'], 
+    pages['stroke-width']
+  ],
+  '平易近人 (Accessibility)': [
+    pages['screen-readers']
+  ],
+  '官方插件 (Official Plugins)': [
     {
       title: 'Typography',
       href: 'https://github.com/tailwindlabs/tailwindcss-typography',

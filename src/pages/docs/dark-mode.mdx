@@ -1,28 +1,28 @@
 ---
-title: Dark Mode
-description: Using Tailwind CSS to style your site in dark mode.
+title: 深色模式 (Dark Mode)
+description: 用 Tailwind CSS 讓你的網站進入深色模式
 ---
 
 import { Heading } from '@/components/Heading'
 
-## <Heading hidden>Basic usage</Heading>
+## <Heading hidden>基本用法</Heading>
 
-Now that dark mode is a first-class feature of many operating systems, it's becoming more and more common to design a dark version of your website to go along with the default design.
+深色模式是現在許多作業系統都有的超夯功能，幫你的網站設計出一個深色的主題是勢在必行的。
 
-To make this as easy as possible, Tailwind includes a `dark` variant that lets you style your site differently when dark mode is enabled:
+為了使你的改造之路變得更加輕鬆愉快，Tailwind 本身就提供了一個叫做 `dark` 的模式變化，當瀏覽器或作業系統開啟深色模式時，你的網站可以有不同的樣式。
 
 ```html
 <div class="bg-white **dark:bg-gray-800**">
-  <h1 class="text-gray-900 **dark:text-white**">Dark mode is here!</h1>
+  <h1 class="text-gray-900 **dark:text-white**">這裡是深色模式 !</h1>
   <p class="text-gray-600 **dark:text-gray-300**">
     Lorem ipsum...
   </p>
 </div>
 ```
 
-It's important to note that because of file size considerations, **the dark mode variant is not enabled in Tailwind by default**.
+但這邊有一件事情要注意一下，因為檔案大小的關係，**在 Tailwind 中深色模式的狀態判斷預設是關閉的。**
 
-To enable it, set the `darkMode` option in your `tailwind.config.js` file to `media`:
+如果要打開深色模式，請把你 `tailwind.config.js` 裡 `darkMode` 選項的值改成 `media`　。
 
 ```js
 // tailwind.config.js
@@ -31,16 +31,15 @@ module.exports = {
   // ...
 }
 ```
+現在，只要使用者的作業系統有開啟深色模式，那麼有 `dark:` 開頭的這些類別都會蓋過自己原本的樣式。其實 `media` 就是在背後使用了 `色彩偏好方案`(prefers-color-scheme)，但是如果你想要手動切換深色模式的效果，你可以 [使用 \`class\` 參數 ][use the 'class' strategy] 來控制它。
 
-Now whenever dark mode is enabled on the user's operating system, `dark:{class}` classes will take precedence over unprefixed classes. The `media` strategy uses the `prefers-color-scheme` media feature under the hood, but if you'd like to support toggling dark mode manually, you can also [use the 'class' strategy](#toggling-dark-mode-manually) for more control.
-
-By default, when `darkMode` is enabled `dark` variants are only generated for color-related classes, which includes text color, background color, border color, gradients, and placeholder color.
+一般來說，開啟 `darkMode` 只會幫你把跟顏色有關的 class(類別)增加 `dark` 的狀態判斷，像是文字顏色、背景顏色、邊框顏色、漸層和 placeholder 的顏色。
 
 ---
 
-## Stacking with other variants
+## 搭配其它的變化來使用
 
-The `dark` variant can be combined with both [responsive](https://tailwindcss.com/docs/responsive-design) variants and [state variants](https://tailwindcss.com/docs/hover-focus-and-other-states) (like hover and focus):
+`dark` 的變化模式也能與其它的變化搭在一起使用，比如[響應式][responsive]變化，和[狀態變化][state variants] (像是 hover 和 focus)：
 
 ```html
 <button class="lg:dark:hover:bg-white ...">
@@ -48,13 +47,13 @@ The `dark` variant can be combined with both [responsive](https://tailwindcss.co
 </button>
 ```
 
-The responsive variant needs to come first, then `dark`, then the state variant for this to work.
+響應式變化需要放在第一個，接著是 `dark`，狀態變化要放在最後面，這樣才能正常運作。
 
 ---
 
-## Enabling for other utilities
+## 幫其它的 功能(Utilities) 開啟深色模式
 
-To enable the `dark` variant for other utilities, add `dark` to the variants list for whatever utility you'd like to enable it for:
+如果要幫其它的 `功能`(utilities) 打開 `dark` 的模式變化，只需要在變化模式的清單中，幫你想要開啟深色模式的功能加上 `dark` 參數，像是：
 
 ```js
 // tailwind.config.js
@@ -68,13 +67,13 @@ module.exports = {
 }
 ```
 
-By default, the `dark` variant is enabled for `backgroundColor`, `borderColor`, `gradientColorStops`, `placeholderColor`, and `textColor`.
+在預設情況下， `dark` 的模式變化只會幫 `backgroundColor`, `borderColor`, `gradientColorStops`, `placeholderColor`, and `textColor` 這幾個 功能 (Utilities) 開啟。
 
 ---
 
-## Toggling dark mode manually
+## 深色模式的手動切換
 
-If you want to support toggling dark mode manually instead of relying on the operating system preference, use the `class` strategy instead of the `media` strategy:
+如果你想要跟系統的偏好設定不一樣、能夠讓你手動切換深色模式的話，那麼你就要使用 `class` 這個參數，來取代原本的 `media`。
 
 ```js
 // tailwind.config.js
@@ -84,50 +83,56 @@ module.exports = {
 }
 ```
 
-Now instead of `dark:{class}` classes being applied based on `prefers-color-scheme`, they will be applied whenever `dark` class is present earlier in the HTML tree.
+現在，有 `dark:` 開頭的這些類別會根據 `<html>` 標籤裡的class 是否有 `dark` 來做對應的變化，而不是根據原本的 `色彩偏好方案`(prefers-color-scheme)。
 
 ```html
-<!-- Dark mode not enabled -->
+<!-- 深色模式還沒開啟 -->
 <html>
 <body>
-  <!-- Will be white -->
-  <div class="**bg-white** dark:bg-black">
+  <!-- 所以背景還是白色 -->
+  <div class="bg-white dark:bg-black">
     <!-- ... -->
   </div>
 </body>
 </html>
 
-<!-- Dark mode enabled -->
-<html class="**dark**">
+<!-- 深色模式開啟了 -->
+<html class="dark">
 <body>
-  <!-- Will be black -->
-  <div class="bg-white **dark:bg-black**">
+  <!-- 背景就變成黑色了 -->
+  <div class="bg-white dark:bg-black">
     <!-- ... -->
   </div>
 </body>
 </html>
 ```
 
-How you add the `dark` class to the `html` element is up to you, but a common approach is to use a bit of JS that reads a preference from somewhere (like `localStorage`) and updates the DOM accordingly.
+其實隨便看你要用什麼方法來幫 `<html>` 標籤增加 `dark` 這個 class，不過通常都是寫一點點簡單的 js ，然後從像是本地端之類的地方去讀取設定檔，然後再去更新 DOM 節點。
 
-Here's a simple example of how you can support light mode, dark mode, as well as respecting the operating system preference:
+下面有一個簡單的範例，是教你怎麼做到 `淺色模式`、`深色模式`，和 `根據作業系統的偏好設定`。
 
 ```js
-// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+// 最好在頁面讀取或更換主題的時候增加一行到 `head`來避免 FOUC
 if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
   document.documentElement.classList.add('dark')
 } else {
   document.documentElement.classList.remove('dark')
 }
 
-// Whenever the user explicitly chooses light mode
+// 當使用者選擇 淺色模式 時
 localStorage.theme = 'light'
 
-// Whenever the user explicitly chooses dark mode
+// 當使用者選擇 深色模式 時
 localStorage.theme = 'dark'
 
-// Whenever the user explicitly chooses to respect the OS preference
+// 當使用者選擇 根據作業系統偏好設定 時
 localStorage.removeItem('theme')
 ```
 
-Again you can manage this however you like, even storing the preference server-side in a database and rendering the class on the server — it's totally up to you.
+同樣的，你可以根據自己的心情喜好去管理它 ~~(就看你今天爽不爽這樣)~~，甚至是你想要把每個使用者的偏好設定都存在你伺服器的資料庫，然後再讀出來設定頁面，都隨便你。
+
+
+<!-- === 連結 ============== -->
+[use the 'class' strategy]: #-2
+[responsive]: /docs/responsive-design
+[state variants]: /docs/hover-focus-and-other-states
