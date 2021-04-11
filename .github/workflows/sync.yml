@@ -17,7 +17,7 @@ jobs:
     - name: Checkout main
       uses: actions/checkout@v2
       with:
-        ref: master
+        ref: tw
         # submodules: 'recursive'     ### may be needed in your situation
 
     # Step 2: run this sync action - specify the upstream repo, upstream branch to sync with, and target sync branch
@@ -26,8 +26,8 @@ jobs:
       uses: aormsby/Fork-Sync-With-Upstream-action@v2.3
       with:
         upstream_repository: tailwindcss-tw/tailwindcss.com
-        upstream_branch: master
-        target_branch: master
+        upstream_branch: tw
+        target_branch: tw
         git_pull_args: --ff-only                    # optional arg use, defaults to simple 'pull'
         github_token: ${{ secrets.GITHUB_TOKEN }}   # optional, for accessing repos that require authentication
 

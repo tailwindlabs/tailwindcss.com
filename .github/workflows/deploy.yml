@@ -6,7 +6,7 @@ on:
   pull_request:
     types: [closed]
     branches:
-      - master
+      - tw
 
 jobs:
   dispatch_event:
