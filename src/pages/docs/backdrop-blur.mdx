@@ -1,6 +1,6 @@
 ---
-title: "Backdrop Blur"
-description: "Utilities for applying backdrop blur filters to an element."
+title: "毛玻璃效果" 
+description: "將毛玻璃效果套用在元素"
 featureVersion: 'v2.1+'
 ---
 
@@ -24,9 +24,10 @@ export const classes = {
   }
 }
 
-## Usage
+## 用法
 
-Use the `backdrop-blur-{amount?}` utilities alongside the `backdrop-filter` utility to blur an element.
+
+將 `backdrop-blur-{amount?}` 功能跟 `backdrop-filter` 功能一起使用即可將一個元素變模糊
 
 ```html
 <div class="backdrop-filter backdrop-blur-lg ...">
@@ -34,9 +35,9 @@ Use the `backdrop-blur-{amount?}` utilities alongside the `backdrop-filter` util
 </div>
 ```
 
-## Responsive
+## 響應式
 
-To control an element's backdrop blur at a specific breakpoint, add a `{screen}:` prefix to any existing backdrop blur utility. For example, use `md:backdrop-blur-lg` to apply the `backdrop-blur-lg` utility at only medium screen sizes and above.
+要將一個元素的毛玻璃效果控制在特定斷點，在任何一個既有毛玻璃功能的前綴加上 `{screen}:` 就好。例如，在中型或以上的螢幕尺寸，將 `md:backdrop-blur-lg` 加入到 `backdrop-blur-lg` 功能
 
 ```html
 <div class="backdrop-filter backdrop-blur-sm **md:backdrop-blur-lg** ...">
@@ -44,14 +45,14 @@ To control an element's backdrop blur at a specific breakpoint, add a `{screen}:
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+想知道更多有關 Tailwind 響應式設計功能的訊息，請參考 [響應式設計] (/docs/responsive-design) 文件
 
-## Customizing
+## 客製化
 
-### Variants
+### 應用在變化模式 Variants
 
 <Variants plugin="backdropBlur" name="backdrop blur" />
 
-### Disabling
+### 停用
 
 <Disabling plugin="backdropBlur" name="backdrop blur" />
