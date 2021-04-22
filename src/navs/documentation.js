@@ -128,6 +128,7 @@ export const documentationNav = {
     pages['background-size'],
     pages['background-image'],
     pages['gradient-color-stops'],
+    pages['background-origin'],
   ],
   Borders: [
     pages['border-radius'],

@@ -1,0 +1,106 @@
+---
+title: "Background Origin"
+description: "Utilities for controlling the origin of an element's background image or gradient."
+features:
+  responsive: true
+  customizable: false
+  hover: false
+  focus: false
+---
+
+import plugin from 'tailwindcss/lib/plugins/backgroundRepeat'
+import { Variants } from '@/components/Variants'
+import { Disabling } from '@/components/Disabling'
+import { TipGood, TipBad } from '@/components/Tip'
+
+export const classes = { plugin }
+
+## Border box
+
+Use `bg-origin-border` to set the origin of the background image to the border box of the element.
+
+```html warmGray
+<template preview>
+  <div class="mx-auto h-64 w-64 p-4 border-4 border-warm-gray-400 border-dashed rounded-2xl shadow-xl bg-white bg-no-repeat" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80'); background-origin: border-box;">
+  </div>
+
+</template>
+
+<div class="**bg-origin-padding** ..."></div>
+```
+
+## Padding box
+
+Use `bg-origin-padding` to set the origin of the background image to the padding box of the element.
+
+```html rose
+<template preview>
+  <div class="mx-auto h-64 w-64 p-4 border-4 border-rose-400 border-dashed rounded-2xl shadow-xl bg-white bg-no-repeat" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80'); background-origin: padding-box;">
+  </div>
+
+</template>
+
+<div class="**bg-origin-padding** ..."></div>
+```
+
+## Content box
+
+Use `bg-origin-content` to set the origin of the background image to the content box of the element.
+
+```html indigo
+<template preview>
+  <div class="mx-auto h-64 w-64 p-4 border-4 border-indigo-400 border-dashed rounded-2xl shadow-xl bg-white bg-no-repeat" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80'); background-origin: content-box;">
+  </div>
+
+</template>
+
+<div class="**bg-origin-padding** ..."></div>
+```
+
+## Use case
+
+Setting the origin of the background image is useful for avoiding visual issues when creating elements that have background gradients and transparent borders. This is common with buttons, where transparent borders are sometimes needed to maintain consistent sizing with other buttons.
+
+<TipBad>Don't use a gradient background and transparent border without setting the background origin to the border box of the element</TipBad>
+
+```html
+<template preview>
+  <button type="button" class="mx-auto flex px-4 py-2 border-4 border-transparent rounded-lg bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 shadow-md text-white font-semibold hover:from-orange-500 hover:to-pink-600">
+    Click me
+  </button>
+</template>
+
+<div class="border-transparent ..."></div>
+```
+
+<TipGood>Use `bg-origin-border` to avoid visual issues</TipGood>
+
+```html
+<template preview>
+  <button type="button" class="mx-auto flex px-4 py-2 border-4 border-transparent rounded-lg bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 shadow-md text-white font-semibold hover:from-orange-500 hover:to-pink-600" style="background-origin: border-box;">
+    Click me
+  </button>
+</template>
+
+<div class="border-transparent **bg-origin-border** ..."></div>
+```
+
+## Responsive
+
+To control the origin of an element's background image at a specific breakpoint, add a `{screen}:` prefix to any existing background origin utility. For example, adding the class `md:bg-origin-x` to an element would apply the `bg-origin-x` utility at medium screen sizes and above.
+
+```html
+<div class="bg-origin-border **md:bg-origin-padding** ..."></div>
+```
+
+For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+
+## Customizing
+
+### Variants
+
+<Variants plugin="backgroundOrigin" />
+
+### Disabling
+
+<Disabling plugin="backgroundOrigin" />
