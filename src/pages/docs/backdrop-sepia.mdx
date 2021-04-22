@@ -22,10 +22,27 @@ export const classes = {
 
 Use the `backdrop-sepia` and `backdrop-sepia-0` utilities alongside the `backdrop-filter` utility to whether an element's backdrop should be rendered as sepia or in full color.
 
-```html
-<div class="backdrop-filter backdrop-sepia ...">
-  <!-- ... -->
-</div>
+```html purple
+<template preview>
+  <div class="h-full w-full p-4 rounded-2xl bg-purple-200">
+    <div class="flex justify-around">
+      <div class="flex-1">
+        <p class="text-center text-sm text-purple-800 font-medium mb-1">.backdrop-sepia-0</p>
+        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-sepia-0">
+        </div>
+      </div>
+      <div class="flex-1">
+        <p class="text-center text-sm text-purple-800 font-medium mb-1">.backdrop-sepia</p>
+        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-sepia">
+        </div>
+      </div>
+      <div class="flex-1"></div>
+    </div>
+  </div>
+</template>
+
+<div class="backdrop-filter **backdrop-sepia-0** ..."></div>
+<div class="backdrop-filter **backdrop-sepia** ..."></div>
 ```
 
 ## Responsive

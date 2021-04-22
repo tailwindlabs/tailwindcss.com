@@ -22,10 +22,25 @@ export const classes = {
 
 Use the `sepia` and `sepia-0` utilities alongside the `filter` utility to whether an element should be rendered as sepia or in full color.
 
-```html
-<div class="filter sepia ...">
-  <!-- ... -->
-</div>
+```html purple
+<template preview>
+  <div class="flex justify-around">
+    <div class="flex-1">
+      <p class="text-center text-sm text-purple-600 font-medium mb-1">.sepia-0</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-purple-400 filter sepia-0">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-purple-600 font-medium mb-1">.sepia</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-purple-400 filter sepia">
+      </div>
+    </div>
+    <div class="flex-1"></div>
+  </div>
+</template>
+
+<div class="filter **sepia-0** ..."></div>
+<div class="filter **sepia** ..."></div>
 ```
 
 ## Responsive

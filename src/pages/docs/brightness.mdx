@@ -31,10 +31,85 @@ export const classes = {
 
 Use the `brightness-{amount?}` utilities alongside the `filter` utility to control an element's brightness.
 
-```html
-<div class="filter brightness-125 ...">
-  <!-- ... -->
-</div>
+```html indigo
+<template preview>
+  <div class="flex justify-around mb-8">
+    <div class="flex-1">
+      <p class="text-center text-sm text-indigo-600 font-medium mb-1">.brightness-0</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter brightness-0">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-indigo-600 font-medium mb-1">.brightness-50</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter brightness-50">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-indigo-600 font-medium mb-1">.brightness-75</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter brightness-75">
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-around mb-8">
+    <div class="flex-1">
+      <p class="text-center text-sm text-indigo-600 font-medium mb-1">.brightness-90</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter brightness-90">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-indigo-600 font-medium mb-1">.brightness-95</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter brightness-95">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-indigo-600 font-medium mb-1">.brightness-100</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter brightness-100">
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-around mb-8">
+    <div class="flex-1">
+      <p class="text-center text-sm text-indigo-600 font-medium mb-1">.brightness-105</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter brightness-105">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-indigo-600 font-medium mb-1">.brightness-110</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter brightness-110">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-indigo-600 font-medium mb-1">.brightness-125</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter brightness-125">
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-around">
+    <div class="flex-1">
+      <p class="text-center text-sm text-indigo-600 font-medium mb-1">.brightness-150</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter brightness-150">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-indigo-600 font-medium mb-1">.brightness-200</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter brightness-200">
+      </div>
+    </div>
+    <div class="flex-1"></div>
+  </div>
+</template>
+
+<div class="filter **brightness-0** ..."></div>
+<div class="filter **brightness-50** ..."></div>
+<div class="filter **brightness-75** ..."></div>
+<div class="filter **brightness-90** ..."></div>
+<div class="filter **brightness-95** ..."></div>
+<div class="filter **brightness-100** ..."></div>
+<div class="filter **brightness-105** ..."></div>
+<div class="filter **brightness-110** ..."></div>
+<div class="filter **brightness-125** ..."></div>
+<div class="filter **brightness-150** ..."></div>
+<div class="filter **brightness-200** ..."></div>
 ```
 
 ## Responsive

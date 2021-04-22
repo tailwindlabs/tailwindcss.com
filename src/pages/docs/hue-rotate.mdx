@@ -32,9 +32,84 @@ export const classes = {
 Use the `hue-rotate-{amount}` utilities alongside the `filter` utility to blur an element.
 
 ```html
-<div class="filter hue-rotate-15 ...">
-  <!-- ... -->
-</div>
+<template preview>
+  <div class="flex justify-around mb-8">
+    <div class="flex-1">
+      <p class="text-center text-sm text-gray-600 font-medium mb-1">.-hue-rotate-180</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter -hue-rotate-180">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-gray-600 font-medium mb-1">.-hue-rotate-90</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter -hue-rotate-90">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-gray-600 font-medium mb-1">.-hue-rotate-60</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter -hue-rotate-60">
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-around mb-8">
+    <div class="flex-1">
+      <p class="text-center text-sm text-gray-600 font-medium mb-1">.-hue-rotate-30</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter -hue-rotate-30">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-gray-600 font-medium mb-1">.-hue-rotate-15</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter -hue-rotate-15">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-gray-600 font-medium mb-1">.hue-rotate-0</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter hue-rotate-0">
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-around mb-8">
+    <div class="flex-1">
+      <p class="text-center text-sm text-gray-600 font-medium mb-1">.hue-rotate-15</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter hue-rotate-15">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-gray-600 font-medium mb-1">.hue-rotate-30</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter hue-rotate-30">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-gray-600 font-medium mb-1">.hue-rotate-60</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter hue-rotate-60">
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-around">
+    <div class="flex-1">
+      <p class="text-center text-sm text-gray-600 font-medium mb-1">.hue-rotate-90</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter hue-rotate-90">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-gray-600 font-medium mb-1">.hue-rotate-180</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-indigo-400 filter hue-rotate-180">
+      </div>
+    </div>
+    <div class="flex-1"></div>
+  </div>
+</template>
+
+<div class="filter **-hue-rotate-180** ..."></div>
+<div class="filter **-hue-rotate-90** ..."></div>
+<div class="filter **-hue-rotate-60** ..."></div>
+<div class="filter **-hue-rotate-30** ..."></div>
+<div class="filter **-hue-rotate-15** ..."></div>
+<div class="filter **hue-rotate-0** ..."></div>
+<div class="filter **hue-rotate-15** ..."></div>
+<div class="filter **hue-rotate-30** ..."></div>
+<div class="filter **hue-rotate-60** ..."></div>
+<div class="filter **hue-rotate-90** ..."></div>
+<div class="filter **hue-rotate-180** ..."></div>
 ```
 
 ## Responsive

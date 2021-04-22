@@ -26,10 +26,60 @@ export const classes = {
 
 Use the `drop-shadow-{amount}` utilities alongside the `filter` utility to blur an element.
 
-```html
-<div class="filter drop-shadow-lg ...">
-  <!-- ... -->
-</div>
+```html indigo
+<template preview>
+  <div class="flex justify-around mb-8">
+    <div class="flex-1">
+      <p class="text-center text-sm text-indigo-600 font-medium mb-1">.drop-shadow-sm</p>
+      <div class="mx-auto h-24 w-24 rounded-xl bg-white filter drop-shadow-sm">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-indigo-600 font-medium mb-1">.drop-shadow</p>
+      <div class="mx-auto h-24 w-24 rounded-xl bg-white filter drop-shadow">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-indigo-600 font-medium mb-1">.drop-shadow-md</p>
+      <div class="mx-auto h-24 w-24 rounded-xl bg-white filter drop-shadow-md">
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-around mb-8">
+    <div class="flex-1">
+      <p class="text-center text-sm text-indigo-600 font-medium mb-1">.drop-shadow-lg</p>
+      <div class="mx-auto h-24 w-24 rounded-xl bg-white filter drop-shadow-lg">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-indigo-600 font-medium mb-1">.drop-shadow-xl</p>
+      <div class="mx-auto h-24 w-24 rounded-xl bg-white filter drop-shadow-xl">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-indigo-600 font-medium mb-1">.drop-shadow-2xl</p>
+      <div class="mx-auto h-24 w-24 rounded-xl bg-white filter drop-shadow-2xl">
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-around">
+    <div class="flex-1">
+      <p class="text-center text-sm text-indigo-600 font-medium mb-1">.drop-shadow-none</p>
+      <div class="mx-auto h-24 w-24 rounded-xl bg-white filter drop-shadow-none">
+      </div>
+    </div>
+    <div class="flex-1"></div>
+    <div class="flex-1"></div>
+  </div>
+</template>
+
+<div class="filter **drop-shadow-sm** ..."></div>
+<div class="filter **drop-shadow** ..."></div>
+<div class="filter **drop-shadow-md** ..."></div>
+<div class="filter **drop-shadow-lg** ..."></div>
+<div class="filter **drop-shadow-xl** ..."></div>
+<div class="filter **drop-shadow-2xl** ..."></div>
+<div class="filter **drop-shadow-none** ..."></div>
 ```
 
 ## Responsive

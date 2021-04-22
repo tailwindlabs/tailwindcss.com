@@ -22,10 +22,25 @@ export const classes = {
 
 Use the `grayscale` and `grayscale-0` utilities alongside the `filter` utility to whether an element should be rendered as grayscale or in full color.
 
-```html
-<div class="filter grayscale ...">
-  <!-- ... -->
-</div>
+```html emerald
+<template preview>
+  <div class="flex justify-around">
+    <div class="flex-1">
+      <p class="text-center text-sm text-emerald-600 font-medium mb-1">.grayscale-0</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-emerald-400 filter grayscale-0">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-emerald-600 font-medium mb-1">.grayscale</p>
+      <div class="mx-auto h-24 w-24 rounded-xl shadow-md bg-emerald-400 filter grayscale">
+      </div>
+    </div>
+    <div class="flex-1"></div>
+  </div>
+</template>
+
+<div class="filter **grayscale-0** ..."></div>
+<div class="filter **grayscale** ..."></div>
 ```
 
 ## Responsive

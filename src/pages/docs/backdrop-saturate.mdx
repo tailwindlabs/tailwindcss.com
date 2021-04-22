@@ -25,10 +25,47 @@ export const classes = {
 
 Use the `saturate-{amount}` utilities alongside the `backdrop-filter` utility to control an element's backdrop saturation.
 
-```html
-<div class="backdrop-filter backdrop-saturate-125 ...">
-  <!-- ... -->
-</div>
+```html rose
+<template preview>
+  <div class="h-full w-full p-4 rounded-2xl bg-rose-200">
+    <div class="flex justify-around mb-8">
+      <div class="flex-1">
+        <p class="text-center text-sm text-rose-800 font-medium mb-1">.backdrop-saturate-0</p>
+        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-saturate-0">
+        </div>
+      </div>
+      <div class="flex-1">
+        <p class="text-center text-sm text-rose-800 font-medium mb-1">.backdrop-saturate-50</p>
+        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-saturate-50">
+        </div>
+      </div>
+      <div class="flex-1">
+        <p class="text-center text-sm text-rose-800 font-medium mb-1">.backdrop-saturate-100</p>
+        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-saturate-100">
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-around">
+      <div class="flex-1">
+        <p class="text-center text-sm text-rose-800 font-medium mb-1">.backdrop-saturate-150</p>
+        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-saturate-150">
+        </div>
+      </div>
+      <div class="flex-1">
+        <p class="text-center text-sm text-rose-800 font-medium mb-1">.backdrop-saturate-200</p>
+        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-saturate-200">
+        </div>
+      </div>
+      <div class="flex-1"></div>
+    </div>
+  </div>
+</template>
+
+<div class="backdrop-filter **backdrop-saturate-0** ..."></div>
+<div class="backdrop-filter **backdrop-saturate-50** ..."></div>
+<div class="backdrop-filter **backdrop-saturate-100** ..."></div>
+<div class="backdrop-filter **backdrop-saturate-150** ..."></div>
+<div class="backdrop-filter **backdrop-saturate-200** ..."></div>
 ```
 
 ## Responsive

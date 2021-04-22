@@ -22,10 +22,27 @@ export const classes = {
 
 Use the `backdrop-invert` and `backdrop-invert-0` utilities alongside the `backdrop-filter` utility to whether an element should be rendered with inverted backdrop colors or normally.
 
-```html
-<div class="backdrop-filter backdrop-invert ...">
-  <!-- ... -->
-</div>
+```html lightBlue
+<template preview>
+  <div class="h-full w-full p-4 rounded-2xl bg-light-blue-200">
+    <div class="flex justify-around">
+      <div class="flex-1">
+        <p class="text-center text-sm text-light-blue-800 font-medium mb-1">.backdrop-invert-0</p>
+        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-invert-0">
+        </div>
+      </div>
+      <div class="flex-1">
+        <p class="text-center text-sm text-light-blue-800 font-medium mb-1">.backdrop-invert</p>
+        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-invert">
+        </div>
+      </div>
+      <div class="flex-1"></div>
+    </div>
+  </div>
+</template>
+
+<div class="backdrop-filter **backdrop-invert-0** ..."></div>
+<div class="backdrop-filter **backdrop-invert** ..."></div>
 ```
 
 ## Responsive

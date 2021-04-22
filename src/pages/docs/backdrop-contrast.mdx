@@ -27,10 +27,62 @@ export const classes = {
 
 Use the `backdrop-contrast-{amount?}` utilities alongside the `backdrop-filter` utility to control an element's backdrop contrast.
 
-```html
-<div class="backdrop-filter backdrop-contrast-125 ...">
-  <!-- ... -->
-</div>
+```html amber
+<template preview>
+  <div class="h-full w-full p-4 rounded-2xl bg-amber-200">
+    <div class="flex justify-around mb-8">
+      <div class="flex-1">
+        <p class="text-center text-sm text-amber-800 font-medium mb-1">.backdrop-contrast-0</p>
+        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-contrast-0">
+        </div>
+      </div>
+      <div class="flex-1">
+        <p class="text-center text-sm text-amber-800 font-medium mb-1">.backdrop-contrast-50</p>
+        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-contrast-50">
+        </div>
+      </div>
+      <div class="flex-1">
+        <p class="text-center text-sm text-amber-800 font-medium mb-1">.backdrop-contrast-75</p>
+        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-contrast-75">
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-around mb-8">
+      <div class="flex-1">
+        <p class="text-center text-sm text-amber-800 font-medium mb-1">.backdrop-contrast-100</p>
+        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-contrast-100">
+        </div>
+      </div>
+      <div class="flex-1">
+        <p class="text-center text-sm text-amber-800 font-medium mb-1">.backdrop-contrast-125</p>
+        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-contrast-125">
+        </div>
+      </div>
+      <div class="flex-1">
+        <p class="text-center text-sm text-amber-800 font-medium mb-1">.backdrop-contrast-150</p>
+        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-contrast-150">
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-around">
+      <div class="flex-1">
+        <p class="text-center text-sm text-amber-800 font-medium mb-1">.backdrop-contrast-200</p>
+        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-contrast-200">
+        </div>
+      </div>
+      <div class="flex-1"></div>
+      <div class="flex-1"></div>
+    </div>
+  </div>
+</template>
+
+<div class="backdrop-filter **backdrop-contrast-0** ..."></div>
+<div class="backdrop-filter **backdrop-contrast-50** ..."></div>
+<div class="backdrop-filter **backdrop-contrast-75** ..."></div>
+<div class="backdrop-filter **backdrop-contrast-100** ..."></div>
+<div class="backdrop-filter **backdrop-contrast-125** ..."></div>
+<div class="backdrop-filter **backdrop-contrast-150** ..."></div>
+<div class="backdrop-filter **backdrop-contrast-200** ..."></div>
 ```
 
 ## Responsive

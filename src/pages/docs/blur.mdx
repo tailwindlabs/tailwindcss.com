@@ -28,10 +28,66 @@ export const classes = {
 
 Use the `blur-{amount?}` utilities alongside the `filter` utility to blur an element.
 
-```html
-<div class="filter blur-lg ...">
-  <!-- ... -->
-</div>
+```html fuchsia
+<template preview>
+  <div class="flex justify-around mb-16">
+    <div class="flex-1">
+      <p class="text-center text-sm text-fuchsia-600 font-medium mb-1">.blur-0</p>
+      <div class="mx-auto h-24 w-24 rounded-xl bg-fuchsia-400 filter blur-0">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-fuchsia-600 font-medium mb-1">.blur-sm</p>
+      <div class="mx-auto h-24 w-24 rounded-xl bg-fuchsia-400 filter blur-sm">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-fuchsia-600 font-medium mb-1">.blur</p>
+      <div class="mx-auto h-24 w-24 rounded-xl bg-fuchsia-400 filter blur">
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-around mb-16">
+    <div class="flex-1">
+      <p class="text-center text-sm text-fuchsia-600 font-medium mb-1">.blur-md</p>
+      <div class="mx-auto h-24 w-24 rounded-xl bg-fuchsia-400 filter blur-md">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-fuchsia-600 font-medium mb-1">.blur-lg</p>
+      <div class="mx-auto h-24 w-24 rounded-xl bg-fuchsia-400 filter blur-lg">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-fuchsia-600 font-medium mb-1">.blur-xl</p>
+      <div class="mx-auto h-24 w-24 rounded-xl bg-fuchsia-400 filter blur-xl">
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-around">
+    <div class="flex-1">
+      <p class="text-center text-sm text-fuchsia-600 font-medium mb-1">.blur-2xl</p>
+      <div class="mx-auto h-24 w-24 rounded-xl bg-fuchsia-400 filter blur-2xl">
+      </div>
+    </div>
+    <div class="flex-1">
+      <p class="text-center text-sm text-fuchsia-600 font-medium mb-1">.blur-3xl</p>
+      <div class="mx-auto h-24 w-24 rounded-xl bg-fuchsia-400 filter blur-3xl">
+      </div>
+    </div>
+    <div class="flex-1"></div>
+  </div>
+
+</template>
+
+<div class="filter **blur-0** ..."></div>
+<div class="filter **blur-sm** ..."></div>
+<div class="filter **blur** ..."></div>
+<div class="filter **blur-md** ..."></div>
+<div class="filter **blur-lg** ..."></div>
+<div class="filter **blur-xl** ..."></div>
+<div class="filter **blur-2xl** ..."></div>
+<div class="filter **blur-3xl** ..."></div>
 ```
 
 ## Responsive
