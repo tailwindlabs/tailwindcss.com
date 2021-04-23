@@ -1,0 +1,65 @@
+{
+    "version": 1.1,
+    "atDirectives": [
+        {
+            "name": "@tailwind",
+            "description": "Use the @tailwind directive to insert Tailwind's base, components, utilities and screens styles into your CSS.",
+            "references": [
+                {
+                    "name": "Tailwind Documentation",
+                    "url": "https://tailwindcss.com/docs/functions-and-directives#tailwind"
+                }
+            ]
+        },
+        {
+            "name": "@responsive",
+            "description": "You can generate responsive variants of your own classes by wrapping their definitions in the @responsive directive:",
+            "references": [
+                {
+                    "name": "Tailwind Documentation",
+                    "url": "https://tailwindcss.com/docs/functions-and-directives#responsive"
+                }
+            ]
+        },
+        {
+            "name": "@screen",
+            "description": "The @screen directive allows you to create media queries that reference your breakpoints by name instead of duplicating their values in your own CSS.",
+            "references": [
+                {
+                    "name": "Tailwind Documentation",
+                    "url": "https://tailwindcss.com/docs/functions-and-directives#screen"
+                }
+            ]
+        },
+        {
+            "name": "@variants",
+            "description": "You can generate responsive, hover, focus, active, and other variants of your own utilities by wrapping their definitions in the @variants directive.",
+            "references": [
+                {
+                    "name": "Tailwind Documentation",
+                    "url": "https://tailwindcss.com/docs/functions-and-directives#variants"
+                }
+            ]
+        },
+        {
+            "name": "@layer",
+            "description": "Use the @layer directive to tell Tailwind which 'bucket' a set of custom styles belong to. Valid layers are a base, components, and utilities.",
+            "references": [
+                {
+                    "name": "Tailwind Documentation",
+                    "url": "https://tailwindcss.com/docs/functions-and-directives#layer"
+                }
+            ]
+        },
+        {
+            "name": "@apply",
+            "description": "Use @apply to inline any existing utility classes into your own custom CSS. This is useful when you find a common utility pattern in your HTML that you'd like to extract to a new component.",
+            "references": [
+                {
+                    "name": "Tailwind Documentation",
+                    "url": "https://tailwindcss.com/docs/functions-and-directives#apply"
+                }
+            ]
+        }
+    ]
+}
