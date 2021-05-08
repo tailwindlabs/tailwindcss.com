@@ -32,14 +32,15 @@ purge:
 
 ### Configure Tailwind with Laravel Mix
 
-In your `webpack.mix.js`, add `tailwindcss` as a PostCSS plugin:
+In your `webpack.mix.js`, add `tailwindcss` as a PostCSS plugin and add versioning to cache the output files:
 
 ```diff-js
   // webpack.mix.js
   mix.js("resources/js/app.js", "public/js")
     .postCss("resources/css/app.css", "public/css", [
 +     require("tailwindcss"),
-    ]);
+    ])
++   .version();
 ```
 
 ```preval include
@@ -47,7 +48,7 @@ tool: Laravel
 file: ./resources/css/app.css
 ```
 
-Next, import your stylesheet in your main Blade layout (commonly `resources/views/layouts/app.blade.php` or similar) and add the responsive viewport meta tag if it's not already present:
+Next, import your versioned stylesheet in your main Blade layout (commonly `resources/views/layouts/app.blade.php` or similar) and add the responsive viewport meta tag if it's not already present:
 
 ```diff-html
   <!doctype html>
@@ -55,7 +56,7 @@ Next, import your stylesheet in your main Blade layout (commonly `resources/view
     <!-- ... --->
 +   <meta charset="UTF-8" />
 +   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-+   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
++   <link href="{{ mix('css/app.css') }}" rel="stylesheet">
   </head>
   <!-- ... --->
 ```
