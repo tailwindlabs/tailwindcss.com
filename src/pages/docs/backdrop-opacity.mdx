@@ -35,98 +35,119 @@ export const classes = {
 
 Use the `backdrop-opacity-{amount}` utilities alongside the `backdrop-filter` utility to control the opacity of other backdrop filters applied to an element.
 
+For example, you can use `backdrop-opacity-{amount}` in combination with `backdrop-sepia` to have more control over how much sepia you want to mix into the background:
+
 ```html lightBlue
 <template preview>
-  <div class="h-full w-full p-4 rounded-2xl bg-cover bg-center bg-no-repeat" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&q=80');">
-    <div class="flex justify-around mb-8">
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-opacity-0</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl shadow-md backdrop-filter backdrop-blur-lg backdrop-opacity-0">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-opacity-5</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl shadow-md backdrop-filter backdrop-blur-lg backdrop-opacity-5">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-opacity-10</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl shadow-md backdrop-filter backdrop-blur-lg backdrop-opacity-10">
-        </div>
+<div class="space-y-8">
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">opacity-0</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-sepia backdrop-opacity-0 overflow-hidden"></div>
       </div>
     </div>
-    <div class="flex justify-around mb-8">
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-opacity-20</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl shadow-md backdrop-filter backdrop-blur-lg backdrop-opacity-20">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-opacity-25</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl shadow-md backdrop-filter backdrop-blur-lg backdrop-opacity-25">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-opacity-30</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl shadow-md backdrop-filter backdrop-blur-lg backdrop-opacity-30">
-        </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">opacity-5</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-sepia backdrop-opacity-5 overflow-hidden"></div>
       </div>
     </div>
-    <div class="flex justify-around mb-8">
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-opacity-40</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl shadow-md backdrop-filter backdrop-blur-lg backdrop-opacity-40">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-opacity-50</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl shadow-md backdrop-filter backdrop-blur-lg backdrop-opacity-50">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-opacity-60</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl shadow-md backdrop-filter backdrop-blur-lg backdrop-opacity-60">
-        </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">opacity-10</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-sepia backdrop-opacity-10 overflow-hidden"></div>
       </div>
     </div>
-    <div class="flex justify-around mb-8">
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-opacity-70</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl shadow-md backdrop-filter backdrop-blur-lg backdrop-opacity-70">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-opacity-75</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl shadow-md backdrop-filter backdrop-blur-lg backdrop-opacity-75">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-opacity-80</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl shadow-md backdrop-filter backdrop-blur-lg backdrop-opacity-80">
-        </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">opacity-20</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-sepia backdrop-opacity-20 overflow-hidden"></div>
       </div>
     </div>
-    <div class="flex justify-around">
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-opacity-90</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl shadow-md backdrop-filter backdrop-blur-lg backdrop-opacity-90">
-        </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">opacity-25</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-sepia backdrop-opacity-25 overflow-hidden"></div>
       </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-opacity-95</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl shadow-md backdrop-filter backdrop-blur-lg backdrop-opacity-95">
-        </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">opacity-30</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-sepia backdrop-opacity-30 overflow-hidden"></div>
       </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-opacity-100</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl shadow-md backdrop-filter backdrop-blur-lg backdrop-opacity-100">
-        </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">opacity-40</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-sepia backdrop-opacity-40 overflow-hidden"></div>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">opacity-50</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-sepia backdrop-opacity-50 overflow-hidden"></div>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">opacity-60</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0 h-24 w" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-sepia backdrop-opacity-60 overflow-hidden"></div>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">opacity-70</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0 h-24 w" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-sepia backdrop-opacity-70 overflow-hidden"></div>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">opacity-75</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0 h-24 w" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-sepia backdrop-opacity-75 overflow-hidden"></div>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">opacity-80</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0 h-24 w" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-sepia backdrop-opacity-80 overflow-hidden"></div>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">opacity-90</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-sepia backdrop-opacity-90 overflow-hidden"></div>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">opacity-95</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-sepia backdrop-opacity-95 overflow-hidden"></div>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">opacity-100</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-sepia backdrop-opacity-100 overflow-hidden"></div>
       </div>
     </div>
   </div>
 </template>
 
-<div class="backdrop-filter backdrop-{filter-function} **backdrop-opacity-0** ..."></div>
 <div class="backdrop-filter backdrop-{filter-function} **backdrop-opacity-5** ..."></div>
 <div class="backdrop-filter backdrop-{filter-function} **backdrop-opacity-10** ..."></div>
 <div class="backdrop-filter backdrop-{filter-function} **backdrop-opacity-20** ..."></div>

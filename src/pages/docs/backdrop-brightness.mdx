@@ -33,70 +33,83 @@ Use the `backdrop-brightness-{amount?}` utilities alongside the `backdrop-filter
 
 ```html indigo
 <template preview>
-  <div class="h-full w-full p-4 rounded-2xl bg-indigo-200">
-    <div class="flex justify-around mb-8">
-      <div class="flex-1">
-        <p class="text-center text-sm text-indigo-800 font-medium mb-1">.backdrop-brightness-0</p>
-        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-brightness-0">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-indigo-800 font-medium mb-1">.backdrop-brightness-50</p>
-        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-brightness-50">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-indigo-800 font-medium mb-1">.backdrop-brightness-75</p>
-        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-brightness-75">
-        </div>
+  <div class="space-y-8">
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">brightness-0</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-brightness-0 overflow-hidden"></div>
       </div>
     </div>
-    <div class="flex justify-around mb-8">
-      <div class="flex-1">
-        <p class="text-center text-sm text-indigo-800 font-medium mb-1">.backdrop-brightness-90</p>
-        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-brightness-90">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-indigo-800 font-medium mb-1">.backdrop-brightness-95</p>
-        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-brightness-95">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-indigo-800 font-medium mb-1">.backdrop-brightness-100</p>
-        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-brightness-100">
-        </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">brightness-50</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-brightness-50 overflow-hidden"></div>
       </div>
     </div>
-    <div class="flex justify-around mb-8">
-      <div class="flex-1">
-        <p class="text-center text-sm text-indigo-800 font-medium mb-1">.backdrop-brightness-105</p>
-        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-brightness-105">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-indigo-800 font-medium mb-1">.backdrop-brightness-110</p>
-        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-brightness-110">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-indigo-800 font-medium mb-1">.backdrop-brightness-125</p>
-        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-brightness-110">
-        </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">brightness-75</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0 h-24 w" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-brightness-75 overflow-hidden"></div>
       </div>
     </div>
-    <div class="flex justify-around">
-      <div class="flex-1">
-        <p class="text-center text-sm text-indigo-800 font-medium mb-1">.backdrop-brightness-150</p>
-        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-brightness-105">
-        </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">brightness-90</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-brightness-90 overflow-hidden"></div>
       </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-indigo-800 font-medium mb-1">.backdrop-brightness-200</p>
-        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-brightness-110">
-        </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">brightness-95</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-brightness-95 overflow-hidden"></div>
       </div>
-      <div class="flex-1"></div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">brightness-100</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-brightness-100 overflow-hidden"></div>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">brightness-105</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-brightness-105 overflow-hidden"></div>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">brightness-110</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-brightness-110 overflow-hidden"></div>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">brightness-125</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-brightness-125 overflow-hidden"></div>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">brightness-150</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-brightness-150 overflow-hidden"></div>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-indigo-600">brightness-200</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=3730A3,4338CA&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-brightness-200 overflow-hidden"></div>
+      </div>
     </div>
   </div>
 </template>

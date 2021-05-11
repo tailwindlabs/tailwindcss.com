@@ -29,49 +29,55 @@ Use the `backdrop-contrast-{amount?}` utilities alongside the `backdrop-filter` 
 
 ```html amber
 <template preview>
-  <div class="h-full w-full p-4 rounded-2xl bg-amber-200">
-    <div class="flex justify-around mb-8">
-      <div class="flex-1">
-        <p class="text-center text-sm text-amber-800 font-medium mb-1">.backdrop-contrast-0</p>
-        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-contrast-0">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-amber-800 font-medium mb-1">.backdrop-contrast-50</p>
-        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-contrast-50">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-amber-800 font-medium mb-1">.backdrop-contrast-75</p>
-        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-contrast-75">
-        </div>
+  <div class="space-y-8">
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-amber-600">contrast-0</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=92400E,B45309&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-contrast-0 overflow-hidden"></div>
       </div>
     </div>
-    <div class="flex justify-around mb-8">
-      <div class="flex-1">
-        <p class="text-center text-sm text-amber-800 font-medium mb-1">.backdrop-contrast-100</p>
-        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-contrast-100">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-amber-800 font-medium mb-1">.backdrop-contrast-125</p>
-        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-contrast-125">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-amber-800 font-medium mb-1">.backdrop-contrast-150</p>
-        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-contrast-150">
-        </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-amber-600">contrast-50</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=92400E,B45309&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-contrast-50 overflow-hidden"></div>
       </div>
     </div>
-    <div class="flex justify-around">
-      <div class="flex-1">
-        <p class="text-center text-sm text-amber-800 font-medium mb-1">.backdrop-contrast-200</p>
-        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-contrast-200">
-        </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-amber-600">contrast-75</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0 h-24 w" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=92400E,B45309&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-contrast-75 overflow-hidden"></div>
       </div>
-      <div class="flex-1"></div>
-      <div class="flex-1"></div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-amber-600">contrast-100</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=92400E,B45309&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-contrast-100 overflow-hidden"></div>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-amber-600">contrast-125</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=92400E,B45309&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-contrast-125 overflow-hidden"></div>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-amber-600">contrast-150</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=92400E,B45309&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-contrast-150 overflow-hidden"></div>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-amber-600">contrast-200</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=92400E,B45309&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-contrast-200 overflow-hidden"></div>
+      </div>
     </div>
   </div>
 </template>

@@ -30,53 +30,62 @@ Use the `backdrop-blur-{amount?}` utilities alongside the `backdrop-filter` util
 
 ```html lightBlue
 <template preview>
-  <div class="h-full w-full p-4 rounded-2xl bg-cover bg-center bg-no-repeat" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&q=80');">
-    <div class="flex justify-around mb-8">
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-blur-0</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl backdrop-filter backdrop-blur-0">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-blur-sm</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl backdrop-filter backdrop-blur-sm">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-blur</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl backdrop-filter backdrop-blur">
-        </div>
+  <div class="space-y-8">
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-light-blue-600">blur-0</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=075985,0369A1&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-blur-0 overflow-hidden"></div>
       </div>
     </div>
-    <div class="flex justify-around mb-8">
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-blur-md</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl backdrop-filter backdrop-blur-md">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-blur-lg</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl backdrop-filter backdrop-blur-lg">
-        </div>
-      </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-blur-xl</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl backdrop-filter backdrop-blur-xl">
-        </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-light-blue-600">blur-sm</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=075985,0369A1&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-blur-sm overflow-hidden"></div>
       </div>
     </div>
-    <div class="flex justify-around">
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-blur-2xl</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl backdrop-filter backdrop-blur-2xl">
-        </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-light-blue-600">blur</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0 h-24 w" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=075985,0369A1&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-blur overflow-hidden"></div>
       </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-white font-medium mb-1">.backdrop-blur-3xl</p>
-        <div class="mx-auto h-24 w-24 border border-white rounded-xl backdrop-filter backdrop-blur-3xl">
-        </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-light-blue-600">blur-md</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=075985,0369A1&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-blur-md overflow-hidden"></div>
       </div>
-      <div class="flex-1"></div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-light-blue-600">blur-lg</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=075985,0369A1&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-blur-lg overflow-hidden"></div>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-light-blue-600">blur-xl</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=075985,0369A1&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-blur-xl overflow-hidden"></div>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-light-blue-600">blur-2xl</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=075985,0369A1&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-blur-2xl overflow-hidden"></div>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-light-blue-600">blur-3xl</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=075985,0369A1&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-blur-3xl overflow-hidden"></div>
+      </div>
     </div>
   </div>
 </template>

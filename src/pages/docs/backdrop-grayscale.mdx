@@ -24,21 +24,22 @@ Use the `backdrop-grayscale` and `backdrop-grayscale-0` utilities alongside the 
 
 ```html emerald
 <template preview>
-  <div class="h-full w-full p-4 rounded-2xl bg-emerald-200">
-    <div class="flex justify-around">
-      <div class="flex-1">
-        <p class="text-center text-sm text-emerald-800 font-medium mb-1">.backdrop-grayscale-0</p>
-        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-grayscale-0">
-        </div>
+  <div class="space-y-8">
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-emerald-600">grayscale-0</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=065F46,047857&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-grayscale-0 overflow-hidden"></div>
       </div>
-      <div class="flex-1">
-        <p class="text-center text-sm text-emerald-800 font-medium mb-1">.backdrop-grayscale</p>
-        <div class="mx-auto h-24 w-24 rounded-xl shadow-md backdrop-filter backdrop-grayscale">
-        </div>
-      </div>
-      <div class="flex-1"></div>
     </div>
-  <div>
+    <div class="flex items-center">
+      <p class="w-32 text-right text-sm font-mono text-emerald-600">grayscale</p>
+      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
+        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=065F46,047857&duotone-alpha=50');"></div>
+        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-grayscale overflow-hidden"></div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <div class="backdrop-filter **backdrop-grayscale-0** ..."></div>
