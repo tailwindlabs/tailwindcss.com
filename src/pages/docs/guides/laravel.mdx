@@ -51,10 +51,12 @@ file: ./resources/css/app.css
 
 #### For SASS
 
-Run `npm install -D tailwindcss@latest` command and in your `webpack.mix.js`, add `tailwindcss` as an option:
+In your `webpack.mix.js`, add import statement and `tailwindcss` as an option:
 
 ```diff-js
   // webpack.mix.js
+  const tailwindcss = require("tailwindcss");
+
   mix.js("resources/js/app.js", "public/js")
     .sass("resources/scss/app.scss", "public/css")
 +   .options({
@@ -63,6 +65,11 @@ Run `npm install -D tailwindcss@latest` command and in your `webpack.mix.js`, ad
 +     ],
 +   })
 +   .version();
+```
+
+```preval include
+tool: Laravel
+file: ./resources/css/app.scss
 ```
 
 Next, import your stylesheet in your main Blade layout (commonly `resources/views/layouts/app.blade.php` or similar) and add the responsive viewport meta tag if it's not already present:
