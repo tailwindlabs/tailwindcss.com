@@ -25,8 +25,14 @@ Use the `invert` and `invert-0` utilities alongside the `filter` utility to whet
 ```html lightBlue
 <template preview>
   <div class="grid grid-cols-2 gap-2 sm:grid-cols-5">
-    <div class="h-16 rounded-md bg-light-blue-400 filter invert-0"></div>
-    <div class="h-16 rounded-md bg-light-blue-400 filter invert"></div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-light-blue-400 rounded-md filter invert-0"></div>
+      <p class="relative font-extrabold text-white">invert-0</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-light-blue-400 rounded-md filter invert"></div>
+      <p class="relative font-extrabold text-white">invert</p>
+    </div>
   </div>
 </template>
 

@@ -29,11 +29,26 @@ Use the `drop-shadow-{amount}` utilities alongside the `filter` utility to blur 
 ```html indigo
 <template preview>
   <div class="grid grid-cols-2 gap-2 sm:grid-cols-5">
-    <div class="h-16 rounded-md bg-white filter drop-shadow-sm"></div>
-    <div class="h-16 rounded-md bg-white filter drop-shadow"></div>
-    <div class="h-16 rounded-md bg-white filter drop-shadow-md"></div>
-    <div class="h-16 rounded-md bg-white filter drop-shadow-lg"></div>
-    <div class="h-16 rounded-md bg-white filter drop-shadow-2xl"></div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-white rounded-md filter drop-shadow-sm"></div>
+      <p class="relative font-extrabold text-gray-900">sm</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-white rounded-md filter drop-shadow"></div>
+      <p class="relative font-extrabold text-gray-900">shadow</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-white rounded-md filter drop-shadow-md"></div>
+      <p class="relative font-extrabold text-gray-900">md</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-white rounded-md filter drop-shadow-lg"></div>
+      <p class="relative font-extrabold text-gray-900">lg</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-white rounded-md filter drop-shadow-2xl"></div>
+      <p class="relative font-extrabold text-gray-900">2xl</p>
+    </div>
   </div>
 </template>
 

@@ -34,11 +34,26 @@ Use the `hue-rotate-{amount}` utilities alongside the `filter` utility to blur a
 ```html
 <template preview>
   <div class="grid grid-cols-2 gap-2 sm:grid-cols-5">
-    <div class="h-16 rounded-md bg-indigo-400 filter -hue-rotate-180"></div>
-    <div class="h-16 rounded-md bg-indigo-400 filter -hue-rotate-60"></div>
-    <div class="h-16 rounded-md bg-indigo-400 filter hue-rotate-0"></div>
-    <div class="h-16 rounded-md bg-indigo-400 filter hue-rotate-60"></div>
-    <div class="h-16 rounded-md bg-indigo-400 filter hue-rotate-180"></div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-indigo-400 rounded-md filter -hue-rotate-180"></div>
+      <p class="relative font-extrabold text-white">-180</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-indigo-400 rounded-md filter -hue-rotate-60"></div>
+      <p class="relative font-extrabold text-white">-60</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-indigo-400 rounded-md filter hue-rotate-0"></div>
+      <p class="relative font-extrabold text-white">0</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-indigo-400 rounded-md filter hue-rotate-60"></div>
+      <p class="relative font-extrabold text-white">60</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-indigo-400 rounded-md filter hue-rotate-180"></div>
+      <p class="relative font-extrabold text-white">180</p>
+    </div>
   </div>
 </template>
 

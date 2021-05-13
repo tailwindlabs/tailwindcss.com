@@ -34,11 +34,26 @@ Use the `brightness-{amount?}` utilities alongside the `filter` utility to contr
 ```html indigo
 <template preview>
   <div class="grid grid-cols-2 gap-2 sm:grid-cols-5">
-    <div class="h-16 rounded-md bg-indigo-400 filter brightness-0"></div>
-    <div class="h-16 rounded-md bg-indigo-400 filter brightness-50"></div>
-    <div class="h-16 rounded-md bg-indigo-400 filter brightness-100"></div>
-    <div class="h-16 rounded-md bg-indigo-400 filter brightness-150"></div>
-    <div class="h-16 rounded-md bg-indigo-400 filter brightness-200"></div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-indigo-400 rounded-md filter brightness-0"></div>
+      <p class="relative font-extrabold text-white">0</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-indigo-400 rounded-md filter brightness-50"></div>
+      <p class="relative font-extrabold text-white">50</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-indigo-400 rounded-md filter brightness-100"></div>
+      <p class="relative font-extrabold text-white">100</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-indigo-400 rounded-md filter brightness-150"></div>
+      <p class="relative font-extrabold text-indigo-900">150</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-indigo-400 rounded-md filter brightness-200"></div>
+      <p class="relative font-extrabold text-indigo-900">200</p>
+    </div>
   </div>
 </template>
 

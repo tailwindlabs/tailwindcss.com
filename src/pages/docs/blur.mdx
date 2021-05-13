@@ -31,11 +31,26 @@ Use the `blur-{amount?}` utilities alongside the `filter` utility to blur an ele
 ```html fuchsia
 <template preview>
   <div class="grid grid-cols-2 gap-2 sm:grid-cols-5">
-    <div class="h-16 rounded-md bg-fuchsia-400 filter blur-0"></div>
-    <div class="h-16 rounded-md bg-fuchsia-400 filter blur-sm"></div>
-    <div class="h-16 rounded-md bg-fuchsia-400 filter blur"></div>
-    <div class="h-16 rounded-md bg-fuchsia-400 filter blur-lg"></div>
-    <div class="h-16 rounded-md bg-fuchsia-400 filter blur-3xl"></div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-fuchsia-400 rounded-md filter blur-0"></div>
+      <p class="relative font-extrabold text-white">0</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-fuchsia-400 rounded-md filter blur-sm"></div>
+      <p class="relative font-extrabold text-white">sm</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-fuchsia-400 rounded-md filter blur"></div>
+      <p class="relative font-extrabold text-white">blur</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-fuchsia-400 rounded-md filter blur-lg"></div>
+      <p class="relative font-extrabold text-white">lg</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-fuchsia-400 rounded-md filter blur-3xl"></div>
+      <p class="relative font-extrabold text-fuchsia-900">3xl</p>
+    </div>
   </div>
 </template>
 

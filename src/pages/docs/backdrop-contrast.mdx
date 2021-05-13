@@ -31,24 +31,34 @@ Use the `backdrop-contrast-{amount?}` utilities alongside the `backdrop-filter` 
 <template preview>
   <div class="grid grid-cols-2 gap-2 sm:grid-cols-5">
     <div class="relative h-16 rounded-md overflow-hidden">
-      <div class="absolute inset-0 bg-center bg-cover" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80&duotone=92400E,B45309&duotone-alpha=50');"></div>
-      <div class="absolute inset-0 bg-cover rounded-md backdrop-filter backdrop-contrast-0 overflow-hidden"></div>
+      <div aria-hidden="true" class="absolute inset-0 bg-center bg-cover" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80&duotone=92400E,B45309&duotone-alpha=50');"></div>
+      <div class="absolute inset-0 rounded-md backdrop-filter backdrop-contrast-0 flex items-center justify-center overflow-hidden">
+        <p class="font-extrabold text-white">0</p>
+      </div>
     </div>
     <div class="relative h-16 rounded-md overflow-hidden">
-      <div class="absolute inset-0 bg-center bg-cover" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80&duotone=92400E,B45309&duotone-alpha=50');"></div>
-      <div class="absolute inset-0 bg-cover rounded-md backdrop-filter backdrop-contrast-50 overflow-hidden"></div>
+      <div aria-hidden="true" class="absolute inset-0 bg-center bg-cover" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80&duotone=92400E,B45309&duotone-alpha=50');"></div>
+      <div class="absolute inset-0 rounded-md backdrop-filter backdrop-contrast-50 flex items-center justify-center overflow-hidden">
+        <p class="font-extrabold text-white">50</p>
+      </div>
     </div>
     <div class="relative h-16 rounded-md overflow-hidden">
-      <div class="absolute inset-0 bg-center bg-cover" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80&duotone=92400E,B45309&duotone-alpha=50');"></div>
-      <div class="absolute inset-0 bg-cover rounded-md backdrop-filter backdrop-contrast-100 overflow-hidden"></div>
+      <div aria-hidden="true" class="absolute inset-0 bg-center bg-cover" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80&duotone=92400E,B45309&duotone-alpha=50');"></div>
+      <div class="absolute inset-0 rounded-md backdrop-filter backdrop-contrast-100 flex items-center justify-center overflow-hidden">
+        <p class="font-extrabold text-white">100</p>
+      </div>
     </div>
     <div class="relative h-16 rounded-md overflow-hidden">
-      <div class="absolute inset-0 bg-center bg-cover" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80&duotone=92400E,B45309&duotone-alpha=50');"></div>
-      <div class="absolute inset-0 bg-cover rounded-md backdrop-filter backdrop-contrast-150 overflow-hidden"></div>
+      <div aria-hidden="true" class="absolute inset-0 bg-center bg-cover" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80&duotone=92400E,B45309&duotone-alpha=50');"></div>
+      <div class="absolute inset-0 rounded-md backdrop-filter backdrop-contrast-150 flex items-center justify-center overflow-hidden">
+        <p class="font-extrabold text-white">150</p>
+      </div>
     </div>
     <div class="relative h-16 rounded-md overflow-hidden">
-      <div class="absolute inset-0 bg-center bg-cover" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80&duotone=92400E,B45309&duotone-alpha=50');"></div>
-      <div class="absolute inset-0 bg-cover rounded-md backdrop-filter backdrop-contrast-200 overflow-hidden"></div>
+      <div aria-hidden="true" class="absolute inset-0 bg-center bg-cover" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80&duotone=92400E,B45309&duotone-alpha=50');"></div>
+      <div class="absolute inset-0 rounded-md backdrop-filter backdrop-contrast-200 flex items-center justify-center overflow-hidden">
+        <p class="font-extrabold text-white">200</p>
+      </div>
     </div>
   </div>
 </template>

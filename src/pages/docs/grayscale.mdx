@@ -25,8 +25,14 @@ Use the `grayscale` and `grayscale-0` utilities alongside the `filter` utility t
 ```html emerald
 <template preview>
   <div class="grid grid-cols-2 gap-2 sm:grid-cols-5">
-    <div class="h-16 rounded-md bg-emerald-400 filter grayscale-0"></div>
-    <div class="h-16 rounded-md bg-emerald-400 filter grayscale"></div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-emerald-400 rounded-md filter grayscale-0"></div>
+      <p class="relative font-extrabold text-white">grayscale-0</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-emerald-400 rounded-md filter grayscale"></div>
+      <p class="relative font-extrabold text-white">grayscale</p>
+    </div>
   </div>
 </template>
 

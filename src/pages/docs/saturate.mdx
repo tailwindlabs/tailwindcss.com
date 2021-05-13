@@ -28,11 +28,26 @@ Use the `saturate-{amount}` utilities alongside the `filter` utility to control 
 ```html rose
 <template preview>
   <div class="grid grid-cols-2 gap-2 sm:grid-cols-5">
-    <div class="h-16 rounded-md bg-rose-400 filter saturate-0"></div>
-    <div class="h-16 rounded-md bg-rose-400 filter saturate-50"></div>
-    <div class="h-16 rounded-md bg-rose-400 filter saturate-100"></div>
-    <div class="h-16 rounded-md bg-rose-400 filter saturate-150"></div>
-    <div class="h-16 rounded-md bg-rose-400 filter saturate-200"></div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-rose-400 rounded-md filter saturate-0"></div>
+      <p class="relative font-extrabold text-white">0</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-rose-400 rounded-md filter saturate-50"></div>
+      <p class="relative font-extrabold text-white">50</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-rose-400 rounded-md filter saturate-100"></div>
+      <p class="relative font-extrabold text-white">100</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-rose-400 rounded-md filter saturate-150"></div>
+      <p class="relative font-extrabold text-white">150</p>
+    </div>
+    <div class="relative h-16 flex items-center justify-center">
+      <div aria-hidden="true" class="absolute inset-0 bg-rose-400 rounded-md filter saturate-200"></div>
+      <p class="relative font-extrabold text-white">200</p>
+    </div>
   </div>
 </template>
 
