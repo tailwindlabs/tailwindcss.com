@@ -32,6 +32,8 @@ purge:
 
 ### Configure Tailwind with Laravel Mix
 
+## For CSS
+
 In your `webpack.mix.js`, add `tailwindcss` as a PostCSS plugin:
 
 ```diff-js
@@ -45,6 +47,22 @@ In your `webpack.mix.js`, add `tailwindcss` as a PostCSS plugin:
 ```preval include
 tool: Laravel
 file: ./resources/css/app.css
+```
+
+## For SASS
+
+Run `npm install -D tailwindcss@latest` command and in your `webpack.mix.js`, add `tailwindcss` as an option:
+
+```diff-js
+// webpack.mix.js
+mix.js('resources/js/app.js', 'public/js')
+  .sass('resources/scss/app.scss', 'public/css')
+  .options({
+    postCss: [
+      tailwindcss('./tailwind.config.js')
+    ],
+  })
+  .version();
 ```
 
 Next, import your stylesheet in your main Blade layout (commonly `resources/views/layouts/app.blade.php` or similar) and add the responsive viewport meta tag if it's not already present:
