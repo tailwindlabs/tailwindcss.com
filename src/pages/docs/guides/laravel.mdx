@@ -54,7 +54,7 @@ file: ./resources/css/app.css
 Run `npm install -D tailwindcss@latest` command and in your `webpack.mix.js`, add `tailwindcss` as an option:
 
 ```diff-js
-// webpack.mix.js
+  // webpack.mix.js
   mix.js("resources/js/app.js", "public/js")
     .sass("resources/scss/app.scss", "public/css")
 +   .options({
