@@ -27,45 +27,28 @@ Use the `saturate-{amount}` utilities alongside the `backdrop-filter` utility to
 
 ```html rose
 <template preview>
-
-<div class="space-y-8">
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-rose-600">saturate-0</p>
-      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
-        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=9F1239,BE123C&duotone-alpha=50');"></div>
-        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-saturate-0 overflow-hidden"></div>
-      </div>
+  <div class="grid grid-cols-2 gap-2 sm:grid-cols-5">
+    <div class="relative h-16 rounded-md overflow-hidden">
+      <div class="absolute inset-0 bg-center bg-cover" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80&duotone=9F1239,BE123C&duotone-alpha=50');"></div>
+      <div class="absolute inset-0 bg-cover rounded-md backdrop-filter backdrop-saturate-0 overflow-hidden"></div>
     </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-rose-600">saturate-50</p>
-      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
-        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=9F1239,BE123C&duotone-alpha=50');"></div>
-        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-saturate-50 overflow-hidden"></div>
-      </div>
+    <div class="relative h-16 rounded-md overflow-hidden">
+      <div class="absolute inset-0 bg-center bg-cover" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80&duotone=9F1239,BE123C&duotone-alpha=50');"></div>
+      <div class="absolute inset-0 bg-cover rounded-md backdrop-filter backdrop-saturate-50 overflow-hidden"></div>
     </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-rose-600">saturate-100</p>
-      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
-        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=9F1239,BE123C&duotone-alpha=50');"></div>
-        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-saturate-100 overflow-hidden"></div>
-      </div>
+    <div class="relative h-16 rounded-md overflow-hidden">
+      <div class="absolute inset-0 bg-center bg-cover" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80&duotone=9F1239,BE123C&duotone-alpha=50');"></div>
+      <div class="absolute inset-0 bg-cover rounded-md backdrop-filter backdrop-saturate-100 overflow-hidden"></div>
     </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-rose-600">saturate-150</p>
-      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
-        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=9F1239,BE123C&duotone-alpha=50');"></div>
-        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-saturate-150 overflow-hidden"></div>
-      </div>
+    <div class="relative h-16 rounded-md overflow-hidden">
+      <div class="absolute inset-0 bg-center bg-cover" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80&duotone=9F1239,BE123C&duotone-alpha=50');"></div>
+      <div class="absolute inset-0 bg-cover rounded-md backdrop-filter backdrop-saturate-150 overflow-hidden"></div>
     </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-rose-600">saturate-200</p>
-      <div class="relative ml-4 h-24 w-24 rounded-xl overflow-hidden">
-        <div class="absolute inset-0" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80&duotone=9F1239,BE123C&duotone-alpha=50');"></div>
-        <div class="absolute inset-0 rounded-xl backdrop-filter backdrop-saturate-200 overflow-hidden"></div>
-      </div>
+    <div class="relative h-16 rounded-md overflow-hidden">
+      <div class="absolute inset-0 bg-center bg-cover" style="background-image:url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80&duotone=9F1239,BE123C&duotone-alpha=50');"></div>
+      <div class="absolute inset-0 bg-cover rounded-md backdrop-filter backdrop-saturate-200 overflow-hidden"></div>
     </div>
   </div>
-
 </template>
 
 <div class="backdrop-filter **backdrop-saturate-0** ..."></div>

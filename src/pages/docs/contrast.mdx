@@ -29,43 +29,18 @@ Use the `contrast-{amount?}` utilities alongside the `filter` utility to control
 
 ```html amber
 <template preview>
-  <div class="space-y-8">
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-amber-600">contrast-0</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-amber-400 filter contrast-0"></div>
-    </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-amber-600">contrast-50</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-amber-400 filter contrast-50"></div>
-    </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-amber-600">contrast-75</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-amber-400 filter contrast-75"></div>
-    </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-amber-600">contrast-100</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-amber-400 filter contrast-100"></div>
-    </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-amber-600">contrast-125</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-amber-400 filter contrast-125"></div>
-    </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-amber-600">contrast-150</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-amber-400 filter contrast-150"></div>
-    </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-amber-600">contrast-200</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-amber-400 filter contrast-200"></div>
-    </div>
+  <div class="grid grid-cols-2 gap-2 sm:grid-cols-5">
+    <div class="h-16 rounded-md bg-amber-400 filter contrast-0"></div>
+    <div class="h-16 rounded-md bg-amber-400 filter contrast-50"></div>
+    <div class="h-16 rounded-md bg-amber-400 filter contrast-100"></div>
+    <div class="h-16 rounded-md bg-amber-400 filter contrast-150"></div>
+    <div class="h-16 rounded-md bg-amber-400 filter contrast-200"></div>
   </div>
 </template>
 
 <div class="filter **contrast-0** ..."></div>
 <div class="filter **contrast-50** ..."></div>
-<div class="filter **contrast-75** ..."></div>
 <div class="filter **contrast-100** ..."></div>
-<div class="filter **contrast-125** ..."></div>
 <div class="filter **contrast-150** ..."></div>
 <div class="filter **contrast-200** ..."></div>
 ```

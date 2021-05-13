@@ -27,27 +27,12 @@ Use the `saturate-{amount}` utilities alongside the `filter` utility to control 
 
 ```html rose
 <template preview>
-    <div class="space-y-8">
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-rose-600">saturate-0</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-rose-400 filter saturate-0"></div>
-    </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-rose-600">saturate-50</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-rose-400 filter saturate-50"></div>
-    </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-rose-600">saturate-100</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-rose-400 filter saturate-100"></div>
-    </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-rose-600">saturate-150</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-rose-400 filter saturate-150"></div>
-    </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-rose-600">saturate-200</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-rose-400 filter saturate-200"></div>
-    </div>
+  <div class="grid grid-cols-2 gap-2 sm:grid-cols-5">
+    <div class="h-16 rounded-md bg-rose-400 filter saturate-0"></div>
+    <div class="h-16 rounded-md bg-rose-400 filter saturate-50"></div>
+    <div class="h-16 rounded-md bg-rose-400 filter saturate-100"></div>
+    <div class="h-16 rounded-md bg-rose-400 filter saturate-150"></div>
+    <div class="h-16 rounded-md bg-rose-400 filter saturate-200"></div>
   </div>
 </template>
 

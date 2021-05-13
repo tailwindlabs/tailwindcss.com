@@ -24,15 +24,9 @@ Use the `grayscale` and `grayscale-0` utilities alongside the `filter` utility t
 
 ```html emerald
 <template preview>
-  <div class="space-y-8">
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-emerald-600">grayscale-0</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-emerald-400 filter grayscale-0"></div>
-    </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-emerald-600">grayscale</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-emerald-400 filter grayscale"></div>
-    </div>
+  <div class="grid grid-cols-2 gap-2 sm:grid-cols-5">
+    <div class="h-16 rounded-md bg-emerald-400 filter grayscale-0"></div>
+    <div class="h-16 rounded-md bg-emerald-400 filter grayscale"></div>
   </div>
 </template>
 

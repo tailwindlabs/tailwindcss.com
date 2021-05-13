@@ -28,35 +28,12 @@ Use the `drop-shadow-{amount}` utilities alongside the `filter` utility to blur 
 
 ```html indigo
 <template preview>
-  <div class="space-y-8">
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-indigo-600">drop-shadow-sm</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-white filter drop-shadow-sm"></div>
-    </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-indigo-600">drop-shadow</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-white filter drop-shadow"></div>
-    </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-indigo-600">drop-shadow-md</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-white filter drop-shadow-md"></div>
-    </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-indigo-600">drop-shadow-lg</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-white filter drop-shadow-lg"></div>
-    </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-indigo-600">drop-shadow-xl</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-white filter drop-shadow-xl"></div>
-    </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-indigo-600">drop-shadow-2xl</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-white filter drop-shadow-2xl"></div>
-    </div>
-    <div class="flex items-center">
-      <p class="w-32 text-right text-sm font-mono text-indigo-600">drop-shadow-none</p>
-      <div class="ml-4 h-24 w-24 rounded-xl bg-white filter drop-shadow-none"></div>
-    </div>
+  <div class="grid grid-cols-2 gap-2 sm:grid-cols-5">
+    <div class="h-16 rounded-md bg-white filter drop-shadow-sm"></div>
+    <div class="h-16 rounded-md bg-white filter drop-shadow"></div>
+    <div class="h-16 rounded-md bg-white filter drop-shadow-md"></div>
+    <div class="h-16 rounded-md bg-white filter drop-shadow-lg"></div>
+    <div class="h-16 rounded-md bg-white filter drop-shadow-2xl"></div>
   </div>
 </template>
 
@@ -64,9 +41,7 @@ Use the `drop-shadow-{amount}` utilities alongside the `filter` utility to blur 
 <div class="filter **drop-shadow** ..."></div>
 <div class="filter **drop-shadow-md** ..."></div>
 <div class="filter **drop-shadow-lg** ..."></div>
-<div class="filter **drop-shadow-xl** ..."></div>
 <div class="filter **drop-shadow-2xl** ..."></div>
-<div class="filter **drop-shadow-none** ..."></div>
 ```
 
 ## Responsive

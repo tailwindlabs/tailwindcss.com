@@ -16,117 +16,29 @@ Use the `bg-blend-{mode}` utilities to control how an element's background image
 
 ```html rose
 <template preview>
-  <div class="flex justify-around mb-8">
-    <div class="flex-1">
-      <p class="text-center text-sm text-rose-600 font-medium mb-1">.bg-blend-normal</p>
-      <div class="mx-auto h-24 w-24 rounded-xl shadow-lg bg-rose-600 bg-cover bg-blend-normal" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80');">
-      </div>
+  <div class="grid grid-cols-2 gap-2 sm:grid-cols-5">
+    <div class="relative h-16 rounded-md overflow-hidden">
+      <div class="absolute inset-0 bg-rose-600 bg-center bg-cover bg-blend-normal" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80');"></div>
     </div>
-    <div class="flex-1">
-      <p class="text-center text-sm text-rose-600 font-medium mb-1">.bg-blend-multiply</p>
-      <div class="mx-auto h-24 w-24 rounded-xl shadow-lg bg-rose-600 bg-cover bg-blend-multiply" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80');">
-      </div>
+    <div class="relative h-16 rounded-md overflow-hidden">
+      <div class="absolute inset-0 bg-rose-600 bg-center bg-cover bg-blend-darken" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80');"></div>
     </div>
-    <div class="flex-1">
-      <p class="text-center text-sm text-rose-600 font-medium mb-1">.bg-blend-screen</p>
-      <div class="mx-auto h-24 w-24 rounded-xl shadow-lg bg-rose-600 bg-cover bg-blend-screen" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80');">
-      </div>
+    <div class="relative h-16 rounded-md overflow-hidden">
+      <div class="absolute inset-0 bg-rose-600 bg-center bg-cover bg-blend-color-dodge" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80');"></div>
     </div>
-  </div>
-  <div class="flex justify-around mb-8">
-    <div class="flex-1">
-      <p class="text-center text-sm text-rose-600 font-medium mb-1">.bg-blend-overlay</p>
-      <div class="mx-auto h-24 w-24 rounded-xl shadow-lg bg-rose-600 bg-cover bg-blend-overlay" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80');">
-      </div>
+    <div class="relative h-16 rounded-md overflow-hidden">
+      <div class="absolute inset-0 bg-rose-600 bg-center bg-cover bg-blend-difference" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80');"></div>
     </div>
-    <div class="flex-1">
-      <p class="text-center text-sm text-rose-600 font-medium mb-1">.bg-blend-darken</p>
-      <div class="mx-auto h-24 w-24 rounded-xl shadow-lg bg-rose-600 bg-cover bg-blend-darken" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80');">
-      </div>
+    <div class="relative h-16 rounded-md overflow-hidden">
+      <div class="absolute inset-0 bg-rose-600 bg-center bg-cover bg-blend-luminosity" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80');"></div>
     </div>
-    <div class="flex-1">
-      <p class="text-center text-sm text-rose-600 font-medium mb-1">.bg-blend-lighten</p>
-      <div class="mx-auto h-24 w-24 rounded-xl shadow-lg bg-rose-600 bg-cover bg-blend-lighten" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80');">
-      </div>
-    </div>
-  </div>
-  <div class="flex justify-around mb-8">
-    <div class="flex-1">
-      <p class="text-center text-sm text-rose-600 font-medium mb-1">.bg-blend-color-dodge</p>
-      <div class="mx-auto h-24 w-24 rounded-xl shadow-lg bg-rose-600 bg-cover bg-blend-color-dodge" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80');">
-      </div>
-    </div>
-    <div class="flex-1">
-      <p class="text-center text-sm text-rose-600 font-medium mb-1">.bg-blend-color-burn</p>
-      <div class="mx-auto h-24 w-24 rounded-xl shadow-lg bg-rose-600 bg-cover bg-blend-color-burn" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80');">
-      </div>
-    </div>
-    <div class="flex-1">
-      <p class="text-center text-sm text-rose-600 font-medium mb-1">.bg-blend-hard-light</p>
-      <div class="mx-auto h-24 w-24 rounded-xl shadow-lg bg-rose-600 bg-cover bg-blend-hard-light" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80');">
-      </div>
-    </div>
-  </div>
-  <div class="flex justify-around mb-8">
-    <div class="flex-1">
-      <p class="text-center text-sm text-rose-600 font-medium mb-1">.bg-blend-soft-light</p>
-      <div class="mx-auto h-24 w-24 rounded-xl shadow-lg bg-rose-600 bg-cover bg-blend-soft-light" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80');">
-      </div>
-    </div>
-    <div class="flex-1">
-      <p class="text-center text-sm text-rose-600 font-medium mb-1">.bg-blend-difference</p>
-      <div class="mx-auto h-24 w-24 rounded-xl shadow-lg bg-rose-600 bg-cover bg-blend-difference" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80');">
-      </div>
-    </div>
-    <div class="flex-1">
-      <p class="text-center text-sm text-rose-600 font-medium mb-1">.bg-blend-exclusion</p>
-      <div class="mx-auto h-24 w-24 rounded-xl shadow-lg bg-rose-600 bg-cover bg-blend-exclusion" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80');">
-      </div>
-    </div>
-  </div>
-  <div class="flex justify-around mb-8">
-    <div class="flex-1">
-      <p class="text-center text-sm text-rose-600 font-medium mb-1">.bg-blend-hue</p>
-      <div class="mx-auto h-24 w-24 rounded-xl shadow-lg bg-rose-600 bg-cover bg-blend-hue" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80');">
-      </div>
-    </div>
-    <div class="flex-1">
-      <p class="text-center text-sm text-rose-600 font-medium mb-1">.bg-blend-saturation</p>
-      <div class="mx-auto h-24 w-24 rounded-xl shadow-lg bg-rose-600 bg-cover bg-blend-saturation" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80');">
-      </div>
-    </div>
-    <div class="flex-1">
-      <p class="text-center text-sm text-rose-600 font-medium mb-1">.bg-blend-color</p>
-      <div class="mx-auto h-24 w-24 rounded-xl shadow-lg bg-rose-600 bg-cover bg-blend-color" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80');">
-      </div>
-    </div>
-  </div>
-  <div class="flex justify-around">
-    <div class="flex-1">
-      <p class="text-center text-sm text-rose-600 font-medium mb-1">.bg-blend-luminosity</p>
-      <div class="mx-auto h-24 w-24 rounded-xl shadow-lg bg-rose-600 bg-cover bg-blend-luminosity" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80');">
-      </div>
-    </div>
-    <div class="flex-1"></div>
-    <div class="flex-1"></div>
   </div>
 </template>
 
 <div class="**bg-blend-normal** ..." style="background-image:url(...);"></div>
-<div class="**bg-blend-multiply** ..." style="background-image:url(...);"></div>
-<div class="**bg-blend-screen** ..." style="background-image:url(...);"></div>
-<div class="**bg-blend-overlay** ..." style="background-image:url(...);"></div>
 <div class="**bg-blend-darken** ..." style="background-image:url(...);"></div>
-<div class="**bg-blend-lighten** ..." style="background-image:url(...);"></div>
 <div class="**bg-blend-color-dodge** ..." style="background-image:url(...);"></div>
-<div class="**bg-blend-color-burn** ..." style="background-image:url(...);"></div>
-<div class="**bg-blend-hard-light** ..." style="background-image:url(...);"></div>
-<div class="**bg-blend-soft-light** ..." style="background-image:url(...);"></div>
 <div class="**bg-blend-difference** ..." style="background-image:url(...);"></div>
-<div class="**bg-blend-exclusion** ..." style="background-image:url(...);"></div>
-<div class="**bg-blend-hue** ..." style="background-image:url(...);"></div>
-<div class="**bg-blend-saturation** ..." style="background-image:url(...);"></div>
-<div class="**bg-blend-color** ..." style="background-image:url(...);"></div>
 <div class="**bg-blend-lumniosity** ..." style="background-image:url(...);"></div>
 ```
 
