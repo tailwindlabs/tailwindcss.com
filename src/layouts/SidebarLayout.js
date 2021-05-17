@@ -14,14 +14,14 @@ const NavItem = forwardRef(({ href, children, isActive, isPublished, fallbackHre
       <Link href={isPublished ? href : fallbackHref}>
         <a
           className={clsx('px-3 py-2 transition-colors duration-200 relative block', {
-            'text-cyan-700': isActive,
+            'text-gray-900': isActive,
             'hover:text-gray-900 text-gray-500': !isActive && isPublished,
             'text-gray-400': !isActive && !isPublished,
           })}
         >
           <span
-            className={clsx('rounded-md absolute inset-0 bg-cyan-50', {
-              'opacity-0': !isActive
+            className={clsx('rounded-md absolute inset-0 bg-gray-50 border border-gray-200', {
+              'opacity-0': !isActive,
             })}
           />
           <span className="relative">{children}</span>
@@ -57,7 +57,7 @@ function Nav({ nav, children, fallbackHref }) {
       ref={scrollRef}
       className="px-1 pt-6 overflow-y-auto font-medium text-base sm:px-3 xl:px-5 lg:text-sm pb-10 lg:pt-10 lg:pb-14 sticky?lg:h-(screen-18)"
     >
-      <div className="relative flex mb-8 px-3 lg:hidden">
+      <div className="relative flex px-3 mb-8 lg:hidden">
         <VersionSwitcher />
       </div>
       <ul>
@@ -81,7 +81,7 @@ function Nav({ nav, children, fallbackHref }) {
                   >
                     {category}
                   </h5>
-                  <ul>
+                  <ul className="space-y-1">
                     {(fallbackHref ? nav[category] : publishedItems).map((item, i) => (
                       <NavItem
                         key={i}
@@ -121,7 +121,7 @@ const TopLevelAnchor = forwardRef(
           )}
         >
           <div className={`mr-3 rounded-md bg-gradient-to-br ${gradients[color][0]}`}>
-            <svg className="h-6 w-6" viewBox="0 0 24 24">
+            <svg className="w-6 h-6" viewBox="0 0 24 24">
               {icon}
             </svg>
           </div>
@@ -273,7 +273,7 @@ function TopLevelNav() {
 export function SidebarLayout({ children, navIsOpen, setNavIsOpen, nav, sidebar, fallbackHref }) {
   return (
     <SidebarContext.Provider value={{ nav, navIsOpen, setNavIsOpen }}>
-      <div className="w-full max-w-8xl mx-auto">
+      <div className="w-full mx-auto max-w-8xl">
         <div className="lg:flex">
           <div
             id="sidebar"
@@ -288,9 +288,9 @@ export function SidebarLayout({ children, navIsOpen, setNavIsOpen, nav, sidebar,
             <div
               id="navWrapper"
               onClick={(e) => e.stopPropagation()}
-              className="h-full overflow-y-auto scrolling-touch lg:h-auto lg:block lg:relative lg:sticky lg:bg-transparent overflow-hidden lg:top-18 bg-white mr-24 lg:mr-0"
+              className="h-full mr-24 overflow-hidden overflow-y-auto scrolling-touch bg-white lg:h-auto lg:block lg:sticky lg:bg-transparent lg:top-18 lg:mr-0"
             >
-              <div className="hidden lg:block h-12 pointer-events-none absolute inset-x-0 z-10 bg-gradient-to-b from-white" />
+              <div className="absolute inset-x-0 z-10 hidden h-12 pointer-events-none lg:block bg-gradient-to-b from-white" />
               <Nav nav={nav} fallbackHref={fallbackHref}>
                 {sidebar}
               </Nav>
