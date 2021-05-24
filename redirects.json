@@ -217,5 +217,7 @@
     "source": "/docs/typography-plugin",
     "destination": "https://github.com/tailwindlabs/tailwindcss-typography",
     "permanent": false
-  }
+  },
+  { "source": "/docs/intellisense", "destination": "/docs/editor-support", "permanent": false },
+  { "source": "/community", "destination": "/resources", "permanent": false }
 ]
