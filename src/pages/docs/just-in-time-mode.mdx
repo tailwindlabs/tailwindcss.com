@@ -181,6 +181,22 @@ Tailwind doesn't include any sort of client-side runtime, so class names need to
 <div style="background-color: {{ userThemeColor }}"></div>
 ```
 
+One additional limitation of arbitrary values is they can't include spaces, so be careful to replace them with an appropriate character.
+
+<TipBad>Don't use spaces between `[` and `]`</TipBad>
+
+```html mt-4
+<div class="h-[calc(1000px - 4rem)">...</div>
+<div class="grid-cols-[1fr 700px 2fr]">...</div>
+```
+
+<TipGood>Substitute spaces with an appropriate character or no character at all.</TipGood>
+
+```html mt-4
+<div class="h-[calc(1000px-4rem)]">...</div>
+<div class="grid-cols-[1fr,700px,2fr]">...</div>
+```
+
 ### Built-in important modifier
 
 You can make any utility important by adding a `!` character to the beginning:
