@@ -153,7 +153,7 @@ This is very useful for building pixel-perfect designs where there are a few ele
 
 We'll likely add some form of "strict mode" in the future for power-hungry team leads who don't trust their colleagues to use this feature responsibly.
 
-### Dynamic values
+#### Dynamic values
 
 Note that you still need to [write purgeable HTML](https://tailwindcss.com/docs/optimizing-for-production#writing-purgeable-html) when using arbitrary values, and your classes need to exist as complete strings for Tailwind to detect them correctly.
 
@@ -183,7 +183,7 @@ Tailwind doesn't include any sort of client-side runtime, so class names need to
 <div style="background-color: {{ userThemeColor }}"></div>
 ```
 
-### Values with spaces
+#### Values with spaces
 
 It's also important to note that CSS classes cannot contain spaces, which means you can't use arbitrary values like `calc(100px - 4rem)` or `1fr 700px 2fr` as-is. To use arbitrary values like this in your class names, you need to remove the spaces in things like `calc` calls, and replace the spaces with commas in lists like `1fr 700px 2fr`. Tailwind will automatically re-introduce the spaces for you in `calc` calls and replace the commas with spaces in lists when generating the corresponding CSS.
 
