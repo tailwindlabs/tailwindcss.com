@@ -34,10 +34,10 @@ To use it, install the plugin via npm:
 
 ```shell
 # npm
-npm install postcss-import
+npm install -D postcss-import
 
 # yarn
-yarn add postcss-import
+yarn add -D postcss-import
 ```
 
 Then add it as the very first plugin in your PostCSS configuration:
@@ -45,11 +45,11 @@ Then add it as the very first plugin in your PostCSS configuration:
 ```js
 // postcss.config.js
 module.exports = {
-  plugins: [
-    require('postcss-import'),
-    require('tailwindcss'),
-    require('autoprefixer'),
-  ]
+  plugins: {
+    'postcss-import': {},
+    tailwindcss: {},
+    autoprefixer: {},
+  }
 }
 ```
 
@@ -136,10 +136,10 @@ To use either of these plugins, install them via npm:
 
 ```shell
 # npm
-npm install postcss-nested  # or postcss-nesting
+npm install -D postcss-nested  # or postcss-nesting
 
 # yarn
-yarn add postcss-nested  # or postcss-nesting
+yarn add -D postcss-nested  # or postcss-nesting
 ```
 
 Then add them to your PostCSS configuration, somewhere after Tailwind itself but before Autoprefixer:
@@ -147,12 +147,12 @@ Then add them to your PostCSS configuration, somewhere after Tailwind itself but
 ```js
 // postcss.config.js
 module.exports = {
-  plugins: [
-    require('postcss-import'),
-    require('tailwindcss'),
-    require('postcss-nested'), // or require('postcss-nesting')
-    require('autoprefixer'),
-  ]
+  plugins: {
+    'postcss-import': {},
+    tailwindcss: {},
+    'postcss-nested': {}, // or 'postcss-nesting': {},
+    autoprefixer: {},
+  }
 }
 ```
 
@@ -194,17 +194,17 @@ For automatically managing vendor prefixes in your CSS, you should use [Autopref
 To use it, install it via npm:
 
 ```shell
-npm install autoprefixer
+npm install -D autoprefixer
 ```
 
 Then add it to the very end of your plugin list in your PostCSS configuration:
 
 ```js
 module.exports = {
-  plugins: [
-    require('tailwindcss'),
-    require('autoprefixer'),
-  ]
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  }
 }
 ```
 
