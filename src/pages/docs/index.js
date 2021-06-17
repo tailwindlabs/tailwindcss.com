@@ -63,6 +63,13 @@ const whatsNew = [
 
 const latestUpdates = [
   {
+    title: 'Tailwind CSS v2.2',
+    date: '2021-06-17T19:00:00.000Z',
+    url: 'https://blog.tailwindcss.com/tailwindcss-2-2',
+    description:
+      "We've built-in a new high-performance CLI tool, added before and after pseudo-element support, introduced new sibling selector variants, and tons more.",
+  },
+  {
     title: 'Tailwind CSS v2.1',
     date: '2021-04-05T19:00:00.000Z',
     url: 'https://blog.tailwindcss.com/tailwindcss-2-1',
