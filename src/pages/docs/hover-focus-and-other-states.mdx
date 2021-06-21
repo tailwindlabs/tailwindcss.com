@@ -716,6 +716,40 @@ module.exports = {
 
 ---
 
+## Empty
+
+Add the `empty:` prefix to only apply a utility when the element has no children. Children can be either element nodes or text (including whitespace).
+
+```html amber
+<template preview>
+  <div class="flex justify around">
+    <div class="bg-amber-500 text-white rounded-md p-8 empty:hidden">displayed</div>
+    <div class="bg-amber-500 text-white rounded-md p-8 empty:hidden"><!--hidden--></div>
+  </div>
+</template>
+
+<div class="**empty:hidden** ...">
+```
+<div>
+  <VariantEnabledList variant="empty"/>
+</div>
+
+You can control whether `empty` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+
+```js
+// tailwind.config.js
+module.exports = {
+  // ...
+  variants: {
+    extend: {
+      display: ['empty'],
+    }
+  },
+}
+```
+
+---
+
 ## Combining with responsive prefixes
 
 State variants are also responsive, meaning you can do things like change an element's hover style at different breakpoints for example.
