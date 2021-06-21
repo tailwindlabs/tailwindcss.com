@@ -728,7 +728,10 @@ Add the `empty:` prefix to only apply a utility when the element has no children
   </div>
 </template>
 
-<div class="**empty:hidden** ...">
+<div class="...">
+  <div class="**empty:hidden** ...">displayed</div>
+  <div class="**empty:hidden** ..."><!--hidden--></div>
+</div>
 ```
 <div>
   <VariantEnabledList variant="empty"/>
