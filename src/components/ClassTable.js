@@ -5,6 +5,7 @@ import { isObject } from '@/utils/isObject'
 import { castArray } from '@/utils/castArray'
 import clsx from 'clsx'
 import { Heading } from '@/components/Heading'
+import nameClass from 'tailwindcss/lib/util/nameClass'
 
 let normalizeProperties = function (input) {
   if (typeof input !== 'object') return input
@@ -20,14 +21,59 @@ let normalizeProperties = function (input) {
 function getUtilities(plugin) {
   if (!plugin) return {}
   const utilities = {}
+
+  function addUtilities(utils) {
+    utils = Array.isArray(utils) ? utils : [utils]
+    for (let i = 0; i < utils.length; i++) {
+      for (let prop in utils[i]) {
+        utilities[prop] = normalizeProperties(utils[i][prop])
+      }
+    }
+  }
+
   plugin()({
-    addUtilities: (utils) => {
-      utils = Array.isArray(utils) ? utils : [utils]
-      for (let i = 0; i < utils.length; i++) {
-        for (let prop in utils[i]) {
-          utilities[prop] = normalizeProperties(utils[i][prop])
+    addUtilities,
+    addBase() {},
+    matchUtilities: (matches, { values }) => {
+      let modifierValues = Object.entries(values)
+
+      let result = Object.entries(matches).flatMap(([name, utilityFunction]) => {
+        return modifierValues
+          .map(([modifier, value]) => {
+            let declarations = utilityFunction(value, {
+              includeRules(rules) {
+                addUtilities(rules)
+              },
+            })
+
+            if (!declarations) {
+              return null
+            }
+
+            return {
+              [nameClass(name, modifier)]: declarations,
+            }
+          })
+          .filter(Boolean)
+      })
+
+      for (let obj of result) {
+        for (let key in obj) {
+          let deleteKey = false
+          for (let subkey in obj[key]) {
+            if (subkey.includes('&')) {
+              result.push({
+                [subkey.replace(/&/g, key)]: obj[key][subkey],
+              })
+              deleteKey = true
+            }
+          }
+
+          if (deleteKey) delete obj[key]
         }
       }
+
+      addUtilities(result)
     },
     config: () => ({
       mode: 'aot',
