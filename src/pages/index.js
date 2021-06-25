@@ -47,6 +47,14 @@ function NpmInstallButton() {
 }
 
 export default function Home() {
+  let [ready, setReady] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setReady(true)
+    }, 250)
+  }, [])
+
   return (
     <div className="space-y-20 sm:space-y-32 md:space-y-40 lg:space-y-44 overflow-hidden">
       <Head>
@@ -151,20 +159,26 @@ export default function Home() {
         </div>
       </section>
       <Testimonials />
-      <div className="max-w-screen-lg xl:max-w-screen-xl mx-auto space-y-20 sm:space-y-32 md:space-y-40 lg:space-y-44">
-        <ConstraintBased />
-        <BuildAnything />
-        {/* <Performance />
-        <MobileFirst />
-        <StateVariants />
-        <ComponentDriven />
-        <DarkMode />
-        <Customization />
-        <ModernFeatures />
-        <EditorTools />
-        <ReadyMadeComponents /> */}
-      </div>
-      <Footer />
+      {ready ? (
+        <>
+          <div className="max-w-screen-lg xl:max-w-screen-xl mx-auto space-y-20 sm:space-y-32 md:space-y-40 lg:space-y-44">
+            <ConstraintBased />
+            <BuildAnything />
+            <Performance />
+            <MobileFirst />
+            <StateVariants />
+            <ComponentDriven />
+            <DarkMode />
+            <Customization />
+            <ModernFeatures />
+            <EditorTools />
+            <ReadyMadeComponents />
+          </div>
+          <Footer />
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   )
 }
