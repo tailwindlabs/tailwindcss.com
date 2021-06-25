@@ -6069,10 +6069,10 @@ table@^5.2.3:
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
 
-tailwindcss@^0.0.0-d782a78:
-  version "0.0.0-d782a78"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-0.0.0-d782a78.tgz#639edc2ee332e1ed548396dfbded99144aefe9bf"
-  integrity sha512-STtwEJYBjtx+7SLL2SWkOK8YNGGxW2usq57YFhk0+FH5KSjlMB2zzAPatEoZ1++ZuVpPYbCCJdTo0P89x9wSgQ==
+tailwindcss@^0.0.0-92d1664:
+  version "0.0.0-92d1664"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-0.0.0-92d1664.tgz#36cef8575dae4137ddffe9c7e5f400ab47ea3ca6"
+  integrity sha512-el2rH67zJ1kGZe/yTcB8szp8CIRQQeStbJC0I+Tt6PtqiNr0RIOyDoBnfLlHG7Uo37vyQbLBtEdEHccqGLHOPQ==
   dependencies:
     "@fullhuman/postcss-purgecss" "^4.0.3"
     arg "^5.0.0"
