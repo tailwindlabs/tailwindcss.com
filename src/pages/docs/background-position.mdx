@@ -113,6 +113,25 @@ By default, Tailwind provides nine `background-position` utilities. You change, 
   }
 ```
 
+### Negative values
+
+If you'd like to add negative background position classes (taking the form `-background-{direction}-{size}`), prefix the keys in your config file with a dash:
+
+```diff-js
+  // tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
+        backgroundPosition: {
++         '-left-72': 'center left -18rem',
+        }
+      }
+    }
+  }
+```
+
+Tailwind is smart enough to generate classes like `-background-left-72` when it sees the leading dash, not `background--left-72` like you might expect.
+
 ### Variants
 
 <Variants plugin="backgroundPosition" />
