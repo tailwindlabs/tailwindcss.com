@@ -86,6 +86,8 @@ If your elements are in reverse order (using say `flex-row-reverse` or `flex-col
 
 ## Limitations
 
+### Complex layouts
+
 These utilities are really just a shortcut for adding margin to all-but-the-first-item in a group, and aren't designed to handle complex cases like grids, layouts that wrap, or situations where the children are rendered in a complex custom order rather than their natural DOM order.
 
 For those situations, it's better to use the [gap utilities](https://tailwindcss.com/docs/gap) when possible, or add margin to every element with a matching negative margin on the parent:
@@ -99,6 +101,10 @@ For those situations, it's better to use the [gap utilities](https://tailwindcss
   </div>
 </div>
 ```
+
+### Divide utilities
+
+The `space-` utilities are not designed to work together with the [`divide-` utilities](https://tailwindcss.com/docs/divide-width). For those situations, consider adding maring/padding utilities to the children.
 
 ---
 
