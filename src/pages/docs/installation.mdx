@@ -387,6 +387,18 @@ npm uninstall tailwindcss postcss autoprefixer
 npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
 ```
 
+And be sure to update the plugin name inside `postcss.config.js` like this:
+
+```js
+// postcss.config.js
+module.exports = {
+  plugins: {
+    '@tailwindcss/postcss7-compat': { /* ... */ },
+    // ...
+  }
+}
+```
+
 The compatibility build is identical to the main build in every way, so you aren't missing out on any features or anything like that.
 
 Once the rest of your tools have added support for PostCSS 8, you can move off of the compatibility build by re-installing Tailwind and its peer-dependencies using the `latest` tag:
@@ -394,4 +406,16 @@ Once the rest of your tools have added support for PostCSS 8, you can move off o
 ```shell
 npm uninstall tailwindcss
 npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+```
+
+And again, be sure to update the plugin name inside `postcss.config.js` like this:
+
+```js
+// postcss.config.js
+module.exports = {
+  plugins: {
+    tailwindcss: { /* ... */ },
+    // ...
+  }
+}
 ```
