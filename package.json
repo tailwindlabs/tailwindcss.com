@@ -43,7 +43,7 @@
     "intersection-observer": "^0.11.0",
     "just-group-by": "^1.0.0",
     "minimatch": "^3.0.4",
-    "next": "^10.0.1",
+    "next": "^11.1.0",
     "postcss": "^8.2.10",
     "postcss-focus-visible": "^5.0.0",
     "postcss-import": "^14.0.1",
