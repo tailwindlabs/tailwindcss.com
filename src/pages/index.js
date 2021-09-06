@@ -20,8 +20,12 @@ import NextLink from 'next/link'
 import Head from 'next/head'
 
 function NpmInstallButton() {
+  const [copied, setCopied] = useState(false)
+
   function copy() {
-    navigator.clipboard.writeText('npm install tailwindcss').catch((e) => {
+    navigator.clipboard.writeText('npm install tailwindcss').then((e) => {
+      setCopied(true)
+    }).catch((e) => {
       console.log(e)
     })
   }
@@ -38,10 +42,17 @@ function NpmInstallButton() {
         </span>
         npm install tailwindcss
       </span>
-      <span className="sr-only">(click to copy to clipboard)</span>
-      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-        <path d="M8 16c0 1.886 0 2.828.586 3.414C9.172 20 10.114 20 12 20h4c1.886 0 2.828 0 3.414-.586C20 18.828 20 17.886 20 16v-4c0-1.886 0-2.828-.586-3.414C18.828 8 17.886 8 16 8m-8 8h4c1.886 0 2.828 0 3.414-.586C16 14.828 16 13.886 16 12V8m-8 8c-1.886 0-2.828 0-3.414-.586C4 14.828 4 13.886 4 12V8c0-1.886 0-2.828.586-3.414C5.172 4 6.114 4 8 4h4c1.886 0 2.828 0 3.414.586C16 5.172 16 6.114 16 8" />
-      </svg>
+      { copied
+        ? <svg width="24" height="24" className="text-green-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path fill="currentColor" d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 48c110.532 0 200 89.451 200 200 0 110.532-89.451 200-200 200-110.532 0-200-89.451-200-200 0-110.532 89.451-200 200-200m140.204 130.267l-22.536-22.718c-4.667-4.705-12.265-4.736-16.97-.068L215.346 303.697l-59.792-60.277c-4.667-4.705-12.265-4.736-16.97-.069l-22.719 22.536c-4.705 4.667-4.736 12.265-.068 16.971l90.781 91.516c4.667 4.705 12.265 4.736 16.97.068l172.589-171.204c4.704-4.668 4.734-12.266.067-16.971z"></path>
+          </svg>
+        : <div>
+          <span className="sr-only">(click to copy to clipboard)</span>
+          <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth={1.5} id="copy-icon">
+            <path d="M8 16c0 1.886 0 2.828.586 3.414C9.172 20 10.114 20 12 20h4c1.886 0 2.828 0 3.414-.586C20 18.828 20 17.886 20 16v-4c0-1.886 0-2.828-.586-3.414C18.828 8 17.886 8 16 8m-8 8h4c1.886 0 2.828 0 3.414-.586C16 14.828 16 13.886 16 12V8m-8 8c-1.886 0-2.828 0-3.414-.586C4 14.828 4 13.886 4 12V8c0-1.886 0-2.828.586-3.414C5.172 4 6.114 4 8 4h4c1.886 0 2.828 0 3.414.586C16 5.172 16 6.114 16 8" />
+          </svg>
+        </div>
+      }
     </button>
   )
 }
