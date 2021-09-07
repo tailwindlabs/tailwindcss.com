@@ -194,6 +194,29 @@ Tailwind will automatically move those styles to the same place as `@tailwind co
 
 Using the `@layer` directive will also instruct Tailwind to consider those styles for purging when purging the `components` layer. Read our [documentation on optimizing for production](/docs/optimizing-for-production) for more details.
 
+You can generate `responsive`, `hover`, `focus`, `active`, and other [variants](/docs/hover-focus-and-other-states) of your own custom components by wrapping their definitions in the `@variants` directive.
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  @variants first, last {
+    .btn-blue {
+      @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+    }
+  }
+}
+```
+
+Tailwind will automatically generate prefixed versions of your custom component:
+
+```html
+<div class="filter-grayscale **last:btn-blue**"></div>
+```
+For more information, see the [@variants directive documentation](/docs/functions-and-directives#variants).
+
 ### Writing a component plugin
 
 In addition to writing component classes directly in your CSS files, you can also add component classes to Tailwind by writing your own plugin:
