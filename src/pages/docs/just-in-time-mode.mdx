@@ -503,6 +503,7 @@ For example, if you are using `postcss-cli`, set `TAILWIND_MODE=watch` in your d
   // ...
   scripts: {
     // Set TAILWIND_MODE=watch when starting your dev server
+    // On Windows is necessary use set TAILWIND_MODE=watch&postcss -i tailwind.css -o build.css --watch  or use cross-env module
     "dev": "TAILWIND_MODE=watch postcss -i tailwind.css -o build.css --watch",
 
     // Do not set TAILWIND_MODE for one-off builds
