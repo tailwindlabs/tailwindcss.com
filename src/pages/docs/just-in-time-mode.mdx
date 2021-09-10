@@ -503,7 +503,6 @@ For example, if you are using `postcss-cli`, set `TAILWIND_MODE=watch` in your d
   // ...
   scripts: {
     // Set TAILWIND_MODE=watch when starting your dev server
-    // On Windows is necessary use set TAILWIND_MODE=watch&postcss -i tailwind.css -o build.css --watch  or use cross-env module
     "dev": "TAILWIND_MODE=watch postcss -i tailwind.css -o build.css --watch",
 
     // Do not set TAILWIND_MODE for one-off builds
@@ -513,6 +512,8 @@ For example, if you are using `postcss-cli`, set `TAILWIND_MODE=watch` in your d
   // ...
 }
 ```
+
+> If you're using Windows, we recommend [cross-env](https://www.npmjs.com/package/cross-env) for setting environment variables in your scripts.
 
 Note that setting `TAILWIND_MODE=watch` will start a long-running watch process in the background, so if you set that environment variable when trying to do a one-off build, it will look like the build is hanging. You should only set `TAILWIND_MODE=watch` when you are actually running a dev server/watch process.
 
