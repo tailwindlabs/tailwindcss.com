@@ -151,13 +151,15 @@ If you need to safelist specific classes to make sure they are never accidentall
 module.exports = {
   purge: {
     content: ['./src/**/*.html'],
-    safelist: [
-      'bg-blue-500',
-      'text-center',
-      'hover:opacity-100',
-      // ...
-      'lg:text-right',
-    ]
+    options: {
+      safelist: [
+        'bg-blue-500',
+        'text-center',
+        'hover:opacity-100',
+        // ...
+        'lg:text-right',
+      ]
+    }
   },
   // ...
 }
