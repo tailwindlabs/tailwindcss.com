@@ -27,24 +27,24 @@ const { lines } = tokenizeWithLines.html(`<div class="_">
     </div>
     <div class="_">
       <div class="_">
-        <label>
-          <input class="_" name="size" type="radio" value="xs" checked>
+        <label class="_">
+          <input class="hidden" name="size" type="radio" value="xs" checked>
           XS
         </label>
-        <label>
-          <input class="_" name="size" type="radio" value="s">
+        <label class="_">
+          <input class="hidden" name="size" type="radio" value="s">
           S
         </label>
-        <label>
-          <input class="_" name="size" type="radio" value="m">
+        <label class="_">
+          <input class="hidden" name="size" type="radio" value="m">
           M
         </label>
-        <label>
-          <input class="_" name="size" type="radio" value="l">
+        <label class="_">
+          <input class="hidden" name="size" type="radio" value="l">
           L
         </label>
-        <label>
-          <input class="_" name="size" type="radio" value="xl">
+        <label class="_">
+          <input class="hidden" name="size" type="radio" value="xl">
           XL
         </label>
       </div>
