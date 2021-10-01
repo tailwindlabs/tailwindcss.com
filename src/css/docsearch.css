@@ -1,13 +1,9 @@
-.DocSearch--active {
-  overflow: hidden !important;
-}
-
 .DocSearch-Container {
-  height: 100vh;
+  height: 100%;
   left: 0;
   position: fixed;
   top: 0;
-  width: 100vw;
+  width: 100%;
   z-index: 200;
   display: flex;
   flex-direction: column;
