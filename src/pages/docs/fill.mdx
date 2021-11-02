@@ -4,6 +4,7 @@ description: "Utilities for styling the fill of SVG elements."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/fill'
+import { TipGood, TipBad } from '@/components/Tip'
 import { Variants } from '@/components/Variants'
 import { Disabling } from '@/components/Disabling'
 
@@ -26,6 +27,10 @@ Useful for styling icon sets like [Zondicons](http://www.zondicons.com/) that ar
 
 <svg class="**fill-current text-green-600** ..."></svg>
 ```
+
+<TipBad>You cannot apply `fill-current` to SVGs that are loaded through `img` tags</TipBad>
+
+<TipGood>Instead, inline SVGs directly using the `<svg>` tag</TipGood>
 
 ## Customizing
 
