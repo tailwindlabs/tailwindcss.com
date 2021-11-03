@@ -67,7 +67,7 @@ Here's how the example above works:
 - When the parent is a flex container, we want to make sure the image never shrinks, so we've added `md:flex-shrink-0` to prevent shrinking on medium screens and larger. Technically we could have just used `flex-shrink-0` since it would do nothing on smaller screens, but since it only matters on `md` screens, it's a good idea to make that clear in the class name.
 - On small screens the image is automatically full width by default. On medium screens and up, we've constrained the width to a fixed size and ensured the image is full height using `md:h-full md:w-48`.
 
-We've only used one breakpoint in this example, but you could easily customize this component at other sizes using the `sm`, `lg`, or `xl` responsive prefixes as well.
+We've only used one breakpoint in this example, but you could easily customize this component at other sizes using the `sm`, `lg`, `xl`, or `2xl` responsive prefixes as well.
 
 ---
 
@@ -103,10 +103,10 @@ Tailwind's breakpoints only include a `min-width` and don't include a `max-width
 
 If you'd like to apply a utility at one breakpoint only, the solution is to *undo* that utility at larger sizes by adding another utility that counteracts it.
 
-Here is an example where the background color is red at the `md` breakpoint, but teal at every other breakpoint:
+Here is an example where the background color is red at the `md` breakpoint, but green at every other breakpoint:
 
 ```html
-<div class="bg-teal-500 md:bg-red-500 lg:bg-teal-500">
+<div class="bg-green-500 md:bg-red-500 lg:bg-green-500">
   <!-- ... -->
 </div>
 ```

@@ -325,6 +325,8 @@ Similar to the `group-*` variants we've supported for years for styling an eleme
 <label>
   <input type="checkbox" class="peer sr-only">
   <span class="h-4 w-4 bg-gray-200 peer-checked:bg-blue-500">
+    <!-- ... -->
+  </span>
   <!-- ... -->
 </label>
 ```
@@ -410,7 +412,7 @@ This means that it's not possible to specify the variant order per core plugin a
 To handle these situations with the JIT engine, we recommend using stacked variants instead:
 
 ```html
-<!-- This ensures the element is black on hover, even if it's also focused -->
+<!-- This ensures the element is blue on hover, even if it's also focused -->
 <div class="focus:bg-red-500 hover:bg-blue-500 **hover:focus:bg-blue-500**">
 ```
 
@@ -461,7 +463,7 @@ Instead, you will want put any variants on the sub-utilities themselves:
 
 ## Limitations
 
-This new engine is supports almost every feature that exists in the classic engine, plus tons of new features that wouldn't be possible if everything had to be pre-generated up front.
+This new engine supports almost every feature that exists in the classic engine, plus tons of new features that wouldn't be possible if everything had to be pre-generated up front.
 
 Due to the nature of how the engine works however, there are a few things that aren't currently possible:
 
@@ -487,6 +489,8 @@ We recommend you always compile your CSS in a separate one-off build before depl
 
 If you want Tailwind to rebuild the CSS completely from scratch while in watch mode, saving your `tailwind.config.js` file or your CSS input file will invalidate all of the caches and trigger a fresh rebuild.
 
+<a name="watch-mode-and-one-off-builds" style={{'scroll-margin-top': '6.875rem'}}></a>
+
 ### Styles don't update when saving content files
 
 As of Tailwind CSS v2.2+, the JIT engine depends on PostCSS's [directory dependency messages](https://github.com/postcss/postcss/blob/main/docs/guidelines/runner.md#3-dependencies) to register your content files as CSS build dependencies with your build tool. These are a fairly new addition to PostCSS (added in May 2021), and not all build tools have been updated to support them yet.
@@ -504,14 +508,18 @@ For example, if you are using `postcss-cli`, set `TAILWIND_MODE=watch` in your d
     "dev": "TAILWIND_MODE=watch postcss -i tailwind.css -o build.css --watch",
 
     // Do not set TAILWIND_MODE for one-off builds
-    "build": "postcss -i tailwind.css -o build.css",
+    "build": "postcss -i tailwind.css -o build.css --minify",
     // ...
   },
   // ...
 }
 ```
 
-Note that setting `TAILWIND_MODE=watch` will start a long-running watch process in the background, so if you set that environment variable when trying to do a one-off build, it will look like the build is hanging. You should only set `TAILWIND_MODE=watch` when you are actually running a dev server/watch process.
+_If you're using Windows, we recommend [cross-env](https://www.npmjs.com/package/cross-env) for setting environment variables in your scripts._
+
+Note that setting `TAILWIND_MODE=watch` will start a long-running watch process in the background, so if you set that environment variable when trying to do a one-off build, it will look like the build is hanging.
+
+You should only set `TAILWIND_MODE=watch` when you are actually running a dev server/watch process, and only if your build tool doesn't yet support PostCSS directory dependency messages. This flag is a temporary workaround for incompatible tooling, and will eventually be removed in a future version of Tailwind CSS.
 
 ### Styles rebuild in an infinite loop
 
@@ -574,10 +582,10 @@ You can use packages like `npm-run-all` or `concurrently` to compile your CSS al
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",
     "dev:parcel": "parcel serve ./src/index.html",
-    "dev:css": "tailwindcss -o src/tailwind.css -w",
+    "dev:css": "tailwindcss -o src/tailwind.css --watch",
     "build": "npm-run-all build:css build:parcel",
     "build:parcel": "parcel build ./src/index.html",
-    "build:css": "tailwindcss -o src/tailwind.css",
+    "build:css": "tailwindcss -o src/tailwind.css --minify",
   },
 }
 ```

@@ -343,11 +343,11 @@ module.exports = {
 .tw-btn-blue:hover {
   background-color: #2779bd;
 }
-.tw-btn-blue {
+.tw-btn-red {
   background-color: #e3342f;
   color: #fff;
 }
-.tw-btn-blue:hover {
+.tw-btn-red:hover {
   background-color: #cc1f1a;
 }
 ```
@@ -803,7 +803,7 @@ module.exports = plugin.withOptions(function (options) {
     }))
 
     addUtilities(utilities, gradientVariants)
-  })
+  }
 }, function (options) {
   return {
     theme: {
@@ -1064,7 +1064,7 @@ module.exports = {
         supportsRule.append(container.nodes)
         container.append(supportsRule)
         supportsRule.walkRules(rule => {
-          rule.selector = `.${e(`supports-grid${separator}${rule.selector.slice(1)}`)}`
+          rule.selector = `.${e(`supports-grid${separator}`)}${rule.selector.slice(1)}`
         })
       })
     })
