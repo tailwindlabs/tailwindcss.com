@@ -199,7 +199,7 @@ module.exports = {
     content: ['./src/**/*.{html,md}'],
     extract: {
       md: (content) => {
-        return content.match(/[^<>"'`\s]*/)
+        return content.match(/[^<>"'`\s]*/gm)
       }
     }
   },
