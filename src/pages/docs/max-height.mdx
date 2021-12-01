@@ -5,12 +5,14 @@ description: "Utilities for setting the maximum height of an element."
 
 import utilities from 'utilities?plugin=maxHeight'
 import { numbersFirst } from '@/utils/sortClasses'
+import { previewRemToPx as preview } from '@/utils/previewRemToPx'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = {
   utilities,
+  preview,
   sort: numbersFirst,
 }
 

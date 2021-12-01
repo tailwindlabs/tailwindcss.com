@@ -5,6 +5,7 @@ description: "Utilities for setting the width of an element."
 
 import utilities from 'utilities?plugin=width'
 import { numbersFirst } from '@/utils/sortClasses'
+import { previewRemToPx as preview } from '@/utils/previewRemToPx'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
@@ -12,6 +13,7 @@ import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 export const classes = {
   utilities,
   sort: numbersFirst,
+  preview,
 }
 
 ## Basic usage

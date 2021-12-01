@@ -4,11 +4,12 @@ description: "Utilities for controlling the leading (line height) of an element.
 ---
 
 import utilities from 'utilities?plugin=lineHeight'
+import { previewRemToPx as preview } from '@/utils/previewRemToPx'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { utilities }
+export const classes = { utilities, preview }
 
 ## Basic usage
 
