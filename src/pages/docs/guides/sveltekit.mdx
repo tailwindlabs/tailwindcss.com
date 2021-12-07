@@ -1,0 +1,114 @@
+---
+title: "Install Tailwind CSS with SvelteKit"
+description: "Setting up Tailwind CSS in a SvelteKit project."
+tool: SvelteKit
+---
+
+```preval installation
+reference:
+  name: SvelteKit App
+  link: https://kit.svelte.dev/docs#introduction-getting-started
+script: npm init svelte@next
+```
+_*Once SvelteKit is out of beta the `@next` part will no longer be needed._
+
+This will scaffold a new SvelteKit project in the `my-app` directory asking questions about the basic setup of your app. After the setup, change directories into your project.
+
+```bash
+cd my-project
+```
+
+[Svelte Add](https://github.com/svelte-add/svelte-add#readme) is a community project to easily add integrations to Svelte apps. To [Svelte Add TailwindCSS](https://github.com/svelte-add/tailwindcss) run `npx svelte-add@latest tailwindcss` and run `npm i` to install the dependencies. This will automatically generate the `tailwind.config.cjs`, the `postcss.config.cjs`, and add preprocess to the `svelte.config.js`. It will also create an `src/app.css` file with the TailwindCSS imports and the `src/routes/__layout.svelte` file to import the CSS file that will wrap the application.
+
+```bash
+npx svelte-add@latest tailwindcss
+npm install
+```
+
+That's it! TailwindCSS is now setup and configured in your SvelteKit project. You are ready to start adding TailwindCSS classes to your routes and components. Here are the base configurations.
+
+```js
+// svelte.config.js
+import adapter from '@sveltejs/adapter-auto';
+import preprocess from 'svelte-preprocess';
+
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+	// Consult https://github.com/sveltejs/svelte-preprocess
+	// for more information about preprocessors
+	preprocess: [
+		preprocess({
+			postcss: true
+		})
+	],
+
+	kit: {
+		adapter: adapter(),
+
+		// hydrate the <div id="svelte"> element in src/app.html
+		target: '#svelte'
+	}
+};
+
+export default config;
+```
+
+```js
+// tailwind.config.cjs
+const config = {
+	mode: 'jit',
+	purge: ['./src/**/*.{html,js,svelte,ts}'],
+
+	theme: {
+		extend: {}
+	},
+
+	plugins: []
+};
+
+module.exports = config;
+```
+
+```js
+// postcss.config.cjs
+const tailwindcss = require('tailwindcss');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+
+const mode = process.env.NODE_ENV;
+const dev = mode === 'development';
+
+const config = {
+	plugins: [
+		//Some plugins, like tailwindcss/nesting, need to run before Tailwind,
+		tailwindcss(),
+		//But others, like autoprefixer, need to run after,
+		autoprefixer(),
+		!dev &&
+			cssnano({
+				preset: 'default'
+			})
+	]
+};
+
+module.exports = config;
+```
+
+```css
+/* src/app.css */
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+```js
+// src/routes/__layout.svelte
+<script>
+	import '../app.css';
+</script>
+
+<slot />
+```
+
+

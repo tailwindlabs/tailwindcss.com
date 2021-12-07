@@ -16,6 +16,11 @@ const guides = [
     link: '/docs/guides/nextjs',
   },
   {
+    name: 'SvelteKit',
+    logo: SvelteLogo,
+    link: '/docs/guides/sveltekit',
+  },
+  {
     name: 'Vue 3 (Vite)',
     logo: Vue3Logo,
     link: '/docs/guides/vue-3-vite',
