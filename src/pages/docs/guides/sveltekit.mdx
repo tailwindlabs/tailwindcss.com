@@ -12,13 +12,13 @@ script: npm init svelte@next
 ```
 _*Once SvelteKit is out of beta the `@next` part will no longer be needed._
 
-This will scaffold a new SvelteKit project in the `my-app` directory asking questions about the basic setup of your app. After the setup, change directories into your project.
+This will scaffold a new SvelteKit project in the `my-project` directory asking questions about the basic setup of your project. After the setup, change directories into your project.
 
 ```bash
 cd my-project
 ```
 
-[Svelte Add](https://github.com/svelte-add/svelte-add#readme) is a community project to easily add integrations to Svelte apps. To [Svelte Add TailwindCSS](https://github.com/svelte-add/tailwindcss) run `npx svelte-add@latest tailwindcss` and run `npm i` to install the dependencies. This will automatically generate the `tailwind.config.cjs`, the `postcss.config.cjs`, and add preprocess to the `svelte.config.js`. It will also create an `src/app.css` file with the TailwindCSS imports and the `src/routes/__layout.svelte` file to import the CSS file that will wrap the application.
+[Svelte Add](https://github.com/svelte-add/svelte-add#readme) is a community project to easily add integrations to Svelte apps. To add [TailwindCSS with svelte-add](https://github.com/svelte-add/tailwindcss) run `npx svelte-add@latest tailwindcss` and run `npm i` to install the dependencies. This will automatically generate the `tailwind.config.cjs`, the `postcss.config.cjs`, and add preprocess to the `svelte.config.js`. It will also create an `src/app.css` file with the TailwindCSS imports and the `src/routes/__layout.svelte` file to import the CSS file that will wrap the application.
 
 ```bash
 npx svelte-add@latest tailwindcss
