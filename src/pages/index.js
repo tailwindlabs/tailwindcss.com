@@ -21,7 +21,7 @@ import Head from 'next/head'
 
 function NpmInstallButton() {
   function copy() {
-    navigator.clipboard.writeText('npm install tailwindcss').catch((e) => {
+    navigator.clipboard.writeText('npm install tailwindcss@^2').catch((e) => {
       console.log(e)
     })
   }
@@ -36,7 +36,7 @@ function NpmInstallButton() {
         <span className="hidden sm:inline text-gray-500" aria-hidden="true">
           ${' '}
         </span>
-        npm install tailwindcss
+        npm install tailwindcss@^2
       </span>
       <span className="sr-only">(click to copy to clipboard)</span>
       <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth={1.5}>

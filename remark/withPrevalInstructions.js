@@ -207,7 +207,7 @@ function createPrevals({ tool: pageTool = error('UNKNOWN') } = {}) {
       version = 'latest',
     }) {
       let knownDependencies = {
-        latest: ['tailwindcss@latest', 'postcss@latest', 'autoprefixer@latest'],
+        latest: ['tailwindcss@^2', 'postcss@latest', 'autoprefixer@latest'],
         'compat-7': [
           'tailwindcss@npm:@tailwindcss/postcss7-compat',
           'postcss@^7',
