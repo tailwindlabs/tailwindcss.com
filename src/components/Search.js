@@ -62,7 +62,7 @@ export function Search() {
   return (
     <>
       <Head>
-        <link rel="preconnect" href="https://BH4D9OD16A-dsn.algolia.net" crossOrigin="true" />
+        <link rel="preconnect" href="https://KNPXZI5B0M-dsn.algolia.net" crossOrigin="true" />
       </Head>
       <button
         type="button"
@@ -113,8 +113,8 @@ export function Search() {
             }}
             onClose={onClose}
             indexName="tailwindcss"
-            apiKey="3df93446658cd9c4e314d4c02a052188"
-            appId="BH4D9OD16A"
+            apiKey="5fc87cef58bb80203d2207578309fab6"
+            appId="KNPXZI5B0M"
             navigator={{
               navigate({ suggestionUrl }) {
                 setIsOpen(false)
