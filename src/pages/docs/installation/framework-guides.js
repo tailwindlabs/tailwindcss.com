@@ -13,7 +13,7 @@ import { ReactComponent as CraLogo } from '@/img/guides/cra.svg'
 export default function FrameworkGuides() {
   return (
     <InstallationLayout>
-      <div className="max-w-3xl mb-16 prose">
+      <div className="prose mb-16 max-w-3xl">
         <p>
           Framework-specific guides that cover our recommended approach to installing Tailwind CSS
           in a number of popular environments.
@@ -65,21 +65,21 @@ export default function FrameworkGuides() {
           },
         ].map(({ name, description, logo: Logo, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">
-            <div className="flex-auto ml-6">
-              <h3 className="mb-2 font-semibold leading-6 text-gray-900">
+            <div className="ml-6 flex-auto">
+              <h3 className="mb-2 leading-6 text-gray-900 font-semibold">
                 <Link href={`/docs/guides/${slug}`}>
                   <a className="before:absolute before:inset-0">{name}</a>
                 </Link>
               </h3>
               <p className="text-sm leading-6 text-gray-700">{description}</p>
             </div>
-            <div className="flex items-center justify-center flex-none overflow-hidden bg-white rounded-full shadow w-14 h-14 ring-1 ring-gray-900/5">
+            <div className="flex-none w-14 h-14 rounded-full bg-white ring-1 ring-gray-900/5 shadow flex items-center justify-center overflow-hidden">
               <Logo />
             </div>
           </li>
         ))}
       </ul>
-      <div className="max-w-3xl mt-16 prose">
+      <div className="mt-16 prose max-w-3xl">
         <p>
           Don't see your framework of choice? Try using{' '}
           <Link href="/docs/installation">
