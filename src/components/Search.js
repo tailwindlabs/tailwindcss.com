@@ -5,9 +5,8 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { DocSearchModal, useDocSearchKeyboardEvents } from '@docsearch/react'
 
-const INDEX_NAME = 'tailwindcss'
-const API_KEY = '5fc87cef58bb80203d2207578309fab6'
-const APP_ID = 'KNPXZI5B0M'
+const ACTION_KEY_DEFAULT = ['Ctrl ', 'Control']
+const ACTION_KEY_APPLE = ['⌘', 'Command']
 
 function Hit({ hit, children }) {
   return (
@@ -69,13 +68,13 @@ export function Search() {
         type="button"
         ref={searchButtonRef}
         onClick={onOpen}
-        className="flex items-center w-full py-2 space-x-3 font-medium leading-6 transition-colors duration-200 group sm:space-x-4 hover:text-gray-600"
+        className="group leading-6 font-medium flex items-center space-x-3 sm:space-x-4 hover:text-gray-600 transition-colors duration-200 w-full py-2"
       >
         <svg
           width="24"
           height="24"
           fill="none"
-          className="text-gray-400 transition-colors duration-200 group-hover:text-gray-500"
+          className="text-gray-400 group-hover:text-gray-500 transition-colors duration-200"
         >
           <path
             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
