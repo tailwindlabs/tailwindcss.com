@@ -63,9 +63,11 @@ let steps = [
       code: `  export default {
     build: {
 >     postcss: {
->       plugins: {
->         tailwindcss: {},
->         autoprefixer: {},
+>       postcssOptions: {
+>         plugins: {
+>           tailwindcss: {},
+>           autoprefixer: {},
+>         },
 >       },
 >     },
     }
