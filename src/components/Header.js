@@ -178,20 +178,30 @@ export function Header({ navIsOpen, onNavToggle }) {
           <BannerMarkMobile className="sm:hidden absolute right-1/2 transform translate-x-[235px] translate-y-[-90px] w-[848px] h-[513px]" />
           <BannerMarkLeft className="hidden sm:block absolute right-1/2 transform translate-x-[-150px] translate-y-[-250px] w-[848px] h-[513px]" />
           <BannerMarkRight className="hidden sm:block absolute left-1/2 transform translate-x-[330px] translate-y-[-357px] w-[848px] h-[513px]" />
-          <div className="relative flex justify-center items-center">
+          <div className="relative sm:flex justify-center items-center">
             <div className="text-sm font-medium text-white">
-              Just-in-Time: The Next Generation of Tailwind&nbsp;CSS
+              You're looking at the documentation for{' '}
+              <span class="whitespace-nowrap">Tailwind CSS v2.</span>{' '}
+            </div>
+            <div class="mt-1 sm:hidden">
+              <a
+                href="https://tailwindcss.com"
+                className="text-sm text-white font-bold underline sm:hidden"
+              >
+                Go to Tailwind CSS v3 &rarr;
+              </a>
             </div>
             <span
               aria-hidden="true"
               className="hidden sm:block mx-6 h-6 w-px bg-white bg-opacity-20"
             ></span>
-            <div className="ml-6 sm:ml-0">
-              <Link href="/docs/just-in-time-mode">
-                <a className="whitespace-nowrap inline-flex rounded-md bg-white py-2 px-3 text-xs font-semibold uppercase text-blue-500 hover:bg-opacity-90">
-                  Learn more &rarr;
-                </a>
-              </Link>
+            <div className="hidden sm:block">
+              <a
+                href="https://tailwindcss.com"
+                className="whitespace-nowrap inline-flex rounded-md bg-white py-2 px-3 text-xs font-semibold  text-blue-500 hover:bg-opacity-90"
+              >
+                Go to Tailwind CSS v3 &rarr;
+              </a>
             </div>
           </div>
         </div>
