@@ -34,14 +34,11 @@ let steps = [
         <code>npx svelte-add@latest tailwindcss</code> and run <code>npm i</code> to install the
         dependencies. This will automatically generate the <code>tailwind.config.cjs</code>, the{' '}
         <code>postcss.config.cjs</code>, and add preprocess to the <code>svelte.config.js</code>. It
-        will also create an <code>src/app.css</code> file with the TailwindCSS imports and the{' '}
+        will also create an <code>src/app.css</code> file with the Tailwind CSS imports and the{' '}
         <code>src/routes/__layout.svelte</code> file to import the CSS file that will wrap the
-        application. TailwindCSS is now setup and configured in your SvelteKit project. You are
-        ready to start adding TailwindCSS classes to your routes and components. Here are the base
+        application. Tailwind CSS is now setup and configured in your SvelteKit project. You are
+        ready to start adding Tailwind CSS classes to your routes and components. Here are the base
         configurations, any of these can be edited to your configurations.
-        <small>
-          Note: *Once it is out of beta, the <code>@latest</code> will no longer be needed.
-        </small>
       </p>
     ),
     code: {
@@ -109,7 +106,7 @@ module.exports = config;
     title: 'postcss.config.cjs',
     body: () => (
       <p>
-        Generated <code>postcss.config.cjs</code> with default TailwindCSS configuration.
+        Generated <code>postcss.config.cjs</code> with default Tailwind CSS configuration.
       </p>
     ),
     code: {
@@ -140,7 +137,7 @@ module.exports = config;
     title: 'src/app.css',
     body: () => (
       <p>
-        Generated <code>src/app.css</code> with TailwindCSS imports. Add any global styles to this
+        Generated <code>src/app.css</code> with Tailwind CSS imports. Add any global styles to this
         file in PostCSS syntax.
       </p>
     ),
@@ -190,8 +187,8 @@ export default function UsingSvelteKit({ code }) {
             SvelteKit Introduction Guide
           </a>
           . Then add{' '}
-          <a href="https://github.com/svelte-add/tailwindcss">TailwindCSS with svelte-add</a> to
-          automatically setup your project. That's it, it is that easy to get TailwindCSS configured
+          <a href="https://github.com/svelte-add/tailwindcss">Tailwind CSS with svelte-add</a> to
+          automatically setup your project. That's it, it is that easy to get Tailwind CSS configured
           in a SvelteKit project!
         </p>
       </div>
