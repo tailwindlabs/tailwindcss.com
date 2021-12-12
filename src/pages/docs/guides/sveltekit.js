@@ -8,7 +8,7 @@ let steps = [
     body: () => (
       <p>
         Start by creating a new SvelteKit project if you don’t have one set up already. The most
-        common approach is to use this
+        common approach is to use this 
         <a href="https://kit.svelte.dev/docs#introduction-getting-started">
           Getting Started with SvelteKit Introduction
         </a>
