@@ -8,6 +8,7 @@ import { ReactComponent as ViteLogo } from '@/img/guides/vite.svg'
 import { ReactComponent as NuxtJsLogo } from '@/img/guides/nuxtjs.svg'
 import { ReactComponent as GatsbyLogo } from '@/img/guides/gatsby.svg'
 import { ReactComponent as CraLogo } from '@/img/guides/cra.svg'
+import { ReactComponent as AngularLogo } from '@/img/guides/angular.svg'
 
 export default function FrameworkGuides() {
   return (
@@ -55,6 +56,12 @@ export default function FrameworkGuides() {
             slug: 'create-react-app',
             description: 'CLI tool for scaffolding a new single-page React application.',
             logo: CraLogo,
+          },
+          {
+            name: 'Angular',
+            slug: 'angular',
+            description: 'Platform for building mobile and desktop web applications.',
+            logo: AngularLogo,
           },
         ].map(({ name, description, logo: Logo, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">
