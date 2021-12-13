@@ -6576,10 +6576,10 @@ table@^5.2.3:
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
 
-tailwindcss@^0.0.0-insiders.3767ce2:
-  version "0.0.0-insiders.3767ce2"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-0.0.0-insiders.3767ce2.tgz#9d67519de6fecb517d2b6422e087f60b1cb91899"
-  integrity sha512-tAWqtuMyR5TnQkytJgJIFdB5UB+lqisBwXiLxzJN6P54dbu4hj1xL6vmQuDcXEIcY8QggSk2Zm9wu9khvUACBA==
+tailwindcss@^0.0.0-insiders.a8ed4ae:
+  version "0.0.0-insiders.a8ed4ae"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-0.0.0-insiders.a8ed4ae.tgz#cac5d29822629303206d85304d523ed52e68a888"
+  integrity sha512-QkCd6nA4IJ0IbH4/uXj+UvO39J3MVak4nhFYPHcTFUjm2u33M6RjbEzdbcbn3I6VJ6K9wkwIiTmx+7Dp5kyDQw==
   dependencies:
     arg "^5.0.1"
     chalk "^4.1.2"
