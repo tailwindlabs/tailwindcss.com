@@ -46,42 +46,6 @@
   }
 }
 
-.focus\:bg-gray-600:focus {
-  @apply bg-gray-600 !important;
-}
-
-.focus\:text-white:focus {
-  @apply text-white !important;
-}
-
-.group:hover .group-hover\:text-white {
-  @apply text-white !important;
-}
-
-.focus-within\:border-teal-500:focus-within {
-  @apply border-teal-500 !important;
-}
-
-.focus-visible\:underline:focus-visible {
-  @apply underline !important;
-}
-
-.focus-visible\:underline.focus-visible {
-  @apply underline !important;
-}
-
-.active\:bg-blue-700:active {
-  @apply bg-blue-700 !important;
-}
-
-.checked\:bg-blue-600:checked {
-  @apply bg-blue-600 !important;
-}
-
-.checked\:border-transparent:checked {
-  @apply border-transparent !important;
-}
-
 .appearance-none::-ms-expand {
   display: none !important;
 }
