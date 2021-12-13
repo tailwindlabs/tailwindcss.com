@@ -7,6 +7,9 @@ module.exports = {
   experimental: {
     optimizeUniversalDefaults: false,
   },
+  corePlugins: {
+    borderOpacity: false,
+  },
   content: ['./src/**/*.{js,jsx,mdx,html}', './remark/**/*.js'],
   darkMode: 'class',
   theme: {
