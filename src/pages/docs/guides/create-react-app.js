@@ -37,6 +37,7 @@ let steps = [
     body: () => (
       <p>
         Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+        Include <code>ts,tsx</code> if the project is using typescript.
       </p>
     ),
     code: {
@@ -44,7 +45,7 @@ let steps = [
       lang: 'js',
       code: `  module.exports = {
 >   content: [
->     "./src/**/*.{js,jsx}",
+>     "./src/**/*.{js,jsx,ts,tsx}",
 >   ],
     theme: {
       extend: {},
