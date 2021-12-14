@@ -6,6 +6,7 @@ description: "Utilities for controlling the scroll behavior of an element."
 import utilities from 'utilities?plugin=scrollBehavior'
 import { numbersFirst } from '@/utils/sortClasses'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { InteractiveExample } from '@/components/Example'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
@@ -17,11 +18,7 @@ export const classes = { utilities }
 
 Use the `scroll-smooth` utilities to enable smooth scrolling within an element.
 
-<Example>
-  <button onClick={(e) => document.getElementById('testing').scrollIntoView({ block: 'nearest' })}>click</button>
-</Example>
-
-<div className="relative h-40 overflow-y-auto scroll-smooth   bg-gray-100 p-4 border rounded not-prose">
+<InteractiveExample className="h-40 overflow-y-auto scroll-smooth">
   <p><a href="#testing" onClick={(e) => { e.preventDefault(); document.getElementById('testing').scrollIntoView({ block: 'nearest' }) }}>click</a></p>
   <p className="mt-6">Expedita quo ea quod laborum ullam ipsum enim. Deleniti commodi et. Nam id laborum placeat natus eum. Aliquid aut aut soluta nesciunt culpa magni. Velit possimus autem et aut repudiandae culpa rerum. Qui blanditiis ut qui quia expedita necessitatibus sed. Autem sed ut saepe doloremque aut placeat voluptas ipsum.</p>
   <p className="mt-6">Eligendi error nisi recusandae velit numquam nihil aperiam enim. Eum et molestias. Id qui cum veritatis id ea quidem ea rerum saepe. Iste itaque fugiat sequi. Voluptatem quae minus. Maxime ullam ea praesentium recusandae vero est quas. Quia minima fugiat aut laborum impedit facere autem sit qui. Et eos et ullam necessitatibus. Ut voluptatem saepe natus itaque maiores sit repellat aut natus assumenda.</p>
@@ -30,7 +27,7 @@ Use the `scroll-smooth` utilities to enable smooth scrolling within an element.
   <p className="mt-6">Et illum ut officia nisi commodi. Quia et mollitia possimus modi. Delectus aliquid quam eos consectetur.</p>
   <p className="mt-6">Accusantium et et qui non sed modi. Corrupti deserunt culpa eos vitae neque aperiam. Repellat tenetur fugit.</p>
   <p className="mt-6">Deleniti distinctio ad corrupti nisi. Mollitia qui est natus cumque. Officia dolor qui perferendis necessitatibus saepe excepturi asperiores quos voluptas. Est suscipit facere nihil expedita suscipit quibusdam. Quod cupiditate vero distinctio. Sed est soluta nostrum magnam et saepe blanditiis aut. Vero dolores repellendus et libero minima explicabo provident. Culpa aut dolorem est.</p>
-</div>
+</InteractiveExample>
 
 ```html
 <html class="scroll-smooth">

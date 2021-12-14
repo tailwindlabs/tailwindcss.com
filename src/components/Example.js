@@ -66,6 +66,12 @@ export function Example(props) {
   return <Well {...props} />
 }
 
+// This only exists so we can use JSX inside an Example to attach event handlers
+// You can't use <Example> because of the MDX plugin
+export function InteractiveExample(props) {
+  return <Example {...props} />
+}
+
 function ResizableExample(props) {
   let containerRef = useRef()
   let x = useMotionValue(0)
