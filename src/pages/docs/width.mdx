@@ -16,6 +16,20 @@ export const classes = {
 
 ## Basic usage
 
+### Automatic width
+
+The `w-auto` is the Default value(The browser calculates the element width).
+
+Since it's the default value, you dont have to use the class, except for some specific cases, like for example: 
+
+To undo a previusly explicitly specified width.
+
+```html
+<div class="sm:w-3/4 lg:w-auto">
+  <!-- ... -->
+</div>
+```
+
 ### Fixed widths
 
 Use `w-{number}` or `w-px` to set an element to a fixed width.
