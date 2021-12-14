@@ -7,7 +7,7 @@ let steps = [
     title: 'Create your project',
     body: () => (
       <p>
-        Start by creating a new React project if you don’t have one set up already. The most common approach is to use <a href="https://create-react-app.dev/docs/getting-started">Create React App</a>.
+        Start by creating a new React project with <a href="https://create-react-app.dev/docs/getting-started">Create React App</a> if you don't have one already set up.
       </p>
     ),
     code: {
