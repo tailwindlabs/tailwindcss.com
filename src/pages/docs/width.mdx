@@ -16,20 +16,6 @@ export const classes = {
 
 ## Basic usage
 
-### Automatic width
-
-The `w-auto` is the default Width value(The browser calculates the element width).
-
-Since it's already the default value, you don't need to include this class, except for some specific cases, like for example:
-
-To undo a previously specified width.
-
-```html
-<div class="sm:w-3/4 lg:w-auto">
-  <!-- ... -->
-</div>
-```
-
 ### Fixed widths
 
 Use `w-{number}` or `w-px` to set an element to a fixed width.
@@ -126,6 +112,16 @@ Use `w-screen` to make an element span the entire width of the viewport.
 
 ```html
 <div class="**w-screen**">
+  <!-- ... -->
+</div>
+```
+
+### Resetting the width
+
+The `w-auto` utility can be useful if you need to remove an element's assigned width under a specific condition, like at a particular breakpoint:
+
+```html
+<div class="w-full md:w-auto">
   <!-- ... -->
 </div>
 ```
