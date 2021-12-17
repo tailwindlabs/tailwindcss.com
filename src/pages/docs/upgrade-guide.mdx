@@ -322,6 +322,26 @@ The old class names will always work but you're encouraged to update to the new 
 
 Tailwind CSS v3.0 necessitates a couple of other small breaking changes that are unlikely to affect many people, but have been captured here.
 
+### Add `currentColor` if you override the theme colors for the `fill-current` utility to work
+
+If you override the theme colors in your config you will need to make sure to include a `current` key with the value set to `currentColor` for the `fill-current` utility to work.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    // ...
+    theme: {
+      colors: {
++       current: 'currentColor',
+        primary: {
+          // ...
+        }
+        // ...
+      },
+    },
+    // ...
+  }
+```
+
 ### Separator cannot be a dash
 
 The dash (`-`) character cannot be used as a custom separator in v3.0 because of a parsing ambiguity it introduces in the engine.
