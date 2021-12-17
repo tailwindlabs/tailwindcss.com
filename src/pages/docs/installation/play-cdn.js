@@ -106,6 +106,32 @@ let steps = [
   </html>`,
     },
   },
+  {
+    title: 'Extend by plugins',
+    body: () => (
+      <p>
+        Use <code>forms</code>,<code>typography</code>,<code>aspect-ratio</code>,<code>line-clamp</code> to enable officiall plugins independently.
+      </p>
+    ),
+    code: {
+      name: 'index.html',
+      lang: 'html',
+      code: `  <!doctype html>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+>    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script>/* ... */</script>
+  </head>
+  <body>
+>   <div class="line-clamp-3">
+      <!-- ... -->
+    </div>
+  </body>
+  </html>`,
+    },
+  },
 ]
 
 export default function PlayCdn({ code }) {
