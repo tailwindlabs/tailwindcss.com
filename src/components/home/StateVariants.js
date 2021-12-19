@@ -152,6 +152,9 @@ export function StateVariants() {
                       setStates((states) => states.filter((x) => x !== 'input-focus'))
                       // resetScroll()
                     }}
+                    onKeyPress={(e) => {
+                      e.key === 'Enter' && e.preventDefault();
+                    }}
                     type="text"
                     aria-label="Filter projects"
                     placeholder="Filter projects..."
