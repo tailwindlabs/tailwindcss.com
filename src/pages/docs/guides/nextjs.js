@@ -69,6 +69,26 @@ let steps = [
     },
   },
   {
+    title: 'Enable global styles',
+    body: () => (
+      <p>
+        Create an <code>./pages/_app.js</code> file
+      </p>
+    ),
+    code: {
+      name: '_app.js',
+      lang: 'js',
+      code: `import '../styles/globals.css'
+
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />
+}
+
+export default MyApp
+`,  
+    },
+  },
+  {
     title: 'Start your build process',
     body: () => (
       <p>
