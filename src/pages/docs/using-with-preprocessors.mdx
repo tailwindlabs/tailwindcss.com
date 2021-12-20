@@ -42,9 +42,9 @@ Then add it as the very first plugin in your PostCSS configuration:
 // postcss.config.js
 module.exports = {
   plugins: [
-    require('postcss-import'),
-    require('tailwindcss'),
-    require('autoprefixer'),
+    'postcss-import': {},
+    tailwindcss: {},
+    autoprefixer: {},
   ]
 }
 ```
@@ -130,10 +130,10 @@ It's included directly in the `tailwindcss` package itself, so to use it all you
 // postcss.config.js
 module.exports = {
   plugins: [
-    require('postcss-import'),
-    require('tailwindcss/nesting'),
-    require('tailwindcss'),
-    require('autoprefixer'),
+    'postcss-import': {},
+    'tailwindcss/nesting': {},
+    tailwindcss: {},
+    autoprefixer: {},
   ]
 }
 ```
@@ -152,10 +152,10 @@ Then pass the plugin itself as an argument to `tailwindcss/nesting` in your Post
 // postcss.config.js
 module.exports = {
   plugins: [
-    require('postcss-import'),
-    require('tailwindcss/nesting')(require('postcss-nesting')),
-    require('tailwindcss'),
-    require('autoprefixer'),
+    'postcss-import': {},
+    'tailwindcss/nesting': 'postcss-nesting',
+    tailwindcss: {},
+    autoprefixer: {},
   ]
 }
 ```
@@ -168,12 +168,12 @@ Note that if you are using [`postcss-preset-env`](https://github.com/csstools/po
 // postcss.config.js
 module.exports = {
   plugins: [
-    require('postcss-import'),
-    require('tailwindcss/nesting')(require('postcss-nesting')),
-    require('tailwindcss'),
-    require('postcss-preset-env')({
-      features: { 'nesting-rules': false }
-    }),
+    'postcss-import': {},
+    'tailwindcss/nesting': 'postcss-nesting',
+    tailwindcss: {},
+    'postcss-preset-env': {
+      features: { 'nesting-rules': false },
+    },
   ]
 }
 ```
@@ -224,8 +224,8 @@ Then add it to the very end of your plugin list in your PostCSS configuration:
 ```js
 module.exports = {
   plugins: [
-    require('tailwindcss'),
-    require('autoprefixer'),
+    tailwindcss: {},
+    autoprefixer: {},
   ]
 }
 ```
