@@ -23,7 +23,7 @@ let steps = [
     body: () => (
       <p>
         Add <code>tailwindcss</code> and <code>autoprefixer</code> to your{' '}
-        <code>postcss.config.js</code> file.
+        <code>postcss.config.js</code> file, or wherever PostCSS is configured in your project.
       </p>
     ),
     code: {
@@ -74,8 +74,8 @@ let steps = [
     title: 'Start your build process',
     body: () => (
       <p>
-        Run your build process with <code>npm run dev</code> or whatever command is configured
-        in your <code>package.json</code> file.
+        Run your build process with <code>npm run dev</code> or whatever command is configured in
+        your <code>package.json</code> file.
       </p>
     ),
     code: {
@@ -116,21 +116,24 @@ let steps = [
 export default function UsingPostCss({ code }) {
   return (
     <InstallationLayout>
-      <div className="relative z-10 prose mb-16 max-w-3xl">
+      <div className="relative z-10 prose mb-16 max-w-3xl dark:prose-dark">
         <p>
           Installing Tailwind CSS as a PostCSS plugin is the most seamless way to integrate it with
           build tools like webpack, Rollup, Vite, and Parcel.
         </p>
       </div>
-      <Steps steps={steps} code={code} />
+      <Steps level={3} steps={steps} code={code} />
       <Cta
         label="Explore our framework guides"
         href="/docs/installation/framework-guides"
         description={
           <>
-            <strong className="text-gray-900 font-semibold">Are you stuck?</strong> Setting up
-            Tailwind with PostCSS can be a bit different across different build tools. Check our
-            framework guides to see if we have more specific instructions for your particular setup.
+            <strong className="text-gray-900 font-semibold dark:text-gray-200">
+              Are you stuck?
+            </strong>{' '}
+            Setting up Tailwind with PostCSS can be a bit different across different build tools.
+            Check our framework guides to see if we have more specific instructions for your
+            particular setup.
           </>
         }
       />

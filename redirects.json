@@ -213,11 +213,6 @@
     "destination": "https://v1.tailwindcss.com/docs/upcoming-changes",
     "permanent": false
   },
-  {
-    "source": "/docs/typography-plugin",
-    "destination": "https://github.com/tailwindlabs/tailwindcss-typography",
-    "permanent": false
-  },
   { "source": "/docs/intellisense", "destination": "/docs/editor-setup", "permanent": false },
   {
     "source": "/docs/extracting-components",
@@ -298,8 +293,23 @@
     "permanent": false
   },
   {
-    "source": "/upgrading-to-v2",
+    "source": "/docs/upgrading-to-v2",
     "destination": "https://v2.tailwindcss.com/docs/upgrading-to-v2",
+    "permanent": false
+  },
+  {
+    "source": "/docs/configuring-variants",
+    "destination": "https://v2.tailwindcss.com/docs/configuring-variants",
+    "permanent": false
+  },
+  {
+    "source": "/docs/guides/vue-3-vite",
+    "destination": "/docs/guides/vite",
+    "permanent": false
+  },
+  {
+    "source": "/docs/just-in-time-mode",
+    "destination": "https://v2.tailwindcss.com/docs/just-in-time-mode",
     "permanent": false
   }
 ]

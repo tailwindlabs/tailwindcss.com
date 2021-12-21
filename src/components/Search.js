@@ -7,7 +7,7 @@ import { DocSearchModal } from '@docsearch/react'
 import clsx from 'clsx'
 import { useActionKey } from '@/hooks/useActionKey'
 
-const INDEX_NAME = 'tailwindcss_dev'
+const INDEX_NAME = 'tailwindcss'
 const API_KEY = '5fc87cef58bb80203d2207578309fab6'
 const APP_ID = 'KNPXZI5B0M'
 
@@ -85,6 +85,10 @@ export function SearchProvider({ children }) {
                 a.href = item.url
 
                 const hash = a.hash === '#content-wrapper' ? '' : a.hash
+                
+                if (item.hierarchy?.lvl0) {
+                  item.hierarchy.lvl0 = item.hierarchy.lvl0.replace(/&amp;/g, '&')
+                }
 
                 return {
                   ...item,
