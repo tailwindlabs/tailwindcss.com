@@ -1,0 +1,156 @@
+---
+title: "Object Position"
+description: "Utilities for controlling how a replaced element's content should be positioned within its container."
+---
+
+import utilities from 'utilities?plugin=objectPosition'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Positioning a replaced element
+
+Use the `object-{side}` utilities to specify how a replaced element's content should be positioned within its container.
+
+<Example p="none">
+  <div class="w-full">
+    <div class="overflow-x-scroll overflow-y-hidden snap-x scroll-p-4 flex sm:grid sm:grid-cols-3 sm:gap-16 p-8 items-end pt-16">
+      <div class="relative snap-always snap-start w-40 shrink-0 sm:w-auto">
+        <p class="absolute top-0 inset-x-0 -translate-y-8 font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">object-left-top</p>
+        <div class="group relative mx-auto w-20 h-20 rounded-lg">
+          <div class="relative z-10 w-full h-full rounded-md bg-left-top ring-1 ring-black/10 ring-inset shadow-lg" style="background-image:url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80)"></div>
+          <img class="absolute top-0 left-0 rounded-md overflow-hidden w-32 h-32 opacity-0 sm:group-hover:opacity-25 max-w-none" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80">
+        </div>
+      </div>
+      <div class="relative snap-always snap-start w-40 shrink-0 sm:w-auto">
+        <p class="absolute top-0 inset-x-0 -translate-y-8 font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">object-top</p>
+        <div class="group relative mx-auto w-20 h-20 rounded-lg">
+          <div class="relative z-10 w-full h-full rounded-md bg-top ring-1 ring-black/10 ring-inset shadow-lg" style="background-image:url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80)"></div>
+          <img class="absolute top-0 -left-6 rounded-md overflow-hidden w-32 h-32 opacity-0 sm:group-hover:opacity-25 max-w-none" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80">
+        </div>
+      </div>
+      <div class="relative snap-always snap-start w-40 shrink-0 sm:w-auto">
+        <p class="absolute top-0 inset-x-0 -translate-y-8 font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">object-right-top</p>
+        <div class="group relative mx-auto w-20 h-20 rounded-lg">
+          <div class="relative z-10 w-full h-full rounded-md bg-right-top ring-1 ring-black/10 ring-inset shadow-lg" style="background-image:url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80)"></div>
+          <img class="absolute top-0 right-0 rounded-md overflow-hidden w-32 h-32 opacity-0 sm:group-hover:opacity-25 max-w-none" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80">
+        </div>
+      </div>
+      <div class="relative snap-always snap-start w-40 shrink-0 sm:w-auto">
+        <p class="absolute top-0 inset-x-0 -translate-y-8 font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">object-left</p>
+        <div class="group relative mx-auto w-20 h-20 rounded-lg">
+          <div class="relative z-10 w-full h-full rounded-md bg-left ring-1 ring-black/10 ring-inset shadow-lg" style="background-image:url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80)"></div>
+          <img class="absolute -top-6 left-0 rounded-md overflow-hidden w-32 h-32 opacity-0 sm:group-hover:opacity-25 max-w-none" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80">
+        </div>
+      </div>
+      <div class="relative snap-always snap-start w-40 shrink-0 sm:w-auto">
+        <p class="absolute top-0 inset-x-0 -translate-y-8 font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">object-center</p>
+        <div class="group relative mx-auto w-20 h-20 rounded-lg">
+          <div class="relative z-10 w-full h-full rounded-md bg-center ring-1 ring-black/10 ring-inset shadow-lg" style="background-image:url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80)"></div>
+          <img class="absolute -top-6 -left-6 rounded-md overflow-hidden w-32 h-32 opacity-0 sm:group-hover:opacity-25 max-w-none" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80">
+        </div>
+      </div>
+      <div class="relative snap-always snap-start w-40 shrink-0 sm:w-auto">
+        <p class="absolute top-0 inset-x-0 -translate-y-8 font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">object-right</p>
+        <div class="group relative mx-auto w-20 h-20 rounded-lg">
+          <div class="relative z-10 w-full h-full rounded-md bg-right ring-1 ring-black/10 ring-inset shadow-lg" style="background-image:url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80)"></div>
+          <img class="absolute -top-6 right-0 rounded-md overflow-hidden w-32 h-32 opacity-0 sm:group-hover:opacity-25 max-w-none" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80">
+        </div>
+      </div>
+      <div class="relative snap-always snap-start w-40 shrink-0 sm:w-auto">
+        <p class="absolute top-0 inset-x-0 -translate-y-8 font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">object-left-bottom</p>
+        <div class="group relative mx-auto w-20 h-20 rounded-lg">
+          <div class="relative z-10 w-full h-full rounded-md bg-left-bottom ring-1 ring-black/10 ring-inset shadow-lg" style="background-image:url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80)"></div>
+          <img class="absolute -top-12 left-0 rounded-md overflow-hidden w-32 h-32 opacity-0 sm:group-hover:opacity-25 max-w-none" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80">
+        </div>
+      </div>
+      <div class="relative snap-always snap-start w-40 shrink-0 sm:w-auto">
+        <p class="absolute top-0 inset-x-0 -translate-y-8 font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">object-bottom</p>
+        <div class="group relative mx-auto w-20 h-20 rounded-lg">
+          <div class="relative z-10 w-full h-full rounded-md bg-bottom ring-1 ring-black/10 ring-inset shadow-lg" style="background-image:url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80)"></div>
+          <img class="absolute -top-12 -left-6 rounded-md overflow-hidden w-32 h-32 opacity-0 sm:group-hover:opacity-25 max-w-none" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80">
+        </div>
+      </div>
+      <div class="relative snap-always snap-start w-56 -mx-8 shrink-0 sm:w-auto">
+        <p class="absolute top-0 inset-x-0 -translate-y-8 font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">object-right-bottom</p>
+        <div class="group relative mx-auto w-20 h-20 rounded-lg">
+          <div class="relative z-10 w-full h-full rounded-md bg-right-bottom ring-1 ring-black/10 ring-inset shadow-lg" style="background-image:url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80)"></div>
+          <img class="absolute -top-12 right-0 rounded-md overflow-hidden w-32 h-32 opacity-0 sm:group-hover:opacity-25 max-w-none" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80">
+        </div>
+      </div>
+    </div>
+  </div>
+</Example>
+
+```html
+<img class="object-none **object-left-top** bg-yellow-300 w-24 h-24 ..." src="...">
+<img class="object-none **object-top** bg-yellow-300 w-24 h-24 ..." src="...">
+<img class="object-none **object-right-top** bg-yellow-300 w-24 h-24 ..." src="...">
+<img class="object-none **object-left** bg-yellow-300 w-24 h-24 ..." src="...">
+<img class="object-none **object-center** bg-yellow-300 w-24 h-24 ..." src="...">
+<img class="object-none **object-right** bg-yellow-300 w-24 h-24 ..." src="...">
+<img class="object-none **object-left-bottom** bg-yellow-300 w-24 h-24 ..." src="...">
+<img class="object-none **object-bottom** bg-yellow-300 w-24 h-24 ..." src="...">
+<img class="object-none **object-right-bottom** bg-yellow-300 w-24 h-24 ..." src="...">
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates featuredClass="object-top">
+
+```html
+<img class="object-center **hover:object-top**" src="...">
+```
+
+</HoverFocusAndOtherStates>
+
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries featuredClass="object-top">
+
+```html
+<img class="object-center **md:object-top**" src="...">
+```
+
+</BreakpointsAndMediaQueries>
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind provides nine object position utilities. You can customize these values by editing `theme.objectPosition` or `theme.extend.objectPosition` in your `tailwind.config.js` file.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       objectPosition: {
++         'center-bottom': 'center bottom',
++       }
+      },
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="object-position">
+
+```html
+<img class="**object-[center_bottom]**" src="...">
+```
+
+</ArbitraryValues>

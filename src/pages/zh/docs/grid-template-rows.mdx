@@ -1,0 +1,83 @@
+---
+title: "Grid Template Rows"
+description: "Utilities for specifying the rows in a grid layout."
+---
+
+import utilities from 'utilities?plugin=gridTemplateRows'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Specifying the rows in a grid
+
+Use the `grid-rows-{n}` utilities to create grids with _n_ equally sized rows.
+
+<Example>
+  <div class="grid grid-rows-4 grid-flow-col gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-pink rounded-lg">
+    <div class="p-4 rounded-lg shadow-lg bg-pink-500">01</div>
+    <div class="p-4 rounded-lg shadow-lg bg-pink-500">02</div>
+    <div class="p-4 rounded-lg shadow-lg bg-pink-500">03</div>
+    <div class="p-4 rounded-lg shadow-lg bg-pink-500">04</div>
+    <div class="p-4 rounded-lg shadow-lg bg-pink-500">05</div>
+    <div class="p-4 rounded-lg shadow-lg bg-pink-500">06</div>
+    <div class="p-4 rounded-lg shadow-lg bg-pink-500">07</div>
+    <div class="p-4 rounded-lg shadow-lg bg-pink-500">08</div>
+    <div class="p-4 rounded-lg shadow-lg bg-pink-500">09</div>
+  </div>
+</Example>
+
+```html
+<div class="grid **grid-rows-4** grid-flow-col gap-4">
+  <div>01</div>
+  <!-- ... -->
+  <div>09</div>
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="grid grid-rows-2" featuredClass="grid-rows-6" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="grid grid-rows-2" featuredClass="grid-rows-6" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind includes `grid-template-row` utilities for creating basic grids with up to 6 equal width rows. You can customize these values by editing `theme.gridTemplateRows` or `theme.extend.gridTemplateRows` in your `tailwind.config.js` file.
+
+You have direct access to the `grid-template-rows` CSS property here so you can make your custom rows values as generic or as complicated and site-specific as you like.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
+        gridTemplateRows: {
+          // Simple 8 row grid
++         '8': 'repeat(8, minmax(0, 1fr))',
+
+          // Complex site-specific row configuration
++         'layout': '200px minmax(900px, 1fr) 100px',
+        }
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="grid-template-rows" featuredClass="grid-rows-[200px_minmax(900px,_1fr)_100px]" />

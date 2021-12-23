@@ -1,0 +1,64 @@
+---
+title: "Visibility"
+description: "Utilities for controlling the visibility of an element."
+---
+
+import utilities from 'utilities?plugin=visibility'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Making elements invisible
+
+Use `invisible` to hide an element, but still maintain its place in the DOM, affecting the layout of other elements (compare with `.hidden` from the [display](/docs/display#hidden) documentation).
+
+<Example>
+  <div class="grid grid-cols-3 gap-4 font-mono text-white text-sm font-bold leading-6">
+    <div class="p-4 flex items-center justify-center bg-cyan-500 shadow-lg rounded-lg">01</div>
+    <div class="invisible p-4 flex items-center justify-center bg-cyan-500 shadow-lg rounded-lg">02</div>
+    <div class="p-4 flex items-center justify-center bg-cyan-500 shadow-lg rounded-lg">03</div>
+  </div>
+</Example>
+
+```html
+<div class="grid grid-cols-3 gap-4">
+  <div>01</div>
+  <div class="**invisible** ...">02</div>
+  <div>03</div>
+</div>
+```
+
+### Making elements visible
+
+Use `visible` to make an element visible. This is mostly useful for undoing the `invisible` utility at different screen sizes.
+
+<Example>
+  <div class="grid grid-cols-3 gap-4 font-mono text-white text-sm font-bold leading-6">
+    <div class="p-4 flex items-center justify-center bg-fuchsia-500 shadow-lg rounded-lg">01</div>
+    <div class="visible p-4 flex items-center justify-center bg-fuchsia-500 shadow-lg rounded-lg">02</div>
+    <div class="p-4 flex items-center justify-center bg-fuchsia-500 shadow-lg rounded-lg">03</div>
+  </div>
+</Example>
+
+```html
+<div class="grid grid-cols-3 gap-4">
+  <div>01</div>
+  <div class="**visible** ...">02</div>
+  <div>03</div>
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="visible" featuredClass="invisible" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="visible" featuredClass="invisible" />

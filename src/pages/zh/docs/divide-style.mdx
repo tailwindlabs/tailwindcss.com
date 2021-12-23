@@ -1,0 +1,51 @@
+---
+title: "Divide Style"
+description: "Utilities for controlling the border style between elements."
+---
+
+import utilities from 'utilities?plugin=divideStyle'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = {
+  utilities,
+  transformSelector: (selector) => (
+    <>
+      {selector.split('>').shift().trim().replace(/^\./, '').replace(/\\/g, '')} <span className="ml-1 text-purple-300">> * + *</span>
+    </>
+  ),
+}
+
+## Basic usage
+
+### Set the divide style
+
+Control the border style between elements using the `divide-{style}` utilities.
+
+<Example p="none">
+  <div class="grid grid-cols-1 divide-dashed divide-y font-mono text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto dark:divide-gray-700">
+    <div class="p-4 text-gray-400 bg-white dark:bg-gray-800">01</div>
+    <div class="p-4 text-gray-400 bg-white dark:bg-gray-800">02</div>
+    <div class="p-4 text-gray-400 bg-white dark:bg-gray-800">03</div>
+  </div>
+</Example>
+
+```html
+<div class="divide-y **divide-dashed**">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="divide-y divide-dashed" featuredClass="divide-solid" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="divide-y divide-dashed" featuredClass="divide-solid" />

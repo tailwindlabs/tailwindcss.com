@@ -1,0 +1,119 @@
+---
+title: "Object Fit"
+description: "Utilities for controlling how a replaced element's content should be resized."
+---
+
+import utilities from 'utilities?plugin=objectFit'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Resizing to cover a container
+
+Resize an element's content to cover its container using `.object-cover`.
+
+<Example>
+  <div class="text-center rounded-lg overflow-hidden w-56 sm:w-96 mx-auto">
+    <img class="object-cover h-48 w-full " src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&h=1280&q=80" />
+  </div>
+</Example>
+
+```html
+<div class="bg-indigo-300 ...">
+  <img class="**object-cover** h-48 w-96 ...">
+</div>
+```
+
+### Containing an element
+
+Resize an element's content to stay contained within its container using `.object-contain`.
+
+<Example>
+  <div class="relative rounded-lg text-center overflow-hidden w-56 sm:w-96 mx-auto">
+    <div class="absolute inset-0 opacity-50 bg-stripes-gray"></div>
+    <img class="relative z-10 object-contain h-48 w-full" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&h=1280&q=80" />
+  </div>
+</Example>
+
+```html
+<div class="bg-purple-300 ...">
+  <img class="**object-contain** h-48 w-96 ...">
+</div>
+```
+
+### Stretching to fit a container
+
+Stretch an element's content to fit its container using `.object-fill`.
+
+<Example>
+  <div class="bg-stripes-light-blue-blue rounded-lg text-center overflow-hidden w-56 sm:w-96 mx-auto">
+    <img class="object-fill h-48 w-full" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&h=1280&q=80" />
+  </div>
+</Example>
+
+```html
+<div class="bg-light-blue-300 ...">
+  <img class="**object-fill** h-48 w-96 ...">
+</div>
+```
+
+### Scaling down if too large
+
+Display an element's content at its original size but scale it down to fit its container if necessary using `.object-scale-down`.
+
+<Example>
+  <div class="relative rounded-lg text-center overflow-hidden w-56 sm:w-96 mx-auto">
+    <div class="absolute inset-0 opacity-50 bg-stripes-gray"></div>
+    <img class="relative z-10 object-scale-down h-48 w-full" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=160&q=80" />
+  </div>
+</Example>
+
+```html
+<div class="bg-cyan-300">
+  <img class="**object-scale-down** h-48 w-96 ...">
+</div>
+```
+
+### Using an element's original size
+
+Display an element's content at its original size ignoring the container size using `.object-none`.
+
+<Example>
+  <div class="relative rounded-lg text-center overflow-hidden w-56 sm:w-96 mx-auto">
+    <div class="absolute inset-0 opacity-50 bg-stripes-gray"></div>
+    <img class="relative z-10 object-none h-48 w-full" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&h=1280&q=80" />
+  </div>
+</Example>
+
+```html
+<div class="bg-yellow-300">
+  <img class="**object-none** h-48 w-96 ...">
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="object-contain" featuredClass="object-scale-down">
+
+```html
+<img class="object-contain **hover:object-scale-down**">
+```
+
+</HoverFocusAndOtherStates>
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="object-contain" featuredClass="object-scale-down">
+
+```html
+<img class="object-contain **md:object-scale-down**">
+```
+
+</BreakpointsAndMediaQueries>

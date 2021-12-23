@@ -1,0 +1,181 @@
+---
+title: "Align Content"
+description: "Utilities for controlling how rows are positioned in multi-row flex and grid containers."
+---
+
+import utilities from 'utilities?plugin=alignContent'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Start
+
+Use `content-start` to pack rows in a container against the start of the cross axis:
+
+<Example>
+  <div class="font-mono text-white text-sm font-bold leading-6">
+    <div class="grid grid-cols-3 gap-4 content-start w-full rounded-lg bg-stripes-purple text-center h-56">
+      <div class="p-4 shadow-lg rounded-lg bg-purple-500">01</div>
+      <div class="p-4 shadow-lg rounded-lg bg-purple-500">02</div>
+      <div class="p-4 shadow-lg rounded-lg bg-purple-500">03</div>
+      <div class="p-4 shadow-lg rounded-lg bg-purple-500">04</div>
+      <div class="p-4 shadow-lg rounded-lg bg-purple-500">05</div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="h-56 grid grid-cols-3 gap-4 **content-start** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+</div>
+```
+
+### Center
+
+Use `content-center` to pack rows in a container in the center of the cross axis:
+
+<Example>
+  <div class="font-mono text-white text-sm font-bold leading-6">
+    <div class="grid grid-cols-3 gap-4 content-center w-full rounded-lg bg-stripes-light-blue text-center h-56">
+      <div class="p-4 shadow-lg rounded-lg bg-light-blue-500">01</div>
+      <div class="p-4 shadow-lg rounded-lg bg-light-blue-500">02</div>
+      <div class="p-4 shadow-lg rounded-lg bg-light-blue-500">03</div>
+      <div class="p-4 shadow-lg rounded-lg bg-light-blue-500">04</div>
+      <div class="p-4 shadow-lg rounded-lg bg-light-blue-500">05</div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="h-56 grid grid-cols-3 gap-4 **content-center** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+</div>
+```
+
+### End
+
+Use `content-end` to pack rows in a container against the end of the cross axis:
+
+
+<Example>
+  <div class="font-mono text-white text-sm font-bold leading-6">
+    <div class="grid grid-cols-3 gap-4 content-end w-full rounded-lg bg-stripes-pink text-center h-56">
+      <div class="p-4 shadow-lg rounded-lg bg-pink-500">01</div>
+      <div class="p-4 shadow-lg rounded-lg bg-pink-500">02</div>
+      <div class="p-4 shadow-lg rounded-lg bg-pink-500">03</div>
+      <div class="p-4 shadow-lg rounded-lg bg-pink-500">04</div>
+      <div class="p-4 shadow-lg rounded-lg bg-pink-500">05</div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="h-56 grid grid-cols-3 gap-4 **content-end** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+</div>
+```
+
+### Space between
+
+Use `content-between` to distribute rows in a container such that there is an equal amount of space between each line:
+
+<Example>
+  <div class="font-mono text-white text-sm font-bold leading-6">
+    <div class="grid grid-cols-3 gap-4 content-between w-full rounded-lg bg-stripes-violet text-center h-56">
+      <div class="p-4 shadow-lg rounded-lg bg-violet-500">01</div>
+      <div class="p-4 shadow-lg rounded-lg bg-violet-500">02</div>
+      <div class="p-4 shadow-lg rounded-lg bg-violet-500">03</div>
+      <div class="p-4 shadow-lg rounded-lg bg-violet-500">04</div>
+      <div class="p-4 shadow-lg rounded-lg bg-violet-500">05</div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="h-56 grid grid-cols-3 gap-4 **content-between** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+</div>
+```
+
+### Space around
+
+Use `content-around` to distribute rows in a container such that there is an equal amount of space around each line:
+
+<Example>
+  <div class="font-mono text-white text-sm font-bold leading-6">
+    <div class="grid grid-cols-3 gap-x-4 content-around w-full rounded-lg bg-stripes-blue text-center h-56">
+      <div class="p-4 shadow-lg rounded-lg bg-blue-500">01</div>
+      <div class="p-4 shadow-lg rounded-lg bg-blue-500">02</div>
+      <div class="p-4 shadow-lg rounded-lg bg-blue-500">03</div>
+      <div class="p-4 shadow-lg rounded-lg bg-blue-500">04</div>
+      <div class="p-4 shadow-lg rounded-lg bg-blue-500">05</div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="h-56 grid grid-cols-3 gap-4 **content-around** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+</div>
+```
+
+### Space evenly
+
+Use `content-evenly` to distribute rows in a container such that there is an equal amount of space around each item, but also accounting for the doubling of space you would normally see between each item when using `content-around`:
+
+<Example>
+  <div class="font-mono text-white text-sm font-bold leading-6">
+    <div class="grid grid-cols-3 gap-x-4 content-evenly w-full rounded-lg bg-stripes-indigo text-center h-56">
+      <div class="p-4 shadow-lg rounded-lg bg-indigo-500">01</div>
+      <div class="p-4 shadow-lg rounded-lg bg-indigo-500">02</div>
+      <div class="p-4 shadow-lg rounded-lg bg-indigo-500">03</div>
+      <div class="p-4 shadow-lg rounded-lg bg-indigo-500">04</div>
+      <div class="p-4 shadow-lg rounded-lg bg-indigo-500">05</div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="h-56 grid grid-cols-3 gap-4 **content-evenly** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="content-start" featuredClass="content-around" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="content-start" featuredClass="content-around" />

@@ -1,0 +1,56 @@
+---
+title: "Appearance"
+description: "Utilities for suppressing native form control styling."
+---
+
+import utilities from 'utilities?plugin=appearance'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Removing default element appearance
+
+Use `appearance-none` to reset any browser specific styling on an element. This utility is often used when creating [custom form components](/docs/examples/forms).
+
+<Example>
+  <div class="max-w-sm mx-auto items-center">
+    <div class="flex my-6">
+      <select class="w-16">
+        <option>Yes</option>
+        <option>No</option>
+        <option>Maybe</option>
+      </select>
+      <div class="mx-6 text-gray-900 text-sm font-semibold dark:text-gray-200">
+        Default browser styles applied
+      </div>
+    </div>
+    <div class="flex my-6 items-center">
+      <select class="appearance-none w-16">
+        <option>Yes</option>
+        <option>No</option>
+        <option>Maybe</option>
+      </select>
+      <div class="mx-6 text-gray-900 text-sm font-semibold dark:text-gray-200">
+        Default styles removed
+      </div>
+    </div>
+  </div>
+</Example>
+
+```html
+<select>
+  <option>Yes</option>
+  <option>No</option>
+  <option>Maybe</option>
+</select>
+
+<select class="appearance-none">
+  <option>Yes</option>
+  <option>No</option>
+  <option>Maybe</option>
+</select>
+```

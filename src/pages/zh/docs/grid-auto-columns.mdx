@@ -1,0 +1,63 @@
+---
+title: "Grid Auto Columns"
+description: "Utilities for controlling the size of implicitly-created grid columns."
+---
+
+import utilities from 'utilities?plugin=gridAutoColumns'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Sizing implicitly-created grid columns
+
+Use the `auto-cols-{size}` utilities to control the size of implicitly-created grid columns.
+
+```html
+<div class="grid grid-flow-col **auto-cols-max**">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="grid grid-flow-col auto-cols-max" featuredClass="auto-cols-min" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="grid grid-flow-col auto-cols-max" featuredClass="auto-cols-min" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind includes four general purpose `grid-auto-columns` utilities. You can customize these values by editing `theme.gridAutoColumns` or `theme.extend.gridAutoColumns` in your `tailwind.config.js` file.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       gridAutoColumns: {
++         '2fr': 'minmax(0, 2fr)',
++       }
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="grid-auto-columns" featuredClass="auto-cols-[minmax(0,_2fr)]" />

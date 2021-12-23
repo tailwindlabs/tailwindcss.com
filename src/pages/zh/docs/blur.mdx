@@ -1,0 +1,118 @@
+---
+title: "Blur"
+description: "Utilities for applying blur filters to an element."
+---
+
+import utilities from 'utilities?plugin=blur'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { RemovingFilters } from '@/components/RemovingFilters'
+
+export const classes = {
+  utilities,
+  filterRules: ([utility]) => utility !== '.blur-0',
+  transformProperties: ({ properties }) => {
+    return {
+      filter: properties['--tw-blur'],
+    }
+  },
+}
+
+## Basic usage
+
+### Blurring elements
+
+Use the `blur-{amount?}` utilities to blur an element.
+
+<Example p="none">
+  <div class="flex sm:block overflow-scroll sm:overflow-visible scroll-p-8">
+    <div class="flex items-center justify-around gap-12 sm:gap-4 font-mono font-bold shrink-0 p-8">
+      <div class="flex flex-col items-center shrink-0">
+        <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">blur-none</p>
+        <div class="relative blur-none">
+          <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+          <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center shrink-0">
+        <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">blur-sm</p>
+        <div class="relative blur-sm">
+          <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+          <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center shrink-0">
+        <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">blur-lg</p>
+        <div class="relative blur-lg">
+          <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+          <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center shrink-0">
+        <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">blur-2xl</p>
+        <div class="relative blur-2xl">
+          <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+          <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="**blur-none** ...">
+  <!-- ... -->
+</div>
+<div class="**blur-sm** ...">
+  <!-- ... -->
+</div>
+<div class="**blur-lg** ...">
+  <!-- ... -->
+</div>
+<div class="**blur-2xl** ...">
+  <!-- ... -->
+</div>
+```
+
+### Removing filters
+
+<RemovingFilters defaultClass="blur-md invert brightness-150" />
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="blur" featuredClass="blur-lg" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="blur" featuredClass="blur-lg" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind includes a handful of general purpose `blur` utilities. You can customize these values by editing `theme.blur` or `theme.extend.blur` in your `tailwind.config.js` file.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       blur: {
++         xs: '2px',
++       }
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="blur" featuredClass="blur-[2px]" />

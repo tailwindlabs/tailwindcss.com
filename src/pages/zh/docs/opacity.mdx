@@ -1,0 +1,83 @@
+---
+title: "Opacity"
+description: "Utilities for controlling the opacity of an element."
+---
+
+import utilities from 'utilities?plugin=opacity'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Changing an element's opacity
+
+Control the opacity of an element using the `opacity-{amount}` utilities.
+
+<Example>
+  <div class="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16 text-white text-sm font-bold leading-6">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">opacity-100</p>
+      <button class="px-4 py-2 font-semibold text-sm bg-indigo-500 text-white rounded-md shadow-sm opacity-100">Button A</button>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">opacity-75</p>
+      <button class="px-4 py-2 font-semibold text-sm bg-indigo-500 text-white rounded-md shadow-sm opacity-75">Button B</button>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">opacity-50</p>
+      <button class="px-4 py-2 font-semibold text-sm bg-indigo-500 text-white rounded-md shadow-sm opacity-50">Button C</button>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">opacity-25</p>
+      <button class="px-4 py-2 font-semibold text-sm bg-indigo-500 text-white rounded-md shadow-sm opacity-25">Button D</button>
+    </div>
+  </div>
+</Example>
+
+```html
+<button class="bg-indigo-500 **opacity-100** ..."></button>
+<button class="bg-indigo-500 **opacity-75** ..."></button>
+<button class="bg-indigo-500 **opacity-50** ..."></button>
+<button class="bg-indigo-500 **opacity-25** ..."></button>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="opacity-50" featuredClass="opacity-100" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="opacity-50" featuredClass="opacity-100" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind provides several opacity utilities for general purpose use. You can customize these values by editing `theme.opacity` or `theme.extend.opacity` in your `tailwind.config.js` file.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       opacity: {
++         '67': '.67',
++       }
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="opacity" featuredClass="opacity-[.67]" />

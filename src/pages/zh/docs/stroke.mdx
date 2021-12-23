@@ -1,0 +1,58 @@
+---
+title: "Stroke"
+description: "Utilities for styling the stroke of SVG elements."
+---
+
+import utilities from 'utilities?plugin=stroke'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { CustomizePluginColors } from '@/components/CustomizePluginColors'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Setting the stroke color
+
+Use the `stroke-{color}` utilities to change the stroke color of an SVG.
+
+<Example>
+  <div class="flex items-center justify-center">
+    <svg class="stroke-cyan-500 h-10" viewBox="0 0 48 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 13C1 10.2386 3.23858 8 6 8H13.4914C14.3844 8 15.1691 7.40805 15.4144 6.54944L16.5856 2.45056C16.8309 1.59196 17.6156 1 18.5086 1H29.4914C30.3844 1 31.1691 1.59195 31.4144 2.45056L32.5856 6.54944C32.8309 7.40804 33.6156 8 34.5086 8H42C44.7614 8 47 10.2386 47 13V34C47 36.7614 44.7614 39 42 39H6C3.23858 39 1 36.7614 1 34V13Z" stroke-width="2"/> <circle cx="24" cy="23" r="9" stroke-width="2"/>
+    </svg>
+  </div>
+</Example>
+
+```html
+<svg class="**stroke-cyan-500** ...">
+  <!-- ... -->
+</svg>
+```
+
+This can be useful for styling icon sets like [Heroicons](https://heroicons.com).
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="stroke-cyan-500" featuredClass="stroke-cyan-700" element="svg" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="stroke-cyan-500" featuredClass="stroke-cyan-700" element="svg" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+<CustomizePluginColors name="stroke" configKey="stroke" />
+
+### Arbitrary values
+
+<ArbitraryValues property="stroke" featuredClass="stroke-[#243c5a]" element="svg" />

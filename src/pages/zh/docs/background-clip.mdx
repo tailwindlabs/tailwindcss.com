@@ -1,0 +1,71 @@
+---
+title: "Background Clip"
+description: "Utilities for controlling the bounding box of an element's background."
+---
+
+import utilities from 'utilities?plugin=backgroundClip'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Setting the background clip
+
+Use the `bg-clip-{keyword}` utilities to control the bounding box of an element's background.
+
+<Example>
+  <div class="flex flex-col sm:flex-row items-center justify-center space-y-10 sm:space-y-0 sm:space-x-10">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">bg-clip-border</p>
+      <div class="w-24 h-24 bg-clip-border p-3 rounded-lg shadow-lg bg-indigo-500 border-4 border-white/50 border-dashed font-mono font-extrabold text-sm text-white flex justify-center items-center"></div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">bg-clip-padding</p>
+      <div class="w-24 h-24 bg-clip-padding p-3 rounded-lg shadow-lg bg-indigo-500 border-4 border-indigo-500/50 border-dashed font-mono font-extrabold text-sm text-white flex justify-center items-center"></div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">bg-clip-content</p>
+      <div class="w-24 h-24 bg-clip-content p-3 rounded-lg bg-indigo-500 border-4 border-indigo-500/50 border-dashed font-mono font-extrabold text-sm text-white flex justify-center items-center"></div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="**bg-clip-border** p-6 bg-violet-600 border-4 border-violet-300 border-dashed"></div>
+<div class="**bg-clip-padding** p-6 bg-violet-600 border-4 border-violet-300 border-dashed"></div>
+<div class="**bg-clip-content** p-6 bg-violet-600 border-4 border-violet-300 border-dashed"></div>
+```
+
+### Cropping to text
+
+Use `bg-clip-text` to crop an element's background to match the shape of the text. Useful for effects where you want a background image to be visible through the text.
+
+<Example>
+  <div class="text-4xl sm:text-5xl font-extrabold leading-none tracking-tight text-center">
+    <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+      Hello world
+    </span>
+  </div>
+</Example>
+
+```html
+<div class="text-5xl font-extrabold ...">
+  <span class="**bg-clip-text** text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+    Hello world
+  </span>
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="bg-clip-border" featuredClass="bg-clip-padding" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="bg-clip-border" featuredClass="bg-clip-padding" />

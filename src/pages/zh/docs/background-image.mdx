@@ -1,0 +1,77 @@
+---
+title: "Background Image"
+description: "Utilities for controlling an element's background image."
+---
+
+import utilities from 'utilities?plugin=backgroundImage'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Linear gradients
+
+To give an element a linear gradient background, use one of the `bg-gradient-{direction}` utilities, in combination with the [gradient color stop](/docs/gradient-color-stops) utilities.
+
+<Example>
+  <div class="space-y-4">
+    <div class="h-14 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+    <div class="h-14 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-500"></div>
+    <div class="h-14 rounded-lg bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
+    <div class="h-14 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500"></div>
+  </div>
+</Example>
+
+```html
+<div class="h-14 **bg-gradient-to-r from-cyan-500 to-blue-500**"></div>
+<div class="h-14 **bg-gradient-to-r from-sky-500 to-indigo-500**"></div>
+<div class="h-14 **bg-gradient-to-r from-violet-500 to-fuchsia-500**"></div>
+<div class="h-14 **bg-gradient-to-r from-purple-500 to-pink-500**"></div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="bg-gradient-to-l" featuredClass="bg-gradient-to-r" />
+
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="bg-gradient-to-l" featuredClass="bg-gradient-to-r" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind includes background image utilities for creating linear gradient backgrounds in eight directions.
+
+You can add your own background images by editing the `theme.backgroundImage` section of your `tailwind.config.js` file:
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       backgroundImage: {
++         'hero-pattern': "url('/img/hero-pattern.svg')",
++         'footer-texture': "url('/img/footer-texture.png')",
++       }
+      }
+    }
+  }
+```
+
+These don't just have to be gradients — they can be any background images you need.
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="background-image" featuredClass="bg-[url('/img/hero-pattern.svg')]" />

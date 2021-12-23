@@ -1,0 +1,114 @@
+---
+title: "Divide Color"
+description: "Utilities for controlling the border color between elements."
+---
+
+import utilities from 'utilities?plugin=divideColor'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { CustomizePluginColors } from '@/components/CustomizePluginColors'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = {
+  utilities,
+  transformSelector: (selector) => (
+    <>
+      {selector.split('>').shift().trim().replace(/^\./, '').replace(/\\/g, '')} <span className="ml-1 text-purple-300">> * + *</span>
+    </>
+  ),
+  transformProperties: ({ selector, properties }) => {
+    delete properties['--tw-divide-opacity']
+    Object.keys(properties).forEach(key => {
+      properties[key] = properties[key].replace(' / var(--tw-divide-opacity)', '')
+    })
+    return properties
+  },
+  preview: (css, { className }) => (
+    <td className={`relative w-20 p-2 ${className}`}>
+      <div className="absolute inset-0 flex flex-col m-2">
+        <div className="flex-1" />
+        <div
+          className="flex-1 border-t"
+          style={{
+            borderColor: Array.isArray(css['border-color'])
+              ? css['border-color'][0].replace('var(--tw-divide-opacity)', '1')
+              : css['border-color'].replace('var(--tw-divide-opacity)', '1'),
+          }}
+        />
+      </div>
+    </td>
+  ),
+}
+
+## Basic usage
+
+### Setting the divide color
+
+Control the border color between elements using the `divide-{color}` utilities.
+
+<Example p="none">
+  <div class="grid grid-cols-1 divide-y divide-blue-200 font-mono text-white text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto">
+    <div class="p-4 text-blue-500 bg-white">01</div>
+    <div class="p-4 text-blue-500 bg-white">02</div>
+    <div class="p-4 text-blue-500 bg-white">03</div>
+  </div>
+</Example>
+
+
+```html
+<div class="**divide-y divide-blue-200**">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+### Changing the opacity
+
+Control the opacity of the divide color using the color opacity modifier.
+
+<Example p="none">
+  <div class="grid grid-cols-1 divide-y-4 divide-gray-400/25 font-mono text-white text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto">
+    <div class="p-4 text-gray-400 bg-white">01</div>
+    <div class="p-4 text-gray-400 bg-white">02</div>
+    <div class="p-4 text-gray-400 bg-white">03</div>
+  </div>
+</Example>
+
+```html
+<div class="divide-y-4 divide-gray-400**/25** ...">
+  <!-- ... -->
+</div>
+```
+
+You can use any value defined in your [opacity scale](/docs/opacity), or use arbitrary values if you need to deviate from your design tokens.
+
+```html
+<div class="divide-y-4 divide-gray-400**/[.24]** ...">
+  <!-- ... -->
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="divide-y divide-teal-400" featuredClass="divide-pink-400" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="divide-y divide-teal-400" featuredClass="divide-pink-400" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+<CustomizePluginColors name="divide" configKey="divideColor" />
+
+### Arbitrary values
+
+<ArbitraryValues property="divide-{color}" featuredClass="divide-[#243c5a]" />

@@ -1,0 +1,81 @@
+---
+title: "Order"
+description: "Utilities for controlling the order of flex and grid items."
+---
+
+import utilities from 'utilities?plugin=order'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Ordering flex and grid items
+
+Use `order-{order}` to render flex and grid items in a different order than they appear in the DOM.
+
+<Example>
+  <div class="flex justify-between font-mono text-white text-sm font-bold leading-6">
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg order-last">01</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">02</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">03</div>
+  </div>
+</Example>
+
+```html
+<div class="flex justify-between ...">
+  <div class="**order-last**">01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+### Using negative values
+
+To use a negative order value, prefix the class name with a dash to convert it to a negative value.
+
+```html
+<div class="**-order-1**">
+  <!-- ... -->
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="order-first" featuredClass="order-last" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="order-first" featuredClass="order-last" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind provides utilities for `order-first`, `order-last`, `order-none`, and an `order-{number}` utility for the numbers 1 through 12. You can customize these values by editing `theme.order` or `theme.extend.order` in your `tailwind.config.js` file.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       order: {
++         '13': '13'
++       }
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="order" featuredClass="order-[13]" />

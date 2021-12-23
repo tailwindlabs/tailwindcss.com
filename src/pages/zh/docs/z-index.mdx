@@ -1,0 +1,83 @@
+---
+title: "Z-Index"
+description: "Utilities for controlling the stack order of an element."
+---
+
+import utilities from 'utilities?plugin=zIndex'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Setting the z-index
+
+Control the stack order (or three-dimensional positioning) of an element in Tailwind, regardless of order it has been displayed, using the `z-{index}` utilities.
+
+<Example>
+  <div class="flex justify-center -space-x-3 font-mono text-white text-sm font-bold leading-6">
+    <div class="w-16 h-16 rounded-full flex items-center justify-center bg-pink-500 shadow-lg ring-2 ring-white z-40 dark:ring-gray-900">05</div>
+    <div class="w-16 h-16 rounded-full flex items-center justify-center bg-pink-500 shadow-lg ring-2 ring-white z-30 dark:ring-gray-900">04</div>
+    <div class="w-16 h-16 rounded-full flex items-center justify-center bg-pink-500 shadow-lg ring-2 ring-white z-20 dark:ring-gray-900">03</div>
+    <div class="w-16 h-16 rounded-full flex items-center justify-center bg-pink-500 shadow-lg ring-2 ring-white z-10 dark:ring-gray-900">02</div>
+    <div class="w-16 h-16 rounded-full flex items-center justify-center bg-pink-500 shadow-lg ring-2 ring-white z-0 dark:ring-gray-900">01</div>
+  </div>
+</Example>
+
+```html
+<div class="**z-40** ...">05</div>
+<div class="**z-30** ...">04</div>
+<div class="**z-20** ...">03</div>
+<div class="**z-10** ...">02</div>
+<div class="**z-0** ...">01</div>
+```
+
+### Using negative values
+
+To use a negative z-index value, prefix the class name with a dash to convert it to a negative value.
+
+```html
+<div class="**-z-50**">
+  <!-- ... -->
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="z-0" featuredClass="z-50" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="z-0" featuredClass="z-50" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind provides six numeric `z-index` utilities and an `auto` utility. You can customize these values by editing `theme.zIndex` or `theme.extend.zIndex` in your `tailwind.config.js` file.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       zIndex: {
++         '100': '100',
++       }
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="z-index" featuredClass="z-[100]" />

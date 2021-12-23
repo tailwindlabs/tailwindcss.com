@@ -1,0 +1,78 @@
+---
+title: "Word Break"
+description: "Utilities for controlling word breaks in an element."
+---
+
+import utilities from 'utilities?plugin=wordBreak'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Normal
+
+Use `break-normal` to only add line breaks at normal word break points.
+
+<Example p="none">
+  <div class="overflow-x-scroll sm:overflow-x-visible px-4">
+    <div class="mx-auto max-w-sm bg-white shadow-xl p-8 text-gray-500 dark:bg-gray-800 dark:text-gray-400">
+      <p class="break-normal">The longest word in any of the major English language dictionaries is
+      <span class="text-gray-900 font-medium dark:text-gray-200">pneumonoultramicroscopicsilicovolcanoconiosis,</span>
+      a word that refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it is the same as silicosis.</p>
+    </div>
+  </div>
+</Example>
+
+```html
+<p class="**break-normal** ...">...</p>
+```
+
+### Break Words
+
+Use `break-words` to add line breaks mid-word if needed.
+
+<Example p="none">
+  <div class="px-4">
+    <div class="mx-auto max-w-sm bg-white shadow-xl p-8 text-gray-500 dark:bg-gray-800 dark:text-gray-400">
+      <p class="break-words">The longest word in any of the major English language dictionaries is
+      <span class="text-gray-900 font-medium dark:text-gray-200">pneumonoultramicroscopicsilicovolcanoconiosis,</span>
+      a word that refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it is the same as silicosis.</p>
+    </div>
+  </div>
+</Example>
+
+```html
+<p class="**break-words** ...">...</p>
+```
+
+### Break All
+
+Use `break-all` to add line breaks whenever necessary, without trying to preserve whole words.
+
+<Example p="none">
+  <div class="px-4">
+    <div class="mx-auto max-w-sm bg-white shadow-xl p-8 text-gray-500 dark:bg-gray-800 dark:text-gray-400">
+      <p class="break-all">The longest word in any of the major English language dictionaries is
+      <span class="text-gray-900 font-medium dark:text-gray-200">pneumonoultramicroscopicsilicovolcanoconiosis,</span>
+      a word that refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it is the same as silicosis.</p>
+    </div>
+  </div>
+</Example>
+
+```html
+<p class="**break-all** ...">...</p>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="break-normal" featuredClass="break-all" element="p" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="break-normal" featuredClass="break-all" element="p" />

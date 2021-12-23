@@ -1,0 +1,76 @@
+---
+title: "Background Repeat"
+description: "Utilities for controlling the repetition of an element's background image."
+---
+
+import utilities from 'utilities?plugin=backgroundRepeat'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Repeat
+
+Use `bg-repeat` to repeat the background image both vertically and horizontally.
+
+<Example>
+  <div class="w-full mx-auto max-w-xl bg-white dark:bg-gray-800 dark:ring-1 dark:ring-gray-200/20 h-80 bg-repeat bg-center shadow-xl rounded-lg" style="background-image:url('/img/background-pattern.svg');">
+  </div>
+</Example>
+
+```html
+<div class="**bg-repeat** ..." style="background-image: url(...)"></div>
+```
+
+### No Repeat
+
+Use `bg-no-repeat` when you don't want to repeat the background image.
+
+<Example>
+  <div class="w-full mx-auto max-w-xl bg-white dark:bg-gray-800 dark:ring-1 dark:ring-gray-200/20 h-64 bg-no-repeat bg-center shadow-xl rounded-lg" style="background-image:url('/img/background-pattern.svg');">
+  </div>
+</Example>
+
+```html
+<div class="**bg-no-repeat** bg-center ..." style="background-image: url(...)"></div>
+```
+
+### Repeat Horizontally
+
+Use `bg-repeat-x` to repeat the background image only horizontally.
+
+<Example>
+  <div class="w-full mx-auto max-w-xl bg-white dark:bg-gray-800 dark:ring-1 dark:ring-gray-200/20 h-64 bg-repeat-x bg-center shadow-xl rounded-lg" style="background-image:url('/img/background-pattern.svg');">
+  </div>
+</Example>
+
+```html
+<div class="**bg-repeat-x** bg-center ..." style="background-image: url(...)"></div>
+```
+
+### Repeat Vertically
+
+Use `bg-repeat-y` to repeat the background image only vertically.
+
+<Example>
+  <div class="w-full mx-auto max-w-xl bg-white dark:bg-gray-800 dark:ring-1 dark:ring-gray-200/20 h-64 bg-repeat-y bg-center shadow-xl rounded-lg" style="background-image:url('/img/background-pattern.svg');">
+  </div>
+</Example>
+
+```html
+<div class="**bg-repeat-y** bg-center ..." style="background-image: url(...)"></div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="bg-repeat" featuredClass="bg-repeat-x" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="bg-repeat" featuredClass="bg-repeat-x" />

@@ -1,0 +1,102 @@
+---
+title: "Background Size"
+description: "Utilities for controlling the background size of an element's background image."
+---
+
+import utilities from 'utilities?plugin=backgroundSize'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Auto
+
+Use `bg-auto` to display the background image at its default size.
+
+<Example>
+  <div class="relative flex items-center justify-center h-48 rounded-lg w-56 sm:w-96 mx-auto overflow-hidden">
+    <div class="absolute inset-0 opacity-50 bg-stripes-gray"></div>
+    <div class="relative z-10 w-full h-full bg-auto bg-no-repeat bg-center bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=160&q=80)]">
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="**bg-auto** bg-no-repeat bg-center ..." style="background-image: url(...)"></div>
+```
+
+### Cover
+
+Use `bg-cover` to scale the background image until it fills the background layer.
+
+<Example>
+  <div class="relative flex items-center justify-center rounded-lg overflow-hidden w-56 sm:w-96 mx-auto">
+    <div class="absolute inset-0 opacity-50 bg-stripes-gray"></div>
+    <div class="relative z-10 w-full h-48 bg-cover bg-no-repeat bg-center bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&h=640&q=80)]">
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="**bg-cover** bg-center ..." style="background-image: url(...)"></div>
+```
+
+### Contain
+
+Use `bg-contain` to scale the background image to the outer edges without cropping or stretching.
+
+<Example>
+  <div class="relative flex items-center justify-center rounded-lg overflow-hidden w-56 sm:w-96 mx-auto">
+    <div class="absolute inset-0 opacity-50 bg-stripes-gray"></div>
+    <div class="relative z-10 w-full h-48 bg-contain bg-no-repeat bg-center sm:bg-top bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&h=640&q=80)]">
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="**bg-contain** bg-center ..." style="background-image: url(...)"></div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="bg-auto" featuredClass="bg-contain" />
+
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="bg-auto" featuredClass="bg-contain" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind provides utilities for `auto`, `cover`, and `contain` background sizes. You can change, add, or remove these by editing the `theme.backgroundSize` section of your config.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      backgroundSize: {
+        'auto': 'auto',
+        'cover': 'cover',
+        'contain': 'contain',
++       '50%': '50%',
++       '16': '4rem',
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="background-size" featuredClass="bg-[length:200px_100px]" />

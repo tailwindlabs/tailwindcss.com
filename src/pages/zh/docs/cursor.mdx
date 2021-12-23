@@ -1,0 +1,91 @@
+---
+title: "Cursor"
+description: "Utilities for controlling the cursor style when hovering over an element."
+---
+
+import utilities from 'utilities?plugin=cursor'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = {
+  utilities,
+  rowStyle: ({ css }) => css,
+  preview: (css, { className, utility }) => (
+    <td
+      className={`align-middle ${className}`}
+    >
+      <img className="w-6 h-6 mx-auto drop-shadow" src={`/img/cursors/${utility.substr(1)}.svg`} />
+    </td>
+  ),
+}
+
+## Basic Usage
+
+### Setting the cursor style
+
+Use the `cursor-{style}` to control which cursor is displayed when hovering over an element.
+
+<Example hint="Hover over each button to see the cursor change">
+  <div class="flex flex-col sm:flex-row gap-4 sm:gap-0 items-center justify-around">
+    <button type="button" class="w-full sm:w-auto py-2 px-3 bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-300 dark:disabled:bg-indigo-800 text-white dark:disabled:text-indigo-400 text-sm font-semibold rounded-md shadow focus:outline-none cursor-pointer" tabindex="-1">
+      Submit
+    </button>
+    <button type="button" class="w-full sm:w-auto py-2 px-3 bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-300 dark:disabled:bg-indigo-800 text-white dark:disabled:text-indigo-400 text-sm font-semibold rounded-md shadow focus:outline-none cursor-progress" tabindex="-1">
+      Saving...
+    </button>
+    <button type="button" class="w-full sm:w-auto py-2 px-3 bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-300 dark:disabled:bg-indigo-800 text-white dark:disabled:text-indigo-400 text-sm font-semibold rounded-md shadow focus:outline-none cursor-not-allowed" tabindex="-1" disabled>
+      Confirm
+    </button>
+  </div>
+</Example>
+
+```html
+<button type="button" class="**cursor-pointer** ...">
+  Submit
+</button>
+<button type="button" class="**cursor-progress** ...">
+  Saving...
+</button>
+<button type="button" disabled class="**cursor-not-allowed** ...">
+  Confirm
+</button>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="cursor-not-allowed" featuredClass="cursor-auto" variant="focus" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="cursor-not-allowed" featuredClass="cursor-auto" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind includes `cursor` utilities for many built in options. You can customize these values by editing `theme.cursor` or `theme.extend.cursor` in your `tailwind.config.js` file.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       cursor: {
++         'fancy': 'url(hand.cur), pointer',
++       }
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="cursor" featuredClass={'cursor-' + '[url(hand.cur),_pointer]'} />

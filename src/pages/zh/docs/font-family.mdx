@@ -1,0 +1,113 @@
+---
+title: "Font Family"
+description: "Utilities for controlling the font family of an element."
+---
+
+import utilities from 'utilities?plugin=fontFamily'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Setting the font family
+
+You can control the typeface of text using the font family utilities.
+
+<Example>
+  <div class="flex flex-col gap-8">
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">font-sans</span>
+      <p class="font-sans text-lg font-medium text-gray-900 dark:text-gray-200">
+        The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">font-serif</span>
+      <p class="font-serif text-lg font-medium text-gray-900 dark:text-gray-200">
+        The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">font-mono</span>
+      <p class="font-mono text-lg font-medium text-gray-900 dark:text-gray-200">
+        The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+  </div>
+</Example>
+
+```html
+<p class="**font-sans** ...">The quick brown fox ...</p>
+<p class="**font-serif** ...">The quick brown fox ...</p>
+<p class="**font-mono** ...">The quick brown fox ...</p>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="font-sans" featuredClass="font-serif" element="p" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="font-sans" featuredClass="font-serif" element="p" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind provides three font family utilities: a cross-browser sans-serif stack, a cross-browser serif stack, and a cross-browser monospaced stack. You can change, add, or remove these by editing the `theme.fontFamily` section of your Tailwind config.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      fontFamily: {
+-       'sans': ['ui-sans-serif', 'system-ui', ...],
+-       'serif': ['ui-serif', 'Georgia', ...],
+-       'mono': ['ui-monospace', 'SFMono-Regular', ...],
++       'display': ['Oswald', ...],
++       'body': ['"Open Sans"', ...],
+      }
+    }
+  }
+```
+
+Font families can be specified as an array or as a simple comma-delimited string:
+
+```js
+{
+  // Array format:
+  'sans': ['Helvetica', 'Arial', 'sans-serif'],
+
+  // Comma-delimited format:
+  'sans': 'Helvetica, Arial, sans-serif',
+}
+```
+
+Note that **Tailwind does not automatically escape font names** for you. If you're using a font that contains an invalid identifier, wrap it in quotes or escape the invalid characters.
+
+```js
+{
+  // Won't work:
+  'sans': ['Exo 2', ...],
+
+  // Add quotes:
+  'sans': ['"Exo 2"', ...],
+
+  // ...or escape the space:
+  'sans': ['Exo\\ 2', ...],
+}
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="font-family" featuredClass="font-['Open_Sans']" element="p" />

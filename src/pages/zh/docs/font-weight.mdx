@@ -1,0 +1,106 @@
+---
+title: "Font Weight"
+description: "Utilities for controlling the font weight of an element."
+---
+
+import utilities from 'utilities?plugin=fontWeight'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Setting the font weight
+
+Control the font weight of an element using the `font-{weight}` utilities.
+
+<Example>
+  <div class="flex flex-col gap-8">
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">font-light</span>
+      <p class="font-light text-lg text-gray-900 dark:text-gray-200">
+        The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">font-normal</span>
+      <p class="font-normal text-lg text-gray-900 dark:text-gray-200">
+        The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">font-medium</span>
+      <p class="font-medium text-lg text-gray-900 dark:text-gray-200">
+        The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">font-semibold</span>
+      <p class="font-semibold text-lg text-gray-900 dark:text-gray-200">
+        The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">font-bold</span>
+      <p class="font-bold text-lg text-gray-900 dark:text-gray-200">
+        The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+  </div>
+</Example>
+
+```html
+<p class="**font-light** ...">The quick brown fox ...</p>
+<p class="**font-normal** ...">The quick brown fox ...</p>
+<p class="**font-medium** ...">The quick brown fox ...</p>
+<p class="**font-semibold** ...">The quick brown fox ...</p>
+<p class="**font-bold** ...">The quick brown fox ...</p>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="font-normal" featuredClass="font-bold" element="p"  />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="font-normal" featuredClass="font-bold" element="p"  />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind provides 10 `font-weight` utilities. You change, add, or remove these by editing the `theme.fontWeight` section of your Tailwind config.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      fontWeight: {
+-       hairline: 100,
++       'extra-light': 100,
+-       thin: 200,
+        light: 300,
+        normal: 400,
+        medium: 500,
+-       semibold: 600,
+        bold: 700,
+-       extrabold: 800,
++       'extra-bold': 800,
+        black: 900,
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="font-weight" featuredClass="font-[1100]" element="p"  />

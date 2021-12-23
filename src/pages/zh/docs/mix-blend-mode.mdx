@@ -1,0 +1,42 @@
+---
+title: "Mix Blend Mode"
+description: "Utilities for controlling how an element should blend with the background."
+---
+
+import utilities from 'utilities?plugin=mixBlendMode'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Setting an element's blend mode
+
+Use the `mix-blend-{mode}` utilities to control how an element's content should be blended with the background.
+
+<Example>
+  <div class="flex justify-center -space-x-14">
+    <div class="w-32 h-32 mix-blend-multiply bg-blue-400 rounded-full"></div>
+    <div class="w-32 h-32 mix-blend-multiply bg-pink-400 rounded-full"></div>
+  </div>
+</Example>
+
+```html
+<div class="flex justify-center -space-x-14">
+  <div class="**mix-blend-multiply** bg-blue-400 ..."></div>
+  <div class="**mix-blend-multiply** bg-pink-400 ..."></div>
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="mix-blend-multiply" featuredClass="mix-blend-overlay" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="mix-blend-multiply" featuredClass="mix-blend-overlay" />

@@ -1,0 +1,164 @@
+---
+title: "Justify Items"
+description: "Utilities for controlling how grid items are aligned along their inline axis."
+---
+
+import utilities from 'utilities?plugin=justifyItems'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Start
+
+Use `justify-items-start` to justify grid items against the start of their inline axis:
+
+<Example>
+  <div class="grid grid-cols-3 gap-4 font-mono text-white text-sm font-bold leading-6">
+    <div class="bg-stripes-light-blue grid rounded-lg justify-items-start">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">01</div>
+    </div>
+    <div class="bg-stripes-light-blue grid rounded-lg justify-items-start">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">02</div>
+    </div>
+    <div class="bg-stripes-light-blue grid rounded-lg justify-items-start">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">03</div>
+    </div>
+    <div class="bg-stripes-light-blue grid rounded-lg justify-items-start">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">04</div>
+    </div>
+    <div class="bg-stripes-light-blue grid rounded-lg justify-items-start">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">05</div>
+    </div>
+    <div class="bg-stripes-light-blue grid rounded-lg justify-items-start">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">06</div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="grid **justify-items-start** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
+</div>
+```
+
+### End
+
+Use `justify-items-end` to justify grid items against the end of their inline axis:
+
+<Example>
+  <div class="grid grid-cols-3 gap-4 font-mono text-white text-sm font-bold leading-6">
+    <div class="bg-stripes-cyan grid rounded-lg justify-items-end">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-cyan-500 shadow-lg">01</div>
+    </div>
+    <div class="bg-stripes-cyan grid rounded-lg justify-items-end">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-cyan-500 shadow-lg">02</div>
+    </div>
+    <div class="bg-stripes-cyan grid rounded-lg justify-items-end">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-cyan-500 shadow-lg">03</div>
+    </div>
+    <div class="bg-stripes-cyan grid rounded-lg justify-items-end">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-cyan-500 shadow-lg">04</div>
+    </div>
+    <div class="bg-stripes-cyan grid rounded-lg justify-items-end">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-cyan-500 shadow-lg">05</div>
+    </div>
+    <div class="bg-stripes-cyan grid rounded-lg justify-items-end">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-cyan-500 shadow-lg">06</div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="grid **justify-items-end** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
+</div>
+```
+
+### Center
+
+Use `justify-items-center` to justify grid items along their inline axis:
+
+<Example>
+  <div class="grid grid-cols-3 gap-4 font-mono text-white text-sm font-bold leading-6">
+    <div class="bg-stripes-fuchsia grid rounded-lg justify-items-center">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">01</div>
+    </div>
+    <div class="bg-stripes-fuchsia grid rounded-lg justify-items-center">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">02</div>
+    </div>
+    <div class="bg-stripes-fuchsia grid rounded-lg justify-items-center">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">03</div>
+    </div>
+    <div class="bg-stripes-fuchsia grid rounded-lg justify-items-center">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">04</div>
+    </div>
+    <div class="bg-stripes-fuchsia grid rounded-lg justify-items-center">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">05</div>
+    </div>
+    <div class="bg-stripes-fuchsia grid rounded-lg justify-items-center">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">06</div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="grid **justify-items-center** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
+</div>
+```
+
+### Stretch
+
+Use `justify-items-stretch` to stretch items along their inline axis:
+
+<Example>
+  <div class="grid grid-cols-3 gap-4 justify-items-stretch font-mono text-white text-sm font-bold leading-6">
+    <div class="h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">01</div>
+    <div class="h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">02</div>
+    <div class="h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">03</div>
+    <div class="h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">04</div>
+    <div class="h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">05</div>
+    <div class="h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">06</div>
+  </div>
+</Example>
+
+```html
+<div class="grid **justify-items-stretch** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="justify-items-start" featuredClass="justify-items-center" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="justify-items-start" featuredClass="justify-items-center" />

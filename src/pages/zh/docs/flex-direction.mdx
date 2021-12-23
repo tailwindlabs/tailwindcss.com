@@ -1,0 +1,104 @@
+---
+title: "Flex Direction"
+description: "Utilities for controlling the direction of flex items."
+---
+
+import utilities from 'utilities?plugin=flexDirection'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Row
+
+Use `flex-row` to position flex items horizontally in the same direction as text:
+
+<Example>
+  <div class="flex flex-row space-x-4 font-mono text-white text-sm font-bold leading-6">
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">01</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">02</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">03</div>
+  </div>
+</Example>
+
+```html
+<div class="flex **flex-row** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+### Row reversed
+
+Use `flex-row-reverse` to position flex items horizontally in the opposite direction:
+
+<Example>
+  <div class="flex flex-row-reverse space-x-reverse space-x-4 font-mono text-white text-sm font-bold leading-6">
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">01</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">02</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">03</div>
+  </div>
+</Example>
+
+```html
+<div class="flex **flex-row-reverse** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+### Column
+
+Use `flex-col` to position flex items vertically:
+
+<Example>
+  <div class="flex flex-col mx-auto space-y-4 font-mono text-white text-sm font-bold leading-6 max-w-xs">
+    <div class="p-4 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">01</div>
+    <div class="p-4 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">02</div>
+    <div class="p-4 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">03</div>
+  </div>
+</Example>
+
+```html
+<div class="flex **flex-col** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+### Column reversed
+
+Use `flex-col-reverse` to position flex items vertically in the opposite direction:
+
+<Example>
+  <div class="flex flex-col-reverse mx-auto space-y-reverse space-y-4 font-mono text-white text-sm font-bold leading-6 max-w-xs">
+    <div class="p-4 rounded-lg flex items-center justify-center bg-purple-500 shadow-lg">01</div>
+    <div class="p-4 rounded-lg flex items-center justify-center bg-purple-500 shadow-lg">02</div>
+    <div class="p-4 rounded-lg flex items-center justify-center bg-purple-500 shadow-lg">03</div>
+  </div>
+</Example>
+
+```html
+<div class="flex **flex-col-reverse** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="flex flex-col" featuredClass="flex-row" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="flex flex-col" featuredClass="flex-row" />

@@ -1,0 +1,63 @@
+---
+title: "List Style Position"
+description: "Utilities for controlling the position of bullets/numbers in lists."
+---
+
+import utilities from 'utilities?plugin=listStylePosition'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Setting the list style position
+
+Control the position of the markers and text indentation in a list using the `list-inside` and `list-outside` utilities.
+
+<Example>
+  <div class="flex flex-col sm:flex-row gap-8">
+    <div class="relative">
+      <div class="absolute left-8 -top-8 -bottom-8 w-px bg-pink-400/40 dark:bg-rose-400/20"></div>
+      <p class="font-medium text-sm text-gray-500 font-mono mb-3 ml-8 dark:text-gray-400">list-inside</p>
+      <ul class="list-disc list-inside text-normal text-gray-700 bg-white rounded-xl shadow-lg ring-1 ring-gray-900/5 p-4 pl-8 dark:bg-gray-800 dark:ring-0 dark:highlight-white/5 dark:text-gray-400">
+        <li>5 cups chopped Porcini mushrooms</li>
+        <li>1/2 cup of olive oil</li>
+        <li>3lb of celery</li>
+      </ul>
+    </div>
+    <div class="relative">
+      <div class="absolute left-8 -top-0 sm:-top-8 -bottom-8 w-px bg-pink-400/40 dark:bg-rose-400/20"></div>
+      <p class="font-medium text-sm text-gray-500 font-mono mb-3 ml-8 dark:text-gray-400">list-outside</p>
+      <ul class="list-disc list-outside text-normal text-gray-700 bg-white rounded-xl shadow-lg ring-1 ring-gray-900/5 p-4 pl-8 dark:bg-gray-800 dark:ring-0 dark:highlight-white/5 dark:text-gray-400">
+        <li>5 cups chopped Porcini mushrooms</li>
+        <li>1/2 cup of olive oil</li>
+        <li>3lb of celery</li>
+      </ul>
+    </div>
+  </div>
+</Example>
+
+```html
+<ul class="list-inside ...">
+  <li>5 cups chopped Porcini mushrooms</li>
+  <!-- ... -->
+</ul>
+
+<ul class="list-outside ...">
+  <li>5 cups chopped Porcini mushrooms</li>
+  <!-- ... -->
+</ul>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="list-outside" featuredClass="list-inside" element="ul" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="list-outside" featuredClass="list-inside" element="ul" />

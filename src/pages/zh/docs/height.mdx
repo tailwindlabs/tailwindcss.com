@@ -1,0 +1,147 @@
+---
+title: "Height"
+description: "Utilities for setting the height of an element."
+---
+
+import utilities from 'utilities?plugin=height'
+import { numbersFirst } from '@/utils/sortClasses'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = {
+  utilities,
+  sort: numbersFirst,
+}
+
+## Basic usage
+
+### Fixed heights
+
+Use `h-{number}` or `h-px` to set an element to a fixed height.
+
+<Example>
+  <div class="flex justify-center items-end space-x-4 font-mono font-bold text-xs text-center text-white">
+    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-96 relative">
+      <div class="absolute w-8 bottom-6">
+        <div class="-rotate-90">h-96</div>
+      </div>
+    </div>
+    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-80 relative">
+      <div class="absolute w-8 bottom-6">
+        <div class="-rotate-90">h-80</div>
+      </div>
+    </div>
+    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-64 relative">
+      <div class="absolute w-8 bottom-6">
+        <div class="-rotate-90">h-64</div>
+      </div>
+    </div>
+    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-48 relative">
+      <div class="absolute w-8 bottom-6">
+        <div class="-rotate-90">h-48</div>
+      </div>
+    </div>
+    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-40 relative">
+      <div class="absolute w-8 bottom-6">
+        <div class="-rotate-90">h-40</div>
+      </div>
+    </div>
+    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-32 relative">
+      <div class="absolute w-8 bottom-6">
+        <div class="-rotate-90">h-32</div>
+      </div>
+    </div>
+    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-24 relative">
+      <div class="absolute w-8 bottom-6">
+        <div class="-rotate-90">h-24</div>
+      </div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="**h-96** ...">h-96</div>
+<div class="**h-80** ...">h-80</div>
+<div class="**h-64** ...">h-64</div>
+<div class="**h-48** ...">h-48</div>
+<div class="**h-40** ...">h-40</div>
+<div class="**h-32** ...">h-32</div>
+<div class="**h-24** ...">h-24</div>
+```
+
+### Full height
+
+Use `h-full` to set an element's height to 100% of its parent, as long as the parent has a defined height.
+
+```html
+<div class="h-48">
+  <div class="**h-full** ...">
+    <!-- This element will have a height of `12rem` (h-48) -->
+  </div>
+</div>
+```
+
+### Viewport height
+
+Use `h-screen` to make an element span the entire height of the viewport.
+
+```html
+<div class="**h-screen**">
+  <!-- ... -->
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="h-8" featuredClass="h-full" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="h-8" featuredClass="h-full" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind's height scale is a combination of the [default spacing scale](/docs/customizing-spacing#default-spacing-scale) as well as some additional values specific to heights.
+
+You can customize your spacing scale by editing `theme.spacing` or `theme.extend.spacing` in your `tailwind.config.js` file.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       spacing: {
++         '128': '32rem',
++       }
+      }
+    }
+  }
+```
+
+To customize height separately, use the `theme.height` section of your `tailwind.config.js` file.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       height: {
++         '128': '32rem',
++       }
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="height" featuredClass="h-[32rem]" />

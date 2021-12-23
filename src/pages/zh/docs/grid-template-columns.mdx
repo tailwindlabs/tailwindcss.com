@@ -1,0 +1,83 @@
+---
+title: "Grid Template Columns"
+description: "Utilities for specifying the columns in a grid layout."
+---
+
+import utilities from 'utilities?plugin=gridTemplateColumns'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Specifying the columns in a grid
+
+Use the `grid-cols-{n}` utilities to create grids with _n_ equally sized columns.
+
+<Example>
+  <div class="grid grid-cols-4 gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-fuchsia rounded-lg">
+    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">01</div>
+    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">02</div>
+    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">03</div>
+    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">04</div>
+    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">05</div>
+    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">06</div>
+    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">07</div>
+    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">08</div>
+    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">09</div>
+  </div>
+</Example>
+
+```html
+<div class="grid **grid-cols-4** gap-4">
+  <div>01</div>
+  <!-- ... -->
+  <div>09</div>
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="grid grid-cols-1" featuredClass="grid-cols-6" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="grid grid-cols-1" featuredClass="grid-cols-6" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind includes `grid-template-column` utilities for creating basic grids with up to 12 equal width columns. You can customize these values by editing `theme.gridTemplateColumns` or `theme.extend.gridTemplateColumns` in your `tailwind.config.js` file.
+
+You have direct access to the `grid-template-columns` CSS property here so you can make your custom column values as generic or as complicated and site-specific as you like.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
+        gridTemplateColumns: {
+          // Simple 16 column grid
++         '16': 'repeat(16, minmax(0, 1fr))',
+
+          // Complex site-specific column configuration
++         'footer': '200px minmax(900px, 1fr) 100px',
+        }
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="grid-template-columns" featuredClass="grid-cols-[200px_minmax(900px,_1fr)_100px]" />

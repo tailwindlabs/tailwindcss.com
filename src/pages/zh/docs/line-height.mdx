@@ -1,0 +1,140 @@
+---
+title: "Line Height"
+description: "Utilities for controlling the leading (line height) of an element."
+---
+
+import utilities from 'utilities?plugin=lineHeight'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Relative line-heights
+
+Use the `leading-none`, `leading-tight`, `leading-snug`, `leading-normal`, `leading-relaxed`, and `leading-loose` utilities to give an element a relative line-height based on its current font-size.
+
+<Example>
+  <div class="flex flex-col gap-8">
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">leading-normal</span>
+      <p class="leading-normal text-normal text-gray-900 dark:text-gray-200">
+        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">leading-relaxed</span>
+      <p class="leading-relaxed text-normal text-gray-900 dark:text-gray-200">
+        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">leading-loose</span>
+      <p class="leading-loose text-normal text-gray-900 dark:text-gray-200">
+        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+      </p>
+    </div>
+  </div>
+</Example>
+
+```html
+<p class="**leading-normal** ...">So I started to walk into the water...</p>
+<p class="**leading-relaxed** ...">So I started to walk into the water...</p>
+<p class="**leading-loose** ...">So I started to walk into the water...</p>
+```
+
+### Fixed line-heights
+
+Use the `leading-{size}` utilities to give an element a fixed line-height, irrespective of the current font-size. These are useful when you need very precise control over an element's final size.
+
+<Example>
+  <div class="flex flex-col gap-8">
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">leading-6</span>
+      <p class="leading-6 text-normal text-gray-900 dark:text-gray-200">
+        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">leading-7</span>
+      <p class="leading-7 text-normal text-gray-900 dark:text-gray-200">
+        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">leading-8</span>
+      <p class="leading-8 text-normal text-gray-900 dark:text-gray-200">
+        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+      </p>
+    </div>
+  </div>
+</Example>
+
+```html
+<p class="**leading-6** ...">So I started to walk into the water...</p>
+<p class="**leading-7** ...">So I started to walk into the water...</p>
+<p class="**leading-8** ...">So I started to walk into the water...</p>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="leading-none" featuredClass="leading-loose" element="p"  />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="leading-none" featuredClass="leading-loose" element="p"  />
+
+### Overriding default line-heights
+
+It's important to note that by default, Tailwind's [font-size](/docs/font-size) utilities each set their own default line-height. This means that any time you use a responsive font-size utility like `sm:text-xl`, any explicit line-height you have set for a smaller breakpoint will be overridden.
+
+```html
+<!-- The `leading-loose` class will be overridden at the `md` breakpoint -->
+<p class="text-lg leading-loose md:text-xl">
+  Maybe we can live without libraries...
+</p>
+```
+
+If you want to override the default line-height after setting a breakpoint-specific font-size, make sure to set a breakpoint-specific line-height as well:
+
+```html
+<!-- The `leading-loose` class will be overridden at the `md` breakpoint -->
+<p class="text-lg leading-loose md:text-xl md:leading-loose">
+  Maybe we can live without libraries...
+</p>
+```
+
+Using the same line-height across different font sizes is generally not going to give you good typographic results. Line-height should typically get smaller as font-size increases, so the default behavior here usually saves you a ton of work. If you find yourself fighting it, you can always [customize your font-size scale](https://tailwindcss.com/docs/font-size#customizing) to not include default line-heights.
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind provides six relative and eight fixed `line-height` utilities. You change, add, or remove these by customizing the `lineHeight` section of your Tailwind theme config.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       lineHeight: {
++         'extra-loose': '2.5',
++         '12': '3rem',
++       }
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="line-height" featuredClass="leading-[3rem]" element="p" />

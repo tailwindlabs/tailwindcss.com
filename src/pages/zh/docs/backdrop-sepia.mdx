@@ -1,0 +1,100 @@
+---
+title: "Backdrop Sepia"
+description: "Utilities for applying backdrop sepia filters to an element."
+---
+
+import utilities from 'utilities?plugin=backdropSepia'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { RemovingBackdropFilters } from '@/components/RemovingBackdropFilters'
+
+export const classes = {
+  utilities,
+  transformProperties: ({ properties }) => {
+    return {
+      'backdrop-filter': properties['--tw-backdrop-sepia'],
+    }
+  },
+}
+
+## Basic usage
+
+### Adding backdrop sepia filters
+
+Use the `backdrop-sepia` and `backdrop-sepia-0` utilities to control whether an element's backdrop should be rendered as sepia or in full color.
+
+<Example p="none">
+  <div class="flex justify-start sm:block overflow-scroll sm:overflow-visible scroll-p-8">
+  <div class="flex items-center justify-around gap-6 sm:gap-4 font-mono font-bold shrink-0 p-8">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">backdrop-sepia-0</p>
+      <div class="relative">
+        <div class="absolute inset-6 backdrop-sepia-0 h-20 w-20 bg-white/30"></div>
+        <img class="w-32 h-32 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">backdrop-sepia</p>
+      <div class="relative">
+        <div class="absolute inset-6 backdrop-sepia h-20 w-20 bg-white/30"></div>
+        <img class="w-32 h-32 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+</Example>
+
+```html
+<div class="**backdrop-sepia-0** bg-white/30 ...">
+  <!-- ... -->
+</div>
+<div class="**backdrop-sepia** bg-white/30 ...">
+  <!-- ... -->
+</div>
+```
+
+### Removing backdrop filters
+
+<RemovingBackdropFilters defaultClass="backdrop-blur-md backdrop-sepia" />
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="backdrop-sepia" featuredClass="backdrop-sepia-0" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="backdrop-sepia" featuredClass="backdrop-sepia-0" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind includes a handful of general purpose `backdrop-sepia` utilities. You can customize these values by editing `theme.backdropSepia` or `theme.extend.backdropSepia` in your `tailwind.config.js` file.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       backdropSepia: {
++         25: '.25',
++         75: '.75',
++       }
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="backdrop-sepia" featuredClass="backdrop-sepia-[.25]" />

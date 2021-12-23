@@ -1,0 +1,38 @@
+---
+title: Optimizing for Production
+description: Getting the most performance out of Tailwind CSS projects.
+---
+
+import { Heading } from '@/components/Heading'
+import { TipGood, TipBad } from '@/components/Tip'
+import { SnippetGroup } from '@/components/SnippetGroup'
+import stats from '@/utils/stats'
+import { Performance } from '@/components/home/Performance'
+
+Tailwind CSS is incredibly performance focused and aims to produce the smallest CSS file possible by only generating the CSS you are _actually using_ in your project.
+
+Combined with minification and network compression, this usually leads to CSS files that are less than 10kB, even for large projects. For example, Netflix uses Tailwind for [Netflix Top 10](https://top10.netflix.com/) and the entire website delivers only 6.5kB of CSS over the network.
+
+With CSS files this small, you don't have to worry about complex solutions like code-splitting your CSS for each page, and can instead just ship a single small CSS file that's downloaded once and cached until you redeploy your site.
+
+For the smallest possible production build, we recommend minifying your CSS with a tool like [cssnano](https://cssnano.co/), and compressing your CSS with [Brotli](https://en.wikipedia.org/wiki/Brotli).
+
+If you're using Tailwind CLI, you can minify your CSS by adding the `--minify` flag:
+
+```shell
+npx tailwindcss -o build.css --minify
+```
+
+If you've installed Tailwind as a PostCSS plugin, add `cssnano` to the end of your plugin list:
+
+```js postcss.config.js
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+    ...(NODE_ENV === 'production' ? { cssnano: {} } : {})
+  }
+}
+```
+
+If you're using a framework, check the documentation as this is often handled for you in production automatically and you don't even need to configure it.

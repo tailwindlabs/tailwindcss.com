@@ -1,0 +1,160 @@
+---
+title: "Place Self"
+description: "Utilities for controlling how an individual item is justified and aligned at the same time."
+---
+
+import utilities from 'utilities?plugin=placeSelf'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Auto
+
+Use `place-self-auto` to align an item based on the value of the container's `place-items` property:
+
+<Example>
+  <div class="grid grid-cols-3 gap-4 place-iems-stretch font-mono text-white text-sm font-bold leading-6">
+    <div class="p-8 rounded-lg flex items-center justify-center bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">01</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg palce-self-auto">02</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">03</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">04</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">05</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">06</div>
+  </div>
+</Example>
+
+```html
+<div class="grid grid-cols-3 gap-4 ...">
+  <div>01</div>
+  <div class="**place-self-auto** ...">02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
+</div>
+```
+
+### Start
+
+Use `place-self-start` to align an item to the start on both axes:
+
+<Example>
+  <div class="grid grid-cols-3 gap-4 place-iems-stretch font-mono text-white text-sm font-bold leading-6">
+    <div class="p-8 rounded-lg flex items-center justify-center bg-purple-300 dark:bg-purple-800 dark:text-purple-400">01</div>
+    <div class="bg-stripes-purple rounded-lg grid">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-purple-500 shadow-lg place-self-start">02</div>
+    </div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-purple-300 dark:bg-purple-800 dark:text-purple-400">03</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-purple-300 dark:bg-purple-800 dark:text-purple-400">04</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-purple-300 dark:bg-purple-800 dark:text-purple-400">05</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-purple-300 dark:bg-purple-800 dark:text-purple-400">06</div>
+  </div>
+</Example>
+
+```html
+<div class="grid grid-cols-3 gap-4 ...">
+  <div>01</div>
+  <div class="**place-self-start** ...">02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
+</div>
+```
+
+### Center
+
+Use `place-self-center` to align an item at the center on both axes:
+
+<Example>
+  <div class="grid grid-cols-3 gap-4 place-iems-stretch font-mono text-white text-sm font-bold leading-6">
+    <div class="p-8 rounded-lg flex items-center justify-center bg-light-blue-300 dark:bg-light-blue-800 dark:text-light-blue-500">01</div>
+    <div class="bg-stripes-light-blue rounded-lg grid">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg place-self-center">02</div>
+    </div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-light-blue-300 dark:bg-light-blue-800 dark:text-light-blue-500">03</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-light-blue-300 dark:bg-light-blue-800 dark:text-light-blue-500">04</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-light-blue-300 dark:bg-light-blue-800 dark:text-light-blue-500">05</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-light-blue-300 dark:bg-light-blue-800 dark:text-light-blue-500">06</div>
+  </div>
+</Example>
+
+```html
+<div class="grid grid-cols-3 gap-4 ...">
+  <div>01</div>
+  <div class="**place-self-center** ...">02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
+</div>
+```
+
+### End
+
+Use `place-self-end` to align an item to the end on both axes:
+
+<Example>
+  <div class="grid grid-cols-3 gap-4 place-iems-stretch font-mono text-white text-sm font-bold leading-6">
+    <div class="p-8 rounded-lg flex items-center justify-center bg-pink-300 dark:bg-pink-800 dark:text-pink-400">01</div>
+    <div class="bg-stripes-pink rounded-lg grid">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-pink-500 shadow-lg place-self-end">02</div>
+    </div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-pink-300 dark:bg-pink-800 dark:text-pink-400">03</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-pink-300 dark:bg-pink-800 dark:text-pink-400">04</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-pink-300 dark:bg-pink-800 dark:text-pink-400">05</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-pink-300 dark:bg-pink-800 dark:text-pink-400">06</div>
+  </div>
+</Example>
+
+```html
+<div class="grid grid-cols-3 gap-4 ...">
+  <div>01</div>
+  <div class="**place-self-end** ...">02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
+</div>
+```
+
+### Stretch
+
+Use `place-self-stretch` to stretch an item on both axes:
+
+<Example>
+  <div class="grid grid-cols-3 gap-4 place-iems-stretch font-mono text-white text-sm font-bold leading-6">
+    <div class="p-8 rounded-lg flex items-center justify-center bg-fuchsia-300 dark:bg-fuchsia-800 dark:text-fuchsia-400">01</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg place-self-stretch">02</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-fuchsia-300 dark:bg-fuchsia-800 dark:text-fuchsia-400">03</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-fuchsia-300 dark:bg-fuchsia-800 dark:text-fuchsia-400">04</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-fuchsia-300 dark:bg-fuchsia-800 dark:text-fuchsia-400">05</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-fuchsia-300 dark:bg-fuchsia-800 dark:text-fuchsia-400">06</div>
+  </div>
+</Example>
+
+```html
+<div class="grid grid-cols-3 gap-2 ...">
+  <div>01</div>
+  <div class="**place-self-stretch** ...">02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="place-self-start" featuredClass="place-self-end" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="place-self-start" featuredClass="place-self-end" />

@@ -1,0 +1,144 @@
+---
+title: "Justify Content"
+description: "Utilities for controlling how flex and grid items are positioned along a container's main axis."
+---
+
+import utilities from 'utilities?plugin=justifyContent'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Start
+
+Use `justify-start` to justify items against the start of the container's main axis:
+
+<Example>
+  <div class="flex justify-start space-x-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-fuchsia rounded-lg">
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">01</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">02</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">03</div>
+  </div>
+</Example>
+
+```html
+<div class="flex **justify-start** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+### Center
+
+Use `justify-center` to justify items along the center of the container's main axis:
+
+<Example>
+  <div class="flex justify-center space-x-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-blue rounded-lg">
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">01</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">02</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">03</div>
+  </div>
+</Example>
+
+```html
+<div class="flex **justify-center** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+### End
+
+Use `justify-end` to justify items against the end of the container's main axis:
+
+<Example>
+  <div class="flex justify-end space-x-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-cyan rounded-lg">
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-cyan-500 shadow-lg">01</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-cyan-500 shadow-lg">02</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-cyan-500 shadow-lg">03</div>
+  </div>
+</Example>
+
+```html
+<div class="flex **justify-end** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+### Space between
+
+Use `justify-between` to justify items along the container's main axis such that there is an equal amount of space between each item:
+
+<Example>
+  <div class="flex justify-between space-x-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-pink rounded-lg">
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-pink-500 shadow-lg">01</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-pink-500 shadow-lg">02</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-pink-500 shadow-lg">03</div>
+  </div>
+</Example>
+
+```html
+<div class="flex **justify-between** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+### Space around
+
+Use `justify-around` to justify items along the container's main axis such that there is an equal amount of space on each side of each item:
+
+<Example>
+  <div class="flex justify-around space-x-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-purple rounded-lg">
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-purple-500 shadow-lg">01</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-purple-500 shadow-lg">02</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-purple-500 shadow-lg">03</div>
+  </div>
+</Example>
+
+```html
+<div class="flex **justify-around** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+### Space evenly
+
+Use `justify-evenly` to justify items along the container's main axis such that there is an equal amount of space around each item, but also accounting for the doubling of space you would normally see between each item when using `justify-around`:
+
+<Example>
+  <div class="flex justify-evenly space-x-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-indigo rounded-lg">
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">01</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">02</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">03</div>
+  </div>
+</Example>
+
+```html
+<div class="flex **justify-evenly** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="justify-start" featuredClass="justify-between" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="justify-start" featuredClass="justify-between" />

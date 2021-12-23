@@ -1,0 +1,151 @@
+---
+title: "Grid Column Start / End"
+description: "Utilities for controlling how elements are sized and placed across grid columns."
+---
+
+import gridColumnUtilities from 'utilities?plugin=gridColumn'
+import gridColumnStartUtilities from 'utilities?plugin=gridColumnStart'
+import gridColumnEndUtilities from 'utilities?plugin=gridColumnEnd'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = {
+  utilities: { ...gridColumnUtilities, ...gridColumnStartUtilities, ...gridColumnEndUtilities },
+}
+
+## Basic usage
+
+### Spanning columns
+
+Use the `col-span-{n}` utilities to make an element span _n_ columns.
+
+<Example>
+  <div class="grid grid-cols-3 gap-4 font-mono text-white text-sm text-center font-bold leading-6">
+    <div class="p-4 rounded-lg bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">01</div>
+    <div class="p-4 rounded-lg bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">02</div>
+    <div class="p-4 rounded-lg bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">03</div>
+    <div class="p-4 rounded-lg shadow-lg bg-indigo-500 col-span-2">04</div>
+    <div class="p-4 rounded-lg bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">05</div>
+    <div class="p-4 rounded-lg bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">06</div>
+    <div class="p-4 rounded-lg shadow-lg bg-indigo-500 col-span-2">07</div>
+  </div>
+</Example>
+
+```html
+<div class="grid grid-cols-3 gap-4">
+  <div class="...">01</div>
+  <div class="...">02</div>
+  <div class="...">03</div>
+  <div class="**col-span-2** ...">04</div>
+  <div class="...">05</div>
+  <div class="...">06</div>
+  <div class="**col-span-2** ...">07</div>
+</div>
+```
+
+### Starting and ending lines
+
+Use the `col-start-{n}` and `col-end-{n}` utilities to make an element start or end at the _nth_ grid line. These can also be combined with the `col-span-{n}` utilities to span a specific number of columns.
+
+Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-column grid would start at line 1 and end at line 7.
+
+<Example>
+  <div class="grid grid-cols-6 gap-4 font-mono text-white text-sm text-center font-bold leading-6">
+    <div class="p-4 rounded-lg bg-stripes-light-blue"></div>
+    <div class="p-4 rounded-lg shadow-lg bg-light-blue-500 col-start-2 col-span-4">01</div>
+    <div class="p-4 rounded-lg bg-stripes-light-blue"></div>
+    <div class="p-4 rounded-lg shadow-lg bg-light-blue-500 col-start-1 col-end-3">02</div>
+    <div class="p-4 rounded-lg bg-stripes-light-blue"></div>
+    <div class="p-4 rounded-lg bg-stripes-light-blue"></div>
+    <div class="p-4 rounded-lg shadow-lg bg-light-blue-500 col-end-7 col-span-2">03</div>
+    <div class="p-4 rounded-lg shadow-lg bg-light-blue-500 col-start-1 col-end-7">04</div>
+  </div>
+</Example>
+
+```html
+<div class="grid grid-cols-6 gap-4">
+  <div class="**col-start-2** col-span-4 ...">01</div>
+  <div class="**col-start-1 col-end-3** ...">02</div>
+  <div class="**col-end-7 col-span-2** ...">03</div>
+  <div class="**col-start-1 col-end-7** ...">04</div>
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="col-span-2" featuredClass="col-span-6" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="col-span-2" featuredClass="col-span-6" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind includes grid-column utilities for working with grids with up to 12 columns. You change, add, or remove these by customizing the `gridColumn`, `gridColumnStart`, and `gridColumnEnd` sections of your Tailwind theme config.
+
+For creating more `col-{value}` utilities that control the `grid-column` shorthand property directly, customize the `gridColumn` section of your Tailwind theme config:
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       gridColumn: {
++         'span-16': 'span 16 / span 16',
++       }
+      }
+    }
+  }
+```
+
+We use this internally for our `col-span-{n}` utilities. Note that since this configures the `grid-column` shorthand property directly, we include the word `span` directly in the value name, it's _not_ baked into the class name automatically. That means you are free to add entries that do whatever you want here — they don't just have to be `span` utilities.
+
+To add new `col-start-{n}` utilities, use the `gridColumnStart` section of your Tailwind theme config:
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       gridColumnStart: {
++         '13': '13',
++         '14': '14',
++         '15': '15',
++         '16': '16',
++         '17': '17',
++       }
+      }
+    }
+  }
+```
+
+To add new `col-end-{n}` utilities, use the `gridColumnEnd` section of your Tailwind theme config:
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       gridColumnEnd: {
++         '13': '13',
++         '14': '14',
++         '15': '15',
++         '16': '16',
++         '17': '17',
++       }
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="grid-column/grid-column-start/grid-column-end" featuredClass="col-span-[span_16_/_span 16]" />

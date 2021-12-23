@@ -1,0 +1,117 @@
+---
+title: "Letter Spacing"
+description: "Utilities for controlling the tracking (letter spacing) of an element."
+---
+
+import utilities from 'utilities?plugin=letterSpacing'
+import { SnippetGroup } from '@/components/SnippetGroup'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Setting the letter spacing
+
+Control the letter spacing of an element using the `tracking-{size}` utilities.
+
+<Example>
+  <div class="flex flex-col gap-8">
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">tracking-tight</span>
+      <p class="tracking-tight text-lg font-medium text-gray-900 dark:text-gray-200">
+        The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">tracking-normal</span>
+      <p class="tracking-normal text-lg font-medium text-gray-900 dark:text-gray-200">
+        The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">tracking-wide</span>
+      <p class="tracking-wide text-lg font-medium text-gray-900 dark:text-gray-200">
+        The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+  </div>
+</Example>
+
+```html
+<p class="**tracking-tight** ...">The quick brown fox ...</p>
+<p class="**tracking-normal** ...">The quick brown fox ...</p>
+<p class="**tracking-wide** ...">The quick brown fox ...</p>
+```
+
+### Using negative values
+
+To use a negative letter-spacing value, prefix the class name with a dash to convert it to a negative value.
+
+Using negative values doesn't make a ton of sense with the letter-spacing scale Tailwind includes out of the box, but if you've opted to customize your letter-spacing scale to use numbers instead of descriptive words like "wide" the negative value modifier can be useful.
+
+<SnippetGroup>
+
+```html HTML
+<p class="**-tracking-2**">The quick brown fox ...</p>
+```
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    letterSpacing: {
+      '1': '0em',
+      '2': '0.025em',
+      '3': '0.05em',
+      '4': '0.1em',
+    }
+  }
+}
+```
+
+</SnippetGroup>
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="tracking-tight" featuredClass="tracking-wide" element="p"  />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="tracking-tight" featuredClass="tracking-wide" element="p"  />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind provides six tracking utilities. You can change, add, or remove these by editing the `theme.letterSpacing` section of your Tailwind config.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      letterSpacing: {
++       tightest: '-.075em',
+        tighter: '-.05em',
+-       tight: '-.025em',
+        normal: '0',
+-       wide: '.025em',
+        wider: '.05em',
+-       widest: '.1em',
++       widest: '.25em',
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="letter-spacing" featuredClass="tracking-[.25em]" element="p" />

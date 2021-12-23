@@ -1,0 +1,161 @@
+---
+title: "Font Size"
+description: "Utilities for controlling the font size of an element."
+---
+
+import utilities from 'utilities?plugin=fontSize'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Setting the font size
+
+Control the font size of an element using the `text-{size}` utilities.
+
+<Example>
+  <div class="flex flex-col gap-8">
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">text-sm</span>
+      <p class="text-sm font-medium text-gray-900 dark:text-gray-200">
+        The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">text-base</span>
+      <p class="text-base font-medium text-gray-900 dark:text-gray-200">
+        The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">text-lg</span>
+      <p class="text-lg font-medium text-gray-900 dark:text-gray-200">
+        The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">text-xl</span>
+      <p class="text-xl font-medium text-gray-900 dark:text-gray-200">
+        The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400">text-2xl</span>
+      <p class="text-2xl font-medium text-gray-900 dark:text-gray-200">
+        The quick brown fox jumps over the lazy dog.
+      </p>
+    </div>
+  </div>
+</Example>
+
+```html
+<p class="**text-sm** ...">The quick brown fox ...</p>
+<p class="**text-base** ...">The quick brown fox ...</p>
+<p class="**text-lg** ...">The quick brown fox ...</p>
+<p class="**text-xl** ...">The quick brown fox ...</p>
+<p class="**text-2xl** ...">The quick brown fox ...</p>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="text-sm" featuredClass="text-base" element="p" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="text-sm" featuredClass="text-base" element="p" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind provides 10 `font-size` utilities. You change, add, or remove these by editing the `theme.fontSize` section of your Tailwind config.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      fontSize: {
+-       'xs': '.75rem',
+-       'sm': '.875rem',
++       'tiny': '.875rem',
+        'base': '1rem',
+        'lg': '1.125rem',
+        'xl': '1.25rem',
+        '2xl': '1.5rem',
+-       '3xl': '1.875rem',
+-       '4xl': '2.25rem',
+        '5xl': '3rem',
+        '6xl': '4rem',
++       '7xl': '5rem',
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Providing a default line-height
+
+You can provide a default line-height for each of your font-sizes using a tuple of the form `[fontSize, lineHeight]` in your `tailwind.config.js` file.
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    fontSize: {
+      sm: ['14px', '20px'],
+      base: ['16px', '24px'],
+      lg: ['20px', '28px'],
+      xl: ['24px', '32px'],
+    }
+  }
+}
+```
+
+You can also specify a default line-height using object syntax:
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    fontSize: {
+      sm: ['14px', {
+        lineHeight: '20px',
+      }],
+    }
+  }
+}
+```
+
+We already provide default line heights for each `.text-{size}` class.
+
+### Providing a default letter-spacing
+
+If you also want to provide a default letter-spacing value for a font size, you can do so using a tuple of the form `[fontSize, { letterSpacing, lineHeight }]` in your `tailwind.config.js` file.
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    fontSize: {
+      '2xl': ['24px', {
+        letterSpacing: '-0.01em',
+      }],
+      // Or with a default line-height as well
+      '3xl': ['32px', {
+        letterSpacing: '-0.02em',
+        lineHeight: '40px',
+      }],
+    }
+  }
+}
+```
+
+### Arbitrary values
+
+<ArbitraryValues property="font-size" featuredClass="text-[14px]" element="p" />

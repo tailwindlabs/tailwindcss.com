@@ -1,0 +1,113 @@
+---
+title: "Drop Shadow"
+description: "Utilities for applying drop-shadow filters to an element."
+---
+
+import utilities from 'utilities?plugin=dropShadow'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { RemovingFilters } from '@/components/RemovingFilters'
+
+export const classes = {
+  utilities,
+  transformProperties: ({ properties }) => {
+    return {
+      filter: properties['--tw-drop-shadow'],
+    }
+  },
+}
+
+## Basic usage
+
+### Adding a drop shadow
+
+Use the `drop-shadow-{amount}` utilities to add a drop shadow to an element.
+
+<Example p="none" lightOnly={true}>
+  <div class="flex justify-start sm:block overflow-scroll sm:overflow-visible scroll-p-8">
+  <div class="flex items-center justify-around gap-6 sm:gap-4 font-mono font-bold shrink-0 p-8">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">drop-shadow-md</p>
+      <div class="drop-shadow-md">
+        <div class="w-24 h-24 bg-white rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">drop-shadow-lg</p>
+      <div class="drop-shadow-lg">
+        <div class="w-24 h-24 bg-white rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">drop-shadow-xl</p>
+      <div class="drop-shadow-xl">
+        <div class="w-24 h-24 bg-white rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">drop-shadow-2xl</p>
+      <div class="drop-shadow-2xl">
+        <div class="w-24 h-24 bg-white rounded-lg"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+</Example>
+
+```html
+<div class="**drop-shadow-md** ...">
+  <!-- ... -->
+</div>
+<div class="**drop-shadow-lg** ...">
+  <!-- ... -->
+</div>
+<div class="**drop-shadow-xl** ...">
+  <!-- ... -->
+</div>
+<div class="**drop-shadow-2xl** ...">
+  <!-- ... -->
+</div>
+```
+
+### Removing filters
+
+<RemovingFilters defaultClass="blur-md invert drop-shadow-xl" />
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="drop-shadow-md" featuredClass="drop-shadow-xl" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="drop-shadow-md" featuredClass="drop-shadow-xl" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind includes a handful of general purpose `dropShadow` utilities. You can customize these values by editing `theme.dropShadow` or `theme.extend.dropShadow` in your `tailwind.config.js` file.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       dropShadow: {
++         '3xl': '0 35px 35px rgba(0, 0, 0, 0.25)',
++       }
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="drop-shadow" featuredClass="drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]" />

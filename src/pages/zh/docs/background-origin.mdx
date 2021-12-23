@@ -1,0 +1,53 @@
+---
+title: "Background Origin"
+description: "Utilities for controlling how an element's background is positioned relative to borders, padding, and content."
+---
+
+import utilities from 'utilities?plugin=backgroundOrigin'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Setting the background origin
+
+Use `bg-origin-border`, `bg-origin-padding`, and `bg-origin-content` to control where an element's background is rendered.
+
+<Example p="none">
+  <div class="flex sm:block overflow-scroll sm:overflow-visible scroll-p-8">
+  <div class="flex items-center justify-around gap-12 sm:gap-4 font-mono font-bold shrink-0 p-8">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">bg-origin-border</p>
+      <div class="bg-origin-border bg-cover p-3 border-4 border-white/75 dark:border-white/40 border-dashed bg-gray-300 bg-no-repeat w-24 h-24 object-cover rounded-lg shadow-xl bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80)]"></div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">bg-origin-padding</p>
+      <div class="bg-origin-padding bg-cover p-3 border-4 border-white/75 dark:border-white/25 border-dashed bg-gray-300 dark:bg-gray-700 bg-no-repeat w-24 h-24 object-cover rounded-lg shadow-xl bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80)]"></div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">bg-origin-content</p>
+      <div class="bg-origin-content bg-cover p-3 border-4 border-white/75 dark:border-white/25 border-dashed bg-gray-300 dark:bg-gray-700 bg-no-repeat w-24 h-24 object-cover rounded-lg shadow-xl bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80)]"></div>
+    </div>
+  </div>
+  </div>
+</Example>
+
+```html
+<div class="**bg-origin-border** p-4 border-4 border-dashed ..." style="background-image: url(...)"></div>
+<div class="**bg-origin-padding** p-4 border-4 border-dashed ..." style="background-image: url(...)"></div>
+<div class="**bg-origin-content** p-4 border-4 border-dashed ..." style="background-image: url(...)"></div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="bg-origin-border" featuredClass="bg-origin-padding" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="bg-origin-border" featuredClass="bg-origin-padding" />

@@ -1,0 +1,152 @@
+---
+title: "Divide Width"
+description: "Utilities for controlling the border width between elements."
+---
+
+import utilities from 'utilities?plugin=divideWidth'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = {
+  utilities,
+  transformSelector: (selector) => (
+    <>
+      {selector.split('>').shift().trim().replace(/^\./, '').replace(/\\/g, '')} <span className="ml-1 text-purple-300">> * + *</span>
+    </>
+  ),
+  transformProperties: ({ selector, properties }) => {
+    if (!selector.includes('reverse')) {
+      delete properties['--tw-divide-y-reverse']
+      delete properties['--tw-divide-x-reverse']
+    }
+    Object.keys(properties).forEach(key => {
+      // TODO: This is iffy. Clean it up.
+      properties[key] = properties[key].replace(/calc\((\d+px) \* var\(.*\)\)/, "$1")
+      properties[key] = properties[key].replace(/calc\((\d+px) \* calc\(.*\)\)/, "0px")
+    })
+    return properties
+  },
+}
+
+## Basic usage
+
+### Add borders between horizontal children
+
+Add borders between horizontal elements using the `divide-x-{width}` utilities.
+
+<Example>
+  <div class="grid grid-cols-3 divide-x font-mono text-sm text-center font-bold leading-6 rounded-lg shadow-lg overflow-hidden dark:divide-gray-700">
+    <div class="p-4 text-gray-400 bg-white dark:bg-gray-800">01</div>
+    <div class="p-4 text-gray-400 bg-white dark:bg-gray-800">02</div>
+    <div class="p-4 text-gray-400 bg-white dark:bg-gray-800">03</div>
+  </div>
+</Example>
+
+```html
+<div class="grid grid-cols-3 **divide-x**">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+### Add borders between stacked children
+
+Add borders between stacked elements using the `divide-y-{width}` utilities.
+
+<Example p="none">
+  <div class="grid grid-cols-1 divide-y font-mono text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto dark:divide-gray-700">
+    <div class="p-4 text-gray-400 bg-white dark:bg-gray-800">01</div>
+    <div class="p-4 text-gray-400 bg-white dark:bg-gray-800">02</div>
+    <div class="p-4 text-gray-400 bg-white dark:bg-gray-800">03</div>
+  </div>
+</Example>
+
+```html
+<div class="grid grid-cols-1 **divide-y**">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+### Reversing children order
+
+If your elements are in reverse order (using say `flex-row-reverse` or `flex-col-reverse`), use the `divide-x-reverse` or `divide-y-reverse` utilities to ensure the border is added to the correct side of each element.
+
+<Example p="none">
+  <div class="flex flex-col-reverse divide-y divide-y-reverse font-mono text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto dark:divide-gray-700">
+    <div class="p-4 text-gray-400 bg-white dark:bg-gray-800">01</div>
+    <div class="p-4 text-gray-400 bg-white dark:bg-gray-800">02</div>
+    <div class="p-4 text-gray-400 bg-white dark:bg-gray-800">03</div>
+  </div>
+</Example>
+
+```html
+<div class="flex **flex-col-reverse divide-y divide-y-reverse**">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="divide-y divide-gray-400" featuredClass="divide-y-8" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="divide-y divide-gray-400" featuredClass="divide-y-8" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+The divide width scale inherits its values from the `borderWidth` scale by default, so if you'd like to customize your values for both border width and divide width together, use the `theme.borderWidth` section of your `tailwind.config.js` file.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      borderWidth: {
+        DEFAULT: '1px',
+        '0': '0',
+        '2': '2px',
++       '3': '3px',
+        '4': '4px',
++       '6': '6px',
+-       '8': '8px',
+      }
+    }
+  }
+```
+
+To customize only the divide width values, use the `theme.divideWidth` section of your `tailwind.config.js` file.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      divideWidth: {
+        DEFAULT: '1px',
+        '0': '0',
+        '2': '2px',
++       '3': '3px',
+        '4': '4px',
++       '6': '6px',
+-       '8': '8px',
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="divide-{x|y}-{width}" featuredClass="divide-x-[3px]" />

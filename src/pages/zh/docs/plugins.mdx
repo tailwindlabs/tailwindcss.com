@@ -1,0 +1,607 @@
+---
+title: Plugins
+description: Extending Tailwind with reusable third-party plugins.
+---
+
+import { Heading } from '@/components/Heading'
+import { TipGood, TipBad } from '@/components/Tip'
+
+## <Heading hidden>Overview</Heading>
+
+Plugins let you register new styles for Tailwind to inject into the user's stylesheet using JavaScript instead of CSS.
+
+To get started with your first plugin, import Tailwind's `plugin` function from `tailwindcss/plugin`. Then inside your `plugins` array, and call it with an anonymous function as the first argument.
+
+```js tailwind.config.js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  plugins: [
+    plugin(function({ addUtilities, addComponents, e, prefix, config }) {
+      // Add your custom styles here
+    }),
+  ]
+}
+```
+
+Plugin functions receive a single object argument that can be [destructured](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) into several helper functions:
+
+- `addUtilities()`, for registering new static utility styles
+- `matchUtilities()`, for registering new dynamic utility styles
+- `addComponents()`, for registering new static component styles
+- `matchComponents()`, for registering new dynamic component styles
+- `addBase()`, for registering new base styles
+- `addVariant()`, for registering custom variants
+- `theme()`, for looking up values in the user's theme configuration
+- `config()`, for looking up values in the user's Tailwind configuration
+- `corePlugins()`, for checking if a core plugin is enabled
+- `e()`, for manually escaping strings meant to be used in class names
+
+---
+
+## Official plugins
+
+We've developed a handful of official plugins for popular features that for one reason or another don't belong in core yet.
+
+Plugins can be added to your project by installing them via npm, then adding them to your `tailwind.config.js` file:
+
+```js tailwind.config.js
+module.exports = {
+  // ...
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/aspect-ratio'),
+  ]
+}
+```
+
+
+### Typography
+
+The `@tailwindcss/typography` plugin adds a set of `prose` classes that can be used to quickly add sensible typographic styles to content blocks that come from sources like markdown or a CMS database.
+
+```html
+<article class="prose lg:prose-xl">
+  <h1>Garlic bread with cheese: What the science tells us</h1>
+  <p>
+    For years parents have espoused the health benefits of eating garlic bread with cheese to their
+    children, with the food earning such an iconic status in our culture that kids will often dress
+    up as warm, cheesy loaf for Halloween.
+  </p>
+  <p>
+    But a recent study shows that the celebrated appetizer may be linked to a series of rabies cases
+    springing up around the country.
+  </p>
+  <!-- ... -->
+</article>
+```
+
+[Learn more about the typography plugin &rarr;](/docs/typography-plugin)
+
+### Forms
+
+The `@tailwindcss/forms` plugin adds an opinionated form reset layer that makes it easier to style form elements with utility classes.
+
+```html
+<!-- You can actually customize padding on a select element: -->
+<select class="px-4 py-3 rounded-full">
+  <!-- ... -->
+</select>
+
+<!-- Or change a checkbox color using text color utilities: -->
+<input type="checkbox" class="rounded text-pink-500" />
+```
+
+[Learn more about the forms plugin &rarr;](https://github.com/tailwindlabs/tailwindcss-forms)
+
+### Line-clamp
+
+The `@tailwindcss/line-clamp` plugin adds `line-clamp-{lines}` classes you can use to truncate text to a fixed number of lines.
+
+```html
+<p class="line-clamp-3 md:line-clamp-none">
+  Et molestiae hic earum repellat aliquid est doloribus delectus. Enim illum odio porro ut omnis
+  dolor debitis natus. Voluptas possimus deserunt sit delectus est saepe nihil. Qui voluptate
+  possimus et quia. Eligendi voluptas voluptas dolor cum. Rerum est quos quos id ut molestiae fugit.
+</p>
+```
+
+[Learn more about the line-clamp plugin &rarr;](https://github.com/tailwindlabs/tailwindcss-line-clamp)
+
+### Aspect ratio
+
+The `@tailwindcss/aspect-ratio` plugin adds `aspect-w-{n}` and `aspect-h-{n}` classes that can be combined to give an element a fixed aspect ratio.
+
+```html
+<div class="aspect-w-16 aspect-h-9">
+  <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+```
+
+[Learn more about the aspect ratio plugin &rarr;](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
+
+---
+
+## Adding utilities
+
+The `addUtilities` and `matchUtilities` functions allow you to register new styles in Tailwind's `utilities` layer.
+
+Like with the utilities Tailwind includes by default, utilities added by a plugin will only be included in the generated CSS if they are actually being used in the project.
+
+### Static utilities
+
+Use the `addUtilities` function to register simple static utilities that don't support user-provided values:
+
+```js tailwind.config.js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  plugins: [
+    plugin(function({ addUtilities }) {
+      addUtilities({
+        '.content-auto': {
+          'content-visibility': 'auto',
+        },
+        '.content-hidden': {
+          'content-visibility': 'hidden',
+        },
+        '.content-visible': {
+          'content-visibility': 'visible',
+        },
+      })
+    })
+  ]
+}
+```
+
+Learn more about to represent your styles in JavaScript in the [CSS-in-JS syntax](#css-in-js-syntax) reference.
+
+### Dynamic utilities
+
+Use the `matchUtilities` function to register utilities that map to values defined in the user's `theme` configuration:
+
+```js tailwind.config.js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  theme: {
+    tabSize: {
+      1: '1',
+      2: '2',
+      4: '4',
+      8: '8',
+    }
+  },
+  plugins: [
+    plugin(function({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          tab: (value) => ({
+            tabSize: value
+          }),
+        },
+        { values: theme('tabSize') }
+      )
+    })
+  ]
+}
+```
+
+Utilities defined this way also support [arbitrary values](/docs/adding-custom-styles#using-arbitrary-values), which means you can use values not present in the theme using square bracket notation:
+
+```html
+<div class="**tab-[13]**">
+  <!-- ... -->
+</div>
+```
+
+### Prefix and important
+
+By default, plugin utilities automatically respect the user's [`prefix`](/docs/configuration/#prefix) and [`important`](/docs/configuration/#important) preferences.
+
+That means that given this Tailwind configuration:
+
+```js tailwind.config.js
+module.exports = {
+  prefix: 'tw-',
+  important: true,
+  // ...
+}
+```
+
+...the example plugin above would generate the following CSS:
+
+```css
+.tw-content-auto {
+  content-visibility: auto !important;
+}
+.tw-content-hidden {
+  content-visibility: hidden !important;
+}
+.tw-content-visible {
+  content-visibility: visible !important;
+}
+```
+
+### Using with modifiers
+
+Any custom utilities added using `addUtilities` can automatically be used with modifiers:
+
+```html
+<div class="content-auto lg:content-visible">
+  <!-- ... -->
+</div>
+```
+
+Learn more in the [Hover, Focus, and Other States](/docs/hover-focus-and-other-states) documentation.
+
+---
+
+## Adding components
+
+The `addComponents` function allows you to register new styles in Tailwind's `components` layer.
+
+Use it to add more opinionated, complex classes like buttons, form controls, alerts, etc; the sort of pre-built components you often see in other frameworks that you might need to override with utility classes.
+
+To add new component styles from a plugin, call `addComponents`, passing in your styles using [CSS-in-JS syntax](#css-in-js-syntax):
+
+```js tailwind.config.js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  plugins: [
+    plugin(function({ addComponents }) {
+      addComponents({
+        '.btn': {
+          padding: '.5rem 1rem',
+          borderRadius: '.25rem',
+          fontWeight: '600',
+        },
+        '.btn-blue': {
+          backgroundColor: '#3490dc',
+          color: '#fff',
+          '&:hover': {
+            backgroundColor: '#2779bd'
+          },
+        },
+        '.btn-red': {
+          backgroundColor: '#e3342f',
+          color: '#fff',
+          '&:hover': {
+            backgroundColor: '#cc1f1a'
+          },
+        },
+      })
+    })
+  ]
+}
+```
+
+Like with other component classes in Tailwind, component classes added by a plugin will only be included in the generated CSS if they are actually being used in the project.
+
+### Prefix and important
+
+By default, component classes automatically respect the user's `prefix` preference, but _they are not affected_ by the user's `important` preference.
+
+That means that given this Tailwind configuration:
+
+```js tailwind.config.js
+module.exports = {
+  prefix: 'tw-',
+  important: true,
+  // ...
+}
+```
+
+...the example plugin above would generate the following CSS:
+
+```css
+.tw-btn {
+  padding: .5rem 1rem;
+  border-radius: .25rem;
+  font-weight: 600;
+}
+.tw-btn-blue {
+  background-color: #3490dc;
+  color: #fff;
+}
+.tw-btn-blue:hover {
+  background-color: #2779bd;
+}
+.tw-btn-red {
+  background-color: #e3342f;
+  color: #fff;
+}
+.tw-btn-red:hover {
+  background-color: #cc1f1a;
+}
+```
+
+Although there's rarely a good reason to make component declarations important, if you really need to do it you can always add `!important` manually:
+
+```js tailwind.config.js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  plugins: [
+    plugin(function({ addComponents }) {
+      addComponents({
+        '.btn': {
+          padding: '.5rem 1rem !important',
+          borderRadius: '.25rem !important',
+          fontWeight: '600 !important',
+        },
+        // ...
+      })
+    })
+  ]
+}
+```
+
+All classes in a selector will be prefixed by default, so if you add a more complex style like:
+
+```js tailwind.config.js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  prefix: 'tw-',
+  plugins: [
+    plugin(function({ addComponents }) {
+      const components = {
+        // ...
+        '.navbar-inverse a.nav-link': {
+            color: '#fff',
+        }
+      }
+
+      addComponents(components)
+    })
+  ]
+}
+```
+
+...the following CSS would be generated:
+
+```css
+.tw-navbar-inverse a.tw-nav-link {
+    color: #fff;
+}
+```
+
+### Using with modifiers
+
+Any component classes added using `addComponents` can automatically be used with modifiers:
+
+```html
+<div class="btn md:btn-lg">
+  <!-- ... -->
+</div>
+```
+
+Learn more in the [Hover, Focus, and Other States](/docs/hover-focus-and-other-states) documentation.
+
+---
+
+## Adding base styles
+
+The `addBase` function allows you to register new styles in Tailwind's `base` layer. Use it to add things like base typography styles, opinionated global resets, or `@font-face` rules.
+
+To add new base styles from a plugin, call `addBase`, passing in your styles using [CSS-in-JS syntax](#css-in-js-syntax):
+
+```js tailwind.config.js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  plugins: [
+    plugin(function({ addBase, theme }) {
+      addBase({
+        'h1': { fontSize: theme('fontSize.2xl') },
+        'h2': { fontSize: theme('fontSize.xl') },
+        'h3': { fontSize: theme('fontSize.lg') },
+      })
+    })
+  ]
+}
+```
+
+Since base styles are meant to target bare selectors like `div` or `h1`, they do not respect the user's `prefix` or `important` configuration.
+
+---
+
+## Adding variants
+
+The `addVariant` function allows you to register your own custom [modifiers](/docs/hover-focus-and-other-states) that can be used just like the built-in hover, focus, active, etc. variants.
+
+To add a new variant, call the `addVariant` function, passing in the name of your custom variant, and a format string that represents how the selector should be modified.
+
+```js tailwind.config.js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  // ...
+  plugins: [
+    plugin(function({ addVariant }) {
+      addVariant('optional', '&:optional')
+      addVariant('hocus', ['&:hover', '&:focus'])
+      addVariant('supports-grid', '@supports (display: grid)')
+    })
+  ]
+}
+```
+
+The first argument is the modifier name that users will use in their HTML, so the above example would make it possible to write classes like these:
+
+```html
+<form class="flex **supports-grid:grid** ...">
+  <input class="**optional:border-gray-300** ..." />
+  <button class="bg-blue-500 **hocus:bg-blue-600**">...</button>
+</form>
+```
+
+---
+
+## Exposing options
+
+Sometimes it makes sense for a plugin to be configurable in a way that doesn't really belong under `theme`, like perhaps you want users to be able to customize the class name your plugin uses.
+
+For cases like this, you can use `plugin.withOptions` to define a plugin that can be invoked with a configuration object. This API is similar to the regular `plugin` API, except each argument should be a function that receives the user's `options` and returns the value that you would have normally passed in using the regular API:
+
+```js ./plugins/markdown.js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = plugin.withOptions(function (options) {
+  return function({ addComponents }) {
+    const className = options.className ?? 'markdown'
+
+    addComponents({
+      [`.${className}`]: {
+        // ...
+      }
+    })
+  }
+}, function (options) {
+  return {
+    theme: {
+      markdown: {
+        // ...
+      }
+    },
+  }
+})
+```
+
+The user would invoke your plugin passing along their options when registering it in their `plugins` configuration:
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    // ...
+  },
+  plugins: [
+    require('./plugins/markdown.js')({
+      className: 'wysiwyg'
+    })
+  ],
+}
+```
+
+The user can also register plugins created this way normally without invoking them if they don't need to pass in any custom options:
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    // ...
+  },
+  plugins: [
+    require('./plugins/markdown.js')
+  ],
+}
+```
+
+---
+
+## CSS-in-JS syntax
+
+Tailwind's plugin system expect CSS rules written as JavaScript objects, using the same sort of syntax you might recognize from CSS-in-JS libraries like [Emotion](https://emotion.sh/docs/object-styles), powered by [postcss-js](https://github.com/postcss/postcss-js) under-the-hood.
+
+Consider this simple CSS rule:
+
+```css
+.card {
+  background-color: #fff;
+  border-radius: .25rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+```
+
+Translating this to a CSS-in-JS object would look like this:
+
+```js
+addComponents({
+  '.card': {
+    'background-color': '#fff',
+    'border-radius': '.25rem',
+    'box-shadow': '0 2px 4px rgba(0,0,0,0.2)',
+  }
+})
+```
+
+For convenience, property names can also be written in camelCase and will be automatically translated to dash-case:
+
+```js
+addComponents({
+  '.card': {
+    backgroundColor: '#fff',
+    borderRadius: '.25rem',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
+  }
+})
+```
+
+Nesting is also supported (powered by [postcss-nested](https://github.com/postcss/postcss-nested)), using the same syntax you might be familiar with from Sass or Less:
+
+```js
+addComponents({
+  '.card': {
+    backgroundColor: '#fff',
+    borderRadius: '.25rem',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
+    '&:hover': {
+      boxShadow: '0 10px 15px rgba(0,0,0,0.2)',
+    },
+    '@media (min-width: 500px)': {
+      borderRadius: '.5rem',
+    }
+  }
+})
+```
+
+Multiple rules can be defined in the same object:
+
+```js
+addComponents({
+  '.btn': {
+    padding: '.5rem 1rem',
+    borderRadius: '.25rem',
+    fontWeight: '600',
+  },
+  '.btn-blue': {
+    backgroundColor: '#3490dc',
+    color: '#fff',
+    '&:hover': {
+      backgroundColor: '#2779bd'
+    },
+  },
+  '.btn-red': {
+    backgroundColor: '#e3342f',
+    color: '#fff',
+    '&:hover': {
+      backgroundColor: '#cc1f1a'
+    },
+  },
+})
+```
+
+...or as an array of objects in case you need to repeat the same key:
+
+```js
+addComponents([
+  {
+    '@media (min-width: 500px)': {
+      // ...
+    }
+  },
+  {
+    '@media (min-width: 500px)': {
+      // ...
+    }
+  },
+  {
+    '@media (min-width: 500px)': {
+      // ...
+    }
+  },
+])
+```

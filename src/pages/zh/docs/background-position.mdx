@@ -1,0 +1,158 @@
+---
+title: "Background Position"
+description: "Utilities for controlling the position of an element's background image."
+---
+
+import utilities from 'utilities?plugin=backgroundPosition'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Setting the background position
+
+Use the `bg-{side}` utilities to control the position of an element's background image.
+
+<Example p="none">
+  <div class="w-full">
+    <div class="overflow-x-scroll overflow-y-hidden snap-x scroll-p-4 flex sm:grid sm:grid-cols-3 sm:gap-16 p-8 items-end pt-16">
+      <div class="relative snap-always snap-start w-32 shrink-0 sm:w-auto">
+        <p class="absolute top-0 inset-x-0 -translate-y-8 font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">bg-left-top</p>
+        <div class="group relative mx-auto w-20 h-20 rounded-lg">
+          <div class="relative z-10 w-full h-full rounded-md bg-left-top ring-1 ring-black/10 ring-inset shadow-lg" style="background-image:url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80)"></div>
+          <img class="absolute top-0 left-0 rounded-md overflow-hidden w-32 h-32 opacity-0 sm:group-hover:opacity-25 max-w-none" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80">
+        </div>
+      </div>
+      <div class="relative snap-always snap-start w-32 shrink-0 sm:w-auto">
+        <p class="absolute top-0 inset-x-0 -translate-y-8 font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">bg-top</p>
+        <div class="group relative mx-auto w-20 h-20 rounded-lg">
+          <div class="relative z-10 w-full h-full rounded-md bg-top ring-1 ring-black/10 ring-inset shadow-lg" style="background-image:url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80)"></div>
+          <img class="absolute top-0 -left-6 rounded-md overflow-hidden w-32 h-32 opacity-0 sm:group-hover:opacity-25 max-w-none" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80">
+        </div>
+      </div>
+      <div class="relative snap-always snap-start w-32 shrink-0 sm:w-auto">
+        <p class="absolute top-0 inset-x-0 -translate-y-8 font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">bg-right-top</p>
+        <div class="group relative mx-auto w-20 h-20 rounded-lg">
+          <div class="relative z-10 w-full h-full rounded-md bg-right-top ring-1 ring-black/10 ring-inset shadow-lg" style="background-image:url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80)"></div>
+          <img class="absolute top-0 right-0 rounded-md overflow-hidden w-32 h-32 opacity-0 sm:group-hover:opacity-25 max-w-none" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80">
+        </div>
+      </div>
+      <div class="relative snap-always snap-start w-32 shrink-0 sm:w-auto">
+        <p class="absolute top-0 inset-x-0 -translate-y-8 font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">bg-left</p>
+        <div class="group relative mx-auto w-20 h-20 rounded-lg">
+          <div class="relative z-10 w-full h-full rounded-md bg-left ring-1 ring-black/10 ring-inset shadow-lg" style="background-image:url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80)"></div>
+          <img class="absolute -top-6 left-0 rounded-md overflow-hidden w-32 h-32 opacity-0 sm:group-hover:opacity-25 max-w-none" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80">
+        </div>
+      </div>
+      <div class="relative snap-always snap-start w-32 shrink-0 sm:w-auto">
+        <p class="absolute top-0 inset-x-0 -translate-y-8 font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">bg-center</p>
+        <div class="group relative mx-auto w-20 h-20 rounded-lg">
+          <div class="relative z-10 w-full h-full rounded-md bg-center ring-1 ring-black/10 ring-inset shadow-lg" style="background-image:url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80)"></div>
+          <img class="absolute -top-6 -left-6 rounded-md overflow-hidden w-32 h-32 opacity-0 sm:group-hover:opacity-25 max-w-none" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80">
+        </div>
+      </div>
+      <div class="relative snap-always snap-start w-32 shrink-0 sm:w-auto">
+        <p class="absolute top-0 inset-x-0 -translate-y-8 font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">bg-right</p>
+        <div class="group relative mx-auto w-20 h-20 rounded-lg">
+          <div class="relative z-10 w-full h-full rounded-md bg-right ring-1 ring-black/10 ring-inset shadow-lg" style="background-image:url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80)"></div>
+          <img class="absolute -top-6 right-0 rounded-md overflow-hidden w-32 h-32 opacity-0 sm:group-hover:opacity-25 max-w-none" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80">
+        </div>
+      </div>
+      <div class="relative snap-always snap-start w-32 shrink-0 sm:w-auto">
+        <p class="absolute top-0 inset-x-0 -translate-y-8 font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">bg-left-bottom</p>
+        <div class="group relative mx-auto w-20 h-20 rounded-lg">
+          <div class="relative z-10 w-full h-full rounded-md bg-left-bottom ring-1 ring-black/10 ring-inset shadow-lg" style="background-image:url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80)"></div>
+          <img class="absolute -top-12 left-0 rounded-md overflow-hidden w-32 h-32 opacity-0 sm:group-hover:opacity-25 max-w-none" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80">
+        </div>
+      </div>
+      <div class="relative snap-always snap-start w-32 shrink-0 sm:w-auto">
+        <p class="absolute top-0 inset-x-0 -translate-y-8 font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">bg-bottom</p>
+        <div class="group relative mx-auto w-20 h-20 rounded-lg">
+          <div class="relative z-10 w-full h-full rounded-md bg-bottom ring-1 ring-black/10 ring-inset shadow-lg" style="background-image:url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80)"></div>
+          <img class="absolute -top-12 -left-6 rounded-md overflow-hidden w-32 h-32 opacity-0 sm:group-hover:opacity-25 max-w-none" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80">
+        </div>
+      </div>
+      <div class="relative snap-always snap-start w-48 -mx-8 shrink-0 sm:w-auto">
+        <p class="absolute top-0 inset-x-0 -translate-y-8 font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">bg-right-bottom</p>
+        <div class="group relative mx-auto w-20 h-20 rounded-lg">
+          <div class="relative z-10 w-full h-full rounded-md bg-right-bottom ring-1 ring-black/10 ring-inset shadow-lg" style="background-image:url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80)"></div>
+          <img class="absolute -top-12 right-0 rounded-md overflow-hidden w-32 h-32 opacity-0 sm:group-hover:opacity-25 max-w-none" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80">
+        </div>
+      </div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="bg-no-repeat **bg-left-top** ..." style="background-image: url(...);"></div>
+<div class="bg-no-repeat **bg-top** ..." style="background-image: url(...);"></div>
+<div class="bg-no-repeat **bg-right-top** ..." style="background-image: url(...);"></div>
+<div class="bg-no-repeat **bg-left** ..." style="background-image: url(...);"></div>
+<div class="bg-no-repeat **bg-center** ..." style="background-image: url(...);"></div>
+<div class="bg-no-repeat **bg-right** ..." style="background-image: url(...);"></div>
+<div class="bg-no-repeat **bg-left-bottom** ..." style="background-image: url(...);"></div>
+<div class="bg-no-repeat **bg-bottom** ..." style="background-image: url(...);"></div>
+<div class="bg-no-repeat **bg-right-bottom** ..." style="background-image: url(...);"></div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates featuredClass="bg-to">
+
+```html
+<div class="bg-center **hover:bg-top** ..." style="background-image: url(...)"></div>
+```
+
+</HoverFocusAndOtherStates>
+
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries featuredClass="bg-top">
+
+```html
+<div class="bg-center **md:bg-top** ..." style="background-image: url(...)"></div>
+```
+
+</BreakpointsAndMediaQueries>
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind provides nine `background-position` utilities. You change, add, or remove these by editing the `theme.backgroundPosition` section of your Tailwind config.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      backgroundPosition: {
+        bottom: 'bottom',
++       'bottom-4': 'center bottom 1rem',
+        center: 'center',
+        left: 'left',
+-       'left-bottom': 'left bottom',
+-       'left-top': 'left top',
+        right: 'right',
+        'right-bottom': 'right bottom',
+        'right-top': 'right top',
+        top: 'top',
++       'top-4': 'center top 1rem',
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="background-position" featuredClass="bg-[center_top_1rem]" />

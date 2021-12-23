@@ -1,0 +1,83 @@
+---
+title: "Max-Height"
+description: "Utilities for setting the maximum height of an element."
+---
+
+import utilities from 'utilities?plugin=maxHeight'
+import { numbersFirst } from '@/utils/sortClasses'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = {
+  utilities,
+  sort: numbersFirst,
+}
+
+## Basic usage
+
+### Setting the maximum height
+
+Set the maximum height of an element using the `max-h-full` or `max-h-screen` utilities.
+
+```html
+<div class="h-24 ...">
+  <div class="h-48 **max-h-full** ...">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="h-48 max-h-full" featuredClass="max-h-screen" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="h-48 max-h-full" featuredClass="max-h-screen" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind's max-height scale uses a combination of the [default spacing scale](/docs/customizing-spacing) as well as some additional height related values.
+
+You can customize your spacing scale by editing `theme.spacing` or `theme.extend.spacing` in your `tailwind.config.js` file.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       spacing: {
++         '128': '32rem',
++       }
+      }
+    }
+  }
+```
+
+Alternatively, you can customize just the max-height scale by editing `theme.maxHeight` or `theme.extend.maxHeight` in your `tailwind.config.js` file.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       maxHeight: {
++         '128': '32rem',
++       }
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="max-height" featuredClass="max-h-[32rem]" />

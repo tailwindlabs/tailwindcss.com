@@ -1,0 +1,90 @@
+---
+title: "Flex Wrap"
+description: "Utilities for controlling how flex items wrap."
+---
+
+import utilities from 'utilities?plugin=flexWrap'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Don't wrap
+
+Use `flex-nowrap` to prevent flex items from wrapping, causing inflexible items to overflow the container if necessary:
+
+<Example>
+  <div class="flex flex-nowrap gap-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-light-blue rounded-lg">
+    <div class="w-2/5 flex-none last:pr-8">
+      <div class="p-4 w-full rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">01</div>
+    </div>
+    <div class="w-2/5 flex-none last:pr-8">
+      <div class="p-4 w-full rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">02</div>
+    </div>
+    <div class="w-2/5 flex-none last:pr-8">
+      <div class="p-4 w-full rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">03</div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="flex **flex-nowrap**">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+### Wrap normally
+
+Use `flex-wrap` to allow flex items to wrap:
+
+<Example>
+  <div class="flex flex-wrap gap-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-indigo rounded-lg">
+    <div class="p-4 w-2/5 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">01</div>
+    <div class="p-4 w-2/5 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">02</div>
+    <div class="p-4 w-2/5 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">03</div>
+  </div>
+</Example>
+
+```html
+<div class="flex **flex-wrap**">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+### Wrap reversed
+
+Use `flex-wrap-reverse` to wrap flex items in the reverse direction:
+
+<Example>
+  <div class="flex flex-wrap-reverse gap-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-fuchsia rounded-lg">
+    <div class="p-4 w-2/5 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">01</div>
+    <div class="p-4 w-2/5 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">02</div>
+    <div class="p-4 w-2/5 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">03</div>
+  </div>
+</Example>
+
+```html
+<div class="flex **flex-wrap-reverse**">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="flex flex-wrap" featuredClass="flex-wrap-reverse" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="flex flex-wrap" featuredClass="flex-wrap-reverse" />

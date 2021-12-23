@@ -1,0 +1,119 @@
+---
+title: "Flex Grow"
+description: "Utilities for controlling how flex items grow."
+---
+
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = {
+  utilities: {
+    '.grow': { 'flex-grow': '1' },
+    '.grow-0': { 'flex-grow': '0' },
+  },
+}
+
+## Basic usage
+
+### Grow
+
+Use `grow` to allow a flex item to grow to fill any available space:
+
+<Example resizable>
+  <div class="flex gap-4 text-white text-sm font-bold font-mono leading-6 bg-stripes-indigo rounded-lg">
+    <div class="w-14 h-14 flex-none rounded-lg flex items-center justify-center bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">
+      01
+    </div>
+    <div class="p-4 grow rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">
+      02
+    </div>
+    <div class="p-4 w-14 h-14 flex-none rounded-lg flex items-center justify-center bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">
+      03
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="flex ...">
+  <div class="flex-none w-14 h-14 ...">
+    01
+  </div>
+  <div class="**grow** h-14 ...">
+    02
+  </div>
+  <div class="flex-none w-14 h-14 ...">
+    03
+  </div>
+</div>
+```
+
+### Don't grow
+
+Use `grow-0` to prevent a flex item from growing:
+
+<Example resizable>
+  <div class="flex gap-4 text-white text-sm font-bold font-mono leading-6 bg-stripes-pink rounded-lg">
+    <div class="p-4 grow rounded-lg flex items-center justify-center bg-pink-300 dark:bg-pink-800 dark:text-pink-400">
+      01
+    </div>
+    <div class="shrink-0 w-14 h-14 grow-0 rounded-lg flex items-center justify-center bg-pink-500 shadow-lg">
+      02
+    </div>
+    <div class="p-4 grow rounded-lg hidden md:flex items-center justify-center bg-pink-300 dark:bg-pink-800 dark:text-pink-400">
+      03
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="flex ...">
+  <div class="grow h-14 ...">
+    01
+  </div>
+  <div class="**grow-0** h-14 ...">
+    02
+  </div>
+  <div class="grow h-14 ...">
+    03
+  </div>
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="grow" featuredClass="grow-0" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="grow" featuredClass="grow-0" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind provides two `grow` utilities. You can customize these values by editing `theme.flexGrow` or `theme.extend.flexGrow` in your `tailwind.config.js` file.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       flexGrow: {
++         '2': 2
++       }
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="flex-grow" featuredClass="grow-[2]" />

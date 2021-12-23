@@ -1,0 +1,61 @@
+---
+title: "Min-Height"
+description: "Utilities for setting the minimum height of an element."
+---
+
+import utilities from 'utilities?plugin=minHeight'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Setting the minimum height
+
+Set the minimum height of an element using the `min-h-0`, `min-h-full`, or `min-h-screen` utilities.
+
+```html
+<div class="h-48">
+  <div class="h-24 **min-h-full**">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="h-24 min-h-0" featuredClass="min-h-full" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="h-24 min-h-0" featuredClass="min-h-full" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+You can customize your `min-height` scale by editing `theme.minHeight` or `theme.extend.minHeight` in your `tailwind.config.js` file.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
++     minHeight: {
++       '1/2': '50%',
++     }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="min-height" featuredClass="min-h-[50%]" />

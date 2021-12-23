@@ -1,0 +1,131 @@
+---
+title: "Background Color"
+description: "Utilities for controlling an element's background color."
+---
+
+import utilities from 'utilities?plugin=backgroundColor'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { CustomizePluginColors } from '@/components/CustomizePluginColors'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = {
+  utilities,
+  transformProperties: ({ selector, properties }) => {
+    delete properties['--tw-bg-opacity']
+    Object.keys(properties).forEach(key => {
+      properties[key] = properties[key].replace(' / var(--tw-bg-opacity)', '')
+    })
+    return properties
+  },
+  preview: (css) => (
+    <td
+      className={css['background-color'] === 'transparent' ? 'bg-checkered' : undefined}
+      style={{
+        backgroundColor: Array.isArray(css['background-color'])
+          ? css['background-color'][0]
+          : css['background-color'],
+      }}
+    >
+      <div className="w-24" />
+    </td>
+  ),
+}
+
+## Basic usage
+
+### Setting the background color
+
+Control the background color of an element using the `bg-{color}` utilities.
+
+<Example>
+  <div class="text-center">
+    <button type="button" class="py-2 px-3 bg-indigo-500 text-white text-sm font-semibold rounded-md shadow focus:outline-none" tabindex="-1">
+      Save changes
+    </button>
+  </div>
+</Example>
+
+```html
+<button class="**bg-indigo-500** ...">
+  Save changes
+</button>
+```
+
+### Changing the opacity
+
+Control the opacity of an element's background color using the color opacity modifier.
+
+<Example>
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 text-sm text-white">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">bg-sky-500</p>
+      <button class="px-4 py-2 font-semibold text-sm bg-sky-500 text-white rounded-md shadow-sm opacity-100">Button A</button>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">bg-sky-500/75</p>
+      <button class="px-4 py-2 font-semibold text-sm bg-sky-500/75 text-white rounded-md shadow-sm opacity-100">Button B</button>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">bg-sky-500/50</p>
+      <button class="px-4 py-2 font-semibold text-sm bg-sky-500/50 text-white rounded-md shadow-sm opacity-100">Button C</button>
+    </div>
+  </div>
+</Example>
+
+```html
+<button class="bg-sky-500**/100** ..."></button>
+<button class="bg-sky-500**/75** ..."></button>
+<button class="bg-sky-500**/50** ..."></button>
+```
+
+You can use any value defined in your [opacity scale](/docs/opacity), or use arbitrary values if you need to deviate from your design tokens.
+
+```html
+<div class="bg-sky-500**/[.06]** ..."></div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates featuredClass="bg-cyan-600">
+
+<Example hint="Try hovering over the button to see the background color change">
+  <div class="text-center">
+    <button type="button" class="py-2 px-3 bg-cyan-500 hover:bg-cyan-600 text-white text-sm font-semibold rounded-md shadow focus:outline-none" tabindex="-1">
+      Subscribe
+    </button>
+  </div>
+</Example>
+
+```html
+<button class="bg-cyan-500 **hover:bg-cyan-600** ...">Subscribe</button>
+```
+
+</HoverFocusAndOtherStates>
+
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries featuredClass="bg-green-500">
+
+```html
+<button class="bg-blue-500 **md:bg-green-500** ...">Subscribe</button>
+```
+
+</BreakpointsAndMediaQueries>
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+<CustomizePluginColors name="background" configKey="backgroundColor" />
+
+### Arbitrary values
+
+<ArbitraryValues property="color" featuredClass="bg-[#50d71e]" element="p" />
