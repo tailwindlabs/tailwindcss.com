@@ -343,6 +343,26 @@ module.exports = {
 }
 ```
 
+You can also generate responsive utility variants, for that you must specify each of them:
+
+```js tailwind.config.js
+module.exports = {
+  content: [
+    './pages/**/*.{html,js}',
+    './components/**/*.{html,js}',
+  ],
+  safelist: [
+    'text-2xl',
+    'text-3xl',
+    {
+      pattern: /bg-(red|green|blue)-(100|200|300)/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+  ],
+  // ...
+}
+```
+
 ---
 
 ## Transforming source files
