@@ -8,8 +8,11 @@ let steps = [
     body: () => (
       <p>
         Start by creating a new React project with{' '}
-        <a href="https://create-react-app.dev/docs/getting-started">Create React App</a> if you
-        don't have one already set up.
+        <a href="https://create-react-app.dev/docs/getting-started">Create React App</a>.
+        For existing projects, ensure <code>react-scripts</code> 5.0.0 or higher is installed.
+        You may want to check out <a href="https://create-react-app.dev/docs/updating-to-new-releases/">
+          Updating to New Releases
+        </a>.
       </p>
     ),
     code: {
