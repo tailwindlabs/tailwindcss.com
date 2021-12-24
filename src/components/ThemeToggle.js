@@ -45,7 +45,6 @@ function SunIcon({ selected, ...props }) {
       strokeLinejoin="round"
       {...props}
     >
-      <title>{label}</title>
       <path
         d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
         className={
@@ -63,7 +62,6 @@ function SunIcon({ selected, ...props }) {
 function MoonIcon({ selected, ...props }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" {...props}>
-      <title>{label}</title>
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -87,7 +85,6 @@ function MoonIcon({ selected, ...props }) {
 function PcIcon({ selected, ...props }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" {...props}>
-      <title>{label}</title>
       <path
         d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Z"
         strokeWidth="2"
