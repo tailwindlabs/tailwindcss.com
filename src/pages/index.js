@@ -20,6 +20,7 @@ import { NavItems, NavPopover } from '@/components/Header'
 import styles from './index.module.css'
 import clsx from 'clsx'
 import { ThemeToggle } from '@/components/ThemeToggle'
+import { LanguageSwitcher } from '@/components/LanguageSwitcher'
 
 function Header() {
   return (
@@ -62,6 +63,9 @@ function Header() {
             <div className="hidden md:flex items-center">
               <nav>
                 <ul className="flex items-center space-x-8">
+                  <li>
+                    <LanguageSwitcher />
+                  </li>
                   <NavItems />
                 </ul>
               </nav>

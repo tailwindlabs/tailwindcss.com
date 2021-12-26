@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { VersionSwitcher } from '@/components/VersionSwitcher'
+import { LanguageSwitcher } from '@/components/LanguageSwitcher'
 import { SearchButton } from '@/components/Search'
 import Router from 'next/router'
 import { Logo } from '@/components/Logo'
@@ -111,6 +112,9 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
                 GitHub
               </a>
             </li>
+            <li>
+              <LanguageSwitcher />
+            </li>
           </ul>
           <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-200/10">
             <ThemeSelect />
@@ -217,6 +221,9 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
               <div className="relative hidden lg:flex items-center ml-auto">
                 <nav className="text-sm leading-6 font-semibold text-gray-700 dark:text-gray-200">
                   <ul className="flex space-x-8">
+                    <li>
+                      <LanguageSwitcher />
+                    </li>
                     <NavItems />
                   </ul>
                 </nav>
