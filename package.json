@@ -9,7 +9,7 @@
     "format": "prettier '{src,remark,scripts}/**/*.{css,js,mdx}' --write"
   },
   "browserslist": [
-    "> 1%"
+    "> 0.5%"
   ],
   "dependencies": {
     "@badrap/bar-of-progress": "^0.1.1",
