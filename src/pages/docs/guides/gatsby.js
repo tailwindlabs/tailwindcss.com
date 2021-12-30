@@ -61,6 +61,26 @@ let steps = [
     },
   },
   {
+    title: 'Configure PostCSS for Gatsby theme ( optional ) ',
+    body: () => (
+      <p>
+        In your <code>postcss.config.js</code> file, include Tailwind CSS configuration file path if
+        you are building a Gatsby Theme with Tailwind CSS.
+      </p>
+    ),
+    code: {
+      name: 'postcss.config.js',
+      lang: 'js',
+      code: ` module.exports = {
+    plugins: {
+      tailwindcss: { config: \`\${__dirname}/tailwind.config.js\` },
+      autoprefixer: {},
+      // ...
+    },
+  }`,
+    },
+  },
+  {
     title: 'Configure your template paths',
     body: () => (
       <p>
