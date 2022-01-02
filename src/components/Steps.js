@@ -124,7 +124,7 @@ function Code({ code, lang, pad }) {
       className={clsx('text-sm leading-6 text-gray-50 flex ligatures-none', pad && 'overflow-auto')}
     >
       <code
-        className={clsx('flex-none min-w-full', pad && 'p-5')}
+        className={clsx('flex-none min-w-full', pad && 'p-5', pad && lang === 'diff-js' && 'px-9')}
         dangerouslySetInnerHTML={{
           __html: code
             .split('\n')

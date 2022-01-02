@@ -40,11 +40,12 @@ let steps = [
     ),
     code: {
       name: 'tailwind.config.js',
-      lang: 'js',
+      lang: 'diff-js',
       code: `  module.exports = {
->   content: [
->     "./src/**/*.{js,jsx,ts,tsx}",
->   ],
+-   content: [],
++   content: [
++     "./src/**/*.{js,jsx,ts,tsx}",
++   ],
     theme: {
       extend: {},
     },
