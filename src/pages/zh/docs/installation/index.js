@@ -117,7 +117,7 @@ export default function TailwindCli({ code }) {
 }
 
 export function getStaticProps() {
-  let { highlightCode } = require('../../../../remark/utils')
+  let { highlightCode } = require('../../../../../remark/utils')
 
   return {
     props: {
