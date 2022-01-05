@@ -24,7 +24,13 @@ function Card({ title, superTitle, href, color, body, image, button }) {
               {title}
             </>
           ) : (
-            <a href={href} className="before:absolute before:inset-0">
+            <a
+              href={href}
+              className={clsx(
+                'before:absolute before:inset-0',
+                !button && 'hover:text-gray-600 dark:hover:text-white'
+              )}
+            >
               <span className={clsx('mb-1 block text-sm leading-6', color)}>{superTitle}</span>
               {title}
             </a>
