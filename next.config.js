@@ -328,6 +328,7 @@ module.exports = withBundleAnalyzer({
       ],
     })
 
+    config.module.rules.push(...require('./translate')())
     return config
   },
 })
