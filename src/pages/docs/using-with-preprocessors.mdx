@@ -55,9 +55,16 @@ One important thing to note about `postcss-import` is that it strictly adheres t
 
 ```css
 /* components.css */
+:root {
+  --theme-color: #52b3d0;
+}
+
+/* ... */
 
 .btn {
-  @apply px-4 py-2 rounded font-semibold bg-gray-200 text-black;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background-color: var(--theme-color);
 }
 
 /* Will not work */
@@ -76,15 +83,31 @@ The easiest solution to this problem is to never mix regular CSS and imports in 
 
 ```css
 /* components/buttons.css */
+:root {
+  --theme-color: #52b3d0;
+}
+
+/* ... */
+
 .btn {
-  @apply px-4 py-2 rounded font-semibold bg-gray-200 text-black;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background-color: var(--theme-color);
 }
 ```
 
 ```css
 /* components/card.css */
+:root {
+  --theme-color: #52b3d0;
+}
+
+/* ... */
+
 .card {
-  @apply p-4 bg-white shadow rounded;
+  padding: 12px;
+  border-radius: 4px;
+  background: var(--theme-color);
 }
 ```
 
