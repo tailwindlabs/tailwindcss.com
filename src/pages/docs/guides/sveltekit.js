@@ -8,7 +8,7 @@ let steps = [
     body: () => (
       <p>
         Start by creating a new SvelteKit project if you don’t have one set up already. The most
-        common approach is to use this 
+        common approach is to use this
         <a href="https://kit.svelte.dev/docs#introduction-getting-started">
           Getting Started with SvelteKit Introduction
         </a>
@@ -60,22 +60,18 @@ let steps = [
       code: `
 import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-  // Consult https://github.com/sveltejs/svelte-preprocess
-  // for more information about preprocessors
+
+export default {
   preprocess: [
     preprocess({
-postcss: true
+      postcss: true
     })
   ],
   kit: {
     adapter: adapter(),
-    // hydrate the <div id="svelte"> element in src/app.html
     target: '#svelte'
   }
 };
-export default config;     
       `,
     },
   },
@@ -98,7 +94,7 @@ export default config;
   },
   plugins: []
 };
-module.exports = config;     
+module.exports = config;
       `,
     },
   },
@@ -129,7 +125,7 @@ const config = {
     })
   ]
 };
-module.exports = config;   
+module.exports = config;
       `,
     },
   },
@@ -147,7 +143,7 @@ module.exports = config;
       code: `/* Write your global styles here, in PostCSS syntax */
 @tailwind base;
 @tailwind components;
-@tailwind utilities;  
+@tailwind utilities;
 `,
     },
   },
@@ -168,7 +164,7 @@ module.exports = config;
   import '../app.css';
 </script>
 
-<slot />  
+<slot />
 `,
     },
   },
