@@ -10,7 +10,7 @@ Tailwind encourages a [utility-first](/docs/utility-first) workflow, where desig
 
 But of course as a project grows, you'll inevitably find yourself repeating common utility combinations to recreate the same design in many different places.
 
-For example, in the template below you can see the utility classes for each avatar image are repeated six separate times:
+For example, in the template below you can see the utility classes for each avatar image are repeated five separate times:
 
 <Example p="none">
   <div class="w-72 sm:w-96 px-8 sm:px-12 py-6 sm:py-8 mx-auto bg-white shadow">
@@ -132,7 +132,7 @@ You could even rewrite the navigation example using a loop or `map` if you prefe
   {[
     ['Home', '/dashboard'],
     ['Team', '/team'],
-    ['Team', '/projects'],
+    ['Projects', '/projects'],
     ['Reports', '/reports'],
   ].map(([title, url]) => (
     <a href={url} className="rounded-lg px-3 py-2 text-gray-700 font-medium hover:bg-gray-100 hover:text-gray-900">{title}</a>

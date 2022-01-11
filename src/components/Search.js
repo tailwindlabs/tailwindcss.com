@@ -86,6 +86,10 @@ export function SearchProvider({ children }) {
 
                 const hash = a.hash === '#content-wrapper' ? '' : a.hash
 
+                if (item.hierarchy?.lvl0) {
+                  item.hierarchy.lvl0 = item.hierarchy.lvl0.replace(/&amp;/g, '&')
+                }
+
                 return {
                   ...item,
                   url: `${a.pathname}${hash}`,

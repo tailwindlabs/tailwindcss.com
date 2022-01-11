@@ -24,8 +24,8 @@ For example, to apply the `bg-sky-700` class on hover, use the `hover:bg-sky-700
 </button>
 ```
 
-<details className="-mt-2 mb-10 rounded-xl border px-6 py-3 prose open:pb-5">
-  <summary className="font-medium cursor-default select-none text-gray-900">How does this compare to traditional CSS?</summary>
+<details className="-mt-2 mb-10 rounded-xl border px-6 py-3 prose open:pb-5 dark:prose-dark dark:border-gray-800">
+  <summary className="font-medium cursor-default select-none text-gray-900 dark:text-gray-200">How does this compare to traditional CSS?</summary>
 
 When writing CSS the traditional way, a single class name would do different things based on the current state.
 
@@ -74,7 +74,7 @@ These modifiers can even be [stacked](#ordering-stacked-modifiers) to target mor
 </button>
 ```
 
-In this guide you'll learn about every modifier available in the framework, how to use with them with your own custom classes, and even how to create your own.
+In this guide you'll learn about every modifier available in the framework, how to use them with your own custom classes, and even how to create your own.
 
 ---
 
@@ -275,19 +275,19 @@ Style form elements in different states using modifiers like `required`, `invali
       <div>
         <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
         <div class="mt-1">
-          <input type="text" name="username" id="username" class="px-3 py-2 border shadow-sm border-gray-300 placeholder-gray-400  disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="tbone" disabled />
+          <input type="text" name="username" id="username" class="px-3 py-2 bg-white border shadow-sm border-gray-300 placeholder-gray-400  disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="tbone" disabled />
         </div>
       </div>
       <div class="mt-6">
         <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
         <div class="mt-1">
-          <input type="email" name="email" id="email" class="px-3 py-2 border shadow-sm border-gray-300 placeholder-gray-400  disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="george@krugerindustrial." placeholder="you@example.com" />
+          <input type="email" name="email" id="email" class="px-3 py-2 bg-white border shadow-sm border-gray-300 placeholder-gray-400  disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="george@krugerindustrial." placeholder="you@example.com" />
         </div>
       </div>
       <div class="mt-6">
         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
         <div class="mt-1">
-          <input type="password" name="password" id="password" class="px-3 py-2 border shadow-sm border-gray-300 placeholder-gray-400  disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="Bosco" />
+          <input type="password" name="password" id="password" class="px-3 py-2 bg-white border shadow-sm border-gray-300 placeholder-gray-400  disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="Bosco" />
         </div>
       </div>
       <div class="mt-6 text-right">
@@ -304,7 +304,7 @@ Style form elements in different states using modifiers like `required`, `invali
   <label class="block">
     <span class="block text-sm font-medium text-gray-700">Username</span>
     <!-- Using form state modifers, the classes can be identical for every input -->
-    <input type="text" value="tbone" disabled class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
+    <input type="text" value="tbone" disabled class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
       focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
       **disabled:bg-gray-50** **disabled:text-gray-500** **disabled:border-gray-200** **disabled:shadow-none**
       **invalid:border-pink-500** **invalid:text-pink-600**
@@ -363,7 +363,7 @@ When you need to style an element based on the state of a _sibling_ element, mar
       <div>
         <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
         <div class="mt-1">
-          <input type="email" name="email" id="email" class="peer px-3 py-2 border shadow-sm border-gray-300 placeholder-gray-400  disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="george@krugerindustrial." placeholder="you@example.com" />
+          <input type="email" name="email" id="email" class="peer px-3 py-2 bg-white border shadow-sm border-gray-300 placeholder-gray-400  disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="george@krugerindustrial." placeholder="you@example.com" />
           <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">Please provide a valid email address.</p>
         </div>
       </div>
@@ -400,7 +400,7 @@ Style the `::before` and `::after` pseudo-elements using the `before` and `after
     <form>
       <label class="block">
         <span class="block text-sm font-medium text-gray-700 after:content-['*'] after:ml-0.5 after:text-red-500">Email</span>
-        <input type="email" name="email" id="email" class="mt-1 px-3 py-2 border shadow-sm border-gray-300 placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="you@example.com" />
+        <input type="email" name="email" id="email" class="mt-1 px-3 py-2 bg-white border shadow-sm border-gray-300 placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="you@example.com" />
       </label>
     </form>
   </div>
@@ -411,7 +411,7 @@ Style the `::before` and `::after` pseudo-elements using the `before` and `after
   <span class="**after:content-['*']** **after:ml-0.5** **after:text-red-500** block text-sm font-medium text-gray-700">
     Email
   </span>
-  <input type="email" name="email" class="mt-1 px-3 py-2 border shadow-sm border-gray-300 placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="you@example.com" />
+  <input type="email" name="email" class="mt-1 px-3 py-2 bg-white border shadow-sm border-gray-300 placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="you@example.com" />
 </label>
 ```
 
@@ -455,6 +455,16 @@ For example, here's the same design from above but using a `<span>` instead of t
 
 Save `before` and `after` for situations where it's important that the content of the pseudo-element is not actually in the DOM and can't be selected by the user.
 
+Note that if you've disabled our [preflight base styles](/docs/preflight), the content property will not be set to an empty string by default, and you will need to include `content-['']` any time you use the `before` and `after` modifiers.
+
+<TipInfo>If you've disabled preflight make sure to set the content manually</TipInfo>
+
+```html
+<div class="**before:content-['']** before:block ...">
+  <!-- ... -->
+</div>
+```
+
 ### Placeholder text
 
 Style the placeholder text of any input or textarea using the `placeholder` modifier:
@@ -473,7 +483,7 @@ Style the placeholder text of any input or textarea using the `placeholder` modi
           </svg>
         </span>
         <span class="sr-only">Search</span>
-        <input type="text" name="search" class="block w-full border border-gray-300 rounded-md py-2 pl-9 pr-3 shadow-sm placeholder:italic placeholder:text-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Search for anything..."
+        <input type="text" name="search" class="block bg-white w-full border border-gray-300 rounded-md py-2 pl-9 pr-3 shadow-sm placeholder:italic placeholder:text-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Search for anything..."
         />
       </label>
     </form>
@@ -486,7 +496,7 @@ Style the placeholder text of any input or textarea using the `placeholder` modi
   <span class="absolute inset-y-0 left-0 flex items-center pl-2">
     <svg class="h-5 w-5 fill-gray-300" viewBox="0 0 20 20"><!-- ... --></svg>
   </span>
-  <input class="**placeholder:italic** **placeholder:text-gray-400** block w-full border border-gray-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Search for anything..." type="text" name="search"/>
+  <input class="**placeholder:italic** **placeholder:text-gray-400** block bg-white w-full border border-gray-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Search for anything..." type="text" name="search"/>
 </label>
 ```
 
@@ -541,9 +551,9 @@ Style the counters or bullets in lists using the `marker` modifier:
 
 <Example p="none">
   <div class="px-6">
-    <div class="max-w-sm mx-auto bg-white shadow py-8 px-8">
-      <h2 class="text-base font-semibold text-gray-900">Ingredients</h2>
-      <ul role="list" class="mt-3 list-disc pl-5 space-y-3 text-gray-500 marker:text-sky-400">
+    <div class="max-w-sm mx-auto bg-white shadow py-8 px-8 dark:bg-gray-800">
+      <h2 class="text-base font-semibold text-gray-900 dark:text-gray-200">Ingredients</h2>
+      <ul role="list" class="mt-3 list-disc pl-5 space-y-3 text-gray-500 marker:text-sky-400 dark:text-gray-400">
         <li>5 cups chopped Porcini mushrooms</li>
         <li>1/2 cup of olive oil</li>
         <li>3lb of celery</li>
@@ -553,7 +563,7 @@ Style the counters or bullets in lists using the `marker` modifier:
 </Example>
 
 ```html
-<ul role="list" class="**marker:text-sky-400** list-disc pl-5 space-y-3 text-gray-500">
+<ul role="list" class="**marker:text-sky-400** list-disc pl-5 space-y-3 text-gray-500" dark-class="**marker:text-sky-400** list-disc pl-5 space-y-3 text-gray-400">
   <li>5 cups chopped Porcini mushrooms</li>
   <li>1/2 cup of olive oil</li>
   <li>3lb of celery</li>
@@ -568,7 +578,7 @@ Style the active text selection using the `selection` modifier:
 
 <Example p="none" hint="Try selecting some of this text with your mouse">
   <div class="px-6">
-    <div class="max-w-lg mx-auto bg-white shadow py-8 px-6 selection:bg-fuchsia-300 selection:text-fuchsia-900">
+    <div class="max-w-lg mx-auto bg-white text-gray-700 shadow py-8 px-6 selection:bg-fuchsia-300 selection:text-fuchsia-900 dark:bg-gray-800 dark:text-gray-400">
       <p>
         So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
       </p>
@@ -609,8 +619,8 @@ Style the first line in a block of content using the `first-line` modifier, and 
 
 <Example p="none">
   <div class="px-6">
-    <div class="max-w-lg mx-auto bg-white shadow py-8 px-6 font-serif">
-      <p class="first-line:uppercase first-line:tracking-widest first-letter:text-gray-900 first-letter:text-7xl first-letter:leading-none first-letter:float-left first-letter:font-bold first-letter:mr-3">
+    <div class="max-w-lg mx-auto bg-white text-gray-700 shadow py-8 px-6 font-serif dark:bg-gray-800 dark:text-gray-200">
+      <p class="first-line:uppercase first-line:tracking-widest first-letter:text-gray-900 first-letter:text-7xl first-letter:leading-none first-letter:float-left first-letter:font-bold first-letter:mr-3 dark:first-letter:text-white">
         Well, let me tell you something, funny boy. Y'know that little stamp, the one that says "New York Public Library"? Well that may not mean anything to you, but that means a lot to me. One whole hell of a lot.
       </p>
       <p class="mt-6">
@@ -623,6 +633,9 @@ Style the first line in a block of content using the `first-line` modifier, and 
 ```html
 <p class="**first-line:uppercase** **first-line:tracking-widest**
   **first-letter:text-7xl** **first-letter:font-bold** **first-letter:text-gray-900**
+  **first-letter:mr-3** **first-letter:float-left**
+" dark-class="**first-line:uppercase** **first-line:tracking-widest**
+  **first-letter:text-7xl** **first-letter:font-bold** **first-letter:text-white**
   **first-letter:mr-3** **first-letter:float-left**
 ">
   Well, let me tell you something, funny boy. Y'know that little stamp, the one
@@ -795,22 +808,22 @@ Use the `rtl` and `ltr` modifiers conditionally add styles in right-to-left and 
 <Example>
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 max-w-lg mx-auto">
     <div dir="ltr">
-      <p class="mb-4 text-sm font-medium text-gray-500">Left-to-right</p>
+      <p class="mb-4 text-sm font-medium">Left-to-right</p>
       <div class="group flex items-center">
         <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
         <div class="ml-3 rtl:ml-0 rtl:mr-3">
-          <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">Tom Cook</p>
-          <p class="text-sm font-medium text-gray-500 group-hover:text-gray-700">Director of Operations</p>
+          <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900 dark:text-gray-300 dark:group-hover:text-white">Tom Cook</p>
+          <p class="text-sm font-medium text-gray-500 group-hover:text-gray-700 dark:group-hover:text-gray-300">Director of Operations</p>
         </div>
       </div>
     </div>
     <div dir="rtl">
-      <p class="mb-4 text-sm font-medium text-gray-500">Right-to-left</p>
+      <p class="mb-4 text-sm font-medium">Right-to-left</p>
       <div class="group flex items-center">
         <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1563833717765-00462801314e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
         <div class="ml-3 rtl:ml-0 rtl:mr-3">
-          <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">تامر كرم</p>
-          <p class="text-sm font-medium text-gray-500 group-hover:text-gray-700">الرئيس التنفيذي</p>
+          <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900 dark:text-gray-300 dark:group-hover:text-white">تامر كرم</p>
+          <p class="text-sm font-medium text-gray-500 group-hover:text-gray-700 dark:group-hover:text-gray-300">الرئيس التنفيذي</p>
         </div>
       </div>
     </div>
@@ -821,8 +834,8 @@ Use the `rtl` and `ltr` modifiers conditionally add styles in right-to-left and 
   <div class="group flex items-center">
     <img class="shrink-0 h-12 w-12 rounded-full" src="..." alt="" />
 >   <div class="ltr:ml-3 rtl:mr-3">
-      <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">...</p>
-      <p class="text-sm font-medium text-gray-500 group-hover:text-gray-700">...</p>
+      <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900" dark-class="text-sm font-medium text-gray-300 group-hover:text-white">...</p>
+      <p class="text-sm font-medium text-gray-500 group-hover:text-gray-700" dark-class="text-sm font-medium text-gray-500 group-hover:text-gray-300">...</p>
     </div>
   </div>
 ```
@@ -846,11 +859,11 @@ Use the `open` modifier to conditionally add styles when a `<details>` or `<dial
 
 <Example hint="Try toggling the disclosure to see the styles change">
   <div class="max-w-lg mx-auto">
-    <details class="open:bg-white open:ring-1 open:ring-black/5 open:shadow-lg p-6 rounded-lg" open>
-      <summary class="text-sm leading-6 text-gray-900 font-semibold select-none">
+    <details class="open:bg-white dark:open:bg-gray-900 open:ring-1 open:ring-black/5 dark:open:ring-white/10 open:shadow-lg p-6 rounded-lg" open>
+      <summary class="text-sm leading-6 text-gray-900 dark:text-white font-semibold select-none">
         Why do they call it Ovaltine?
       </summary>
-      <div class="mt-3 text-sm leading-6 text-gray-600">
+      <div class="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-400">
         <p>The mug is round. The jar is round. They should call it Roundtine.</p>
       </div>
     </details>
@@ -860,11 +873,11 @@ Use the `open` modifier to conditionally add styles when a `<details>` or `<dial
 
 ```html
   <div class="max-w-lg mx-auto p-8">
->   <details class="open:bg-white open:ring-1 open:ring-black/5 open:shadow-lg p-6 rounded-lg" open>
-      <summary class="text-sm leading-6 text-gray-900 font-semibold select-none">
+>   <details class="open:bg-white dark:open:bg-gray-900 open:ring-1 open:ring-black/5 dark:open:ring-white/10 open:shadow-lg p-6 rounded-lg" open>
+      <summary class="text-sm leading-6 text-gray-900 dark:text-white font-semibold select-none">
         Why do they call it Ovaltine?
       </summary>
-      <div class="mt-3 text-sm leading-6 text-gray-600">
+      <div class="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-400">
         <p>The mug is round. The jar is round. They should call it Roundtine.</p>
       </div>
     </details>
@@ -1005,14 +1018,14 @@ A quick reference table of every single modifier included in Tailwind by default
 | <a href="#placeholder-shown" className="whitespace-nowrap">placeholder-shown</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:placeholder-shown</code> |
 | <a href="#autofill" className="whitespace-nowrap">autofill</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:autofill</code> |
 | <a href="#read-only" className="whitespace-nowrap">read-only</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:read-only</code> |
-| <a href="#open" className="whitespace-nowrap">open</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>[open]</code> |
+| <a href="#open-closed-state" className="whitespace-nowrap">open</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>[open]</code> |
 | <a href="#before-and-after" className="whitespace-nowrap">before</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::before</code> |
 | <a href="#before-and-after" className="whitespace-nowrap">after</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::after</code> |
 | <a href="#first-line-and-first-letter" className="whitespace-nowrap">first-letter</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::first-letter</code> |
 | <a href="#first-line-and-first-letter" className="whitespace-nowrap">first-line</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::first-line</code> |
 | <a href="#highlighted-text" className="whitespace-nowrap">marker</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::marker</code> |
 | <a href="#selection" className="whitespace-nowrap">selection</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::selection</code> |
-| <a href="#file" className="whitespace-nowrap">file</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::file-selector-button</code> |
+| <a href="#file-input-buttons" className="whitespace-nowrap">file</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::file-selector-button</code> |
 | <a href="#placeholder" className="whitespace-nowrap">placeholder</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::placeholder</code> |
 | <a href="#responsive-breakpoints" className="whitespace-nowrap">sm</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 640px)</code> |
 | <a href="#responsive-breakpoints" className="whitespace-nowrap">md</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 768px)</code> |

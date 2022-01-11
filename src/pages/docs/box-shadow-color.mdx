@@ -23,15 +23,15 @@ Use the `shadow-{color}` utilities to change the color of an existing box shadow
 <Example>
   <div class="flex flex-col sm:flex-row justify-center gap-8 sm:gap-16">
     <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">shadow-cyan-500/50</p>
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">shadow-cyan-500/50</p>
       <button class="py-2 px-3 bg-cyan-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-cyan-500/50 focus:outline-none">Subscribe</button>
     </div>
     <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">shadow-blue-500/50</p>
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">shadow-blue-500/50</p>
       <button class="py-2 px-3 bg-blue-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-blue-500/50 focus:outline-none">Subscribe</button>
     </div>
     <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">shadow-indigo-500/50</p>
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3 dark:text-gray-400">shadow-indigo-500/50</p>
       <button class="py-2 px-3 bg-indigo-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-indigo-500/50 focus:outline-none">Subscribe</button>
     </div>
   </div>
@@ -79,6 +79,24 @@ When using shadows on a colored background, colored shadows can often look more 
 ### <Heading ignore>Breakpoints and media queries</Heading>
 
 <BreakpointsAndMediaQueries defaultClass="shadow shadow-blue-500/40" featuredClass="shadow-indigo-500/40" element="button" />
+
+### Preserving shadow color when changing the shadow size
+
+Note that if you change the [box shadow](/docs/box-shadow) size at a different breakpoint, or on another state like hover, it will override any existing shadow colors.
+
+```html
+<!-- This shadow will NOT be red at medium screens and above -->
+<div class="shadow-lg shadow-red-500 **md:shadow-xl**"></div>
+```
+
+To preserve the shadow color in these states, it needs to be respecified:
+
+```html
+<!-- This shadow WILL be red at medium screens and above -->
+<div class="shadow-lg shadow-red-500 **md:shadow-xl md:shadow-red-500**"></div>
+```
+
+It's necessary for Tailwind to work this way, as otherwise there would be no way to switch back to the default shadow.
 
 ---
 
