@@ -7,165 +7,91 @@ let steps = [
     title: 'Create your project',
     body: () => (
       <p>
-        Start by creating a new SvelteKit project if you don’t have one set up already. The most
-        common approach is to use this
-        <a href="https://kit.svelte.dev/docs#introduction-getting-started">
-          Getting Started with SvelteKit Introduction
-        </a>
-        .{' '}
-        <small>
-          Note: *Once SvelteKit is out of beta the <code>@next</code> will no longer be needed.
-        </small>
+        Start by creating a new SvelteKit project if you don't have one set up already. The most
+        common approach is outlined in the <a href="https://kit.svelte.dev/docs#introduction-getting-started">Getting Started with SvelteKit</a> introduction.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm init svelte@next',
+      code: 'npm init svelte@next my-app\ncd my-app\nnpm install',
     },
   },
   {
     title: 'Install Tailwind CSS',
     body: () => (
       <p>
-        <a href="https://github.com/svelte-add/svelte-add#readme">Svelte Add</a> is a community
-        project to easily add integrations to Svelte apps. To add{' '}
-        <a href="https://github.com/svelte-add/tailwindcss">TailwindCSS with svelte-add</a> run{' '}
-        <code>npx svelte-add@latest tailwindcss</code> and run <code>npm i</code> to install the
-        dependencies. This will automatically generate the <code>tailwind.config.cjs</code>, the{' '}
-        <code>postcss.config.cjs</code>, and add preprocess to the <code>svelte.config.js</code>. It
-        will also create an <code>src/app.css</code> file with the Tailwind CSS imports and the{' '}
-        <code>src/routes/__layout.svelte</code> file to import the CSS file that will wrap the
-        application. Tailwind CSS is now setup and configured in your SvelteKit project. You are
-        ready to start adding Tailwind CSS classes to your routes and components. Here are the base
-        configurations, any of these can be edited to your configurations.
+        Use the community project <a href="https://github.com/svelte-add/svelte-add#readme">Svelte Add</a> to generate <code>tailwindcss.config.cjs</code>, <code>postcss.config.cjs</code>, and stub files for your css and layout.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npx svelte-add@latest tailwindcss',
+      code: 'npx svelte-add@latest tailwindcss\nnpm install',
     },
   },
   {
-    title: 'svelte.config.js',
+    title: 'Configure your template paths',
     body: () => (
       <p>
-        Added preprocess to the <code>svelte.config.js</code> file.
+        Add the paths to all of your template files in the generated <code>tailwind.config.cjs</code> file.
       </p>
     ),
     code: {
-      name: 'Javascript',
+      name: 'tailwind.config.cjs',
       lang: 'javascript',
-      code: `
-import adapter from '@sveltejs/adapter-auto';
-import preprocess from 'svelte-preprocess';
+      code: `  const config = {
+>   content: ['./src/**/*.{html,js,svelte,ts}'],
+    theme: {
+      extend: {}
+    },
+    plugins: []
+  };
 
-export default {
-  preprocess: [
-    preprocess({
-      postcss: true
-    })
-  ],
-  kit: {
-    adapter: adapter(),
-    target: '#svelte'
-  }
-};
-      `,
+  module.exports = config;`,
     },
   },
   {
-    title: 'tailwind.config.cjs',
+    title: 'Add the Tailwind directives to your CSS',
     body: () => (
       <p>
-        Generated <code>tailwind.config.cjs</code> with Svelte extentions and jit compiler. Add
-        custom configurations the theme here.
+        Add the <code>@tailwind</code> directives for each of Tailwind's layers to your <code>./src/app.css</code> file if not.
       </p>
     ),
     code: {
-      name: 'Javascript',
-      lang: 'javascript',
-      code: `const config = {
-  mode: 'jit',
-  purge: ['./src/**/*.{html,js,svelte,ts}'],
-  theme: {
-    extend: {}
-  },
-  plugins: []
-};
-module.exports = config;
-      `,
-    },
-  },
-  {
-    title: 'postcss.config.cjs',
-    body: () => (
-      <p>
-        Generated <code>postcss.config.cjs</code> with default Tailwind CSS configuration.
-      </p>
-    ),
-    code: {
-      name: 'Javascript',
-      lang: 'javascript',
-      code: `const tailwindcss = require('tailwindcss');
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
-const mode = process.env.NODE_ENV;
-const dev = mode === 'development';
-const config = {
-  plugins: [
-    //Some plugins, like tailwindcss/nesting, need to run before Tailwind,
-    tailwindcss(),
-    //But others, like autoprefixer, need to run after,
-    autoprefixer(),
-    !dev &&
-    cssnano({
-      preset: 'default'
-    })
-  ]
-};
-module.exports = config;
-      `,
-    },
-  },
-  {
-    title: 'src/app.css',
-    body: () => (
-      <p>
-        Generated <code>src/app.css</code> with Tailwind CSS imports. Add any global styles to this
-        file in PostCSS syntax.
-      </p>
-    ),
-    code: {
-      name: 'CSS',
+      name: 'app.css',
       lang: 'css',
-      code: `/* Write your global styles here, in PostCSS syntax */
-@tailwind base;
+      code: `@tailwind base;
 @tailwind components;
-@tailwind utilities;
-`,
+@tailwind utilities;`,
     },
   },
   {
-    title: 'src/routes/__layout.svelte',
+    title: 'Start your build process',
     body: () => (
       <p>
-        Generated <code>src/routes/__layout.svelte</code> with css file imported and wrapped around
-        the application. Other layout components, like <code>Header</code> or <code>Footer</code>{' '}
-        can be added to this file. The <code>{`</slot>`}</code> is where the other routes get
-        inserted.
+        Run your build process with <code>npm run dev</code>.
       </p>
     ),
     code: {
-      name: 'Svelte',
+      name: 'Terminal',
+      lang: 'terminal',
+      code: 'npm run dev',
+    },
+  },
+  {
+    title: 'Start using Tailwind in your project',
+    body: () => (
+      <p>
+        Start using Tailwind’s utility classes to style your content.
+      </p>
+    ),
+    code: {
+      name: 'index.svelte',
       lang: 'html',
-      code: `<script>
-  import '../app.css';
-</script>
-
-<slot />
-`,
+      code: `> <h1 class="text-3xl font-bold underline">
+>   Hello world!
+> </h1>`,
     },
   },
 ]
