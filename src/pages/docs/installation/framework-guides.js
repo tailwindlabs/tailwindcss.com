@@ -61,7 +61,7 @@ export default function FrameworkGuides() {
           {
             name: 'Ruby On Rails',
             slug: 'ruby-on-rails',
-            description: 'Ruby web application framework',
+            description: 'Full-stack framework with all the tools needed to build amazing web apps.',
             logo: RailsLogo,
           },
         ].map(({ name, description, logo: Logo, slug }) => (
