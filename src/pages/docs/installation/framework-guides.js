@@ -28,12 +28,6 @@ export default function FrameworkGuides() {
             logo: NextJsLogo,
           },
           {
-            name: 'SvelteKit',
-            slug: 'sveltekit',
-            description: 'The fastest way to build apps of all sizes with Svelte.js.',
-            logo: SvelteLogo,
-          },
-          {
             name: 'Laravel',
             slug: 'laravel',
             description: 'PHP web application framework with expressive, elegant syntax.',
@@ -62,6 +56,12 @@ export default function FrameworkGuides() {
             slug: 'create-react-app',
             description: 'CLI tool for scaffolding a new single-page React application.',
             logo: CraLogo,
+          },
+          {
+            name: 'SvelteKit',
+            slug: 'sveltekit',
+            description: 'The fastest way to build apps of all sizes with Svelte.js.',
+            logo: SvelteLogo,
           },
         ].map(({ name, description, logo: Logo, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">
