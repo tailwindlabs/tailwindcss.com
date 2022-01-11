@@ -13,6 +13,9 @@ export function VersionSwitcher({ className }) {
     if (selectRef.current.value === 'v1') {
       window.location = 'https://v1.tailwindcss.com/'
     }
+    if (selectRef.current.value === 'v3') {
+      window.location = 'https://tailwindcss.com/'
+    }
   }
 
   return (
@@ -24,7 +27,10 @@ export function VersionSwitcher({ className }) {
           className="appearance-none block bg-transparent pr-7 py-1 text-gray-500 font-medium text-sm focus:outline-none focus:text-gray-900 transition-colors duration-200"
           onChange={submit}
         >
-          <option value="v2">v{tailwindVersion}</option>
+          <option value="v3">v3</option>
+          <option value="v2" selected>
+            v{tailwindVersion}
+          </option>
           <option value="v1">v1.9.6</option>
           <option value="v0">v0.7.4</option>
         </select>
