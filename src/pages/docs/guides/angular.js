@@ -57,7 +57,7 @@ let steps = [
     body: () => (
       <p>
         Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your global
-        styles <code>./src/styles.[css,scss]</code> file.
+        styles <code>./src/styles.css</code> file.
       </p>
     ),
     code: {

@@ -10,6 +10,7 @@ import { ReactComponent as NuxtJsLogo } from '@/img/guides/nuxtjs.svg'
 import { ReactComponent as GatsbyLogo } from '@/img/guides/gatsby.svg'
 import { ReactComponent as CraLogo } from '@/img/guides/cra.svg'
 import { ReactComponent as AngularLogo } from '@/img/guides/angular.svg'
+import { ReactComponent as AngularLogoWhite } from '@/img/guides/angular-white.svg'
 
 export default function FrameworkGuides() {
   return (
@@ -70,6 +71,7 @@ export default function FrameworkGuides() {
             slug: 'angular',
             description: 'Platform for building mobile and desktop web applications.',
             logo: AngularLogo,
+            logoDark: AngularLogoWhite,
           },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">
