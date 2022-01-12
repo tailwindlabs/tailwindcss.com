@@ -18,7 +18,7 @@ export default function PostItem({ title, category, slug, date, children, wide =
           <a>{title}</a>
         </Link>
       </h3>
-      <div className="mb-6 prose dark:prose-dark">{children}</div>
+      <div className="mb-6 prose prose-slate dark:prose-dark">{children}</div>
       <div className="mt-auto flex flex-row-reverse items-center justify-end">
         <dl>
           {category && (

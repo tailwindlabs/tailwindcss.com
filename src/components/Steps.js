@@ -33,7 +33,7 @@ export function Steps({ steps, code, level = 2 }) {
               <StepHeading className="text-sm leading-6 text-slate-900 font-semibold mb-2 dark:text-slate-200">
                 {step.title}
               </StepHeading>
-              <div className="prose prose-sm dark:prose-dark">
+              <div className="prose prose-slate prose-sm dark:prose-dark">
                 <step.body />
               </div>
             </div>

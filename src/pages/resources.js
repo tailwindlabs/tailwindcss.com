@@ -36,7 +36,7 @@ function Card({ title, superTitle, href, color, body, image, button }) {
             </a>
           )}
         </h3>
-        <div className="prose prose-sm text-slate-600 dark:prose-dark">{body}</div>
+        <div className="prose prose-slate prose-sm text-slate-600 dark:prose-dark">{body}</div>
         {button && (
           <Button href={href} className="mt-6">
             {button}
@@ -88,7 +88,7 @@ export default function Resources() {
           <h2 className="mb-2 text-2xl leading-7 tracking-tight text-slate-900 font-bold dark:text-slate-200">
             Design resources
           </h2>
-          <div className="mb-10 prose text-slate-600 max-w-3xl dark:prose-dark">
+          <div className="mb-10 prose prose-slate text-slate-600 max-w-3xl dark:prose-dark">
             <p>
               Design is hard so we made a few resources to help you with it. These resources are a
               great way to help you with your designs and a great way to support the development of
@@ -185,7 +185,7 @@ export default function Resources() {
           <h2 className="mb-2 text-2xl leading-7 tracking-tight text-slate-900 font-bold dark:text-slate-200">
             Additional resources
           </h2>
-          <div className="mb-10 prose text-slate-600 max-w-3xl dark:prose-dark">
+          <div className="mb-10 prose prose-slate text-slate-600 max-w-3xl dark:prose-dark">
             <p>
               Tailwind isn’t the only open-source project we maintain. We’ve made a few other
               resources to help you with your design and development workflow.
@@ -251,7 +251,7 @@ export default function Resources() {
           <h2 className="mb-2 text-xl tracking-tight text-slate-900 font-bold dark:text-slate-200">
             Screencasts
           </h2>
-          <div className="mb-10 prose text-slate-600 max-w-3xl dark:prose-dark">
+          <div className="mb-10 prose prose-slate text-slate-600 max-w-3xl dark:prose-dark">
             <p>
               Head over to our official YouTube channel and dive into dozens of videos that will
               teach you everything from Tailwind basics to advanced concepts.
@@ -312,7 +312,7 @@ export default function Resources() {
           <h2 className="mb-2 text-xl tracking-tight text-slate-900 font-bold dark:text-slate-200">
             Connect and contribute
           </h2>
-          <div className="mb-10 prose text-slate-600 max-w-3xl dark:prose-dark">
+          <div className="mb-10 prose prose-slate text-slate-600 max-w-3xl dark:prose-dark">
             <p>
               Whether you're a beginner or an advanced user, getting involved in the Tailwind
               community is a great way to connect with like-minded folks who are building awesome
