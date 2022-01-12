@@ -74,7 +74,7 @@ export function BlogPostLayout({ children, meta, slug, latestPosts }) {
               </div>
             </dl>
           </div>
-          <div className="prose dark:prose-dark">
+          <div className="prose prose-slate dark:prose-dark">
             <MDXProvider components={mdxComponents}>{children}</MDXProvider>
           </div>
         </article>

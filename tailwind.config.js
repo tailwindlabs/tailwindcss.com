@@ -89,12 +89,19 @@ module.exports = {
             'h2, h3, h4': {
               'scroll-margin-top': 'var(--scroll-mt)',
             },
+            ul: {
+              listStyleType: 'none',
+              paddingLeft: 0,
+            },
             'ul > li': {
+              position: 'relative',
               paddingLeft: '1.75em',
             },
             'ul > li::before': {
+              content: '""',
               width: '0.75em',
               height: '0.125em',
+              position: 'absolute',
               top: 'calc(0.875em - 0.0625em)',
               left: 0,
               borderRadius: '999px',

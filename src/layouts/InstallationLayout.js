@@ -160,7 +160,7 @@ export function InstallationLayout({ children }) {
         <h2 className="text-slate-900 text-xl tracking-tight font-bold mb-3 dark:text-slate-200">
           What to read next
         </h2>
-        <div className="mb-10 max-w-2xl prose xl:mb-0 dark:prose-dark">
+        <div className="mb-10 max-w-2xl prose prose-slate xl:mb-0 dark:prose-dark">
           <p>
             Get familiar with some of the core concepts that make Tailwind CSS different from
             writing traditional CSS.
@@ -195,7 +195,7 @@ export function InstallationLayout({ children }) {
                     </a>
                   </Link>
                 </h3>
-                <div className="prose prose-sm text-slate-600 dark:prose-dark">
+                <div className="prose prose-slate prose-sm text-slate-600 dark:prose-dark">
                   <item.body />
                 </div>
               </div>
