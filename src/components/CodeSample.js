@@ -137,7 +137,7 @@ export function ResizableCodeSample({
         ref={previewContainerRef}
         className={`relative rounded-t-xl ${containerBackground[color]}`}
       >
-        <div className={min ? 'md:w-88' : undefined}>
+        <div className={min ? 'md:w-[22rem]' : undefined}>
           <motion.div className="relative" style={{ marginRight: useTransform(x, (x) => -x) }}>
             {preview ? (
               <div
