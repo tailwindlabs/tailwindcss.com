@@ -284,23 +284,6 @@ module.exports = {
       addVariant('scrollbar-thumb', '&::-webkit-scrollbar-thumb')
       addVariant('demo-dark', '.demo-dark &')
     },
-    function ({ addUtilities, theme }) {
-      const shadows = theme('boxShadow')
-      addUtilities(
-        Object.keys(shadows).reduce(
-          (utils, key) => ({
-            ...utils,
-            [`.text-shadow${key === 'DEFAULT' ? '' : `-${key}`}`]: {
-              textShadow: shadows[key].replace(
-                /([0-9]+(px)? [0-9]+(px)? [0-9]+(px)?) [0-9]+(px)?/g,
-                '$1'
-              ),
-            },
-          }),
-          {}
-        )
-      )
-    },
     function ({ matchUtilities, theme }) {
       matchUtilities(
         {
