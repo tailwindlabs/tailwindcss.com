@@ -68,7 +68,7 @@ export function ConfigSample({ path, add, remove, before, after }) {
 
   return (
     <div className="prose dark:prose-dark">
-      <div className="my-6 rounded-xl overflow-hidden bg-gray-800">
+      <div className="my-6 rounded-xl overflow-hidden bg-slate-800">
         <pre className="language-diff">
           <code className="language-diff">
             <span className="token unchanged">
