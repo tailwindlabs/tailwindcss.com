@@ -10,6 +10,8 @@ import { ReactComponent as ViteLogo } from '@/img/guides/vite.svg'
 import { ReactComponent as NuxtJsLogo } from '@/img/guides/nuxtjs.svg'
 import { ReactComponent as GatsbyLogo } from '@/img/guides/gatsby.svg'
 import { ReactComponent as CraLogo } from '@/img/guides/cra.svg'
+import { ReactComponent as RemixLogo } from '@/img/guides/remix.svg'
+import { ReactComponent as RemixLogoWhite } from '@/img/guides/remix-white.svg'
 import PhoenixLogo from '@/img/guides/phoenix.png'
 import ParcelLogo from '@/img/guides/parcel.png'
 
@@ -67,6 +69,14 @@ export default function FrameworkGuides() {
             slug: 'sveltekit',
             description: 'The fastest way to build apps of all sizes with Svelte.js.',
             logo: SvelteLogo,
+          },
+          {
+            name: 'Remix',
+            slug: 'remix',
+            description:
+              'Full stack framework focused on web fundamentals and modern UX.',
+            logo: RemixLogo,
+            logoDark: RemixLogoWhite,
           },
           {
             name: 'Phoenix',
