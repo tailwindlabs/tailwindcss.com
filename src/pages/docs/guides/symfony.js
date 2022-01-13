@@ -140,7 +140,7 @@ let steps = [
   },
 ]
 
-export default function UsingLaravel({ code }) {
+export default function UsingSymfony({ code }) {
   return (
     <FrameworkGuideLayout
       title="Install Tailwind CSS with Symfony"
@@ -166,7 +166,7 @@ export function getStaticProps() {
   }
 }
 
-UsingLaravel.layoutProps = {
+UsingSymfony.layoutProps = {
   meta: {
     title: 'Install Tailwind CSS with Symfony',
     section: 'Installation',
