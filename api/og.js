@@ -128,8 +128,13 @@ function get(url) {
 
 export default async function handler(req, res) {
   try {
-    let url = new URL(req.query.path, 'https://tailwindcss.com')
-    let { body, statusCode } = await get(url.href)
+    if (!req.query.path?.startsWith('/')) {
+      res.statusCode = 400
+      return res.end('Error')
+    }
+
+    let url = `https://tailwindcss.com${req.query.path}`
+    let { body, statusCode } = await get(url)
 
     if (statusCode === 404) {
       res.statusCode = 404
