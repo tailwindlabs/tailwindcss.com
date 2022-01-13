@@ -7,7 +7,7 @@ let steps = [
     title: 'Create your project',
     body: () => (
       <p>
-        Start by creating a new Symfony if you don’t have one set up already. The most
+        Start by creating a new Symfony project if you don’t have one set up already. The most
         common approach is to use{' '}
         <a href="https://symfony.com/download">the Symfony Installer</a>. Then require
         Symfony's{' '}
