@@ -105,7 +105,7 @@ export default function TailwindCli({ code }) {
           href="/docs/tailwind-cli"
           description={
             <>
-              <strong className="text-gray-900 font-semibold">
+              <strong className="text-slate-900 font-semibold">
                 This is only the beginning of what’s possible with the Tailwind CLI.
               </strong>{' '}
               To learn more about everything it can do, check out the Tailwind CLI documentation.

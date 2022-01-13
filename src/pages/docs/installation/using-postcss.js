@@ -129,7 +129,7 @@ export default function UsingPostCss({ code }) {
         href="/docs/installation/framework-guides"
         description={
           <>
-            <strong className="text-gray-900 font-semibold dark:text-gray-200">
+            <strong className="text-slate-900 font-semibold dark:text-slate-200">
               Are you stuck?
             </strong>{' '}
             Setting up Tailwind with PostCSS can be a bit different across different build tools.
