@@ -2,7 +2,7 @@
 
 import core from 'puppeteer-core'
 import chrome from 'chrome-aws-lambda'
-import got from 'got'
+import { https } from 'follow-redirects'
 
 const exePath =
   process.platform === 'win32'
@@ -98,10 +98,28 @@ function getHtml({ title, description }) {
 </html>`
 }
 
+function get(url) {
+  return new Promise((resolve, reject) => {
+    https
+      .get(url, (res) => {
+        let body = ''
+        res.on('data', (chunk) => {
+          body += chunk
+        })
+        res.on('end', () => {
+          resolve({ body, statusCode: res.statusCode })
+        })
+      })
+      .on('error', (error) => {
+        reject(error)
+      })
+  })
+}
+
 export default async function handler(req, res) {
   try {
     let url = new URL(req.query.path, 'https://tailwindcss.com')
-    let { statusCode, body } = await got(url.href, { throwHttpErrors: false })
+    let { body, statusCode } = await get(url.href)
 
     if (statusCode === 404) {
       res.statusCode = 404

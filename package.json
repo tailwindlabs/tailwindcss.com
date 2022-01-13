@@ -6,7 +6,8 @@
     "postbuild": "if [ -f './.next/serverless/scripts/build-rss.js' ]; then node ./.next/serverless/scripts/build-rss.js; else node ./.next/server/scripts/build-rss.js; fi",
     "start": "next start",
     "export": "next build && next export",
-    "format": "prettier '{src,remark,scripts}/**/*.{css,js,mdx}' --write"
+    "format": "prettier '{src,remark,scripts}/**/*.{css,js,mdx}' --write",
+    "dev:og": "vercel dev"
   },
   "browserslist": [
     "> 1%"
@@ -38,10 +39,10 @@
     "feed": "^4.2.2",
     "file-loader": "^6.0.0",
     "focus-visible": "^5.1.0",
+    "follow-redirects": "^1.14.7",
     "framer-motion": "2.9.5",
     "front-matter": "^4.0.2",
     "glob": "^7.1.6",
-    "got": "^12.0.1",
     "gsap": "^3.6.0",
     "gzip-size": "^5.1.1",
     "intersection-observer": "^0.11.0",
@@ -77,6 +78,7 @@
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "2.x",
     "glyphhanger": "^4.0.1",
-    "prettier": "^2.5.0"
+    "prettier": "^2.5.0",
+    "vercel": "^23.1.2"
   }
 }
