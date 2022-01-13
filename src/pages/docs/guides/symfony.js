@@ -9,9 +9,7 @@ let steps = [
       <p>
         Start by creating a new Symfony project if you don’t have one set up already. The most
         common approach is to use{' '}
-        <a href="https://symfony.com/download">the Symfony Installer</a>. Then require
-        Symfony's{' '}
-        <a href="https://symfony.com/doc/current/frontend.html#webpack-encore">Webpack Encore</a>.
+        <a href="https://symfony.com/download">the Symfony Installer</a>.
       </p>
     ),
     code: {
