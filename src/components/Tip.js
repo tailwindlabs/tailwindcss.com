@@ -46,9 +46,9 @@ export function TipBad({ children }) {
 
 export function TipCompat({ children }) {
   return (
-    <div className="text-sm bg-light-blue-100 text-light-blue-800 font-medium px-4 py-3 mb-4 rounded-xl">
+    <div className="text-sm bg-sky-100 text-sky-800 font-medium px-4 py-3 mb-4 rounded-xl">
       <div className="flex items-start space-x-3">
-        <svg width="20" height="20" className="text-light-blue-500" fill="currentColor">
+        <svg width="20" height="20" className="text-sky-500" fill="currentColor">
           <path
             fillRule="evenodd"
             clipRule="evenodd"
