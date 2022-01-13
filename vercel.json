@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "src/api/**": {
+      "memory": 1024
+    }
+  }
+}
