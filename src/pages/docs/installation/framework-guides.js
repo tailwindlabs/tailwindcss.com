@@ -6,6 +6,8 @@ import { ReactComponent as NextJsLogo } from '@/img/guides/nextjs.svg'
 import { ReactComponent as NextJsLogoWhite } from '@/img/guides/nextjs-white.svg'
 import { ReactComponent as SvelteLogo } from '@/img/guides/svelte.svg'
 import { ReactComponent as LaravelLogo } from '@/img/guides/laravel.svg'
+import { ReactComponent as SymfonyLogo } from '@/img/guides/symfony.svg'
+import { ReactComponent as SymfonyLogoWhite } from '@/img/guides/symfony-white.svg'
 import { ReactComponent as ViteLogo } from '@/img/guides/vite.svg'
 import { ReactComponent as NuxtJsLogo } from '@/img/guides/nuxtjs.svg'
 import { ReactComponent as GatsbyLogo } from '@/img/guides/gatsby.svg'
@@ -65,6 +67,13 @@ export default function FrameworkGuides() {
             slug: 'sveltekit',
             description: 'The fastest way to build apps of all sizes with Svelte.js.',
             logo: SvelteLogo,
+          },
+          {
+            name: 'Symfony',
+            slug: 'symfony',
+            description: 'A PHP framework to create websites and web applications.',
+            logo: SymfonyLogo,
+            logoDark: SymfonyLogoWhite,
           },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">
