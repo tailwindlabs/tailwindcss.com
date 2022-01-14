@@ -19,13 +19,11 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS for Rails',
+    title: 'Install Tailwind CSS',
     body: () => (
       <p>
-        Install the <code>tailwindcss-rails</code> gem and run the{' '}
-        <code>rails tailwindcss:install</code> command which will create a{' '}
-        <code>./config/tailwind.config.js</code> file and configure your app use build tailwindcss
-        using the Standalone CLI.
+        Install the <code>tailwindcss-rails</code> gem, and then run the install command to generate a {' '}
+        <code>tailwind.config.js</code> file in the <code>./config</code> directory.
       </p>
     ),
     code: {
@@ -92,11 +90,9 @@ let steps = [
     code: {
       name: 'index.html.erb',
       lang: 'html',
-      code: `  <div>
->   <h1 class="text-3xl font-bold underline">
->     Hello world!
->   </h1>
-  </div>`,
+      code: `<h1 class="text-3xl font-bold underline">
+    Hello world!
+</h1>`,
     },
   },
 ]
