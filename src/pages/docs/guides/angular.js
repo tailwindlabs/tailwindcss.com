@@ -21,8 +21,8 @@ let steps = [
     title: 'Install Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code> dependency via npm and then run the init command to
-        generate <code>tailwind.config.js</code>.
+        Install <code>tailwindcss</code> via npm, and then run the init
+        command to generate a <code>tailwind.config.js</code> file.
       </p>
     ),
     code: {
@@ -56,8 +56,7 @@ let steps = [
     title: 'Add the Tailwind directives to your CSS',
     body: () => (
       <p>
-        Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your global
-        styles <code>./src/styles.css</code> file.
+        Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your <code>./src/styles.css</code> file.
       </p>
     ),
     code: {
@@ -85,7 +84,9 @@ let steps = [
     code: {
       name: 'app.component.html',
       lang: 'html',
-      code: `> <h1 class="text-3xl font-bold underline">Hello world!</h1>`,
+      code: `<h1 class="text-3xl font-bold underline">
+  Hello world!
+</h1>`,
     },
   },
 ]
