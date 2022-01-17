@@ -103,7 +103,7 @@ export default function UsingRails({ code }) {
       title="Install Tailwind CSS with Ruby on Rails"
       description="Setting up Tailwind CSS in Ruby on Rails v7+ project."
     >
-      <div className="relative z-10 prose mb-16 max-w-3xl dark:prose-dark">
+      <div className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark">
         <p>
           The quickest way to start using Tailwind CSS in your Rails project is to use{' '}
           <a href="https://github.com/rails/tailwindcss-rails">Tailwind CSS for Rails</a> by running{' '}
