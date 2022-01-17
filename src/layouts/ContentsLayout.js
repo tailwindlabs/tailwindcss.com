@@ -1,4 +1,12 @@
-import { useState, useEffect, createContext, Fragment, useCallback, useContext } from 'react'
+import {
+  useState,
+  useEffect,
+  createContext,
+  Fragment,
+  useCallback,
+  useContext,
+  useRef,
+} from 'react'
 import { ClassTable } from '@/components/ClassTable'
 import { useRouter } from 'next/router'
 import { usePrevNext } from '@/hooks/usePrevNext'
@@ -12,7 +20,7 @@ import { MDXProvider } from '@mdx-js/react'
 
 export const ContentsContext = createContext()
 
-function TableOfContents({ tableOfContents, currentSection }) {
+function TableOfContents({ tableOfContents, currentSection, onSelect }) {
   let sidebarContext = useContext(SidebarContext)
   let isMainNav = Boolean(sidebarContext)
 
@@ -45,7 +53,10 @@ function TableOfContents({ tableOfContents, currentSection }) {
             <li>
               <a
                 href={`#${section.slug}`}
-                onClick={closeNav}
+                onClick={() => {
+                  closeNav()
+                  onSelect(section.slug)
+                }}
                 className={clsx(
                   'block py-1',
                   pageHasSubsections ? 'font-medium' : '',
@@ -61,7 +72,10 @@ function TableOfContents({ tableOfContents, currentSection }) {
               <li className="ml-4" key={subsection.slug}>
                 <a
                   href={`#${subsection.slug}`}
-                  onClick={closeNav}
+                  onClick={() => {
+                    closeNav()
+                    onSelect(subsection.slug)
+                  }}
                   className={clsx(
                     'group flex items-start py-1',
                     isActive(subsection)
@@ -97,6 +111,8 @@ function TableOfContents({ tableOfContents, currentSection }) {
 function useTableOfContents(tableOfContents) {
   let [currentSection, setCurrentSection] = useState(tableOfContents[0]?.slug)
   let [headings, setHeadings] = useState([])
+  let paused = useRef(false)
+  let initial = useRef(true)
 
   const registerHeading = useCallback((id, top) => {
     setHeadings((headings) => [...headings.filter((h) => id !== h.id), { id, top }])
@@ -109,6 +125,10 @@ function useTableOfContents(tableOfContents) {
   useEffect(() => {
     if (tableOfContents.length === 0 || headings.length === 0) return
     function onScroll() {
+      if (paused.current) {
+        paused.current = false
+        return
+      }
       let y = window.pageYOffset
       let windowHeight = window.innerHeight
       let sortedHeadings = headings.concat([]).sort((a, b) => a.top - b.top)
@@ -133,11 +153,22 @@ function useTableOfContents(tableOfContents) {
       capture: true,
       passive: true,
     })
-    onScroll()
+    if (initial.current) {
+      onScroll()
+      initial.current = false
+    }
     return () => window.removeEventListener('scroll', onScroll, true)
   }, [headings, tableOfContents])
 
-  return { currentSection, registerHeading, unregisterHeading }
+  return {
+    currentSection,
+    setCurrentSection: (section) => {
+      paused.current = true
+      setCurrentSection(section)
+    },
+    registerHeading,
+    unregisterHeading,
+  }
 }
 
 export function ContentsLayoutOuter({ children, layoutProps, ...props }) {
@@ -171,7 +202,8 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
     ...tableOfContents,
   ]
 
-  const { currentSection, registerHeading, unregisterHeading } = useTableOfContents(toc)
+  const { currentSection, setCurrentSection, registerHeading, unregisterHeading } =
+    useTableOfContents(toc)
   let { prev, next } = usePrevNext()
 
   return (
@@ -207,7 +239,11 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
 
       <div className="fixed z-20 top-[3.8125rem] bottom-0 right-[max(0px,calc(50%-45rem))] w-[19.5rem] py-10 px-8 overflow-y-auto hidden xl:block">
         {toc.length > 0 && (
-          <TableOfContents tableOfContents={toc} currentSection={currentSection} />
+          <TableOfContents
+            tableOfContents={toc}
+            currentSection={currentSection}
+            onSelect={setCurrentSection}
+          />
         )}
       </div>
     </div>
