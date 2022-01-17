@@ -97,9 +97,6 @@ export default function UsingAngular({ code }) {
       title="Install Tailwind CSS with Angular"
       description="Setting up Tailwind CSS in an Angular project."
     >
-      <div className="relative z-10 max-w-3xl mb-16 prose">
-        <p>{/* what do I put here */}</p>
-      </div>
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
   )
