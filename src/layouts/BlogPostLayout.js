@@ -114,6 +114,7 @@ export function getStaticProps() {
 
 function Metadata({ meta }) {
   let router = useRouter()
+  let imagePath = meta.image ?? `/api/og?path=${router.pathname}`
 
   return (
     <Head>
@@ -122,20 +123,8 @@ function Metadata({ meta }) {
       <meta name="twitter:creator" content="@tailwindcss" />
       <meta name="twitter:title" content={`${meta.title} - Tailwind CSS`} />
       <meta name="twitter:description" content={meta.description} />
-      {meta.image ? (
-        <>
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:image" content={`https://tailwindcss.com${meta.image}`} />
-        </>
-      ) : (
-        <>
-          <meta name="twitter:card" content="summary" />
-          <meta
-            name="twitter:image"
-            content={`https://tailwindcss.com${require('@/img/social-square.jpg').default}`}
-          />
-        </>
-      )}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content={`https://tailwindcss.com${imagePath}`} />
       <meta property="og:url" content={`https://tailwindcss.com${router.pathname}`} />
       <meta property="og:type" content="article" />
       <meta property="og:title" content={`${meta.title} - Tailwind CSS`} />
