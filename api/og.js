@@ -155,12 +155,8 @@ export default async function handler(req, res) {
       return res.end('Error')
     }
 
-    console.log('one')
-
     let url = `https://tailwindcss.com${req.query.path}`
     let { body, statusCode } = await get(url)
-
-    console.log('two', body.length)
 
     if (statusCode === 404) {
       res.statusCode = 404
@@ -168,22 +164,16 @@ export default async function handler(req, res) {
     }
     if (statusCode !== 200 || !body) {
       res.statusCode = 500
-      console.error(`Status Code: ${statusCode}`)
       return res.end('Error')
     }
-
-    console.log('three')
 
     let $ = cheerio.load(body)
     let title = $('title')
       .text()
       .replace(/ - Tailwind CSS$/, '')
 
-    console.log('four')
-
     if (!title) {
       res.statusCode = 500
-      console.error(`No title`)
       return res.end('Error')
     }
 
@@ -197,14 +187,10 @@ export default async function handler(req, res) {
       return
     }
 
-    console.log('five')
-
     let page = await getPage()
     await page.setViewport({ width: 1280, height: 720 })
     await page.setContent(html)
     let file = await page.screenshot({ type: fileType })
-
-    console.log('six')
 
     res.statusCode = 200
     res.setHeader('Content-Type', `image/${fileType}`)
