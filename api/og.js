@@ -162,6 +162,7 @@ export default async function handler(req, res) {
     }
     if (statusCode !== 200 || !body) {
       res.statusCode = 500
+      console.error(`Status Code: ${statusCode}`)
       return res.end('Error')
     }
 
@@ -172,6 +173,7 @@ export default async function handler(req, res) {
 
     if (!title) {
       res.statusCode = 500
+      console.error(`No title`)
       return res.end('Error')
     }
 
