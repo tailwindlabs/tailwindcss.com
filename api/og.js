@@ -4,6 +4,8 @@ import core from 'puppeteer-core'
 import chrome from 'chrome-aws-lambda'
 import { https } from 'follow-redirects'
 import cheerio from 'cheerio'
+import * as path from 'path'
+import * as fs from 'fs/promises'
 
 const exePath =
   process.platform === 'win32'
@@ -43,7 +45,16 @@ async function getOptions() {
   }
 }
 
-function getHtml({ title, superTitle, description }) {
+let backgroundImage
+
+async function getHtml({ title, superTitle, description }) {
+  if (!backgroundImage) {
+    backgroundImage = await fs.readFile(
+      path.resolve(__dirname, '_files/og-background.png'),
+      'base64'
+    )
+  }
+
   return `<!DOCTYPE html>
 <html>
   <meta charset="utf-8">
@@ -74,6 +85,8 @@ function getHtml({ title, superTitle, description }) {
       justify-content: space-between;
       height: 100%;
       padding: 112px;
+      background-image: url(data:image/png;base64,${backgroundImage});
+      background-size: 100% 100%;
     }
     h1 {
       font-size: 72px;
@@ -157,7 +170,7 @@ export default async function handler(req, res) {
 
     let superTitle = $('#header > div > p:first-of-type').text()
     let description = $('meta[property="og:description"]').attr('content')
-    let html = getHtml({ title, superTitle, description })
+    let html = await getHtml({ title, superTitle, description })
 
     if (isHtmlDebug) {
       res.setHeader('Content-Type', 'text/html')
