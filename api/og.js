@@ -170,7 +170,7 @@ export default async function handler(req, res) {
     let $ = cheerio.load(body)
     let title = $('title')
       .text()
-      .replace(/ - Tailwind CSS$/, '')
+      .replace(/ [-–] Tailwind CSS$/, '')
 
     if (!title) {
       res.statusCode = 500
