@@ -45,8 +45,7 @@ async function getOptions() {
   }
 }
 
-async function getDataUri(filename, type) {
-  let base64 = await fs.readFile(path.join(__dirname, filename), 'base64')
+function getDataUri(base64, type) {
   return `data:${type};base64,${base64}`
 }
 
@@ -55,11 +54,14 @@ let font
 
 async function getHtml({ title, superTitle, description }) {
   if (!backgroundImage) {
-    backgroundImage = await getDataUri('_files/og-background.png', 'image/png')
+    backgroundImage = await fs.readFile(
+      path.join(__dirname, '_files', 'og-background.png'),
+      'base64'
+    )
   }
 
   if (!font) {
-    font = await getDataUri('_files/Inter-roman.var.woff2', 'font/woff2')
+    font = await fs.readFile(path.join(__dirname, '_files', 'Inter-roman.var.woff2'), 'base64')
   }
 
   return `<!DOCTYPE html>
@@ -72,7 +74,7 @@ async function getHtml({ title, superTitle, description }) {
       font-family: 'Inter var';
       font-style: normal;
       font-weight: 100 900;
-      src: url(${font}) format('woff2');
+      src: url(${getDataUri(font, 'font/woff2')}) format('woff2');
       font-named-instance: 'Regular';
     }
     *, *::before, *::after {
@@ -92,7 +94,7 @@ async function getHtml({ title, superTitle, description }) {
       justify-content: space-between;
       height: 100%;
       padding: 112px;
-      background-image: url(${backgroundImage});
+      background-image: url(${getDataUri(backgroundImage, 'image/png')});
       background-size: 100% 100%;
     }
     h1 {
