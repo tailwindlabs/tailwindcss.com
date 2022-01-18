@@ -18,7 +18,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm init vite my-project\ncd my-project',
+      code: 'npm init vite my-project\ncd my-project && npm install',
     },
   },
   {
