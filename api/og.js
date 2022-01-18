@@ -197,5 +197,6 @@ export default async function handler(req, res) {
   } catch (e) {
     res.statusCode = 500
     res.end('Error')
+    console.error(e)
   }
 }
