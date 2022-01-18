@@ -330,7 +330,7 @@ So if you need nesting support in your project, use our plugin, and stick it bef
 module.exports = {
   plugins: [
     // ...
-    require('tailwindcss/nesting'),
+    require('@tailwindcss/nesting'),
     require('tailwindcss'),
     // ...
   ],
@@ -344,7 +344,7 @@ By default, it uses `postcss-nested` under the hood _(since that's what we use t
 module.exports = {
   plugins: [
     // ...
-    require('tailwindcss/nesting')(require('postcss-nesting')),
+    require('@tailwindcss/nesting')(require('postcss-nesting')),
     require('tailwindcss'),
     // ...
   ],
