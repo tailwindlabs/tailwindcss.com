@@ -15,7 +15,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'symfony new my-project\ncd my-project',
+      code: 'symfony new --webapp my-project\ncd my-project',
     },
   },
   {
