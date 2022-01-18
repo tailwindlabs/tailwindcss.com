@@ -4,8 +4,9 @@ import core from 'puppeteer-core'
 import chrome from 'chrome-aws-lambda'
 import { https } from 'follow-redirects'
 import cheerio from 'cheerio'
-import * as path from 'path'
-import * as fs from 'fs/promises'
+import { join } from 'path'
+import { readFile } from 'fs/promises'
+import { createReadStream } from 'fs'
 
 const exePath =
   process.platform === 'win32'
@@ -17,6 +18,10 @@ const exePath =
 const isDev = !process.env.AWS_REGION
 const isHtmlDebug = process.env.OG_HTML_DEBUG === '1'
 const fileType = 'png'
+
+const imageOverrides = [
+  { pattern: '/', image: join(__dirname, '_files', 'og-default.jpg'), type: 'image/jpeg' },
+]
 
 let _page
 
@@ -54,14 +59,11 @@ let font
 
 async function getHtml({ title, superTitle, description }) {
   if (!backgroundImage) {
-    backgroundImage = await fs.readFile(
-      path.join(__dirname, '_files', 'og-background.png'),
-      'base64'
-    )
+    backgroundImage = await readFile(join(__dirname, '_files', 'og-background.png'), 'base64')
   }
 
   if (!font) {
-    font = await fs.readFile(path.join(__dirname, '_files', 'Inter-roman.var.woff2'), 'base64')
+    font = await readFile(join(__dirname, '_files', 'Inter-roman.var.woff2'), 'base64')
   }
 
   return `<!DOCTYPE html>
@@ -156,6 +158,19 @@ export default async function handler(req, res) {
     }
 
     let path = req.query.path.replace(/\/+$/, '')
+    if (path === '') path = '/'
+
+    let override = imageOverrides.find(({ pattern }) =>
+      typeof pattern === 'string' ? pattern === path : pattern.test(path)
+    )
+
+    if (override) {
+      let imageBuffer = createReadStream(override.image)
+      res.setHeader('Content-Type', override.type)
+      imageBuffer.pipe(res)
+      return
+    }
+
     let url = `https://tailwindcss.com${path}`
     let { body, statusCode } = await get(url)
 
