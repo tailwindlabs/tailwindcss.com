@@ -46,7 +46,7 @@ async function getOptions() {
 }
 
 async function getDataUri(filename, type) {
-  let base64 = await fs.readFile(path.resolve(__dirname, filename), 'base64')
+  let base64 = await fs.readFile(path.join(__dirname, filename), 'base64')
   return `data:${type};base64,${base64}`
 }
 
