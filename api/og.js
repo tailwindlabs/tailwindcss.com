@@ -45,14 +45,21 @@ async function getOptions() {
   }
 }
 
+async function getDataUri(filename, type) {
+  let base64 = await fs.readFile(path.resolve(__dirname, filename), 'base64')
+  return `data:${type};base64,${base64}`
+}
+
 let backgroundImage
+let font
 
 async function getHtml({ title, superTitle, description }) {
   if (!backgroundImage) {
-    backgroundImage = await fs.readFile(
-      path.resolve(__dirname, '_files/og-background.png'),
-      'base64'
-    )
+    backgroundImage = await getDataUri('_files/og-background.png', 'image/png')
+  }
+
+  if (!font) {
+    font = await getDataUri('_files/Inter-roman.var.woff2', 'font/woff2')
   }
 
   return `<!DOCTYPE html>
@@ -65,7 +72,7 @@ async function getHtml({ title, superTitle, description }) {
       font-family: 'Inter var';
       font-style: normal;
       font-weight: 100 900;
-      src: url('https://rsms.me/inter/font-files/Inter-roman.var.woff2?v=3.19') format('woff2');
+      src: url(${font}) format('woff2');
       font-named-instance: 'Regular';
     }
     *, *::before, *::after {
@@ -85,7 +92,7 @@ async function getHtml({ title, superTitle, description }) {
       justify-content: space-between;
       height: 100%;
       padding: 112px;
-      background-image: url(data:image/png;base64,${backgroundImage});
+      background-image: url(${backgroundImage});
       background-size: 100% 100%;
     }
     h1 {
