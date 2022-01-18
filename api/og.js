@@ -155,7 +155,8 @@ export default async function handler(req, res) {
       return res.end('Error')
     }
 
-    let url = `https://tailwindcss.com${req.query.path}`
+    let path = req.query.path.replace(/\/+$/, '')
+    let url = `https://tailwindcss.com${path}`
     let { body, statusCode } = await get(url)
 
     if (statusCode === 404) {
@@ -179,6 +180,11 @@ export default async function handler(req, res) {
 
     let superTitle = $('#header > div > p:first-of-type').text()
     let description = $('meta[property="og:description"]').attr('content')
+
+    if (path.startsWith('/blog/')) {
+      superTitle = 'Blog'
+    }
+
     let html = await getHtml({ title, superTitle, description })
 
     if (isHtmlDebug) {
