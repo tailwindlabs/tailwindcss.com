@@ -102,7 +102,7 @@ async function getHtml({ title, superTitle, description }) {
     h1 {
       font-size: 72px;
       margin-top: 12px;
-      line-height: 1;
+      line-height: 80px;
       color: black;
       letter-spacing: -0.025em;
       font-weight: 800;
