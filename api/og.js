@@ -198,6 +198,7 @@ export default async function handler(req, res) {
 
     if (path.startsWith('/blog/')) {
       superTitle = 'Blog'
+      description = undefined
     }
 
     let html = await getHtml({ title, superTitle, description })
