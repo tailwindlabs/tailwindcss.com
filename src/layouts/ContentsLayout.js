@@ -129,7 +129,12 @@ function useTableOfContents(tableOfContents) {
       passive: true,
     })
     onScroll()
-    return () => window.removeEventListener('scroll', onScroll, true)
+    return () => {
+      window.removeEventListener('scroll', onScroll, {
+        capture: true,
+        passive: true,
+      })
+    }
   }, [headings, tableOfContents])
 
   return { currentSection, registerHeading, unregisterHeading }
