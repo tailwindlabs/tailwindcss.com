@@ -19,20 +19,6 @@ let steps = [
     },
   },
   {
-    title: 'Install Webpack Encore',
-    body: () => (
-      <p>
-        To easily manage your CSS and JavaScript, install Symfony's{' '}
-        <a href="https://symfony.com/doc/current/frontend.html#webpack-encore">Webpack Encore</a>.
-      </p>
-    ),
-    code: {
-      name: 'Terminal',
-      lang: 'terminal',
-      code: 'composer require symfony/webpack-encore-bundle\nyarn',
-    },
-  },
-  {
     title: 'Install Tailwind CSS',
     body: () => (
       <p>
