@@ -22,8 +22,8 @@ let steps = [
     title: 'Install Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code> and its peer dependencies via yarn, and create your{' '}
-        <code>tailwind.config.js</code> file.
+        Install <code>tailwindcss</code> and its peer dependencies via yarn, and then run the init
+        command to generate both <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
       </p>
     ),
     code: {
