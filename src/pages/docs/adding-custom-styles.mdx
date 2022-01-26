@@ -265,7 +265,7 @@ Use the [`theme`](/docs/functions-and-directives#theme) function or [`@apply`](/
 
 ### Adding component classes
 
-Use the `components` layer for any more complicated classes you want to add to your project that you'd still like to be able to override with utility classes.
+Use the `components` layer for any more complicated classes you want to add to your project that you'd still like to be able to override with utility classes. Keep in mind you can't use Tailwind style classnames when naming custom css, for example `hover:` won't work, use something like instead `hover-` to avoid issues.
 
 Traditionally these would be classes like `card`, `btn`, `badge` — that kind of thing.
 
