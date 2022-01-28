@@ -153,7 +153,7 @@ Then pass the plugin itself as an argument to `tailwindcss/nesting` in your Post
 module.exports = {
   plugins: [
     require('postcss-import'),
-    require('tailwindcss/nesting')(require('postcss-nesting')),
+    require('tailwindcss/nesting')(require('postcss-nested')),
     require('tailwindcss'),
     require('autoprefixer'),
   ]
