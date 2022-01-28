@@ -1,5 +1,5 @@
 import { IconContainer, Caption, BigText, Paragraph, Link, Widont } from '@/components/home/common'
-import { Tabs } from '@/components/Tabs'
+import { Tabs } from '@/components/OldTabs'
 import { CodeWindow, getClassNameForToken } from '@/components/CodeWindow'
 import defaultConfig from 'defaultConfig'
 import { AnimatePresence, motion } from 'framer-motion'

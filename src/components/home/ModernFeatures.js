@@ -7,7 +7,7 @@ import {
   Widont,
   InlineCode,
 } from '@/components/home/common'
-import { Tabs } from '@/components/Tabs'
+import { Tabs } from '@/components/OldTabs'
 import { CodeWindow, getClassNameForToken } from '@/components/CodeWindow'
 import { Fragment, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'

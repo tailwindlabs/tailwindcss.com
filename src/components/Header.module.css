@@ -1,0 +1,38 @@
+.mainHeader {
+  box-shadow: 0px 1px 0px #e5e5e5;
+}
+
+.searchHeader {
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.05);
+}
+
+.headerDialog {
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.whiteCorner {
+  position: absolute;
+  top: -4px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  transform: rotateY(0deg) rotate(45deg);
+}
+
+.verticalLine {
+  bottom: 0;
+  left: 131px;
+  position: absolute;
+  border: 1px solid #e5e5e5;
+  height: 62px;
+}
+
+.inputPlaceholder::placeholder {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+}

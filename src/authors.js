@@ -1,7 +1,6 @@
 import adamwathanAvatar from './img/authors/adamwathan.jpg'
 import bradlcAvatar from './img/authors/bradlc.jpg'
 import steveschogerAvatar from './img/authors/steveschoger.jpg'
-import reininkAvatar from './img/authors/reinink.jpg'
 import robinmalfaitAvatar from './img/authors/robinmalfait.jpg'
 import simonswissAvatar from './img/authors/simonswiss.jpg'
 
@@ -21,12 +20,6 @@ export const steveschoger = {
   name: 'Steve Schoger',
   twitter: 'steveschoger',
   avatar: steveschogerAvatar,
-}
-
-export const reinink = {
-  name: 'Jonathan Reinink',
-  twitter: 'reinink',
-  avatar: reininkAvatar,
 }
 
 export const robinmalfait = {

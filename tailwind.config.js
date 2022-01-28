@@ -1,4 +1,3 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
 const svgToDataUri = require('mini-svg-data-uri')
 const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenColorPalette')
 
@@ -41,7 +40,24 @@ module.exports = {
     },
     extend: {
       colors: {
+        'dark-blue': '#334155',
+        gray: '#000E1A',
+        blue: '#01579B',
+        nordic: '#002D39',
+        orange: '#FA5A28',
+        purple: '#F3F6FF',
+        'dark-purple': '#696F8C',
+        green: '#DFF1F1',
+        yellow: '#FFFAF1',
+        peach: '#FCE8E6',
+        smoke: '#F8F8F8',
+        border: '#E5E5E5',
+        white: '#ffffff',
+        black: '#000000',
         code: {
+          filename: '#D9DAE1',
+          bar: '#434468',
+          tab: '#7979f7',
           highlight: 'rgb(125 211 252 / 0.1)',
         },
       },
@@ -49,26 +65,33 @@ module.exports = {
         DEFAULT: {
           css: {
             maxWidth: 'none',
-            color: theme('colors.slate.700'),
+            color: '#334155',
+            fontSize: '16px',
             hr: {
               borderColor: theme('colors.slate.100'),
               marginTop: '3em',
               marginBottom: '3em',
             },
-            'h1, h2, h3': {
-              letterSpacing: '-0.025em',
+            'h1, h2, h3, h4': {
+              fontWeight: 700,
+              marginTop: '1.875rem',
+            },
+            h1: {
+              fontSize: '2.125rem',
+              lineHeight: '2.5rem',
             },
             h2: {
-              marginBottom: `${16 / 24}em`,
+              fontSize: '1.75rem',
+              lineHeight: '2.0625rem',
             },
             h3: {
-              marginTop: '2.4em',
-              lineHeight: '1.4',
+              fontSize: '1.5rem',
+              lineHeight: '1.75rem',
             },
             h4: {
-              marginTop: '2em',
-              fontSize: '1.125em',
-            },
+              fontSize: '1.375rem',
+              lineHeight: '1.625rem',
+            } /* 
             'h2 small, h3 small, h4 small': {
               fontFamily: theme('fontFamily.mono').join(', '),
               color: theme('colors.slate.500'),
@@ -88,6 +111,11 @@ module.exports = {
             },
             'h2, h3, h4': {
               'scroll-margin-top': 'var(--scroll-mt)',
+            }, */,
+            p: {
+              fontSize: '0.875rem',
+              lineHeight: '1.75rem',
+              marginTop: '1.25rem',
             },
             ul: {
               listStyleType: 'none',
@@ -96,6 +124,9 @@ module.exports = {
             'ul > li': {
               position: 'relative',
               paddingLeft: '1.75em',
+              color: '#002D39',
+              fontSize: '0.875rem',
+              lineHeight: '2.25rem',
             },
             'ul > li::before': {
               content: '""',
@@ -108,9 +139,11 @@ module.exports = {
               backgroundColor: theme('colors.slate.300'),
             },
             a: {
-              fontWeight: theme('fontWeight.semibold'),
+              color: '#FA5A28',
               textDecoration: 'none',
-              borderBottom: `1px solid ${theme('colors.sky.300')}`,
+              borderBottom: `1px solid #FA5A28`,
+              fontSize: '0.875rem',
+              lineHeight: '1.75rem',
             },
             'a:hover': {
               borderBottomWidth: '2px',
@@ -118,6 +151,7 @@ module.exports = {
             'a code': {
               color: 'inherit',
               fontWeight: 'inherit',
+              textDecoration: 'underline',
             },
             strong: {
               color: theme('colors.slate.900'),
@@ -130,6 +164,21 @@ module.exports = {
             code: {
               fontWeight: theme('fontWeight.medium'),
               fontVariantLigatures: 'none',
+              fontFamily: 'Source Code Pro, monospace',
+              color: '#FA5A28',
+              paddingTop: '0.25rem',
+              paddingBottom: '0.25rem',
+              paddingLeft: '0.625rem',
+              paddingRight: '0.625rem',
+              borderRadius: '0.25rem',
+              boxShadow: 'inset 0 0 0 1px #E8E8E8',
+              backgroundColor: '#F8F8F8',
+            },
+            'code::before': {
+              content: 'none',
+            },
+            'code::after': {
+              content: 'none',
             },
             pre: {
               color: theme('colors.slate.50'),
@@ -149,6 +198,8 @@ module.exports = {
             'pre code': {
               flex: 'none',
               minWidth: '100%',
+              boxShadow: 'none',
+              fontFamily: 'Source Code Pro, monospace',
             },
             table: {
               fontSize: theme('fontSize.sm')[0],
@@ -171,12 +222,20 @@ module.exports = {
             'tbody code': {
               fontSize: theme('fontSize.xs')[0],
             },
-            'figure figcaption': {
-              textAlign: 'center',
-              fontStyle: 'italic',
+            figure: {
+              padding: '0.875rem',
+              borderRadius: '0.625rem',
+              backgroundColor: '#F8F8F8',
             },
-            'figure > figcaption': {
-              marginTop: `${12 / 14}em`,
+            'figure > img': {
+              margin: 0,
+            },
+            'figure figcaption': {
+              fontFamily: 'Roboto, sans-serif',
+              fontSize: '0.875rem',
+              lineHeight: '1.625rem',
+              textAlign: 'center',
+              marginTop: '0.625rem',
             },
           },
         },
@@ -215,12 +274,116 @@ module.exports = {
             },
           },
         },
+        md: {
+          css: {
+            'h1, h2, h3, h4': {
+              fontWeight: 700,
+              marginTop: '3.75rem',
+            },
+            h1: {
+              fontSize: '3rem',
+              lineHeight: '3.5rem',
+            },
+            h2: {
+              fontSize: '2.25rem',
+              lineHeight: '2.625rem',
+            },
+            h3: {
+              fontSize: '2rem',
+              lineHeight: '2.375rem',
+            },
+            h4: {
+              fontSize: '1.75rem',
+              lineHeight: '2.0625rem',
+            },
+            p: {
+              fontSize: '1rem',
+              lineHeight: '1.75rem',
+              marginTop: '1.25rem',
+            },
+            ul: {
+              marginTop: '1.3em',
+            },
+            'ul > li': {
+              fontSize: '1rem',
+              lineHeight: '2.25rem',
+              paddingLeft: '1.5em',
+              marginBottom: '0em',
+              marginTop: '0em',
+            },
+            'ul > li::before': {
+              content: '""',
+              width: '0.63em',
+              height: '0.125em',
+              position: 'absolute',
+              top: '1em',
+              left: 0,
+              borderRadius: '999px',
+              backgroundColor: '#FA5A28',
+            },
+            a: {
+              fontSize: '1rem',
+              lineHeight: '1.75rem',
+              marginTop: '1.25rem',
+            },
+            figure: {
+              paddingTop: '1.875rem',
+              paddingBottom: '1.875rem',
+              paddingLeft: '3rem',
+              paddingRight: '3rem',
+            },
+            'figure figcaption': {
+              marginTop: '0.75rem',
+            },
+          },
+        },
       }),
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-        mono: ['Fira Code VF', ...defaultTheme.fontFamily.mono],
-        source: ['Source Sans Pro', ...defaultTheme.fontFamily.sans],
-        'ubuntu-mono': ['Ubuntu Mono', ...defaultTheme.fontFamily.mono],
+        // remove this font from components
+        //sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        //mono: ['Fira Code VF', ...defaultTheme.fontFamily.mono],
+        //source: ['Source Sans Pro', ...defaultTheme.fontFamily.sans],
+        //'ubuntu-mono': ['Ubuntu Mono', ...defaultTheme.fontFamily.mono],
+        roboto: ['Roboto', 'sans-serif'],
+        'source-sans-pro': ['Source Sans Pro', 'sans-serif'],
+      },
+      fontSize: {
+        'nav-directory': [
+          '1.126rem',
+          {
+            lineHeight: '1.3125rem',
+          },
+        ],
+        'nav-subdirectory': [
+          '1rem',
+          {
+            lineHeight: '1.1875rem',
+          },
+        ],
+        'nav-link': [
+          '0.875rem',
+          {
+            lineHeight: '1rem',
+          },
+        ],
+        'button-text': [
+          '0.875rem',
+          {
+            lineHeight: '1.5rem',
+          },
+        ],
+        'sidebar-right-title': [
+          '1.375rem',
+          {
+            lineHeight: '1.5rem',
+          },
+        ],
+        'burger-menu-link': [
+          '0.75rem',
+          {
+            lineHeight: '1.625rem',
+          },
+        ],
       },
       spacing: {
         18: '4.5rem',

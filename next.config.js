@@ -9,6 +9,8 @@ const { withNextLinks } = require('./remark/withNextLinks')
 const { withLinkRoles } = require('./rehype/withLinkRoles')
 const minimatch = require('minimatch')
 const withExamples = require('./remark/withExamples')
+const { withImages } = require('./remark/withImages')
+
 const {
   highlightCode,
   fixSelectorEscapeTokens,
@@ -29,12 +31,9 @@ const fallbackLayouts = {
 
 const fallbackDefaultExports = {
   'src/pages/{docs,components}/**/*': ['@/layouts/ContentsLayout', 'ContentsLayout'],
-  'src/pages/blog/**/*': ['@/layouts/BlogPostLayout', 'BlogPostLayout'],
 }
 
-const fallbackGetStaticProps = {
-  'src/pages/blog/**/*': '@/layouts/BlogPostLayout',
-}
+const fallbackGetStaticProps = {}
 
 module.exports = withBundleAnalyzer({
   swcMinify: true,
@@ -51,7 +50,6 @@ module.exports = withBundleAnalyzer({
 
       config.entry = async () => {
         let entries = { ...(await originalEntry()) }
-        entries['scripts/build-rss'] = './src/scripts/build-rss.js'
         return entries
       }
     }
@@ -181,6 +179,7 @@ module.exports = withBundleAnalyzer({
         loader: '@mdx-js/loader',
         options: {
           remarkPlugins: [
+            withImages,
             withPrevalInstructions,
             withExamples,
             withTableOfContents,

@@ -209,10 +209,7 @@ export function ThemeSelect() {
   let { label } = settings.find((x) => x.value === setting)
 
   return (
-    <div className="flex items-center justify-between">
-      <label htmlFor="theme" className="text-slate-700 font-normal dark:text-slate-400">
-        Switch theme
-      </label>
+    <div className="flex items-center justify-center">
       <div className="relative flex items-center ring-1 ring-slate-900/10 rounded-lg shadow-sm p-2 text-slate-700 font-semibold dark:bg-slate-600 dark:ring-0 dark:highlight-white/5 dark:text-slate-200">
         <SunIcon className="w-6 h-6 mr-2 dark:hidden" />
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 mr-2 hidden dark:block">

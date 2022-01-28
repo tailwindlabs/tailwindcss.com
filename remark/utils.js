@@ -112,6 +112,14 @@ module.exports.addImport = function addImport(tree, mod, name) {
   return `_${name}`
 }
 
+module.exports.addImportImage = function addImportImage(tree, mod, name) {
+  tree.children.unshift({
+    type: 'import',
+    value: `import _${name} from '${mod}'`,
+  })
+  return `_${name}`
+}
+
 module.exports.addDefaultImport = function addImport(tree, mod, name) {
   tree.children.unshift({
     type: 'import',

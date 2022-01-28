@@ -4,7 +4,7 @@
 .token.selector .class,
 .token.selector.class,
 .token.function {
-  @apply text-pink-400;
+  @apply text-[#8ec39c];
 }
 
 .token.attr-name,
@@ -12,18 +12,19 @@
 .token.rule,
 .token.pseudo-class,
 .token.important {
-  @apply text-slate-300;
+  @apply text-[#E3BC66];
 }
 
 .token.attr-value,
 .token.class,
 .token.string {
-  @apply text-sky-300;
+  @apply text-[#E19057];
 }
 
+.token.operator,
 .token.punctuation,
 .token.attr-equals {
-  @apply text-slate-500;
+  @apply text-[#CCCCCC];
 }
 
 .token.attr-value * {
@@ -37,7 +38,7 @@
 }
 
 .token.property {
-  @apply text-sky-300;
+  @apply text-[#6587FF];
 }
 
 .token.unit {
@@ -53,11 +54,16 @@
   @apply text-teal-200;
 }
 
-.token.comment,
+.token.console,
+.token.method,
+.token.parameter,
 .token.module,
-.token.operator,
 .token.combinator {
-  @apply text-slate-400;
+  @apply text-[#C49CCA];
+}
+
+.token.comment {
+  @apply text-[#558152];
 }
 
 .token.unchanged {
@@ -66,7 +72,7 @@
 
 .token.deleted,
 .token.inserted {
-  @apply block relative -mx-9 pl-8 pr-5 border-l-4 before:absolute before:top-0 before:left-4;
+  @apply block relative -mx-4 lg:-mx-8 pl-3 lg:pl-8 pr-5 border-l-4 before:absolute before:top-0 before:left-4;
 }
 
 .token.inserted {
@@ -77,8 +83,13 @@
   @apply bg-rose-500/[0.15] border-rose-400 before:content-['-'] before:text-rose-400;
 }
 
+code[class*='language-'],
+pre[class*='language-'] {
+  @apply bg-[#2B2D52] text-[#94D8FF];
+}
+
 pre[class^='language-diff-'] {
-  @apply flex px-9;
+  @apply flex px-4 py-[1.625rem] lg:p-8;
 }
 
 pre[class^='language-diff-'] > code {

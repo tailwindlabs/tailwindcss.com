@@ -7,7 +7,7 @@ import {
   Widont,
   themeTabs,
 } from '@/components/home/common'
-import { Tabs } from '@/components/Tabs'
+import { Tabs } from '@/components/OldTabs'
 import { CodeWindow } from '@/components/CodeWindow'
 import { useEffect, useRef, useState } from 'react'
 import tailwindColors from 'tailwindcss/colors'

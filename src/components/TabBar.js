@@ -9,8 +9,8 @@ export function TabBar({
   children,
 }) {
   return (
-    <div className="flex text-slate-400 text-xs leading-6">
-      <div className="flex-none text-sky-300 border-t border-b border-t-transparent border-b-sky-300 px-4 py-1 flex items-center">
+    <div className="flex text-slate-400 text-nav-directory">
+      <div className="flex-none text-code-filename px-4 lg:px-[2.375rem] py-[0.625rem] lg:py-4 flex items-center font-source-sans-pro">
         {primary.name}
         {showTabMarkers &&
           (primary.saved ? (
@@ -29,13 +29,7 @@ export function TabBar({
             <div className="ml-2.5 flex-none w-1 h-1 rounded-full bg-current" />
           ))}
       </div>
-      <div
-        className={clsx(
-          'flex-auto flex items-center bg-slate-700/50 border border-slate-500/30',
-          side === 'left' ? 'rounded-tl lg:rounded-tr' : 'rounded-tl',
-          translucent && 'dark:bg-slate-800/50'
-        )}
-      >
+      <div className={clsx('flex-auto flex items-center bg-code-bar')}>
         {secondary.map(({ name, open = true, className }) => (
           <div
             key={name}
