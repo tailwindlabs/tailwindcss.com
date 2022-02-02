@@ -15,7 +15,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init',
+      code: 'npm install -D tailwindcss postcss postcss-cli autoprefixer\nnpx tailwindcss init',
     },
   },
   {
@@ -72,16 +72,11 @@ let steps = [
   },
   {
     title: 'Start your build process',
-    body: () => (
-      <p>
-        Run your build process with <code>npm run dev</code> or whatever command is configured in
-        your <code>package.json</code> file.
-      </p>
-    ),
+    body: () => <p>Run the CLI tool to scan your template files for classes and build your CSS.</p>,
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm run dev',
+      code: 'npx postcss ./src/main.css -o ./dist/main.css -w',
     },
   },
   {
