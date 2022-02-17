@@ -196,16 +196,16 @@ module.exports.highlightCode = function highlightCode(code, prismLanguage) {
     let lineClassName = ['token', ...commonTypes, className].filter(Boolean).join(' ')
 
     if (empty) {
-      return `<span class="${lineClassName}">\n</span>`
+      return `<div class="${lineClassName}">\n</div>`
     }
 
-    return `<span class="${lineClassName}">${line
+    return `<div class="${lineClassName}">${line
       .map((token) =>
         token.types.length
           ? `<span class="token ${token.types.join(' ')}">${token.content}</span>`
           : token.content
       )
-      .join('')}</span>`
+      .join('')}</div>`
   }
 
   if (isDiff || highlightedLines.length) {
