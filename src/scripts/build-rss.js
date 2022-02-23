@@ -28,44 +28,49 @@ const feed = new Feed({
   },
 })
 
-getAllPosts().forEach(({ slug, module: { meta, default: Content } }) => {
-  const mdx = (
-    <MDXProvider components={mdxComponents}>
-      <Content />
-    </MDXProvider>
-  )
-  const html = ReactDOMServer.renderToStaticMarkup(mdx)
-  const postText = `<p><em>(The post <a href="${blogUrl}/${slug}">${meta.title}</a> appeared first on <a href="${blogUrl}">Tailwind CSS Blog</a>.)</em></p>`
-  feed.addItem({
-    title: meta.title,
-    id: meta.title,
-    link: `${blogUrl}/${slug}`,
-    description: meta.description,
-    content: html + postText,
-    author: meta.authors.map(({ name, twitter }) => ({
-      name,
-      link: `https://twitter.com/${twitter}`,
-    })),
-    date: new Date(meta.date),
-    image: baseUrl + meta.image,
-    ...(meta.discussion
-      ? {
-          comments: meta.discussion,
-          extensions: [
-            {
-              name: '_comments',
-              objects: {
-                about: 'Link to discussion forum',
-                comments: meta.discussion,
+async function run() {
+  let posts = await getAllPosts()
+  posts.forEach(({ slug, module: { meta, default: Content } }) => {
+    const mdx = (
+      <MDXProvider components={mdxComponents}>
+        <Content />
+      </MDXProvider>
+    )
+    const html = ReactDOMServer.renderToStaticMarkup(mdx)
+    const postText = `<p><em>(The post <a href="${blogUrl}/${slug}">${meta.title}</a> appeared first on <a href="${blogUrl}">Tailwind CSS Blog</a>.)</em></p>`
+    feed.addItem({
+      title: meta.title,
+      id: meta.title,
+      link: `${blogUrl}/${slug}`,
+      description: meta.description,
+      content: html + postText,
+      author: meta.authors.map(({ name, twitter }) => ({
+        name,
+        link: `https://twitter.com/${twitter}`,
+      })),
+      date: new Date(meta.date),
+      image: baseUrl + meta.image,
+      ...(meta.discussion
+        ? {
+            comments: meta.discussion,
+            extensions: [
+              {
+                name: '_comments',
+                objects: {
+                  about: 'Link to discussion forum',
+                  comments: meta.discussion,
+                },
               },
-            },
-          ],
-        }
-      : {}),
+            ],
+          }
+        : {}),
+    })
   })
-})
 
-fs.mkdirSync('./public/feeds', { recursive: true })
-fs.writeFileSync('./public/feeds/feed.xml', feed.rss2())
-fs.writeFileSync('./public/feeds/atom.xml', feed.atom1())
-fs.writeFileSync('./public/feeds/feed.json', feed.json1())
+  fs.mkdirSync('./public/feeds', { recursive: true })
+  fs.writeFileSync('./public/feeds/feed.xml', feed.rss2())
+  fs.writeFileSync('./public/feeds/atom.xml', feed.atom1())
+  fs.writeFileSync('./public/feeds/feed.json', feed.json1())
+}
+
+run()

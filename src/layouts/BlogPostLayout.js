@@ -100,14 +100,12 @@ export function BlogPostLayout({ children, meta, slug, latestPosts }) {
   )
 }
 
-export function getStaticProps() {
+export async function getStaticProps() {
   return {
     props: {
-      latestPosts: getAllPosts()
-        .slice(0, 3)
-        .map(({ slug, module: { meta } }) => {
-          return { slug, title: meta.title, description: meta.description, date: meta.date }
-        }),
+      latestPosts: (await getAllPosts()).slice(0, 3).map(({ slug, module: { meta } }) => {
+        return { slug, title: meta.title, description: meta.description, date: meta.date }
+      }),
     },
   }
 }

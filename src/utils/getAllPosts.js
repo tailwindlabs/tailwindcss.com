@@ -1,15 +1,16 @@
-function importAll(r) {
-  return r
-    .keys()
-    .filter((filename) => filename.startsWith('.'))
-    .map((filename) => ({
-      slug: filename.substr(2).replace(/\/index\.mdx$/, ''),
-      filename,
-      module: r(filename),
-    }))
-    .filter(({ slug }) => !slug.includes('/snippets/'))
-    .filter((p) => p.module.meta.private !== true)
-    .sort((a, b) => dateSortDesc(a.module.meta.date, b.module.meta.date))
+async function importAll(r) {
+  let files = []
+  for (let filename of r.keys().filter((filename) => filename.startsWith('.'))) {
+    let slug = filename.substr(2).replace(/\/index\.mdx$/, '')
+    if (slug.includes('/snippets/')) continue
+
+    let module = await r(filename)
+    if (module.meta.private) continue
+
+    files.push({ slug, filename, module })
+  }
+
+  return files.sort((a, b) => dateSortDesc(a.module.meta.date, b.module.meta.date))
 }
 
 function dateSortDesc(a, b) {

@@ -1,10 +1,19 @@
 import PostItem from '@/components/PostItem'
 import { Widont } from '@/components/Widont'
 import { getAllPostPreviews } from '@/utils/getAllPosts'
+import lookup from './previews'
 
-let posts = getAllPostPreviews()
+export async function getStaticProps() {
+  let posts = await getAllPostPreviews()
 
-export default function Blog() {
+  return {
+    props: {
+      posts: posts.map(({ module: { meta }, slug }) => ({ slug, meta })),
+    },
+  }
+}
+
+export default function Blog({ posts }) {
   return (
     <main className="max-w-5xl mx-auto px-4 pb-28 sm:px-6 md:px-8 xl:px-12 xl:max-w-6xl">
       <header className="pt-16 pb-9 sm:pb-16 sm:text-center">
@@ -16,18 +25,22 @@ export default function Blog() {
         </p>
       </header>
       <div className="space-y-16">
-        {posts.map(({ slug, module: { default: Component, meta } }, index) => (
-          <PostItem
-            key={index}
-            title={meta.title}
-            category={meta.category}
-            date={meta.date}
-            slug={slug}
-            wide
-          >
-            <Component />
-          </PostItem>
-        ))}
+        {posts.map(({ slug, meta }, index) => {
+          let Component = lookup[index]
+
+          return (
+            <PostItem
+              key={index}
+              title={meta.title}
+              category={meta.category}
+              date={meta.date}
+              slug={slug}
+              wide
+            >
+              <Component />
+            </PostItem>
+          )
+        })}
       </div>
     </main>
   )
