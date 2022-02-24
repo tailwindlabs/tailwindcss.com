@@ -31,7 +31,7 @@ export default function Demo() {
         <div className="relative w-full max-w-xs">
           <div className="relative w-full text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-within:ring-2 focus-within:ring-indigo-500 sm:text-sm overflow-hidden">
             <Combobox.Input
-              className="w-full border-none focus:ring-0 py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:outline-none"
+              className="w-full bg-transparent border-none focus:ring-0 py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:outline-none"
               displayValue={(person) => person.name}
               onChange={(event) => setQuery(event.target.value)}
             />
