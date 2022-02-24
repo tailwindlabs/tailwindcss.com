@@ -93,7 +93,7 @@ Style elements on hover, focus, and active using the `hover`, `focus`, and `acti
 </Example>
 
 ```html
-<button class="bg-violet-500 **hover:bg-violet-400** **active:bg-violet-600** **focus:outline-none focus:ring focus:ring-violet-300** ...">
+<button class="bg-violet-500 **hover:bg-violet-600** **active:bg-violet-700** **focus:outline-none focus:ring focus:ring-violet-300** ...">
   Save changes
 </button>
 ```
@@ -341,7 +341,7 @@ When you need to style an element based on the state of some _parent_ element, m
 </Example>
 
 ```html
-<a href="#" class="**group** block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
+<a href="#" class="**group** block max-w-xs mx-auto rounded-lg p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
   <div class="flex items-center space-x-3">
     <svg class="h-6 w-6 stroke-sky-500 **group-hover:stroke-white**" fill="none" viewBox="0 0 24 24"><!-- ... --></svg>
     <h3 class="text-slate-900 **group-hover:text-white** text-sm font-semibold">New project</h3>
@@ -386,6 +386,17 @@ When you need to style an element based on the state of a _sibling_ element, mar
 This makes it possible to do all sorts of neat tricks, like [floating labels](https://www.youtube.com/watch?v=nJzKi6oIvBA) for example without any JS.
 
 This pattern works with every pseudo-class modifier, for example `peer-focus`, `peer-required`, and `peer-disabled`.
+
+It's important to note that the `peer` marker can only be used on _previous_ siblings because of how the [general sibling combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator) works in CSS.
+
+<TipBad>Won't work, only previous siblings can be marked as peers</TipBad>
+
+```html
+<label>
+  <span class="**peer-invalid:text-red-500** ...">Email</span>
+  <input type="email" class="**peer** ..."/>
+</label>
+```
 
 ---
 
