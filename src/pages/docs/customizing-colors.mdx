@@ -313,7 +313,7 @@ Again, we recommend sticking to the default naming convention for most projects,
 
 If you're using abstract color names because you want to support multiple themes in your project, there's a good chance you also want to use CSS variables to define your colors.
 
-The best way to do this is to define your CSS variables as just the color _channels_, without including the actual color function:
+The best way to do this is to define your CSS variables as just the color _channels_ separated by spaces, without including the actual color function *or* alpha value:
 
 ```css main.css
 @tailwind base;
