@@ -36,7 +36,7 @@ let steps = [
     title: 'Configure PostCSS',
     body: () => (
       <p>
-        Create a <code>.postcssrc</code> file, and enable the <code>tailwindcss</code> plugin.
+        Create a <code>.postcssrc</code> file in your project root, and enable the <code>tailwindcss</code> plugin.
       </p>
     ),
     code: {
@@ -44,7 +44,7 @@ let steps = [
       lang: 'json',
       code: `{
   "plugins": {
-    "tailwindcss": true
+    "tailwindcss": {}
   }
 }`
     }
