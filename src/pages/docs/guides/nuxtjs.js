@@ -9,131 +9,42 @@ let steps = [
       <p>
         Start by creating a new Nuxt.js project if you don’t have one set up already. The most
         common approach is to use{' '}
-        <a href="https://nuxtjs.org/guides/get-started/installation">Create Nuxt App</a>.
+        <a href="https://v3.nuxtjs.org/getting-started/quick-start">nuxi init</a>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npx create-nuxt-app my-project\ncd my-project',
+      code: 'npx nuxi init my-project\ncd my-project',
     },
   },
   {
     title: 'Install Tailwind CSS',
     body: () => (
-      <>
         <p>
-          Using npm, install <code>tailwindcss</code> and its peer dependencies, as well as{' '}
-          <code>@nuxt/postcss8</code>, and then run the init command to generate the{' '}
+          Using npm install <code>@nuxtjs/tailwindcss</code>, and then run the init command to generate the{' '}
           <code>tailwind.config.js</code> file.
         </p>
-        <p className="mt-3 text-xs italic">
-          Using <code>@latest</code> is required because Nuxt installs PostCSS v7 and Autoprefixer
-          v9 by default.
-        </p>
-      </>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss@latest autoprefixer@latest @nuxt/postcss8\nnpx tailwindcss init',
+      code: 'npm install -D @nuxtjs/tailwindcss\nnpx tailwindcss init',
     },
   },
   {
-    title: 'Enable the Nuxt.js PostCSS plugin',
+    title: 'Add Tailwind to your Nuxt.js configuration',
     body: () => (
       <p>
-        In your <code>nuxt.config.js</code> file, enable the <code>@nuxt/postcss8</code> plugin.
+        Add <code>@nuxtjs/tailwindcss</code> to the{' '}
+        <code>buildModules</code> object of your <code>nuxt.config.js</code> file.
       </p>
     ),
     code: {
       name: 'nuxt.config.js',
       lang: 'js',
       code: `  export default {
-    buildModules: [
->     '@nuxt/postcss8',
-      // ...
-    ],
-  }`,
-    },
-  },
-  {
-    title: 'Add Tailwind to your PostCSS configuration',
-    body: () => (
-      <p>
-        Add <code>tailwindcss</code> and <code>autoprefixer</code> to the{' '}
-        <code>build.postcss.plugins</code> object of your <code>nuxt.config.js</code> file.
-      </p>
-    ),
-    code: {
-      name: 'nuxt.config.js',
-      lang: 'js',
-      code: `  export default {
-    build: {
->     postcss: {
->       plugins: {
->         tailwindcss: {},
->         autoprefixer: {},
->       },
->     },
-    }
-  }`,
-    },
-  },
-  {
-    title: 'Configure your template paths',
-    body: () => (
-      <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
-      </p>
-    ),
-    code: {
-      name: 'tailwind.config.js',
-      lang: 'js',
-      code: `  module.exports = {
->   content: [
->     "./components/**/*.{js,vue,ts}",
->     "./layouts/**/*.vue",
->     "./pages/**/*.vue",
->     "./plugins/**/*.{js,ts}",
->     "./nuxt.config.{js,ts}",
->   ],
-    theme: {
-      extend: {},
-    },
-    plugins: [],
-  }`,
-    },
-  },
-  {
-    title: 'Add the Tailwind directives to your CSS',
-    body: () => (
-      <p>
-        Create an <code>./assets/css/main.css</code> file and add the <code>@tailwind</code>{' '}
-        directives for each of Tailwind’s layers.
-      </p>
-    ),
-    code: {
-      name: 'main.css',
-      lang: 'css',
-      code: '@tailwind base;\n@tailwind components;\n@tailwind utilities;',
-    },
-  },
-  {
-    title: 'Import the CSS file',
-    body: () => (
-      <p>
-        Add the newly-created <code>./assets/css/main.css</code> file to the <code>css</code> array
-        in the <code>nuxt.config.js</code> file.
-      </p>
-    ),
-    code: {
-      name: 'nuxt.config.js',
-      lang: 'js',
-      code: `  export default {
-    css: [
->     '@/assets/css/main.css',
-    ],
+>   buildModules : ['@nuxtjs/tailwindcss']
   }`,
     },
   },
@@ -161,6 +72,24 @@ let steps = [
 >     Hello world!
 >   </h1>
   </template>`,
+    },
+  },
+  {
+    title: 'Customize your Tailwind',
+    body: () => (
+      <p>
+        You can customize the module behavior by using the <code>tailwindcss</code> property{' '}
+        in your <code>nuxt.config.js</code> file.
+      </p>
+    ),
+    code: {
+      name: 'nuxt.config.js',
+      lang: 'js',
+      code: `  export default {
+>   tailwindcss: {
+>     // Options
+>   }
+  }`,
     },
   },
 ]
