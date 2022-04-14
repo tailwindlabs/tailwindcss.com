@@ -8,6 +8,7 @@ import { mdxComponents } from '@/utils/mdxComponents'
 import { getAllPosts } from '@/utils/getAllPosts'
 import clsx from 'clsx'
 import { NewsletterForm } from '@/components/NewsletterForm'
+import { Button } from '@/components/Button'
 
 let postDateWithDayTemplate = tinytime('{dddd}, {MMMM} {DD}, {YYYY}')
 let postDateTemplate = tinytime('{MMMM} {DD}, {YYYY}')
@@ -97,7 +98,7 @@ export function BlogPostLayout({ children, meta, slug, latestPosts }) {
               className="absolute top-px -left-1/4 sm:left-0 hidden dark:block max-w-none"
               width="1429"
             />
-            <section className="relative pt-16 pb-20 border-t border-slate-200 dark:border-slate-200/5">
+            <section className="relative py-16 border-t border-slate-200 dark:border-slate-200/5">
               <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
                 Get all of our updates directly to your&nbsp;inbox.
                 <br />
@@ -107,17 +108,17 @@ export function BlogPostLayout({ children, meta, slug, latestPosts }) {
                 <NewsletterForm action="https://app.convertkit.com/forms/3181881/subscriptions" />
               </div>
             </section>
-            <section className="relative pt-8 border-t border-slate-200 dark:border-slate-200/5">
+            <section className="relative pt-16 border-t border-slate-200 dark:border-slate-200/5">
               <h2 className="mb-6 font-semibold text-slate-900 dark:text-slate-200">
                 Latest articles
               </h2>
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+              <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2">
                 {latestPosts
                   .filter((post) => post.slug !== slug)
                   .slice(0, 2)
                   .map((post) => (
-                    <article key={post.slug}>
-                      <h3 className="text-lg text-slate-900 font-semibold dark:text-slate-200">
+                    <article key={post.slug} className="flex flex-col items-start">
+                      <h3 className="order-1 text-lg text-slate-900 font-semibold dark:text-slate-200">
                         <Link href={`/blog/${post.slug}`}>
                           <a>{post.title}</a>
                         </Link>
@@ -125,6 +126,9 @@ export function BlogPostLayout({ children, meta, slug, latestPosts }) {
                       <time dateTime={post.date} className="text-sm leading-7 dark:text-slate-400">
                         {postDateTemplate.render(new Date(post.date))}
                       </time>
+                      <Button href={`/blog/${post.slug}`} className="order-1 mt-6">
+                        Read more<span className="sr-only">, {post.title}</span>
+                      </Button>
                     </article>
                   ))}
               </div>
