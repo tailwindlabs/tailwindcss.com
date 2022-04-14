@@ -17,7 +17,7 @@ export default function Blog() {
         </p>
         <section className="mt-3 max-w-sm sm:mx-auto sm:px-4">
           <h2 className="sr-only">Sign up for our newsletter</h2>
-          <NewsletterForm />
+          <NewsletterForm action="https://app.convertkit.com/forms/3181837/subscriptions" />
         </section>
       </header>
       <div className="space-y-16">

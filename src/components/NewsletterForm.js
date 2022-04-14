@@ -1,6 +1,6 @@
-export function NewsletterForm() {
+export function NewsletterForm({ action }) {
   return (
-    <form action="TODO" className="flex flex-wrap -mx-2">
+    <form action={action} method="post" className="flex flex-wrap -mx-2">
       <div className="px-2 grow-[9999] basis-64 mt-3">
         <div className="group relative">
           <svg
@@ -17,7 +17,7 @@ export function NewsletterForm() {
             <path d="m6 7 6 5 6-5" />
           </svg>
           <input
-            name="TODO"
+            name="email_address"
             type="email"
             required
             aria-label="Email address"

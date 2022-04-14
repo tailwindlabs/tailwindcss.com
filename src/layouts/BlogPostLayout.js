@@ -102,7 +102,7 @@ export function BlogPostLayout({ children, meta, slug, latestPosts }) {
                 Sign up for our newsletter.
               </h2>
               <div className="mt-5 max-w-md">
-                <NewsletterForm />
+                <NewsletterForm action="https://app.convertkit.com/forms/3181881/subscriptions" />
               </div>
             </section>
             <section className="relative mt-20">
