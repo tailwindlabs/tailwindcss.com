@@ -1,5 +1,4 @@
 import { Widont } from '@/components/home/common'
-import PostItem from '@/components/PostItem'
 import Link from 'next/link'
 import tinytime from 'tinytime'
 import Head from 'next/head'
@@ -10,7 +9,8 @@ import { getAllPosts } from '@/utils/getAllPosts'
 import clsx from 'clsx'
 import { NewsletterForm } from '@/components/NewsletterForm'
 
-let postDateTemplate = tinytime('{dddd}, {MMMM} {DD}, {YYYY}')
+let postDateWithDayTemplate = tinytime('{dddd}, {MMMM} {DD}, {YYYY}')
+let postDateTemplate = tinytime('{MMMM} {DD}, {YYYY}')
 
 let grid = 'max-w-3xl mx-auto xl:max-w-none xl:grid xl:grid-cols-[1fr_50rem] xl:gap-x-8'
 
@@ -48,7 +48,9 @@ export function BlogPostLayout({ children, meta, slug, latestPosts }) {
               <dl>
                 <dt className="sr-only">Date</dt>
                 <dd className="absolute top-0 inset-x-0 text-slate-700 sm:text-center dark:text-slate-400">
-                  <time dateTime={meta.date}>{postDateTemplate.render(new Date(meta.date))}</time>
+                  <time dateTime={meta.date}>
+                    {postDateWithDayTemplate.render(new Date(meta.date))}
+                  </time>
                 </dd>
                 <div className="sm:flex sm:flex-wrap sm:justify-center xl:block">
                   <dt className="sr-only">Author{meta.authors.length > 1 && 's'}</dt>
@@ -82,20 +84,20 @@ export function BlogPostLayout({ children, meta, slug, latestPosts }) {
           </article>
         </main>
         <footer className={clsx('mt-14 sm:mt-16', grid)}>
-          <div className="col-start-2 pt-16 sm:pt-16 border-t border-slate-200 dark:border-slate-200/5 relative -mx-4 px-4 sm:mx-0 sm:px-0">
+          <div className="relative col-start-2">
             <img
               src={require('@/img/beams/blog-post-form@80.jpg').default}
               alt=""
-              className="absolute top-0 sm:left-auto sm:right-0 left-1/4 dark:hidden max-w-none"
+              className="absolute top-px sm:left-auto sm:right-0 left-1/4 dark:hidden max-w-none"
               width="476"
             />
             <img
               src={require('@/img/beams/blog-post-form-dark@90.jpg').default}
               alt=""
-              className="absolute top-0 -left-1/4 sm:left-0 hidden dark:block max-w-none"
+              className="absolute top-px -left-1/4 sm:left-0 hidden dark:block max-w-none"
               width="1429"
             />
-            <section className="relative">
+            <section className="relative pt-16 pb-20 border-t border-slate-200 dark:border-slate-200/5">
               <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
                 Get all of our updates directly to your&nbsp;inbox.
                 <br />
@@ -105,18 +107,25 @@ export function BlogPostLayout({ children, meta, slug, latestPosts }) {
                 <NewsletterForm action="https://app.convertkit.com/forms/3181881/subscriptions" />
               </div>
             </section>
-            <section className="relative mt-20">
-              <h2 className="mb-10 font-semibold text-slate-900 dark:text-slate-200">
+            <section className="relative pt-8 border-t border-slate-200 dark:border-slate-200/5">
+              <h2 className="mb-6 font-semibold text-slate-900 dark:text-slate-200">
                 Latest articles
               </h2>
-              <div className="grid grid-cols-1 gap-y-10 gap-x-8 md:grid-cols-2">
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                 {latestPosts
                   .filter((post) => post.slug !== slug)
                   .slice(0, 2)
                   .map((post) => (
-                    <PostItem key={post.slug} {...post}>
-                      <p>{post.description}</p>
-                    </PostItem>
+                    <article key={post.slug}>
+                      <h3 className="text-lg text-slate-900 font-semibold dark:text-slate-200">
+                        <Link href={`/blog/${post.slug}`}>
+                          <a>{post.title}</a>
+                        </Link>
+                      </h3>
+                      <time dateTime={post.date} className="text-sm leading-7 dark:text-slate-400">
+                        {postDateTemplate.render(new Date(post.date))}
+                      </time>
+                    </article>
                   ))}
               </div>
             </section>
