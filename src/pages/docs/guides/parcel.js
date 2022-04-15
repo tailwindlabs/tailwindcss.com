@@ -15,7 +15,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'mkdir my-project\ncd my-project\nnpm install -D parcel\nmkdir src\ntouch src/index.html',
+      code: 'mkdir my-project\ncd my-project\nnpm init -y\nnpm install -D parcel\n// with yarn\nyarn init -y\nyarn add -D parcel\nmkdir src\ntouch src/index.html',
     },
   },
   {
@@ -29,14 +29,15 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss\nnpx tailwindcss init',
+      code: 'npm install -D tailwindcss postcss\n// with yarn\nyarn add -D tailwindcss postcss\nnpx tailwindcss init',
     },
   },
   {
     title: 'Configure PostCSS',
     body: () => (
       <p>
-        Create a <code>.postcssrc</code> file in your project root, and enable the <code>tailwindcss</code> plugin.
+        Create a <code>.postcssrc</code> file in your project root, and enable the{' '}
+        <code>tailwindcss</code> plugin.
       </p>
     ),
     code: {
@@ -46,8 +47,8 @@ let steps = [
   "plugins": {
     "tailwindcss": {}
   }
-}`
-    }
+}`,
+    },
   },
   {
     title: 'Configure your template paths',
@@ -99,10 +100,12 @@ let steps = [
   },
   {
     title: 'Start using Tailwind in your project',
-    body: () => (<p>
-      Add your CSS file to the <code>{'<head>'}</code> and start using Tailwind’s utility
-      classes to style your content.
-    </p>),
+    body: () => (
+      <p>
+        Add your CSS file to the <code>{'<head>'}</code> and start using Tailwind’s utility classes
+        to style your content.
+      </p>
+    ),
     code: {
       name: 'index.html',
       lang: 'html',

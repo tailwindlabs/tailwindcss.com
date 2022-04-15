@@ -15,7 +15,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npx create-nuxt-app my-project\ncd my-project',
+      code: 'npx create-nuxt-app my-project\n// with yarn\nyarn create nuxt-app my-project\ncd my-project',
     },
   },
   {
@@ -36,7 +36,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss@latest autoprefixer@latest @nuxt/postcss8\nnpx tailwindcss init',
+      code: 'npm install -D tailwindcss postcss@latest autoprefixer@latest @nuxt/postcss8\n// with yarn\nyarn dev\nnpx tailwindcss init',
     },
   },
   {
@@ -141,13 +141,13 @@ let steps = [
     title: 'Start your build process',
     body: () => (
       <p>
-        Run your build process with <code>npm run dev</code>.
+        Run your build process with <code>npm run dev or yarn dev</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm run dev',
+      code: 'npm run dev\n// with yarn\nyarn dev',
     },
   },
   {

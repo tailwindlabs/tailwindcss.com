@@ -34,7 +34,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer gatsby-plugin-postcss\nnpx tailwindcss init -p',
+      code: 'npm install -D tailwindcss postcss autoprefixer gatsby-plugin-postcss\n// with yarn\nyarn add -D tailwindcss postcss autoprefixer gatsby-plugin-postcss\nnpx tailwindcss init -p',
     },
   },
   {

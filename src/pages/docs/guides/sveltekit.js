@@ -18,7 +18,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm init svelte@next my-app\ncd my-app',
+      code: 'npm init svelte@next my-app\n// with yarn\nyarn create svelte@next my-app\ncd my-app',
     },
   },
   {
@@ -33,7 +33,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init tailwind.config.cjs -p\nmv postcss.config.js postcss.config.cjs',
+      code: 'npm install -D tailwindcss postcss autoprefixer\n// with yarn\nyarn add -D tailwindcss postcss autoprefixer\nnpx tailwindcss init tailwind.config.cjs -p\nmv postcss.config.js postcss.config.cjs',
     },
   },
   {
@@ -93,13 +93,13 @@ let steps = [
     title: 'Start your build process',
     body: () => (
       <p>
-        Run your build process with <code>npm run dev</code>.
+        Run your build process with <code>npm run dev or yarn dev</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm run dev',
+      code: 'npm run dev\n// with yarn\nyarn dev',
     },
   },
   {

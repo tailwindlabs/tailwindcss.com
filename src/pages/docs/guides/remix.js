@@ -14,21 +14,22 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npx create-remix@latest my-project\ncd my-project',
+      code: 'npx create-remix@latest my-project\n// with yarn\nyarn create remix@latest my-project\ncd my-project',
     },
   },
   {
     title: 'Install Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code>, its peer dependencies, and <code>concurrently</code> via npm, and then run the init
-        command to generate both <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+        Install <code>tailwindcss</code>, its peer dependencies, and <code>concurrently</code> via
+        npm, and then run the init command to generate both <code>tailwind.config.js</code> and{' '}
+        <code>postcss.config.js</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer concurrently\nnpx tailwindcss init -p',
+      code: 'npm install -D tailwindcss postcss autoprefixer concurrently\n// with yarn\nyarn add -D tailwindcss postcss autoprefixer\nnpx tailwindcss init -p',
     },
   },
   {
@@ -56,7 +57,8 @@ let steps = [
     title: 'Update your package.json scripts',
     body: () => (
       <p>
-        Update the scripts in your <code>package.json</code> file to build both your development and production CSS.
+        Update the scripts in your <code>package.json</code> file to build both your development and
+        production CSS.
       </p>
     ),
     code: {
@@ -90,7 +92,8 @@ let steps = [
     title: 'Import the CSS file',
     body: () => (
       <p>
-        Import the compiled <code>./app/styles/app.css</code> file in your <code>./app/root.jsx</code> file.
+        Import the compiled <code>./app/styles/app.css</code> file in your{' '}
+        <code>./app/root.jsx</code> file.
       </p>
     ),
     code: {
@@ -107,13 +110,13 @@ export function links() {
     title: 'Start your build process',
     body: () => (
       <p>
-        Run your build process with <code>npm run dev</code>.
+        Run your build process with <code>npm run dev or yarn dev</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm run dev',
+      code: 'npm run dev\n// with yarn\nyarn dev',
     },
   },
   {

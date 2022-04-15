@@ -15,7 +15,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npx create-react-app my-project\ncd my-project',
+      code: 'npx create-react-app my-project\n// with yarn\nyarn create react-app my-project\ncd my-project',
     },
   },
   {
@@ -29,7 +29,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init -p',
+      code: 'npm install -D tailwindcss postcss autoprefixer\n// with yarn\nyarn add -D tailwindcss postcss autoprefixer\nnpx tailwindcss init -p',
     },
   },
   {
@@ -71,13 +71,13 @@ let steps = [
     title: 'Start your build process',
     body: () => (
       <p>
-        Run your build process with <code>npm run start</code>.
+        Run your build process with <code>npm run start or yarn start</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm run start',
+      code: 'npm run start\n// with yarn\nyarn start',
     },
   },
   {

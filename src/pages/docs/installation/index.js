@@ -15,7 +15,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss\nnpx tailwindcss init',
+      code: 'npm install -D tailwindcss\n// with yarn\nyarn add -D tailwindcss\nnpx tailwindcss init',
     },
   },
   {
