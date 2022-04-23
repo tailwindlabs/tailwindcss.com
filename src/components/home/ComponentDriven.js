@@ -333,7 +333,7 @@ function AtApplySection() {
           Not into component frameworks?
         </h3>
         <Paragraph>
-          If you like to keep it old school use Tailwind's <InlineCode>@apply</InlineCode> directive
+          If you like to keep it old school, use Tailwind's <InlineCode>@apply</InlineCode> directive
           to extract repeated utility patterns into custom CSS classes just by copying and pasting
           the list of class names.
         </Paragraph>
