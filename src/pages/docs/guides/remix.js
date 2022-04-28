@@ -65,9 +65,9 @@ let steps = [
       code: `  {
     "scripts": {
 >     "build": "npm run build:css && remix build",
->     "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
+>     "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css --postcss",
 >     "dev": "concurrently \\\"npm run dev:css\\\" \\\"remix dev\\\"",
->     "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
+>     "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css --postcss",
     }
   }`,
     },
