@@ -139,7 +139,7 @@ If needed, files or folders can be excluded by prefixing the pattern with a `!`
 module.exports = {
   content: [
     './components/**/*.{html,js}',
-    './components/generated/**/*.{html,js}',
+>   '!./components/generated/**/*.{html,js}',
     './index.html',
   ],
   // ...
