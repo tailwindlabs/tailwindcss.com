@@ -136,14 +136,14 @@ module.exports = {
 If needed, files or folders can be excluded by prefixing the pattern with a `!`
 
 ```js tailwind.config.js
-module.exports = {
-  content: [
-    './components/**/*.{html,js}',
->   '!./components/generated/**/*.{html,js}',
-    './index.html',
-  ],
-  // ...
-}
+  module.exports = {
+    content: [
+      './components/**/*.{html,js}',
+>     '!./components/generated/**/*.{html,js}',
+      './index.html',
+    ],
+    // ...
+  }
 ```
 
 ### Class detection in-depth
