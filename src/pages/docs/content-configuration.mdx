@@ -133,6 +133,19 @@ module.exports = {
 }
 ```
 
+If needed, files or folders can be excluded by prefixing the pattern with a `!`
+
+```js tailwind.config.js
+module.exports = {
+  content: [
+    './components/**/*.{html,js}',
+    './components/generated/**/*.{html,js}',
+    './index.html',
+  ],
+  // ...
+}
+```
+
 ### Class detection in-depth
 
 The way Tailwind scans your source code for classes is intentionally very simple — we don't actually parse or execute any of your code in the language it's written in, we just use regular expressions to extract every string that could possibly be a class name.
