@@ -62,14 +62,14 @@ GridLockup.Grid = function Inner({ left, right, leftProps = {}, rightProps = {} 
     <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:grid lg:grid-cols-12 lg:gap-8">
       <div
         {...leftProps}
-        className={clsx('lg:col-span-5 xl:col-span-6 flex flex-col', leftProps.className)}
+        className={clsx('lg:col-span-5 xl:col-span-5 flex flex-col', leftProps.className)}
       >
         {left}
       </div>
       <div
         {...rightProps}
         className={clsx(
-          'mt-4 -mx-4 sm:mx-0 lg:mt-0 lg:col-span-7 xl:col-span-6',
+          'mt-4 -mx-4 sm:mx-0 lg:mt-0 lg:col-span-7 xl:col-span-5',
           rightProps.className
         )}
       >
