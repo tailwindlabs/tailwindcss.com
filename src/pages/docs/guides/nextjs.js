@@ -82,6 +82,23 @@ let steps = [
     },
   },
   {
+    title: 'Import Tailwind stylesheet files in your project',
+    body: () => <p>Import Tailwind stylesheet files.</p>,
+    code: {
+      name: '_app.js',
+      lang: 'jsx',
+      code: `>import 'tailwindcss/tailwind.css'
+>import '../styles/globals.css'
+import type { AppProps } from 'next/app'
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />
+}
+
+export default MyApp`,
+    },
+  },
+  {
     title: 'Start using Tailwind in your project',
     body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
     code: {
