@@ -15,6 +15,7 @@ export function Steps({ steps, code, level = 2 }) {
         <img
           src={require('@/img/beams/installation.jpg').default}
           alt=""
+          
           className="w-[52.6875rem] max-w-none"
         />
       </div>
