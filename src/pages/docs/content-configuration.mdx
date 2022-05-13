@@ -428,6 +428,16 @@ Or creating a new folder mid-project that wasn't covered originally and forgetti
   }
 ```
 
+If you're using `important` with [selector strategy](https://tailwindcss.com/docs/configuration#selector-strategy), make sure the speficied selector matches with the root element of your site.
+
+```diff-js tailwind.config.js
+  module.exports = {
+-   important: 'root'
++   important: '#root'
+    // ...
+  }
+```
+
 ### Dynamic class names
 
 As outlined in [Class detection in-depth](#class-detection-in-depth), Tailwind doesn't actually run your source code and won't detect dynamically constructed class names.
