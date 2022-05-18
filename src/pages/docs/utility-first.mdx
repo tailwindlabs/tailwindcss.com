@@ -27,16 +27,6 @@ Traditionally, whenever you need to style something on the web, you write CSS.
 </Example>
 
 ```html
-<div class="chat-notification">
-  <div class="chat-notification-logo-wrapper">
-    <img class="chat-notification-logo" src="/img/logo.svg" alt="ChitChat Logo">
-  </div>
-  <div class="chat-notification-content">
-    <h4 class="chat-notification-title">ChitChat</h4>
-    <p class="chat-notification-message">You have a new message!</p>
-  </div>
-</div>
-
 <style>
   .chat-notification {
     display: flex;
@@ -69,6 +59,16 @@ Traditionally, whenever you need to style something on the web, you write CSS.
     line-height: 1.5;
   }
 </style>
+
+<div class="chat-notification">
+  <div class="chat-notification-logo-wrapper">
+    <img class="chat-notification-logo" src="/img/logo.svg" alt="ChitChat Logo">
+  </div>
+  <div class="chat-notification-content">
+    <h4 class="chat-notification-title">ChitChat</h4>
+    <p class="chat-notification-message">You have a new message!</p>
+  </div>
+</div>
 ```
 
 With Tailwind, you style elements by applying pre-existing classes directly in your HTML.
