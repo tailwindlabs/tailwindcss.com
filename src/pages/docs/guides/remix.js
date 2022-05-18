@@ -28,7 +28,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer concurrently\nnpx tailwindcss init -p',
+      code: 'npm install -D tailwindcss postcss autoprefixer concurrently\nnpx tailwindcss init',
     },
   },
   {
@@ -65,9 +65,9 @@ let steps = [
       code: `  {
     "scripts": {
 >     "build": "npm run build:css && remix build",
->     "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css --postcss",
+>     "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
 >     "dev": "concurrently \\\"npm run dev:css\\\" \\\"remix dev\\\"",
->     "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css --postcss",
+>     "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
     }
   }`,
     },
