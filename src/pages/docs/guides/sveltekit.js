@@ -41,7 +41,7 @@ let steps = [
     body: () => (
       <p>
         In your <code>svelte.config.js</code> file, import <code>svelte-preprocess</code> and
-        configure it to enable postcss pre-processing of <code>&lt;style&gt;</code> blocks.
+        configure it to process <code>&lt;style&gt;</code> blocks as PostCSS.
       </p>
     ),
     code: {
