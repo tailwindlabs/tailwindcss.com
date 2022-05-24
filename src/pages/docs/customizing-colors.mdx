@@ -367,7 +367,7 @@ function withOpacityValue(variable) {
     if (opacityValue === undefined) {
       return `rgb(var(${variable}))`
     }
-    return `rgb(var(${variable}) / ${opacityValue})`
+    return `rgba(var(${variable}), ${opacityValue})`
   }
 }
 
