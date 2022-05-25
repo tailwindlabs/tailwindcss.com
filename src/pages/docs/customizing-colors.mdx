@@ -359,7 +359,24 @@ The best way to do this is to define your CSS variables as just the color _chann
 }
 ```
 
-Then define your colors in your configuration file as _functions_, and apply the `opacityValue` if it's defined:
+Then define your colors in your configuration file using the `rgb` and/or `hsl` helpers that allow you to use these variables:
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    colors: ({ rgb, hsl }) => ({
+      primary: rgb('--color-primary'),
+      secondary: rgb('--color-secondary'),
+      // ...
+    })
+  }
+}
+```
+
+These functions require that your css variables use space separated values without
+the alpha channel because Tailwind will add those based on other utilities.
+
+If you need more control, then you can use the verbose signature with _functions_, and apply the `opacityValue` if it's defined:
 
 ```js tailwind.config.js
 function withOpacityValue(variable) {
@@ -383,3 +400,4 @@ module.exports = {
 ```
 
 This makes it possible to use Tailwind's color opacity modifiers to do things like `bg-primary/75` even when you're using CSS variables to define your colors.
+
