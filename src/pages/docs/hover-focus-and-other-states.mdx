@@ -771,6 +771,30 @@ Tailwind also includes a `motion-safe` modifier that only adds styles when the u
 </button>
 ```
 
+### Prefers contrast
+
+The `prefers-contrast` media query tells you if the user has requested the content to be presented
+with more or less contrast. 
+
+Use the `contrast-more` modifier to conditionally add styles when the user has requested more contrast:
+
+<Example hint="Try emulating `prefers-contrast: more` in your developer tools to increase the contrast between background and text color">
+  <div class="flex items-center justify-center">
+    <button type="button" class="inline-flex items-center px-4 py-2 font-black leading-6 text-sm shadow rounded-md bg-indigo-600 text-indigo-200 contrast-more:text-white" disabled>
+      Save changes
+    </button>
+  </div>
+</Example>
+
+```html
+<button type="button" class="bg-indigo-600 **contrast-more:text-white** ..." disabled>
+  Save changes
+</button>
+```
+
+Use the `contrast-less` modifier to conditionally add styles when the user has requested less contrast.
+
+
 ### Viewport orientation
 
 Use the `portrait` and `landscape` modifiers to conditionally add styles when the viewport is in a specific orientation:
