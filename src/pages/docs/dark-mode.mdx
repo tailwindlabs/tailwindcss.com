@@ -77,6 +77,16 @@ module.exports = {
 }
 ```
 
+The darkMode `class` strategy requires a `.dark` class on the `html` tag, you can also customize
+this class using a tuple with the strategy of class and the preferred class.
+
+```js tailwind.config.js
+module.exports = {
+  darkMode: ['class', '.dark-mode'],
+  // ...
+}
+```
+
 Now instead of `dark:{class}` classes being applied based on `prefers-color-scheme`, they will be applied whenever `dark` class is present earlier in the HTML tree.
 
 ```html
