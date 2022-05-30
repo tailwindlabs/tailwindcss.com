@@ -135,11 +135,11 @@ Again you can manage this however you like, even storing the preference server-s
 
 Some frameworks (like NativeScript) have their own approach to enabling dark mode and add a different class name when dark mode is active.
 
-You can customize the dark mode class name by setting `darkMode` to an array with your custom class name as the second item:
+You can customize the dark mode selector name by setting `darkMode` to an array with your custom selector as the second item:
 
 ```js tailwind.config.js
 module.exports = {
-  darkMode: ['class', '.dark-mode'],
+  darkMode: ['class', '[data-mode="dark"]'],
   // ...
 }
 ```
