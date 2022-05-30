@@ -1064,6 +1064,7 @@ A quick reference table of every single modifier included in Tailwind by default
 | <a href="#only-of-type" className="whitespace-nowrap">only-of-type</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:only-of-type</code> |
 | <a href="#empty" className="whitespace-nowrap">empty</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:empty</code> |
 | <a href="#disabled" className="whitespace-nowrap">disabled</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:disabled</code> |
+| <a href="#enabled" className="whitespace-nowrap">enabled</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:enabled</code> |
 | <a href="#checked" className="whitespace-nowrap">checked</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:checked</code> |
 | <a href="#indeterminate" className="whitespace-nowrap">indeterminate</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:indeterminate</code> |
 | <a href="#default" className="whitespace-nowrap">default</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:default</code> |
@@ -1311,10 +1312,10 @@ Style an input when it's disabled using the `disabled` modifier:
 
 #### enabled <small>(:enabled)</small>
 
-Style an input when it's enabled using the `enabled` modifier:
+Style an input when it's enabled using the `enabled` modifier, most helpful when you only want to apply another style when an element is not disabled:
 
 ```html
-<input class="**enabled:shadow** ..." />
+<input class="**enabled:hover:border-gray-400** disabled:opacity-75 ..." />
 ```
 
 #### checked <small>(:checked)</small>
