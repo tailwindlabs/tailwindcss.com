@@ -6,6 +6,7 @@ description: Customizing the default color palette for your project.
 
 import { Heading } from '@/components/Heading'
 import { ColorPaletteReference } from '@/components/ColorPaletteReference'
+import { SnippetGroup } from '@/components/SnippetGroup'
 import { TipGood, TipBad } from '@/components/Tip'
 
 ## <Heading hidden>Default color palette</Heading>
@@ -329,75 +330,133 @@ module.exports = {
 
 Again, we recommend sticking to the default naming convention for most projects, and only using abstract names if you have a really good reason.
 
-### Using CSS variables
+---
 
-If you're using abstract color names because you want to support multiple themes in your project, there's a good chance you also want to use CSS variables to define your colors.
+## Using CSS variables
 
-The best way to do this is to define your CSS variables as just the color _channels_, without including the actual color function:
+If you'd like to define your colors as CSS variables, you'll need to define those variables as just the color _channels_ if you want them to work with the [opacity modifier syntax](/docs/text-color#changing-the-opacity):
 
 ```css main.css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.theme-startup {
-  --color-primary: 255 115 179;
-  --color-secondary: 111 114 185;
-  /* ... */
-}
-
-.theme-boring {
-  --color-primary: 2 82 204;
-  --color-secondary: 255 196 2;
-  /* ... */
-}
-
-.theme-elegant {
-  --color-primary: 192 178 131;
-  --color-secondary: 220 208 192;
-  /* ... */
+@layer base {
+  :root {
+    --color-primary: 255 115 179;
+    --color-secondary: 111 114 185;
+    /* ... */
+  }
 }
 ```
 
-Then define your colors in your configuration file using the `rgb` and/or `hsl` helpers that allow you to use these variables:
+Then define your colors in your configuration file using the `rgb` or `hsl` helpers, which will wrap your variables with the right color function and automatically insert the alpha channel whenever you use an opacity modifier:
 
 ```js tailwind.config.js
 module.exports = {
   theme: {
     colors: ({ rgb, hsl }) => ({
+      // Using `rgb` colors
       primary: rgb('--color-primary'),
       secondary: rgb('--color-secondary'),
-      // ...
+
+      // Using `hsl` colors
+      primary: hsl('--color-primary'),
+      secondary: hsl('--color-secondary'),
     })
   }
 }
 ```
 
-These functions require that your css variables use space separated values without
-the alpha channel because Tailwind will add those based on other utilities.
+When defining your colors this way, make sure that your CSS variables are using the modern [space-separated syntax](https://css-tricks.com/the-expanding-gamut-of-color-on-the-web/#aa-a-tale-of-new-syntaxes), and not the legacy comma-separated syntax:
 
-If you need more control, then you can use the verbose signature with _functions_, and apply the `opacityValue` if it's defined:
+<TipGood>Define your CSS variables using the space-separated syntax</TipGood>
+
+```css main.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 255 115 179;
+    --color-secondary: 111 114 185;
+    /* ... */
+  }
+}
+```
+
+<TipBad>Don't use the legacy comma-separated syntax</TipBad>
+
+```css main.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 255, 115, 179;
+    --color-secondary: 111, 114, 185;
+    /* ... */
+  }
+}
+```
+
+If you need more control or need to use a legacy color format, you can also manually define your colors as _functions_ which receive an `opacityValue` you can incorporate when needed:
+
+<SnippetGroup>
 
 ```js tailwind.config.js
-function withOpacityValue(variable) {
+module.exports = {
+  theme: {
+    colors: {
+      primary: ({ opacityValue }) => {
+        if (opacityValue === undefined) {
+          return `rgb(var(--color-primary)`
+        }
+        return `rgba(var(--color-primary, ${opacityValue})`
+      },
+      // ...
+    }
+  }
+}
+```
+
+```css main.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 255, 115, 179;
+    --color-secondary: 111, 114, 185;
+    /* ... */
+  }
+}
+```
+
+</SnippetGroup>
+
+You can extract your own helper function with whatever custom logic you need to make this less verbose:
+
+```js tailwind.config.js
+function rgba(variable) {
   return ({ opacityValue }) => {
     if (opacityValue === undefined) {
       return `rgb(var(${variable}))`
     }
-    return `rgb(var(${variable}) / ${opacityValue})`
+    return `rgba(var(${variable}), ${opacityValue})`
   }
 }
 
 module.exports = {
   theme: {
     colors: {
-      primary: withOpacityValue('--color-primary'),
-      secondary: withOpacityValue('--color-secondary'),
+      primary: rgba('--color-primary'),
+      secondary: rgba('--color-secondary'),
       // ...
     }
   }
 }
 ```
-
-This makes it possible to use Tailwind's color opacity modifiers to do things like `bg-primary/75` even when you're using CSS variables to define your colors.
-
