@@ -5,6 +5,7 @@ description: Using utilities to style elements on hover, focus, and more.
 ---
 
 import { TipGood, TipBad, TipInfo } from '@/components/Tip'
+import { SnippetGroup } from '@/components/SnippetGroup'
 
 Every utility class in Tailwind can be applied _conditionally_ by adding a modifier to the beginning of the class name that describes the condition you want to target.
 
@@ -654,6 +655,27 @@ Style the first line in a block of content using the `first-line` modifier, and 
   but that means a lot to me. One whole hell of a lot.
 </p>
 ```
+
+### Dialog backdrops
+
+Style the backdrop of a native dialog using the `backdrop` modifier. Note: the `::backdrop` will only show up if you opened the dialog via `dialog.showModal()`.
+
+<SnippetGroup>
+
+```html index.html
+<dialog id="my-dialog" class="**backdrop:bg-gray-50**" dark-class="**backdrop:bg-gray-50**">
+  I'm a styled dialog
+</dialog>
+```
+
+```js index.js
+let dialog = document.querySelector('#my-dialog')
+dialog.showModal()
+```
+
+</SnippetGroup>
+
+This can be used in combination with the [`open`](/docs/hover-focus-and-other-states#open-closed-state) modifier.
 
 ---
 
