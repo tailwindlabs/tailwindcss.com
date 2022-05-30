@@ -795,27 +795,37 @@ Tailwind also includes a `motion-safe` modifier that only adds styles when the u
 
 ### Prefers contrast
 
-The `prefers-contrast` media query tells you if the user has requested the content to be presented
-with more or less contrast.
+The `prefers-contrast` media query tells you if the user has requested more or less contrast.
 
 Use the `contrast-more` modifier to conditionally add styles when the user has requested more contrast:
 
-<Example hint="Try emulating `prefers-contrast: more` in your developer tools to increase the contrast between background and text color">
-  <div class="flex items-center justify-center">
-    <button type="button" class="inline-flex items-center px-4 py-2 font-black leading-6 text-sm shadow rounded-md bg-indigo-600 text-indigo-200 contrast-more:text-white" disabled>
-      Save changes
-    </button>
+<Example hint="Try emulating `prefers-contrast: more` in your developer tools to see the changes" p="none">
+  <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-4 px-6">
+    <form>
+      <div>
+        <label for="contrast-example" class="block text-sm font-medium text-slate-700">Social Security Number</label>
+        <div class="mt-1">
+          <input type="text" name="contrast-example" id="contrast-example" class="px-3 py-2 bg-white border shadow-sm border-slate-200 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 contrast-more:border-slate-400 contrast-more:placeholder-slate-500"  placeholder="000-00-0000" />
+          <p class="mt-2 text-sm text-slate-600 opacity-10 contrast-more:opacity-100">We need this to steal your identity.</p>
+        </div>
+      </div>
+    </form>
   </div>
 </Example>
 
 ```html
-<button type="button" class="bg-indigo-600 **contrast-more:text-white** ..." disabled>
-  Save changes
-</button>
+<form>
+  <label class="block">
+    <span class="block text-sm font-medium text-slate-700">Social Security Number</span>
+    <input class="border-slate-200 placeholder-slate-400 **contrast-more:border-slate-400** **contrast-more:placeholder-slate-500**"/>
+    <p class="mt-2 opacity-10 **contrast-more:opacity-100** text-slate-600 text-sm">
+      We need this to steal your identity.
+    </p>
+  </label>
+</form>
 ```
 
-Use the `contrast-less` modifier to conditionally add styles when the user has requested less contrast.
-
+Tailwind also includes a `contrast-less` modifier you can use to conditionally add styles when the user has requested less contrast.
 
 ### Viewport orientation
 
@@ -1095,6 +1105,8 @@ A quick reference table of every single modifier included in Tailwind by default
 | <a href="#viewport-orientation" className="whitespace-nowrap">landscape</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (orientation: landscape)</code> |
 | <a href="#prefers-reduced-motion" className="whitespace-nowrap">motion-safe</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-reduced-motion: no-preference)</code> |
 | <a href="#prefers-reduced-motion" className="whitespace-nowrap">motion-reduce</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-reduced-motion: reduce)</code> |
+| <a href="#prefers-contrast" className="whitespace-nowrap">contrast-more</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-contrast: more)</code> |
+| <a href="#prefers-contrast" className="whitespace-nowrap">contrast-less</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-contrast: less)</code> |
 | <a href="#print-styles" className="whitespace-nowrap">print</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media print</code> |
 | <a href="#rtl-support" className="whitespace-nowrap">rtl</a> | <code className="whitespace-nowrap before:content-none after:content-none">[dir="rtl"] <span className="text-slate-400">&</span></code> |
 | <a href="#rtl-support" className="whitespace-nowrap">ltr</a> | <code className="whitespace-nowrap before:content-none after:content-none">[dir="ltr"] <span className="text-slate-400">&</span></code> |
