@@ -471,49 +471,6 @@ The first argument is the modifier name that users will use in their HTML, so th
 </form>
 ```
 
-## Adding dynamic variants
-
-The `matchVariant` function allows you to register your own custom dynamic
-[modifiers](/docs/hover-focus-and-other-states) that can be used just like the built-in hover,
-focus, active, etc. variants. However, these variants also allow you to provide dynamic parts.
-
-To add a new variant, call the `matchVariant` function, passing in a configuration object where each
-key is the prefix of your variant. E.g.: In this scenario `prose-[h1]`, it would be `prose`.
-
-Each key requires a corresponding function that receives the value inbetween the brackets. E.g.: in this scenario `prose-[h1]`, it would be `h1`.
-
-The second argument accepts a `values` object where you can predefine lookup values. This means that you can use these values without the square bracket notation. E.g.: `prose-p` instead of `prose-[p]`.
-
-```js tailwind.config.js
-const plugin = require('tailwindcss/plugin')
-
-module.exports = {
-  // ...
-  plugins: [
-    plugin(function ({ matchVariant }) {
-      matchVariant(
-        {
-          prose: (selectors) => {
-            return selectors.split(',').map((selector) => `&.prose ${selector}`)
-          },
-        },
-        { values: { h1: 'h1', a: 'a', p: 'p' } }
-      )
-    }),
-  ],
-}
-```
-
-```html
-<div class="prose **prose-h1:text-blue-500** **prose-[hr]:border-red-500">
-  <h1>Here is your favorite blog post</h1>
-  <a href="https://twitter.com/tailwindcss">@tailwindcss</a>
-  <p>I like trains</p>
-  <hr />
-  <p>I lied.</p>
-</div>
-```
-
 ---
 
 ## Extending the configuration
