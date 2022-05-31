@@ -944,6 +944,151 @@ Use the `open` modifier to conditionally add styles when a `<details>` or `<dial
   </div>
 ```
 
+---
+
+## Custom modifiers
+
+### Using arbitrary modifiers
+
+Just like [arbitrary values](/docs/adding-custom-styles#using-arbitrary-values) let you use custom values with your utility classes, arbitrary modifiers let you write custom selector modifiers directly in your HTML.
+
+Arbitrary modifiers are just format strings that represent the selector, wrapped in square brackets. For example, this arbitrary modifier selects an element only when it is the third child:
+
+<SnippetGroup>
+
+```html HTML
+<ul role="list">
+  {#each items as item}
+    <li class="**[&:nth-child(3)]:underline**">{item}</li>
+  {/each}
+</ul>
+```
+
+```css Generated CSS
+/* https://media.giphy.com/media/uPnKU86sFa2fm/giphy.gif */
+.\[\&\:nth-child\(3\)\]\:underline:nth-child(3) {
+  text-decoration-style: underline
+}
+```
+
+</SnippetGroup>
+
+The format string is the same as what you'd use with the [`addVariant` plugin API]((/docs/plugins#adding-variants)), with the `&` representing the selector being modified.
+
+Arbitrary modifiers can be stacked with built-in modifiers or with each other, just like the rest of the modifiers in Tailwind:
+
+<SnippetGroup>
+
+```html HTML
+<ul role="list">
+  {#each items as item}
+    <li class="**lg:[&:nth-child(3)]:hover:underline**">{item}</li>
+  {/each}
+</ul>
+```
+
+```css Generated CSS
+/* https://media.giphy.com/media/Sd3cd0SrUKZEyWmAlM/giphy.gif */
+@media (min-width: 1024px) {
+  .lg\:\[\&\:nth-child\(3\)\]\:hover\:underline:hover:nth-child(3) {
+    text-decoration-line: underline;
+  }
+}
+```
+
+</SnippetGroup>
+
+
+If you need spaces in your selector, you can use an underscore. For example, this arbitrary modifier selects all `p` elements within the element where you've added the class:
+
+<SnippetGroup>
+
+```html HTML
+<div class="**[&_p]:mt-4**">
+  <p>Lorem ipsum...</p>
+  <ul>
+    <li>
+      <p>Lorem ipsum...</p>
+    </li>
+    <!-- ... -->
+  </ul>
+</div>
+```
+
+```css Generated CSS
+/* https://media.giphy.com/media/uPnKU86sFa2fm/giphy.gif */
+.\[\&\:nth-child\(3\)\]\:underline:nth-child(3) {
+  text-decoration-style: underline
+}
+```
+
+</SnippetGroup>
+
+You can also use at-rules like `@media` or `@supports` in arbitrary modifiers:
+
+<SnippetGroup>
+
+```html HTML
+<div class="flex **[@supports(display:grid)]:grid**">
+  <!-- ... -->
+</div>
+```
+
+```css Generated CSS
+/* https://media.giphy.com/media/sEms56zTGDx96/giphy.gif */
+@supports (display: grid) {
+  .\[\@supports\(display\:grid\)\]\:grid {
+    text-decoration-style: underline
+  }
+}
+```
+
+</SnippetGroup>
+
+With at-rule custom modifiers the `&` placeholder isn't necessary, just like when nesting with a preprocessor.
+
+You can even combine at-rules and regular selector modifiers by including the selector modifier within curly braces after the at-rule:
+
+
+<SnippetGroup>
+
+```html HTML
+<button type="button" class="**[@media(any-hover:hover){&:hover}]:opacity-100**">
+  <!-- ... -->
+</button>
+```
+
+```css Generated CSS
+/* https://media.giphy.com/media/l0IypeKl9NJhPFMrK/giphy.gif */
+@media (any-hover: hover) {
+  .\[\@media\(any-hover\:hover\)\{\&\:hover\}\]\:opacity-100:hover {
+    opacity: 1
+  }
+}
+```
+
+</SnippetGroup>
+
+
+### Creating a plugin
+
+If you find yourself using the same arbitrary modifier multiple times in your project, it might be worth extracting it to a plugin using the `addVariant` API:
+
+```js tailwind.config.js
+let plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  // ...
+  plugins: [
+    plugin(function ({ addVariant }) {
+      // Add a `third` variant, ie. `third:pb-0`
+      addVariant('third', '&:nth-child(3)')
+    })
+  ]
+}
+```
+
+Learn more in the [adding variant plugins](/docs/plugins#adding-variants) documentation.
 
 ---
 
@@ -1017,50 +1162,6 @@ Another place this is important is when using modifiers like `prose-headings` th
 
 In the first example, every single heading is underlined when you hover over the article itself, whereas in the second example each heading is only underlined when you hover over that heading.
 
-### Creating a plugin
-
-You can add your own modifiers to Tailwind by creating a plugin that uses the `addVariant` API:
-
-```js tailwind.config.js
-let plugin = require('tailwindcss/plugin')
-
-module.exports = {
-  // ...
-  plugins: [
-    plugin(function ({ addVariant }) {
-      // Add a `third` variant, ie. `third:pb-0`
-      addVariant('third', '&:nth-child(3)')
-    })
-  ]
-}
-```
-
-Learn more in the [Plugins](/docs/plugins#adding-variants) documentation.
-
-### Arbitrary variants
-
-If you don't want to create a plugin for a one-off use case, then you can also use arbitrary
-variants. These are variants that are defined inline in your html.
-
-```js index.html 
-<ul class="[&>*]:underline">
-  <li>Option 1</li>
-  <li>Option 2</li>
-  <li>Option 3</li>
-</ul>
-```
-
-This will translate into the typical "children" variant where each child of the `ul` will now get
-the `underline` treatment.
-
-You can also use at-rules like media queries just like how you can do it in the `addVariant` and
-`matchVariant` APIs.
-
-```js index.html 
-<div class="[@supports(hover:hover)]:hover:underline">
-  <!-- ... -->
-</ul>
-```
 
 ---
 
