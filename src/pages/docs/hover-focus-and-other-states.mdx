@@ -1017,7 +1017,6 @@ Another place this is important is when using modifiers like `prose-headings` th
 
 In the first example, every single heading is underlined when you hover over the article itself, whereas in the second example each heading is only underlined when you hover over that heading.
 
-
 ### Creating a plugin
 
 You can add your own modifiers to Tailwind by creating a plugin that uses the `addVariant` API:
@@ -1037,6 +1036,31 @@ module.exports = {
 ```
 
 Learn more in the [Plugins](/docs/plugins#adding-variants) documentation.
+
+### Arbitrary variants
+
+If you don't want to create a plugin for a one-off use case, then you can also use arbitrary
+variants. These are variants that are defined inline in your html.
+
+```js index.html 
+<ul class="[&>*]:underline">
+  <li>Option 1</li>
+  <li>Option 2</li>
+  <li>Option 3</li>
+</ul>
+```
+
+This will translate into the typical "children" variant where each child of the `ul` will now get
+the `underline` treatment.
+
+You can also use at-rules like media queries just like how you can do it in the `addVariant` and
+`matchVariant` APIs.
+
+```js index.html 
+<div class="[@supports(hover:hover)]:hover:underline">
+  <!-- ... -->
+</ul>
+```
 
 ---
 
