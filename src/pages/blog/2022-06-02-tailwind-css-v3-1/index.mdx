@@ -27,6 +27,8 @@ We can't release these templates until Tailwind supports this stuff, so we built
 
 If you want a video walkthrough of the highlights, I just published ["What's new in Tailwind CSS v3.1"](#) to our YouTube channel which goes over a bunch of my favorite improvements.
 
+---
+
 ## First-party TypeScript types
 
 We're now shipping types for all of our JS APIs you work with when using Tailwind, most notably the `tailwind.config.js` file. This means you get all sorts of useful IDE support, and makes it a lot easier to make changes to your configuration without referencing the documentation quite as much.
@@ -389,7 +391,63 @@ But with the new `enabled` modifier, you can write it like this instead:
 
 Instead of overriding the hover color back to the default color when the button is disabled, we combine the `hover` and `enabled` modifiers to just not apply the hover styles when the button is disabled in the first place. I think that's better!
 
-The `optional` modifier is admittedly harder to come up with a great example for but you have to agree with me it just feels weird to not include it. Mark my words — it could be tomorrow, next month, or 12 years from now, but one day you're gonna need it and you're gonna think _"well damn, well played Adam"_.
+Here's an example combining the new `optional` modifier with our [sibling state features](/docs/hover-focus-and-other-states#styling-based-on-sibling-state) to hide a little "Required" notice for fields that aren't required:
+
+<Example p="none">
+  <div class="max-w-sm mx-auto bg-white shadow py-5 px-6">
+    <form>
+      <div>
+        <label for="optional-email" class="block text-sm font-medium text-slate-700">Email</label>
+        <div class="mt-1 relative">
+          <input required type="text" name="email" id="optional-email" class="peer px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
+          <div class="peer-optional:hidden absolute inset-y-0 right-0 text-sm pr-3 py-2 border-y border-transparent text-slate-400">
+            Required
+          </div>
+        </div>
+      </div>
+      <div class="mt-6">
+        <label for="optional-name" class="block text-sm font-medium text-slate-700">Name</label>
+        <div class="mt-1 relative">
+          <input type="text" name="name" id="optional-name" class="peer px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
+          <div class="peer-optional:hidden absolute inset-y-0 right-0 text-sm pr-3 py-2 border-y border-transparent text-slate-400">
+            Required
+          </div>
+        </div>
+      </div>
+      <div class="mt-6 text-right">
+        <button class="bg-sky-500 hover:bg-sky-700 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</Example>
+
+```html
+<form>
+  <div>
+    <label for="email" ...>Email</label>
+    <div>
+      <input required class="peer ..." id="email" />
+      <div class="**peer-optional:hidden** ...">
+        Required
+      </div>
+    </div>
+  </div>
+  <div>
+    <label for="name" ...>Name</label>
+    <div>
+      <input class="peer ..." id="name" />
+      <div class="**peer-optional:hidden** ...">
+        Required
+      </div>
+    </div>
+  </div>
+  <!-- ... -->
+</form>
+```
+
+This lets you use the same markup for all of your form groups and letting CSS handle all of the conditional rendering for you instead of handling it yourself. Kinda neat!
 
 
 
