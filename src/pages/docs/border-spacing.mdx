@@ -25,8 +25,7 @@ export const classes = {
 
 ### Setting the border spacing
 
-Use `border-spacing` to control the spacing between the borders of cells. Note that this requires
-the `border-separate` to be present.
+Use `border-spacing` to control the space between the borders of table cells with [separate borders](/docs/border-collapse#separate).
 
 <Example p="none">
   <div class="px-4 py-8 sm:px-8">
@@ -56,7 +55,7 @@ the `border-separate` to be present.
 </Example>
 
 ```html
-<table class="border-separate **border-spacing-2** border border-slate-400 ..." dark-class="border-collapse **border-spacing-2** border border-slate-500 ...">
+<table class="border-separate **border-spacing-2** border border-slate-400 ..." dark-class="border-separate **border-spacing-2** border border-slate-500 ...">
   <thead>
     <tr>
       <th class="border border-slate-300 ..." dark-class="border border-slate-600 ...">State</th>
