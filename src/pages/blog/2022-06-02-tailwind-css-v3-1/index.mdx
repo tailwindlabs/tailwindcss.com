@@ -1,6 +1,7 @@
 import { SnippetGroup } from '@/components/SnippetGroup'
 import { adamwathan } from '@/authors'
 import card from './card.jpg'
+import discordMessage from './discord-message.png'
 
 export const meta = {
   title: 'Tailwind CSS v3.1: You wanna get nuts? Come on, let\'s get nuts!',
@@ -9,12 +10,6 @@ export const meta = {
   authors: [adamwathan],
   image: card,
 }
-
-It's been about six months since we released Tailwind CSS v3.0, and even though we've been collecting a lot of little improvements in the codebase since then, there hasn't really been anything in there that felt truly ~~sponge~~ minor-version-worthy
-
-For the last couple of months we've been working on a bunch of full-fledged Tailwind CSS [website templates](https://tailwindcss.com/blog/2022-05-23-headless-ui-v1-6-tailwind-ui-team-management#tailwind-css-templates-are-coming-soon), and naturally we found a few things we needed Tailwind to do that it just couldn't do yet.
-
-We can't release these templates until Tailwind supports this stuff, so we built the new stuff we needed, added some other commonly requested features, fixed a bunch of bugs, and voilà — we've got ourselves a Tailwind CSS v3.1.
 
 <div className="aspect-w-16 aspect-h-9 my-12 bg-slate-700 rounded-xl">
   {/* <iframe
@@ -25,7 +20,34 @@ We can't release these templates until Tailwind supports this stuff, so we built
   ></iframe> */}
 </div>
 
-If you want a video walkthrough of the highlights, I just published ["What's new in Tailwind CSS v3.1"](#) to our YouTube channel which goes over a bunch of my favorite improvements.
+It's been about six months since we released Tailwind CSS v3.0, and even though we've been collecting a lot of little improvements in the codebase since then, we just didn't have _that-one-feature_ yet that makes you say _"okay, it's release-cuttin' time"_.
+
+Then on a random Saturday night a couple of weeks ago, I was talking to Robin in our Discord about coming up with a way to target the `html` element using `:has` and a class deeper in the document, and explained how I thought it would look if we added support for arbitrary modifiers — something I've wanted to tackle for over a year:
+
+<img src={discordMessage} alt="" />
+
+Twenty minutes later Robin had a working proof of concept _(in six lines of code!)_, and after another hour or so of Jordan performing regex miracles in our class detection engine, [arbitrary modifiers](https://github.com/tailwindlabs/tailwindcss/pull/8299) were born and we had our release-worthy feature.
+
+So here it is — Tailwind CSS v3.1! For a complete list of every fix and improvemement check out the [release notes](https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.1.0), but here's the highlights:
+
+- [First-party TypeScript types](#)
+- [Built-in support for CSS imports in the CLI](#)
+- [Change color opacity when using the theme function](#)
+- [Easier CSS variable color configuration](#)
+- [Border spacing utilities](#)
+- [Enabled and optional modifiers](#)
+- [Prefers-contrast modifiers](#)
+- [Style native dialog backdrops](#)
+- [Arbitrary values but for modifiers](#)
+
+Upgrade your projects by installing the latest version of `tailwindcss` from npm:
+
+```shell
+npm install tailwindcss@latest
+```
+
+Or spin up a [Tailwind Play](https://play.tailwindcss.com) to play around with all of the new goodies right in the browser.
+
 
 ---
 
@@ -506,66 +528,148 @@ I recommend reading the [MDN Dialog documentation](https://developer.mozilla.org
 
 ## Arbitrary values but for modifiers
 
+Okay so this one is the real highlight for me — you know how we give you the [`addVariant` API](https://tailwindcss.com/docs/plugins#adding-variants) for creating your own custom modifiers?
+
+```js tailwind.config.js
+  const plugin = require('tailwindcss/plugin')
+
+  module.exports = {
+    // ...
+    plugins: [
+      plugin(function({ addVariant }) {
+>       addVariant('third', '&:nth-child(3)')
+      })
+    ]
+  }
+```
+
+...and you know how we have [arbitrary values](https://tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values) for using any value you want with a utility directly in your HTML?
+
+```html
+<div class="**top-[117px]**">
+  <!-- ... -->
+</div>
+```
+
+Well Tailwind CSS v3.1 introduces [arbitrary modifiers](/docs/hover-focus-and-other-states#using-arbitrary-modifiers), letting you create your own ad hoc modifiers directly in your HTML:
+
+```html
+<div class="**[&:nth-child(3)]**:py-0">
+  <!-- ... -->
+</div>
+```
+
+This is super useful for modifiers that sort of feel like they need to be parameterized, for example adding a style if the browser supports a specific CSS feature using a `@supports` query:
+
+```html
+<div class="bg-white **[@supports(backdrop-filter:blur(0))]:bg-white/50** **[@supports(backdrop-filter:blur(0))]:backdrop-blur**">
+  <!-- ... -->
+</div>
+```
+
+You can even use this feature to target child elements with arbitrary modifiers like `[&>*]`:
+
+<Example p="none">
+  <div class="px-4 py-6">
+    <div class="max-w-md mx-auto">
+      <ul role="list" class="[&>*]:p-4 [&>*]:bg-white [&>*]:rounded-lg [&>*]:shadow space-y-4">
+        <li class="flex">
+          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+          <div class="ml-3 overflow-hidden">
+            <p class="text-sm font-medium text-slate-900">Kristen Ramos</p>
+            <p class="text-sm text-slate-500 truncate">kristen.ramos@example.com</p>
+          </div>
+        </li>
+        <li class="flex">
+          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+          <div class="ml-3 overflow-hidden">
+            <p class="text-sm font-medium text-slate-900">Floyd Miles</p>
+            <p class="text-sm text-slate-500 truncate">floyd.miles@example.com</p>
+          </div>
+        </li>
+        <li class="flex">
+          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+          <div class="ml-3 overflow-hidden">
+            <p class="text-sm font-medium text-slate-900">Courtney Henry</p>
+            <p class="text-sm text-slate-500 truncate">courtney.henry@example.com</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</Example>
+
+```html
+<ul role="list" class="**[&>*]:p-4** **[&>*]:bg-white** **[&>*]:rounded-lg** **[&>*]:shadow** space-y-4">
+  <li class="flex">
+    <img class="h-10 w-10 rounded-full" src="..." alt="" />
+    <div class="ml-3 overflow-hidden">
+      <p class="text-sm font-medium text-slate-900">Kristen Ramos</p>
+      <p class="text-sm text-slate-500 truncate">kristen.ramos@example.com</p>
+    </div>
+  </li>
+  <!-- ... -->
+</ul>
+```
+
+You can even style the first `p` inside the `div` in the second child `li` but only on `hover`:
+
+<Example p="none"hint="Try hovering over the text &ldquo;Floyd Miles&rdquo;" >
+  <div class="px-4 py-6">
+    <div class="max-w-md mx-auto">
+      <ul role="list" class="hover:[&>li:nth-child(2)>div>p:first-child]:text-indigo-500 [&>*]:p-4 [&>*]:bg-white [&>*]:rounded-lg [&>*]:shadow space-y-4">
+        <li class="flex">
+          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+          <div class="ml-3 overflow-hidden">
+            <p class="text-sm font-medium text-slate-900">Kristen Ramos</p>
+            <p class="text-sm text-slate-500 truncate">kristen.ramos@example.com</p>
+          </div>
+        </li>
+        <li class="flex">
+          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+          <div class="ml-3 overflow-hidden">
+            <p class="text-sm font-medium text-slate-900">Floyd Miles</p>
+            <p class="text-sm text-slate-500 truncate">floyd.miles@example.com</p>
+          </div>
+        </li>
+        <li class="flex">
+          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+          <div class="ml-3 overflow-hidden">
+            <p class="text-sm font-medium text-slate-900">Courtney Henry</p>
+            <p class="text-sm text-slate-500 truncate">courtney.henry@example.com</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</Example>
+
+```html
+<ul role="list" class="**hover:[&>li:nth-child(2)>div>p:first-child]:text-indigo-500** [&>*]:p-4 [&>*]:bg-white [&>*]:rounded-lg [&>*]:shadow space-y-4">
+  <!-- ... -->
+  <li class="flex">
+    <img class="h-10 w-10 rounded-full" src="..." alt="" />
+    <div class="ml-3 overflow-hidden">
+      <p class="text-sm font-medium text-slate-900">Floyd Miles</p>
+      <p class="text-sm text-slate-500 truncate">floyd.miles@example.com</p>
+    </div>
+  </li>
+  <!-- ... -->
+</ul>
+```
+
+Now _should_ you do this? Probably not very often, but honestly it can be a pretty useful escape hatch when trying to style HTML you can't directly change. It's a sharp knife, but the best chefs aren't preparing food with safety scissors.
+
+Play with them a bit and I'll bet you find they are a great tool when the situation calls for it. We're using them in a couple of tricky spots in these new website templates we're working on and the experience is much nicer than creating a custom class.
 
 ---
 
-## Screencast
+So that's Tailwind CSS v3.1! It's only a minor version change, so there are no breaking changes and you should be able to update your project by just installing the latest version:
 
-- Add TypeScript types for the tailwind.config.js file (#7891)
-  - Show some stuff autocompleting
-  - Show people how to set it up
+```shell
+npm install tailwindcss@latest
+```
 
-- Add postcss-import support to the CLI (#8437)
-  - Demo something with multiple CSS files (prism.css, docsearch.css)
-  - Don't bother with the browser
-  - Show generated CSS?
+For the complete list of changes including bug fixes and a few minor improvements I didn't talk about here, dig in to the [release notes](https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.1.0) on GitHub.
 
-- Add opacity support when referencing colors with theme function (#8416)
-  - "The theme function is an easy way to get direct access to values in your theme and use them in your custom CSS, but until now, there was no easy way to grab a color from your theme using this approach and also change the opacity of that color."
-  - `background-color: theme(colors.red.500 / 25%)`
-  - @apply text-red-500/25
-  - `theme('colors.red.500 / 25%')`
-  - Use airbnb react datepicker example
-- Easier color opacity support when using CSS variables
-  - Demo I worked on with Steve, everything is already built
-  - Show old way and how it was kind of clunky
-  - Refactor to simple format string
-
-    ```html
-    <div class="[--color-primary:theme(colors.blue.500)]">
-      <div class="text-primary/50">
-        <!-- example here ...-->
-      </div>
-    </div>
-    ```
-
-- Border spacing (#7102)
-  - https://3.basecamp.com/4531632/buckets/17372111/question_answers/4699104624
-  - Show a really basic example
-  - Show sticky heading example
-
-- Add enabled and optional variants (#7905, #8486)
-  - Use disabled form input and/or button example
-  - disabled:opacity-50 hover:border-gray-400 disabled:border-gray-300
-  - disabled:opacity-50 hover:enabled:border-gray-400
-  - Different newsletter form with optional name field, put "Optional" inside the borders
-
-- Add prefers-contrast media query variants (#8410)
-  - Use social security number example from docs, make text underneath totally invisible, don't show in code, make it a joke to show it at the end
-
-- Add backdrop variant (#7924)
-  - Just make a modal and style the backdrop I guess
-
-- Add arbitrary variants (#8299)
-  - Show basic example
-  - Show that they can be combined with other variants
-  - Show that you can use at-rules in them
-  - Show that you can combine selectors/at-rules?
-  - Examples
-    - `hover:`, `[&:hover]`
-    - `@supports` example, backdrop-filter?
-      - `[@supports(backdrop-filter:blur(0))]:`
-    - Child elements
-      - `[&>*]:p-4`
-    - `[&>div:nth-child(2)>h2]:text-pink-500`
-      - `hover:[&>div:nth-child(2)>h2]:text-pink-500`
+I've already got a bunch of ideas for Tailwind CSS v3.2 _(maybe even text shadows finally?!)_, but right now we're working hard to push these new website templates over the finish line. Look for another update on that topic in the next week or two!
