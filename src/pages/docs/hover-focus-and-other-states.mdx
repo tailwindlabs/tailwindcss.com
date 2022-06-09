@@ -948,11 +948,11 @@ Use the `open` modifier to conditionally add styles when a `<details>` or `<dial
 
 ## Custom modifiers
 
-### Using arbitrary modifiers
+### Using arbitrary variants
 
-Just like [arbitrary values](/docs/adding-custom-styles#using-arbitrary-values) let you use custom values with your utility classes, arbitrary modifiers let you write custom selector modifiers directly in your HTML.
+Just like [arbitrary values](/docs/adding-custom-styles#using-arbitrary-values) let you use custom values with your utility classes, arbitrary variants let you write custom selector modifiers directly in your HTML.
 
-Arbitrary modifiers are just format strings that represent the selector, wrapped in square brackets. For example, this arbitrary modifier selects an element only when it is the third child:
+Arbitrary variants are just format strings that represent the selector, wrapped in square brackets. For example, this arbitrary modifier selects an element only when it is the third child:
 
 <SnippetGroup>
 
@@ -975,7 +975,7 @@ Arbitrary modifiers are just format strings that represent the selector, wrapped
 
 The format string is the same as what you'd use with the [`addVariant` plugin API]((/docs/plugins#adding-variants)), with the `&` representing the selector being modified.
 
-Arbitrary modifiers can be stacked with built-in modifiers or with each other, just like the rest of the modifiers in Tailwind:
+Arbitrary variants can be stacked with built-in modifiers or with each other, just like the rest of the modifiers in Tailwind:
 
 <SnippetGroup>
 
@@ -1024,7 +1024,7 @@ If you need spaces in your selector, you can use an underscore. For example, thi
 
 </SnippetGroup>
 
-You can also use at-rules like `@media` or `@supports` in arbitrary modifiers:
+You can also use at-rules like `@media` or `@supports` in arbitrary variants:
 
 <SnippetGroup>
 

@@ -11,34 +11,34 @@ export const meta = {
   image: card,
 }
 
+It's been about six months since we released [Tailwind CSS v3.0](/blog/tailwindcss-v3), and even though we've been collecting a lot of little improvements in the codebase since then, we just didn't have _that-one-feature_ yet that makes you say _"okay, it's release-cuttin' time"_.
+
 <div className="aspect-w-16 aspect-h-9 my-12 bg-slate-700 rounded-xl">
-  {/* <iframe
-    src="https://www.youtube.com/embed/TmWIrBPE6Bc"
+  <iframe
+    src="https://www.youtube.com/embed/nOQyWbPO2Ds"
     frameBorder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowFullScreen
-  ></iframe> */}
+  ></iframe>
 </div>
 
-It's been about six months since we released [Tailwind CSS v3.0](/blog/tailwindcss-v3), and even though we've been collecting a lot of little improvements in the codebase since then, we just didn't have _that-one-feature_ yet that makes you say _"okay, it's release-cuttin' time"_.
-
-Then on a random Saturday night a couple of weeks ago, I was talking to Robin in our Discord about coming up with a way to target the `html` element using `:has` and a class deeper in the document, and explained how I thought it would look if we added support for arbitrary modifiers — something I've wanted to tackle for over a year:
+Then on a random Saturday night a couple of weeks ago, I was talking to Robin in our Discord about coming up with a way to target the `html` element using `:has` and a class deeper in the document, and explained how I thought it would look if we added support for arbitrary variants — something I've wanted to tackle for over a year:
 
 <img src={discordMessage} alt="Adam Wathan: I think if we do arbitrary variants, the syntax should just be that exact thing, '[html:has(&)]:bg-blue-500'. Feel like that is pretty flexible, like anything you can do with a real variant you can also do with an arbitrary variant since they are the same thing. '[&>*:not(:first-child)]:pl-4'. Robin: This is going to break my brain haha because '[html:has(&)]:bg-blue-500' would be used as a literal inside the '&'. That in combination with other variants... 🤯. Adam Wathan: 😅 it'll be a brain melter for sure. The CSS would be this lol 'html:has(\[html\:has\(\&\)\]\:bg-blue-500 { background: blue 500 }'. Robin: exactly haha. ok, now I want to try that brb." />
 
-Twenty minutes later Robin had a working proof of concept _(in six lines of code!)_, and after another hour or so of Jordan performing regex miracles in our class detection engine, [arbitrary modifiers](https://github.com/tailwindlabs/tailwindcss/pull/8299) were born and we had our release-worthy feature.
+Twenty minutes later Robin had a working proof of concept _(in six lines of code!)_, and after another hour or so of Jordan performing regex miracles in our class detection engine, [arbitrary variants](https://github.com/tailwindlabs/tailwindcss/pull/8299) were born and we had our release-worthy feature.
 
 So here it is — Tailwind CSS v3.1! For a complete list of every fix and improvemement check out the [release notes](https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.1.0), but here's the highlights:
 
-- [First-party TypeScript types](#)
-- [Built-in support for CSS imports in the CLI](#)
-- [Change color opacity when using the theme function](#)
-- [Easier CSS variable color configuration](#)
-- [Border spacing utilities](#)
-- [Enabled and optional modifiers](#)
-- [Prefers-contrast modifiers](#)
-- [Style native dialog backdrops](#)
-- [Arbitrary values but for modifiers](#)
+- [First-party TypeScript types](#first-party-type-script-types)
+- [Built-in support for CSS imports in the CLI](#built-in-support-for-css-imports-in-the-cli)
+- [Change color opacity when using the theme function](#change-color-opacity-when-using-the-theme-function)
+- [Easier CSS variable color configuration](easier-css-variable-color-configuration)
+- [Border spacing utilities](#border-spacing-utilities)
+- [Enabled and optional variants](#enabled-and-optional-variants)
+- [Prefers-contrast variants](#prefers-contrast-variants)
+- [Style native dialog backdrops](#style-native-dialog-backdrops)
+- [Arbitrary values but for variants](#arbitrary-values-but-for-variants)
 
 Upgrade your projects by installing the latest version of `tailwindcss` from npm:
 
@@ -363,9 +363,9 @@ You might think you could just use `border-collapse` here since you actually don
 
 Check out the [border spacing documentation](/docs/border-spacing) for some more details.
 
-## Enabled and optional modifiers
+## Enabled and optional variants
 
-We've added new modifiers for the `:enabled` and `:optional` pseudo-classes, which target form elements when they are, well, enabled and optional.
+We've added new variants for the `:enabled` and `:optional` pseudo-classes, which target form elements when they are, well, enabled and optional.
 
 _"But Adam why would I ever need these, enabled and optional aren't even states, they are the defaults. Do you even make websites?"_
 
@@ -411,7 +411,7 @@ But with the new `enabled` modifier, you can write it like this instead:
 </button>
 ```
 
-Instead of overriding the hover color back to the default color when the button is disabled, we combine the `hover` and `enabled` modifiers to just not apply the hover styles when the button is disabled in the first place. I think that's better!
+Instead of overriding the hover color back to the default color when the button is disabled, we combine the `hover` and `enabled` variants to just not apply the hover styles when the button is disabled in the first place. I think that's better!
 
 Here's an example combining the new `optional` modifier with our [sibling state features](/docs/hover-focus-and-other-states#styling-based-on-sibling-state) to hide a little "Required" notice for fields that aren't required:
 
@@ -473,11 +473,11 @@ This lets you use the same markup for all of your form groups and letting CSS ha
 
 
 
-## Prefers-contrast modifiers
+## Prefers-contrast variants
 
 Did you know there's a `prefers-contrast` media query? Well there is, and now Tailwind supports it out of the box.
 
-Use the new `contrast-more` and `contrast-less` modifiers to modify your design when the user has requested more or less contrast, usually through an operating system accessibility preference like "Increase contrast" on macOS.
+Use the new `contrast-more` and `contrast-less` variants to modify your design when the user has requested more or less contrast, usually through an operating system accessibility preference like "Increase contrast" on macOS.
 
 <Example hint="Try emulating `prefers-contrast: more` in your developer tools to see the changes" p="none">
   <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-4 px-6">
@@ -526,9 +526,9 @@ Dialogs have this new `::backdrop` pseudo-element that's rendered while the dial
 
 I recommend reading the [MDN Dialog documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) if you want to dig in to this thing more — it's exciting stuff but there's a lot to know.
 
-## Arbitrary values but for modifiers
+## Arbitrary values but for variants
 
-Okay so this one is the real highlight for me — you know how we give you the [`addVariant` API](https://tailwindcss.com/docs/plugins#adding-variants) for creating your own custom modifiers?
+Okay so this one is the real highlight for me — you know how we give you the [`addVariant` API](https://tailwindcss.com/docs/plugins#adding-variants) for creating your own custom variants?
 
 ```js tailwind.config.js
   const plugin = require('tailwindcss/plugin')
@@ -551,7 +551,7 @@ Okay so this one is the real highlight for me — you know how we give you the [
 </div>
 ```
 
-Well Tailwind CSS v3.1 introduces [arbitrary modifiers](/docs/hover-focus-and-other-states#using-arbitrary-modifiers), letting you create your own ad hoc modifiers directly in your HTML:
+Well Tailwind CSS v3.1 introduces [arbitrary variants](/docs/hover-focus-and-other-states#using-arbitrary-variants), letting you create your own ad hoc variants directly in your HTML:
 
 ```html
 <div class="**[&:nth-child(3)]**:py-0">
@@ -559,7 +559,7 @@ Well Tailwind CSS v3.1 introduces [arbitrary modifiers](/docs/hover-focus-and-ot
 </div>
 ```
 
-This is super useful for modifiers that sort of feel like they need to be parameterized, for example adding a style if the browser supports a specific CSS feature using a `@supports` query:
+This is super useful for variants that sort of feel like they need to be parameterized, for example adding a style if the browser supports a specific CSS feature using a `@supports` query:
 
 ```html
 <div class="bg-white **[@supports(backdrop-filter:blur(0))]:bg-white/50** **[@supports(backdrop-filter:blur(0))]:backdrop-blur**">
@@ -567,7 +567,7 @@ This is super useful for modifiers that sort of feel like they need to be parame
 </div>
 ```
 
-You can even use this feature to target child elements with arbitrary modifiers like `[&>*]`:
+You can even use this feature to target child elements with arbitrary variants like `[&>*]`:
 
 <Example p="none">
   <div class="px-4 py-6">
