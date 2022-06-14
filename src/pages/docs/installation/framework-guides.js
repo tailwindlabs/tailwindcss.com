@@ -16,6 +16,7 @@ import { ReactComponent as RemixLogo } from '@/img/guides/remix.svg'
 import { ReactComponent as RemixLogoWhite } from '@/img/guides/remix-white.svg'
 import { ReactComponent as RailsLogo } from '@/img/guides/rails.svg'
 import { ReactComponent as RailsLogoWhite } from '@/img/guides/rails-white.svg'
+import SolidJSLogo from '@/img/guides/solidjs.png'
 import PhoenixLogo from '@/img/guides/phoenix.png'
 import ParcelLogo from '@/img/guides/parcel.png'
 
@@ -117,6 +118,19 @@ export default function FrameworkGuides() {
               <img
                 src={ParcelLogo}
                 alt="Parcel"
+                role="presentation"
+                className="w-10 h-10 object-contain object-center"
+              />
+            ),
+          },
+          {
+            name: 'SolidJS',
+            slug: 'solidjs',
+            description: 'A reactive javascript library.',
+            logo: () => (
+              <img
+                src={SolidJSLogo}
+                alt="SolidJS"
                 role="presentation"
                 className="w-10 h-10 object-contain object-center"
               />
