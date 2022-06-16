@@ -52,7 +52,8 @@ let steps = [
     code: {
       name: 'gatsby-config.js',
       lang: 'js',
-      code: `  module.exports = {
+      code: `  /** @type {import('tailwindcss').Config} */ 
+  module.exports = {
     plugins: [
 >     'gatsby-plugin-postcss',
       // ...
@@ -70,7 +71,8 @@ let steps = [
     code: {
       name: 'tailwind.config.js',
       lang: 'js',
-      code: `  module.exports = {
+      code: `  /** @type {import('tailwindcss').Config} */ 
+  module.exports = {
 >   content: [
 >     "./src/**/*.{js,jsx,ts,tsx}",
 >   ],
