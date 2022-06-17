@@ -90,7 +90,7 @@ let steps = [
     code: {
       name: 'tailwind.config.js',
       lang: 'js',
-      code: `  module.exports = {
+      code: `   module.exports = {
 >   content: [
 >     "./components/**/*.{js,vue,ts}",
 >     "./layouts/**/*.vue",
