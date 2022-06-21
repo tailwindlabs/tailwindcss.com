@@ -18,6 +18,8 @@ import { ReactComponent as RailsLogo } from '@/img/guides/rails.svg'
 import { ReactComponent as RailsLogoWhite } from '@/img/guides/rails-white.svg'
 import PhoenixLogo from '@/img/guides/phoenix.png'
 import ParcelLogo from '@/img/guides/parcel.png'
+import { ReactComponent as SymfonyLogo } from '@/img/guides/symfony.svg'
+import { ReactComponent as SymfonyLogoWhite } from '@/img/guides/symfony-white.svg'
 
 export default function FrameworkGuides() {
   return (
@@ -121,6 +123,13 @@ export default function FrameworkGuides() {
                 className="w-10 h-10 object-contain object-center"
               />
             ),
+          },
+          {
+            name: 'Symfony',
+            slug: 'symfony',
+            description: 'Symfony is an open source PHP framework with an MVC architecture.',
+            logo: SymfonyLogo,
+            logoDark: SymfonyLogoWhite
           },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">
