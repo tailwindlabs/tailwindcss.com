@@ -9,7 +9,7 @@ let steps = [
       <p>
         Start by creating a new Laravel project if you don’t have one set up already. The most
         common approach is to use{' '}
-        <a href="https://laravel.com/docs/8.x#the-laravel-installer">the Laravel Installer</a>.
+        <a href="https://laravel.com/docs/9.x#the-laravel-installer">the Laravel Installer</a>.
       </p>
     ),
     code: {
@@ -29,23 +29,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init',
-    },
-  },
-  {
-    title: 'Add Tailwind to your Laravel Mix configuration',
-    body: () => (
-      <p>
-        In your <code>webpack.mix.js</code> file, add <code>tailwindcss</code> as a PostCSS plugin.
-      </p>
-    ),
-    code: {
-      name: 'webpack.mix.js',
-      lang: 'js',
-      code: `  mix.js("resources/js/app.js", "public/js")
-    .postCss("resources/css/app.css", "public/css", [
->     require("tailwindcss"),
-    ]);`,
+      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init -p',
     },
   },
   {
@@ -95,7 +79,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm run watch',
+      code: 'npm run dev',
     },
   },
   {
@@ -114,7 +98,7 @@ let steps = [
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @vite('resources/css/app.css')
   </head>
   <body>
 >   <h1 class="text-3xl font-bold underline">
