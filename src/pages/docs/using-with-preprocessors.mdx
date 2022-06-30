@@ -277,6 +277,25 @@ When using Tailwind with Sass, using `!important` with `@apply` requires you to 
 
 ### Less
 
+`@apply` used  `Arbitrary values`.
+
+<TipBad>Won't work, Less  doesn't understand our syntax there.</TipBad>
+
+```css
+.card {
+  @apply h-[100px]  w-[100px];
+}
+```
+
+<TipGood>Use the escaping syntax to make sure Less doesn't try to parse that code.</TipGood>
+
+```css
+.card {
+  @apply ~'h-[100px]  w-[100px]';
+}
+```
+
+
 When using Tailwind with Less, you cannot nest Tailwind's `@screen` directive.
 
 <TipBad>Won't work, Less doesn't realise it's a media query</TipBad>
