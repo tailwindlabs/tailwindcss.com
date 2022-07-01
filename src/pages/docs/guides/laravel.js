@@ -17,7 +17,7 @@ let tabs = [
             Start by creating a new Laravel project if you don’t have one set up already. The most
             common approach is to use{' '}
             <a href="https://laravel.com/docs/9.x#your-first-laravel-project">
-              Composer's create-project
+              the Composer <code>create-project</code> command
             </a>
             .
           </p>
@@ -32,8 +32,8 @@ let tabs = [
         title: 'Install Tailwind CSS',
         body: () => (
           <p>
-            Install <code>tailwindcss</code> and its peer dependencies via npm, and create your{' '}
-            <code>tailwind.config.js</code> file.
+            Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the init
+            command to generate both <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
           </p>
         ),
         code: {
