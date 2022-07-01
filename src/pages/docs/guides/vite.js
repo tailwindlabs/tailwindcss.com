@@ -84,7 +84,7 @@ let steps = [
       lang: 'js',
       code: `  import { createApp } from 'vue'
   import App from './App.vue'
-> import './index.css'
+> import './src/index.css'
 
   createApp(App).mount('#app')`,
     },
