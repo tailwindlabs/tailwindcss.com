@@ -126,21 +126,6 @@ let tabs = [
     href: '#mix',
     steps: [
       {
-        title: 'Create your project',
-        body: () => (
-          <p>
-            Start by creating a new Laravel project if you don’t have one set up already. The most
-            common approach is to use{' '}
-            <a href="https://laravel.com/docs/8.x#the-laravel-installer">the Laravel Installer</a>.
-          </p>
-        ),
-        code: {
-          name: 'Terminal',
-          lang: 'terminal',
-          code: 'laravel new my-project\ncd my-project',
-        },
-      },
-      {
         title: 'Install Tailwind CSS',
         body: () => (
           <p>
