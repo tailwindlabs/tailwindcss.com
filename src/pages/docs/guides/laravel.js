@@ -9,7 +9,7 @@ let steps = [
       <p>
         Start by creating a new Laravel project if you don’t have one set up already. The most
         common approach is to use{' '}
-        <a href="https://laravel.com/docs/9.x#the-laravel-installer">the Laravel Installer</a>.
+        <a href="https://laravel.com/docs/9.x#your-first-laravel-project">Composer's create-project</a>.
       </p>
     ),
     code: {
