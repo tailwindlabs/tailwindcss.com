@@ -7,7 +7,7 @@ import { Steps } from '@/components/Steps'
 
 let tabs = [
   {
-    name: 'Vite',
+    name: 'Using Vite',
     href: '#vite',
     steps: [
       {
@@ -122,7 +122,7 @@ let tabs = [
     ],
   },
   {
-    name: 'Laravel Mix',
+    name: 'Using Laravel Mix',
     href: '#mix',
     steps: [
       {
