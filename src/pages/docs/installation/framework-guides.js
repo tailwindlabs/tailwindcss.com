@@ -18,6 +18,7 @@ import { ReactComponent as RailsLogo } from '@/img/guides/rails.svg'
 import { ReactComponent as RailsLogoWhite } from '@/img/guides/rails-white.svg'
 import PhoenixLogo from '@/img/guides/phoenix.png'
 import ParcelLogo from '@/img/guides/parcel.png'
+import CopperLogo from '@/img/guides/copper.png'
 
 export default function FrameworkGuides() {
   return (
@@ -117,6 +118,19 @@ export default function FrameworkGuides() {
               <img
                 src={ParcelLogo}
                 alt="Parcel"
+                role="presentation"
+                className="w-10 h-10 object-contain object-center"
+              />
+            ),
+          },
+          {
+            name: 'Copper',
+            slug: 'copper',
+            description: 'A Go toolkit complete with everything you need to build web apps.',
+            logo: () => (
+              <img
+                src={CopperLogo}
+                alt="Copper"
                 role="presentation"
                 className="w-10 h-10 object-contain object-center"
               />

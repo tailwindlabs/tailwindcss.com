@@ -18,7 +18,7 @@ export function Steps({ steps, code, level = 2 }) {
           className="w-[52.6875rem] max-w-none"
         />
       </div>
-      <ol className="relative space-y-2 mb-16" style={{ counterReset: 'step' }}>
+      <ol className="relative space-y-2 mb-16 min-h-[1200px]" style={{ counterReset: 'step' }}>
         {steps.map((step, index) => (
           <li
             key={step.title}
