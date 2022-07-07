@@ -246,11 +246,14 @@ This will ensure that Tailwind _always_ includes those styles in your CSS, which
 If you've created your own reusable set of components that are styled with Tailwind and are importing them in multiple projects, make sure to configure Tailwind to scan those components for class names:
 
 ```js tailwind.config.js
+  const path = require('path');
+  const componentLibrary = require.resolve('@my-company/tailwind-components');
+  
   module.exports = {
     content: [
       './components/**/*.{html,js}',
       './pages/**/*.{html,js}',
->     './node_modules/@my-company/tailwind-components/**/*.js',
+>     path.join(componentLibrary, '**/*.js'),
     ],
     // ...
   }
