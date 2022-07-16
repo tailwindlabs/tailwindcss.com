@@ -84,7 +84,7 @@ let tabs = [
         title: 'Start your build process',
         body: () => (
           <p>
-            Run your build process with <code>npm run watch</code>.
+            Run your build process with <code>npm run dev</code>.
           </p>
         ),
         code: {
@@ -198,13 +198,13 @@ let tabs = [
         title: 'Start your build process',
         body: () => (
           <p>
-            Run your build process with <code>npm run watch</code>.
+            Run your build process with <code>npm run dev</code>.
           </p>
         ),
         code: {
           name: 'Terminal',
           lang: 'terminal',
-          code: 'npm run watch',
+          code: 'npm run dev',
         },
       },
       {
