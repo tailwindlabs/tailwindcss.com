@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "if [ -f './.next/serverless/scripts/build-rss.js' ]; then node ./.next/serverless/scripts/build-rss.js; else node ./.next/server/scripts/build-rss.js; fi",
+    "postbuild": "if [ -f './.next/serverless/scripts/build-rss.js' ]; then node ./.next/serverless/scripts/build-rss.js; else node ./.next/server/scripts/build-rss.js; fi; next-sitemap",
     "start": "next start",
     "export": "next build && next export",
     "format": "prettier '{src,remark,scripts}/**/*.{css,js,mdx}' --write"
@@ -48,6 +48,7 @@
     "mini-svg-data-uri": "^1.4.3",
     "minimatch": "^3.0.4",
     "next": "11",
+    "next-sitemap": "^3.1.11",
     "postcss": "^8.4.5",
     "postcss-focus-visible": "^5.0.0",
     "postcss-import": "^14.0.1",
