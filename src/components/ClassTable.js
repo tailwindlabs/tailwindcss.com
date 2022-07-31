@@ -3,6 +3,7 @@ import { isObject } from '@/utils/isObject'
 import { castArray } from '@/utils/castArray'
 import clsx from 'clsx'
 import { Heading } from '@/components/Heading'
+import { CopyButton } from '@/components/Steps'
 
 function renderProperties(
   properties,
@@ -55,6 +56,8 @@ export const ClassTable = memo(
     let isScrollable = scroll || classes.length > 12
     let isCollapsable = classes.length > 10
     let [isCollapsed, setIsCollapsed] = useState(isCollapsable)
+    const [isCopyShown, setIsCopyShown] = useState(false)
+    const [selectedUtility, setSelectedUtility] = useState('')
     let ref = useRef()
     let isInitial = useRef(true)
 
@@ -122,17 +125,33 @@ export const ClassTable = memo(
                   let properties = { ...utilities[selector] }
 
                   return (
-                    <tr key={utility} style={rowStyle ? rowStyle({ css: properties }) : undefined}>
+                    <tr
+                      key={utility}
+                      style={rowStyle ? rowStyle({ css: properties }) : undefined}
+                      onMouseEnter={() => {
+                        setIsCopyShown(true)
+                        setSelectedUtility(utility)
+                      }}
+                      onMouseLeave={() => {
+                        setIsCopyShown(false)
+                        setSelectedUtility('')
+                      }}
+                    >
                       <td
                         translate="no"
                         className={clsx(
-                          'py-2 pr-2 font-mono font-medium text-xs leading-6 text-sky-500 whitespace-nowrap dark:text-sky-400',
+                          'relative py-2 pr-2 font-mono font-medium text-xs leading-6 text-sky-500 whitespace-nowrap dark:text-sky-400',
                           {
                             'border-t border-slate-100 dark:border-slate-400/10': i !== 0,
                           }
                         )}
                       >
                         {transformSelector(selector)}
+                        {isCopyShown && selectedUtility === utility && (
+                          <span className={'absolute right-2 top-1'}>
+                            <CopyButton code={transformSelector(selector)} />
+                          </span>
+                        )}
                       </td>
                       <td
                         translate="no"

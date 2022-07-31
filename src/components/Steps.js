@@ -45,7 +45,7 @@ export function Steps({ steps, code, level = 2 }) {
   )
 }
 
-function CopyButton({ code }) {
+export function CopyButton({ code }) {
   let [{ state, i }, setState] = useState({ state: 'idle', i: 0 })
 
   useEffect(() => {
