@@ -107,6 +107,32 @@ export function links() {
     },
   },
   {
+    title: 'Import the Links component to render the links',
+    body: () => (
+      <p>
+        Import the Links component in your{' '}
+        <code>./app/root.jsx</code> file and use it inside the head section.
+      </p>
+    ),
+    code: {
+      name: 'root.jsx',
+      lang: 'js',
+      code: `import { Links } from "@remix-run/react";
+      // ...
+      export default function Root() {
+        return (
+          <html>
+            <head>
+              <Links />
+              {/* ... */}
+            </head>
+            {/* ... */}
+          </html>
+        );
+      }`,
+    },
+  },
+  {
     title: 'Start your build process',
     body: () => (
       <p>
