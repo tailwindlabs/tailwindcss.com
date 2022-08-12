@@ -18,6 +18,7 @@ import { ReactComponent as RailsLogo } from '@/img/guides/rails.svg'
 import { ReactComponent as RailsLogoWhite } from '@/img/guides/rails-white.svg'
 import PhoenixLogo from '@/img/guides/phoenix.png'
 import ParcelLogo from '@/img/guides/parcel.png'
+import MeteorLogo from '@/img/guides/meteor.png'
 
 export default function FrameworkGuides() {
   return (
@@ -119,6 +120,19 @@ export default function FrameworkGuides() {
                 alt="Parcel"
                 role="presentation"
                 className="w-10 h-10 object-contain object-center"
+              />
+            ),
+          },
+          {
+            name: 'Meteor',
+            slug: 'meteor',
+            description: 'The full stack JavaScript framework for developing cross-platform applications.',
+            logo: () => (
+              <img
+                src={MeteorLogo}
+                alt="Meteor"
+                role="presentation"
+                className="w-8 h-8 object-contain object-center"
               />
             ),
           },
