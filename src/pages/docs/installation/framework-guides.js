@@ -126,7 +126,7 @@ export default function FrameworkGuides() {
           {
             name: 'Meteor',
             slug: 'meteor',
-            description: 'The full stack JavaScript framework for developing cross-platform applications.',
+            description: 'The full stack JavaScript framework for developing cross-platform apps.',
             logo: () => (
               <img
                 src={MeteorLogo}
