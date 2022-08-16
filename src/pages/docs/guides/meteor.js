@@ -72,7 +72,7 @@ let steps = [
     title: 'Start your build process',
     body: () => (
       <p>
-        Run your project with <code>npm run start</code>.
+        Run your build process with <code>npm run start</code>.
       </p>
     ),
     code: {

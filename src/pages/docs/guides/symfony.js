@@ -42,11 +42,12 @@ let steps = [
     },
   },
   {
-    title: 'Enable PostCSS in your Webpack Encore configuration',
+    title: 'Enable PostCSS support',
     body: () => (
       <p>
-        In your <code>webpack.config.js</code> file, at the end, call `enablePostCssLoader` to allow
-        Encore to use PostCSS.
+        In your <code>webpack.config.js</code> file, enable PostCSS Loader. See{' '}
+        <a href="https://symfony.com/doc/current/frontend/encore/postcss.html">the documentation</a>{' '}
+        for more information.
       </p>
     ),
     code: {
@@ -55,7 +56,7 @@ let steps = [
       code: `  Encore
     // ...
 >   .enablePostCssLoader()
-    ;`,
+  ;`,
     },
   },
   {
@@ -68,7 +69,8 @@ let steps = [
     code: {
       name: 'tailwind.config.js',
       lang: 'js',
-      code: `  module.exports = {
+      code: `  /** @type {import('tailwindcss').Config} */
+  module.exports = {
 >   content: [
 >     "./assets/**/*.js",
 >     "./templates/**/*.html.twig",
