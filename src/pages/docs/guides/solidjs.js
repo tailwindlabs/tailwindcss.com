@@ -7,15 +7,15 @@ let steps = [
     title: 'Create your project',
     body: () => (
       <p>
-        Start by creating a new SolidJS project using{' '}
-        <a href="https://www.solidjs.com/guides/getting-started">SolidJS Vite templates</a> if
-        you don't have one already set up.
+        Start by creating a new SolidJS project if you don't have one set up already. The most
+        common approach is to use{' '}
+        <a href="https://www.solidjs.com/guides/getting-started">the SolidJS Vite template</a>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npx degit solidjs/templates/js my-app',
+      code: 'npx degit solidjs/templates/js my-project\ncd my-project',
     },
   },
   {
@@ -42,7 +42,8 @@ let steps = [
     code: {
       name: 'tailwind.config.js',
       lang: 'js',
-      code: `  module.exports = {
+      code: `  /** @type {import('tailwindcss').Config} */
+  module.exports = {
 >   content: [
 >     "./src/**/*.{js,jsx,ts,tsx}",
 >   ],
@@ -84,7 +85,7 @@ let steps = [
     title: 'Start using Tailwind in your project',
     body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
     code: {
-      name: 'App.js',
+      name: 'App.jsx',
       lang: 'jsx',
       code: `  export default function App() {
     return (
