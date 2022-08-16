@@ -19,6 +19,7 @@ import { ReactComponent as RailsLogoWhite } from '@/img/guides/rails-white.svg'
 import { ReactComponent as SymfonyLogo } from '@/img/guides/symfony.svg'
 import { ReactComponent as SymfonyLogoWhite } from '@/img/guides/symfony-white.svg'
 import { ReactComponent as MeteorLogo } from '@/img/guides/meteor.svg'
+import { ReactComponent as SolidJSLogo } from '@/img/guides/solidjs.svg'
 import PhoenixLogo from '@/img/guides/phoenix.png'
 import ParcelLogo from '@/img/guides/parcel.png'
 
@@ -137,6 +138,12 @@ export default function FrameworkGuides() {
             slug: 'meteor',
             description: 'The full stack JavaScript framework for developing cross-platform apps.',
             logo: MeteorLogo,
+          },
+          {
+            name: 'SolidJS',
+            slug: 'solidjs',
+            description: 'A tool for building simple, performant, and reactive user interfaces.',
+            logo: SolidJSLogo,
           },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">
