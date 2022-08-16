@@ -67,10 +67,10 @@ export default function FrameworkGuides() {
             logo: GatsbyLogo,
           },
           {
-            name: 'Create React App',
-            slug: 'create-react-app',
-            description: 'CLI tool for scaffolding a new single-page React application.',
-            logo: CraLogo,
+            name: 'SolidJS',
+            slug: 'solidjs',
+            description: 'A tool for building simple, performant, and reactive user interfaces.',
+            logo: SolidJSLogo,
           },
           {
             name: 'SvelteKit',
@@ -140,10 +140,10 @@ export default function FrameworkGuides() {
             logo: MeteorLogo,
           },
           {
-            name: 'SolidJS',
-            slug: 'solidjs',
-            description: 'A tool for building simple, performant, and reactive user interfaces.',
-            logo: SolidJSLogo,
+            name: 'Create React App',
+            slug: 'create-react-app',
+            description: 'CLI tool for scaffolding a new single-page React application.',
+            logo: CraLogo,
           },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">

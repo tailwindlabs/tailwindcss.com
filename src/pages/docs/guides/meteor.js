@@ -85,7 +85,7 @@ let steps = [
     title: 'Start using Tailwind in your project',
     body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
     code: {
-      name: 'imports/ui/Hello.jsx',
+      name: 'App.jsx',
       lang: 'jsx',
       code: `  export const App = () => (
 >   <h1 className="text-3xl font-bold underline">

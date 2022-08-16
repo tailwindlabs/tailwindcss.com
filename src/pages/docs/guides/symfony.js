@@ -19,7 +19,13 @@ let steps = [
   },
   {
     title: 'Install Webpack Encore',
-    body: () => <p>Install Webpack Encore which handles the bundling of your assets.</p>,
+    body: () => (
+      <p>
+        Install Webpack Encore, which handles building your assets. See{' '}
+        <a href="https://symfony.com/doc/current/frontend.html">the documentation</a> for more
+        information.
+      </p>
+    ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
