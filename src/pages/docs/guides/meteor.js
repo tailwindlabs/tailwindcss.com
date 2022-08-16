@@ -1,7 +1,6 @@
 import { DocumentationLayout } from '@/layouts/DocumentationLayout'
 import { FrameworkGuideLayout } from '@/layouts/FrameworkGuideLayout'
 import { Steps } from '@/components/Steps'
-import Link from "next/link";
 
 let steps = [
   {
@@ -11,7 +10,7 @@ let steps = [
         Start by creating a new Meteor project if you don't have one set up already. The most
         common approach is to use{' '}
         <a href="https://www.meteor.com/developers/install">
-          Meteor CLI
+          the Meteor CLI
         </a>
         .
       </p>
@@ -19,20 +18,71 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'meteor create --tailwind my-project\ncd my-project',
+      code: 'meteor create my-project\ncd my-project',
+    },
+  },
+  {
+    title: 'Install Tailwind CSS',
+    body: () => (
+      <p>
+        Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the init
+        command to generate both <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+      </p>
+    ),
+    code: {
+      name: 'Terminal',
+      lang: 'terminal',
+      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init -p',
+    },
+  },
+  {
+    title: 'Configure your template paths',
+    body: () => (
+      <p>
+        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+      </p>
+    ),
+    code: {
+      name: 'tailwind.config.js',
+      lang: 'js',
+      code: `  /** @type {import('tailwindcss').Config} */
+  module.exports = {
+>   content: [
+>     "./imports/ui/**/*.{js,jsx,ts,tsx}",
+>     "./client/*.html",
+>   ],
+    theme: {
+      extend: {},
+    },
+    plugins: [],
+  }`,
+    },
+  },
+  {
+    title: 'Add the Tailwind directives to your CSS',
+    body: () => (
+      <p>
+        Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
+        <code>./client/main.css</code> file.
+      </p>
+    ),
+    code: {
+      name: 'main.css',
+      lang: 'css',
+      code: '@tailwind base;\n@tailwind components;\n@tailwind utilities;',
     },
   },
   {
     title: 'Start your build process',
     body: () => (
       <p>
-        Run your project with <code>meteor</code>.
+        Run your project with <code>npm run start</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'meteor',
+      code: 'npm run start',
     },
   },
   {
@@ -41,9 +91,11 @@ let steps = [
     code: {
       name: 'imports/ui/Hello.jsx',
       lang: 'jsx',
-      code: `<h3 className="text-3xl text-gray-900 font-bold">
-    Welcome to Meteor!
-</h3>`,
+      code: `  export const App = () => (
+>   <h1 className="text-3xl font-bold underline">
+>     Hello world!
+>   </h1>
+  )`,
     },
   },
 ]
@@ -54,16 +106,6 @@ export default function UsingMeteor({ code }) {
       title="Install Tailwind CSS with Meteor"
       description="Setting up Tailwind CSS in a Meteor project."
     >
-      <div className="relative z-10 max-w-3xl mb-16 prose prose-slate dark:prose-dark">
-        <p>
-          By default using the flag <code>--tailwind</code> in the creation of your project will install Tailwind CSS and React in your project.
-          If you want to use any other front-end framework, You can follow their guides in the {' '}
-          <Link href="/docs/installation/framework-guides">
-            Frameworks Section
-          </Link>{' '}
-           of Tailwind CSS.
-        </p>
-      </div>
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
   )
