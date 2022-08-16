@@ -18,6 +18,7 @@ import { ReactComponent as RailsLogo } from '@/img/guides/rails.svg'
 import { ReactComponent as RailsLogoWhite } from '@/img/guides/rails-white.svg'
 import { ReactComponent as SymfonyLogo } from '@/img/guides/symfony.svg'
 import { ReactComponent as SymfonyLogoWhite } from '@/img/guides/symfony-white.svg'
+import { ReactComponent as MeteorLogo } from '@/img/guides/meteor.svg'
 import PhoenixLogo from '@/img/guides/phoenix.png'
 import ParcelLogo from '@/img/guides/parcel.png'
 
@@ -130,6 +131,12 @@ export default function FrameworkGuides() {
             description: 'A PHP framework to create websites and web applications.',
             logo: SymfonyLogo,
             logoDark: SymfonyLogoWhite,
+          },
+          {
+            name: 'Meteor',
+            slug: 'meteor',
+            description: 'The full stack JavaScript framework for developing cross-platform apps.',
+            logo: MeteorLogo,
           },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">
