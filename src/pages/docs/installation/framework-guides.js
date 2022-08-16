@@ -16,6 +16,9 @@ import { ReactComponent as RemixLogo } from '@/img/guides/remix.svg'
 import { ReactComponent as RemixLogoWhite } from '@/img/guides/remix-white.svg'
 import { ReactComponent as RailsLogo } from '@/img/guides/rails.svg'
 import { ReactComponent as RailsLogoWhite } from '@/img/guides/rails-white.svg'
+import { ReactComponent as SymfonyLogo } from '@/img/guides/symfony.svg'
+import { ReactComponent as SymfonyLogoWhite } from '@/img/guides/symfony-white.svg'
+import { ReactComponent as MeteorLogo } from '@/img/guides/meteor.svg'
 import SolidJSLogo from '@/img/guides/solidjs.png'
 import PhoenixLogo from '@/img/guides/phoenix.png'
 import ParcelLogo from '@/img/guides/parcel.png'
@@ -122,6 +125,19 @@ export default function FrameworkGuides() {
                 className="w-10 h-10 object-contain object-center"
               />
             ),
+          },
+          {
+            name: 'Symfony',
+            slug: 'symfony',
+            description: 'A PHP framework to create websites and web applications.',
+            logo: SymfonyLogo,
+            logoDark: SymfonyLogoWhite,
+          },
+          {
+            name: 'Meteor',
+            slug: 'meteor',
+            description: 'The full stack JavaScript framework for developing cross-platform apps.',
+            logo: MeteorLogo,
           },
           {
             name: 'SolidJS',
