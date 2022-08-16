@@ -8,8 +8,7 @@ let steps = [
     body: () => (
       <p>
         Start by creating a new Symfony project if you don’t have one set up already. The most
-        common approach is to use{' '}
-        <a href="https://symfony.com/download">the Symfony Installer</a>.
+        common approach is to use <a href="https://symfony.com/download">the Symfony Installer</a>.
       </p>
     ),
     code: {
@@ -19,24 +18,38 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS',
+    title: 'Install Webpack Encore',
     body: () => (
       <p>
-        Install <code>tailwindcss</code> and its peer dependencies via yarn, and then run the init
-        command to generate both <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+        Install <code>Webpack Encore</code> which handles the bundling of your assets.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'yarn add tailwindcss postcss postcss-loader autoprefixer --dev\nnpx tailwindcss init -p',
+      code: 'composer require symfony/webpack-encore-bundle',
     },
   },
   {
-    title: 'Add Tailwind to your Webpack Encore configuration',
+    title: 'Install Tailwind CSS',
     body: () => (
       <p>
-        In your <code>webpack.config.js</code> file, enable the PostCSS loader.
+        Using npm, install <code>tailwindcss</code> and its peer dependencies, as well as{' '}
+        <code>postcss-loader</code>, and then run the init command to generate both{' '}
+        <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+      </p>
+    ),
+    code: {
+      name: 'Terminal',
+      lang: 'terminal',
+      code: 'npm install -D tailwindcss postcss autoprefixer postcss-loader\nnpx tailwindcss init -p',
+    },
+  },
+  {
+    title: 'Enable PostCSS in your webpack Encore configuration',
+    body: () => (
+      <p>
+        In your <code>webpack.config.js</code> file, at the end, call `enablePostCssLoader` to allow Encore to use PostCSS.
       </p>
     ),
     code: {
@@ -60,7 +73,7 @@ let steps = [
       lang: 'js',
       code: `  module.exports = {
 >   content: [
->     "./assets/**/*.{js,vue}",
+>     "./assets/**/*.js",
 >     "./templates/**/*.html.twig",
 >   ],
     theme: {
@@ -88,13 +101,13 @@ let steps = [
     title: 'Start your build process',
     body: () => (
       <p>
-        Run your build process with <code>yarn watch</code>.
+        Run your build process with <code>npm run watch</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'yarn watch',
+      code: 'npm run watch',
     },
   },
   {
@@ -113,10 +126,14 @@ let steps = [
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ encore_entry_link_tags('app') }}" rel="stylesheet">
+    {% block stylesheets %}
+      {{ encore_entry_link_tags('app') }}
+    {% endblock %}
   </head>
-> <body class="bg-gray-100">
-    {% block body %}{% endblock %}
+  <body>
+>   <h1 class="text-3xl font-bold underline">
+>     Hello world!
+>   </h1>
   </body>
   </html>`,
     },
