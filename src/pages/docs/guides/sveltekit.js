@@ -33,7 +33,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer svelte-preprocess\nnpx tailwindcss init tailwind.config.cjs -p\nmv postcss.config.js postcss.config.cjs',
+      code: 'npm install -D tailwindcss postcss autoprefixer svelte-preprocess\nnpx tailwindcss init tailwind.config.cjs -p',
     },
   },
   {
@@ -68,7 +68,8 @@ let steps = [
     code: {
       name: 'tailwind.config.cjs',
       lang: 'javascript',
-      code: `  module.exports = {
+      code: `  /** @type {import('tailwindcss').Config} */ 
+  module.exports = {
 >   content: ['./src/**/*.{html,js,svelte,ts}'],
     theme: {
       extend: {}
