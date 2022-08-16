@@ -19,11 +19,7 @@ let steps = [
   },
   {
     title: 'Install Webpack Encore',
-    body: () => (
-      <p>
-        Install <code>Webpack Encore</code> which handles the bundling of your assets.
-      </p>
-    ),
+    body: () => <p>Install Webpack Encore which handles the bundling of your assets.</p>,
     code: {
       name: 'Terminal',
       lang: 'terminal',
@@ -46,10 +42,11 @@ let steps = [
     },
   },
   {
-    title: 'Enable PostCSS in your webpack Encore configuration',
+    title: 'Enable PostCSS in your Webpack Encore configuration',
     body: () => (
       <p>
-        In your <code>webpack.config.js</code> file, at the end, call `enablePostCssLoader` to allow Encore to use PostCSS.
+        In your <code>webpack.config.js</code> file, at the end, call `enablePostCssLoader` to allow
+        Encore to use PostCSS.
       </p>
     ),
     code: {

@@ -7,12 +7,8 @@ let steps = [
     title: 'Create your project',
     body: () => (
       <p>
-        Start by creating a new Meteor project if you don't have one set up already. The most
-        common approach is to use{' '}
-        <a href="https://www.meteor.com/developers/install">
-          the Meteor CLI
-        </a>
-        .
+        Start by creating a new Meteor project if you don't have one set up already. The most common
+        approach is to use <a href="https://www.meteor.com/developers/install">the Meteor CLI</a>.
       </p>
     ),
     code: {
