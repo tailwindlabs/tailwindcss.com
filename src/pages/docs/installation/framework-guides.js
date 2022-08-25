@@ -22,6 +22,7 @@ import { ReactComponent as MeteorLogo } from '@/img/guides/meteor.svg'
 import { ReactComponent as SolidJSLogo } from '@/img/guides/solidjs.svg'
 import PhoenixLogo from '@/img/guides/phoenix.png'
 import ParcelLogo from '@/img/guides/parcel.png'
+import AdonisLogo from '@/img/guides/adonis.png'
 
 export default function FrameworkGuides() {
   return (
@@ -144,6 +145,19 @@ export default function FrameworkGuides() {
             slug: 'create-react-app',
             description: 'CLI tool for scaffolding a new single-page React application.',
             logo: CraLogo,
+          },
+          {
+            name: 'AdonisJS',
+            slug: 'adonisjs',
+            description: 'A fully featured web framework for Node.js.',
+            logo: () => (
+              <img
+                src={AdonisLogo}
+                alt="Adonis"
+                role="presentation"
+                className="w-10 h-10 object-contain object-center"
+              />
+            ),
           },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">
