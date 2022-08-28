@@ -66,7 +66,7 @@ let steps = [
       </p>
     ),
     code: {
-      name: 'nuxt.config.js',
+      name: 'postcss.config.js',
       lang: 'js',
       code: `  export default {
     build: {
