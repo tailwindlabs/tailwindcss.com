@@ -275,6 +275,23 @@ If you're working in a monorepo with workspaces, you may need to use `require.re
   }
 ```
 
+For symlinked packages (e.g. when using Turborepo with a shared UI library), Tailwind will only read the content directory on the initial build. To get hot reloading working, you might need to resolve the linked package manually:
+
+```js tailwind.config.js
+  const path = require('path');
+
+  module.exports = {
+    content: [
+      './components/**/*.{html,js}',
+      './pages/**/*.{html,js}',
+      // Hot reloading doens't work with symlinks. realpathSync will resolve the full path of the linked dependency
+>    path.join(require("fs").realpathSync('./node_modules/ui/'), 'src/**/*.{ts,tsx}'),
+    ],
+    // ...
+  }
+```
+
+
 ### Configuring raw content
 
 If for whatever reason you need to configure Tailwind to scan some raw content rather than the contents of a file, use an object with a `raw` key instead of a path:
