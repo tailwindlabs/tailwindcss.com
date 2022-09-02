@@ -142,6 +142,14 @@ In the rare case that you actually need to use an underscore but it's ambiguous 
 </div>
 ```
 
+If you're using something like JSX where the backslash is stripped from the rendered HTML, use [String.raw()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw) so the backslash isn't treated as a JavaScript escape character:
+
+```jsx
+<div className={String.raw`before:content-['hello\_world']`}>
+  <!-- ... -->
+</div>
+```
+
 ### Resolving ambiguities
 
 Many utilities in Tailwind share a common namespace but map to different CSS properties. For example `text-lg` and `text-black` both share the `text-` namespace, but one is for `font-size` and the other is for `color`.
