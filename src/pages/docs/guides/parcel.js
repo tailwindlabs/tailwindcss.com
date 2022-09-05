@@ -60,7 +60,7 @@ let steps = [
     code: {
       name: 'tailwind.config.js',
       lang: 'js',
-      code: `  /** @type {import('tailwindcss').Config} */ 
+      code: `  /** @type {import('tailwindcss').Config} */
   module.exports = {
 >   content: [
 >     "./src/**/*.{html,js,ts,jsx,tsx}",
