@@ -32,8 +32,9 @@ let tabs = [
         title: 'Install Tailwind CSS',
         body: () => (
           <p>
-            Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the init
-            command to generate both <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+            Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the
+            init command to generate both <code>tailwind.config.js</code> and{' '}
+            <code>postcss.config.js</code>.
           </p>
         ),
         code: {
