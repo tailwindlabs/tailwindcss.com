@@ -284,18 +284,11 @@ export default function UsingLaravel({ code }) {
 }
 
 export function getStaticProps() {
-  let { highlightCode } = require('../../../../remark/utils')
+  let { highlightedCodeSnippets } = require('@/components/Guides/Snippets.js')
 
   return {
     props: {
-      code: tabs.map((tab) =>
-        tab.steps.map(({ code }) => {
-          if (code.lang && code.lang !== 'terminal') {
-            return highlightCode(code.code, code.lang)
-          }
-          return code.code
-        })
-      ),
+      code: tabs.map((tab) => highlightedCodeSnippets(tab.steps)),
     },
   }
 }

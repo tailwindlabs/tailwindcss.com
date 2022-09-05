@@ -192,16 +192,11 @@ export default function UsingPhoenix({ code }) {
 }
 
 export function getStaticProps() {
-  let { highlightCode } = require('../../../../remark/utils')
+  let { highlightedCodeSnippets } = require('@/components/Guides/Snippets.js')
 
   return {
     props: {
-      code: steps.map(({ code }) => {
-        if (code.lang && code.lang !== 'terminal') {
-          return highlightCode(code.code, code.lang)
-        }
-        return code.code
-      }),
+      code: highlightedCodeSnippets(steps),
     },
   }
 }
