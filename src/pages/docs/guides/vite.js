@@ -24,7 +24,7 @@ let tabs = [
         code: {
           name: 'Terminal',
           lang: 'terminal',
-          code: 'npm create vite@latest my-project\ncd my-project',
+          code: 'npm create vite@latest my-project -- --template react\ncd my-project',
         },
       },
       {
@@ -129,7 +129,7 @@ let tabs = [
         code: {
           name: 'Terminal',
           lang: 'terminal',
-          code: 'npm create vite@latest my-project\ncd my-project',
+          code: 'npm create vite@latest my-project -- --template vue\ncd my-project',
         },
       },
       {
