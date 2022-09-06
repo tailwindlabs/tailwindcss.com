@@ -32,8 +32,8 @@ let tabs = [
         body: () => (
           <p>
             Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the
-            init command to generate both <code>tailwind.config.js</code> and{' '}
-            <code>postcss.config.js</code>.
+            init command to generate both <code>tailwind.config.cjs</code> and{' '}
+            <code>postcss.config.cjs</code>.
           </p>
         ),
         code: {
@@ -46,12 +46,12 @@ let tabs = [
         title: 'Configure your template paths',
         body: () => (
           <p>
-            Add the paths to all of your template files in your <code>tailwind.config.js</code>{' '}
+            Add the paths to all of your template files in your <code>tailwind.config.cjs</code>{' '}
             file.
           </p>
         ),
         code: {
-          name: 'tailwind.config.js',
+          name: 'tailwind.config.cjs',
           lang: 'js',
           code: `  /** @type {import('tailwindcss').Config} */
   module.exports = {
@@ -137,8 +137,8 @@ let tabs = [
         body: () => (
           <p>
             Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the
-            init command to generate both <code>tailwind.config.js</code> and{' '}
-            <code>postcss.config.js</code>.
+            init command to generate both <code>tailwind.config.cjs</code> and{' '}
+            <code>postcss.config.cjs</code>.
           </p>
         ),
         code: {
@@ -151,12 +151,12 @@ let tabs = [
         title: 'Configure your template paths',
         body: () => (
           <p>
-            Add the paths to all of your template files in your <code>tailwind.config.js</code>{' '}
+            Add the paths to all of your template files in your <code>tailwind.config.cjs</code>{' '}
             file.
           </p>
         ),
         code: {
-          name: 'tailwind.config.js',
+          name: 'tailwind.config.cjs',
           lang: 'js',
           code: `  /** @type {import('tailwindcss').Config} */
   module.exports = {
