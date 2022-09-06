@@ -5,6 +5,8 @@ export function useRouteHash() {
   let router = useRouter()
   let [hash, setHash] = useState(0)
 
+  useEffect(() => setHash(window.location.hash), [])
+
   useEffect(() => {
     function onHashChangeComplete() {
       if (hash !== window.location.hash) {
