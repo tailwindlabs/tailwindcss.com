@@ -4,6 +4,7 @@ import { useRouteHash } from '@/hooks/useRouteHash'
 import { DocumentationLayout } from '@/layouts/DocumentationLayout'
 import { FrameworkGuideLayout } from '@/layouts/FrameworkGuideLayout'
 import { Steps } from '@/components/Steps'
+import { TabBar } from '@/components/Guides/TabBar.jsx'
 
 let tabs = [
   {
@@ -32,8 +33,9 @@ let tabs = [
         title: 'Install Tailwind CSS',
         body: () => (
           <p>
-            Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the init
-            command to generate both <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+            Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the
+            init command to generate both <code>tailwind.config.js</code> and{' '}
+            <code>postcss.config.js</code>.
           </p>
         ),
         code: {
@@ -253,49 +255,18 @@ export default function UsingLaravel({ code }) {
       title="Install Tailwind CSS with Laravel"
       description="Setting up Tailwind CSS in a Laravel project."
     >
-      <div className="flex overflow-auto mb-6 -mx-4 sm:-mx-6">
-        <div className="flex-none min-w-full px-4 sm:px-6">
-          <ul className="border-b border-slate-200 space-x-6 flex whitespace-nowrap dark:border-slate-200/5">
-            {tabs.map((tab, tabIndex) => (
-              <li key={tab.name}>
-                <h2>
-                  <Link href={tab.href} scroll={false}>
-                    <a
-                      className={clsx(
-                        'flex text-sm leading-6 font-semibold pt-3 pb-2.5 border-b-2 -mb-px',
-                        tabIndex === selectedTabIndex
-                          ? 'text-sky-500 border-current'
-                          : 'text-slate-900 border-transparent hover:border-slate-300 dark:text-slate-200 dark:hover:border-slate-700'
-                      )}
-                    >
-                      {tab.name}
-                    </a>
-                  </Link>
-                </h2>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
+      <TabBar tabs={tabs} selectedTabIndex={selectedTabIndex} />
       <Steps steps={tabs[selectedTabIndex].steps} code={code[selectedTabIndex]} />
     </FrameworkGuideLayout>
   )
 }
 
 export function getStaticProps() {
-  let { highlightCode } = require('../../../../remark/utils')
+  let { highlightedCodeSnippets } = require('@/components/Guides/Snippets.js')
 
   return {
     props: {
-      code: tabs.map((tab) =>
-        tab.steps.map(({ code }) => {
-          if (code.lang && code.lang !== 'terminal') {
-            return highlightCode(code.code, code.lang)
-          }
-          return code.code
-        })
-      ),
+      code: tabs.map((tab) => highlightedCodeSnippets(tab.steps)),
     },
   }
 }

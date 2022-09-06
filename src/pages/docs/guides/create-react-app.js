@@ -43,7 +43,7 @@ let steps = [
     code: {
       name: 'tailwind.config.js',
       lang: 'js',
-      code: `  /** @type {import('tailwindcss').Config} */ 
+      code: `  /** @type {import('tailwindcss').Config} */
   module.exports = {
 >   content: [
 >     "./src/**/*.{js,jsx,ts,tsx}",
@@ -134,16 +134,11 @@ export default function UsingCRA({ code }) {
 }
 
 export function getStaticProps() {
-  let { highlightCode } = require('../../../../remark/utils')
+  let { highlightedCodeSnippets } = require('@/components/Guides/Snippets.js')
 
   return {
     props: {
-      code: steps.map(({ code }) => {
-        if (code.lang && code.lang !== 'terminal') {
-          return highlightCode(code.code, code.lang)
-        }
-        return code.code
-      }),
+      code: highlightedCodeSnippets(steps),
     },
   }
 }
