@@ -176,11 +176,11 @@ let tabs = [
         body: () => (
           <p>
             Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
-            <code>./src/index.css</code> file.
+            <code>./src/style.css</code> file.
           </p>
         ),
         code: {
-          name: 'index.css',
+          name: 'style.css',
           lang: 'css',
           code: '@tailwind base;\n@tailwind components;\n@tailwind utilities;',
         },
