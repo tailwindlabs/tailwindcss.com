@@ -70,37 +70,14 @@ let tabs = [
         title: 'Add the Tailwind directives to your CSS',
         body: () => (
           <p>
-            Create a <code>./src/index.css</code> file and add the <code>@tailwind</code> directives
-            for each of Tailwind’s layers.
+            Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
+            <code>./src/index.css</code> file.
           </p>
         ),
         code: {
           name: 'index.css',
           lang: 'css',
           code: '@tailwind base;\n@tailwind components;\n@tailwind utilities;',
-        },
-      },
-      {
-        title: 'Import the CSS file',
-        body: () => (
-          <p>
-            Import the newly-created <code>./src/index.css</code> file in your{' '}
-            <code>./src/main.js</code> file.
-          </p>
-        ),
-        code: {
-          name: 'main.jsx',
-          lang: 'jsx',
-          code: `  import React from 'react'
-  import ReactDOM from 'react-dom/client'
-  import App from './App'
-> import './index.css'
-
-  ReactDOM.createRoot(document.getElementById('root')).render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  )`,
         },
       },
       {
@@ -198,32 +175,14 @@ let tabs = [
         title: 'Add the Tailwind directives to your CSS',
         body: () => (
           <p>
-            Create a <code>./src/index.css</code> file and add the <code>@tailwind</code> directives
-            for each of Tailwind’s layers.
+            Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
+            <code>./src/index.css</code> file.
           </p>
         ),
         code: {
           name: 'index.css',
           lang: 'css',
           code: '@tailwind base;\n@tailwind components;\n@tailwind utilities;',
-        },
-      },
-      {
-        title: 'Import the CSS file',
-        body: () => (
-          <p>
-            Import the newly-created <code>./src/index.css</code> file in your{' '}
-            <code>./src/main.js</code> file.
-          </p>
-        ),
-        code: {
-          name: 'main.js',
-          lang: 'js',
-          code: `  import { createApp } from 'vue'
-  import App from './App.vue'
-> import './index.css'
-
-  createApp(App).mount('#app')`,
         },
       },
       {
