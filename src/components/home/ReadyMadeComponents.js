@@ -11,6 +11,7 @@ function AnimatedImage({ animate = false, delay = 0, ...props }) {
       transition={{ duration: 0.5, delay }}
       alt=""
       loading="lazy"
+      decoding="async"
       {...props}
     />
   )

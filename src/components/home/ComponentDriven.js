@@ -615,6 +615,7 @@ export function ComponentDriven() {
                   <img
                     src={image}
                     loading="lazy"
+                    decoding="async"
                     alt=""
                     width="60"
                     height="88"

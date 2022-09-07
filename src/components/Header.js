@@ -183,6 +183,7 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
               src={require('@/img/beams/docs@tinypng.png').default}
               alt=""
               className="w-[71.75rem] flex-none max-w-none dark:hidden"
+              decoding="async"
             />
           </picture>
           <picture>
@@ -191,6 +192,7 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
               src={require('@/img/beams/docs-dark@tinypng.png').default}
               alt=""
               className="w-[90rem] flex-none max-w-none hidden dark:block"
+              decoding="async"
             />
           </picture>
         </div>
