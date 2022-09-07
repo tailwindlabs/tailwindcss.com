@@ -27,7 +27,7 @@ export default class Document extends NextDocument {
           <meta name="application-name" content="Tailwind CSS" />
           <meta name="msapplication-TileColor" content="#38bdf8" />
           <meta name="msapplication-config" content={v('/favicons/browserconfig.xml')} />
-          <meta name="theme-color" content="#ffffff" />
+          <meta name="theme-color" content="#24729a" />
           <script
             dangerouslySetInnerHTML={{
               __html: `
