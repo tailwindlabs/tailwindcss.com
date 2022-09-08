@@ -20,7 +20,7 @@ export function NewsletterForm({ action }) {
             name="email_address"
             type="email"
             required
-            autocomplete="email"
+            autoComplete="email"
             aria-label="Email address"
             className="appearance-none shadow rounded-md ring-1 ring-slate-900/5 leading-5 sm:text-sm border border-transparent py-2 placeholder:text-slate-400 pl-12 pr-3 block w-full text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500 bg-white dark:bg-slate-700/20 dark:ring-slate-200/20 dark:focus:ring-sky-500 dark:text-white"
             placeholder="Subscribe via email"
