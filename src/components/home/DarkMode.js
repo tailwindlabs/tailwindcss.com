@@ -142,7 +142,7 @@ export function DarkMode() {
                   .replace(/demo-dark:/g, 'transition-all duration-500 demo-dark:')
                   .replace(
                     'src="/full-stack-radio.png"',
-                    `src="${require('@/img/full-stack-radio.png').default}" loading="lazy"`
+                    `src="${require('@/img/full-stack-radio.png').default}" loading="lazy" decoding="async" `
                   ),
                 // .replace(/<button type="button" class="/g, '<div class="cursor-pointer ')
                 // .replace(/<\/button>/g, '</div>'),

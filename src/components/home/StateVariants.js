@@ -198,6 +198,7 @@ export function StateVariants() {
                               alt=""
                               className="w-6 h-6 rounded-full bg-slate-100 ring-2 ring-white dark:ring-slate-700 dark:group-hover:ring-white"
                               loading="lazy"
+                              decoding="async"
                             />
                           ))}
                         </dd>

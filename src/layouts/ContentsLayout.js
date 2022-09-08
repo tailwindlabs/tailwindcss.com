@@ -102,6 +102,7 @@ function TableOfContents({ tableOfContents, currentSection }) {
               className="pointer-events-none h-[673px] w-[536px] max-w-none absolute -top-[112px] -right-6"
               src="/img/refactoring-ui-sidebar.png"
               alt="Refactoring UI by Adam Wathan and Steve Schoger"
+              decoding="async"
             />
             <div>
               <p className="text-[0.8125rem] font-semibold leading-5 text-sky-500 dark:text-sky-400">

@@ -385,6 +385,7 @@ export function HtmlZenGarden({ theme }) {
                       key={name}
                       src={themes[name].image.src}
                       alt=""
+                      decoding="async"
                       loading={themes[name].image.loading}
                       className="absolute max-w-none"
                       style={fit(
