@@ -68,7 +68,6 @@ export function BlogPostLayout({ children, meta }) {
                         src={author.avatar}
                         alt=""
                         className="mr-3 w-9 h-9 rounded-full bg-slate-50 dark:bg-slate-800"
-                        loading="lazy"
                         decoding="async"
                       />
                       <div className="text-sm leading-4">
