@@ -27,13 +27,14 @@ export default class Document extends NextDocument {
           <meta name="application-name" content="Tailwind CSS" />
           <meta name="msapplication-TileColor" content="#38bdf8" />
           <meta name="msapplication-config" content={v('/favicons/browserconfig.xml')} />
-          <meta name="theme-color" content="#24729a" />
+          <meta name="theme-color" content="#f8fafc" />
           <script
             dangerouslySetInnerHTML={{
               __html: `
                 try {
                   if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                     document.documentElement.classList.add('dark')
+                    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0B1120')
                   } else {
                     document.documentElement.classList.remove('dark')
                   }
