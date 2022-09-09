@@ -3,6 +3,7 @@ import { isObject } from '@/utils/isObject'
 import { castArray } from '@/utils/castArray'
 import clsx from 'clsx'
 import { Heading } from '@/components/Heading'
+import { RGBToHex } from '@/utils/transform-color'
 
 function renderProperties(
   properties,
@@ -26,7 +27,7 @@ function renderProperties(
           return (
             <Fragment key={i}>
               {'  '.repeat(indent)}
-              {property}: {transformedValue};
+							{properties[property].includes('rgb') ? `${property}: ${transformedValue} /* ${RGBToHex(transformedValue)} */;` : `${property}: ${transformedValue};`}
               {px && <span className="text-indigo-400"> {`/* ${px} */`}</span>}
               {'\n'}
             </Fragment>
