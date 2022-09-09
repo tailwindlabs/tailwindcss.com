@@ -202,7 +202,7 @@ const TopLevelAnchor = forwardRef(
           href={href}
           onClick={onClick}
           className={clsx(
-            'group flex items-center lg:text-sm lg:leading-6',
+            'group flex items-center py-2 lg:text-sm lg:leading-6',
             className,
             isActive
               ? 'font-semibold text-sky-500 dark:text-sky-400'
@@ -252,7 +252,7 @@ function TopLevelNav({ mobile }) {
         mobile={mobile}
         href="/docs/installation"
         isActive={pathname.startsWith('/docs')}
-        className="mb-4"
+        className="pt-0"
         shadow="group-hover:shadow-sky-200 dark:group-hover:bg-sky-500"
         activeBackground="dark:bg-sky-500"
         icon={
@@ -287,7 +287,6 @@ function TopLevelNav({ mobile }) {
       <TopLevelLink
         mobile={mobile}
         href="https://tailwindui.com/components?ref=sidebar"
-        className="mb-4"
         shadow="group-hover:shadow-indigo-200 dark:group-hover:bg-indigo-500"
         icon={
           <>
@@ -320,7 +319,6 @@ function TopLevelNav({ mobile }) {
       <TopLevelLink
         mobile={mobile}
         href="https://tailwindui.com/templates?ref=sidebar"
-        className="mb-4"
         shadow="group-hover:shadow-fuchsia-200 dark:group-hover:bg-fuchsia-600"
         icon={
           <>
@@ -350,7 +348,6 @@ function TopLevelNav({ mobile }) {
       <TopLevelLink
         mobile={mobile}
         href="https://www.youtube.com/tailwindlabs"
-        className="mb-4"
         shadow="group-hover:shadow-pink-200 dark:group-hover:bg-pink-500"
         icon={
           <>
@@ -378,7 +375,6 @@ function TopLevelNav({ mobile }) {
       <TopLevelLink
         mobile={mobile}
         href="https://play.tailwindcss.com"
-        className="mb-4"
         shadow="group-hover:shadow-blue-200 dark:group-hover:bg-blue-500"
         icon={
           <>
@@ -418,7 +414,6 @@ function TopLevelNav({ mobile }) {
         mobile={mobile}
         href="/resources"
         isActive={pathname === '/resources'}
-        className="mb-4"
         shadow="group-hover:shadow-purple-200 dark:group-hover:bg-purple-400"
         activeBackground="dark:bg-purple-400"
         icon={
@@ -464,7 +459,6 @@ function TopLevelNav({ mobile }) {
       <TopLevelLink
         mobile={mobile}
         href="https://github.com/tailwindlabs/tailwindcss/discussions"
-        className="mb-4"
         shadow="group-hover:shadow-violet-200 dark:group-hover:bg-violet-500"
         icon={
           <>
@@ -512,7 +506,7 @@ function TopLevelNav({ mobile }) {
       <TopLevelLink
         mobile={mobile}
         href="https://jobs.tailwindcss.com"
-        className="mb-8"
+        className="pb-0 mb-8"
         shadow="group-hover:shadow-sky-200 dark:group-hover:bg-sky-500"
         icon={
           <>
