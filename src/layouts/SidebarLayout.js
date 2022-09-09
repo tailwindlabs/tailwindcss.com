@@ -13,7 +13,7 @@ const NavItem = forwardRef(({ href, children, isActive, isPublished, fallbackHre
     <li className="[&:first-of-type_a]:pt-1 [&:last-of-type_a]:pb-1 lg:[&:first-of-type_a]:!pt-0.5 lg:[&:last-of-type_a]:!pb-0.5" ref={ref}>
       <Link href={isPublished ? href : fallbackHref}>
         <a
-          className={clsx('block border-l pl-4 py-2 -ml-px lg:py-1', {
+          className={clsx('block border-l pl-4 py-2 -ml-px duration-150 lg:py-1', {
             'text-sky-500 border-current font-semibold dark:text-sky-400': isActive,
             'border-transparent hover:border-slate-400 dark:hover:border-slate-500': !isActive,
             'text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300':
@@ -202,7 +202,7 @@ const TopLevelAnchor = forwardRef(
           href={href}
           onClick={onClick}
           className={clsx(
-            'group flex items-center py-2 lg:text-sm lg:leading-6',
+            'group flex items-center py-2 duration-150 lg:text-sm lg:leading-6',
             className,
             isActive
               ? 'font-semibold text-sky-500 dark:text-sky-400'
@@ -211,7 +211,7 @@ const TopLevelAnchor = forwardRef(
         >
           <div
             className={clsx(
-              'mr-4 rounded-md ring-1 ring-slate-900/5 shadow-sm group-hover:shadow group-hover:ring-slate-900/10 dark:ring-0 dark:shadow-none dark:group-hover:shadow-none dark:group-hover:highlight-white/10',
+              'mr-4 rounded-md ring-1 ring-slate-900/5 shadow-sm duration-150 group-hover:shadow group-hover:ring-slate-900/10 dark:ring-0 dark:shadow-none dark:group-hover:shadow-none dark:group-hover:highlight-white/10',
               shadow,
               isActive
                 ? [activeBackground, 'dark:highlight-white/10']
@@ -220,7 +220,7 @@ const TopLevelAnchor = forwardRef(
                 : 'dark:bg-slate-800 dark:highlight-white/5'
             )}
           >
-            <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
+            <svg className="h-6 w-6 duration-150 [&_*]:duration-150" viewBox="0 0 24 24" fill="none">
               {icon}
             </svg>
           </div>
