@@ -10,7 +10,7 @@ export const SidebarContext = createContext()
 
 const NavItem = forwardRef(({ href, children, isActive, isPublished, fallbackHref }, ref) => {
   return (
-    <li ref={ref}>
+    <li className="[&:first-of-type_a]:pt-1 [&:last-of-type_a]:pb-1 lg:[&:first-of-type_a]:!pt-0.5 lg:[&:last-of-type_a]:!pb-0.5" ref={ref}>
       <Link href={isPublished ? href : fallbackHref}>
         <a
           className={clsx('block border-l pl-4 py-2 -ml-px lg:py-1', {
