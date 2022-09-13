@@ -15,7 +15,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'mkdir my-project\ncd my-project\nnpm install -D parcel\nmkdir src\ntouch src/index.html',
+      code: 'mkdir my-project\ncd my-project\nnpm init -y\nnpm install -D parcel\nmkdir src\ntouch src/index.html',
     },
   },
   {
@@ -23,13 +23,31 @@ let steps = [
     body: () => (
       <p>
         Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the init
-        command to generate both <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+        command to generate <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init -p',
+      code: 'npm install -D tailwindcss postcss\nnpx tailwindcss init',
+    },
+  },
+  {
+    title: 'Configure PostCSS',
+    body: () => (
+      <p>
+        Create a <code>.postcssrc</code> file in your project root, and enable the{' '}
+        <code>tailwindcss</code> plugin.
+      </p>
+    ),
+    code: {
+      name: '.postcssrc',
+      lang: 'json',
+      code: `{
+  "plugins": {
+    "tailwindcss": {}
+  }
+}`,
     },
   },
   {
@@ -42,7 +60,8 @@ let steps = [
     code: {
       name: 'tailwind.config.js',
       lang: 'js',
-      code: `  module.exports = {
+      code: `  /** @type {import('tailwindcss').Config} */
+  module.exports = {
 >   content: [
 >     "./src/**/*.{html,js,ts,jsx,tsx}",
 >   ],
@@ -82,10 +101,12 @@ let steps = [
   },
   {
     title: 'Start using Tailwind in your project',
-    body: () => (<p>
-      Add your CSS file to the <code>{'<head>'}</code> and start using Tailwind’s utility
-      classes to style your content.
-    </p>),
+    body: () => (
+      <p>
+        Add your CSS file to the <code>{'<head>'}</code> and start using Tailwind’s utility classes
+        to style your content.
+      </p>
+    ),
     code: {
       name: 'index.html',
       lang: 'html',
@@ -118,21 +139,11 @@ export default function UsingParcel({ code }) {
 }
 
 export function getStaticProps() {
-  let { highlightCode } = require('../../../../remark/utils')
+  let { highlightedCodeSnippets } = require('@/components/Guides/Snippets.js')
 
   return {
     props: {
-      code: steps.map(({ code }) => {
-        let isArray = Array.isArray(code)
-        code = isArray ? code : [code]
-        code = code.map((code) => {
-          if (code.lang && code.lang !== 'terminal') {
-            return highlightCode(code.code, code.lang)
-          }
-          return code.code
-        })
-        return isArray ? code : code[0]
-      }),
+      code: highlightedCodeSnippets(steps),
     },
   }
 }

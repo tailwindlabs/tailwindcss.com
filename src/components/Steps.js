@@ -16,6 +16,7 @@ export function Steps({ steps, code, level = 2 }) {
           src={require('@/img/beams/installation.jpg').default}
           alt=""
           className="w-[52.6875rem] max-w-none"
+          decoding="async"
         />
       </div>
       <ol className="relative space-y-2 mb-16" style={{ counterReset: 'step' }}>

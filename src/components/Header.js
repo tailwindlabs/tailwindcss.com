@@ -10,9 +10,9 @@ import { ThemeSelect, ThemeToggle } from './ThemeToggle'
 
 function Featured() {
   return (
-    <Link href="/blog/tailwindcss-v3">
+    <Link href="/blog/tailwindcss-v3-1">
       <a className="ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-sky-400/20">
-        <strong className="font-semibold">Tailwind CSS v3.0</strong>
+        <strong className="font-semibold">Tailwind CSS v3.1</strong>
         <svg
           width="2"
           height="2"
@@ -22,9 +22,7 @@ function Featured() {
         >
           <circle cx="1" cy="1" r="1" />
         </svg>
-        <span className="ml-2">
-          Just-in-Time all the time, colored shadows, scroll snap and more
-        </span>
+        <span className="ml-2">Arbitrary variants, TypeScript types, and more</span>
         <svg
           width="3"
           height="6"
@@ -130,13 +128,26 @@ export function NavItems() {
         </Link>
       </li>
       <li>
-        <a href="https://tailwindui.com" className="hover:text-sky-500 dark:hover:text-sky-400">
+        <a
+          href="https://tailwindui.com/?ref=top"
+          className="hover:text-sky-500 dark:hover:text-sky-400"
+        >
           Components
         </a>
       </li>
       <li>
         <Link href="/blog">
           <a className="hover:text-sky-500 dark:hover:text-sky-400">Blog</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="https://jobs.tailwindcss.com/?ref=top">
+          <a className="hover:text-sky-500 dark:hover:text-sky-400">
+            Jobs
+            <span className="ml-2 font-medium text-xs leading-5 rounded-full text-sky-600 bg-sky-400/10 px-2 py-0.5  dark:text-sky-400">
+              New
+            </span>
+          </a>
         </Link>
       </li>
     </>
@@ -172,6 +183,7 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
               src={require('@/img/beams/docs@tinypng.png').default}
               alt=""
               className="w-[71.75rem] flex-none max-w-none dark:hidden"
+              decoding="async"
             />
           </picture>
           <picture>
@@ -180,6 +192,7 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
               src={require('@/img/beams/docs-dark@tinypng.png').default}
               alt=""
               className="w-[90rem] flex-none max-w-none hidden dark:block"
+              decoding="async"
             />
           </picture>
         </div>

@@ -106,7 +106,7 @@ export default function Resources() {
                   require('@/img/resources/refactoringui@75.jpg').default,
                 ],
                 color: 'text-blue-500',
-                href: 'https://refactoringui.com',
+                href: 'https://refactoringui.com/?ref=resources',
                 body: (
                   <>
                     <p>
@@ -129,7 +129,7 @@ export default function Resources() {
                   require('@/img/resources/tailwindui@75.jpg').default,
                 ],
                 color: 'text-sky-500',
-                href: 'https://tailwindui.com',
+                href: 'https://tailwindui.com/?ref=resources',
                 body: (
                   <>
                     <p>
@@ -172,7 +172,7 @@ export default function Resources() {
                   <div className="aspect-w-[1216] aspect-h-[606] sm:aspect-w-[1376] sm:aspect-h-[664] shadow-lg rounded-lg bg-slate-100 overflow-hidden dark:bg-slate-800">
                     <picture>
                       <source type="image/jpeg" srcSet={images[1]} media="(min-width: 640px)" />
-                      <img src={images[0]} alt="" />
+                      <img src={images[0]} alt="" decoding="async" />
                     </picture>
                   </div>
                 </div>

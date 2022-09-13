@@ -190,6 +190,7 @@ export default function Home() {
                 alt=""
                 className="w-14 h-14 rounded-full"
                 loading="lazy"
+                decoding="async"
               />
               <div>
                 <div className="text-slate-900 font-semibold dark:text-white">Adam Wathan</div>

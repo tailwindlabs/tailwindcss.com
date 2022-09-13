@@ -82,6 +82,14 @@ This works for everything in the framework, including things like background col
 </div>
 ```
 
+It's even possible to use the [`theme` function](/docs/functions-and-directives#theme) to reference the design tokens in your `tailwind.config.js` file:
+
+```html
+<div class="grid grid-cols-[fit-content(theme(spacing.32))]">
+  <!-- ... -->
+</div>
+```
+
 ### Arbitrary properties
 
 If you ever need to use a CSS property that Tailwind doesn't include a utility for out of the box, you can also use square bracket notation to write completely arbitrary CSS:
@@ -130,6 +138,14 @@ In the rare case that you actually need to use an underscore but it's ambiguous 
 
 ```html
 <div class="before:content-['hello\_world']">
+  <!-- ... -->
+</div>
+```
+
+If you're using something like JSX where the backslash is stripped from the rendered HTML, use [String.raw()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw) so the backslash isn't treated as a JavaScript escape character:
+
+```jsx
+<div className={String.raw`before:content-['hello\_world']`}>
   <!-- ... -->
 </div>
 ```

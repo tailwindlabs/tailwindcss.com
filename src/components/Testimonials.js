@@ -295,7 +295,7 @@ let testimonials = [
       url: 'https://twitter.com/debs_obrien/status/1243255468241420288',
       author: {
         name: `Debbie O'Brien`,
-        role: 'Head Developer Advocate @ Bit',
+        role: 'Senior Program Manager at Microsoft',
         avatar: require('@/img/avatars/debbie-obrien.jpg').default,
       },
     },
@@ -865,6 +865,7 @@ function Testimonial({ author, content, url, expanded }) {
             alt=""
             className="flex-none w-14 h-14 rounded-full object-cover"
             loading="lazy"
+            decoding="async"
           />
           <div className="flex-auto">
             <div className="text-base text-slate-900 font-semibold dark:text-slate-300">
