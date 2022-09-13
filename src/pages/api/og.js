@@ -13,7 +13,7 @@ const imageOverrides = [
 // registerFont(join(__dirname, '_files', 'Inter-ExtraBold.otf'), { family: 'Inter', weight: '800' })
 
 function resolve(filename) {
-  return `src/pages/api/_files/${filename}`
+  return join(process.cwd(), 'assets', filename)
 }
 
 GlobalFonts.registerFromPath(resolve('Inter-SemiBold.otf'), 'Inter')
