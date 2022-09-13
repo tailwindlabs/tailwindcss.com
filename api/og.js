@@ -1,12 +1,15 @@
 import { createReadStream } from 'fs'
 import { join } from 'path'
 import cheerio from 'cheerio'
-import { createCanvas } from 'canvas'
+import { createCanvas, registerFont, loadImage } from 'canvas'
 import { https } from 'follow-redirects'
 
 const imageOverrides = [
   { pattern: '/', image: join(__dirname, '_files', 'og-default.jpg'), type: 'image/jpeg' },
 ]
+
+registerFont(join(__dirname, '_files', 'Inter-SemiBold.otf'), { family: 'Inter', weight: '600' })
+registerFont(join(__dirname, '_files', 'Inter-ExtraBold.otf'), { family: 'Inter', weight: '800' })
 
 function get(url) {
   return new Promise((resolve, reject) => {
@@ -79,8 +82,18 @@ export default async function handler(req, res) {
 
     // let html = await getHtml({ title, superTitle, description })
 
-    const canvas = createCanvas(200, 200)
+    const canvas = createCanvas(1280, 720)
     const ctx = canvas.getContext('2d')
+
+    let bgImage = await loadImage(join(__dirname, '_files', 'og-background.png'))
+    ctx.drawImage(bgImage, 0, 0, 1280, 720)
+
+    ctx.textBaseline = 'top'
+    ctx.font = '800 72px "Inter"'
+    ctx.fillText('Margin', 0, 0)
+
+    // ctx.font = '600 30px "Inter"'
+    // ctx.fillText('Everyone hates this font :(', 10, 60)
 
     res.statusCode = 200
     res.setHeader('Content-Type', 'image/png')
