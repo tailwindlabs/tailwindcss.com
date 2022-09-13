@@ -6,9 +6,7 @@
     "postbuild": "if [ -f './.next/serverless/scripts/build-rss.js' ]; then node ./.next/serverless/scripts/build-rss.js; else node ./.next/server/scripts/build-rss.js; fi",
     "start": "next start",
     "export": "next build && next export",
-    "format": "prettier '{src,remark,scripts}/**/*.{css,js,mdx}' --write",
-    "dev:og": "vercel dev",
-    "postinstall": "patch-package"
+    "format": "prettier '{src,remark,scripts}/**/*.{css,js,mdx}' --write"
   },
   "browserslist": [
     "> 1%"
@@ -31,8 +29,8 @@
     "@tailwindcss/typography": "^0.5.0",
     "autoprefixer": "^10.4.0",
     "brotli-size": "^4.0.0",
+    "canvas": "^2.10.1",
     "cheerio": "^1.0.0-rc.10",
-    "chrome-aws-lambda": "^10.1.0",
     "clean-css": "^4.2.3",
     "clsx": "^1.1.1",
     "deasync": "^0.1.20",
@@ -53,13 +51,11 @@
     "mini-svg-data-uri": "^1.4.3",
     "minimatch": "^3.0.4",
     "next": "11",
-    "patch-package": "^6.4.7",
     "postcss": "^8.4.5",
     "postcss-focus-visible": "^5.0.0",
     "postcss-import": "^14.0.1",
     "postinstall-postinstall": "^2.1.0",
     "prismjs": "^1.27.0",
-    "puppeteer-core": "^17.1.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-intersection-observer": "^8.29.0",
