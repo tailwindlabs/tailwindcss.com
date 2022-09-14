@@ -28,8 +28,8 @@ let steps = [
           <code>tailwind.config.js</code> file.
         </p>
         <p className="mt-3 text-xs italic">
-          Using <code>@latest</code> is required because Nuxt installs PostCSS v7 and Autoprefixer
-          v9 by default.
+          Using <code>@latest</code> is required because Nuxt 2 installs PostCSS v7 and Autoprefixer
+          v9 by default. If you are using Nuxt 3 you should not install <code>@nuxt/postcss8</code>.
         </p>
       </>
     ),
@@ -40,10 +40,11 @@ let steps = [
     },
   },
   {
-    title: 'Enable the Nuxt.js PostCSS plugin',
+    title: 'Enable the Nuxt.js PostCSS plugin (Nuxt 2)',
     body: () => (
       <p>
-        In your <code>nuxt.config.js</code> file, enable the <code>@nuxt/postcss8</code> plugin.
+        In your <code>nuxt.config.js</code> file, enable the <code>@nuxt/postcss8</code> plugin. If you are running Nuxt 3
+        then you should not complete this step.
       </p>
     ),
     code: {
