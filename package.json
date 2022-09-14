@@ -80,7 +80,6 @@
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "2.x",
     "glyphhanger": "^5.0.0",
-    "prettier": "^2.5.0",
-    "vercel": "^23.1.2"
+    "prettier": "^2.5.0"
   }
 }
