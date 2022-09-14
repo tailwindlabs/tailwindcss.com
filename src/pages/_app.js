@@ -56,6 +56,7 @@ export default function App({ Component, pageProps, router }) {
   const meta = Component.layoutProps?.meta || {}
   const description =
     meta.metaDescription || meta.description || 'Documentation for the Tailwind CSS framework.'
+  const image = `https://tailwindcss.com${meta.image || `/api/og?path=${router.pathname}`}`
 
   if (router.pathname.startsWith('/examples/')) {
     return <Component {...pageProps} />
@@ -71,14 +72,11 @@ export default function App({ Component, pageProps, router }) {
     <>
       <Title suffix="Tailwind CSS">{meta.metaTitle || meta.title}</Title>
       <Head>
+        <meta name="description" content={description} />
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
         <meta key="twitter:site" name="twitter:site" content="@tailwindcss" />
         <meta key="twitter:description" name="twitter:description" content={description} />
-        <meta
-          key="twitter:image"
-          name="twitter:image"
-          content={`https://tailwindcss.com/api/og?path=${router.pathname}`}
-        />
+        <meta key="twitter:image" name="twitter:image" content={image} />
         <meta key="twitter:creator" name="twitter:creator" content="@tailwindcss" />
         <meta
           key="og:url"
@@ -87,11 +85,7 @@ export default function App({ Component, pageProps, router }) {
         />
         <meta key="og:type" property="og:type" content="article" />
         <meta key="og:description" property="og:description" content={description} />
-        <meta
-          key="og:image"
-          property="og:image"
-          content={`https://tailwindcss.com/api/og?path=${router.pathname}`}
-        />
+        <meta key="og:image" property="og:image" content={image} />
         <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feeds/feed.xml" />
         <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/feeds/atom.xml" />
         <link rel="alternate" type="application/json" title="JSON Feed" href="/feeds/feed.json" />

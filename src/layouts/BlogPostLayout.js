@@ -4,9 +4,7 @@ import { formatDate } from '@/utils/formatDate'
 import { mdxComponents } from '@/utils/mdxComponents'
 import { MDXProvider } from '@mdx-js/react'
 import clsx from 'clsx'
-import Head from 'next/head'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 
 export function BlogPostLayout({ children, meta }) {
   return (
@@ -37,7 +35,6 @@ export function BlogPostLayout({ children, meta }) {
         <div className="max-w-3xl mx-auto pb-28">
           <main>
             <article className="relative pt-10">
-              <Metadata meta={meta} />
               <h1
                 className={clsx(
                   'text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 md:text-3xl '
@@ -121,28 +118,5 @@ export function BlogPostLayout({ children, meta }) {
         </div>
       </div>
     </div>
-  )
-}
-
-function Metadata({ meta }) {
-  let router = useRouter()
-  let imagePath = meta.image ?? `/api/og?path=${router.pathname}`
-
-  return (
-    <Head>
-      <title>{meta.title} - Tailwind CSS</title>
-      <meta name="twitter:site" content="@tailwindcss" />
-      <meta name="twitter:creator" content="@tailwindcss" />
-      <meta name="twitter:title" content={`${meta.title} - Tailwind CSS`} />
-      <meta name="twitter:description" content={meta.description} />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content={`https://tailwindcss.com${imagePath}`} />
-      <meta property="og:url" content={`https://tailwindcss.com${router.pathname}`} />
-      <meta property="og:type" content="article" />
-      <meta property="og:title" content={`${meta.title} - Tailwind CSS`} />
-      <meta property="og:description" content={meta.description} />
-      <meta property="og:image" content={`https://tailwindcss.com${meta.image}`} />
-      <meta name="description" content={meta.description}></meta>
-    </Head>
   )
 }
