@@ -156,6 +156,38 @@ module.exports = {
 }
 ```
 
+### Providing a default font-weight
+
+Much like providing a default letter-spacing value for a font size, you can also provide a default font-weight, using a tuple of the form `[fontSize, { fontWeight, lineHeight }]` in your `tailwind.config.js` file.
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    fontSize: {
+      '2xl': ['24px', {
+        fontWeight: '300',
+      }],
+      // Or with a default line-height
+      '3xl': ['32px', {
+        fontWeight: '300',
+        lineHeight: '40px',
+      }],
+      // Or with a default letter-spacing
+      '4xl': ['36px', {
+        fontWeight: '300',
+        letterSpacing: '-0.02em',
+      }],
+      // Or with a default letter-spacing and line-height
+      '5xl': ['40px', {
+        fontWeight: '300',
+        letterSpacing: '-0.02em',
+        lineHeight: '48px',
+      }],
+    }
+  }
+}
+```
+
 ### Arbitrary values
 
 <ArbitraryValues property="font-size" featuredClass="text-[14px]" element="p" />
