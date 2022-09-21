@@ -186,6 +186,24 @@ let tabs = [
         },
       },
       {
+        title: 'Add the Tailwind to postcss plugins config',
+        body: () => (
+          <p>
+            Add the tailwind to the list of postcss plugins in `postcss.config.cjs`
+          </p>
+        ),
+        code: {
+          name: 'postcss.config.cjs',
+          lang: 'js',
+          code: `module.exports = {
+            plugins: {
+                tailwindcss: {},
+                autoprefixer: {},
+            },
+        }`,
+        },
+      },
+      {
         title: 'Start your build process',
         body: () => (
           <p>
