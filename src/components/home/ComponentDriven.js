@@ -63,7 +63,7 @@ const movies = [
     genre: 'Comedy',
     runtime: '1h 46m',
     cast: 'Simon Pegg, Zach Galifianakis',
-    image: require('@/img/prognosis-negative.jpg').default,
+    image: require('@/img/prognosis-negative.jpg').default.src,
   },
   {
     title: 'Rochelle, Rochelle',
@@ -73,7 +73,7 @@ const movies = [
     genre: 'Romance',
     runtime: '1h 56m',
     cast: 'Emilia Clarke',
-    image: require('@/img/rochelle-rochelle.jpg').default,
+    image: require('@/img/rochelle-rochelle.jpg').default.src,
   },
   {
     title: 'Death Blow',
@@ -83,7 +83,7 @@ const movies = [
     genre: 'Action',
     runtime: '2h 5m',
     cast: 'Idris Elba, John Cena, Thandiwe Newton',
-    image: require('@/img/death-blow.jpg').default,
+    image: require('@/img/death-blow.jpg').default.src,
   },
 ]
 
@@ -333,8 +333,8 @@ function AtApplySection() {
           Not into component frameworks?
         </h3>
         <Paragraph>
-          Use Tailwind's <InlineCode>@apply</InlineCode> directive to extract repeated utility patterns
-          into custom CSS classes just by copying and pasting the list of class names.
+          Use Tailwind's <InlineCode>@apply</InlineCode> directive to extract repeated utility
+          patterns into custom CSS classes just by copying and pasting the list of class names.
         </Paragraph>
         <Link href="/docs/reusing-styles" color="sky" darkColor="gray">
           Learn more<span className="sr-only">, reusing styles</span>
@@ -554,8 +554,8 @@ export function ComponentDriven() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <IconContainer
           className="dark:bg-sky-500 dark:highlight-white/20"
-          light={require('@/img/icons/home/component-driven.png').default}
-          dark={require('@/img/icons/home/dark/component-driven.png').default}
+          light={require('@/img/icons/home/component-driven.png').default.src}
+          dark={require('@/img/icons/home/dark/component-driven.png').default.src}
         />
         <Caption className="text-sky-500">Component-driven</Caption>
         <BigText>

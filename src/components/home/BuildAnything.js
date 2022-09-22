@@ -244,8 +244,8 @@ export function BuildAnything() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <IconContainer
           className="dark:bg-pink-500 dark:highlight-white/30"
-          light={require('@/img/icons/home/build-anything.png').default}
-          dark={require('@/img/icons/home/dark/build-anything.png').default}
+          light={require('@/img/icons/home/build-anything.png').default.src}
+          dark={require('@/img/icons/home/dark/build-anything.png').default.src}
         />
         <Caption className="text-pink-500 dark:text-pink-400">Build anything</Caption>
         <BigText>

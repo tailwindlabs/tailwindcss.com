@@ -38,25 +38,15 @@ const fallbackGetStaticProps = {
 module.exports = withBundleAnalyzer({
   swcMinify: true,
   pageExtensions: ['js', 'jsx', 'mdx'],
-  images: {
-    disableStaticImages: true,
+  experimental: {
+    esmExternals: false,
   },
   async redirects() {
     return require('./redirects.json')
   },
   webpack(config, options) {
-    if (!options.dev && options.isServer) {
-      let originalEntry = config.entry
-
-      config.entry = async () => {
-        let entries = { ...(await originalEntry()) }
-        entries['scripts/build-rss'] = './src/scripts/build-rss.js'
-        return entries
-      }
-    }
-
     config.module.rules.push({
-      test: /\.(png|jpe?g|gif|webp|avif|mp4)$/i,
+      test: /\.mp4$/i,
       issuer: /\.(jsx?|tsx?|mdx)$/,
       use: [
         {

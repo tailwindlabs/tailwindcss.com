@@ -186,7 +186,7 @@ export default function Home() {
             </blockquote>
             <figcaption className="mt-6 flex items-center justify-center space-x-4 text-left">
               <img
-                src={require('@/img/adam.jpg').default}
+                src={require('@/img/adam.jpg').default.src}
                 alt=""
                 className="w-14 h-14 rounded-full"
                 loading="lazy"
