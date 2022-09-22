@@ -78,7 +78,7 @@ let steps = [
     title: 'Add the Tailwind directives to your CSS',
     body: () => (
       <p>
-        Create a <code>./styles/app.css</code> file and add the <code>@tailwind</code> directives
+        Create a <code>./styles/app.css</code> file (note:styles folder should be outside the app directory) and add the <code>@tailwind</code> directives
         for each of Tailwind’s layers.
       </p>
     ),
