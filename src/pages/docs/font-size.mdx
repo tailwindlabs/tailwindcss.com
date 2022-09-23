@@ -77,34 +77,29 @@ Control the font size of an element using the `text-{size}` utilities.
 
 ### Customizing your theme
 
-By default, Tailwind provides 10 `font-size` utilities. You change, add, or remove these by editing the `theme.fontSize` section of your Tailwind config.
+You can configure your own custom set of font size utilities using the `theme.fontSize` section of your `tailwind.config.js` file.
 
 ```diff-js tailwind.config.js
   module.exports = {
     theme: {
-      fontSize: {
--       'xs': '.75rem',
--       'sm': '.875rem',
-+       'tiny': '.875rem',
-        'base': '1rem',
-        'lg': '1.125rem',
-        'xl': '1.25rem',
-        '2xl': '1.5rem',
--       '3xl': '1.875rem',
--       '4xl': '2.25rem',
-        '5xl': '3rem',
-        '6xl': '4rem',
-+       '7xl': '5rem',
-      }
++     fontSize: {
++       sm: '0.8rem',
++       base: '1rem',
++       xl: '1.25rem',
++       2xl: '1.563rem',
++       3xl: '1.953rem',
++       4xl: '2.441rem',
++       5xl: '3.052rem',
++     }
     }
   }
 ```
 
 Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
 
-### Providing a default line-height
+#### Providing a default line-height
 
-You can provide a default line-height for each of your font-sizes using a tuple of the form `[fontSize, lineHeight]` in your `tailwind.config.js` file.
+Tailwind's default theme configures a sensible default `line-height` for each `text-{size}` utility. You can configure your own default line heights when using custom font sizes by defining each size using a tuple of the form `[fontSize, lineHeight]` in your `tailwind.config.js` file.
 
 ```js tailwind.config.js
 module.exports = {
@@ -119,69 +114,21 @@ module.exports = {
 }
 ```
 
-You can also specify a default line-height using object syntax:
+You can also specify a default line height using the object syntax, which allows you to also provide default `letter-spacing` and `font-weight` values. You can do this using a tuple of the form `[fontSize, { lineHeight?, letterSpacing?, fontWeight? }]`.
 
 ```js tailwind.config.js
 module.exports = {
   theme: {
     fontSize: {
-      sm: ['14px', {
-        lineHeight: '20px',
-      }],
-    }
-  }
-}
-```
-
-We already provide default line heights for each `.text-{size}` class.
-
-### Providing a default letter-spacing
-
-If you also want to provide a default letter-spacing value for a font size, you can do so using a tuple of the form `[fontSize, { letterSpacing, lineHeight }]` in your `tailwind.config.js` file.
-
-```js tailwind.config.js
-module.exports = {
-  theme: {
-    fontSize: {
-      '2xl': ['24px', {
+      '2xl': ['1.5rem', {
+        lineHeight: '2rem',
         letterSpacing: '-0.01em',
+        fontWeight: '500',
       }],
-      // Or with a default line-height as well
-      '3xl': ['32px', {
+      '3xl': ['1.875rem', {
+        lineHeight: '2.25rem',
         letterSpacing: '-0.02em',
-        lineHeight: '40px',
-      }],
-    }
-  }
-}
-```
-
-### Providing a default font-weight
-
-Much like providing a default letter-spacing value for a font size, you can also provide a default font-weight, using a tuple of the form `[fontSize, { fontWeight, lineHeight }]` in your `tailwind.config.js` file.
-
-```js tailwind.config.js
-module.exports = {
-  theme: {
-    fontSize: {
-      '2xl': ['24px', {
-        fontWeight: '300',
-      }],
-      // Or with a default line-height
-      '3xl': ['32px', {
-        fontWeight: '300',
-        lineHeight: '40px',
-      }],
-      // Or with a default letter-spacing
-      '4xl': ['36px', {
-        fontWeight: '300',
-        letterSpacing: '-0.02em',
-      }],
-      // Or with a default letter-spacing and line-height
-      '5xl': ['40px', {
-        fontWeight: '300',
-        letterSpacing: '-0.02em',
-        lineHeight: '48px',
+        fontWeight: '700',
       }],
     }
   }
