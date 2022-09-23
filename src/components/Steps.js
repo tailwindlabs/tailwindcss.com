@@ -13,7 +13,7 @@ export function Steps({ steps, code, level = 2 }) {
     <>
       <div className="hidden sm:block absolute top-0 left-[15%] pt-[40%] 2xl:left-[40%] 2xl:pt-[8%] dark:hidden">
         <img
-          src={require('@/img/beams/installation.jpg').default}
+          src={require('@/img/beams/installation.jpg').default.src}
           alt=""
           className="w-[52.6875rem] max-w-none"
           decoding="async"

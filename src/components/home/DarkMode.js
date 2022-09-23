@@ -109,8 +109,8 @@ export function DarkMode() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <IconContainer
           className="dark:bg-slate-600 dark:highlight-white/20"
-          light={require('@/img/icons/home/dark-mode.png').default}
-          dark={require('@/img/icons/home/dark/dark-mode.png').default}
+          light={require('@/img/icons/home/dark-mode.png').default.src}
+          dark={require('@/img/icons/home/dark/dark-mode.png').default.src}
         />
         <Caption className="text-slate-500">Dark mode</Caption>
         <BigText>
@@ -142,7 +142,9 @@ export function DarkMode() {
                   .replace(/demo-dark:/g, 'transition-all duration-500 demo-dark:')
                   .replace(
                     'src="/full-stack-radio.png"',
-                    `src="${require('@/img/full-stack-radio.png').default}" loading="lazy" decoding="async" `
+                    `src="${
+                      require('@/img/full-stack-radio.png').default.src
+                    }" loading="lazy" decoding="async" `
                   ),
                 // .replace(/<button type="button" class="/g, '<div class="cursor-pointer ')
                 // .replace(/<\/button>/g, '</div>'),

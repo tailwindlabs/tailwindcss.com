@@ -4,6 +4,7 @@ import { getAllPostPreviews } from '@/utils/getAllPosts'
 import Link from 'next/link'
 import clsx from 'clsx'
 import { formatDate } from '@/utils/formatDate'
+import buildRss from '@/scripts/build-rss'
 
 let posts = getAllPostPreviews()
 
@@ -88,4 +89,12 @@ Blog.layoutProps = {
   meta: {
     title: 'Blog',
   },
+}
+
+export async function getStaticProps() {
+  if (process.env.NODE_ENV === 'production') {
+    buildRss()
+  }
+
+  return { props: {} }
 }

@@ -106,7 +106,7 @@ export default function FrameworkGuides() {
             description: 'A framework to build rich, interactive applications with Elixir.',
             logo: () => (
               <img
-                src={PhoenixLogo}
+                src={PhoenixLogo.src}
                 alt="Phoenix"
                 role="presentation"
                 className="w-10 h-10 object-contain object-center"
@@ -119,7 +119,7 @@ export default function FrameworkGuides() {
             description: 'The zero-configuration build tool for the web.',
             logo: () => (
               <img
-                src={ParcelLogo}
+                src={ParcelLogo.src}
                 alt="Parcel"
                 role="presentation"
                 className="w-10 h-10 object-contain object-center"
