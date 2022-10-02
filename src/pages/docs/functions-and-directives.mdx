@@ -163,10 +163,10 @@ If you try to `@apply` a custom class you've defined in your global CSS in one o
 
 @layer components {
   .card {
-    background-color: theme(colors.white);
-    border-radius: theme(borderRadius.lg);
-    padding: theme(spacing.6);
-    box-shadow: theme(boxShadow.xl);
+    background-color: theme('colors.white');
+    border-radius: theme('borderRadius.lg');
+    padding: theme('spacing.6');
+    box-shadow: theme('boxShadow.xl');
   }
 }
 ```
@@ -199,10 +199,10 @@ module.exports = {
     plugin(function ({ addComponents, theme }) {
       addComponents({
         '.card': {
-          backgroundColor: theme(colors.white),
-          borderRadius: theme(borderRadius.lg),
-          padding: theme(spacing.6),
-          boxShadow: theme(boxShadow.xl),
+          backgroundColor: theme('colors.white'),
+          borderRadius: theme('borderRadius.lg'),
+          padding: theme('spacing.6'),
+          boxShadow: theme('boxShadow.xl'),
         }
       })
     })
@@ -226,7 +226,7 @@ Use the `theme()` function to access your Tailwind config values using dot notat
 
 ```css
 .content-area {
-  height: calc(100vh - theme(spacing.12));
+  height: calc(100vh - theme('spacing.12'));
 }
 ```
 
@@ -234,7 +234,7 @@ If you need to access a value that contains a dot (like the `2.5` value in the s
 
 ```css
 .content-area {
-  height: calc(100vh - theme(spacing[2.5]));
+  height: calc(100vh - theme('spacing[2.5]'));
 }
 ```
 
@@ -244,7 +244,7 @@ Since Tailwind uses a [nested object syntax](/docs/customizing-colors#color-obje
 
 ```css
 .btn-blue {
-  background-color: theme(colors.blue-500);
+  background-color: theme('colors.blue-500');
 }
 ```
 
@@ -252,7 +252,7 @@ Since Tailwind uses a [nested object syntax](/docs/customizing-colors#color-obje
 
 ```css
 .btn-blue {
-  background-color: theme(colors.blue.500);
+  background-color: theme('colors.blue.500');
 }
 ```
 
@@ -260,7 +260,7 @@ To adjust the opacity of a color retrieved with `theme`, use a slash followed by
 
 ```css
 .btn-blue {
-  background-color: theme(colors.blue.500 / 75%);
+  background-color: theme('colors.blue.500' / 75%);
 }
 ```
 

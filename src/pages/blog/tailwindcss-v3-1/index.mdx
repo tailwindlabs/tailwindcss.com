@@ -111,9 +111,9 @@ I don't think tons of people know about this, but Tailwind exposes a [`theme()` 
 
 ```css select2-theme.css
 .select2-dropdown {
-  border-radius: theme(borderRadius.lg);
-  background-color: theme(colors.gray.100);
-  color: theme(colors.gray.900);
+  border-radius: theme('borderRadius.lg');
+  background-color: theme('colors.gray.100');
+  color: theme('colors.gray.900');
 }
 /* ... */
 ```
@@ -122,9 +122,9 @@ One limitation though was that you couldn't adjust the alpha channel any colors 
 
 ```css select2-theme.css
   .select2-dropdown {
-    border-radius: theme(borderRadius.lg);
->   background-color: theme(colors.gray.100 / 50%);
-    color: theme(colors.gray.900);
+    border-radius: theme('borderRadius.lg');
+>   background-color: theme('colors.gray.100' / 50%);
+    color: theme('colors.gray.900');
   }
   /* ... */
 ```
