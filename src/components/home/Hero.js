@@ -315,7 +315,8 @@ export function Hero() {
                     ref={imageRef}
                     layout={layout}
                     transition={TRANSITION}
-                    src={require('@/img/sarah-dayan.jpg').default}
+                    src={require('@/img/sarah-dayan.jpg').default.src}
+                    decoding="async"
                     alt=""
                     className={clsx('absolute max-w-none object-cover bg-slate-100', {
                       'rounded-full': finished && !md,

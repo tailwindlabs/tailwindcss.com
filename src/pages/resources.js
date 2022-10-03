@@ -102,11 +102,11 @@ export default function Resources() {
                 title: 'Refactoring UI',
                 description: 'Learn UI Design',
                 images: [
-                  require('@/img/resources/refactoringui-small@75.jpg').default,
-                  require('@/img/resources/refactoringui@75.jpg').default,
+                  require('@/img/resources/refactoringui-small@75.jpg').default.src,
+                  require('@/img/resources/refactoringui@75.jpg').default.src,
                 ],
                 color: 'text-blue-500',
-                href: 'https://refactoringui.com',
+                href: 'https://refactoringui.com/?ref=resources',
                 body: (
                   <>
                     <p>
@@ -125,11 +125,11 @@ export default function Resources() {
                 title: 'Tailwind UI',
                 description: 'Beautiful UI components, crafted by the creators of Tailwind CSS',
                 images: [
-                  require('@/img/resources/tailwindui-small@75.jpg').default,
-                  require('@/img/resources/tailwindui@75.jpg').default,
+                  require('@/img/resources/tailwindui-small@75.jpg').default.src,
+                  require('@/img/resources/tailwindui@75.jpg').default.src,
                 ],
                 color: 'text-sky-500',
-                href: 'https://tailwindui.com',
+                href: 'https://tailwindui.com/?ref=resources',
                 body: (
                   <>
                     <p>
@@ -172,7 +172,7 @@ export default function Resources() {
                   <div className="aspect-w-[1216] aspect-h-[606] sm:aspect-w-[1376] sm:aspect-h-[664] shadow-lg rounded-lg bg-slate-100 overflow-hidden dark:bg-slate-800">
                     <picture>
                       <source type="image/jpeg" srcSet={images[1]} media="(min-width: 640px)" />
-                      <img src={images[0]} alt="" />
+                      <img src={images[0]} alt="" decoding="async" />
                     </picture>
                   </div>
                 </div>
@@ -204,7 +204,7 @@ export default function Resources() {
                   </p>
                 ),
                 href: 'https://headlessui.dev',
-                image: require('@/img/resources/headlessui@75.jpg').default,
+                image: require('@/img/resources/headlessui@75.jpg').default.src,
                 color: 'text-indigo-500',
               },
               {
@@ -217,7 +217,7 @@ export default function Resources() {
                   </p>
                 ),
                 href: 'https://heroicons.com',
-                image: require('@/img/resources/heroicons@75.jpg').default,
+                image: require('@/img/resources/heroicons@75.jpg').default.src,
                 color: 'text-purple-500',
               },
               {
@@ -230,7 +230,7 @@ export default function Resources() {
                   </p>
                 ),
                 href: 'https://heropatterns.com',
-                image: require('@/img/resources/heropatterns@75.jpg').default,
+                image: require('@/img/resources/heropatterns@75.jpg').default.src,
                 color: 'text-cyan-500',
               },
             ].map((card) => (
@@ -270,7 +270,7 @@ export default function Resources() {
                   </p>
                 ),
                 href: 'https://www.youtube.com/watch?v=cZc4Jn5nK3k',
-                image: require('@/img/resources/translating-design-system@75.jpg').default,
+                image: require('@/img/resources/translating-design-system@75.jpg').default.src,
                 color: 'text-sky-500',
               },
               {
@@ -283,7 +283,7 @@ export default function Resources() {
                   </p>
                 ),
                 href: 'https://www.youtube.com/watch?v=oG6XPy1t1KA',
-                image: require('@/img/resources/existing-project@75.jpg').default,
+                image: require('@/img/resources/existing-project@75.jpg').default.src,
                 color: 'text-pink-500',
               },
               {
@@ -297,7 +297,7 @@ export default function Resources() {
                   </p>
                 ),
                 href: 'https://www.youtube.com/watch?v=xNMYz74zNHM',
-                image: require('@/img/resources/ecommerce-store@75.jpg').default,
+                image: require('@/img/resources/ecommerce-store@75.jpg').default.src,
                 color: 'text-indigo-500',
               },
             ].map((card) => (

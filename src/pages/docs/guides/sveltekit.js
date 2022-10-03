@@ -25,15 +25,37 @@ let steps = [
     title: 'Install Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the
-        following commands to generate both <code>tailwind.config.cjs</code> and{' '}
-        <code>postcss.config.cjs</code>.
+        Using npm, install <code>tailwindcss</code> and its peer dependencies, as well as{' '}
+        <code>svelte-preprocess</code>, and then run the following commands to generate both{' '}
+        <code>tailwind.config.cjs</code> and <code>postcss.config.cjs</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init tailwind.config.cjs -p\nmv postcss.config.js postcss.config.cjs',
+      code: 'npm install -D tailwindcss postcss autoprefixer svelte-preprocess\nnpx tailwindcss init tailwind.config.cjs -p',
+    },
+  },
+  {
+    title: 'Enable use of PostCSS in <style> blocks',
+    body: () => (
+      <p>
+        In your <code>svelte.config.js</code> file, import <code>svelte-preprocess</code> and
+        configure it to process <code>&lt;style&gt;</code> blocks as PostCSS.
+      </p>
+    ),
+    code: {
+      name: 'svelte.config.js',
+      lang: 'js',
+      code: `> import preprocess from "svelte-preprocess";
+
+  const config = {
+>   preprocess: [
+>     preprocess({
+>       postcss: true,
+>     }),
+>   ],
+  }`,
     },
   },
   {
@@ -46,7 +68,8 @@ let steps = [
     code: {
       name: 'tailwind.config.cjs',
       lang: 'javascript',
-      code: `  module.exports = {
+      code: `  /** @type {import('tailwindcss').Config} */
+  module.exports = {
 >   content: ['./src/**/*.{html,js,svelte,ts}'],
     theme: {
       extend: {}
@@ -75,12 +98,12 @@ let steps = [
     title: 'Import the CSS file',
     body: () => (
       <p>
-        Create a <code>./src/routes/__layout.svelte</code> file and import the newly-created{' '}
+        Create a <code>./src/routes/+layout.svelte</code> file and import the newly-created{' '}
         <code>app.css</code> file.
       </p>
     ),
     code: {
-      name: '__layout.svelte',
+      name: '+layout.svelte',
       lang: 'html',
       code: `<script>
   import "../app.css";
@@ -106,7 +129,7 @@ let steps = [
     title: 'Start using Tailwind in your project',
     body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
     code: {
-      name: 'index.svelte',
+      name: '+page.svelte',
       lang: 'html',
       code: `<h1 class="text-3xl font-bold underline">
   Hello world!
@@ -127,21 +150,11 @@ export default function UsingSvelteKit({ code }) {
 }
 
 export function getStaticProps() {
-  let { highlightCode } = require('../../../../remark/utils')
+  let { highlightedCodeSnippets } = require('@/components/Guides/Snippets.js')
 
   return {
     props: {
-      code: steps.map(({ code }) => {
-        let isArray = Array.isArray(code)
-        code = isArray ? code : [code]
-        code = code.map((code) => {
-          if (code.lang && code.lang !== 'terminal') {
-            return highlightCode(code.code, code.lang)
-          }
-          return code.code
-        })
-        return isArray ? code : code[0]
-      }),
+      code: highlightedCodeSnippets(steps),
     },
   }
 }

@@ -12,7 +12,7 @@ let testimonials = [
       author: {
         name: 'Ryan Florence',
         role: 'Remix & React Training',
-        avatar: require('@/img/avatars/ryan-florence.jpg').default,
+        avatar: require('@/img/avatars/ryan-florence.jpg').default.src,
       },
     },
     {
@@ -22,7 +22,7 @@ let testimonials = [
       author: {
         name: 'Guillermo Rauch',
         role: 'Vercel',
-        avatar: require('@/img/avatars/guillermo-rauch.jpg').default,
+        avatar: require('@/img/avatars/guillermo-rauch.jpg').default.src,
       },
     },
     {
@@ -30,7 +30,7 @@ let testimonials = [
       author: {
         name: 'Sara Vieira',
         role: 'CodeSandbox',
-        avatar: require('@/img/avatars/sara-vieira.jpg').default,
+        avatar: require('@/img/avatars/sara-vieira.jpg').default.src,
       },
     },
     {
@@ -39,7 +39,7 @@ let testimonials = [
       author: {
         name: 'Bret "The Hitman" Hart',
         role: 'Former WWE Champion',
-        avatar: require('@/img/avatars/bret-hart.jpg').default,
+        avatar: require('@/img/avatars/bret-hart.jpg').default.src,
       },
     },
     {
@@ -48,7 +48,7 @@ let testimonials = [
       author: {
         name: 'Dacey Nolan',
         role: 'Software Engineer',
-        avatar: require('@/img/avatars/dacey-nolan.jpg').default,
+        avatar: require('@/img/avatars/dacey-nolan.jpg').default.src,
       },
     },
 
@@ -58,7 +58,7 @@ let testimonials = [
       author: {
         name: 'Gilbert Rabut Tsurwa',
         role: 'Web Developer',
-        avatar: require('@/img/avatars/gilbert-rabut-tsurwa.jpg').default,
+        avatar: require('@/img/avatars/gilbert-rabut-tsurwa.jpg').default.src,
       },
     },
     {
@@ -68,7 +68,7 @@ let testimonials = [
       author: {
         name: 'Graeme Houston',
         role: 'JavaScript Developer',
-        avatar: require('@/img/avatars/graeme-houston.jpg').default,
+        avatar: require('@/img/avatars/graeme-houston.jpg').default.src,
       },
     },
 
@@ -78,7 +78,7 @@ let testimonials = [
       author: {
         name: 'Aaron Bushnell',
         role: 'Programmer @ TrendyMinds',
-        avatar: require('@/img/avatars/aaron-bushnell.jpg').default,
+        avatar: require('@/img/avatars/aaron-bushnell.jpg').default.src,
       },
     },
     {
@@ -87,7 +87,7 @@ let testimonials = [
       author: {
         name: 'Ken Wheeler',
         role: `React Engineer`,
-        avatar: require('@/img/avatars/ken-wheeler.jpg').default,
+        avatar: require('@/img/avatars/ken-wheeler.jpg').default.src,
       },
     },
     {
@@ -96,7 +96,7 @@ let testimonials = [
       author: {
         name: 'Jad Limcaco',
         role: 'Designer',
-        avatar: require('@/img/avatars/jad-limcaco.jpg').default,
+        avatar: require('@/img/avatars/jad-limcaco.jpg').default.src,
       },
     },
     {
@@ -105,7 +105,7 @@ let testimonials = [
       author: {
         name: 'Luke Redpath',
         role: 'Ruby & iOS Developer',
-        avatar: require('@/img/avatars/luke-redpath.jpg').default,
+        avatar: require('@/img/avatars/luke-redpath.jpg').default.src,
       },
     },
     {
@@ -115,7 +115,7 @@ let testimonials = [
       author: {
         name: 'Jon Bloomer',
         role: 'Front-End Developer',
-        avatar: require('@/img/avatars/jon-bloomer.jpg').default,
+        avatar: require('@/img/avatars/jon-bloomer.jpg').default.src,
       },
     },
     {
@@ -124,7 +124,7 @@ let testimonials = [
       author: {
         name: 'Andrew Gilliland',
         role: 'Front-End Developer',
-        avatar: require('@/img/avatars/andrew-gilliland.jpg').default,
+        avatar: require('@/img/avatars/andrew-gilliland.jpg').default.src,
       },
     },
 
@@ -134,7 +134,7 @@ let testimonials = [
       url: 'https://twitter.com/pkspyder007/status/1463126688301158400',
       author: {
         name: 'Praveen Kumar',
-        avatar: require('@/img/avatars/pkspyder007.jpg').default,
+        avatar: require('@/img/avatars/pkspyder007.jpg').default.src,
       },
     },
     {
@@ -143,7 +143,7 @@ let testimonials = [
       url: 'https://twitter.com/fanduvasu/status/1443396529558011904',
       author: {
         name: 'Vasu Bansal',
-        avatar: require('@/img/avatars/fanduvasu.jpg').default,
+        avatar: require('@/img/avatars/fanduvasu.jpg').default.src,
       },
     },
     {
@@ -152,7 +152,7 @@ let testimonials = [
       url: 'https://twitter.com/lawjolla/status/1443295146959728643',
       author: {
         name: 'Dennis Walsh',
-        avatar: require('@/img/avatars/lawjolla.jpg').default,
+        avatar: require('@/img/avatars/lawjolla.jpg').default.src,
       },
     },
     {
@@ -161,7 +161,7 @@ let testimonials = [
       url: 'https://twitter.com/ericlbarnes/status/1303814860879343618',
       author: {
         name: 'Eric L. Barnes',
-        avatar: require('@/img/avatars/ericlbarnes.jpg').default,
+        avatar: require('@/img/avatars/ericlbarnes.jpg').default.src,
       },
     },
     {
@@ -170,7 +170,7 @@ let testimonials = [
       url: 'https://twitter.com/nicksaraev/status/1304200875758428160',
       author: {
         name: 'Nick Saraev',
-        avatar: require('@/img/avatars/nicksaraev.jpg').default,
+        avatar: require('@/img/avatars/nicksaraev.jpg').default.src,
       },
     },
     {
@@ -179,7 +179,7 @@ let testimonials = [
       url: 'https://twitter.com/_lukebennett/status/1303744015943204867',
       author: {
         name: 'Luke Bennett',
-        avatar: require('@/img/avatars/_lukebennett.jpg').default,
+        avatar: require('@/img/avatars/_lukebennett.jpg').default.src,
       },
     },
     {
@@ -188,7 +188,7 @@ let testimonials = [
       url: 'https://twitter.com/carre_sam/status/1303750185663770625',
       author: {
         name: 'Sam Carré',
-        avatar: require('@/img/avatars/carre_sam.jpg').default,
+        avatar: require('@/img/avatars/carre_sam.jpg').default.src,
       },
     },
     {
@@ -197,7 +197,7 @@ let testimonials = [
       url: 'https://twitter.com/evanfuture/status/1303743551583514637',
       author: {
         name: 'Evan Payne',
-        avatar: require('@/img/avatars/evanfuture.jpg').default,
+        avatar: require('@/img/avatars/evanfuture.jpg').default.src,
       },
     },
     {
@@ -206,7 +206,7 @@ let testimonials = [
       url: 'https://twitter.com/rotimi_best/status/1407010180760539136',
       author: {
         name: 'Rotimi Best',
-        avatar: require('@/img/avatars/rotimi_best.jpg').default,
+        avatar: require('@/img/avatars/rotimi_best.jpg').default.src,
       },
     },
     {
@@ -214,7 +214,7 @@ let testimonials = [
       url: 'https://twitter.com/Dominus_Kelvin/status/1362891692634963973',
       author: {
         name: 'Kelvin Omereshone',
-        avatar: require('@/img/avatars/Dominus_Kelvin.jpg').default,
+        avatar: require('@/img/avatars/Dominus_Kelvin.jpg').default.src,
       },
     },
     {
@@ -223,7 +223,7 @@ let testimonials = [
       url: 'https://twitter.com/JCMagoo/status/1443334891706454018',
       author: {
         name: 'John W Clarke',
-        avatar: require('@/img/avatars/JCMagoo.jpg').default,
+        avatar: require('@/img/avatars/JCMagoo.jpg').default.src,
       },
     },
     {
@@ -232,7 +232,7 @@ let testimonials = [
       url: 'https://twitter.com/tweetsofsumit/status/1460171778337083394',
       author: {
         name: 'Sumit Kumar',
-        avatar: require('@/img/avatars/tweetsofsumit.jpg').default,
+        avatar: require('@/img/avatars/tweetsofsumit.jpg').default.src,
       },
     },
     {
@@ -242,7 +242,7 @@ let testimonials = [
       author: {
         name: 'Mannie Schumpert',
         role: 'Co-Founder/CTO @LaunchPathInc',
-        avatar: require('@/img/avatars/mannieschumpert.jpg').default,
+        avatar: require('@/img/avatars/mannieschumpert.jpg').default.src,
       },
     },
 
@@ -254,7 +254,7 @@ let testimonials = [
     //   author: {
     //     name: 'Mark Funk',
     //     role: 'UI Engineer at Netflix',
-    //     avatar: require('@/img/avatars/.jpg').default,
+    //     avatar: require('@/img/avatars/.jpg').default.src,
     //   },
     // },
     {
@@ -263,7 +263,7 @@ let testimonials = [
       url: 'https://twitter.com/0xholman/status/1468691614453227523',
       author: {
         name: 'Christian Holman',
-        avatar: require('@/img/avatars/0xholman.jpg').default,
+        avatar: require('@/img/avatars/0xholman.jpg').default.src,
       },
     },
     {
@@ -273,7 +273,7 @@ let testimonials = [
       author: {
         name: 'Jilson Thomas',
         role: 'UI Designer/Developer',
-        avatar: require('@/img/avatars/jilsonthomas.jpg').default,
+        avatar: require('@/img/avatars/jilsonthomas.jpg').default.src,
       },
     },
     {
@@ -283,7 +283,7 @@ let testimonials = [
       author: {
         name: 'Jake Ryan Smith',
         role: 'Full-Stack Developer',
-        avatar: require('@/img/avatars/jakeryansmith.jpg').default,
+        avatar: require('@/img/avatars/jakeryansmith.jpg').default.src,
       },
     },
   ],
@@ -295,8 +295,8 @@ let testimonials = [
       url: 'https://twitter.com/debs_obrien/status/1243255468241420288',
       author: {
         name: `Debbie O'Brien`,
-        role: 'Head Developer Advocate @ Bit',
-        avatar: require('@/img/avatars/debbie-obrien.jpg').default,
+        role: 'Senior Program Manager at Microsoft',
+        avatar: require('@/img/avatars/debbie-obrien.jpg').default.src,
       },
     },
     {
@@ -306,7 +306,7 @@ let testimonials = [
       author: {
         name: 'Ben Furfie',
         role: 'Developer',
-        avatar: require('@/img/avatars/frontendben.jpg').default,
+        avatar: require('@/img/avatars/frontendben.jpg').default.src,
       },
     },
     {
@@ -315,7 +315,7 @@ let testimonials = [
       author: {
         name: 'Didier Catz',
         role: 'Co-Founder @StyptApp',
-        avatar: require('@/img/avatars/didiercatz.jpg').default,
+        avatar: require('@/img/avatars/didiercatz.jpg').default.src,
       },
     },
     {
@@ -325,7 +325,7 @@ let testimonials = [
       author: {
         name: 'Sarah Dayan',
         role: 'Staff Software Engineer @Algolia',
-        avatar: require('@/img/avatars/frontstuff_io.jpg').default,
+        avatar: require('@/img/avatars/frontstuff_io.jpg').default.src,
       },
     },
     {
@@ -334,7 +334,7 @@ let testimonials = [
       author: {
         name: 'Trey Piepmeier',
         role: 'Web Developer',
-        avatar: require('@/img/avatars/trey.jpg').default,
+        avatar: require('@/img/avatars/trey.jpg').default.src,
       },
     },
     {
@@ -344,7 +344,7 @@ let testimonials = [
       author: {
         name: 'Madeline Campbell',
         role: 'Full-Stack Developer',
-        avatar: require('@/img/avatars/madeline-campbell.jpg').default,
+        avatar: require('@/img/avatars/madeline-campbell.jpg').default.src,
       },
     },
     {
@@ -354,7 +354,7 @@ let testimonials = [
       author: {
         name: 'Marcel Pociot',
         role: 'CTO at @beyondcode',
-        avatar: require('@/img/avatars/marcelpociot.jpg').default,
+        avatar: require('@/img/avatars/marcelpociot.jpg').default.src,
       },
     },
     {
@@ -363,7 +363,7 @@ let testimonials = [
       author: {
         name: 'Boris Lepikhin',
         role: 'Full-Stack Developer',
-        avatar: require('@/img/avatars/lepikhinb.jpg').default,
+        avatar: require('@/img/avatars/lepikhinb.jpg').default.src,
       },
     },
     {
@@ -373,7 +373,7 @@ let testimonials = [
       author: {
         name: 'Christopher Pitt',
         role: 'Developer',
-        avatar: require('@/img/avatars/assertchris.png').default,
+        avatar: require('@/img/avatars/assertchris.png').default.src,
       },
     },
     {
@@ -383,7 +383,7 @@ let testimonials = [
       author: {
         name: 'Chase Giunta',
         role: 'Developer',
-        avatar: require('@/img/avatars/ChaseGiunta.jpg').default,
+        avatar: require('@/img/avatars/ChaseGiunta.jpg').default.src,
       },
     },
     {
@@ -393,7 +393,7 @@ let testimonials = [
       author: {
         name: 'Ivan Guzman',
         role: 'Software Engineer',
-        avatar: require('@/img/avatars/zaku_dev.png').default,
+        avatar: require('@/img/avatars/zaku_dev.png').default.src,
       },
     },
     {
@@ -403,7 +403,7 @@ let testimonials = [
       author: {
         name: 'Charlie Joseph',
         role: 'Developer',
-        avatar: require('@/img/avatars/heychazza.jpg').default,
+        avatar: require('@/img/avatars/heychazza.jpg').default.src,
       },
     },
     {
@@ -413,7 +413,7 @@ let testimonials = [
       author: {
         name: 'Kahlil Lechelt',
         role: 'JavaScript Developer',
-        avatar: require('@/img/avatars/kahliltweets.jpg').default,
+        avatar: require('@/img/avatars/kahliltweets.jpg').default.src,
       },
     },
     {
@@ -423,7 +423,7 @@ let testimonials = [
       author: {
         name: 'Marco Singhof',
         role: 'Full-Stack Developer',
-        avatar: require('@/img/avatars/MarcoSinghof.jpg').default,
+        avatar: require('@/img/avatars/MarcoSinghof.jpg').default.src,
       },
     },
     {
@@ -433,7 +433,7 @@ let testimonials = [
       author: {
         name: 'Joost Meijles',
         role: 'Head of Unplatform @avivasolutions',
-        avatar: require('@/img/avatars/joostmeijles.jpg').default,
+        avatar: require('@/img/avatars/joostmeijles.jpg').default.src,
       },
     },
     {
@@ -443,7 +443,7 @@ let testimonials = [
       author: {
         name: 'Matt Swanson',
         role: 'Developer',
-        avatar: require('@/img/avatars/_swanson.jpg').default,
+        avatar: require('@/img/avatars/_swanson.jpg').default.src,
       },
     },
     {
@@ -453,7 +453,7 @@ let testimonials = [
       author: {
         name: 'Matija Marohnić',
         role: 'Front-End Developer',
-        avatar: require('@/img/avatars/silvenon.jpg').default,
+        avatar: require('@/img/avatars/silvenon.jpg').default.src,
       },
     },
     {
@@ -463,7 +463,7 @@ let testimonials = [
       author: {
         name: 'Hugh Durkin',
         role: 'Developer',
-        avatar: require('@/img/avatars/hughdurkin.jpg').default,
+        avatar: require('@/img/avatars/hughdurkin.jpg').default.src,
       },
     },
     {
@@ -473,7 +473,7 @@ let testimonials = [
       author: {
         name: 'Matthias Schmidt',
         role: 'Programmer',
-        avatar: require('@/img/avatars/wolax.jpg').default,
+        avatar: require('@/img/avatars/wolax.jpg').default.src,
       },
     },
     {
@@ -483,7 +483,7 @@ let testimonials = [
       author: {
         name: 'Jerred Hurst',
         role: 'CTO Primitive',
-        avatar: require('@/img/avatars/jerredchurst.jpg').default,
+        avatar: require('@/img/avatars/jerredchurst.jpg').default.src,
       },
     },
     {
@@ -493,7 +493,7 @@ let testimonials = [
       author: {
         name: 'Braunson Yager',
         role: 'Full Stack Developer & Designer',
-        avatar: require('@/img/avatars/braunshizzle.jpg').default,
+        avatar: require('@/img/avatars/braunshizzle.jpg').default.src,
       },
     },
     {
@@ -503,7 +503,7 @@ let testimonials = [
       author: {
         name: 'Zac Jordan Zajdel',
         role: 'Developer',
-        avatar: require('@/img/avatars/zac_zajdel.jpg').default,
+        avatar: require('@/img/avatars/zac_zajdel.jpg').default.src,
       },
     },
     {
@@ -513,7 +513,7 @@ let testimonials = [
       author: {
         name: 'Joel Varty',
         role: 'President & CTO @agilitycms',
-        avatar: require('@/img/avatars/joelvarty.jpg').default,
+        avatar: require('@/img/avatars/joelvarty.jpg').default.src,
       },
     },
     {
@@ -523,7 +523,7 @@ let testimonials = [
       author: {
         name: 'Neil Docherty',
         role: 'Software Engineer',
-        avatar: require('@/img/avatars/NeilDocherty.jpg').default,
+        avatar: require('@/img/avatars/NeilDocherty.jpg').default.src,
       },
     },
     {
@@ -533,7 +533,7 @@ let testimonials = [
       author: {
         name: 'Søren Kottal',
         role: 'Developer',
-        avatar: require('@/img/avatars/skttl.jpg').default,
+        avatar: require('@/img/avatars/skttl.jpg').default.src,
       },
     },
     {
@@ -542,7 +542,7 @@ let testimonials = [
       author: {
         name: 'Aaron Francis',
         role: 'Developer',
-        avatar: require('@/img/avatars/aarondfrancis.jpg').default,
+        avatar: require('@/img/avatars/aarondfrancis.jpg').default.src,
       },
     },
     {
@@ -552,7 +552,7 @@ let testimonials = [
       author: {
         name: 'Sanjay Soundarajan',
         role: 'Front-End Developer',
-        avatar: require('@/img/avatars/Megasanjay.jpg').default,
+        avatar: require('@/img/avatars/Megasanjay.jpg').default.src,
       },
     },
     {
@@ -562,7 +562,7 @@ let testimonials = [
       author: {
         name: 'Brent Garner',
         role: 'Developer',
-        avatar: require('@/img/avatars/brentgarner.jpg').default,
+        avatar: require('@/img/avatars/brentgarner.jpg').default.src,
       },
     },
   ],
@@ -574,7 +574,7 @@ let testimonials = [
       author: {
         name: 'Kent C. Dodds',
         role: 'Developer and Educator',
-        avatar: require('@/img/avatars/kentcdodds.jpg').default,
+        avatar: require('@/img/avatars/kentcdodds.jpg').default.src,
       },
     },
     {
@@ -584,7 +584,7 @@ let testimonials = [
       author: {
         name: 'Shruti Balasa',
         role: 'Full Stack Web Developer & Tech Educator',
-        avatar: require('@/img/avatars/shrutibalasa.jpg').default,
+        avatar: require('@/img/avatars/shrutibalasa.jpg').default.src,
       },
     },
     {
@@ -593,7 +593,7 @@ let testimonials = [
       author: {
         name: 'Pieter Levels',
         role: 'Maker',
-        avatar: require('@/img/avatars/levelsio.jpg').default,
+        avatar: require('@/img/avatars/levelsio.jpg').default.src,
       },
     },
     {
@@ -603,7 +603,7 @@ let testimonials = [
       author: {
         name: 'Greg Sullivan',
         role: 'WordPress Developer',
-        avatar: require('@/img/avatars/gregsvn.jpg').default,
+        avatar: require('@/img/avatars/gregsvn.jpg').default.src,
       },
     },
     {
@@ -612,7 +612,7 @@ let testimonials = [
       author: {
         name: 'Nuno Maduro',
         role: 'Core Team Member @laravelphp',
-        avatar: require('@/img/avatars/enunomaduro.jpg').default,
+        avatar: require('@/img/avatars/enunomaduro.jpg').default.src,
       },
     },
     {
@@ -622,7 +622,7 @@ let testimonials = [
       author: {
         name: 'Igor Randjelovic',
         role: 'Developer',
-        avatar: require('@/img/avatars/igor_randj.jpg').default,
+        avatar: require('@/img/avatars/igor_randj.jpg').default.src,
       },
     },
     {
@@ -632,7 +632,7 @@ let testimonials = [
       author: {
         name: 'Dan Malone',
         role: 'Founder of @mawla_io',
-        avatar: require('@/img/avatars/ohhdanm.jpg').default,
+        avatar: require('@/img/avatars/ohhdanm.jpg').default.src,
       },
     },
     {
@@ -642,7 +642,7 @@ let testimonials = [
       author: {
         name: 'Sergio Peris',
         role: 'DevOps Engineer & Network Administrator',
-        avatar: require('@/img/avatars/sertxudev.jpg').default,
+        avatar: require('@/img/avatars/sertxudev.jpg').default.src,
       },
     },
     {
@@ -652,7 +652,7 @@ let testimonials = [
       author: {
         name: 'Zach Knickerbocker',
         role: 'Developer',
-        avatar: require('@/img/avatars/zachknicker.jpg').default,
+        avatar: require('@/img/avatars/zachknicker.jpg').default.src,
       },
     },
     {
@@ -662,7 +662,7 @@ let testimonials = [
       author: {
         name: 'Glenn Meyer',
         role: 'Developer',
-        avatar: require('@/img/avatars/grossmeyer.jpg').default,
+        avatar: require('@/img/avatars/grossmeyer.jpg').default.src,
       },
     },
     {
@@ -672,7 +672,7 @@ let testimonials = [
       author: {
         name: "Jan D'Hollander",
         role: 'Front-End Developer',
-        avatar: require('@/img/avatars/Jan_DHollander.jpg').default,
+        avatar: require('@/img/avatars/Jan_DHollander.jpg').default.src,
       },
     },
     {
@@ -681,7 +681,7 @@ let testimonials = [
       url: 'https://twitter.com/waunakeesoccer1/status/1468736369757466625',
       author: {
         name: 'Andrew Brown',
-        avatar: require('@/img/avatars/waunakeesoccer1.jpg').default,
+        avatar: require('@/img/avatars/waunakeesoccer1.jpg').default.src,
       },
     },
     {
@@ -690,7 +690,7 @@ let testimonials = [
       url: 'https://twitter.com/marckohlbrugge/status/1468731283400536071',
       author: {
         name: 'Marc Köhlbrugge',
-        avatar: require('@/img/avatars/marckohlbrugge.jpg').default,
+        avatar: require('@/img/avatars/marckohlbrugge.jpg').default.src,
       },
     },
     {
@@ -700,7 +700,7 @@ let testimonials = [
       author: {
         name: 'David Hellmann',
         role: 'Digital Designer & Developer',
-        avatar: require('@/img/avatars/davidhellmann.jpg').default,
+        avatar: require('@/img/avatars/davidhellmann.jpg').default.src,
       },
     },
     {
@@ -710,7 +710,7 @@ let testimonials = [
       author: {
         name: 'Joshua Lowe',
         role: 'Developer',
-        avatar: require('@/img/avatars/all_about_code.jpg').default,
+        avatar: require('@/img/avatars/all_about_code.jpg').default.src,
       },
     },
     {
@@ -720,7 +720,7 @@ let testimonials = [
       author: {
         name: 'Josh Manders',
         role: 'Developer',
-        avatar: require('@/img/avatars/joshmanders.jpg').default,
+        avatar: require('@/img/avatars/joshmanders.jpg').default.src,
       },
     },
     {
@@ -730,7 +730,7 @@ let testimonials = [
       author: {
         name: 'Ian Gaenssley',
         role: 'Design Operations Lead at BetterCloud',
-        avatar: require('@/img/avatars/igaenssley.jpg').default,
+        avatar: require('@/img/avatars/igaenssley.jpg').default.src,
       },
     },
     {
@@ -740,7 +740,7 @@ let testimonials = [
       author: {
         name: 'Jess Archer',
         role: 'Full-Stack Developer',
-        avatar: require('@/img/avatars/jessarchercodes.png').default,
+        avatar: require('@/img/avatars/jessarchercodes.png').default.src,
       },
     },
     {
@@ -750,7 +750,7 @@ let testimonials = [
       author: {
         name: 'Corey Ginnivan',
         role: 'Co-Founder of FeatureBoard',
-        avatar: require('@/img/avatars/CoreyGinnivan.jpg').default,
+        avatar: require('@/img/avatars/CoreyGinnivan.jpg').default.src,
       },
     },
     {
@@ -759,7 +759,7 @@ let testimonials = [
       url: 'https://twitter.com/ryanchenkie/status/1468675898559840263',
       author: {
         name: 'Ryan Chenkie',
-        avatar: require('@/img/avatars/ryanchenkie.jpg').default,
+        avatar: require('@/img/avatars/ryanchenkie.jpg').default.src,
       },
     },
     {
@@ -769,7 +769,7 @@ let testimonials = [
       author: {
         name: 'Dan Gayle',
         role: 'Senior Front-End Developer @CrateandBarrel',
-        avatar: require('@/img/avatars/dangayle.jpg').default,
+        avatar: require('@/img/avatars/dangayle.jpg').default.src,
       },
     },
     {
@@ -779,7 +779,7 @@ let testimonials = [
       author: {
         name: 'Dan Brooking',
         role: 'Head Engineer @SubscriptionBox',
-        avatar: require('@/img/avatars/dbrooking.jpg').default,
+        avatar: require('@/img/avatars/dbrooking.jpg').default.src,
       },
     },
     {
@@ -788,7 +788,7 @@ let testimonials = [
       url: 'https://twitter.com/TrevorCampbell_/status/1468739918662930432',
       author: {
         name: 'Trevor Campbell',
-        avatar: require('@/img/avatars/TrevorCampbell_.jpg').default,
+        avatar: require('@/img/avatars/TrevorCampbell_.jpg').default.src,
       },
     },
     {
@@ -798,7 +798,7 @@ let testimonials = [
       author: {
         name: 'Jeff Sagal',
         role: 'Full-Stack Developer',
-        avatar: require('@/img/avatars/sagalbot.jpg').default,
+        avatar: require('@/img/avatars/sagalbot.jpg').default.src,
       },
     },
     {
@@ -808,7 +808,7 @@ let testimonials = [
       author: {
         name: 'Michael Dyrynda',
         role: 'Australian',
-        avatar: require('@/img/avatars/michaeldyrynda.jpg').default,
+        avatar: require('@/img/avatars/michaeldyrynda.jpg').default.src,
       },
     },
     {
@@ -818,7 +818,7 @@ let testimonials = [
       author: {
         name: 'Jason Beggs',
         role: 'Front-End Developer',
-        avatar: require('@/img/avatars/jasonlbeggs.jpg').default,
+        avatar: require('@/img/avatars/jasonlbeggs.jpg').default.src,
       },
     },
     {
@@ -827,7 +827,7 @@ let testimonials = [
       author: {
         name: 'David Paluy',
         role: 'CTO @Quartix',
-        avatar: require('@/img/avatars/dpaluy.png').default,
+        avatar: require('@/img/avatars/dpaluy.png').default.src,
       },
     },
     {
@@ -837,7 +837,7 @@ let testimonials = [
       author: {
         name: 'Jacob Graf',
         role: 'Web Developer',
-        avatar: require('@/img/avatars/jacobgraf.jpg').default,
+        avatar: require('@/img/avatars/jacobgraf.jpg').default.src,
       },
     },
   ],
@@ -865,6 +865,7 @@ function Testimonial({ author, content, url, expanded }) {
             alt=""
             className="flex-none w-14 h-14 rounded-full object-cover"
             loading="lazy"
+            decoding="async"
           />
           <div className="flex-auto">
             <div className="text-base text-slate-900 font-semibold dark:text-slate-300">

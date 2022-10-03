@@ -2,10 +2,10 @@ import { useEffect } from 'react'
 import { code as html, lines } from '../../samples/mobile-first.html?highlight'
 
 let images = {
-  '/kevin-francis.jpg': require('@/img/kevin-francis.jpg').default,
-  '/beach-house.jpg': require('@/img/beach-house.jpg').default,
-  '/beach-house-interior-1.jpg': require('@/img/beach-house-interior-1.jpg').default,
-  '/beach-house-interior-2.jpg': require('@/img/beach-house-interior-2.jpg').default,
+  '/kevin-francis.jpg': require('@/img/kevin-francis.jpg').default.src,
+  '/beach-house.jpg': require('@/img/beach-house.jpg').default.src,
+  '/beach-house-interior-1.jpg': require('@/img/beach-house-interior-1.jpg').default.src,
+  '/beach-house-interior-2.jpg': require('@/img/beach-house-interior-2.jpg').default.src,
 }
 
 export default function MobileFirstDemo() {

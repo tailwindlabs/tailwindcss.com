@@ -90,8 +90,8 @@ export function StateVariants() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <IconContainer
           className="dark:bg-blue-500 dark:highlight-white/20"
-          light={require('@/img/icons/home/state-variants.png').default}
-          dark={require('@/img/icons/home/dark/state-variants.png').default}
+          light={require('@/img/icons/home/state-variants.png').default.src}
+          dark={require('@/img/icons/home/dark/state-variants.png').default.src}
         />
         <Caption className="text-blue-500">State variants</Caption>
         <BigText>
@@ -198,6 +198,7 @@ export function StateVariants() {
                               alt=""
                               className="w-6 h-6 rounded-full bg-slate-100 ring-2 ring-white dark:ring-slate-700 dark:group-hover:ring-white"
                               loading="lazy"
+                              decoding="async"
                             />
                           ))}
                         </dd>

@@ -1,7 +1,13 @@
 import { useIsomorphicLayoutEffect } from '@/hooks/useIsomorphicLayoutEffect'
 import { Listbox } from '@headlessui/react'
 import clsx from 'clsx'
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef } from 'react'
+import create from 'zustand'
+
+const useSetting = create((set) => ({
+  setting: 'system',
+  setSetting: (setting) => set({ setting }),
+}))
 
 function update() {
   if (
@@ -9,8 +15,10 @@ function update() {
     (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
   ) {
     document.documentElement.classList.add('dark', 'changing-theme')
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0B1120')
   } else {
     document.documentElement.classList.remove('dark', 'changing-theme')
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f8fafc')
   }
   window.setTimeout(() => {
     document.documentElement.classList.remove('changing-theme')
@@ -105,7 +113,7 @@ function PcIcon({ selected, ...props }) {
 }
 
 function useTheme() {
-  let [setting, setSetting] = useState('system')
+  let { setting, setSetting } = useSetting()
   let initial = useRef(true)
 
   useIsomorphicLayoutEffect(() => {
