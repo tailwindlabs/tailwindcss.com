@@ -77,7 +77,7 @@ export default function App({ Component, pageProps, router }) {
         <meta
           key="twitter:image"
           name="twitter:image"
-          content={`https://tailwindcss.com${socialCardLarge}`}
+          content={`https://tailwindcss.com${socialCardLarge.src}`}
         />
         <meta key="twitter:creator" name="twitter:creator" content="@tailwindcss" />
         <meta
@@ -90,7 +90,7 @@ export default function App({ Component, pageProps, router }) {
         <meta
           key="og:image"
           property="og:image"
-          content={`https://tailwindcss.com${socialCardLarge}`}
+          content={`https://tailwindcss.com${socialCardLarge.src}`}
         />
         <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feeds/feed.xml" />
         <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/feeds/atom.xml" />

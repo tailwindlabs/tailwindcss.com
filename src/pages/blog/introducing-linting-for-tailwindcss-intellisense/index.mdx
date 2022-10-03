@@ -17,8 +17,6 @@ export const meta = {
 
 Today we’re releasing a new version of the [Tailwind CSS IntelliSense extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) that adds Tailwind-specific linting to both your CSS and your markup.
 
-<!--more-->
-
 ## Detecting errors in your CSS
 
 Tailwind already detects CSS errors, for example when you mistype a screen name in the `@screen` directive. The linting feature for Tailwind CSS IntelliSense surfaces these errors and displays them in context, directly inside your editor. The linter will validate your `@tailwind`, `@screen`, `@variants` and `@apply` directives, as well as any `theme` function calls:
@@ -27,7 +25,7 @@ Tailwind already detects CSS errors, for example when you mistype a screen name 
   width="1524"
   height="857"
   alt="Screen capture showing CSS linting in action"
-  src={imgCss}
+  src={imgCss.src}
   srcSet={`${imgCss} 762w, ${imgCss2x} 1524w`}
   sizes="(min-width: 1280px) 51rem, (min-width: 768px) 45rem, (min-width: 640px) calc(100vw - 3rem), calc(100vw - 2rem)"
 />
@@ -40,7 +38,7 @@ There is one more lint rule which analyses class lists in your template files an
   width="1524"
   height="857"
   alt="Screen capture showing markup linting in action"
-  src={imgHtml}
+  src={imgHtml.src}
   srcSet={`${imgHtml} 762w, ${imgHtml2x} 1524w`}
   sizes="(min-width: 1280px) 51rem, (min-width: 768px) 45rem, (min-width: 640px) calc(100vw - 3rem), calc(100vw - 2rem)"
 />
@@ -51,7 +49,7 @@ To make it as easy as possible to fix any issues, all of the lint rules have the
 
 As well as simple text replacements there’s also some more interesting quick fixes for the more complex lint rules. Take a look at how the extension can automatically refactor an invalid `@apply` directive:
 
-<video src={applyQuickFixVideo} width="1600" height="900" controls />
+<video src={applyQuickFixVideo.src} width="1600" height="900" controls />
 
 ## Configuration
 
@@ -65,6 +63,4 @@ Linting is available now in `v0.4.0` of Tailwind CSS IntelliSense! If you alread
 
 This is the very first iteration of this feature, and we’d love to hear your feedback! Do you have an idea for a new lint rule? Let us know!
 
-<Footer>
-  Want to talk about this post? <a href="https://github.com/tailwindcss/tailwindcss/discussions/1956">Discuss this on GitHub →</a>
-</Footer>
+Want to talk about this post? <a href="https://github.com/tailwindcss/tailwindcss/discussions/1956">Discuss this on GitHub →</a>

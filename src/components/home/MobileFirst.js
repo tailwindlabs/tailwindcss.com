@@ -269,8 +269,8 @@ export function MobileFirst() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <IconContainer
           className="dark:bg-indigo-500 dark:highlight-white/20"
-          light={require('@/img/icons/home/mobile-first.png').default}
-          dark={require('@/img/icons/home/dark/mobile-first.png').default}
+          light={require('@/img/icons/home/mobile-first.png').default.src}
+          dark={require('@/img/icons/home/dark/mobile-first.png').default.src}
         />
         <Caption className="text-indigo-500 dark:text-indigo-400">Mobile-first</Caption>
         <BigText>Responsive everything.</BigText>

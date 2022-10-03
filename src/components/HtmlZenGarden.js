@@ -34,9 +34,10 @@ const themes = {
         [8, 8, 0, 0],
         [8, 0, 0, 8],
       ],
-      src: require('@/img/classic-utility-jacket.jpg').default,
+      src: require('@/img/classic-utility-jacket.jpg').default.src,
       originalWidth: 1200,
       originalHeight: 1600,
+      loading: 'lazy',
     },
     contentContainer: 'p-6',
     header: '-mt-6 pt-6 pb-6',
@@ -95,9 +96,10 @@ const themes = {
         return col ? 191 : 305 + 16
       },
       borderRadius: 8,
-      src: require('@/img/kids-jumper.jpg').default,
+      src: require('@/img/kids-jumper.jpg').default.src,
       originalWidth: 1200,
       originalHeight: 1700,
+      loading: 'lazy',
       className: ['-mt-2 -mx-2', '-mt-2 -mx-2', '-my-2 -ml-2'],
     },
     contentContainer: 'p-6',
@@ -159,7 +161,7 @@ const themes = {
         return col ? 177 : 305 - 12
       },
       borderRadius: 0,
-      src: require('@/img/fancy-suit-jacket.jpg').default,
+      src: require('@/img/fancy-suit-jacket.jpg').default.src,
       originalWidth: 1200,
       originalHeight: 2128,
     },
@@ -218,7 +220,7 @@ const themes = {
         return col ? 160 : 224
       },
       borderRadius: 0,
-      src: require('@/img/retro-shoe.jpg').default,
+      src: require('@/img/retro-shoe.jpg').default.src,
       originalWidth: 1200,
       originalHeight: 1772,
     },
@@ -383,6 +385,8 @@ export function HtmlZenGarden({ theme }) {
                       key={name}
                       src={themes[name].image.src}
                       alt=""
+                      decoding="async"
+                      loading={themes[name].image.loading}
                       className="absolute max-w-none"
                       style={fit(
                         themes[theme].image.width({ containerWidth, col }),

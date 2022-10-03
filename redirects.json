@@ -304,7 +304,7 @@
   },
   {
     "source": "/docs/guides/vue-3-vite",
-    "destination": "/docs/guides/vite",
+    "destination": "/docs/guides/vite#vue",
     "permanent": false
   },
   {

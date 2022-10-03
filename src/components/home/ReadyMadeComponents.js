@@ -10,6 +10,8 @@ function AnimatedImage({ animate = false, delay = 0, ...props }) {
       animate={animate ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
       transition={{ duration: 0.5, delay }}
       alt=""
+      loading="lazy"
+      decoding="async"
       {...props}
     />
   )
@@ -25,12 +27,12 @@ const getStyle = (x, y, width) => ({
 })
 
 const images = [
-  { src: require('@/img/tailwindui/0.png').default, x: 27, y: 24, width: 236 },
-  { src: require('@/img/tailwindui/1.png').default, x: 287, y: 0, width: 567 },
-  { src: require('@/img/tailwindui/2.png').default, x: 878, y: 47, width: 308 },
-  { src: require('@/img/tailwindui/3.jpg').default, x: 0, y: 289, width: 472 },
-  { src: require('@/img/tailwindui/4.jpg').default, x: 496, y: 289, width: 441 },
-  { src: require('@/img/tailwindui/5.png').default, x: 961, y: 289, width: 252 },
+  { src: require('@/img/tailwindui/0.png').default.src, x: 27, y: 24, width: 236 },
+  { src: require('@/img/tailwindui/1.png').default.src, x: 287, y: 0, width: 567 },
+  { src: require('@/img/tailwindui/2.png').default.src, x: 878, y: 47, width: 308 },
+  { src: require('@/img/tailwindui/3.jpg').default.src, x: 0, y: 289, width: 472 },
+  { src: require('@/img/tailwindui/4.jpg').default.src, x: 496, y: 289, width: 441 },
+  { src: require('@/img/tailwindui/5.png').default.src, x: 961, y: 289, width: 252 },
 ]
 
 export function ReadyMadeComponents() {
@@ -41,8 +43,8 @@ export function ReadyMadeComponents() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <IconContainer
           className="dark:bg-indigo-500 dark:highlight-white/20"
-          light={require('@/img/icons/home/ready-made-components.png').default}
-          dark={require('@/img/icons/home/dark/ready-made-components.png').default}
+          light={require('@/img/icons/home/ready-made-components.png').default.src}
+          dark={require('@/img/icons/home/dark/ready-made-components.png').default.src}
         />
         <Caption className="text-indigo-500">Ready-made components</Caption>
         <BigText>
@@ -54,7 +56,7 @@ export function ReadyMadeComponents() {
           to choose from, and is guaranteed to help you find the perfect starting point for what you
           want to build.
         </Paragraph>
-        <Link href="https://tailwindui.com/" color="indigo" darkColor="gray">
+        <Link href="https://tailwindui.com/?ref=landing" color="indigo" darkColor="gray">
           Learn more
         </Link>
       </div>

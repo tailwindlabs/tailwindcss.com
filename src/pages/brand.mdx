@@ -6,6 +6,10 @@ description: "Tailwind CSS brand assets and usage guidelines."
 export const Layout = require('@/layouts/DocumentationLayout').DocumentationLayout
 export default require('@/layouts/ContentsLayout').ContentsLayout
 
+import tailwindcssLogoMark from '@/img/brand/tailwindcss-mark.svg'
+import tailwindcssLogoType from '@/img/brand/tailwindcss-logotype.svg'
+import tailwindcssLogoTypeWhite from '@/img/brand/tailwindcss-logotype-white.svg'
+
 ## Trademark Usage Agreement
 
 The Tailwind name and logos are trademarks of Tailwind Labs Inc.
@@ -27,27 +31,27 @@ These assets are provided for use in situations like articles and video tutorial
 ### Mark
 
 <div className="pt-5 pb-8">
-  <a href={require('@/img/brand/tailwindcss-mark.svg').default} download>
+  <a href={tailwindcssLogoMark} download>
     <span className="sr-only">Download mark</span>
     <div className="max-w-xl">
       <div className="relative" style={{ paddingTop: `${33 / 262 * 100}%` }}>
-        <img className="absolute inset-0 w-full h-full object-contain object-left" src={require('@/img/brand/tailwindcss-mark.svg').default} alt="" width={54} height={33} style={{ margin: 0 }} />
+        <img className="absolute inset-0 w-full h-full object-contain object-left" src={tailwindcssLogoMark} alt="" width={54} height={33} style={{ margin: 0 }} />
       </div>
     </div>
   </a>
 </div>
 
-<a href={require('@/img/brand/tailwindcss-mark.svg').default} download>Download mark</a>
+<a href={tailwindcssLogoMark} download>Download mark</a>
 
 ### Logotype
 
 <div className="pt-5 pb-8">
-  <a href={require('@/img/brand/tailwindcss-logotype.svg').default} download>
+  <a href={tailwindcssLogoMark} download>
     <span className="sr-only">Download logotype</span>
     <div className="max-w-xl">
       <div className="relative" style={{ paddingTop: `${33 / 262 * 100}%` }}>
-        <img className="absolute inset-0 w-full h-full block dark:hidden" src={require('@/img/brand/tailwindcss-logotype.svg').default} alt="" width={262} height={33} style={{ margin: 0 }} />
-        <img className="absolute inset-0 w-full h-full hidden dark:block" src={require('@/img/brand/tailwindcss-logotype-white.svg').default} alt="" width={262} height={33} style={{ margin: 0 }} />
+        <img className="absolute inset-0 w-full h-full block dark:hidden" src={tailwindcssLogoType} alt="" width={262} height={33} style={{ margin: 0 }} />
+        <img className="absolute inset-0 w-full h-full hidden dark:block" src={tailwindcssLogoTypeWhite} alt="" width={262} height={33} style={{ margin: 0 }} />
       </div>
     </div>
   </a>

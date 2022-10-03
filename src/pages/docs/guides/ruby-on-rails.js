@@ -22,8 +22,8 @@ let steps = [
     title: 'Install Tailwind CSS',
     body: () => (
       <p>
-        Install the <code>tailwindcss-rails</code> gem, and then run the install command to generate a {' '}
-        <code>tailwind.config.js</code> file in the <code>./config</code> directory.
+        Install the <code>tailwindcss-rails</code> gem, and then run the install command to generate
+        a <code>tailwind.config.js</code> file in the <code>./config</code> directory.
       </p>
     ),
     code: {
@@ -43,7 +43,8 @@ let steps = [
     code: {
       name: 'tailwind.config.js',
       lang: 'js',
-      code: `  module.exports = {
+      code: `  /** @type {import('tailwindcss').Config} */
+  module.exports = {
 >   content: [
 >     './app/helpers/**/*.rb',
 >     './app/javascript/**/*.js',
@@ -103,7 +104,7 @@ export default function UsingRails({ code }) {
       title="Install Tailwind CSS with Ruby on Rails"
       description="Setting up Tailwind CSS in Ruby on Rails v7+ project."
     >
-      <div className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark">
+      <div className="relative z-10 max-w-3xl mb-16 prose prose-slate dark:prose-dark">
         <p>
           The quickest way to start using Tailwind CSS in your Rails project is to use{' '}
           <a href="https://github.com/rails/tailwindcss-rails">Tailwind CSS for Rails</a> by running{' '}
@@ -118,16 +119,11 @@ export default function UsingRails({ code }) {
 }
 
 export function getStaticProps() {
-  let { highlightCode } = require('../../../../remark/utils')
+  let { highlightedCodeSnippets } = require('@/components/Guides/Snippets.js')
 
   return {
     props: {
-      code: steps.map(({ code }) => {
-        if (code.lang && code.lang !== 'terminal') {
-          return highlightCode(code.code, code.lang)
-        }
-        return code.code
-      }),
+      code: highlightedCodeSnippets(steps),
     },
   }
 }
