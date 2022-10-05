@@ -178,7 +178,7 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
       <div className="absolute z-20 top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none">
         <div className="w-[108rem] flex-none flex justify-end">
           <picture>
-            <source srcSet={require('@/img/beams/docs@30.avif').default} type="image/avif" />
+            <source srcSet={require('@/img/beams/docs@30.avif').default.src} type="image/avif" />
             <img
               src={require('@/img/beams/docs@tinypng.png').default.src}
               alt=""
@@ -187,7 +187,7 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
             />
           </picture>
           <picture>
-            <source srcSet={require('@/img/beams/docs-dark@30.avif').default} type="image/avif" />
+            <source srcSet={require('@/img/beams/docs-dark@30.avif').default.src} type="image/avif" />
             <img
               src={require('@/img/beams/docs-dark@tinypng.png').default.src}
               alt=""
