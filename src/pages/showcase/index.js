@@ -211,6 +211,6 @@ Showcase.layoutProps = {
     title: 'Example Showcase',
     description:
       'Beautiful websites built with Tailwind CSS, including marketing sites, SaaS applications, ecommerce stores, and more.',
-    ogImage: require('@/img/showcase/og.png'),
+    ogImage: require('@/img/showcase/og.jpg'),
   },
 }
