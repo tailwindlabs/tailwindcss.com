@@ -29,6 +29,7 @@ const fallbackLayouts = {
 const fallbackDefaultExports = {
   'src/pages/{docs,components}/**/*': ['@/layouts/ContentsLayout', 'ContentsLayout'],
   'src/pages/blog/**/*': ['@/layouts/BlogPostLayout', 'BlogPostLayout'],
+  'src/pages/showcase/**/*': ['@/layouts/ShowcaseLayout', 'ShowcaseLayout'],
 }
 
 const fallbackGetStaticProps = {
@@ -168,18 +169,21 @@ module.exports = withBundleAnalyzer({
     let mdx = (plugins = []) => [
       {
         loader: '@mdx-js/loader',
-        options: {
-          remarkPlugins: [
-            withPrevalInstructions,
-            withExamples,
-            withTableOfContents,
-            withSyntaxHighlighting,
-            withNextLinks,
-            withSmartQuotes,
-            ...plugins,
-          ],
-          rehypePlugins: [withLinkRoles],
-        },
+        options:
+          plugins === null
+            ? {}
+            : {
+                remarkPlugins: [
+                  withPrevalInstructions,
+                  withExamples,
+                  withTableOfContents,
+                  withSyntaxHighlighting,
+                  withNextLinks,
+                  withSmartQuotes,
+                  ...plugins,
+                ],
+                rehypePlugins: [withLinkRoles],
+              },
       },
       createLoader(function (source) {
         let pathSegments = this.resourcePath.split(path.sep)
@@ -236,10 +240,8 @@ module.exports = withBundleAnalyzer({
       ],
     })
 
-    config.module.rules.push({
-      test: { and: [/\.mdx$/], not: [/snippets/] },
-      resourceQuery: { not: [/rss/, /preview/] },
-      use: [
+    function mainMdxLoader(plugins) {
+      return [
         options.defaultLoaders.babel,
         createLoader(function (source) {
           if (source.includes('/*START_META*/')) {
@@ -250,7 +252,7 @@ module.exports = withBundleAnalyzer({
             source.replace(/export const/gs, 'const') + `\nMDXContent.layoutProps = layoutProps\n`
           )
         }),
-        ...mdx(),
+        ...mdx(plugins),
         createLoader(function (source) {
           let fields = new URLSearchParams(this.resourceQuery.substr(1)).get('meta') ?? undefined
           let { attributes: meta, body } = frontMatter(source)
@@ -320,7 +322,20 @@ module.exports = withBundleAnalyzer({
             .filter(Boolean)
             .join('\n\n')
         }),
-      ],
+      ]
+    }
+
+    config.module.rules.push({
+      test: { and: [/\.mdx$/], not: [/snippets/] },
+      resourceQuery: { not: [/rss/, /preview/] },
+      exclude: [path.join(__dirname, 'src/pages/showcase/')],
+      use: mainMdxLoader(),
+    })
+
+    config.module.rules.push({
+      test: /\.mdx$/,
+      include: [path.join(__dirname, 'src/pages/showcase/')],
+      use: mainMdxLoader(null),
     })
 
     return config

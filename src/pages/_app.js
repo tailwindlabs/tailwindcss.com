@@ -3,7 +3,7 @@ import '../css/main.css'
 import 'focus-visible'
 import { useState, useEffect, Fragment } from 'react'
 import { Header } from '@/components/Header'
-import { Title } from '@/components/Title'
+import { Description, OgDescription, OgTitle, Title } from '@/components/Meta'
 import Router from 'next/router'
 import ProgressBar from '@badrap/bar-of-progress'
 import Head from 'next/head'
@@ -56,6 +56,9 @@ export default function App({ Component, pageProps, router }) {
   const meta = Component.layoutProps?.meta || {}
   const description =
     meta.metaDescription || meta.description || 'Documentation for the Tailwind CSS framework.'
+  const image = meta.ogImage
+    ? `https://tailwindcss.com${meta.ogImage.default?.src ?? meta.ogImage.src ?? meta.ogImage}`
+    : `https://tailwindcss.com${socialCardLarge.src}`
 
   if (router.pathname.startsWith('/examples/')) {
     return <Component {...pageProps} />
@@ -69,16 +72,14 @@ export default function App({ Component, pageProps, router }) {
 
   return (
     <>
-      <Title suffix="Tailwind CSS">{meta.metaTitle || meta.title}</Title>
+      <Title>{meta.metaTitle || meta.title}</Title>
+      {meta.ogTitle && <OgTitle>{meta.ogTitle}</OgTitle>}
+      <Description>{description}</Description>
+      {meta.ogDescription && <OgDescription>{meta.ogDescription}</OgDescription>}
       <Head>
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
         <meta key="twitter:site" name="twitter:site" content="@tailwindcss" />
-        <meta key="twitter:description" name="twitter:description" content={description} />
-        <meta
-          key="twitter:image"
-          name="twitter:image"
-          content={`https://tailwindcss.com${socialCardLarge.src}`}
-        />
+        <meta key="twitter:image" name="twitter:image" content={image} />
         <meta key="twitter:creator" name="twitter:creator" content="@tailwindcss" />
         <meta
           key="og:url"
@@ -86,12 +87,7 @@ export default function App({ Component, pageProps, router }) {
           content={`https://tailwindcss.com${router.pathname}`}
         />
         <meta key="og:type" property="og:type" content="article" />
-        <meta key="og:description" property="og:description" content={description} />
-        <meta
-          key="og:image"
-          property="og:image"
-          content={`https://tailwindcss.com${socialCardLarge.src}`}
-        />
+        <meta key="og:image" property="og:image" content={image} />
         <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feeds/feed.xml" />
         <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/feeds/atom.xml" />
         <link rel="alternate" type="application/json" title="JSON Feed" href="/feeds/feed.json" />

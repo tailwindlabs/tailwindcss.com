@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { SidebarLayout, SidebarContext } from '@/layouts/SidebarLayout'
 import { PageHeader } from '@/components/PageHeader'
 import clsx from 'clsx'
-import { Footer } from '@/components/Footer'
+import { DocsFooter } from '@/components/DocsFooter'
 import { Heading } from '@/components/Heading'
 import { MDXProvider } from '@mdx-js/react'
 
@@ -237,13 +237,13 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
         )}
       </ContentsContext.Provider>
 
-      <Footer previous={prev} next={next}>
+      <DocsFooter previous={prev} next={next}>
         <Link
           href={`https://github.com/tailwindlabs/tailwindcss.com/edit/master/src/pages${router.pathname}.mdx`}
         >
           <a className="hover:text-slate-900 dark:hover:text-slate-400">Edit this page on GitHub</a>
         </Link>
-      </Footer>
+      </DocsFooter>
 
       <div className="fixed z-20 top-[3.8125rem] bottom-0 right-[max(0px,calc(50%-45rem))] w-[19.5rem] py-10 overflow-y-auto hidden xl:block">
         {toc.length > 0 && (
