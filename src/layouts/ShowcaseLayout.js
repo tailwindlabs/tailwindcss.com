@@ -213,13 +213,13 @@ export function ShowcaseLayout({ children, slug, meta }) {
             <Image
               src={require('@/img/showcase/beams-2@75.jpg')}
               alt=""
-              className="absolute top-[-20rem] sm:top-[-25rem] left-1/2 ml-[-35rem] max-w-none w-[119.4375rem] dark:hidden"
+              className="absolute top-[-20rem] sm:top-[-25rem] left-1/2 ml-[-35rem] max-w-none w-[119.4375rem] dark:hidden pointer-events-none"
               unoptimized
             />
             <Image
               src={require('@/img/showcase/beams-2-dark@75.jpg')}
               alt=""
-              className="absolute top-0 right-[-12rem] md:right-0 max-w-none w-[70.0625rem] hidden dark:block"
+              className="absolute top-0 right-[-12rem] md:right-0 max-w-none w-[70.0625rem] hidden dark:block pointer-events-none"
               unoptimized
             />
             <dl className="relative flex flex-wrap h-14 overflow-hidden">

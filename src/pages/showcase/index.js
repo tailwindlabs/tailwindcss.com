@@ -170,14 +170,14 @@ export default function Showcase() {
         <Image
           src={require('@/img/showcase/beams@75.jpg')}
           alt=""
-          className="hidden dark:sm:hidden sm:block absolute top-[-6.25rem] left-1/2 max-w-none w-[67.8125rem] ml-[-46.875rem]"
+          className="hidden dark:sm:hidden sm:block absolute top-[-6.25rem] left-1/2 max-w-none w-[67.8125rem] ml-[-46.875rem] pointer-events-none"
           priority
           unoptimized
         />
         <Image
           src={require('@/img/showcase/beams-index-dark@75.jpg')}
           alt=""
-          className="hidden dark:block absolute top-[-5rem] left-1/2 max-w-none w-[41.1875rem] ml-[-40rem]"
+          className="hidden dark:block absolute top-[-5rem] left-1/2 max-w-none w-[41.1875rem] ml-[-40rem] pointer-events-none"
           priority
           unoptimized
         />
