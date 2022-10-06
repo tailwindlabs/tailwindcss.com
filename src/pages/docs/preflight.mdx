@@ -148,6 +148,26 @@ If you ever need to make one of these elements `inline` instead of `block`, simp
 
 ---
 
+## Images are contrained to the parent width
+
+Images and videos are constrained to the parent width in a way that preserves their intrinsic aspect ratio.
+
+```css
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+```
+
+This, along with the above rules making them block-level, treats images and video as responsive by default. If you ever need to override this behavior you can do so by making one of these elements `max-w-none`.
+
+```html
+<img class="max-w-none" src="..." alt="...">
+```
+
+---
+
 ## Border styles are reset globally
 
 In order to make it easy to add a border by simply adding the `border` class, Tailwind overrides the default border styles for all elements with the following rules:
