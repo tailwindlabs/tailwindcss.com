@@ -116,9 +116,13 @@ This can be useful for things like CSS variables as well, especially when they n
 </div>
 ```
 
+### Arbitrary variants
+
+In the same vein as arbitrary values, **arbitrary variants** allow you to write custom CSS selector modifiers, please refer to [arbitrary variants](/docs/hover-focus-and-other-states#using-arbitrary-variants).
+
 ### Handling whitespace
 
-When an arbitrary value needs to contain a space, use an underscore (`_`) instead and Tailwind will automatically convert it to a space at build-time:
+When an arbitrary value or an arbitrary variant needs to contain a space, use an underscore (`_`) instead and Tailwind will automatically convert it to a space at build-time:
 
 ```html
 <div class="grid **grid-cols-[1fr_500px_2fr]**">
