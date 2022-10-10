@@ -154,7 +154,7 @@ export function ShowcaseLayout({ children, slug, meta }) {
                     </div>
                     <div className="absolute -inset-1 md:hidden" />
                     <svg
-                      className="md:hidden w-6 h-6 stroke-slate-900"
+                      className="md:hidden w-6 h-6 stroke-slate-900 dark:stroke-white"
                       fill="none"
                       aria-hidden="true"
                     >
@@ -182,7 +182,7 @@ export function ShowcaseLayout({ children, slug, meta }) {
                     </div>
                     <div className="absolute -inset-1 md:hidden" />
                     <svg
-                      className="md:hidden w-6 h-6 stroke-slate-900"
+                      className="md:hidden w-6 h-6 stroke-slate-900 dark:stroke-white"
                       fill="none"
                       aria-hidden="true"
                     >
