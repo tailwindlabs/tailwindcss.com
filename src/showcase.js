@@ -7,11 +7,10 @@ export const showcase = [
     description: 'News website',
   },
   {
-    name: 'Algolia Docs',
-    slug: 'algolia',
-    thumbnail: require('@/img/showcase/thumbnails/algolia.com.png').default,
-    video: require('@/videos/showcase/algolia.com.mp4').default,
-    description: 'Documentation website',
+    name: 'GitHub Next',
+    slug: 'github',
+    thumbnail: require('@/img/showcase/thumbnails/githubnext.com.png').default,
+    description: 'Project website',
   },
   {
     name: 'Netflix Global Top 10',
@@ -19,6 +18,13 @@ export const showcase = [
     thumbnail: require('@/img/showcase/thumbnails/top10.netflix.com.png').default,
     video: require('@/videos/showcase/top10.netflix.com.mp4').default,
     description: 'Microsite',
+  },
+  {
+    name: 'Algolia Docs',
+    slug: 'algolia',
+    thumbnail: require('@/img/showcase/thumbnails/algolia.com.png').default,
+    video: require('@/videos/showcase/algolia.com.mp4').default,
+    description: 'Documentation website',
   },
   {
     name: 'MrBeast Feastables',
