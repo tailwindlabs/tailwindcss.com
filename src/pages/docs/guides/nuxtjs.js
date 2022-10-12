@@ -166,7 +166,7 @@ let steps = [
   },
 ]
 
-export default function UsingNextJS({ code }) {
+export default function UsingNuxtJS({ code }) {
   return (
     <FrameworkGuideLayout
       title="Install Tailwind CSS with Nuxt.js"
@@ -187,7 +187,7 @@ export function getStaticProps() {
   }
 }
 
-UsingNextJS.layoutProps = {
+UsingNuxtJS.layoutProps = {
   meta: {
     title: 'Install Tailwind CSS with Nuxt.js',
     section: 'Installation',
