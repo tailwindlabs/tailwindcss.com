@@ -10,6 +10,7 @@ export const showcase = [
     name: 'GitHub Next',
     slug: 'github',
     thumbnail: require('@/img/showcase/thumbnails/githubnext.com.png').default,
+    video: require('@/videos/showcase/githubnext.com.mp4').default,
     description: 'Project website',
   },
   {
