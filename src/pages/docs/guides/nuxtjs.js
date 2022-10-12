@@ -172,6 +172,14 @@ export default function UsingNuxtJS({ code }) {
       title="Install Tailwind CSS with Nuxt.js"
       description="Setting up Tailwind CSS in a Nuxt.js project."
     >
+      <div className="relative z-10 max-w-3xl mb-16 prose prose-slate dark:prose-dark">
+        <p>
+          The quickest way to start using Tailwind CSS in your Nuxt.js project is to use{' '}
+          <a href="https://tailwindcss.nuxtjs.org/">Nuxt Tailwind</a>. This will automatically
+          configure your Tailwind setup. If you'd like to configure Tailwind manually, continue with
+          the rest of this guide.
+        </p>
+      </div>
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
   )
