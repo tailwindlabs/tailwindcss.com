@@ -11,7 +11,7 @@ export const showcase = [
     slug: 'github',
     thumbnail: require('@/img/showcase/thumbnails/githubnext.com.png').default,
     video: require('@/videos/showcase/githubnext.com.mp4').default,
-    description: 'Project website',
+    description: 'Research website',
   },
   {
     name: 'Netflix Global Top 10',
