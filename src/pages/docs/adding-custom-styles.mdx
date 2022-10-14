@@ -4,6 +4,7 @@ description: Best practices for adding your own custom styles to Tailwind.
 ---
 
 import { TipGood, TipBad, TipCompat, TipInfo } from '@/components/Tip'
+import { SnippetGroup } from '@/components/SnippetGroup'
 
 Often the biggest challenge when working with a framework is figuring out what you're supposed to do when there's something you need that the framework doesn't handle for you.
 
@@ -115,6 +116,33 @@ This can be useful for things like CSS variables as well, especially when they n
   <!-- ... -->
 </div>
 ```
+
+### Arbitrary variants
+
+Arbitrary _variants_ are like arbitrary values but for doing on-the-fly selector modification, like you can with built-in pseudo-class variants like `hover:{utility}` or responsive variants `md:{utility}` but using square bracket notation directly in your HTML.
+
+<SnippetGroup>
+
+```html HTML
+<ul role="list">
+  {#each items as item}
+    <li class="**lg:[&:nth-child(3)]:hover:underline**">{item}</li>
+  {/each}
+</ul>
+```
+
+```css Generated CSS
+/* https://media.giphy.com/media/Sd3cd0SrUKZEyWmAlM/giphy.gif */
+@media (min-width: 1024px) {
+  .lg\:\[\&\:nth-child\(3\)\]\:hover\:underline:hover:nth-child(3) {
+    text-decoration-line: underline;
+  }
+}
+```
+
+</SnippetGroup>
+
+Learn more in the [arbitrary variants](/docs/hover-focus-and-other-states#using-arbitrary-variants) documentation.
 
 ### Handling whitespace
 
