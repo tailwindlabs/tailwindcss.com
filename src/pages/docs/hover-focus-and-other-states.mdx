@@ -838,6 +838,26 @@ Use the `portrait` and `landscape` modifiers to conditionally add styles when th
 </div>
 ```
 
+### Supports
+
+Use the `supports-[...]` modifier to style things based on whether a certain feature is supported in the user's browser.
+
+```html
+<div class="flex **supports-[display:grid]:grid** ...">
+  <!-- ... -->
+</div>
+```
+
+Under the hood the `supports-[...]` modifier generates [`@supports rules`](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) and takes anything you’d use with `@supports (...)` between the square brackets, like a property/value pair, and even expressions using `and` and `or`.
+
+For terseness, if you only need to check if a property is supported (and not a specific value), you can just specify the property name:
+
+```html
+<div class="bg-black/75 **supports-[backdrop-filter]:bg-black/25** **supports-[backdrop-filter]:backdrop-blur** ...">
+  <!-- ... -->
+</div>
+```
+
 ### Print styles
 
 Use the `print` modifier to conditionally add styles that only apply when the document is being printed:
