@@ -85,9 +85,7 @@ let steps = [
       return <Component {...pageProps} />
     }
 
-    export default MyApp
-
-`,
+    export default MyApp`,
     },
   },
   {
