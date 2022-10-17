@@ -70,6 +70,27 @@ let steps = [
     },
   },
   {
+    title: 'Import the CSS to your project',
+    body: () => (
+      <p>
+        Make sure that <code>globals.css</code> is imported in <code>_app.js</code>
+      </p>
+    ),
+    code: {
+      name: '_app.js',
+      lang: 'jsx',
+      code: `>   import '../styles/globals.css'
+
+    function MyApp({ Component, pageProps }) {
+      return <Component {...pageProps} />
+    }
+
+    export default MyApp
+
+`,
+    },
+  },
+  {
     title: 'Start your build process',
     body: () => (
       <p>
