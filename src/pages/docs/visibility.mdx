@@ -51,6 +51,32 @@ Use `visible` to make an element visible. This is mostly useful for undoing the 
 </div>
 ```
 
+### Making table elements invisible
+
+Use `collapse` to hide table rows, row groups, columns, and column groups without impacting the size of other rows and columns.
+
+For other elements, `collapse` behaves exactly the same as `hidden`.
+
+<Example>
+  <table class="w-full">
+    <tr class="font-mono text-white text-sm font-bold leading-6 text-center">
+      <td class="p-4 bg-fuchsia-500 shadow-lg rounded-lg">01</td>
+      <td class="collapse p-4 bg-fuchsia-500 shadow-lg rounded-lg">02</td>
+      <td class="p-4 bg-fuchsia-500 shadow-lg rounded-lg">03</td>
+    </tr>
+  </table>
+</Example>
+
+```html
+<table class="w-full">
+  <tr>
+    <td>01</td>
+    <td class="**collapse** ...">02</td>
+    <td>03</td>
+  <tr>
+</table>
+```
+
 ---
 
 ## <Heading ignore>Applying conditionally</Heading>
