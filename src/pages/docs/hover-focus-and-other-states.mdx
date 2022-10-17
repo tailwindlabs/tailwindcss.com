@@ -879,6 +879,57 @@ For terseness, if you only need to check if a property is supported (and not a s
 
 ## Attribute selectors
 
+### ARIA states
+
+Use the `aria-*` modifier to conditionally style things based on [ARIA attributes](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes).
+
+For example, to apply the `bg-sky-700` class when the `aria-checked` attribute is set to `true`, use the `aria-checked:bg-sky-700` class:
+
+```html
+<div aria-checked="true" class="bg-gray-600 **aria-checked:bg-sky-700**">
+  <!-- ... -->
+</div>
+```
+
+By default we've included modifiers for the most common boolean ARIA attributes:
+
+| Modifier         | CSS                      |
+| ---------------- | ------------------------ |
+| `aria-checked:`  | `[aria-checked="true"]`  |
+| `aria-disabled:` | `[aria-disabled="true"]` |
+| `aria-expanded:` | `[aria-expanded="true"]` |
+| `aria-hidden:`   | `[aria-hidden="true"]`   |
+| `aria-pressed:`  | `[aria-pressed="true"]`  |
+| `aria-readonly:` | `[aria-readonly="true"]` |
+| `aria-required:` | `[aria-required="true"]` |
+| `aria-selected:` | `[aria-selected="true"]` |
+
+You can customize which `aria-*` modifiers are available by editing `theme.aria` or `theme.extend.aria` in your `tailwind.config.js` file:
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      aria: {
+        asc: 'sort="ascending"',
+        desc: 'sort="descending"',
+      },
+    },
+  },
+};
+```
+
+If you need to use a one-off `aria` modifier that doesn’t make sense to include in your theme, or for more complex ARIA attributes that take specific values, use square brackets to generate a property on the fly using any arbitrary value.
+
+```html
+<th
+  aria-sort="ascending"
+  class="**aria-[sort=ascending]:bg-[url('/img/up-arrow.svg')]** **aria-[sort=descending]:bg-[url('/img/down-arrow.svg')]**"
+>
+  <!-- ... -->
+</th>
+```
+
 ### RTL support
 
 _Right-to-left support is experimental and the details of how it works may change. Share your feedback in the [community](https://github.com/tailwindlabs/tailwindcss/discussions) to help us get it ready for prime time._
@@ -1247,6 +1298,14 @@ A quick reference table of every single modifier included in Tailwind by default
 | <a href="#prefers-contrast" className="whitespace-nowrap">contrast-less</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-contrast: less)</code> |
 | <a href="#print-styles" className="whitespace-nowrap">print</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media print</code> |
 | <a href="#supports" className="whitespace-nowrap">supports-[<span className="text-slate-400">...</span>]</a> | <code className="whitespace-nowrap before:content-none after:content-none">@supports (<span className="text-slate-400">...</span>)</code> |
+| <a href="#aria-states" className="whitespace-nowrap">aria-checked</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-checked="true"]</code> |
+| <a href="#aria-states" className="whitespace-nowrap">aria-disabled</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-disabled="true"]</code> |
+| <a href="#aria-states" className="whitespace-nowrap">aria-expanded</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-expanded="true"]</code> |
+| <a href="#aria-states" className="whitespace-nowrap">aria-hidden</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-hidden="true"]</code> |
+| <a href="#aria-states" className="whitespace-nowrap">aria-pressed</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-pressed="true"]</code> |
+| <a href="#aria-states" className="whitespace-nowrap">aria-readonly</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-readonly="true"]</code> |
+| <a href="#aria-states" className="whitespace-nowrap">aria-required</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-required="true"]</code> |
+| <a href="#aria-states" className="whitespace-nowrap">aria-selected</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-selected="true"]</code> |
 | <a href="#rtl-support" className="whitespace-nowrap">rtl</a> | <code className="whitespace-nowrap before:content-none after:content-none">[dir="rtl"] <span className="text-slate-400">&</span></code> |
 | <a href="#rtl-support" className="whitespace-nowrap">ltr</a> | <code className="whitespace-nowrap before:content-none after:content-none">[dir="ltr"] <span className="text-slate-400">&</span></code> |
 
