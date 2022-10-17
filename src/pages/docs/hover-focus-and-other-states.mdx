@@ -838,6 +838,23 @@ Use the `portrait` and `landscape` modifiers to conditionally add styles when th
 </div>
 ```
 
+### Print styles
+
+Use the `print` modifier to conditionally add styles that only apply when the document is being printed:
+
+```html
+<div>
+  <article class="**print:hidden**">
+    <h1>My Secret Pizza Recipe</h1>
+    <p>This recipe is a secret, and must not be shared with anyone</p>
+    <!-- ... -->
+  </article>
+  <div class="hidden **print:block**">
+    Are you seriously trying to print this? It's secret!
+  </div>
+</div>
+```
+
 ### Supports
 
 Use the `supports-[...]` modifier to style things based on whether a certain feature is supported in the user's browser.
@@ -855,23 +872,6 @@ For terseness, if you only need to check if a property is supported (and not a s
 ```html
 <div class="bg-black/75 **supports-[backdrop-filter]:bg-black/25** **supports-[backdrop-filter]:backdrop-blur** ...">
   <!-- ... -->
-</div>
-```
-
-### Print styles
-
-Use the `print` modifier to conditionally add styles that only apply when the document is being printed:
-
-```html
-<div>
-  <article class="**print:hidden**">
-    <h1>My Secret Pizza Recipe</h1>
-    <p>This recipe is a secret, and must not be shared with anyone</p>
-    <!-- ... -->
-  </article>
-  <div class="hidden **print:block**">
-    Are you seriously trying to print this? It's secret!
-  </div>
 </div>
 ```
 
