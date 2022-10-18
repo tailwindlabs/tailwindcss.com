@@ -353,6 +353,89 @@ When you need to style an element based on the state of some _parent_ element, m
 
 This pattern works with every pseudo-class modifier, for example `group-focus`, `group-active`, or even `group-odd`.
 
+#### Differentiating nested groups
+
+When nesting groups, you can style something based on the state of a _specific_ parent group by giving that parent a unique group name using a `group/{name}` class, and including that name in modifiers using classes like `group-hover/{name}`.
+
+<Example p="none">
+  <div class="px-4">
+    <ul role="list" class="mx-auto max-w-md bg-white p-2 shadow">
+      <li class="group/item relative flex items-center justify-between rounded-xl p-4 hover:bg-slate-100">
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+          </div>
+          <div class="w-full text-sm leading-6">
+            <a href="#" class="font-semibold text-slate-900"><span class="absolute inset-0 rounded-xl" aria-hidden="true"></span>Leslie Abbott</a>
+            <div class="text-slate-500">Co-Founder / CEO</div>
+          </div>
+        </div>
+        <a href="#" class="group/edit invisible relative flex items-center whitespace-nowrap rounded-full py-1 pl-4 pr-3 text-sm text-slate-500 transition hover:bg-slate-200 group-hover/item:visible">
+          <span class="font-semibold transition group-hover/edit:text-gray-700">Call</span>
+          <svg class="mt-px h-5 w-5 text-slate-400 transition group-hover/edit:translate-x-0.5 group-hover/edit:text-slate-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </li>
+      <li class="group/item relative flex items-center justify-between rounded-xl p-4 hover:bg-slate-100">
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+          </div>
+          <div class="w-full text-sm leading-6">
+            <a href="#" class="font-semibold text-slate-900"><span class="absolute inset-0 rounded-xl" aria-hidden="true"></span>Hector Adams</a>
+            <div class="text-slate-500">VP, Marketing</div>
+          </div>
+        </div>
+        <a href="#" class="group/edit invisible relative flex items-center whitespace-nowrap rounded-full py-1 pl-4 pr-3 text-sm text-slate-500 transition hover:bg-slate-200 group-hover/item:visible">
+          <span class="font-semibold transition group-hover/edit:text-gray-700">Call</span>
+          <svg class="mt-px h-5 w-5 text-slate-400 transition group-hover/edit:translate-x-0.5 group-hover/edit:text-slate-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </li>
+      <li class="group/item relative flex items-center justify-between rounded-xl p-4 hover:bg-slate-100">
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+          </div>
+          <div class="w-full text-sm leading-6">
+            <a href="#" class="font-semibold text-slate-900"><span class="absolute inset-0 rounded-xl" aria-hidden="true"></span>Blake Alexander</a>
+            <div class="text-slate-500">Account Coordinator</div>
+          </div>
+        </div>
+        <a href="#" class="group/edit invisible relative flex items-center whitespace-nowrap rounded-full py-1 pl-4 pr-3 text-sm text-slate-500 transition hover:bg-slate-200 group-hover/item:visible">
+          <span class="font-semibold transition group-hover/edit:text-gray-700">Call</span>
+          <svg class="mt-px h-5 w-5 text-slate-400 transition group-hover/edit:translate-x-0.5 group-hover/edit:text-slate-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+</Example>
+
+```html
+<ul role="list">
+  {#each people as person}
+    <li class="**group/item** hover:bg-slate-100 ...">
+      <img src="{person.imageUrl}" alt="" />
+      <div>
+        <a href="{person.url}">{person.name}</a>
+        <p>{person.title}</p>
+      </div>
+      <a class="**group/edit** invisible hover:bg-slate-200 **group-hover/item:visible** ..." href="tel:{person.phone}">
+        <span class="**group-hover/edit:text-gray-700** ...">Call</span>
+        <svg class="**group-hover/edit:translate-x-0.5 group-hover/edit:text-slate-500** ...">
+          <!-- ... -->
+        </svg>
+      </a>
+    </li>
+  {/each}
+</ul>
+```
+
+Groups can be named however you like and don’t need to be configured in any way — just name your groups directly in your markup and Tailwind will automatically generate the necessary CSS.
 
 ### Styling based on sibling state <small>(peer-{'{modifier}'})</small>
 
