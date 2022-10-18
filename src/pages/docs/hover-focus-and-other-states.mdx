@@ -304,7 +304,7 @@ Style form elements in different states using modifiers like `required`, `invali
 <form>
   <label class="block">
     <span class="block text-sm font-medium text-slate-700">Username</span>
-    <!-- Using form state modifiers, the classes can be identical for every input -->
+    <!-- Using form state modifers, the classes can be identical for every input -->
     <input type="text" value="tbone" disabled class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
       focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
       **disabled:bg-slate-50** **disabled:text-slate-500** **disabled:border-slate-200** **disabled:shadow-none**
@@ -879,6 +879,57 @@ For terseness, if you only need to check if a property is supported (and not a s
 
 ## Attribute selectors
 
+### ARIA states
+
+Use the `aria-*` modifier to conditionally style things based on [ARIA attributes](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes).
+
+For example, to apply the `bg-sky-700` class when the `aria-checked` attribute is set to `true`, use the `aria-checked:bg-sky-700` class:
+
+```html
+<div aria-checked="true" class="bg-gray-600 **aria-checked:bg-sky-700**">
+  <!-- ... -->
+</div>
+```
+
+By default we've included modifiers for the most common boolean ARIA attributes:
+
+| Modifier | CSS |
+| --- | --- |
+| <code className="before:content-none after:content-none">aria-checked</code> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-checked="true"]</code> |
+| <code className="before:content-none after:content-none">aria-disabled</code> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-disabled="true"]</code> |
+| <code className="before:content-none after:content-none">aria-expanded</code> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-expanded="true"]</code> |
+| <code className="before:content-none after:content-none">aria-hidden</code> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-hidden="true"]</code> |
+| <code className="before:content-none after:content-none">aria-pressed</code> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-pressed="true"]</code> |
+| <code className="before:content-none after:content-none">aria-readonly</code> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-readonly="true"]</code> |
+| <code className="before:content-none after:content-none">aria-required</code> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-required="true"]</code> |
+| <code className="before:content-none after:content-none">aria-selected</code> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-selected="true"]</code> |
+
+You can customize which `aria-*` modifiers are available by editing `theme.aria` or `theme.extend.aria` in your `tailwind.config.js` file:
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      aria: {
+        asc: 'sort="ascending"',
+        desc: 'sort="descending"',
+      },
+    },
+  },
+};
+```
+
+If you need to use a one-off `aria` modifier that doesn’t make sense to include in your theme, or for more complex ARIA attributes that take specific values, use square brackets to generate a property on the fly using any arbitrary value.
+
+```html
+<th
+  aria-sort="ascending"
+  class="**aria-[sort=ascending]:bg-[url('/img/up-arrow.svg')]** **aria-[sort=descending]:bg-[url('/img/down-arrow.svg')]**"
+>
+  <!-- ... -->
+</th>
+```
+
 ### Data attributes
 
 Use the `data-*` modifier to conditionally apply styles based on [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes).
@@ -970,7 +1021,6 @@ Note that the `ltr` modifier will not take effect unless the `dir` attribute is 
 ```
 
 Remember, these modifiers are only useful if you are building a site that needs to support _both_ left-to-right and right-to-left layouts. If you're building a site that only needs to support a single direction, you don't need these modifiers — just apply the styles that make sense for your content.
-
 
 ### Open/closed state
 
@@ -1233,45 +1283,44 @@ A quick reference table of every single modifier included in Tailwind by default
 
 | Modifier | CSS |
 | --- | --- |
-| <a href="#hover" className="whitespace-nowrap">hover</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:hover</code> |
-| <a href="#focus" className="whitespace-nowrap">focus</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:focus</code> |
-| <a href="#focus-within" className="whitespace-nowrap">focus-within</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:focus-within</code> |
-| <a href="#focus-visible" className="whitespace-nowrap">focus-visible</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:focus-visible</code> |
-| <a href="#active" className="whitespace-nowrap">active</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:active</code> |
-| <a href="#visited" className="whitespace-nowrap">visited</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:visited</code> |
-| <a href="#target" className="whitespace-nowrap">target</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:target</code> |
+| <a href="#hover" className="whitespace-nowrap">hover</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:hover</code> |
+| <a href="#focus" className="whitespace-nowrap">focus</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:focus</code> |
+| <a href="#focus-within" className="whitespace-nowrap">focus-within</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:focus-within</code> |
+| <a href="#focus-visible" className="whitespace-nowrap">focus-visible</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:focus-visible</code> |
+| <a href="#active" className="whitespace-nowrap">active</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:active</code> |
+| <a href="#visited" className="whitespace-nowrap">visited</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:visited</code> |
+| <a href="#target" className="whitespace-nowrap">target</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:target</code> |
 | <a href="#first" className="whitespace-nowrap">first</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:first-child</code> |
-| <a href="#last" className="whitespace-nowrap">last</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:last-child</code> |
-| <a href="#only" className="whitespace-nowrap">only</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:only-child</code> |
-| <a href="#odd" className="whitespace-nowrap">odd</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:nth-child(odd)</code> |
-| <a href="#even" className="whitespace-nowrap">even</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:nth-child(even)</code> |
-| <a href="#first-of-type" className="whitespace-nowrap">first-of-type</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:first-of-type</code> |
-| <a href="#last-of-type" className="whitespace-nowrap">last-of-type</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:last-of-type</code> |
-| <a href="#only-of-type" className="whitespace-nowrap">only-of-type</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:only-of-type</code> |
-| <a href="#empty" className="whitespace-nowrap">empty</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:empty</code> |
-| <a href="#disabled" className="whitespace-nowrap">disabled</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:disabled</code> |
-| <a href="#enabled" className="whitespace-nowrap">enabled</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:enabled</code> |
-| <a href="#checked" className="whitespace-nowrap">checked</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:checked</code> |
-| <a href="#indeterminate" className="whitespace-nowrap">indeterminate</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:indeterminate</code> |
-| <a href="#default" className="whitespace-nowrap">default</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:default</code> |
-| <a href="#required" className="whitespace-nowrap">required</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:required</code> |
-| <a href="#valid" className="whitespace-nowrap">valid</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:valid</code> |
-| <a href="#invalid" className="whitespace-nowrap">invalid</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:invalid</code> |
-| <a href="#in-range" className="whitespace-nowrap">in-range</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:in-range</code> |
-| <a href="#out-of-range" className="whitespace-nowrap">out-of-range</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:out-of-range</code> |
-| <a href="#placeholder-shown" className="whitespace-nowrap">placeholder-shown</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:placeholder-shown</code> |
-| <a href="#autofill" className="whitespace-nowrap">autofill</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:autofill</code> |
-| <a href="#read-only" className="whitespace-nowrap">read-only</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:read-only</code> |
-| <a href="#open-closed-state" className="whitespace-nowrap">open</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[open]</code> |
+| <a href="#last" className="whitespace-nowrap">last</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:last-child</code> |
+| <a href="#only" className="whitespace-nowrap">only</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:only-child</code> |
+| <a href="#odd" className="whitespace-nowrap">odd</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:nth-child(odd)</code> |
+| <a href="#even" className="whitespace-nowrap">even</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:nth-child(even)</code> |
+| <a href="#first-of-type" className="whitespace-nowrap">first-of-type</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:first-of-type</code> |
+| <a href="#last-of-type" className="whitespace-nowrap">last-of-type</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:last-of-type</code> |
+| <a href="#only-of-type" className="whitespace-nowrap">only-of-type</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:only-of-type</code> |
+| <a href="#empty" className="whitespace-nowrap">empty</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:empty</code> |
+| <a href="#disabled" className="whitespace-nowrap">disabled</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:disabled</code> |
+| <a href="#enabled" className="whitespace-nowrap">enabled</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:enabled</code> |
+| <a href="#checked" className="whitespace-nowrap">checked</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:checked</code> |
+| <a href="#indeterminate" className="whitespace-nowrap">indeterminate</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:indeterminate</code> |
+| <a href="#default" className="whitespace-nowrap">default</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:default</code> |
+| <a href="#required" className="whitespace-nowrap">required</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:required</code> |
+| <a href="#valid" className="whitespace-nowrap">valid</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:valid</code> |
+| <a href="#invalid" className="whitespace-nowrap">invalid</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:invalid</code> |
+| <a href="#in-range" className="whitespace-nowrap">in-range</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:in-range</code> |
+| <a href="#out-of-range" className="whitespace-nowrap">out-of-range</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:out-of-range</code> |
+| <a href="#placeholder-shown" className="whitespace-nowrap">placeholder-shown</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:placeholder-shown</code> |
+| <a href="#autofill" className="whitespace-nowrap">autofill</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:autofill</code> |
+| <a href="#read-only" className="whitespace-nowrap">read-only</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:read-only</code> |
 | <a href="#before-and-after" className="whitespace-nowrap">before</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::before</code> |
-| <a href="#before-and-after" className="whitespace-nowrap">after</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::after</code> |
-| <a href="#first-line-and-first-letter" className="whitespace-nowrap">first-letter</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::first-letter</code> |
-| <a href="#first-line-and-first-letter" className="whitespace-nowrap">first-line</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::first-line</code> |
-| <a href="#highlighted-text" className="whitespace-nowrap">marker</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::marker</code> |
-| <a href="#selection" className="whitespace-nowrap">selection</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::selection</code> |
-| <a href="#file-input-buttons" className="whitespace-nowrap">file</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::file-selector-button</code> |
-| <a href="#dialog-backdrops" className="whitespace-nowrap">backdrop</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::backdrop</code> |
-| <a href="#placeholder" className="whitespace-nowrap">placeholder</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::placeholder</code> |
+| <a href="#before-and-after" className="whitespace-nowrap">after</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::after</code> |
+| <a href="#first-line-and-first-letter" className="whitespace-nowrap">first-letter</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::first-letter</code> |
+| <a href="#first-line-and-first-letter" className="whitespace-nowrap">first-line</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::first-line</code> |
+| <a href="#highlighted-text" className="whitespace-nowrap">marker</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::marker</code> |
+| <a href="#selection" className="whitespace-nowrap">selection</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::selection</code> |
+| <a href="#file-input-buttons" className="whitespace-nowrap">file</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::file-selector-button</code> |
+| <a href="#dialog-backdrops" className="whitespace-nowrap">backdrop</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::backdrop</code> |
+| <a href="#placeholder" className="whitespace-nowrap">placeholder</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::placeholder</code> |
 | <a href="#responsive-breakpoints" className="whitespace-nowrap">sm</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 640px)</code> |
 | <a href="#responsive-breakpoints" className="whitespace-nowrap">md</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 768px)</code> |
 | <a href="#responsive-breakpoints" className="whitespace-nowrap">lg</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 1024px)</code> |
@@ -1285,10 +1334,20 @@ A quick reference table of every single modifier included in Tailwind by default
 | <a href="#prefers-contrast" className="whitespace-nowrap">contrast-more</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-contrast: more)</code> |
 | <a href="#prefers-contrast" className="whitespace-nowrap">contrast-less</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-contrast: less)</code> |
 | <a href="#print-styles" className="whitespace-nowrap">print</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media print</code> |
-| <a href="#supports" className="whitespace-nowrap">supports-[<span className="text-slate-400">...</span>]</a> | <code className="whitespace-nowrap before:content-none after:content-none">@supports (<span className="text-slate-400">...</span>)</code> |
+| <a href="#supports" className="whitespace-nowrap">supports-[<span className="text-slate-400">&hellip;</span>]</a> | <code className="whitespace-nowrap before:content-none after:content-none">@supports (<span className="text-slate-400">&hellip;</span>)</code> |
+| <a href="#aria-states" className="whitespace-nowrap">aria-checked</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-checked="true"]</code> |
+| <a href="#aria-states" className="whitespace-nowrap">aria-disabled</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-disabled="true"]</code> |
+| <a href="#aria-states" className="whitespace-nowrap">aria-expanded</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-expanded="true"]</code> |
+| <a href="#aria-states" className="whitespace-nowrap">aria-hidden</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-hidden="true"]</code> |
+| <a href="#aria-states" className="whitespace-nowrap">aria-pressed</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-pressed="true"]</code> |
+| <a href="#aria-states" className="whitespace-nowrap">aria-readonly</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-readonly="true"]</code> |
+| <a href="#aria-states" className="whitespace-nowrap">aria-required</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-required="true"]</code> |
+| <a href="#aria-states" className="whitespace-nowrap">aria-selected</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-selected="true"]</code> |
+| <a href="#aria-states" className="whitespace-nowrap">aria-[<span className="text-slate-400">&hellip;</span>]</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-<span className="text-slate-400">&hellip;</span>]</code> |
 | <a href="#data-attributes" className="whitespace-nowrap">data-[<span className="text-slate-400">...</span>]</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[data-<span className="text-slate-400">...</span>]</code> |
 | <a href="#rtl-support" className="whitespace-nowrap">rtl</a> | <code className="whitespace-nowrap before:content-none after:content-none">[dir="rtl"] <span className="text-slate-400">&</span></code> |
 | <a href="#rtl-support" className="whitespace-nowrap">ltr</a> | <code className="whitespace-nowrap before:content-none after:content-none">[dir="ltr"] <span className="text-slate-400">&</span></code> |
+| <a href="#open-closed-state" className="whitespace-nowrap">open</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[open]</code> |
 
 </div>
 
