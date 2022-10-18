@@ -108,9 +108,9 @@ Note that **Tailwind does not automatically escape font names** for you. If you'
 
 Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
 
-#### Setting default font-feature-settings
+#### Providing default font-feature-settings
 
-You can also specify the default [font-feature-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings) for the fonts in your project using a tuple of the form `[fontFamilyNames, { fontFeatureSettings }]`.
+You can optionally provide default [font-feature-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings) for each font in your project using a tuple of the form `[fontFamilies, { fontFeatureSettings }]` when configuring custom fonts.
 
 ```diff-js tailwind.config.js
   module.exports = {
