@@ -556,6 +556,51 @@ When using multiple peers, you can style something on the state of a _specific_ 
 ```
 
 Peers can be named however you like and don’t need to be configured in any way — just name your peers directly in your markup and Tailwind will automatically generate the necessary CSS.
+
+#### Arbitrary peers
+
+You can create one-off `peer-*` modifiers on the fly by providing your own selector as an [arbitrary value](/docs/adding-custom-styles#using-arbitrary-values) between square brackets:
+
+<SnippetGroup>
+
+```html HTML
+<form>
+  <label for="email">Email:</label>
+  <input id="email" name="email" type="email" class="is-dirty peer" required />
+  <div class="**peer-[.is-dirty]**:peer-required:block hidden">This field is required.</div>
+  <!-- ... -->
+</form>
+```
+
+```css Generated CSS
+.peer.is-dirty:required ~ .peer-\[\.is-dirty\]\:peer-required\:block {
+  display: block;
+}
+```
+
+</SnippetGroup>
+
+For more control, you can use the `&` character to mark where `.peer` should end up in the final selector relative to the selector you are passing in:
+
+<SnippetGroup>
+
+```html HTML
+<div>
+  <input type="text" class="peer" />
+  <div class="peer-[:nth-of-type(3)_&]:block">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+```css Generated CSS
+:nth-of-type(3) .peer ~ .peer-\[\:nth-of-type\(3\)_\&\]\:block {
+  display: block;
+}
+```
+
+</SnippetGroup>
+
 ---
 
 ## Pseudo-elements
