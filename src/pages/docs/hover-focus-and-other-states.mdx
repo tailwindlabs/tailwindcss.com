@@ -437,6 +437,48 @@ When nesting groups, you can style something based on the state of a _specific_ 
 
 Groups can be named however you like and don’t need to be configured in any way — just name your groups directly in your markup and Tailwind will automatically generate the necessary CSS.
 
+#### Arbitrary groups
+
+You can create one-off `group-*` modifiers on the fly by providing your own selector as an [arbitrary values](/docs/adding-custom-styles#using-arbitrary-values) between square brackets.
+
+<SnippetGroup>
+
+```html HTML
+<div class="group is-published">
+  <div class="hidden **group-[.is-published]:block**">
+    Published
+  </div>
+</div>
+```
+
+```css Generated CSS
+.group.is-published .group-\[\.is-published\]\:block {
+  display: block;
+}
+```
+
+</SnippetGroup>
+
+For more control, you can use the `&` character to mark where `.group` should end up in the final selector relative to the selector you are passing in.
+
+<SnippetGroup>
+
+```html HTML
+<div class="group">
+  <div class="group-[:nth-of-type(3)_&]:block">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+```css Generated CSS
+:nth-of-type(3) .group .group-\[\:nth-of-type\(3\)_\&\]\:block {
+  display: block;
+}
+```
+
+</SnippetGroup>
+
 ### Styling based on sibling state <small>(peer-{'{modifier}'})</small>
 
 When you need to style an element based on the state of a _sibling_ element, mark the sibling with the `peer` class, and use `peer-*` modifiers like `peer-invalid` to style the target element:
