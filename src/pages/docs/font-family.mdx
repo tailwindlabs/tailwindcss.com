@@ -108,6 +108,23 @@ Note that **Tailwind does not automatically escape font names** for you. If you'
 
 Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
 
+#### Providing default font-feature-settings
+
+You can optionally provide default [font-feature-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings) for each font in your project using a tuple of the form `[fontFamilies, { fontFeatureSettings }]` when configuring custom fonts.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      fontFamily: {
+        sans: [
+          "Inter var, sans-serif",
++         { fontFeatureSettings: '"cv11", "ss01"' },
+        ],
+      },
+    },
+  }
+```
+
 ### Arbitrary values
 
 <ArbitraryValues property="font-family" featuredClass="font-['Open_Sans']" element="p" />
@@ -118,7 +135,7 @@ For convenience, [Preflight](/docs/preflight) sets the font family on the `html`
 
 ```diff-js tailwind.config.js
   const defaultTheme = require('tailwindcss/defaultTheme')
-  
+
   module.exports = {
     theme: {
       extend: {
