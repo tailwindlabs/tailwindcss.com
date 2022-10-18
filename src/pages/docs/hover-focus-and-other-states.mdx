@@ -524,6 +524,38 @@ It's important to note that the `peer` marker can only be used on _previous_ sib
 </label>
 ```
 
+
+#### Differentiating peers
+
+When using multiple peers, you can style something on the state of a _specific_ peer by giving that peer a unique name using a `peer/{name}` class, and including that name in modifiers using classes like `peer-checked/{name}`:
+
+<Example p="none">
+  <div class="px-4">
+    <fieldset class="mx-auto max-w-md bg-white p-8 text-sm shadow">
+      <div class="mb-6 border-b border-slate-200 pb-2 text-base font-semibold">Published status</div>
+      <input id="draft" class="peer/draft form-radio mr-2 mb-0.5 border-slate-300 text-sky-400 focus:ring-sky-300" type="radio" name="status" checked /><label class="peer-checked/draft:text-sky-500 font-medium" for="draft">Draft</label> <input id="published" class="peer/published form-radio mr-2 mb-0.5 ml-4 border-slate-300 text-sky-400 focus:ring-sky-300" type="radio" name="status" /><label class="peer-checked/published:text-sky-500 font-medium" for="published">Published</label>
+      <div class="peer-checked/draft:block mt-4 hidden text-gray-500">Drafts are only visible to administrators.</div>
+      <div class="peer-checked/published:block mt-4 hidden text-gray-500">Your post will be publicly visible on your site.</div>
+    </fieldset>
+  </div>
+</Example>
+
+```html
+<fieldset>
+  <legend>Published status</legend>
+
+  <input id="draft" class="**peer/draft**" type="radio" name="status" checked />
+  <label for="draft" class="**peer-checked/draft:text-sky-500**">Draft</label>
+
+  <input id="published" class="**peer/published**" type="radio" name="status" />
+  <label for="published" class="**peer-checked/published:text-sky-500**">Published</label>
+
+  <div class="hidden **peer-checked/draft:block**">Drafts are only visible to administrators.</div>
+  <div class="hidden **peer-checked/published:block**">Your post will be publicly visible on your site.</div>
+</fieldset>
+```
+
+Peers can be named however you like and don’t need to be configured in any way — just name your peers directly in your markup and Tailwind will automatically generate the necessary CSS.
 ---
 
 ## Pseudo-elements
