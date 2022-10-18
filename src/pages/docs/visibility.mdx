@@ -31,6 +31,127 @@ Use `invisible` to hide an element, but still maintain its place in the DOM, aff
 </div>
 ```
 
+### Collapsing elements
+
+Use `collapse` to hide table rows, row groups, columns, and column groups as if they were set to `display: none`, but without impacting the size of other rows and columns.
+
+This makes it possible to dynamically toggle rows and columns without affecting the table layout.
+
+<Example p="none">
+  <div class="py-8">
+    <div class="mb-3 pl-4 text-sm font-medium text-slate-500 dark:text-slate-400">Showing all rows</div>
+    <table class="border-collapse w-full border-y border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-800 text-sm shadow-sm">
+      <thead class="bg-slate-50 dark:bg-slate-700">
+        <tr>
+          <th class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left">Invoice #</th>
+          <th class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left">Client</th>
+          <th class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#100</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">Pendant Publishing</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">$2,000.00</td>
+        </tr>
+        <tr>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#101</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">Kruger Industrial Smoothing</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">$545.00</td>
+        </tr>
+        <tr>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#102</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">J. Peterman</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">$10,000.25</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="mt-10 mb-3 pl-4 text-sm font-medium text-slate-500 dark:text-slate-400">Hiding a row using <code class="text-xs text-slate-700 dark:text-slate-300">`collapse`</code></div>
+    <table class="border-collapse w-full border-y border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-800 text-sm shadow-sm">
+      <thead class="bg-slate-50 dark:bg-slate-700">
+        <tr>
+          <th class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left">Invoice #</th>
+          <th class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left">Client</th>
+          <th class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#100</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">Pendant Publishing</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">$2,000.00</td>
+        </tr>
+        <tr class="collapse">
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#101</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">Kruger Industrial Smoothing</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">$545.00</td>
+        </tr>
+        <tr>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#102</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">J. Peterman</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">$10,000.25</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="mt-10 mb-3 pl-4 text-sm font-medium text-slate-500 dark:text-slate-400">Hiding a row using <code class="text-xs text-slate-700 dark:text-slate-300">`hidden`</code></div>
+    <table class="border-collapse w-full border-y border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-800 text-sm shadow-sm">
+      <thead class="bg-slate-50 dark:bg-slate-700">
+        <tr>
+          <th class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left">Invoice #</th>
+          <th class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left">Client</th>
+          <th class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#100</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">Pendant Publishing</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">$2,000.00</td>
+        </tr>
+        <tr class="hidden">
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#101</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">Kruger Industrial Smoothing</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">$545.00</td>
+        </tr>
+        <tr>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#102</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">J. Peterman</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">$10,000.25</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Example>
+
+```html
+<table>
+  <thead>
+    <tr>
+      <th>Invoice #</th>
+      <th>Client</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>#100</td>
+      <td>Pendant Publishing</td>
+      <td>$2,000.00</td>
+    </tr>
+    <tr class="**collapse**">
+      <td>#101</td>
+      <td>Kruger Industrial Smoothing</td>
+      <td>$545.00</td>
+    </tr>
+    <tr>
+      <td>#102</td>
+      <td>J. Peterman</td>
+      <td>$10,000.25</td>
+    </tr>
+  </tbody>
+</table>
+```
+
 ### Making elements visible
 
 Use `visible` to make an element visible. This is mostly useful for undoing the `invisible` utility at different screen sizes.
