@@ -355,7 +355,7 @@ This pattern works with every pseudo-class modifier, for example `group-focus`, 
 
 #### Differentiating nested groups
 
-When nesting groups, you can style something based on the state of a _specific_ parent group by giving that parent a unique group name using a `group/{name}` class, and including that name in modifiers using classes like `group-hover/{name}`.
+When nesting groups, you can style something based on the state of a _specific_ parent group by giving that parent a unique group name using a `group/{name}` class, and including that name in modifiers using classes like `group-hover/{name}`:
 
 <Example p="none">
   <div class="px-4">
@@ -439,7 +439,7 @@ Groups can be named however you like and don’t need to be configured in any wa
 
 #### Arbitrary groups
 
-You can create one-off `group-*` modifiers on the fly by providing your own selector as an [arbitrary values](/docs/adding-custom-styles#using-arbitrary-values) between square brackets.
+You can create one-off `group-*` modifiers on the fly by providing your own selector as an [arbitrary value](/docs/adding-custom-styles#using-arbitrary-values) between square brackets:
 
 <SnippetGroup>
 
@@ -459,7 +459,7 @@ You can create one-off `group-*` modifiers on the fly by providing your own sele
 
 </SnippetGroup>
 
-For more control, you can use the `&` character to mark where `.group` should end up in the final selector relative to the selector you are passing in.
+For more control, you can use the `&` character to mark where `.group` should end up in the final selector relative to the selector you are passing in:
 
 <SnippetGroup>
 
