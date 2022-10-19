@@ -10,9 +10,9 @@ import { ThemeSelect, ThemeToggle } from './ThemeToggle'
 
 function Featured() {
   return (
-    <Link href="/blog/tailwindcss-v3-1">
+    <Link href="/blog/tailwindcss-v3-2">
       <a className="ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-sky-400/20">
-        <strong className="font-semibold">Tailwind CSS v3.1</strong>
+        <strong className="font-semibold">Tailwind CSS v3.2</strong>
         <svg
           width="2"
           height="2"
@@ -22,7 +22,12 @@ function Featured() {
         >
           <circle cx="1" cy="1" r="1" />
         </svg>
-        <span className="ml-2">Arbitrary variants, TypeScript types, and more</span>
+        <span className="ml-2 min-[1372px]:hidden">
+          Dynamic breakpoints, container queries, and more
+        </span>
+        <span className="ml-2 hidden min-[1372px]:inline">
+          Dynamic breakpoints, multi-config, container queries, and more
+        </span>
         <svg
           width="3"
           height="6"
