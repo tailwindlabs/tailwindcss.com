@@ -89,6 +89,18 @@ module.exports = {
 }
 ```
 
+Alternatively, you can specify your custom configuration path using the `@config` directive:
+
+```css site.css
+@config "./tailwindcss-config.js";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+Learn more about the `@config` directive in the [Functions & Directives](/docs/functions-and-directives#config) documentation.
+
 ### Generating a PostCSS configuration file
 
 Use the `-p` flag if you'd like to also generate a basic `postcss.config.js` file alongside your `tailwind.config.js` file:
