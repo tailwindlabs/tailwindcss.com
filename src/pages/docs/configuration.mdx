@@ -92,7 +92,7 @@ module.exports = {
 
 Alternatively, you can specify your custom configuration path using the `@config` directive:
 
-```css site.css
+```css
 @config "./tailwindcss-config.js";
 
 @tailwind base;
@@ -459,9 +459,7 @@ Here's a list of every core plugin for reference:
 
 ## Using multiple configurations
 
-Sometimes projects require multiple Tailwind config files and CSS entry points. For example, a project that has both a public website and admin control panel that each have their own Tailwind config and CSS.
-
-In these situations, the `@config` directive is useful, as it allows you to specify which config file Tailwind should use for each CSS entry point.
+For projects that need to generate multiple CSS files using different Tailwind configurations, use the `@config` directive to specify which config file should be used for each CSS entry point:
 
 <SnippetGroup>
 
