@@ -1123,14 +1123,109 @@ module.exports = {
 
 If you need to use a one-off `aria` modifier that doesn’t make sense to include in your theme, or for more complex ARIA attributes that take specific values, use square brackets to generate a property on the fly using any arbitrary value.
 
-```html
-<th
-  aria-sort="ascending"
-  class="**aria-[sort=ascending]:bg-[url('/img/up-arrow.svg')]** **aria-[sort=descending]:bg-[url('/img/down-arrow.svg')]**"
->
+<Example p="none">
+  <div class="py-8">
+    <table class="border-collapse w-full border-y border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-800 text-sm shadow-sm">
+      <thead class="bg-slate-50 dark:bg-slate-700">
+        <tr>
+          <th class="group border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left" aria-sort="ascending">
+            <span class="flex gap-2 items-center w-full justify-between">
+              Invoice #
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-5 h-5 fill-slate-500 group-aria-[sort=ascending]:rotate-0 group-aria-[sort=descending]:rotate-180">
+                <path fill-rule="evenodd" d="M10 5a.75.75 0 01.75.75v6.638l1.96-2.158a.75.75 0 111.08 1.04l-3.25 3.5a.75.75 0 01-1.08 0l-3.25-3.5a.75.75 0 111.08-1.04l1.96 2.158V5.75A.75.75 0 0110 5z" clip-rule="evenodd" />
+              </svg>
+            </span>
+          </th>
+          <th class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left">Client</th>
+          <th class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-right">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#100</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">Pendant Publishing</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">$2,000.00</td>
+        </tr>
+        <tr>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#101</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">Kruger Industrial Smoothing</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">$545.00</td>
+        </tr>
+        <tr>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#102</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">J. Peterman</td>
+          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">$10,000.25</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Example>
+
+<SnippetGroup>
+
+```html HTML
+<table>
+  <thead>
+    <tr>
+      <th
+        aria-sort="ascending"
+        class="**aria-[sort=ascending]:bg-[url('/img/down-arrow.svg')]** **aria-[sort=descending]:bg-[url('/img/up-arrow.svg')]**"
+      >
+        Invoice #
+      </th>
+      <!-- ... -->
+    </tr>
+  </thead>
   <!-- ... -->
-</th>
+</table>
 ```
+
+```css Generated CSS
+.aria-\[sort\=ascending\]\:bg-\[url\(\'\/img\/down-arrow\.svg\'\)\][aria-sort=ascending] {
+  background-image: url('/img/down-arrow.svg');
+}
+
+.aria-\[sort\=descending\]\:bg-\[url\(\'\/img\/up-arrow\.svg\'\)\][aria-sort=descending] {
+  background-image: url('/img/up-arrow.svg');
+}
+```
+
+</SnippetGroup>
+
+ARIA state modifiers can also target parent and sibling elements using the `group-aria-*` and `peer-aria-*` modifiers:
+
+<SnippetGroup>
+
+```html HTML
+<table>
+  <thead>
+    <tr>
+    <th aria-sort="ascending" class="group">
+      Invoice #
+      <svg class="**group-aria-[sort=ascending]:rotate-0** **group-aria-[sort=descending]:rotate-180**"><!-- ... --></svg>
+    </th>
+    <!-- ... -->
+    </tr>
+  </thead>
+  <!-- ... -->
+</table>
+```
+
+```css Generated CSS
+.group[aria-sort=ascending] .group-aria-\[sort\=ascending\]\:rotate-0 {
+  --tw-rotate: 0deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.group[aria-sort=descending] .group-aria-\[sort\=descending\]\:rotate-180 {
+  --tw-rotate: 180deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+```
+
+</SnippetGroup>
+
+
 
 ### Data attributes
 
