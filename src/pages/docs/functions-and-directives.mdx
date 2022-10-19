@@ -4,6 +4,7 @@ description: A reference for the custom functions and directives Tailwind expose
 ---
 
 import { TipGood, TipBad } from '@/components/Tip'
+import { SnippetGroup } from '@/components/SnippetGroup'
 
 ## Directives
 
@@ -213,6 +214,32 @@ module.exports = {
 This way any file processed by Tailwind that uses this config file will have access to those styles.
 
 Honestly though the best solution is to just not do weird stuff like this at all. Use Tailwind's utilities directly in your markup the way they are intended to be used, and don't abuse the `@apply` feature to do things like this and you will have a much better experience.
+
+### @config
+
+Use the `@config` directive to specify which config file Tailwind should use for that CSS file. This is useful for projects that have multiple Tailwind config files for different CSS entry points.
+
+<SnippetGroup>
+
+```css site.css
+@config "./tailwind.site.config.js";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+```css admin.css
+@config "./tailwind.admin.config.js";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+</SnippetGroup>
+
+The path set using the `@config` directive is relative to the CSS file it's in, and will take precedence over a path defined in your PostCSS configuration or in the Tailwind CLI.
 
 ---
 
