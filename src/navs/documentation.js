@@ -233,5 +233,9 @@ export const documentationNav = {
       title: 'Line Clamp',
       href: 'https://github.com/tailwindlabs/tailwindcss-line-clamp',
     },
+    {
+      title: 'Container Queries',
+      href: 'https://github.com/tailwindlabs/tailwindcss-container-queries',
+    },
   ],
 }
