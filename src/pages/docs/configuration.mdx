@@ -4,6 +4,7 @@ description: A guide to configuring and customizing your Tailwind installation.
 ---
 
 import { CorePluginReference } from '@/components/CorePluginReference'
+import { SnippetGroup } from '@/components/SnippetGroup'
 
 Because Tailwind is a framework for building bespoke user interfaces, it has been designed from the ground up with customization in mind.
 
@@ -88,6 +89,18 @@ module.exports = {
   },
 }
 ```
+
+Alternatively, you can specify your custom configuration path using the `@config` directive:
+
+```css
+@config "./tailwindcss-config.js";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+Learn more about the `@config` directive in the [Functions & Directives](/docs/functions-and-directives#config) documentation.
 
 ### Generating a PostCSS configuration file
 
@@ -441,6 +454,34 @@ module.exports = {
 Here's a list of every core plugin for reference:
 
 <CorePluginReference />
+
+---
+
+## Using multiple configurations
+
+For projects that need to generate multiple CSS files using different Tailwind configurations, use the `@config` directive to specify which config file should be used for each CSS entry point:
+
+<SnippetGroup>
+
+```css site.css
+@config "./tailwind.site.config.js";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+```css admin.css
+@config "./tailwind.admin.config.js";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+</SnippetGroup>
+
+Learn more about the `@config` directive in the [Functions & Directives](/docs/functions-and-directives#config) documentation.
 
 ---
 
