@@ -86,29 +86,41 @@ Where this approach surprises people most often is that to style something for m
 
 For this reason, it's often a good idea to implement the mobile layout for a design first, then layer on any changes that make sense for `sm` screens, followed by `md` screens, etc.
 
-### Targeting a single breakpoint
-
-If you'd like to apply a utility at one breakpoint only, combine a responsive modifier with a `max` modifier to prevent that utility from being applied on larger screen sizes.
-
-Here is an example where the background color is red at the `md` breakpoint, but green at every other breakpoint:
-
-```html
-<div class="bg-green-500 md:max-lg:bg-red-500">
-  <!-- ... -->
-</div>
-```
-
 ### Targeting a breakpoint range
 
-If you'd like to apply a utility for a specific breakpoint range, combine a responsive modifier with a `max` modifier.
+By default, styles applied by rules like `md:flex` will apply at that breakpoint and stay applied at larger breakpoints.
 
-Here is an example where the background color is red from the `sm` breakpoint up until the `lg` breakpoint, and green at every other breakpoint:
+If you'd like to apply a utility _only_ when a specific breakpoint range is active, stack a responsive modifier like `md` with a `max-*` modifier to limit that style to a specific range:
 
 ```html
-<div class="bg-green-500 sm:max-lg:bg-red-500">
+<div class="md:max-xl:flex">
   <!-- ... -->
 </div>
 ```
+
+Tailwind generates a corresponding `max-*` modifier for each breakpoint, so out of the box the following modifiers are available:
+
+
+| Modifier | Media query |
+| --- | --- |
+| `max-sm` | `@media not all and (min-width: 640px) { ... }` |
+| `max-md` | `@media not all and (min-width: 768px) { ... }` |
+| `max-lg` | `@media not all and (min-width: 1024px) { ... }` |
+| `max-xl` | `@media not all and (min-width: 1280px) { ... }` |
+| `max-2xl` | `@media not all and (min-width: 1536px) { ... }` |
+
+
+### Targeting a single breakpoint
+
+To target a single breakpoint, target the range for that breakpoint by stacking a responsive modifier like `md` with the `max-*` modifier for the next breakpoint:
+
+```html
+<div class="md:max-lg:flex">
+  <!-- ... -->
+</div>
+```
+
+Read about [targeting breakpoint ranges](#targeting-a-breakpoint-range) to learn more.
 
 ---
 
