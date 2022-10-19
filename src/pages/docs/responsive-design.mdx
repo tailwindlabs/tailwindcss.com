@@ -60,9 +60,9 @@ We've only used one breakpoint in this example, but you could easily customize t
 
 ---
 
-## Mobile First
+## Working mobile-first
 
-By default, Tailwind uses a mobile first breakpoint system, similar to what you might be used to in other frameworks like Bootstrap.
+By default, Tailwind uses a mobile-first breakpoint system, similar to what you might be used to in other frameworks like Bootstrap.
 
 What this means is that unprefixed utilities (like `uppercase`) take effect on all screen sizes, while prefixed utilities (like `md:uppercase`) only take effect at the specified breakpoint *and above*.
 
@@ -88,23 +88,33 @@ For this reason, it's often a good idea to implement the mobile layout for a des
 
 ### Targeting a single breakpoint
 
-Tailwind's breakpoints only include a `min-width` and don't include a `max-width`, which means any utilities you add at a smaller breakpoint will also be applied at larger breakpoints.
-
-If you'd like to apply a utility at one breakpoint only, the solution is to *undo* that utility at larger sizes by adding another utility that counteracts it.
+If you'd like to apply a utility at one breakpoint only, combine a responsive modifier with a `max` modifier to prevent that utility from being applied on larger screen sizes.
 
 Here is an example where the background color is red at the `md` breakpoint, but green at every other breakpoint:
 
 ```html
-<div class="bg-green-500 md:bg-red-500 lg:bg-green-500">
+<div class="bg-green-500 md:max-lg:bg-red-500">
   <!-- ... -->
 </div>
 ```
 
-Notice that **we did not** have to specify a background color for the `sm` breakpoint or the `xl` breakpoint — you only need to specify when a utility should *start* taking effect, not when it should stop.
+### Targeting a breakpoint range
+
+If you'd like to apply a utility for a specific breakpoint range, combine a responsive modifier with a `max` modifier.
+
+Here is an example where the background color is red from the `sm` breakpoint up until the `lg` breakpoint, and green at every other breakpoint:
+
+```html
+<div class="bg-green-500 sm:max-lg:bg-red-500">
+  <!-- ... -->
+</div>
+```
 
 ---
 
-## Customizing breakpoints
+## Using custom breakpoints
+
+### Customizing your theme
 
 You can completely customize your breakpoints in your `tailwind.config.js` file:
 
@@ -126,3 +136,17 @@ module.exports = {
 ```
 
 Learn more in the [customizing breakpoints documentation](/docs/breakpoints).
+
+---
+
+### Arbitrary values
+
+If you need to use a one-off breakpoint that doesn’t make sense to include in your theme, use the `min` or `max` modifiers to generate custom breakpoint on the fly using any arbitrary value.
+
+```html
+<div class="**min-[320px]:text-center** **max-[600px]:bg-sky-300**">
+  <!-- ... -->
+</div>
+```
+
+Learn more about arbitrary value support in the [arbitrary values](/docs/adding-custom-styles#using-arbitrary-values) documentation.
