@@ -56,8 +56,9 @@ export default function App({ Component, pageProps, router }) {
   const meta = Component.layoutProps?.meta || {}
   const description =
     meta.metaDescription || meta.description || 'Documentation for the Tailwind CSS framework.'
-  const image = meta.ogImage
-    ? `https://tailwindcss.com${meta.ogImage.default?.src ?? meta.ogImage.src ?? meta.ogImage}`
+  let image = meta.ogImage ?? meta.image
+  image = image
+    ? `https://tailwindcss.com${image.default?.src ?? image.src ?? image}`
     : `https://tailwindcss.com${socialCardLarge.src}`
 
   if (router.pathname.startsWith('/examples/')) {
