@@ -7,10 +7,18 @@ import opentype from 'opentype.js'
 
 const WIDTH = 1280
 const HEIGHT = 720
-const PADDING = 112
+const PADDING = { x: 96, y: 112 }
 
-const fontExtraBold = opentype.loadSync(resolve('Inter-ExtraBold.otf'))
+const fontMedium = opentype.loadSync(resolve('Inter-Medium.otf'))
 const fontSemiBold = opentype.loadSync(resolve('Inter-SemiBold.otf'))
+const fontExtraBold = opentype.loadSync(resolve('Inter-ExtraBold.otf'))
+
+const colors = {
+  sky500: '#0EA5E9',
+  slate400: '#94A3B8',
+  slate500: '#64748B',
+  'slate500/30': 'rgba(100, 116, 139, 0.3)',
+}
 
 const imageOverrides = [{ pattern: '/', image: resolve('og-default.jpg'), type: 'image/jpeg' }]
 
@@ -91,12 +99,12 @@ function get(url) {
   return new Promise((resolve, reject) => {
     https
       .get(url, (res) => {
-        let body = ''
+        let data = []
         res.on('data', (chunk) => {
-          body += chunk
+          data.push(chunk)
         })
         res.on('end', () => {
-          resolve({ body, statusCode: res.statusCode })
+          resolve({ data: Buffer.concat(data), statusCode: res.statusCode })
         })
       })
       .on('error', (error) => {
@@ -121,6 +129,18 @@ function getLines(text, { font, size, maxWidth, letterSpacing = 0 }) {
     }
   }
   lines.push(currentLine)
+
+  // prevent widows
+  if (
+    lines.length > 1 &&
+    lines[lines.length - 2].split(' ').length > 1 &&
+    lines[lines.length - 1].split(' ').length === 1
+  ) {
+    lines[lines.length - 1] =
+      lines[lines.length - 2].split(' ').pop() + ' ' + lines[lines.length - 1]
+    lines[lines.length - 2] = lines[lines.length - 2].split(' ').slice(0, -1).join(' ')
+  }
+
   return lines
 }
 
@@ -141,7 +161,7 @@ function getText(text, { font, size, letterSpacing = 0, lineHeight = size, maxLi
   let scale = (1 / font.unitsPerEm) * size
   let height = font.ascender * scale + Math.abs(font.descender * scale)
   let dy = (lineHeight - height) / 2
-  let maxWidth = WIDTH - PADDING * 2
+  let maxWidth = WIDTH - PADDING.x * 2
   let lines = getLines(text, { font, size, maxWidth, letterSpacing })
 
   if (lines.length > maxLines) {
@@ -157,6 +177,7 @@ function getText(text, { font, size, letterSpacing = 0, lineHeight = size, maxLi
   return {
     lines: lines.length,
     height: lineHeight * lines.length,
+    measureLines: () => lines.map((line) => measureText(line, { font, size, letterSpacing })),
     draw: (ctx, x, y, { color = 'black' } = {}) => {
       for (let i = 0; i < lines.length; i++) {
         let path = font.getPath(
@@ -195,7 +216,8 @@ export default async function handler(req, res) {
     }
 
     let url = `https://tailwindcss.com${path}`
-    let { body, statusCode } = await get(url)
+    let { data, statusCode } = await get(url)
+    let body = data.toString()
 
     if (statusCode === 404) {
       res.statusCode = 404
@@ -216,15 +238,51 @@ export default async function handler(req, res) {
       return res.end('Error')
     }
 
-    let eyebrow = $('#header > div > p:first-of-type').text()
-    let description = $('meta[property="og:description"]').attr('content')
-
-    if (path.startsWith('/blog/')) {
-      eyebrow = 'Blog'
-    }
-
     let canvas = new Canvas(WIDTH, HEIGHT)
     let ctx = canvas.getContext('2d')
+
+    function rounded(x, y, w, h, r) {
+      if (w < 2 * r) r = w / 2
+      if (h < 2 * r) r = h / 2
+      ctx.beginPath()
+      ctx.moveTo(x + r, y)
+      ctx.arcTo(x + w, y, x + w, y + h, r)
+      ctx.arcTo(x + w, y + h, x, y + h, r)
+      ctx.arcTo(x, y + h, x, y, r)
+      ctx.arcTo(x, y, x + w, y, r)
+      ctx.closePath()
+    }
+
+    if (path.startsWith('/docs/margin')) {
+      let image = new Image()
+      image.src = readFileSync(resolve('showcase.png'))
+      // image.src = Buffer.from(
+      //   `data:image/svg+xml;utf8,<svg width="${HEIGHT}" height="${HEIGHT}"></svg>`,
+      //   'utf-8'
+      // )
+      image.width = WIDTH
+      image.height = HEIGHT
+      ctx.drawImage(image, 0, 0, WIDTH, HEIGHT)
+
+      rounded(80, 160, 1120, 700, 16)
+      ctx.clip()
+
+      let foo = new Image()
+      foo.src = (
+        await get(
+          'https://tailwindcss-com-private-ckquuptc-emqhsz99c-tailwindlabs.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F1.d04dafc3.png&w=2048&q=90'
+        )
+      ).data
+      foo.width = 1120
+      foo.height = 1120 / (2048 / 1138)
+      ctx.drawImage(foo, 80, 160, 1120, 1120 / (2048 / 1138))
+
+      res.statusCode = 200
+      res.setHeader('Content-Type', 'image/png')
+      res.setHeader('Cache-Control', 'public, no-transform, s-maxage=31536000, max-age=3600')
+      res.end(canvas.toBuffer('image/png'))
+      return
+    }
 
     let bgImage = new Image()
     bgImage.src = readFileSync(resolve('og-background.png'))
@@ -236,43 +294,98 @@ export default async function handler(req, res) {
     logoImage.src = readFileSync(resolve('logo.svg'))
     logoImage.width = 404
     logoImage.height = 50
-    ctx.drawImage(logoImage, PADDING, PADDING, 404, 50)
+    ctx.drawImage(logoImage, PADDING.x, PADDING.y, 404, 50)
 
-    let eyebrowText = eyebrow
-      ? getText(eyebrow, { font: fontSemiBold, size: 36, lineHeight: 54 })
-      : null
-    let titleText = getText(title, {
-      font: fontExtraBold,
-      size: 72,
-      lineHeight: 80,
-      letterSpacing: -0.025,
-      maxLines: 3,
-    })
-    let descriptionText =
-      description && titleText.lines < 3
-        ? getText(description, {
-            font: fontSemiBold,
-            size: 36,
-            lineHeight: 54,
-            maxLines: titleText.lines === 2 ? 2 : 3,
-          })
+    if (path.startsWith('/blog/')) {
+      let date = $('article time').attr('datetime')
+
+      let eyebrowText = getText('What’s new', { font: fontSemiBold, size: 32, lineHeight: 56 })
+      let titleText = getText(title, {
+        font: fontExtraBold,
+        size: 48,
+        lineHeight: 72,
+        letterSpacing: -0.025,
+        maxLines: 3,
+      })
+
+      titleText.draw(ctx, PADDING.x, HEIGHT - PADDING.y - titleText.height)
+      eyebrowText.draw(
+        ctx,
+        PADDING.x,
+        HEIGHT - PADDING.y - titleText.height - 16 - eyebrowText.height,
+        { color: colors.sky500 }
+      )
+
+      if (date) {
+        date = new Date(date).toLocaleDateString('en-US', {
+          day: 'numeric',
+          month: 'short',
+          year: 'numeric',
+          timeZone: 'UTC',
+        })
+        let dateText = getText(date, { font: fontSemiBold, size: 32, lineHeight: 56 })
+        let eyebrowWidth = eyebrowText.measureLines()[0]
+        dateText.draw(
+          ctx,
+          PADDING.x + eyebrowWidth + 54,
+          HEIGHT - PADDING.y - titleText.height - 16 - eyebrowText.height,
+          { color: colors.slate400 }
+        )
+
+        ctx.beginPath()
+        ctx.arc(
+          PADDING.x + eyebrowWidth + 24 + 3,
+          HEIGHT - PADDING.y - titleText.height - 16 - 28,
+          3,
+          0,
+          2 * Math.PI
+        )
+        ctx.fillStyle = colors['slate500/30']
+        ctx.fill()
+      }
+    } else {
+      let eyebrow = $('#header > div > p:first-of-type').text()
+      let description = $('meta[property="og:description"]').attr('content')
+
+      let eyebrowText = eyebrow
+        ? getText(eyebrow, { font: fontSemiBold, size: 32, lineHeight: 56 })
         : null
-
-    let offset = PADDING
-
-    if (descriptionText) {
-      descriptionText.draw(ctx, PADDING, HEIGHT - offset - descriptionText.height, {
-        color: '#64748b',
+      let titleText = getText(title, {
+        font: fontExtraBold,
+        size: 72,
+        lineHeight: 80,
+        letterSpacing: -0.025,
+        maxLines: 3,
       })
-      offset += descriptionText.height + 12
-    }
+      let descriptionText =
+        description && titleText.lines < 3
+          ? getText(description, {
+              font: fontMedium,
+              size: 32,
+              lineHeight: 56,
+              maxLines: titleText.lines === 2 ? 2 : 3,
+            })
+          : null
 
-    titleText.draw(ctx, PADDING, HEIGHT - offset - titleText.height)
+      let offset = PADDING.y
 
-    if (eyebrowText) {
-      eyebrowText.draw(ctx, PADDING, HEIGHT - offset - titleText.height - 12 - eyebrowText.height, {
-        color: '#0ea5e9',
-      })
+      if (descriptionText) {
+        descriptionText.draw(ctx, PADDING.x, HEIGHT - offset - descriptionText.height, {
+          color: colors.slate500,
+        })
+        offset += descriptionText.height + 16
+      }
+
+      titleText.draw(ctx, PADDING.x, HEIGHT - offset - titleText.height)
+
+      if (eyebrowText) {
+        eyebrowText.draw(
+          ctx,
+          PADDING.x,
+          HEIGHT - offset - titleText.height - 16 - eyebrowText.height,
+          { color: colors.sky500 }
+        )
+      }
     }
 
     res.statusCode = 200
