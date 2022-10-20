@@ -35,7 +35,6 @@ export function BlogPostLayout({ children, meta }) {
         <div className="max-w-3xl mx-auto pb-28">
           <main>
             <article className="relative pt-10">
-              <Metadata meta={meta} />
               <h1
                 className={clsx(
                   'text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 md:text-3xl '
