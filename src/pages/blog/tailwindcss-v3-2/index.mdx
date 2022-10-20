@@ -422,7 +422,7 @@ module.exports = {
     plugin(function ({ matchVariant }) {
       matchVariant(
         "placement",
-        ({ value }) => {
+        (value) => {
           return `&[data-placement=${value}]`;
         },
         {
@@ -450,7 +450,7 @@ The variant defined above would give you variants like `placement-t` and `placem
 When defining a custom variant with this API, it's often important that you have some control over which order the CSS is generated in to make sure each class has the right precedence with respect to other values that come from the same variant. To support this, there's a `sort` function you can provide when defining your variant:
 
 ```js
-matchVariant("min", ({ value }) => `@media (min-width: ${value})`, {
+matchVariant("min", (value) => `@media (min-width: ${value})`, {
   sort(a, z) {
     return parseInt(a) - parseInt(z);
   },
