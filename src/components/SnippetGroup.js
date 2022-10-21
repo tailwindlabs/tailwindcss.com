@@ -46,7 +46,7 @@ function TabItem({ children, selectedIndex, myIndex, marker }) {
   return (
     <Tab
       className={clsx(
-        'flex items-center relative z-10 overflow-hidden px-4 py-1',
+        'flex items-center relative z-10 overflow-hidden px-4 py-1 [&:not(:focus-visible)]:focus:outline-none',
         isSelected ? 'text-sky-300' : 'text-slate-400'
       )}
     >
