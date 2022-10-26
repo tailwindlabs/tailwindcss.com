@@ -14,6 +14,13 @@ export const showcase = [
     description: 'Research website',
   },
   {
+    name: 'Wander',
+    slug: 'wander',
+    thumbnail: require('@/img/showcase/thumbnails/wander.com.png').default,
+    video: require('@/videos/showcase/wander.com.mp4').default,
+    description: 'Vacation rental website',
+  },
+  {
     name: 'Netflix Global Top 10',
     slug: 'netflix',
     thumbnail: require('@/img/showcase/thumbnails/top10.netflix.com.png').default,
