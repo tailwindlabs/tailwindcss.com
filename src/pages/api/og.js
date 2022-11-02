@@ -396,7 +396,10 @@ export default async function handler(req, res) {
 
     res.statusCode = 200
     res.setHeader('Content-Type', 'image/png')
-    res.setHeader('Cache-Control', 'public, no-transform, s-maxage=31536000, max-age=3600')
+    res.setHeader(
+      'Cache-Control',
+      'public, immutable, no-transform, s-maxage=31536000, max-age=600'
+    )
     res.end(canvas.toBuffer('image/png'))
   } catch (e) {
     res.statusCode = 500
