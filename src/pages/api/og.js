@@ -1,4 +1,4 @@
-import { createReadStream, readFileSync } from 'fs'
+import { readFileSync } from 'fs'
 import { join } from 'path'
 import * as cheerio from 'cheerio'
 import { https } from 'follow-redirects'
@@ -19,8 +19,6 @@ const colors = {
   slate500: '#64748B',
   'slate500/30': 'rgba(100, 116, 139, 0.3)',
 }
-
-const imageOverrides = [{ pattern: '/', image: resolve('og-default.jpg'), type: 'image/jpeg' }]
 
 const charVariants = {
   // https://github.com/rsms/inter/blob/master/src/features/cv02-four.fea
@@ -203,17 +201,6 @@ export default async function handler(req, res) {
 
     let path = req.query.path.replace(/\/+$/, '')
     if (path === '') path = '/'
-
-    let override = imageOverrides.find(({ pattern }) =>
-      typeof pattern === 'string' ? pattern === path : pattern.test(path)
-    )
-
-    if (override) {
-      let imageBuffer = createReadStream(override.image)
-      res.setHeader('Content-Type', override.type)
-      imageBuffer.pipe(res)
-      return
-    }
 
     let url = `https://tailwindcss.com${path}`
     let { data, statusCode } = await get(url)
