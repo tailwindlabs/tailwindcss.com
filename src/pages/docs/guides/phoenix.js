@@ -204,6 +204,7 @@ export function getStaticProps() {
 UsingPhoenix.layoutProps = {
   meta: {
     title: 'Install Tailwind CSS with Phoenix',
+    description: 'Setting up Tailwind CSS in a Phoenix project.',
     section: 'Installation',
   },
   Layout: DocumentationLayout,

@@ -203,7 +203,7 @@ export default function FrameworkGuides() {
 
 FrameworkGuides.layoutProps = {
   meta: {
-    title: 'Installation: Framework Guides',
+    title: 'Framework Guides',
     section: 'Getting Started',
   },
   Layout: DocumentationLayout,

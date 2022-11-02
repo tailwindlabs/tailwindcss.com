@@ -169,6 +169,7 @@ export function getStaticProps() {
 UsingSymfony.layoutProps = {
   meta: {
     title: 'Install Tailwind CSS with Symfony',
+    description: 'Setting up Tailwind CSS in a Symfony project.',
     section: 'Installation',
   },
   Layout: DocumentationLayout,

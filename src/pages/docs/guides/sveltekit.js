@@ -169,6 +169,7 @@ export function getStaticProps() {
 UsingSvelteKit.layoutProps = {
   meta: {
     title: 'Install Tailwind CSS with SvelteKit',
+    description: 'Setting up Tailwind CSS in a SvelteKit project.',
     section: 'Getting Started',
   },
   Layout: DocumentationLayout,

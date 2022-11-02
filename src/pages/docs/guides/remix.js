@@ -160,6 +160,7 @@ export function getStaticProps() {
 UsingRemix.layoutProps = {
   meta: {
     title: 'Install Tailwind CSS with Remix',
+    description: 'Setting up Tailwind CSS in a Remix project.',
     section: 'Installation',
   },
   Layout: DocumentationLayout,

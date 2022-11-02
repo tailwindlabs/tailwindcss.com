@@ -135,6 +135,7 @@ export function getStaticProps() {
 UsingNextJS.layoutProps = {
   meta: {
     title: 'Install Tailwind CSS with Next.js',
+    description: 'Setting up Tailwind CSS in a Next.js v10+ project.',
     section: 'Installation',
   },
   Layout: DocumentationLayout,
