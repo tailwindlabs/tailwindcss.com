@@ -253,7 +253,7 @@ export default async function handler(req, res) {
       ctx.closePath()
     }
 
-    if (path.startsWith('/docs/margin')) {
+    if (false && path.startsWith('/docs/margin')) {
       let image = new Image()
       image.src = readFileSync(resolve('showcase.png'))
       // image.src = Buffer.from(
