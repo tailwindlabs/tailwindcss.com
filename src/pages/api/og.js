@@ -344,7 +344,13 @@ export default async function handler(req, res) {
         ctx.fill()
       }
     } else {
-      let eyebrow = $('#header > div > p:first-of-type').text()
+      let eyebrow = $('#nav li[data-active="true"]')
+        .parents('li')
+        .first()
+        .children('h5')
+        .first()
+        .text()
+        .trim()
       let description = $('meta[property="og:description"]').attr('content')
 
       let eyebrowText = eyebrow
