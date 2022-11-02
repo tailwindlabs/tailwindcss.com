@@ -6,7 +6,7 @@ import { Canvas, Image } from '@napi-rs/canvas'
 import opentype from 'opentype.js'
 
 const WIDTH = 1200
-const HEIGHT = 600
+const HEIGHT = 630
 const PADDING = { x: 96, y: 96 }
 
 const fontMedium = opentype.loadSync(resolve('Inter-Medium.otf'))
