@@ -204,6 +204,8 @@ export default function FrameworkGuides() {
 FrameworkGuides.layoutProps = {
   meta: {
     title: 'Framework Guides',
+    description:
+      'Framework-specific guides that cover our recommended approach to installing Tailwind CSS in a number of popular environments.',
     section: 'Getting Started',
   },
   Layout: DocumentationLayout,
