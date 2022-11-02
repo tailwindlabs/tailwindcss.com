@@ -5,9 +5,9 @@ import { https } from 'follow-redirects'
 import { Canvas, Image } from '@napi-rs/canvas'
 import opentype from 'opentype.js'
 
-const WIDTH = 1280
-const HEIGHT = 720
-const PADDING = { x: 96, y: 112 }
+const WIDTH = 1200
+const HEIGHT = 600
+const PADDING = { x: 96, y: 96 }
 
 const fontMedium = opentype.loadSync(resolve('Inter-Medium.otf'))
 const fontSemiBold = opentype.loadSync(resolve('Inter-SemiBold.otf'))
