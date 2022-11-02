@@ -122,6 +122,7 @@ export function getStaticProps() {
 UsingSolidJS.layoutProps = {
   meta: {
     title: 'Install Tailwind CSS with SolidJS',
+    description: 'Setting up Tailwind CSS in a SolidJS project.',
     section: 'Installation',
   },
   Layout: DocumentationLayout,

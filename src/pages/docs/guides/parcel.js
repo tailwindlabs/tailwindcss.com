@@ -151,6 +151,7 @@ export function getStaticProps() {
 UsingParcel.layoutProps = {
   meta: {
     title: 'Install Tailwind CSS with Parcel',
+    description: 'Setting up Tailwind CSS in a Parcel project.',
     section: 'Installation',
   },
   Layout: DocumentationLayout,

@@ -1,0 +1,26 @@
+export const meta = {
+  title: 'Laracon Online',
+  url: 'https://laracon.net/',
+  date: '2022-09-30T00:00:00.000Z',
+  ogImage: require('./og.jpg'),
+  image: require('./1.png'),
+  imageAlt: 'Screenshot of the Laracon Online website. The header contains the main site navigation. Below that is the Laracon Online logo and a large detailed illustration of a fantastical make believe city.',
+  tech: 'Tailwind CSS, Laravel, Alpine.js',
+  description: 'Laracon online is the online version of the Laravel developer conference, Laracon. We strongly suspect that the site is built on Laravel, and it also uses Alpine.js and Tailwind CSS.',
+}
+
+<Intro title="An online conference for the world's most popular backend framework.">
+
+Laracon online is the online version of the Laravel developer conference, Laracon. We strongly suspect that the site is built on Laravel, and it also uses Alpine.js and Tailwind CSS.
+
+</Intro>
+
+<Image src={require('./2.png')} alt="Screenshot of the 'Speakers' section of the Laracon Online website. The conference speakers' names are displayed in a grid along with a circular headshot and their job role." caption="The Speakers section on the Laracon Online website." />
+
+<Mobile caption="The Laracon Online website experience on mobile screens, including how the conference schedule is presented.">
+  <Image src={require('./3.png')} alt="Mobile screenshot of the 'About' section of the Laracon Online website. At the top of the page is the Laracon Online logo and a detailed illustration of a fantastical make believe city. The section explains what Laracon Online is, followed by an embedded YouTube video." />
+  <Image src={require('./4.png')} alt="Mobile screenshot of the 'Pre-Party' section of the Laracon Online website. The section contains an embedded YouTube video and a large 'Set a reminder' button. At the bottom of the screen is a stylized illustration of the creators of the website." />
+  <Image src={require('./5.png')} alt="Mobile screenshot of the 'Schedule' section of the Laracon Online website. The conference schedule is listed with start times on the left and titles and speakers on the right." />
+</Mobile>
+
+<Image src={require('./6.png')} alt="Screenshot of the footer of the Laracon Online website. There is a stylized illustration of the creators of the website, followed by a 'Tweet them a cherry' button. Below is a detailed illustration of a fantastical make believe city and site copyright notices." caption="The footer features the developer and illustrator who made the website." />

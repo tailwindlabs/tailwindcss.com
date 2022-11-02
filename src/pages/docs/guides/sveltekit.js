@@ -47,15 +47,22 @@ let steps = [
     code: {
       name: 'svelte.config.js',
       lang: 'js',
-      code: `> import preprocess from "svelte-preprocess";
+      code: `  import adapter from '@sveltejs/adapter-auto';
+> import preprocess from "svelte-preprocess";
 
+  /** @type {import('@sveltejs/kit').Config} */
   const config = {
+    kit: {
+      adapter: adapter()
+    },
 >   preprocess: [
 >     preprocess({
 >       postcss: true,
 >     }),
 >   ],
-  }`,
+  };
+
+  export default config;`,
     },
   },
   {
@@ -162,6 +169,7 @@ export function getStaticProps() {
 UsingSvelteKit.layoutProps = {
   meta: {
     title: 'Install Tailwind CSS with SvelteKit',
+    description: 'Setting up Tailwind CSS in a SvelteKit project.',
     section: 'Getting Started',
   },
   Layout: DocumentationLayout,

@@ -45,6 +45,7 @@ let steps = [
       code: `  /** @type {import('tailwindcss').Config} */
   module.exports = {
 >   content: [
+>     "./app/**/*.{js,ts,jsx,tsx}",
 >     "./pages/**/*.{js,ts,jsx,tsx}",
 >     "./components/**/*.{js,ts,jsx,tsx}",
 >   ],
@@ -108,7 +109,7 @@ export default function UsingNextJS({ code }) {
       <div className="relative z-10 max-w-3xl mb-16 prose prose-slate dark:prose-dark">
         <p>
           The quickest way to start using Tailwind CSS in your Next.js project is to use the{' '}
-          <a href="https://github.com/vercel/next.js/tree/4d4f3093019179b1928ec07c16f38882241c0375/examples/with-tailwindcss">
+          <a href="https://github.com/vercel/next.js/tree/c3e5caf1109a2eb42801de23fc78e42a08e5da6e/examples/with-tailwindcss">
             Next.js + Tailwind CSS Example
           </a>
           . This will automatically configure your Tailwind setup based on the official Next.js
@@ -134,6 +135,7 @@ export function getStaticProps() {
 UsingNextJS.layoutProps = {
   meta: {
     title: 'Install Tailwind CSS with Next.js',
+    description: 'Setting up Tailwind CSS in a Next.js v10+ project.',
     section: 'Installation',
   },
   Layout: DocumentationLayout,

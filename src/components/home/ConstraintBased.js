@@ -280,8 +280,8 @@ export function ConstraintBased() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <IconContainer
           className="dark:bg-indigo-500 dark:highlight-white/10"
-          light={require('@/img/icons/home/constraint-based.png').default}
-          dark={require('@/img/icons/home/dark/constraint-based.png').default}
+          light={require('@/img/icons/home/constraint-based.png').default.src}
+          dark={require('@/img/icons/home/dark/constraint-based.png').default.src}
         />
         <Caption className="text-indigo-500 dark:text-indigo-400">Constraint-based</Caption>
         <BigText>

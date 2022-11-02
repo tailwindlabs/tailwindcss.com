@@ -1,0 +1,26 @@
+export const meta = {
+  title: 'Mashable',
+  url: 'https://mashable.com/',
+  date: '2022-09-30T00:00:00.000Z',
+  ogImage: require('./og.jpg'),
+  image: require('./1.png'),
+  imageAlt: 'Screenshot of the Mashable home page. The header contains a menu button, the Mashable logo, the main site navigation, and a search button. The hero section contains a featured article with a large background image and heading. Three additional article titles are displayed in a row underneath.',
+  tech: 'Tailwind CSS',
+  description: 'Mashable is an online news site covering tech, science, and entertainment, amongst other topics. Mashable was founded in 2005. The Mashable website is built using Tailwind CSS.',
+}
+
+<Intro title="Technology and entertainment news for millions of monthly visitors.">
+
+Mashable is an online news site covering tech, science, and entertainment, amongst other topics. Mashable was founded in 2005. The Mashable website is built using Tailwind CSS.
+
+</Intro>
+
+<Image src={require('./2.png')} alt="Screenshot of an article on the Mashable website. The header contains a menu button, the Mashable logo, the main site navigation, and a search button. The article title is displayed in large text with the author's name and publish date underneath. There is a large image in the lower half of the screen." caption="The header of an article on Mashable with categories shown above the headline, and the article metadata and social share buttons shown below." />
+
+<Mobile caption="The Mashable reading experience on mobile devices, including what the site menu looks like.">
+  <Image src={require('./3.png')} alt="Mobile screenshot of an article on the Mashable website. The header contains a menu button, the Mashable logo, and a search button. The article title is displayed in large text with the author's name and publish date underneath. There is a large image in the lower half of the screen." />
+  <Image src={require('./4.png')} alt="Mobile screenshot of the Mashable home page. The header contains a menu button, the Mashable logo, and a search button. The hero section contains a featured article with a large background image and heading. Two additional article titles are displayed underneath." />
+  <Image src={require('./5.png')} alt="Mobile screenshot of the main Mashable website navigation. The header contains a close button and the Mashable logo. Below this is a list of pages with bold uppercase lettering." />
+</Mobile>
+
+<Image src={require('./6.png')} alt="Screenshot of the Mashable home page. News article titles are arranged in three categories, one category per column." caption="Lists of articles in different categories on Mashable." />

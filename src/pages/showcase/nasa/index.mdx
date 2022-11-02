@@ -1,0 +1,28 @@
+export const meta = {
+  title: 'NASA Jet Propulsion Laboratory',
+  image: require('./1.png'),
+  imageAlt: "Screenshot of the NASA Jet Propulsion Laboratory home page. The header contains the NASA logo and main site navigation. The hero has a background image which is a selfie taken by NASA's Perseverance Mars Rover.",
+  url: 'https://www.jpl.nasa.gov/',
+  date: '2022-09-23T00:00:00.000Z',
+  ogImage: require('./og.jpg'),
+  tech: 'Tailwind CSS, Nuxt / Vue',
+  description: 'The NASA Jet Propulsion Laboratory is a leader in robotic spacecrafts and is responsible, amongst many things, for the Mars 2020 mission. The laboratory is owned by NASA and managed by the California Institute of Technology. The NASA Jet Propulsion Laboratory website is built with Tailwind CSS and Nuxt / Vue.',
+}
+
+<Intro title="Robotic spacecrafts for NASA's Mars missions.">
+
+The NASA Jet Propulsion Laboratory is a leader in robotic spacecrafts and is responsible, amongst many things, for the Mars 2020 mission. The laboratory is owned by NASA and managed by the California Institute of Technology. The NASA Jet Propulsion Laboratory website is built with Tailwind CSS and Nuxt / Vue.
+
+</Intro>
+
+<Image src={require('./2.png')} alt="Screenshot of the 'Exploring the Universe' section on the NASA Jet Propulsion Laboratory website. The section shows statistics for three different mission locations: 'Starts and Galaxies', 'Earth', and 'Mars'." caption="A slider showing various types of missions that NASA's Jet Propulsion Laboratory has been involved in, such as missions to planets, asteroids, exoplanets, etc." />
+<Image src={require('./4.png')} alt="Screenshot of the 'News' page on the NASA Jet Propulsion Laboratory website. The header contains the NASA logo and main site navigation. Below is the featured article title and a photograph of the surface of Mars." caption="Header on the news section, showing a featured news article about Mars." />
+
+<Mobile caption="The NASA JPL website experience on mobile devices.">
+  <Image src={require('./7.png')} alt="Mobile screenshot of the NASA Jet Propulsion Laboratory home page. The header container the NASA logo and a menu button. The hero links to the 'Solar System' page with an image of Jupiter in the background. Below is a count of active missions and a timer showing the time that the Perseverance Rover has spent on Mars." />
+  <Image src={require('./9.png')} alt="Mobile screenshot of the NASA Jet Propulsion Laboratory website's main navigation. The navigation covers the whole screen and contains a search bar and a list of pages. There is a close button in the upper right corner of the screen." />
+  <Image src={require('./11.png')} alt="Mobile screenshot of the 'Jet Propulsion Laboratory' section on the NASA Jet Propulsion Laboratory website. At the top of the screen is a photograph of the laboratory, followed by a summary and a link to 'learn more'." />
+</Mobile>
+
+<Image src={require('./3.png')} alt="Screenshot of the 'Image Gallery' page of the NASA Jet Propulsion Laboratory website. Images are displayed in a grid with four columns, and there are buttons above to filter or sort the results." caption="A gallery section with multiple display modes and an option to filter and sort images." />
+<Image src={require('./5.png')} alt="Screenshot of an article on the NASA Jet Propulsion Laboratory website. The article title is displayed in large lettering, followed by the date much smaller, and then an image of the surface of Mars." caption="A news article with a simple, clean design showing a headline, the category, the publish date, and a featured image." />

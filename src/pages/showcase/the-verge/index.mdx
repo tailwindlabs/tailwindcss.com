@@ -1,0 +1,28 @@
+export const meta = {
+  title: 'The Verge',
+  url: 'https://www.theverge.com/',
+  date: '2022-09-30T00:00:00.000Z',
+  ogImage: require('./og.jpg'),
+  image: require('./1.png'),
+  imageAlt: "Screenshot of the Verge home page. The header contains the Verge logo and main site navigation. The Verge logo is also displayed down the left side of the screen, on its side. The featured article's title and image is in the center of the screen. On the right side there is a 'storystream' with blocks of text summarising additional stories.",
+  tech: 'Tailwind CSS, Next.js, React',
+  description: 'The Verge is a technology news website owned by Vox Media. The Verge website was recently redesigned, and the new site is a Next.js app built using Tailwind CSS.',
+}
+
+<Intro title="Technology news for more than 50 million monthly readers.">
+
+The Verge is a technology news website owned by Vox Media. The Verge website was recently redesigned, and the new site is a Next.js app built using Tailwind CSS.
+
+</Intro>
+
+<Image src={require('./2.png')} alt="Screenshot of the 'Entertainment' section of the Verge website. The page title is displayed in large lettering at the top of the screen. Below is an introduction paragraph followed by two side-by-side images from entertainment articles." caption="The heading of the Entertainment category, or tag, on the Verge website." />
+<Image src={require('./3.png')} alt="Screenshot of an article on the Verge website. The header contains the Verge logo and main site navigation. The article title is displayed in large lettering alongside a summary paragraph and article meta data such as authors, publish date, category, and number of comments. In the lower half of the screen is a featured image." caption="An article heading on the Verge website, with article metadata and sharing options to the left. The category, or tag, is shown above the headline." />
+
+<Mobile caption="The Verge reading experience on mobile devices, including what the site navigation looks like.">
+  <Image src={require('./4.png')} alt="Mobile screenshot of the Verge home page. The header contains the Verge logo and a menu button. The featured article's title, summary, and image appear in the center of the screen. Underneath is a 'storystream' containing additional articles." />
+  <Image src={require('./5.png')} alt="Mobile screenshot of the Verge site navigation. The navigation covers the whole screen and has a search bar and close button at the top. Below that is a list of page links to the various site sections such as 'Science' or 'Reviews'." />
+  <Image src={require('./6.png')} alt="Mobile screenshot of an article on the Verge website. The header contains the Verge logo and a menu button. The article title is displayed in large lettering alongside a summary paragraph and article meta data such as authors, publish date, category, and number of comments. In the lower half of the screen is a featured image." />
+</Mobile>
+
+<Image src={require('./7.png')} alt="Screenshot of an article on the Verge website. The header contains the Verge logo and main site navigation. The article title is displayed in large lettering alongside a summary paragraph and article meta data such as authors, publish date, category, and number of comments. On the left side of the screen is a featured image." caption="An article where the featured image is shown to the left of the heading instead of below it." />
+<Image src={require('./8.png')} alt="Screenshot of the Verge home page. The visible section lists articles in two columns. In the first column article titles are accompanied by small square images. On the right side (labelled 'Must Reads') articles are numbered one through five from top to bottom." caption="A section with links to articles in different categories and a list of must-read articles." />

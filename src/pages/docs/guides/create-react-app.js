@@ -146,6 +146,7 @@ export function getStaticProps() {
 UsingCRA.layoutProps = {
   meta: {
     title: 'Install Tailwind CSS with Create React App',
+    description: 'Setting up Tailwind CSS in a Create React App project.',
     section: 'Installation',
   },
   Layout: DocumentationLayout,

@@ -4,6 +4,7 @@ description: A guide to configuring and customizing your Tailwind installation.
 ---
 
 import { CorePluginReference } from '@/components/CorePluginReference'
+import { SnippetGroup } from '@/components/SnippetGroup'
 
 Because Tailwind is a framework for building bespoke user interfaces, it has been designed from the ground up with customization in mind.
 
@@ -88,6 +89,18 @@ module.exports = {
   },
 }
 ```
+
+Alternatively, you can specify your custom configuration path using the `@config` directive:
+
+```css
+@config "./tailwindcss-config.js";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+Learn more about the `@config` directive in the [Functions & Directives](/docs/functions-and-directives#config) documentation.
 
 ### Generating a PostCSS configuration file
 
@@ -444,6 +457,34 @@ Here's a list of every core plugin for reference:
 
 ---
 
+## Using multiple configurations
+
+For projects that need to generate multiple CSS files using different Tailwind configurations, use the `@config` directive to specify which config file should be used for each CSS entry point:
+
+<SnippetGroup>
+
+```css site.css
+@config "./tailwind.site.config.js";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+```css admin.css
+@config "./tailwind.admin.config.js";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+</SnippetGroup>
+
+Learn more about the `@config` directive in the [Functions & Directives](/docs/functions-and-directives#config) documentation.
+
+---
+
 ## Referencing in JavaScript
 
 It can often be useful to reference your configuration values in your own client-side JavaScript — for example to access some of your theme values when dynamically applying inline styles in a React or Vue component.
@@ -466,7 +507,7 @@ fullConfig.theme.boxShadow['2xl']
 // => '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
 ```
 
-Note that this will transitively pull in a lot of our build-time dependencies, resulting in bigger bundle client-side size. To avoid this, we recommend using a tool like [babel-plugin-preval](https://github.com/kentcdodds/babel-plugin-preval) to generate a static version of your configuration at build-time.
+Note that this will transitively pull in a lot of our build-time dependencies, resulting in bigger client-side bundle size. To avoid this, we recommend using a tool like [babel-plugin-preval](https://github.com/kentcdodds/babel-plugin-preval) to generate a static version of your configuration at build-time.
 
 ---
 
@@ -474,7 +515,7 @@ Note that this will transitively pull in a lot of our build-time dependencies, r
 
 We ship first-party TypeScript types for the `tailwind.config.js` file which give you all sorts of useful IDE support, and makes it a lot easier to make changes to your configuration without referencing the documentation quite as much.
 
-Configuration files generated with Tailwind CLI include the necessary type annotation by default, but to configure TypeScript types maually, just add the type annotation above your configuration object:
+Configuration files generated with Tailwind CLI include the necessary type annotation by default, but to configure TypeScript types manually, just add the type annotation above your configuration object:
 
 ```js tailwind.config.js
 /** @type {import('tailwindcss').Config} */

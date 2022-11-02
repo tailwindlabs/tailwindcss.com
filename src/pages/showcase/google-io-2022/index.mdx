@@ -1,0 +1,31 @@
+export const meta = {
+  title: 'Google I/O 2022',
+  url: 'https://io.google/2022/',
+  date: '2022-09-30T00:00:00.000Z',
+  ogImage: require('./og.jpg'),
+  image: require('./1.png'),
+  imageAlt: "Screenshot of the Google I/O 2022 home page. The header contains the Google I/O logo, the main navigation, and a language selector. The hero section contains an illustration of a blimp with 'IO22' written on the side. The blimp is towing a banner that says 'Thanks for joining'.",
+  dark: {
+    image: require('./2.png'),
+  },
+  tech: 'Tailwind CSS, Preact',
+  description: 'Google I/O is Google\'s annual developer conference, where new Google products are announced. The Google I/O 2022 website was built using Tailwind CSS.',
+}
+
+<Intro title="The annual developer conference hosted by Google.">
+
+Google I/O is Google's annual developer conference, where new Google products are announced. The Google I/O 2022 website was built using Tailwind CSS.
+
+</Intro>
+
+<Image src={require('./3.png')} darkSrc={require('./4.png')} alt="Screenshot of the Google I/O 2022 'Program' page. The header contains the Google I/O logo, the main navigation, and a language selector. The hero section contains an introduction paragraph and an illustration of a laptop with the number '22' on the screen." caption="The program page featuring all the sessions at Google I/O." />
+<Image src={require('./5.png')} darkSrc={require('./6.png')} alt="Screenshot of the Google I/O 2022 'FAQ' page. A list of FAQ categories is displayed on the left side of the screen. On the right side the 'General' category is shown with a list of questions such as 'When and where is Google I/) 2022?'." caption="An FAQ section with collapsible FAQ items. From the sidebar, one can navigate to the different subsections of the FAQ." />
+
+<Mobile caption="The Google I/O website experience on mobile devices.">
+  <Image src={require('./7.png')} darkSrc={require('./8.png')} alt="Mobile screenshot of the Google I/O 2022 'Learning Lab' page. The header contains the Google I/O logo and a menu button. The hero contains a short introduction paragraph and an illustration of blocks stacked on top of each other. Below is a 'Workshops' section and the first video thumbnail can just be seen." />
+  <Image src={require('./9.png')} darkSrc={require('./10.png')} alt="Mobile screenshot of the Google I/O 2022 program filters overlay. The overlay contains a list of filters such as 'Topic' and 'Level'. Each filter has a list of checkboxes." />
+  <Image src={require('./11.png')} darkSrc={require('./12.png')} alt="Mobile screenshot of the Google I/O 2022 'Products' page. The header contains the Google I/O logo and a menu button. The hero contains a short introduction paragraph and an illustration of a mobile phone. Below is a list of products with icons, starting with 'Accessibility' and 'Android'." />
+</Mobile>
+
+<Image src={require('./13.png')} darkSrc={require('./14.png')} alt="Screenshot of the Google I/O 2022 'Program' page. The page contains a list of videos with thumbnails and short descriptions, in three columns. On the left side of the screen there is a list of checkboxes that can be used to filter the list of videos." caption="Conference sessions presented on the program page and filterable by topic, level, and type." />
+<Image src={require('./15.png')} darkSrc={require('./16.png')} alt="Screenshot of the Google I/O 2022 'About' page. The header contains the Google I/O logo, the main navigation, and a language selector. The hero section contains an introduction paragraph and an illustration of some plain flags blowing in the wind." caption="The about page on the Google I/O website. Throughout the site, hero sections have animations that the visitor can pause." />

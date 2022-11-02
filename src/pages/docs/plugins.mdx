@@ -534,7 +534,7 @@ For cases like this, you can use `plugin.withOptions` to define a plugin that ca
 ```js ./plugins/markdown.js
 const plugin = require('tailwindcss/plugin')
 
-module.exports = plugin.withOptions(function (options) {
+module.exports = plugin.withOptions(function (options = {}) {
   return function({ addComponents }) {
     const className = options.className ?? 'markdown'
 

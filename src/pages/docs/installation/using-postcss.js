@@ -158,7 +158,7 @@ export function getStaticProps() {
 
 UsingPostCss.layoutProps = {
   meta: {
-    title: 'Installation: Using PostCSS',
+    title: 'Install Tailwind CSS using PostCSS',
     section: 'Getting Started',
   },
   Layout: DocumentationLayout,

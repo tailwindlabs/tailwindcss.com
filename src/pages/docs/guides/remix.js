@@ -69,7 +69,7 @@ let steps = [
 >     "build": "npm run build:css && remix build",
 >     "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
 >     "dev": "concurrently \\\"npm run dev:css\\\" \\\"remix dev\\\"",
->     "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
+>     "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css"
     }
   }`,
     },
@@ -160,6 +160,7 @@ export function getStaticProps() {
 UsingRemix.layoutProps = {
   meta: {
     title: 'Install Tailwind CSS with Remix',
+    description: 'Setting up Tailwind CSS in a Remix project.',
     section: 'Installation',
   },
   Layout: DocumentationLayout,

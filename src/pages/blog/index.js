@@ -4,6 +4,7 @@ import { getAllPostPreviews } from '@/utils/getAllPosts'
 import Link from 'next/link'
 import clsx from 'clsx'
 import { formatDate } from '@/utils/formatDate'
+import buildRss from '@/scripts/build-rss'
 
 let posts = getAllPostPreviews()
 
@@ -87,5 +88,14 @@ export default function Blog() {
 Blog.layoutProps = {
   meta: {
     title: 'Blog',
+    description: 'All the latest Tailwind CSS news, straight from the team.',
   },
+}
+
+export async function getStaticProps() {
+  if (process.env.NODE_ENV === 'production') {
+    buildRss()
+  }
+
+  return { props: {} }
 }

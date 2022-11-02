@@ -137,7 +137,7 @@ export function getStaticProps() {
 
 TailwindCli.layoutProps = {
   meta: {
-    title: 'Installation: Tailwind CLI',
+    title: 'Installation',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

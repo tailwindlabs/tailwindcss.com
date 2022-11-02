@@ -91,8 +91,8 @@ export function Customization() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <IconContainer
           className="dark:bg-pink-500 dark:highlight-white/30"
-          light={require('@/img/icons/home/customization.png').default}
-          dark={require('@/img/icons/home/dark/customization.png').default}
+          light={require('@/img/icons/home/customization.png').default.src}
+          dark={require('@/img/icons/home/dark/customization.png').default.src}
         />
         <Caption className="text-pink-500 dark:text-pink-400">Customization</Caption>
         <BigText>

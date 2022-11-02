@@ -310,8 +310,8 @@ export function EditorTools() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <IconContainer
           className="dark:bg-sky-500 dark:highlight-white/20"
-          light={require('@/img/icons/home/editor-tools.png').default}
-          dark={require('@/img/icons/home/dark/editor-tools.png').default}
+          light={require('@/img/icons/home/editor-tools.png').default.src}
+          dark={require('@/img/icons/home/dark/editor-tools.png').default.src}
         />
         <Caption className="text-sky-500">Editor tools</Caption>
         <BigText>World-class IDE integration.</BigText>

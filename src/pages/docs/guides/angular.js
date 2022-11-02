@@ -117,6 +117,7 @@ export function getStaticProps() {
 UsingAngular.layoutProps = {
   meta: {
     title: 'Install Tailwind CSS with Angular',
+    description: 'Setting up Tailwind CSS in an Angular project.',
     section: 'Getting Started',
   },
   Layout: DocumentationLayout,

@@ -10,9 +10,9 @@ import { ThemeSelect, ThemeToggle } from './ThemeToggle'
 
 function Featured() {
   return (
-    <Link href="/blog/tailwindcss-v3-1">
+    <Link href="/blog/tailwindcss-v3-2">
       <a className="ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-sky-400/20">
-        <strong className="font-semibold">Tailwind CSS v3.1</strong>
+        <strong className="font-semibold">Tailwind CSS v3.2</strong>
         <svg
           width="2"
           height="2"
@@ -22,7 +22,12 @@ function Featured() {
         >
           <circle cx="1" cy="1" r="1" />
         </svg>
-        <span className="ml-2">Arbitrary variants, TypeScript types, and more</span>
+        <span className="ml-2 min-[1372px]:hidden">
+          Dynamic breakpoints, container queries, and more
+        </span>
+        <span className="ml-2 hidden min-[1372px]:inline">
+          Dynamic breakpoints, multi-config, container queries, and more
+        </span>
         <svg
           width="3"
           height="6"
@@ -141,9 +146,9 @@ export function NavItems() {
         </Link>
       </li>
       <li>
-        <Link href="https://jobs.tailwindcss.com/?ref=top">
+        <Link href="/showcase">
           <a className="hover:text-sky-500 dark:hover:text-sky-400">
-            Jobs
+            Showcase
             <span className="ml-2 font-medium text-xs leading-5 rounded-full text-sky-600 bg-sky-400/10 px-2 py-0.5  dark:text-sky-400">
               New
             </span>
@@ -178,18 +183,21 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
       <div className="absolute z-20 top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none">
         <div className="w-[108rem] flex-none flex justify-end">
           <picture>
-            <source srcSet={require('@/img/beams/docs@30.avif').default} type="image/avif" />
+            <source srcSet={require('@/img/beams/docs@30.avif').default.src} type="image/avif" />
             <img
-              src={require('@/img/beams/docs@tinypng.png').default}
+              src={require('@/img/beams/docs@tinypng.png').default.src}
               alt=""
               className="w-[71.75rem] flex-none max-w-none dark:hidden"
               decoding="async"
             />
           </picture>
           <picture>
-            <source srcSet={require('@/img/beams/docs-dark@30.avif').default} type="image/avif" />
+            <source
+              srcSet={require('@/img/beams/docs-dark@30.avif').default.src}
+              type="image/avif"
+            />
             <img
-              src={require('@/img/beams/docs-dark@tinypng.png').default}
+              src={require('@/img/beams/docs-dark@tinypng.png').default.src}
               alt=""
               className="w-[90rem] flex-none max-w-none hidden dark:block"
               decoding="async"

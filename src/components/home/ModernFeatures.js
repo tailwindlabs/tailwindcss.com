@@ -84,7 +84,13 @@ function Block({ src, filter, ...props }) {
           filter
         )}
       >
-        <img src={src} alt="" className="absolute inset-0 w-full h-full object-cover" decoding="async" loading="lazy" />
+        <img
+          src={src}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          decoding="async"
+          loading="lazy"
+        />
       </div>
     </motion.div>
   )
@@ -109,8 +115,8 @@ export function ModernFeatures() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <IconContainer
           className="dark:bg-indigo-500 dark:highlight-white/20"
-          light={require('@/img/icons/home/modern-features.png').default}
-          dark={require('@/img/icons/home/dark/modern-features.png').default}
+          light={require('@/img/icons/home/modern-features.png').default.src}
+          dark={require('@/img/icons/home/dark/modern-features.png').default.src}
         />
         <Caption className="text-indigo-500 dark:text-indigo-400">Modern features</Caption>
         <BigText>
@@ -147,7 +153,7 @@ export function ModernFeatures() {
           <div className="flex text-4xl font-black lg:mt-10 xl:mt-18">
             <div className="w-full flex-none grid grid-cols-3 grid-rows-2 gap-8">
               <Block
-                src={require('@/img/modern-features/1.jpg').default}
+                src={require('@/img/modern-features/1.jpg').default.src}
                 filter={feature === 'Filters' && 'blur'}
                 {...animate(
                   { scaleX: 1.1, scaleY: 1.1, rotate: -6, x: 0, y: 0 },
@@ -156,7 +162,7 @@ export function ModernFeatures() {
               />
               <Block
                 className="col-start-3 col-end-4 row-start-2 row-end-3"
-                src={require('@/img/modern-features/2.jpg').default}
+                src={require('@/img/modern-features/2.jpg').default.src}
                 filter={feature === 'Filters' && 'sepia'}
                 {...animate(
                   {
@@ -171,7 +177,7 @@ export function ModernFeatures() {
               />
               <Block
                 className="origin-right"
-                src={require('@/img/modern-features/3.jpg').default}
+                src={require('@/img/modern-features/3.jpg').default.src}
                 filter={feature === 'Filters' && 'saturate-200'}
                 {...animate(
                   { scaleX: 1.5, x: 0, y: 44, rotate: 0 },
@@ -179,7 +185,7 @@ export function ModernFeatures() {
                 )}
               />
               <Block
-                src={require('@/img/modern-features/4.jpg').default}
+                src={require('@/img/modern-features/4.jpg').default.src}
                 filter={feature === 'Filters' && 'grayscale'}
                 {...animate({ x: 0, y: 96, rotate: 0 }, { x: 0, y: 0, rotate: 0 })}
               />
@@ -195,7 +201,7 @@ export function ModernFeatures() {
                 )}
               >
                 <img
-                  src={require('@/img/modern-features/5.jpg').default}
+                  src={require('@/img/modern-features/5.jpg').default.src}
                   alt=""
                   className="absolute inset-0 w-full h-full object-cover"
                   decoding="async"

@@ -131,6 +131,7 @@ export function getStaticProps() {
 UsingRails.layoutProps = {
   meta: {
     title: 'Install Tailwind CSS with Ruby on Rails',
+    description: 'Setting up Tailwind CSS in Ruby on Rails v7+ project.',
     section: 'Installation',
   },
   Layout: DocumentationLayout,

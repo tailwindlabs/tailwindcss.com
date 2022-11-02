@@ -275,6 +275,27 @@ If you're working in a monorepo with workspaces, you may need to use `require.re
   }
 ```
 
+### Using relative paths
+
+By default Tailwind resolves non-absolute content paths relative to the current working directory, not the `tailwind.config.js` file. This can lead to unexpected results if you run Tailwind from a different directory.
+
+To always resolve paths relative to the `tailwind.config.js` file, use the object notation for your `content` configuration and set the `relative` property to `true`:
+
+```diff-js tailwind.config.js
+  module.exports = {
+    content: {
++     relative: true,
+      files: [
+        './pages/**/*.{html,js}',
+        './components/**/*.{html,js}',
+      ],
+    },
+    // ...
+  }
+```
+
+This will likely become the default behavior in the next major version of the framework.
+
 ### Configuring raw content
 
 If for whatever reason you need to configure Tailwind to scan some raw content rather than the contents of a file, use an object with a `raw` key instead of a path:

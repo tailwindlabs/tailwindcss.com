@@ -248,6 +248,7 @@ export function getStaticProps() {
 UsingVite.layoutProps = {
   meta: {
     title: 'Install Tailwind CSS with Vite',
+    description: 'Setting up Tailwind CSS in a Vite project.',
     section: 'Installation',
   },
   Layout: DocumentationLayout,

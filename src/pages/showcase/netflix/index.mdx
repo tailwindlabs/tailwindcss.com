@@ -1,0 +1,25 @@
+export const meta = {
+  title: 'Netflix – Global Top 10',
+  image: require('./1.png'),
+  imageAlt: 'Screenshot of the Netflix Top 10 website. The header contains the Netflix logo and a search bar. The page title is displayed in large lettering and at the bottom of the screen there is a carousel of images showing the top 10 English films.',
+  url: 'https://top10.netflix.com/',
+  date: '2022-09-27T00:00:00.000Z',
+  ogImage: require('./og.jpg'),
+  tech: 'Tailwind CSS, Next.js, React',
+  description: 'The Netflix Global Top 10 website features weekly lists of the globally most-watched TV and films on Netflix. The website is built with Tailwind CSS and Next.js / React.',
+}
+
+<Intro title="The official list of most-watched films and TV shows on Netflix.">
+
+The Netflix Global Top 10 website features weekly lists of the globally most-watched TV and films on Netflix. The website is built with Tailwind CSS and Next.js / React.
+
+</Intro>
+
+<Image src={require('./3.png')} alt="Screenshot of the Netflix Top 10 website. The visible section contains an image carousel showing the top 10 English films. The fourth image is active and the number four is displayed to the side in large text. Below the film titles are listed in order along with the total hours viewed for each." caption="A carousel showing the top ten most-watched films this week on Netflix." />
+
+<Mobile caption="The Global Top 10 website experience on mobile devices.">
+  <Image src={require('./5.png')} alt="Mobile screenshot of the Netflix Top 10 website. The header contains the Netflix logo and a search bar. The page title is displayed in large lettering and in the center of the screen there is a carousel of images showing the top 10 English films. Below the film titles are listed in order along with the total hours viewed for each." />
+  <Image src={require('./6.png')} alt="Mobile screenshot of the Netflix Top 10 website. The visible section lists the countries in which 'End of the Road' appears in the top 10 films on Netflix. There are two separate lists, one for the Americas and one for Europe." />
+</Mobile>
+
+<Image src={require('./2.png')} alt="Screenshot of the Netflix Top 10 website. The visible section shows three columns of films. For each film there is a list of countries in which the film appears in the top 10 on Netflix. The countries are grouped by continent." caption="Detail view showing in which countries a film was in the top ten this week." />
