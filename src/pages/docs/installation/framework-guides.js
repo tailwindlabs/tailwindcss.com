@@ -2,6 +2,7 @@ import { DocumentationLayout } from '@/layouts/DocumentationLayout'
 import { InstallationLayout } from '@/layouts/InstallationLayout'
 import Link from 'next/link'
 
+import { ReactComponent as AdonisLogo } from '@/img/guides/adonis.svg'
 import { ReactComponent as NextJsLogo } from '@/img/guides/nextjs.svg'
 import { ReactComponent as NextJsLogoWhite } from '@/img/guides/nextjs-white.svg'
 import { ReactComponent as SvelteLogo } from '@/img/guides/svelte.svg'
@@ -22,7 +23,6 @@ import { ReactComponent as MeteorLogo } from '@/img/guides/meteor.svg'
 import { ReactComponent as SolidJSLogo } from '@/img/guides/solidjs.svg'
 import PhoenixLogo from '@/img/guides/phoenix.png'
 import ParcelLogo from '@/img/guides/parcel.png'
-import AdonisLogo from '@/img/guides/adonis.png'
 
 export default function FrameworkGuides() {
   return (
@@ -150,14 +150,7 @@ export default function FrameworkGuides() {
             name: 'AdonisJS',
             slug: 'adonisjs',
             description: 'A fully featured web framework for Node.js.',
-            logo: () => (
-              <img
-                src={AdonisLogo}
-                alt="Adonis"
-                role="presentation"
-                className="w-10 h-10 object-contain object-center"
-              />
-            ),
+            logo: AdonisLogo,
           },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">

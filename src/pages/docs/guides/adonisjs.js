@@ -7,9 +7,10 @@ let steps = [
     title: 'Create your project',
     body: () => (
       <p>
-        Start by <a href='https://docs.adonisjs.com/guides/installation'>creating a new AdonisJS project</a> if you don’t have one set up already.
-        Choose <span className='font-semibold'>"web"</span> when installer asks to select project structure.
-        Press <span className='font-semibold'>"y"</span> when it asks <span className='font-semibold'>"Configure webpack encore for compiling frontend assets?"</span>
+        Start by{' '}
+        <a href="https://docs.adonisjs.com/guides/installation">creating a new AdonisJS project</a>{' '}
+        if you don’t have one set up already. Choose <code>web</code> for the project structure and{' '}
+        <code>y</code> when it asks to include Webpack Encore.
       </p>
     ),
     code: {
@@ -30,25 +31,35 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer postcss-loader\nnpx tailwindcss init -p',
+      code: 'npm install -D tailwindcss postcss postcss-loader autoprefixer\nnpx tailwindcss init -p',
     },
   },
   {
     title: 'Enable PostCSS support',
     body: () => (
       <p>
-        In your <code>webpack.config.js</code> file, enable PostCSS Loader. See{' '}
-        <a href="https://symfony.com/doc/current/frontend/encore/postcss.html">the documentation</a>{' '}
+        In your <code>webpack.config.js</code> file, enable the PostCSS loader. See the{' '}
+        <a href="https://symfony.com/doc/current/frontend/encore/postcss.html">
+          Webpack Encore documentation
+        </a>{' '}
         for more information.
       </p>
     ),
     code: {
       name: 'webpack.config.js',
-      lang: 'js',
-      code: `  Encore
-    // ...
->   .enablePostCssLoader()
-  ;`,
+      lang: 'diff-js',
+      code: `/*
+|--------------------------------------------------------------------------
+| CSS loaders
+|--------------------------------------------------------------------------
+|
+| Uncomment one of the following line of code to enable support for
+| PostCSS or CSS.
+|
+*/
+- // Encore.enablePostCssLoader()
++ Encore.enablePostCssLoader();
+// Encore.configureCssLoader(() => {})`,
     },
   },
   {
@@ -64,7 +75,7 @@ let steps = [
       code: `  /** @type {import('tailwindcss').Config} */
   module.exports = {
 >   content: [
->     "./resources/**/*.edge",
+>     "./resources/**/*.{edge,js,ts,jsx,tsx,vue}",
 >   ],
     theme: {
       extend: {},
