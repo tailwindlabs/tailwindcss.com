@@ -10,7 +10,7 @@ let steps = [
         Start by{' '}
         <a href="https://docs.adonisjs.com/guides/installation">creating a new AdonisJS project</a>{' '}
         if you don’t have one set up already. Choose <code>web</code> for the project structure and{' '}
-        <code>y</code> when it asks to include Webpack Encore.
+        <code>y</code> when asked to include Webpack Encore.
       </p>
     ),
     code: {
