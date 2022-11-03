@@ -5,7 +5,7 @@ import { Fragment, useEffect, useRef } from 'react'
 import create from 'zustand'
 
 const useSetting = create((set) => ({
-  setting: 'system',
+  setting: null,
   setSetting: (setting) => set({ setting }),
 }))
 
@@ -120,6 +120,8 @@ function useTheme() {
     let theme = localStorage.theme
     if (theme === 'light' || theme === 'dark') {
       setSetting(theme)
+    } else {
+      setSetting('system')
     }
   }, [])
 
