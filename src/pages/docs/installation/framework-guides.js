@@ -2,6 +2,7 @@ import { DocumentationLayout } from '@/layouts/DocumentationLayout'
 import { InstallationLayout } from '@/layouts/InstallationLayout'
 import Link from 'next/link'
 
+import { ReactComponent as AdonisLogo } from '@/img/guides/adonis.svg'
 import { ReactComponent as NextJsLogo } from '@/img/guides/nextjs.svg'
 import { ReactComponent as NextJsLogoWhite } from '@/img/guides/nextjs-white.svg'
 import { ReactComponent as SvelteLogo } from '@/img/guides/svelte.svg'
@@ -144,6 +145,12 @@ export default function FrameworkGuides() {
             slug: 'create-react-app',
             description: 'CLI tool for scaffolding a new single-page React application.',
             logo: CraLogo,
+          },
+          {
+            name: 'AdonisJS',
+            slug: 'adonisjs',
+            description: 'A fully featured web framework for Node.js.',
+            logo: AdonisLogo,
           },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">
