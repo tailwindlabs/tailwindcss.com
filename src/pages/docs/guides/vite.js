@@ -15,10 +15,7 @@ let tabs = [
           <p>
             Start by creating a new Vite project if you don’t have one set up already. The most
             common approach is to use{' '}
-            <a href="https://github.com/vitejs/vite/tree/main/packages/create-vite#readme">
-              Create Vite
-            </a>
-            .
+            <a href="https://vitejs.dev/guide/#scaffolding-your-first-vite-project">Create Vite</a>.
           </p>
         ),
         code: {
