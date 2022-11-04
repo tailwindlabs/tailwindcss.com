@@ -286,7 +286,7 @@ export default async function handler(req, res) {
     if (path.startsWith('/blog/')) {
       let date = $('article time').attr('datetime')
 
-      let eyebrowText = getText('What’s new', { font: fontSemiBold, size: 32, lineHeight: 56 })
+      let eyebrowText = getText('What’s new', { font: fontSemiBold, size: 28, lineHeight: 48 })
       let titleText = getText(title, {
         font: fontExtraBold,
         size: 48,
@@ -310,7 +310,7 @@ export default async function handler(req, res) {
           year: 'numeric',
           timeZone: 'UTC',
         })
-        let dateText = getText(date, { font: fontSemiBold, size: 32, lineHeight: 56 })
+        let dateText = getText(date, { font: fontSemiBold, size: 28, lineHeight: 48 })
         let eyebrowWidth = eyebrowText.measureLines()[0]
         dateText.draw(
           ctx,
@@ -322,7 +322,7 @@ export default async function handler(req, res) {
         ctx.beginPath()
         ctx.arc(
           PADDING.x + eyebrowWidth + 24 + 3,
-          HEIGHT - PADDING.y - titleText.height - 16 - 28,
+          HEIGHT - PADDING.y - titleText.height - 16 - 24,
           3,
           0,
           2 * Math.PI
@@ -341,7 +341,7 @@ export default async function handler(req, res) {
       let description = $('meta[property="og:description"]').attr('content')
 
       let eyebrowText = eyebrow
-        ? getText(eyebrow, { font: fontSemiBold, size: 32, lineHeight: 56 })
+        ? getText(eyebrow, { font: fontSemiBold, size: 28, lineHeight: 48 })
         : null
       let titleText = getText(title, {
         font: fontExtraBold,
@@ -356,7 +356,7 @@ export default async function handler(req, res) {
               font: fontMedium,
               size: 32,
               lineHeight: 56,
-              maxLines: titleText.lines === 2 ? 2 : 3,
+              maxLines: titleText.lines === 2 ? 1 : 2,
             })
           : null
 
