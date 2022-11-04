@@ -77,7 +77,6 @@ export default function App({ Component, pageProps, router }) {
       <Description>{description}</Description>
       {meta.ogDescription && <OgDescription>{meta.ogDescription}</OgDescription>}
       <Head>
-        <meta name="description" content={description} />
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
         <meta key="twitter:site" name="twitter:site" content="@tailwindcss" />
         <meta key="twitter:image" name="twitter:image" content={image} />
