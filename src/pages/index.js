@@ -20,6 +20,7 @@ import { NavItems, NavPopover } from '@/components/Header'
 import styles from './index.module.css'
 import clsx from 'clsx'
 import { ThemeToggle } from '@/components/ThemeToggle'
+import socialCardLarge from '@/img/social-card-large.jpg'
 
 function Header() {
   return (
@@ -217,4 +218,10 @@ export default function Home() {
       <Footer />
     </>
   )
+}
+
+Home.layoutProps = {
+  meta: {
+    ogImage: socialCardLarge.src,
+  },
 }

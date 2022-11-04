@@ -7,7 +7,6 @@ import { Description, OgDescription, OgTitle, Title } from '@/components/Meta'
 import Router from 'next/router'
 import ProgressBar from '@badrap/bar-of-progress'
 import Head from 'next/head'
-import socialCardLarge from '@/img/social-card-large.jpg'
 import { ResizeObserver } from '@juggle/resize-observer'
 import 'intersection-observer'
 import { SearchProvider } from '@/components/Search'
@@ -59,7 +58,7 @@ export default function App({ Component, pageProps, router }) {
   let image = meta.ogImage ?? meta.image
   image = image
     ? `https://tailwindcss.com${image.default?.src ?? image.src ?? image}`
-    : `https://tailwindcss.com${socialCardLarge.src}`
+    : `https://tailwindcss.com/api/og?path=${router.pathname}`
 
   if (router.pathname.startsWith('/examples/')) {
     return <Component {...pageProps} />
