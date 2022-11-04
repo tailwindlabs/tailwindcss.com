@@ -58,7 +58,7 @@ export default function App({ Component, pageProps, router }) {
   let image = meta.ogImage ?? meta.image
   image = image
     ? `https://tailwindcss.com${image.default?.src ?? image.src ?? image}`
-    : `https://tailwindcss-com-git-og-image-canvas-tailwindlabs.vercel.app/api/og?path=${router.pathname}`
+    : `https://tailwindcss.com/api/og?path=${router.pathname}`
 
   if (router.pathname.startsWith('/examples/')) {
     return <Component {...pageProps} />
