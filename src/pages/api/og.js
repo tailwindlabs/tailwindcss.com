@@ -228,49 +228,6 @@ export default async function handler(req, res) {
     let canvas = new Canvas(WIDTH, HEIGHT)
     let ctx = canvas.getContext('2d')
 
-    function rounded(x, y, w, h, r) {
-      if (w < 2 * r) r = w / 2
-      if (h < 2 * r) r = h / 2
-      ctx.beginPath()
-      ctx.moveTo(x + r, y)
-      ctx.arcTo(x + w, y, x + w, y + h, r)
-      ctx.arcTo(x + w, y + h, x, y + h, r)
-      ctx.arcTo(x, y + h, x, y, r)
-      ctx.arcTo(x, y, x + w, y, r)
-      ctx.closePath()
-    }
-
-    if (false && path.startsWith('/docs/margin')) {
-      let image = new Image()
-      image.src = readFileSync(resolve('showcase.png'))
-      // image.src = Buffer.from(
-      //   `data:image/svg+xml;utf8,<svg width="${HEIGHT}" height="${HEIGHT}"></svg>`,
-      //   'utf-8'
-      // )
-      image.width = WIDTH
-      image.height = HEIGHT
-      ctx.drawImage(image, 0, 0, WIDTH, HEIGHT)
-
-      rounded(80, 160, 1120, 700, 16)
-      ctx.clip()
-
-      let foo = new Image()
-      foo.src = (
-        await get(
-          'https://tailwindcss-com-private-ckquuptc-emqhsz99c-tailwindlabs.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F1.d04dafc3.png&w=2048&q=90'
-        )
-      ).data
-      foo.width = 1120
-      foo.height = 1120 / (2048 / 1138)
-      ctx.drawImage(foo, 80, 160, 1120, 1120 / (2048 / 1138))
-
-      res.statusCode = 200
-      res.setHeader('Content-Type', 'image/png')
-      res.setHeader('Cache-Control', 'public, no-transform, s-maxage=31536000, max-age=3600')
-      res.end(canvas.toBuffer('image/png'))
-      return
-    }
-
     let bgImage = new Image()
     bgImage.src = readFileSync(resolve('og-background.png'))
     bgImage.width = WIDTH
