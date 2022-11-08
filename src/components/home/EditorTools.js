@@ -336,7 +336,7 @@ export function EditorTools() {
           <div className="relative">
             <img
               decoding="async"
-              src={require('@/img/beams/overlay.webp').default}
+              src={require('@/img/beams/overlay.webp').default.src}
               alt=""
               className="absolute z-10 bottom-0 -left-80 w-[45.0625rem] pointer-events-none dark:hidden"
             />
