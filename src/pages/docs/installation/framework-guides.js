@@ -12,6 +12,8 @@ import { ReactComponent as MeteorLogo } from '@/img/guides/meteor.svg'
 import { ReactComponent as NextJsLogo } from '@/img/guides/nextjs.svg'
 import { ReactComponent as NextJsLogoWhite } from '@/img/guides/nextjs-white.svg'
 import { ReactComponent as NuxtJsLogo } from '@/img/guides/nuxtjs.svg'
+import { ReactComponent as ParcelLogo } from '@/img/guides/parcel.svg'
+import { ReactComponent as PhoenixLogo } from '@/img/guides/phoenix.svg'
 import { ReactComponent as RailsLogo } from '@/img/guides/rails.svg'
 import { ReactComponent as RailsLogoWhite } from '@/img/guides/rails-white.svg'
 import { ReactComponent as RemixLogo } from '@/img/guides/remix.svg'
@@ -21,8 +23,6 @@ import { ReactComponent as SvelteLogo } from '@/img/guides/svelte.svg'
 import { ReactComponent as SymfonyLogo } from '@/img/guides/symfony.svg'
 import { ReactComponent as SymfonyLogoWhite } from '@/img/guides/symfony-white.svg'
 import { ReactComponent as ViteLogo } from '@/img/guides/vite.svg'
-import PhoenixLogo from '@/img/guides/phoenix.png'
-import ParcelLogo from '@/img/guides/parcel.png'
 
 export default function FrameworkGuides() {
   return (
@@ -105,27 +105,13 @@ export default function FrameworkGuides() {
             name: 'Phoenix',
             slug: 'phoenix',
             description: 'A framework to build rich, interactive applications with Elixir.',
-            logo: () => (
-              <img
-                src={PhoenixLogo.src}
-                alt="Phoenix"
-                role="presentation"
-                className="w-10 h-10 object-contain object-center"
-              />
-            ),
+            logo: PhoenixLogo,
           },
           {
             name: 'Parcel',
             slug: 'parcel',
             description: 'The zero-configuration build tool for the web.',
-            logo: () => (
-              <img
-                src={ParcelLogo.src}
-                alt="Parcel"
-                role="presentation"
-                className="w-10 h-10 object-contain object-center"
-              />
-            ),
+            logo: ParcelLogo,
           },
           {
             name: 'Symfony',
