@@ -68,7 +68,7 @@ let tabs = [
         body: () => (
           <p>
             Add <code>tailwindcss</code> and <code>autoprefixer</code> to the{' '}
-            <code>build.postcss.plugins</code> object of your <code>nuxt.config.js</code> file.
+            <code>build.postcss.plugins</code> object in your <code>nuxt.config.js</code> file.
           </p>
         ),
         code: {
@@ -214,7 +214,7 @@ let tabs = [
         body: () => (
           <p>
             Add <code>tailwindcss</code> and <code>autoprefixer</code> to the{' '}
-            <code>postcss.plugins</code> object of your <code>nuxt.config.js</code> file.
+            <code>postcss.plugins</code> object in your <code>nuxt.config.js</code> file.
           </p>
         ),
         code: {
@@ -274,6 +274,29 @@ let tabs = [
         },
       },
       {
+        title: 'Add the CSS file globally',
+        body: () => (
+          <p>
+            Add your newly-created <code>./assets/css/main.css</code> to the <code>css</code> array
+            in your <code>nuxt.config.js</code> file.
+          </p>
+        ),
+        code: {
+          name: 'nuxt.config.js',
+          lang: 'js',
+          code: `  // https://v3.nuxtjs.org/api/configuration/nuxt.config
+  export default defineNuxtConfig({
+>   css: ['~/assets/css/main.css'],
+    postcss: {
+      plugins: {
+        tailwindcss: {},
+        autoprefixer: {},
+      },
+    },
+  })`,
+        },
+      },
+      {
         title: 'Start your build process',
         body: () => (
           <p>
@@ -288,20 +311,11 @@ let tabs = [
       },
       {
         title: 'Start using Tailwind in your project',
-        body: () => (
-          <p>
-            Make sure your compiled CSS is included in the <code>{'<head>'}</code> then start using
-            Tailwind’s utility classes to style your content.
-          </p>
-        ),
+        body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
         code: {
           name: 'app.vue',
           lang: 'html',
-          code: `> <script setup>
->   import './assets/css/main.css'
-> </script>
-
-  <template>
+          code: `  <template>
 >   <h1 class="text-3xl font-bold underline">
 >     Hello world!
 >   </h1>
