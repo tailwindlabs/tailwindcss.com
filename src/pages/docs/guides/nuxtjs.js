@@ -1,74 +1,80 @@
+import { useRouteHash } from '@/hooks/useRouteHash'
 import { DocumentationLayout } from '@/layouts/DocumentationLayout'
 import { FrameworkGuideLayout } from '@/layouts/FrameworkGuideLayout'
 import { Steps } from '@/components/Steps'
+import { TabBar } from '@/components/Guides/TabBar.jsx'
 
-let steps = [
+let tabs = [
   {
-    title: 'Create your project',
-    body: () => (
-      <p>
-        Start by creating a new Nuxt.js project if you don’t have one set up already. The most
-        common approach is to use{' '}
-        <a href="https://nuxtjs.org/guides/get-started/installation">Create Nuxt App</a>.
-      </p>
-    ),
-    code: {
-      name: 'Terminal',
-      lang: 'terminal',
-      code: 'npx create-nuxt-app my-project\ncd my-project',
-    },
-  },
-  {
-    title: 'Install Tailwind CSS',
-    body: () => (
-      <>
-        <p>
-          Using npm, install <code>tailwindcss</code> and its peer dependencies, as well as{' '}
-          <code>@nuxt/postcss8</code>, and then run the init command to generate the{' '}
-          <code>tailwind.config.js</code> file.
-        </p>
-        <p className="mt-3 text-xs italic">
-          Using <code>@latest</code> is required because Nuxt installs PostCSS v7 and Autoprefixer
-          v9 by default.
-        </p>
-      </>
-    ),
-    code: {
-      name: 'Terminal',
-      lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss@latest autoprefixer@latest @nuxt/postcss8\nnpx tailwindcss init',
-    },
-  },
-  {
-    title: 'Enable the Nuxt.js PostCSS plugin',
-    body: () => (
-      <p>
-        In your <code>nuxt.config.js</code> file, enable the <code>@nuxt/postcss8</code> plugin.
-      </p>
-    ),
-    code: {
-      name: 'nuxt.config.js',
-      lang: 'js',
-      code: `  export default {
+    name: 'Nuxt 2',
+    href: '#2',
+    steps: [
+      {
+        title: 'Create your project',
+        body: () => (
+          <p>
+            Start by creating a new Nuxt.js project if you don’t have one set up already. The most
+            common approach is to use{' '}
+            <a href="https://nuxtjs.org/guides/get-started/installation">Create Nuxt App</a>.
+          </p>
+        ),
+        code: {
+          name: 'Terminal',
+          lang: 'terminal',
+          code: 'npx create-nuxt-app my-project\ncd my-project',
+        },
+      },
+      {
+        title: 'Install Tailwind CSS',
+        body: () => (
+          <>
+            <p>
+              Using npm, install <code>tailwindcss</code> and its peer dependencies, as well as{' '}
+              <code>@nuxt/postcss8</code>, and then run the init command to generate the{' '}
+              <code>tailwind.config.js</code> file.
+            </p>
+            <p className="mt-3 text-xs italic">
+              Using <code>@latest</code> is required because Nuxt installs PostCSS v7 and
+              Autoprefixer v9 by default.
+            </p>
+          </>
+        ),
+        code: {
+          name: 'Terminal',
+          lang: 'terminal',
+          code: 'npm install -D tailwindcss postcss@latest autoprefixer@latest @nuxt/postcss8\nnpx tailwindcss init',
+        },
+      },
+      {
+        title: 'Enable the Nuxt.js PostCSS plugin',
+        body: () => (
+          <p>
+            In your <code>nuxt.config.js</code> file, enable the <code>@nuxt/postcss8</code> plugin.
+          </p>
+        ),
+        code: {
+          name: 'nuxt.config.js',
+          lang: 'js',
+          code: `  export default {
     buildModules: [
 >     '@nuxt/postcss8',
       // ...
     ],
   }`,
-    },
-  },
-  {
-    title: 'Add Tailwind to your PostCSS configuration',
-    body: () => (
-      <p>
-        Add <code>tailwindcss</code> and <code>autoprefixer</code> to the{' '}
-        <code>build.postcss.plugins</code> object of your <code>nuxt.config.js</code> file.
-      </p>
-    ),
-    code: {
-      name: 'nuxt.config.js',
-      lang: 'js',
-      code: `  export default {
+        },
+      },
+      {
+        title: 'Add Tailwind to your PostCSS configuration',
+        body: () => (
+          <p>
+            Add <code>tailwindcss</code> and <code>autoprefixer</code> to the{' '}
+            <code>build.postcss.plugins</code> object of your <code>nuxt.config.js</code> file.
+          </p>
+        ),
+        code: {
+          name: 'nuxt.config.js',
+          lang: 'js',
+          code: `  export default {
     build: {
 >     postcss: {
 >       plugins: {
@@ -78,19 +84,20 @@ let steps = [
 >     },
     }
   }`,
-    },
-  },
-  {
-    title: 'Configure your template paths',
-    body: () => (
-      <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
-      </p>
-    ),
-    code: {
-      name: 'tailwind.config.js',
-      lang: 'js',
-      code: `  /** @type {import('tailwindcss').Config} */
+        },
+      },
+      {
+        title: 'Configure your template paths',
+        body: () => (
+          <p>
+            Add the paths to all of your template files in your <code>tailwind.config.js</code>{' '}
+            file.
+          </p>
+        ),
+        code: {
+          name: 'tailwind.config.js',
+          lang: 'js',
+          code: `  /** @type {import('tailwindcss').Config} */
   module.exports = {
 >   content: [
 >     "./components/**/*.{js,vue,ts}",
@@ -104,75 +111,223 @@ let steps = [
     },
     plugins: [],
   }`,
-    },
-  },
-  {
-    title: 'Add the Tailwind directives to your CSS',
-    body: () => (
-      <p>
-        Create an <code>./assets/css/main.css</code> file and add the <code>@tailwind</code>{' '}
-        directives for each of Tailwind’s layers.
-      </p>
-    ),
-    code: {
-      name: 'main.css',
-      lang: 'css',
-      code: '@tailwind base;\n@tailwind components;\n@tailwind utilities;',
-    },
-  },
-  {
-    title: 'Import the CSS file',
-    body: () => (
-      <p>
-        Add the newly-created <code>./assets/css/main.css</code> file to the <code>css</code> array
-        in the <code>nuxt.config.js</code> file.
-      </p>
-    ),
-    code: {
-      name: 'nuxt.config.js',
-      lang: 'js',
-      code: `  export default {
+        },
+      },
+      {
+        title: 'Add the Tailwind directives to your CSS',
+        body: () => (
+          <p>
+            Create an <code>./assets/css/main.css</code> file and add the <code>@tailwind</code>{' '}
+            directives for each of Tailwind’s layers.
+          </p>
+        ),
+        code: {
+          name: 'main.css',
+          lang: 'css',
+          code: '@tailwind base;\n@tailwind components;\n@tailwind utilities;',
+        },
+      },
+      {
+        title: 'Import the CSS file',
+        body: () => (
+          <p>
+            Add the newly-created <code>./assets/css/main.css</code> file to the <code>css</code>{' '}
+            array in the <code>nuxt.config.js</code> file.
+          </p>
+        ),
+        code: {
+          name: 'nuxt.config.js',
+          lang: 'js',
+          code: `  export default {
     css: [
 >     '@/assets/css/main.css',
     ],
   }`,
-    },
-  },
-  {
-    title: 'Start your build process',
-    body: () => (
-      <p>
-        Run your build process with <code>npm run dev</code>.
-      </p>
-    ),
-    code: {
-      name: 'Terminal',
-      lang: 'terminal',
-      code: 'npm run dev',
-    },
-  },
-  {
-    title: 'Start using Tailwind in your project',
-    body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
-    code: {
-      name: 'App.vue',
-      lang: 'html',
-      code: `  <template>
+        },
+      },
+      {
+        title: 'Start your build process',
+        body: () => (
+          <p>
+            Run your build process with <code>npm run dev</code>.
+          </p>
+        ),
+        code: {
+          name: 'Terminal',
+          lang: 'terminal',
+          code: 'npm run dev',
+        },
+      },
+      {
+        title: 'Start using Tailwind in your project',
+        body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
+        code: {
+          name: 'App.vue',
+          lang: 'html',
+          code: `  <template>
 >   <h1 class="text-3xl font-bold underline">
 >     Hello world!
 >   </h1>
   </template>`,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Nuxt 3',
+    href: '#3',
+    steps: [
+      {
+        title: 'Create your project',
+        body: () => (
+          <p>
+            Start by creating a new Nuxt.js project if you don’t have one set up already. The most
+            common approach is to use the{' '}
+            <a href="https://v3.nuxtjs.org/getting-started/installation">
+              Nuxt Command Line Interface
+            </a>
+            .
+          </p>
+        ),
+        code: {
+          name: 'Terminal',
+          lang: 'terminal',
+          code: 'npx nuxi init my-project\ncd my-project',
+        },
+      },
+      {
+        title: 'Install Tailwind CSS',
+        body: () => (
+          <p>
+            Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the
+            init command to generate a <code>tailwind.config.js</code> file.
+          </p>
+        ),
+        code: {
+          name: 'Terminal',
+          lang: 'terminal',
+          code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init',
+        },
+      },
+      {
+        title: 'Add Tailwind to your PostCSS configuration',
+        body: () => (
+          <p>
+            Add <code>tailwindcss</code> and <code>autoprefixer</code> to the{' '}
+            <code>postcss.plugins</code> object of your <code>nuxt.config.js</code> file.
+          </p>
+        ),
+        code: {
+          name: 'nuxt.config.js',
+          lang: 'js',
+          code: `  // https://v3.nuxtjs.org/api/configuration/nuxt.config
+  export default defineNuxtConfig({
+>   postcss: {
+>     plugins: {
+>       tailwindcss: {},
+>       autoprefixer: {},
+>     },
+>   },
+  })`,
+        },
+      },
+      {
+        title: 'Configure your template paths',
+        body: () => (
+          <p>
+            Add the paths to all of your template files in your <code>tailwind.config.js</code>{' '}
+            file.
+          </p>
+        ),
+        code: {
+          name: 'tailwind.config.js',
+          lang: 'js',
+          code: `  /** @type {import('tailwindcss').Config} */
+  module.exports = {
+>   content: [
+>     "./components/**/*.{js,vue,ts}",
+>     "./layouts/**/*.vue",
+>     "./pages/**/*.vue",
+>     "./plugins/**/*.{js,ts}",
+>     "./nuxt.config.{js,ts}",
+>     "./app.vue",
+>   ],
+    theme: {
+      extend: {},
     },
+    plugins: [],
+  }`,
+        },
+      },
+      {
+        title: 'Add the Tailwind directives to your CSS',
+        body: () => (
+          <p>
+            Create an <code>./assets/css/main.css</code> file and add the <code>@tailwind</code>{' '}
+            directives for each of Tailwind’s layers.
+          </p>
+        ),
+        code: {
+          name: 'main.css',
+          lang: 'css',
+          code: '@tailwind base;\n@tailwind components;\n@tailwind utilities;',
+        },
+      },
+      {
+        title: 'Start your build process',
+        body: () => (
+          <p>
+            Run your build process with <code>npm run dev</code>.
+          </p>
+        ),
+        code: {
+          name: 'Terminal',
+          lang: 'terminal',
+          code: 'npm run dev',
+        },
+      },
+      {
+        title: 'Start using Tailwind in your project',
+        body: () => (
+          <p>
+            Make sure your compiled CSS is included in the <code>{'<head>'}</code> then start using
+            Tailwind’s utility classes to style your content.
+          </p>
+        ),
+        code: {
+          name: 'app.vue',
+          lang: 'html',
+          code: `> <script setup>
+>   import './assets/css/main.css'
+> </script>
+
+  <template>
+>   <h1 class="text-3xl font-bold underline">
+>     Hello world!
+>   </h1>
+  </template>`,
+        },
+      },
+    ],
   },
 ]
 
-export default function UsingNextJS({ code }) {
+export default function UsingNuxtJs({ code }) {
+  let hash = useRouteHash()
+
+  let selectedTabIndex = tabs.findIndex((tab) => tab.href === hash)
+
+  if (selectedTabIndex === -1) {
+    selectedTabIndex = 0
+  }
+
   return (
     <FrameworkGuideLayout
       title="Install Tailwind CSS with Nuxt.js"
       description="Setting up Tailwind CSS in a Nuxt.js project."
     >
-      <Steps steps={steps} code={code} />
+      <TabBar tabs={tabs} selectedTabIndex={selectedTabIndex} />
+      <Steps steps={tabs[selectedTabIndex].steps} code={code[selectedTabIndex]} />
     </FrameworkGuideLayout>
   )
 }
@@ -182,12 +337,12 @@ export function getStaticProps() {
 
   return {
     props: {
-      code: highlightedCodeSnippets(steps),
+      code: tabs.map((tab) => highlightedCodeSnippets(tab.steps)),
     },
   }
 }
 
-UsingNextJS.layoutProps = {
+UsingNuxtJs.layoutProps = {
   meta: {
     title: 'Install Tailwind CSS with Nuxt.js',
     description: 'Setting up Tailwind CSS in a Nuxt.js project.',
