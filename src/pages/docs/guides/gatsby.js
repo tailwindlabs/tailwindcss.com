@@ -1,6 +1,5 @@
 import { DocumentationLayout } from '@/layouts/DocumentationLayout'
 import { FrameworkGuideLayout } from '@/layouts/FrameworkGuideLayout'
-import { Cta } from '@/components/Cta'
 import { Steps } from '@/components/Steps'
 
 let steps = [
