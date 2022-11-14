@@ -249,5 +249,5 @@ export const showcase = [
       thumbnail: require('@/img/showcase/thumbnails/spiegel.de-dark.png').default,
       video: require('@/videos/showcase/spiegel.de-dark.mp4').default,
     },
-  }
+  },
 ]

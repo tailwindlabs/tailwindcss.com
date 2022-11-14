@@ -98,6 +98,29 @@ let steps = [
   }`,
     },
   },
+  {
+    title: 'Configure Tailwind CSS to work with Next.js 13 (app Directory)',
+    body: () => (
+      <p>
+        import <code>globals.css</code> at the top of <code>app/layout.js</code>
+      </p>
+    ),
+    code: {
+      name: 'app/layout.js',
+      lang: 'jsx',
+      code: `import '../styles/globals.css';
+export default function RootLayout({ children }) {
+  return (
+    <html>
+      <head />
+      <body>{children}</body>
+    </html>
+  )
+}`
+
+    },
+  }
+
 ]
 
 export default function UsingNextJS({ code }) {
