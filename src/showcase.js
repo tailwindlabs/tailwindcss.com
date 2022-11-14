@@ -7,6 +7,13 @@ export const showcase = [
     description: 'News website',
   },
   {
+    name: 'Laracon Online',
+    slug: 'laracon',
+    thumbnail: require('@/img/showcase/thumbnails/laracon.net.png').default,
+    video: require('@/videos/showcase/laracon.net.mp4').default,
+    description: 'Conference website',
+  },
+  {
     name: 'Microsoft .NET',
     slug: 'dotnet',
     thumbnail: require('@/img/showcase/thumbnails/dotnet.microsoft.com.png').default,
@@ -14,11 +21,11 @@ export const showcase = [
     description: 'Software framework website',
   },
   {
-    name: 'Netflix Global Top 10',
-    slug: 'netflix',
-    thumbnail: require('@/img/showcase/thumbnails/top10.netflix.com.png').default,
-    video: require('@/videos/showcase/top10.netflix.com.mp4').default,
-    description: 'Microsite',
+    name: 'Loom',
+    slug: 'loom',
+    thumbnail: require('@/img/showcase/thumbnails/loom.com.png').default,
+    video: require('@/videos/showcase/loom.com.mp4').default,
+    description: 'SaaS marketing website',
   },
   {
     name: 'Wander',
@@ -47,13 +54,6 @@ export const showcase = [
     thumbnail: require('@/img/showcase/thumbnails/feastables.com.png').default,
     video: require('@/videos/showcase/feastables.com.mp4').default,
     description: 'Direct-to-consumer store',
-  },
-  {
-    name: 'Loom',
-    slug: 'loom',
-    thumbnail: require('@/img/showcase/thumbnails/loom.com.png').default,
-    video: require('@/videos/showcase/loom.com.mp4').default,
-    description: 'SaaS marketing website',
   },
   {
     name: 'NASA Jet Propulsion Laboratory',
@@ -144,11 +144,11 @@ export const showcase = [
     isTemplate: true,
   },
   {
-    name: 'Laracon Online',
-    slug: 'laracon',
-    thumbnail: require('@/img/showcase/thumbnails/laracon.net.png').default,
-    video: require('@/videos/showcase/laracon.net.mp4').default,
-    description: 'Conference website',
+    name: 'Netflix Global Top 10',
+    slug: 'netflix',
+    thumbnail: require('@/img/showcase/thumbnails/top10.netflix.com.png').default,
+    video: require('@/videos/showcase/top10.netflix.com.mp4').default,
+    description: 'Microsite',
   },
   {
     name: 'Salient',
