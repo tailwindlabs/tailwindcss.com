@@ -6,7 +6,7 @@ import { TabBar } from '@/components/Guides/TabBar.jsx'
 
 let tabs = [
   {
-    name: 'Next.js',
+    name: 'Stable',
     href: '#',
     steps: [
       {
