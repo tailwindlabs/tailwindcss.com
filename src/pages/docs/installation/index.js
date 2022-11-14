@@ -52,6 +52,24 @@ let steps = [
       code: '@tailwind base;\n@tailwind components;\n@tailwind utilities;',
     },
   },
+      {
+    title: 'If you are using Next.js 13.0.0 or later',
+    body: () => <p>Add the experimental property to <code>next.config.js</code></p>,
+    code: {
+      name: 'next.config.js',
+      lang: 'js',
+      code: `/** @type {import('next').NextConfig} */
+      const nextConfig = {
+        reactStrictMode: true,
+        experimental: {
+          appDir: true,
+        },
+      };
+      
+      module.exports = nextConfig;
+      `,
+    },
+  },
   {
     title: 'Start the Tailwind CLI build process',
     body: () => <p>Run the CLI tool to scan your template files for classes and build your CSS.</p>,
