@@ -8,6 +8,16 @@ let tabs = [
   {
     name: 'Stable',
     href: '#',
+    intro: () => (
+      <p>
+        The quickest way to start using Tailwind CSS in your Next.js project is to use the{' '}
+        <a href="https://github.com/vercel/next.js/tree/c3e5caf1109a2eb42801de23fc78e42a08e5da6e/examples/with-tailwindcss">
+          Next.js + Tailwind CSS Example
+        </a>
+        . This will automatically configure your Tailwind setup based on the official Next.js
+        example. If you'd like to configure Tailwind manually, continue with the rest of this guide.
+      </p>
+    ),
     steps: [
       {
         title: 'Create your project',
@@ -111,6 +121,16 @@ let tabs = [
   {
     name: 'With Turbopack',
     href: '#turbopack',
+    intro: () => (
+      <p>
+        The quickest way to start using Tailwind CSS in your Next.js project is to use the{' '}
+        <a href="https://github.com/vercel/next.js/tree/c3e5caf1109a2eb42801de23fc78e42a08e5da6e/examples/with-tailwindcss">
+          Next.js + Tailwind CSS Example
+        </a>
+        . This will automatically configure your Tailwind setup based on the official Next.js
+        example. If you'd like to configure Tailwind manually, continue with the rest of this guide.
+      </p>
+    ),
     steps: [
       {
         title: 'Create your project',
@@ -268,19 +288,12 @@ export default function UsingNextJs({ code }) {
       title="Install Tailwind CSS with Next.js"
       description="Setting up Tailwind CSS in a Next.js v10+ project."
     >
-      <div className="relative z-10 max-w-3xl mb-16 prose prose-slate dark:prose-dark">
-        <p>
-          The quickest way to start using Tailwind CSS in your Next.js project is to use the{' '}
-          <a href="https://github.com/vercel/next.js/tree/c3e5caf1109a2eb42801de23fc78e42a08e5da6e/examples/with-tailwindcss">
-            Next.js + Tailwind CSS Example
-          </a>
-          . This will automatically configure your Tailwind setup based on the official Next.js
-          example. If you'd like to configure Tailwind manually, continue with the rest of this
-          guide.
-        </p>
-      </div>
       <TabBar tabs={tabs} selectedTabIndex={selectedTabIndex} />
-      <Steps steps={tabs[selectedTabIndex].steps} code={code[selectedTabIndex]} />
+      <Steps
+        intro={tabs[selectedTabIndex].intro}
+        steps={tabs[selectedTabIndex].steps}
+        code={code[selectedTabIndex]}
+      />
     </FrameworkGuideLayout>
   )
 }
