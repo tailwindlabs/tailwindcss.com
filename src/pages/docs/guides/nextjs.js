@@ -123,7 +123,7 @@ let tabs = [
       <>
         <span>
           Using the{' '}
-          <code className="font-mono font-medium px-1 py-0.5 text-[13px] rounded bg-gray-100">
+          <code className="font-mono font-medium px-1 py-0.5 text-[13px] leading-5 rounded">
             app
           </code>{' '}
           directory
