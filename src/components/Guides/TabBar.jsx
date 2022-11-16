@@ -13,7 +13,7 @@ export function TabBar({ tabs, selectedTabIndex }) {
       <div className="flex-none min-w-full px-4 sm:px-6">
         <ul className="border-b border-slate-200 space-x-6 flex whitespace-nowrap dark:border-slate-200/5">
           {tabs.map((tab, tabIndex) => (
-            <li key={tab.name}>
+            <li key={tab.key || tab.name}>
               <h2>
                 <Link href={tab.href} scroll={false}>
                   <a
