@@ -28,11 +28,11 @@ export const showcase = [
     description: 'SaaS marketing website',
   },
   {
-    name: 'PlanetScale',
-    slug: 'planetscale',
-    thumbnail: require('@/img/showcase/thumbnails/planetscale.com.png').default,
-    video: require('@/videos/showcase/planetscale.com.mp4').default,
-    description: 'SaaS marketing website',
+    name: 'candycode',
+    slug: 'candycode',
+    thumbnail: require('@/img/showcase/thumbnails/candycode.com.png').default,
+    video: require('@/videos/showcase/candycode.com.mp4').default,
+    description: 'Agency website',
   },
   {
     name: 'Column',
@@ -54,6 +54,13 @@ export const showcase = [
     thumbnail: require('@/img/showcase/thumbnails/githubnext.com.png').default,
     video: require('@/videos/showcase/githubnext.com.mp4').default,
     description: 'Research website',
+  },
+  {
+    name: 'PlanetScale',
+    slug: 'planetscale',
+    thumbnail: require('@/img/showcase/thumbnails/planetscale.com.png').default,
+    video: require('@/videos/showcase/planetscale.com.mp4').default,
+    description: 'SaaS marketing website',
   },
   {
     name: 'Algolia Docs',
