@@ -21,7 +21,7 @@ export function TabBar({ tabs, selectedTabIndex }) {
                       'flex text-sm leading-6 font-semibold pt-3 pb-2.5 border-b-2 -mb-px',
                       tabIndex === selectedTabIndex
                         ? 'text-sky-500 border-current [&_code]:bg-sky-50'
-                        : 'text-slate-900 border-transparent hover:border-slate-300 dark:text-slate-200 dark:hover:border-slate-700 [&_code]:bg-slate-100'
+                        : 'text-slate-900 border-transparent hover:border-slate-300 dark:text-slate-200 dark:hover:border-slate-700 [&_code]:bg-slate-100 dark:[&_code]:bg-slate-800'
                     )}
                   >
                     {tab.name}
