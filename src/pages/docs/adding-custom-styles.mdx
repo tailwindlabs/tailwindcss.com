@@ -91,6 +91,14 @@ It's even possible to use the [`theme` function](/docs/functions-and-directives#
 </div>
 ```
 
+When using a CSS variable as an arbitrary value, wrapping your variable in `var(...)` isn't needed — just providing the actual variable name is enough:
+
+```html
+<div class="bg-[--my-color]">
+  <!-- ... -->
+</div>
+```
+
 ### Arbitrary properties
 
 If you ever need to use a CSS property that Tailwind doesn't include a utility for out of the box, you can also use square bracket notation to write completely arbitrary CSS:
