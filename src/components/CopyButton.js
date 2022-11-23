@@ -4,7 +4,7 @@ import redent from 'redent'
 import Alert from '@reach/alert'
 import { Transition } from '@headlessui/react'
 
-export function CopyButton({ code }) {
+export function CopyButton({ code, position = 'top' }) {
   let [{ state, i }, setState] = useState({ state: 'idle', i: 0 })
 
   useEffect(() => {
@@ -46,7 +46,11 @@ export function CopyButton({ code }) {
         </svg>
       </button>
       <Transition
-        className="absolute bottom-full left-1/2 mb-3.5 pb-1 -translate-x-1/2"
+        className={clsx({
+          absolute: true,
+          'translate-x-1/2 ml-2 mt-1': position === 'right',
+          'bottom-full left-1/2 mb-3.5 pb-1 -translate-x-1/2': position === 'top',
+        })}
         show={state === 'copied'}
         enter="transform ease-out duration-200 transition origin-bottom"
         enterFrom="scale-95 translate-y-0.5 opacity-0"
@@ -57,20 +61,22 @@ export function CopyButton({ code }) {
       >
         <Alert className="relative bg-sky-500 text-white font-mono text-[0.625rem] leading-6 font-medium px-1.5 rounded-lg">
           Copied
-          <svg
-            aria-hidden="true"
-            width="16"
-            height="6"
-            viewBox="0 0 16 6"
-            className="text-sky-500 absolute top-full left-1/2 -mt-px -ml-2"
-          >
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M15 0H1V1.00366V1.00366V1.00371H1.01672C2.72058 1.0147 4.24225 2.74704 5.42685 4.72928C6.42941 6.40691 9.57154 6.4069 10.5741 4.72926C11.7587 2.74703 13.2803 1.0147 14.9841 1.00371H15V0Z"
-              fill="currentColor"
-            />
-          </svg>
+          {position === 'top' ? (
+            <svg
+              aria-hidden="true"
+              width="16"
+              height="6"
+              viewBox="0 0 16 6"
+              className="text-sky-500 absolute top-full left-1/2 -mt-px -ml-2"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M15 0H1V1.00366V1.00366V1.00371H1.01672C2.72058 1.0147 4.24225 2.74704 5.42685 4.72928C6.42941 6.40691 9.57154 6.4069 10.5741 4.72926C11.7587 2.74703 13.2803 1.0147 14.9841 1.00371H15V0Z"
+                fill="currentColor"
+              />
+            </svg>
+          ) : null}
         </Alert>
       </Transition>
     </div>
