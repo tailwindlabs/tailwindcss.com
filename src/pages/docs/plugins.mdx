@@ -443,9 +443,11 @@ Since base styles are meant to target bare selectors like `div` or `h1`, they do
 
 ## Adding variants
 
-The `addVariant` function allows you to register your own custom [modifiers](/docs/hover-focus-and-other-states) that can be used just like the built-in hover, focus, active, etc. variants.
+The `addVariant` and `matchVariant` functions allow you to register your own custom [modifiers](/docs/hover-focus-and-other-states) that can be used just like the built-in hover, focus, supports, etc. variants.
 
-To add a new variant, call the `addVariant` function, passing in the name of your custom variant, and a format string that represents how the selector should be modified.
+### Static variants
+
+Use the `addVariant` function for simple custom variants, passing in the name of your custom variant, and a format string that represents how the selector should be modified.
 
 ```js tailwind.config.js
 const plugin = require('tailwindcss/plugin')
