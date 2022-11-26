@@ -458,7 +458,7 @@ module.exports = {
     plugin(function({ addVariant }) {
       addVariant('optional', '&:optional')
       addVariant('hocus', ['&:hover', '&:focus'])
-      addVariant('supports-grid', '@supports (display: grid)')
+      addVariant('inverted-colors', '@media (inverted-colors: inverted)')
     })
   ]
 }
@@ -467,7 +467,7 @@ module.exports = {
 The first argument is the modifier name that users will use in their HTML, so the above example would make it possible to write classes like these:
 
 ```html
-<form class="flex **supports-grid:grid** ...">
+<form class="flex **inverted-colors:outline** ...">
   <input class="**optional:border-gray-300** ..." />
   <button class="bg-blue-500 **hocus:bg-blue-600**">...</button>
 </form>
