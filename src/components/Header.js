@@ -48,44 +48,6 @@ function Featured() {
   )
 }
 
-function BlackFriday() {
-  return (
-    <Link href="https://tailwindui.com/all-access">
-      <a className="ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-sky-400/20">
-        <strong className="font-semibold">Black Friday Deal</strong>
-        <svg
-          width="2"
-          height="2"
-          fill="currentColor"
-          aria-hidden="true"
-          className="ml-2 text-sky-600 dark:text-sky-400/70"
-        >
-          <circle cx="1" cy="1" r="1" />
-        </svg>
-        <span className="ml-2">
-          Get Tailwind UI + Refactoring UI{' '}
-          <span className="hidden min-[1320px]:inline">together</span> for over 30% off
-        </span>
-        <svg
-          width="3"
-          height="6"
-          className="ml-3 overflow-visible text-sky-300 dark:text-sky-400"
-          aria-hidden="true"
-        >
-          <path
-            d="M0 0L3 3L0 6"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </a>
-    </Link>
-  )
-}
-
 export function NavPopover({ display = 'md:hidden', className, ...props }) {
   let [isOpen, setIsOpen] = useState(false)
 
@@ -272,7 +234,7 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
                 </a>
               </Link>
               <VersionSwitcher />
-              <BlackFriday />
+              <Featured />
               <div className="relative hidden lg:flex items-center ml-auto">
                 <nav className="text-sm leading-6 font-semibold text-slate-700 dark:text-slate-200">
                   <ul className="flex space-x-8">
