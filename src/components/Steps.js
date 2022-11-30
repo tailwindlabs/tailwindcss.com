@@ -11,7 +11,7 @@ export function Steps({ intro, steps, code, level = 2 }) {
 
   return (
     <>
-      <div className="hidden sm:block absolute top-0 left-[15%] -z-10 pt-[40%] 2xl:left-[40%] 2xl:pt-[8%] dark:hidden">
+      <div className="hidden sm:block absolute -z-10 top-0 left-[15%] pt-[40%] 2xl:left-[40%] 2xl:pt-[8%] dark:hidden">
         <img
           src={require('@/img/beams/installation.jpg').default.src}
           alt=""
