@@ -443,7 +443,7 @@ Since base styles are meant to target bare selectors like `div` or `h1`, they do
 
 ## Adding variants
 
-The `addVariant` and `matchVariant` functions allow you to register your own custom [modifiers](/docs/hover-focus-and-other-states) that can be used just like the built-in hover, focus, supports, etc. variants.
+The `addVariant` and `matchVariant` functions allow you to register your own custom [modifiers](/docs/hover-focus-and-other-states) that can be used just like built-in variants like `hover`, `focus`, or `supports`.
 
 ### Static variants
 
@@ -475,7 +475,7 @@ The first argument is the modifier name that users will use in their HTML, so th
 
 ### Dynamic variants
 
-Use the `matchVariant` function to register new variants with a dynamic portion like the built-in supports, data attribute, aria attribute variants:
+Use the `matchVariant` function to register new parameterized variants like the built-in `supports-*`, `data-*`, and `aria-*` variants:
 
 ```js tailwind.config.js
 const plugin = require('tailwindcss/plugin')
@@ -501,7 +501,7 @@ module.exports = {
 }
 ```
 
-The variant defined above would give you variants like `nth-1` an `nth-2` but would also support an arbitrary portion in square brackets:
+Variants defined with `matchVariant` also support arbitrary values using square bracket notation:
 
 ```html
 <div class="**nth-[3n+1]:bg-blue-500** ...">
@@ -509,7 +509,7 @@ The variant defined above would give you variants like `nth-1` an `nth-2` but wo
 </div>
 ```
 
-When defining custom variants with this API, it’s often important that you have some control over which order the CSS is generated in to make sure each class has the right precedence with respect to other values that come from the same variant. To support this, there’s a sort function you can provide when defining your variant:
+Use the `sort` option to control the source order of the generated CSS if needed to avoid precedence issues with other values that come from the same variant:
 
 ```js
 matchVariant("min", (value) => `@media (min-width: ${value})`, {
