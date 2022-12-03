@@ -21,6 +21,7 @@ import styles from './index.module.css'
 import clsx from 'clsx'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import socialCardLarge from '@/img/social-card-large.jpg'
+import { Title } from '@/components/Meta'
 
 function Header() {
   return (
@@ -151,17 +152,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <meta
-          key="twitter:title"
-          name="twitter:title"
-          content="Tailwind CSS - Rapidly build modern websites without ever leaving your HTML."
-        />
-        <meta
-          key="og:title"
-          property="og:title"
-          content="Tailwind CSS - Rapidly build modern websites without ever leaving your HTML."
-        />
-        <title>Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.</title>
+        <Title>Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.</Title>
       </Head>
       <div className="mb-20 space-y-20 overflow-hidden sm:mb-32 sm:space-y-32 md:mb-40 md:space-y-40">
         <Header />
