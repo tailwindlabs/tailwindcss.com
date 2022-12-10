@@ -109,6 +109,8 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
             <li>
               <a
                 href="https://github.com/tailwindlabs/tailwindcss"
+                target="_blank"
+                rel="noreferrer"
                 className="hover:text-sky-500 dark:hover:text-sky-400"
               >
                 GitHub
@@ -135,6 +137,8 @@ export function NavItems() {
       <li>
         <a
           href="https://tailwindui.com/?ref=top"
+          target="_blank"
+          rel="noreferrer"
           className="hover:text-sky-500 dark:hover:text-sky-400"
         >
           Components
@@ -245,6 +249,8 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
                   <ThemeToggle panelClassName="mt-8" />
                   <a
                     href="https://github.com/tailwindlabs/tailwindcss"
+                    target="_blank"
+                    rel="noreferrer"
                     className="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
                   >
                     <span className="sr-only">Tailwind CSS on GitHub</span>

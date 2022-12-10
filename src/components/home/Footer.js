@@ -10,10 +10,10 @@ const footerNav = [
   {
     Customization: documentationNav['Customization'],
     Community: [
-      { title: 'GitHub', href: 'https://github.com/tailwindlabs/tailwindcss' },
-      { title: 'Discord', href: '/discord' },
-      { title: 'Twitter', href: 'https://twitter.com/tailwindcss' },
-      { title: 'YouTube', href: 'https://www.youtube.com/tailwindlabs' },
+      { title: 'GitHub', href: 'https://github.com/tailwindlabs/tailwindcss', isExternalLink: true },
+      { title: 'Discord', href: '/discord', isExternalLink: true },
+      { title: 'Twitter', href: 'https://twitter.com/tailwindcss', isExternalLink: true },
+      { title: 'YouTube', href: 'https://www.youtube.com/tailwindlabs', isExternalLink: true },
     ],
   },
 ]
@@ -35,7 +35,10 @@ export function Footer() {
                     {items.map((item) => (
                       <li key={item.href}>
                         <Link href={item.href}>
-                          <a className="hover:text-slate-900 dark:hover:text-slate-300">
+                          <a
+                            className="hover:text-slate-900 dark:hover:text-slate-300"
+                            target={item.isExternalLink ? "_blank" : undefined}
+                          >
                             {item.title}
                           </a>
                         </Link>

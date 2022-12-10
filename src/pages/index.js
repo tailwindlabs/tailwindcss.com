@@ -70,6 +70,8 @@ function Header() {
                 <ThemeToggle />
                 <a
                   href="https://github.com/tailwindlabs/tailwindcss"
+                  target="_blank"
+                  rel="noreferrer"
                   className="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
                 >
                   <span className="sr-only">Tailwind CSS on GitHub</span>
