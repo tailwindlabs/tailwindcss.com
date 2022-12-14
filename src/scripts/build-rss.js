@@ -37,6 +37,12 @@ export default function buildRss() {
     )
     const html = ReactDOMServer.renderToStaticMarkup(mdx)
     const postText = `<p><em>(The post <a href="${blogUrl}/${slug}">${meta.title}</a> appeared first on <a href="${blogUrl}">Tailwind CSS Blog</a>.)</em></p>`
+
+    let image = meta.ogImage ?? meta.image
+    image = image
+      ? `${baseUrl}${image.default?.src ?? image.src ?? image}`
+      : `${baseUrl}/api/og?path=/blog/${slug}`
+
     feed.addItem({
       title: meta.title,
       id: meta.title,
@@ -48,7 +54,7 @@ export default function buildRss() {
         link: `https://twitter.com/${twitter}`,
       })),
       date: new Date(meta.date),
-      image: baseUrl + meta.image.src,
+      image,
       ...(meta.discussion
         ? {
             comments: meta.discussion,
