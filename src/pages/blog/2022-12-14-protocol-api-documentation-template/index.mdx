@@ -1,21 +1,27 @@
 import { adamwathan } from '@/authors'
-import protocolPreview from './protocol-preview.jpg'
-import documentationExampleScreenshot from './documentation-example-screenshot.png'
-import card from './card.jpg'
+import animatedSidebar from './animated-sidebar.mp4'
+import commandPalette from './command-palette.png'
+import convertkit from './convertkit.png'
+import darkmode from './darkmode.png'
+import documentation from './documentation.png'
+import home from './home.png'
+import hoveringCards from './hovering-cards.mp4'
+import icons from './icons.png'
+import stickyCodeBlocks from './sticky-code-blocks.mp4'
+import texture from './texture.png'
 
 export const meta = {
   title: 'Protocol: A beautiful starting point for your next API documentation site',
   description: `It's been months in the making but I'm excited to finally release our next website template — Protocol, a beautiful starter kit for building amazing API reference websites.`,
   date: '2022-12-14T15:00:00.000Z',
   authors: [adamwathan],
-  image: card,
 }
 
 It's been months in the making but I'm excited to finally release our next website template — [Protocol](https://tailwindui.com/templates/protocol), a beautiful starter kit for building amazing API reference websites.
 
 <div className="my-8">
   <a href="https://tailwindui.com/templates/protocol">
-    <img src={protocolPreview.src} alt="Learn about the Protocol template"/>
+    <img src={home.src} alt="Learn about the Protocol template"/>
   </a>
 </div>
 
@@ -29,15 +35,24 @@ As usual we had a lot of fun getting carried away with the design, and putting t
 
 We've got sticky code blocks that stay in view as you scroll through the request and response details for that endpoint:
 
-**Insert screen recording of the sticky code blocks**
+<div className="relative rounded-lg overflow-hidden">
+  <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-slate-900/10 pointer-events-none"></div>
+  <video src={stickyCodeBlocks} controls className="block m-0" />
+</div>
 
 There's also this beautiful hover effect on the homepage cards — it follows your mouse cursor with this gradient glow that uncovers a subtle background pattern:
 
-**Insert screen recording of moving mouse cursor around on cards**
+<div className="relative rounded-lg overflow-hidden">
+  <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-slate-900/10 pointer-events-none"></div>
+  <video src={hoveringCards} controls className="block m-0" />
+</div>
 
 My favorite detail though has to be the sidebar navigation, which tracks the visible page content but using a sort of "minimap" strategy, where _all_ visible page sections are highlighted:
 
-**Insert screen recording of how the sidebar works**
+<div className="relative rounded-lg overflow-hidden">
+  <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-slate-900/10 pointer-events-none"></div>
+  <video src={animatedSidebar} controls className="block m-0" />
+</div>
 
 Watching this animate as you scroll through the page is really a sight to behold — props to [Framer Motion](https://www.framer.com/motion/) for doing the heavy lifting here as usual. Even if I absolutely hated React I'm pretty sure I'd still use it just to use this library, it's really that good.
 
@@ -108,10 +123,8 @@ You write your endpoint documentation in MDX, mixing in a handful of little comp
 This will produce documentation that looks like this:
 
 <div className="my-8">
-    <img src={documentationExampleScreenshot.src} alt="Example of generated documentation from MDX source"/>
+  <img src={documentation.src} alt="Example of generated documentation from MDX source"/>
 </div>
-
-**Might need a better screenshot here, up to you guys.**
 
 To really nail the authoring experience, we even built [mdx-annotations](https://www.npmjs.com/package/mdx-annotations) — a new library that brings the annotations feature we loved when working with [Markdoc](https://markdoc.dev/) over to MDX.
 
@@ -135,7 +148,9 @@ I think this template is going to be really useful to lots of people right off-t
 
 We deliberately designed the illustrated background pattern we use in the site to feel "on brand" for basically anyone — you can tell it's the work of a professional designer but it's simple and leans into the "technical" motif, which is something that all API reference sites are going to have in common anyways.
 
-**Insert image showing off background pattern**
+<div className="my-8">
+  <img src={texture.src} alt=""/>
+</div>
 
 We built the pattern in code rather than exporting it as an asset with all of the colors baked in, so it's easy to tweak it to match your own color scheme.
 
@@ -157,9 +172,17 @@ For syntax highlighting, we're using [Shiki](https://github.com/shikijs/shiki) w
 
 This is a hell of a lot less work than trying to craft your own theme from scratch!
 
+In addition to the four icons we've used in our demo, we've included another 24 icons for a bunch of common API resource types:
+
+<div className="my-8">
+  <img src={icons.src} alt=""/>
+</div>
+
 Check out this screenshot, where we've adapted the Protocol template as if it were being used by our friends at [ConvertKit](https://convertkit.com/) to power their API reference:
 
-**Insert screenshot of ConvertKit version**
+<div className="my-8">
+  <img src={convertkit.src}alt=""/>
+</div>
 
 Looks a lot different at a quick glance, but when you really dig in there's actually not much that has changed here at all — just updating some button and link colors, the logo, adjusting the gradient in the illustration, and picking some different syntax highlighting colors.
 
@@ -167,7 +190,9 @@ Looks a lot different at a quick glance, but when you really dig in there's actu
 
 Naturally the site includes dark mode support — it's meant for developers, do you really think we could possibly be that ignorant? You would never forgive us.
 
-**Dark mode screenshot**
+<div className="my-8">
+  <img src={darkmode.src} alt=""/>
+</div>
 
 The dark mode version has lots of its own cool design details too — I love different primary button treatment for instance.
 
@@ -177,7 +202,9 @@ We love Algolia for documentation search, and we use it for the Tailwind CSS web
 
 We've wired it up for Protocol as well, but this time using Algolia's headless [autocomplete library](https://www.algolia.com/doc/ui-libraries/autocomplete/introduction/what-is-autocomplete/) so we had total control of the search UI:
 
-**Insert screenshot or video of command palette**
+<div className="my-8">
+  <img src={commandPalette.src} alt=""/>
+</div>
 
 The nice thing about this approach is we can use regular old utility classes to style everything instead of writing custom CSS to style an already-styled widget, which just feels a lot more _right_ in a Tailwind CSS project.
 
