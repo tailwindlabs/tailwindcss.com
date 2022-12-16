@@ -303,7 +303,7 @@ If for whatever reason you need to configure Tailwind to scan some raw content r
 ```js tailwind.config.js
 module.exports = {
   content: [
-    './pages/**/*.{html,js}'
+    './pages/**/*.{html,js}',
     './components/**/*.{html,js}',
     { raw: '<div class="font-bold">', extension: 'html' },
   ],
@@ -326,7 +326,7 @@ If you need to make sure Tailwind generates certain class names that don't exist
 ```js tailwind.config.js
 module.exports = {
   content: [
-    './pages/**/*.{html,js}'
+    './pages/**/*.{html,js}',
     './components/**/*.{html,js}',
   ],
   safelist: [
