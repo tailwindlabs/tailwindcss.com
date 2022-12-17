@@ -25,9 +25,9 @@ let steps = [
     title: 'Install Tailwind CSS',
     body: () => (
       <p>
-        Using npm, install <code>tailwindcss</code> and its peer dependencies, as well as{' '}
-        <code>svelte-preprocess</code>, and then run the following commands to generate both{' '}
-        <code>tailwind.config.cjs</code> and <code>postcss.config.cjs</code>.
+        Using npm, install <code>tailwindcss</code> and its peer dependencies, and then run the
+        following commands to generate both <code>tailwind.config.cjs</code>
+        and <code>postcss.config.cjs</code>.
       </p>
     ),
     code: {
