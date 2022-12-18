@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --hostname=tailwindcss.test",
     "build": "next build",
     "start": "next start",
     "export": "next build && next export",
