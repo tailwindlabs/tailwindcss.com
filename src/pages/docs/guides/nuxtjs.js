@@ -183,7 +183,7 @@ let tabs = [
           <p>
             Start by creating a new Nuxt.js project if you don’t have one set up already. The most
             common approach is to use the{' '}
-            <a href="https://v3.nuxtjs.org/getting-started/installation">
+            <a href="https://nuxt.com/docs/getting-started/installation">
               Nuxt Command Line Interface
             </a>
             .
