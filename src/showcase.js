@@ -33,10 +33,6 @@ export const showcase = [
     thumbnail: require('@/img/showcase/thumbnails/turbo.build.png').default,
     video: require('@/videos/showcase/turbo.build.mp4').default,
     description: 'Developer tool website',
-    dark: {
-      thumbnail: require('@/img/showcase/thumbnails/turbo.build-dark.png').default,
-      video: require('@/videos/showcase/turbo.build-dark.mp4').default,
-    },
   },
   {
     name: 'Loom',
