@@ -7,11 +7,11 @@ export const showcase = [
     description: 'News website',
   },
   {
-    name: 'Laracon Online',
-    slug: 'laracon',
-    thumbnail: require('@/img/showcase/thumbnails/laracon.net.png').default,
-    video: require('@/videos/showcase/laracon.net.mp4').default,
-    description: 'Conference website',
+    name: 'Lemon Squeezy',
+    slug: 'lemon-squeezy',
+    thumbnail: require('@/img/showcase/thumbnails/app.lemonsqueezy.com.png').default,
+    video: require('@/videos/showcase/app.lemonsqueezy.com.mp4').default,
+    description: 'SaaS application',
   },
   {
     name: 'Netflix Global Top 10',
@@ -19,6 +19,20 @@ export const showcase = [
     thumbnail: require('@/img/showcase/thumbnails/top10.netflix.com.png').default,
     video: require('@/videos/showcase/top10.netflix.com.mp4').default,
     description: 'Microsite',
+  },
+  {
+    name: 'Laracon Online',
+    slug: 'laracon',
+    thumbnail: require('@/img/showcase/thumbnails/laracon.net.png').default,
+    video: require('@/videos/showcase/laracon.net.mp4').default,
+    description: 'Conference website',
+  },
+  {
+    name: 'Turbo',
+    slug: 'turbo',
+    thumbnail: require('@/img/showcase/thumbnails/turbo.build.png').default,
+    video: require('@/videos/showcase/turbo.build.mp4').default,
+    description: 'Developer tool website',
   },
   {
     name: 'Loom',
@@ -186,13 +200,6 @@ export const showcase = [
     video: require('@/videos/showcase/pocket.tailwindui.com.mp4').default,
     description: 'Mobile app marketing website',
     isTemplate: true,
-  },
-  {
-    name: 'Lemon Squeezy',
-    slug: 'lemon-squeezy',
-    thumbnail: require('@/img/showcase/thumbnails/lemonsqueezy.com.png').default,
-    video: require('@/videos/showcase/lemonsqueezy.com.mp4').default,
-    description: 'SaaS application',
   },
   {
     name: 'Modern Treasury',
