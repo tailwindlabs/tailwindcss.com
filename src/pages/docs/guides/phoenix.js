@@ -60,7 +60,17 @@ let steps = [
   },
   {
     title: 'Update your deployment script',
-    body: () => <p>Configure an alias to build your CSS on deployment.</p>,
+    body: () => (
+      <div>
+        <p>
+          Configure an alias to build your CSS on deployment.
+        </p>
+        <p>
+          <b>Please note: an <code>assets.deploy</code> alias may already exist depending on your version of Phoenix.</b><br />
+          You should be safe to replace the existing alias or temporarily comment it out if you are unsure.
+        </p>
+      </div>
+    ),
     code: {
       name: 'mix.exs',
       lang: 'elixir',
