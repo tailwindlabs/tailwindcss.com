@@ -100,6 +100,8 @@ Modifier classes are designed to be used with the [multi-class modifier pattern]
 
 To learn about creating your own color themes, read the [adding custom color themes](#adding-custom-color-themes) documentation.
 
+You can change the default gray scale from `prose-gray` to one of the other supplied colors or to your own color theme, read the documentation on [changing the default gray scale](#changing-the-default-gray-scale)
+
 ### Applying a type scale
 
 Size modifiers allow you to adjust the overall size of your typography for different contexts.
@@ -141,6 +143,8 @@ Size modifiers are designed to be used with the [multi-class modifier pattern](h
 ```
 
 To learn about customizing the included type scales, read the documentation on [customizing the CSS](#customizing-the-css).
+
+You can change the default type scale from `prose-base` to one of the other supplied sizes, read the documentation on [changing the default type scale](#changing-the-default-type-scale)
 
 ### Adapting to dark mode
 
@@ -308,6 +312,86 @@ module.exports = {
 ```
 
 See our internal [style definitions](https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js) for some more examples.
+
+### Changing the default gray scale
+
+If you want to set the default gray scale to be something other than `prose-gray`, you can do so using the `color` option when registering the plugin:
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    // ...
+  },
+  plugins: [
+    require('@tailwindcss/typography')({
+      color: 'zinc',
+    }),
+  ]
+  ...
+}
+```
+
+The supplied color options are:
+
+| color              | Class          |
+| ------------------ | -------------- |
+| `gray` _(default)_ | `prose-gray`   |
+| `slate`            | `prose-late`   |
+| `zinc`             | `prose-inc`    |
+| `neutral`          | `prose-eutral` |
+| `stone`            | `prose-tone`   |
+
+You can also set the default to the name of your own custom color theme which you have defined in the config. In the [example above](#adding-custom-color-themes), the color name is `pink`. So you could set that color as the default when registering the plugin like this:
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      typography: ({ theme }) => ({
+        pink: {
+          // ...
+        },
+      }),
+    },
+  },
+  plugins: [
+    require('@tailwindcss/typography')({
+      color: 'pink',
+    }),
+  ]
+  ...
+}
+```
+
+### Changing the default type scale
+
+If you want to set the default type scale to be something other than `prose-base`, you can do so using the `scale` option when registering the plugin:
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    // ...
+  },
+  plugins: [
+    require('@tailwindcss/typography')({
+      scale: 'xl',
+    }),
+  ]
+  ...
+}
+```
+
+The supplied scale options are:
+
+| scale              | Class        |
+| ------------------ | ------------ |
+| `sm`               | `prose-sm`   |
+| `base` _(default)_ | `prose-base` |
+| `lg`               | `prose-lg`   |
+| `xl`               | `prose-xl`   |
+| `2xl`              | `prose-2xl`  |
+
+<TipInfo>This will only change the default type scale, if you want your text to scale at different break points, you will still need to utilise Tailwind's [breakpoint modifiers](/docs/responsive-design), read the documentation on [applying a type scale](#applying-a-type-scale)</TipInfo>
 
 ### Changing the default class name
 
