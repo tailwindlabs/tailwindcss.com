@@ -21,14 +21,14 @@ let steps = [
     title: 'Install Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code>, its peer dependencies, and <code>concurrently</code> via
-        npm, and then run the init command to generate a <code>tailwind.config.js</code> file.
+        Install <code>tailwindcss</code> and <code>concurrently</code> via npm, and then run the
+        init command to generate a <code>tailwind.config.js</code> file.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer concurrently\nnpx tailwindcss init',
+      code: 'npm install -D tailwindcss concurrently\nnpx tailwindcss init',
     },
   },
   {
