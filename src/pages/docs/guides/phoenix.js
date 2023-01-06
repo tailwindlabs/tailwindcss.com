@@ -63,20 +63,23 @@ let steps = [
     body: () => (
       <div>
         <p>
-          Configure an alias to build your CSS on deployment. If you already have an{' '}
-          <code>assets.deploy</code> alias please be sure <code>tailwind default --minify</code> is
-          at the beginning.
+          Configure your <code>assets.deploy</code> alias to build your CSS on deployment.
         </p>
       </div>
     ),
     code: {
       name: 'mix.exs',
-      lang: 'elixir',
+      lang: 'diff-elixir',
       code: `  defp aliases do
     [
->     "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"]
+      setup: ["deps.get", "ecto.setup"],
+      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
+      "ecto.reset": ["ecto.drop", "ecto.setup"],
+      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
+-     "assets.deploy": ["esbuild default --minify", "phx.digest"]
++     "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"]
     ]
-  ]`,
+  end`,
     },
   },
   {
