@@ -61,11 +61,9 @@ let steps = [
   {
     title: 'Update your deployment script',
     body: () => (
-      <div>
-        <p>
-          Configure your <code>assets.deploy</code> alias to build your CSS on deployment.
-        </p>
-      </div>
+      <p>
+        Configure your <code>assets.deploy</code> alias to build your CSS on deployment.
+      </p>
     ),
     code: {
       name: 'mix.exs',
