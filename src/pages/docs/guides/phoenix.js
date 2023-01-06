@@ -60,15 +60,23 @@ let steps = [
   },
   {
     title: 'Update your deployment script',
-    body: () => <p>Configure an alias to build your CSS on deployment.</p>,
+    body: () => (
+      <p>
+        Configure your <code>assets.deploy</code> alias to build your CSS on deployment.
+      </p>
+    ),
     code: {
       name: 'mix.exs',
       lang: 'elixir',
       code: `  defp aliases do
     [
+      setup: ["deps.get", "ecto.setup"],
+      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
+      "ecto.reset": ["ecto.drop", "ecto.setup"],
+      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
 >     "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"]
     ]
-  ]`,
+  end`,
     },
   },
   {
@@ -82,6 +90,8 @@ let steps = [
       name: 'dev.exs',
       lang: 'elixir',
       code: `  watchers: [
+    # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
 >   tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]`,
     },
