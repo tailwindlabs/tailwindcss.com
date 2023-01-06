@@ -63,11 +63,9 @@ let steps = [
     body: () => (
       <div>
         <p>
-          Configure an alias to build your CSS on deployment.
-        </p>
-        <p>
-          <b>Please note: an <code>assets.deploy</code> alias may already exist depending on your version of Phoenix.</b><br />
-          You should be safe to replace the existing alias or temporarily comment it out if you are unsure.
+          Configure an alias to build your CSS on deployment. If you already have an{' '}
+          <code>assets.deploy</code> alias please be sure <code>tailwind default --minify</code> is
+          at the beginning.
         </p>
       </div>
     ),
