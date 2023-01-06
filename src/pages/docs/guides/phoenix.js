@@ -69,15 +69,14 @@ let steps = [
     ),
     code: {
       name: 'mix.exs',
-      lang: 'diff-elixir',
+      lang: 'elixir',
       code: `  defp aliases do
     [
       setup: ["deps.get", "ecto.setup"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
--     "assets.deploy": ["esbuild default --minify", "phx.digest"]
-+     "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"]
+>     "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"]
     ]
   end`,
     },
@@ -93,6 +92,8 @@ let steps = [
       name: 'dev.exs',
       lang: 'elixir',
       code: `  watchers: [
+    # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
 >   tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]`,
     },
