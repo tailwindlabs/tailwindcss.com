@@ -47,19 +47,18 @@ let steps = [
     ),
     code: {
       name: 'webpack.config.js',
-      lang: 'diff-js',
-      code: `/*
-|--------------------------------------------------------------------------
-| CSS loaders
-|--------------------------------------------------------------------------
-|
-| Uncomment one of the following line of code to enable support for
-| PostCSS or CSS.
-|
-*/
-- // Encore.enablePostCssLoader()
-+ Encore.enablePostCssLoader();
-// Encore.configureCssLoader(() => {})`,
+      lang: 'js',
+      code: `  /*
+  |--------------------------------------------------------------------------
+  | CSS loaders
+  |--------------------------------------------------------------------------
+  |
+  | Uncomment one of the following line of code to enable support for
+  | PostCSS or CSS.
+  |
+  */
+> Encore.enablePostCssLoader();
+  // Encore.configureCssLoader(() => {})`,
     },
   },
   {
