@@ -218,7 +218,63 @@ Instead, make sure any class names you're using exist in full:
 <div class="{{ error ? 'text-red-600' : 'text-green-600' }}"></div>
 ```
 
+If you're using a component library like React or Vue, this means you shouldn't use props to dynamically construct classes:
+
+<TipBad>Don't use props to build class names dynamically</TipBad>
+
+```jsx
+function Button({ color, children }) {
+  return (
+    <button className={`bg-${color}-600 hover:bg-${color}-500 ...`}>
+      {children}
+    </button>
+  )
+}
+```
+
+Instead, map props to complete class names that are statically detectable at build-time:
+
+<TipGood>Always map props to static class names</TipGood>
+
+```jsx
+function Button({ color, children }) {
+  const colorVariants = {
+    blue: 'bg-blue-600 hover:bg-blue-500',
+    red: 'bg-red-600 hover:bg-red-500',
+  }
+
+  return (
+    <button className={`${colorVariants[color]} ...`}>
+      {children}
+    </button>
+  )
+}
+```
+
+This has the added benefit of letting you map different prop values to different color shades for example:
+
+```jsx
+function Button({ color, children }) {
+  const colorVariants = {
+    blue: 'bg-blue-600 hover:bg-blue-500 text-white',
+    red: 'bg-red-500 hover:bg-red-400 text-white',
+    yellow: 'bg-yellow-300 hover:bg-yellow-400 text-black',
+  }
+
+  return (
+    <button className={`${colorVariants[color]} ...`}>
+      {children}
+    </button>
+  )
+}
+```
+
 As long as you always use complete class names in your code, Tailwind will generate all of your CSS perfectly every time.
+
+
+
+
+
 
 
 ### Working with third-party libraries
