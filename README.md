@@ -17,11 +17,19 @@ Tailwind CSS uses [Next.js](https://nextjs.org/) for its documentation. Here is 
 3. Install JS dependencies
 
     ```sh
+    # for npm users
+    npm install
+    
+    # for yarn users
     yarn
     ```
 
 4. Start the dev server
 
     ```sh
+    # for npm users
+    npm run dev
+    
+    # for yarn users
     yarn dev
     ```
