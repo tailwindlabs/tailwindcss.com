@@ -130,13 +130,25 @@ let steps = [
   },
   {
     title: 'Start using Tailwind in your project',
-    body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
+    body: () => (
+      <p>
+        Start using Tailwind’s utility classes to style your content, making sure to set{' '}
+        <code>lang="postcss"</code> for any <code>&lt;style&gt;</code> blocks that need to be
+        processed by Tailwind.
+      </p>
+    ),
     code: {
       name: '+page.svelte',
       lang: 'html',
-      code: `<h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>`,
+      code: `> <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
+
+> <style lang="postcss">
+    :global(html) {
+      background-color: theme(colors.gray.100);
+    }
+  </style>`,
     },
   },
 ]
