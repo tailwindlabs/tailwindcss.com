@@ -18,7 +18,7 @@ export default function ReponsiveDesignDemo() {
               href="#"
               className="block font-semibold text-base text-slate-900 leading-6 hover:underline"
             >
-              Incredible accomodation for your team
+              Incredible accommodation for your team
             </a>
             <p className="text-sm text-slate-600 leading-6">
               Looking to take your team away on a retreat to enjoy awesome food and take in some
