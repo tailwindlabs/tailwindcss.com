@@ -410,3 +410,19 @@ When defining your colors this way, make sure that the format of your CSS variab
   }
 }
 ```
+
+To specify a default value for the alpha-channel other than 100%, replace `<alpha-value>` with the value you want, for example:
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    colors: {
+      primary: 'rgb(var(--color-primary) / 0.5)',
+      // Can also use a CSS variable to specify the default alpha value
+      secondary: 'rgb(var(--color-secondary) / var(--color-secondary-alpha))',
+    }
+  }
+}
+```
+
+This still supports overriding the alpha channel with the [opacity modifier syntax](/docs/text-color#changing-the-opacity).
