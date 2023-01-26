@@ -63,6 +63,13 @@ export const showcase = [
     description: 'Vacation rental website',
   },
   {
+    name: 'New York Times Events',
+    slug: 'nytimes',
+    thumbnail: require('@/img/showcase/thumbnails/nytimes.com.png').default,
+    video: require('@/videos/showcase/nytimes.com.mp4').default,
+    description: 'News website',
+  },
+  {
     name: 'GitHub Next',
     slug: 'github',
     thumbnail: require('@/img/showcase/thumbnails/githubnext.com.png').default,
