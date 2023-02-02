@@ -14,6 +14,13 @@ export const showcase = [
     description: 'SaaS application',
   },
   {
+    name: 'Shopify',
+    slug: 'shopify',
+    thumbnail: require('@/img/showcase/thumbnails/shopify.com.png').default,
+    video: require('@/videos/showcase/shopify.com.mp4').default,
+    description: 'Ecommerce platform website',
+  },
+  {
     name: 'Netflix Global Top 10',
     slug: 'netflix',
     thumbnail: require('@/img/showcase/thumbnails/top10.netflix.com.png').default,
