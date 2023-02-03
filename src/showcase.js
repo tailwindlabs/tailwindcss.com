@@ -1,10 +1,10 @@
 export const showcase = [
   {
-    name: 'The Verge',
-    slug: 'the-verge',
-    thumbnail: require('@/img/showcase/thumbnails/theverge.com.png').default,
-    video: require('@/videos/showcase/theverge.com.mp4').default,
-    description: 'News website',
+    name: 'Wealthfront',
+    slug: 'wealthfront',
+    thumbnail: require('@/img/showcase/thumbnails/wealthfront.com.png').default,
+    video: require('@/videos/showcase/wealthfront.com.mp4').default,
+    description: 'Fintech marketing website',
   },
   {
     name: 'Lemon Squeezy',
@@ -28,6 +28,20 @@ export const showcase = [
     description: 'Microsite',
   },
   {
+    name: 'Loom',
+    slug: 'loom',
+    thumbnail: require('@/img/showcase/thumbnails/loom.com.png').default,
+    video: require('@/videos/showcase/loom.com.mp4').default,
+    description: 'SaaS marketing website',
+  },
+  {
+    name: 'The Verge',
+    slug: 'the-verge',
+    thumbnail: require('@/img/showcase/thumbnails/theverge.com.png').default,
+    video: require('@/videos/showcase/theverge.com.mp4').default,
+    description: 'News website',
+  },
+  {
     name: 'Laracon Online',
     slug: 'laracon',
     thumbnail: require('@/img/showcase/thumbnails/laracon.net.png').default,
@@ -40,13 +54,6 @@ export const showcase = [
     thumbnail: require('@/img/showcase/thumbnails/turbo.build.png').default,
     video: require('@/videos/showcase/turbo.build.mp4').default,
     description: 'Developer tool website',
-  },
-  {
-    name: 'Loom',
-    slug: 'loom',
-    thumbnail: require('@/img/showcase/thumbnails/loom.com.png').default,
-    video: require('@/videos/showcase/loom.com.mp4').default,
-    description: 'SaaS marketing website',
   },
   {
     name: 'candycode',
@@ -158,13 +165,6 @@ export const showcase = [
     thumbnail: require('@/img/showcase/thumbnails/getdizzie.com.png').default,
     video: require('@/videos/showcase/getdizzie.com.mp4').default,
     description: 'E-commerce store',
-  },
-  {
-    name: 'Wealthfront',
-    slug: 'wealthfront',
-    thumbnail: require('@/img/showcase/thumbnails/wealthfront.com.png').default,
-    video: require('@/videos/showcase/wealthfront.com.mp4').default,
-    description: 'Fintech marketing website',
   },
   {
     name: 'Google I/O 2022',
