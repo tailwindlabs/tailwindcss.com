@@ -110,9 +110,11 @@ You can customize your `max-width` scale by editing `theme.maxWidth` or `theme.e
 ```diff-js tailwind.config.js
   module.exports = {
     theme: {
-+     maxWidth: {
-+       '1/2': '50%',
-+     }
+      extend: {
++       maxWidth: {
++         '1/2': '50%',
++       }
+      }
     }
   }
 ```
