@@ -54,17 +54,17 @@ let tabs = [
           name: 'tailwind.config.js',
           lang: 'js',
           code: `  /** @type {import('tailwindcss').Config} */
-    module.exports = {
->       content: [
->           "./resources/**/*.blade.php",
->           "./resources/**/*.js",
->           "./resources/**/*.vue",
->       ],
-        theme: {
-            extend: {},
-        },
-        plugins: [],
-    }`,
+  module.exports = {
+>     content: [
+>         "./resources/**/*.blade.php",
+>         "./resources/**/*.js",
+>         "./resources/**/*.vue",
+>      ],
+      theme: {
+          extend: {},
+      },
+      plugins: [],
+  }`,
         },
       },
       {
@@ -106,18 +106,18 @@ let tabs = [
           name: 'app.blade.php',
           lang: 'html',
           code: `  <!doctype html>
-    <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        @vite('resources/css/app.css')
-    </head>
-    <body>
->       <h1 class="text-3xl font-bold underline">
->           Hello world!
->       </h1>
-    </body>
-    </html>`,
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      @vite('resources/css/app.css')
+  </head>
+  <body>
+>     <h1 class="text-3xl font-bold underline">
+>         Hello world!
+>     </h1>
+  </body>
+  </html>`,
         },
       },
     ],
@@ -152,9 +152,9 @@ let tabs = [
           name: 'webpack.mix.js',
           lang: 'js',
           code: `  mix.js("resources/js/app.js", "public/js")
-        .postCss("resources/css/app.css", "public/css", [
->           require("tailwindcss"),
-        ]);`,
+      .postCss("resources/css/app.css", "public/css", [
+>         require("tailwindcss"),
+      ]);`,
         },
       },
       {
@@ -169,17 +169,17 @@ let tabs = [
           name: 'tailwind.config.js',
           lang: 'js',
           code: `  /** @type {import('tailwindcss').Config} */
-    module.exports = {
->       content: [
->           "./resources/**/*.blade.php",
->           "./resources/**/*.js",
->           "./resources/**/*.vue",
->       ],
-        theme: {
-            extend: {},
-        },
-        plugins: [],
-    }`,
+  module.exports = {
+>     content: [
+>         "./resources/**/*.blade.php",
+>         "./resources/**/*.js",
+>         "./resources/**/*.vue",
+>     ],
+      theme: {
+          extend: {},
+      },
+      plugins: [],
+  }`,
         },
       },
       {
