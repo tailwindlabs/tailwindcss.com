@@ -18,12 +18,12 @@ let steps = [
     },
   },
   {
-    title: 'Enable built-in support',
+    title: 'Enable built-in Tailwind CSS support in Remix',
     body: () => (
-      <p>Enable the <code>unstable_tailwind</code> flag in your <code>remix.config.js</code> file.</p>
+      <p>Set the <code>unstable_tailwind</code> feature flag in your <code>remix.config.js</code> file. Eventually this will become stable and won't be necessary.</p>
     ),
     code: {
-      name: 'tailwind.config.js',
+      name: 'remix.config.js',
       lang: 'js',
       code: `  /** @type {import('@remix-run/dev').AppConfig} */
   module.exports = {
