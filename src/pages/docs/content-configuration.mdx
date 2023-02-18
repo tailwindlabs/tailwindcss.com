@@ -331,6 +331,21 @@ If you're working in a monorepo with workspaces, you may need to use `require.re
   }
 ```
 
+If you're working in a _TypeScript_ monorepo with workspaces, you may need to point to your source files for Hot Module Replacement to work.
+
+```js tailwind.config.js
+  const path = require('path');
+
+  module.exports = {
+    content: [
+      './components/**/*.{html,js}',
+      './pages/**/*.{html,js}',
+>     path.join(path.dirname(require.resolve('@my-company/tailwind-components')), '../src/**/*.{ts,tsx}'),
+    ],
+    // ...
+  }
+```
+
 ### Using relative paths
 
 By default Tailwind resolves non-absolute content paths relative to the current working directory, not the `tailwind.config.js` file. This can lead to unexpected results if you run Tailwind from a different directory.
