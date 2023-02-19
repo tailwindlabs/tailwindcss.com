@@ -85,7 +85,7 @@ let steps = [
     title: 'Import the CSS file',
     body: () => (
       <p>
-        Import the compiled <code>./app/styles/app.css</code> file in your{' '}
+        Import the newly-created <code>./app/tailwind.css</code> file in your{' '}
         <code>./app/root.jsx</code> file.
       </p>
     ),
