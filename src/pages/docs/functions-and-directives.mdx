@@ -241,6 +241,32 @@ Use the `@config` directive to specify which config file Tailwind should use whe
 
 The path you provide to the `@config` directive is relative to that CSS file, and will take precedence over a path defined in your PostCSS configuration or in the Tailwind CLI.
 
+Note that if you're using `postcss-import`, your `@import` statements need to come before `@config` for things to work correctly, as `postcss-import` is strict about following the CSS spec which requires `@import` statements to precede any other rules in the file.
+
+<TipBad>Don't put <code>@config</code> before your <code>@import</code> statements</TipBad>
+
+```css admin.css
+@config "./tailwind.admin.config.js";
+
+@import "tailwindcss/base";
+@import "./custom-base.css";
+@import "tailwindcss/components";
+@import "./custom-components.css";
+@import "tailwindcss/utilities";
+```
+
+<TipGood>Put your <code>@import</code> statements before the <code>@config</code> directive</TipGood>
+
+```css admin.css
+@import "tailwindcss/base";
+@import "./custom-base.css";
+@import "tailwindcss/components";
+@import "./custom-components.css";
+@import "tailwindcss/utilities";
+
+@config "./tailwind.admin.config.js";
+```
+
 ---
 
 ## Functions
