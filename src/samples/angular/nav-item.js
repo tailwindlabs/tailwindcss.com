@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core'
   template: `
     <li>
       <a
-        [routerLink]="href"
+        [routerLink]="routerLink"
         class="block px-3 py-2 rounded-md"
         [ngClass]="isActive ? 'bg-sky-500 text-white' : 'bg-slate-100'"
       >
@@ -16,6 +16,6 @@ import { Component, Input } from '@angular/core'
 })
 
 export class NavItemComponent {
-  @Input() href!: string
+  @Input() routerLink: string
   @Input() isActive: boolean = false
 }
