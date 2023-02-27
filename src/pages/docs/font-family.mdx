@@ -108,42 +108,9 @@ Note that **Tailwind does not automatically escape font names** for you. If you'
 
 Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
 
-#### Providing default font-feature-settings
-
-You can optionally provide default [font-feature-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings) for each font in your project using a tuple of the form `[fontFamilies, { fontFeatureSettings }]` when configuring custom fonts.
-
-```diff-js tailwind.config.js
-  module.exports = {
-    theme: {
-      fontFamily: {
-        sans: [
-          "Inter var, sans-serif",
-+         { fontFeatureSettings: '"cv11", "ss01"' },
-        ],
-      },
-    },
-  }
-```
-
-#### Providing default font-variation-settings
-
-Similarly, you can provide default [font-variation-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variation-settings) for each font in your project using a tuple of the form `[fontFamilies, { fontVariationSettings }]` when configuring custom fonts.
-
-```diff-js tailwind.config.js
-  module.exports = {
-    theme: {
-      fontFamily: {
-        sans: [
-          "Inter var, sans-serif",
-+         { fontVariationSettings: '"opsz" 32', },
-        ],
-      },
-    },
-  }
-```
 
 #### Providing default font settings
-You can optionally provide default [font-feature-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings) and [font-variation-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variation-settings) for each font in your project using a tuple of the form `[fontFamilies, { fontFeatureSettings }, { fontVariationSettings }]` when configuring custom fonts.
+You can optionally provide default [font-feature-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings) and [font-variation-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variation-settings) for each font in your project using a tuple of the form `[fontFamilies, { fontFeatureSettings, fontVariationSettings }]` when configuring custom fonts.
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -151,8 +118,10 @@ You can optionally provide default [font-feature-settings](https://developer.moz
       fontFamily: {
         sans: [
           "Inter var, sans-serif",
-+         { fontFeatureSettings: '"cv11", "ss01"' },
-+         { fontVariationSettings: '"opsz" 32', },
++         { 
++           fontFeatureSettings: '"cv11", "ss01"',
++           fontVariationSettings: '"opsz" 32'
++         },
         ],
       },
     },
