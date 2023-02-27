@@ -185,7 +185,12 @@ export const documentationNav = {
     pages['backdrop-saturate'],
     pages['backdrop-sepia'],
   ],
-  Tables: [pages['border-collapse'], pages['border-spacing'], pages['table-layout']],
+  Tables: [
+    pages['border-collapse'],
+    pages['border-spacing'],
+    pages['table-layout'],
+    pages['caption-side'],
+  ],
   'Transitions & Animation': [
     pages['transition-property'],
     pages['transition-duration'],
