@@ -12,36 +12,32 @@ import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 ## Basic usage
 
 ### Top
-Use `caption-top` to align a caption to the top of a table.
+Use `caption-top` to align a caption element to the top of a table.
 
 <Example p="none">
-    <div class="shadow-sm overflow-hidden ">
-        <table class="border-collapse table-auto w-full text-sm caption-top">
-        <caption class="dark:bg-cyan-600/20 bg-cyan-50 bg-none text-slate-500 dark:text-slate-400 py-4  text-xs">
-            This caption is above the table.
+    <div class="shadow-sm overflow-hidden px-4 py-8 sm:px-8">
+        <table class=" table-auto w-full text-sm caption-top">
+        <caption class="border-b-0 border border-slate-400 dark:border-slate-600 dark:bg-cyan-600/20  bg-cyan-50 bg-none text-slate-500 dark:text-slate-400 py-4  text-xs">
+            Pokémon and their types.
         </caption>
         <thead >
             <tr>
-            <th class="border-y dark:border-slate-600 font-medium p-4 pl-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Song</th>
-            <th class="border-y dark:border-slate-600 font-medium p-4 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Artist</th>
-            <th class="border-y dark:border-slate-600 font-medium p-4 pr-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Year</th>
+            <th class="border dark:border-slate-600 font-medium p-4 pl-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Name</th>
+            <th class="border dark:border-slate-600 font-medium p-4 pr-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Type</th>
             </tr>
         </thead>
         <tbody class="bg-white dark:bg-slate-800">
             <tr>
-            <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-            <td class="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">Malcolm Lockyer</td>
-            <td class="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">1961</td>
+            <td class="border border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Charmeleon</td>
+            <td class="border border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">🔥 Fire</td>
             </tr>
             <tr>
-            <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Witchy Woman</td>
-            <td class="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">The Eagles</td>
-            <td class="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">1972</td>
+            <td class="border border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Wartortle</td>
+            <td class="border border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">💦 Water</td>
             </tr>
             <tr>
-            <td class="p-4 pl-8 text-slate-500 dark:text-slate-400">Shining Star</td>
-            <td class="p-4 text-slate-500 dark:text-slate-400">Earth, Wind, and Fire</td>
-            <td class="p-4 pr-8 text-slate-500 dark:text-slate-400">1975</td>
+            <td class="border border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Pikachu</td>
+            <td class="border border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">⚡ Electric</td>
             </tr>
         </tbody>
         </table>
@@ -50,67 +46,59 @@ Use `caption-top` to align a caption to the top of a table.
 
 ```html
 <table class="**caption-top**">
-    <caption>
-        This caption is above the table.
-    </caption>
+  <caption>
+    This caption is above the table.
+  </caption>
   <thead>
     <tr>
-      <th>Song</th>
-      <th>Artist</th>
-      <th>Year</th>
+      <th>Name</th>
+      <th>Type</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-      <td>Malcolm Lockyer</td>
-      <td>1961</td>
+      <td>Charmeleon</td>
+      <td>🔥 Fire</td>
     </tr>
     <tr>
-      <td>Witchy Woman</td>
-      <td>The Eagles</td>
-      <td>1972</td>
+      <td>Wartortle</td>
+      <td>💦 Water</td>
     </tr>
     <tr>
-      <td>Shining Star</td>
-      <td>Earth, Wind, and Fire</td>
-      <td>1975</td>
+      <td>Pikachu</td>
+      <td>⚡ Electric</td>
     </tr>
   </tbody>
 </table>
 ```
 
 ### Bottom
-Use `caption-bottom` to align a caption to the bottom of a table.
+Use `caption-bottom` to align a caption element to the bottom of a table.
 
 <Example p="none">
-    <div class="shadow-sm overflow-hidden ">
-        <table class="border-collapse table-auto w-full text-sm caption-bottom">
-        <caption class="dark:bg-cyan-600/20 bg-cyan-50 bg-none text-slate-500 dark:text-slate-400 py-4  text-xs">
-            This caption is below the table.
+    <div class="shadow-sm overflow-hidden px-4 py-8 sm:px-8">
+        <table class="border-collapse border border-slate-400 dark:border-slate-600 table-auto w-full text-sm caption-bottom">
+        <caption class="border-t-0 border border-slate-100 dark:border-slate-700 dark:bg-cyan-600/20  bg-cyan-50 bg-none text-slate-500 dark:text-slate-400 py-4  text-xs">
+            Pokémon and their types.
         </caption>
         <thead >
             <tr>
-            <th class="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Song</th>
-            <th class="border-b dark:border-slate-600 font-medium p-4 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Artist</th>
-            <th class="border-b dark:border-slate-600 font-medium p-4 pr-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Year</th>
+            <th class="border dark:border-slate-600 font-medium p-4 pl-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Name</th>
+            <th class="border dark:border-slate-600 font-medium p-4 pr-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Type</th>
             </tr>
         </thead>
         <tbody class="bg-white dark:bg-slate-800">
             <tr>
-            <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-            <td class="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">Malcolm Lockyer</td>
-            <td class="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">1961</td>
+            <td class="border border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Charmeleon</td>
+            <td class="border border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">🔥 Fire</td>
             </tr>
             <tr>
-            <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Witchy Woman</td>
-            <td class="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">The Eagles</td>
-            <td class="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">1972</td>
+            <td class="border border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Wartortle</td>
+            <td class="border border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">💦 Water</td>
             </tr>
             <tr>
-            <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Shining Star</td>
-            <td class="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">Earth, Wind, and Fire</td>
-            <td class="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">1975</td>
+            <td class="border border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Pikachu</td>
+            <td class="border border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">⚡ Electric</td>
             </tr>
         </tbody>
         </table>
@@ -119,31 +107,27 @@ Use `caption-bottom` to align a caption to the bottom of a table.
 
 ```html
 <table class="**caption-bottom**">
-    <caption>
-        This caption is above the table.
-    </caption>
+  <caption>
+    This caption is above the table.
+  </caption>
   <thead>
     <tr>
-      <th>Song</th>
-      <th>Artist</th>
-      <th>Year</th>
+      <th>Name</th>
+      <th>Type</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-      <td>Malcolm Lockyer</td>
-      <td>1961</td>
+      <td>Charmeleon</td>
+      <td>🔥 Fire</td>
     </tr>
     <tr>
-      <td>Witchy Woman</td>
-      <td>The Eagles</td>
-      <td>1972</td>
+      <td>Wartortle</td>
+      <td>💦 Water</td>
     </tr>
     <tr>
-      <td>Shining Star</td>
-      <td>Earth, Wind, and Fire</td>
-      <td>1975</td>
+      <td>Pikachu</td>
+      <td>⚡ Electric</td>
     </tr>
   </tbody>
 </table>
