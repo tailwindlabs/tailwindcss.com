@@ -65,6 +65,24 @@ Use `break-all` to add line breaks whenever necessary, without trying to preserv
 <p class="**break-all** ...">...</p>
 ```
 
+### Break Keep
+
+Use `break-keep` to prevent line breaks being applied to Chinese/Japanese/Korean (CJK) text. For non-CJK text `break-keep` has the same behavior as `break-normal`:
+
+<Example p="none">
+  <div class="px-4">
+    <div class="mx-auto max-w-sm bg-white shadow-xl p-8 text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+      <p class="break-keep">The longest word in any of the major English language dictionaries is
+      <span class="text-slate-900 font-medium dark:text-slate-200">pneumonoultramicroscopicsilicovolcanoconiosis,</span>
+      a word that refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it is the same as silicosis.</p>
+    </div>
+  </div>
+</Example>
+
+```html
+<p class="**break-keep** ...">...</p>
+```
+
 ---
 
 ## <Heading ignore>Applying conditionally</Heading>
