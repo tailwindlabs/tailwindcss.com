@@ -30,10 +30,10 @@ let steps = [
       name: 'postcss.config.js',
       lang: 'js',
       code: `  module.exports = {
-    plugins: {
+    plugins: [
 >     tailwindcss: {},
 >     autoprefixer: {},
-    }
+    ]
   }`,
     },
   },
