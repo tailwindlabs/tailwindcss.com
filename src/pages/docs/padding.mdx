@@ -8,6 +8,7 @@ import { numbersFirst } from '@/utils/sortClasses'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { LogicalPropertyExample } from '@/components/LogicalProperties'
 
 
 export const classes = {
@@ -113,6 +114,16 @@ Control the padding on all sides of an element using the `p-{size}` utilities.
 
 ```html
 <div class="**p-8** ...">p-8</div>
+```
+
+### Using logical properties
+<LogicalPropertyExample property="padding"/>
+
+```html
+<div class="flex ...">
+  <div class="**ps-4** ...">ps-4</div>
+  <div class="**pe-12** ...">pe-12</div>
+</div>
 ```
 
 ---

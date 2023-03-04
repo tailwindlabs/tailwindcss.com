@@ -7,6 +7,7 @@ import utilities from 'utilities?plugin=borderRadius'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { LogicalPropertyExample } from '@/components/LogicalProperties'
 
 export const classes = { utilities }
 
@@ -142,6 +143,19 @@ Use `rounded-{tl|tr|br|bl}{-size?}` to only round one corner an element.
 <div class="**rounded-tr-lg** ..."></div>
 <div class="**rounded-br-lg** ..."></div>
 <div class="**rounded-bl-lg** ..."></div>
+```
+
+### Using logical properties
+
+<LogicalPropertyExample property="rounding"/>
+
+```html
+<div class="flex ...">
+  <div class="**rounded-ss-lg** ..."></div>
+  <div class="**rounded-se-lg** ..."></div>
+  <div class="**rounded-ee-lg** ..."></div>
+  <div class="**rounded-es-lg** ..."></div>
+</div>
 ```
 
 ---

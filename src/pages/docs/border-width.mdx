@@ -7,6 +7,7 @@ import utilities from 'utilities?plugin=borderWidth'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { LogicalPropertyExample } from '@/components/LogicalProperties'
 
 export const classes = { utilities }
 
@@ -119,6 +120,16 @@ You can also add borders between child elements using the `divide-{x/y}-{width}`
 ```
 
 Learn more in the [Divide Width](/docs/divide-width) and [Divide Color](/docs/divide-color) documentation.
+
+### Using logical properties
+<LogicalPropertyExample property="borderWidth"/>
+
+```html
+<div class="flex ...">
+  <div class="**border-s-4** ..."></div>
+  <div class="**border-e-4** ..."></div>
+</div>
+```
 
 ---
 

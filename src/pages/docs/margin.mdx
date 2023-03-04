@@ -8,8 +8,7 @@ import { numbersFirst } from '@/utils/sortClasses'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
-import { motion } from 'framer-motion'
-import { Test } from '@/components/test'
+import { LogicalPropertyExample } from '@/components/LogicalProperties'
 
 export const classes = {
   utilities,
@@ -125,13 +124,10 @@ To use a negative margin value, prefix the class name with a dash to convert it 
 
 ### Using logical properties
 
- Margin can be controlled with [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties) which is useful when supporting multi-directional layouts. Currently, this is only supported in the inline direction:
-
-
-<Test/>
+<LogicalPropertyExample property="margin"/>
 
 ```html
-<div>
+<div class="flex ...">
   <div class="**me-12** ...">ms-8</div>
   <div class="**ms-4** ...">me-4</div>
 </div>

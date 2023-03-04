@@ -8,6 +8,7 @@ import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { CustomizePluginColors } from '@/components/CustomizePluginColors'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { LogicalPropertyExample } from '@/components/LogicalProperties'
 
 export const classes = {
   utilities,
@@ -144,6 +145,16 @@ Use the `border-{x|y}-{color}` utilities to set the border color on two sides of
 ```html
 <div class="border-4 border-indigo-200 **border-x-indigo-500** ..."></div>
 <div class="border-4 border-indigo-200 **border-y-indigo-500** ..."></div>
+```
+
+### Using logical properties
+<LogicalPropertyExample property="borderColor"/>
+
+```html
+<div class="flex ...">
+  <div class="**border-s-indigo-500** ..."></div>
+  <div class="**border-e-indigo-500** ..."></div>
+</div>
 ```
 
 ---
