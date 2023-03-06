@@ -17,6 +17,7 @@ export function LogicalPropertyExample({ property = 'test' }) {
     .toLowerCase()
   return (
     <>
+      <h3>Using logical properties</h3>
       <p className="first-letter:uppercase">
         {formattedProperty} can be controlled with{' '}
         <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties">
