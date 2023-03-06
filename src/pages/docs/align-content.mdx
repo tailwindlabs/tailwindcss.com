@@ -168,6 +168,59 @@ Use `content-evenly` to distribute rows in a container such that there is an equ
 </div>
 ```
 
+### Stretch
+
+Use `content-stretch` to auto-sized items to fill the available space along the container’s cross axis:
+
+<Example>
+  <div class="font-mono text-white text-sm font-bold leading-6">
+    <div class="grid grid-cols-3 gap-4 content-stretch w-full rounded-lg bg-stripes-emerald text-center h-56">
+      <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-emerald-500">01</div>
+      <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-emerald-500">02</div>
+      <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-emerald-500">03</div>
+      <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-emerald-500">04</div>
+      <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-emerald-500">05</div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="h-56 grid grid-cols-3 gap-4 **content-stretch** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+</div>
+```
+
+### Normal
+
+Use `content-normal` to allow auto-sized items to fill the available space along the container’s cross axis in the same way as `content-stretch`:
+
+<Example>
+  <div class="font-mono text-white text-sm font-bold leading-6">
+    <div class="grid grid-cols-3 gap-4 content-normal w-full rounded-lg bg-stripes-amber text-center h-56">
+      <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-amber-500">01</div>
+      <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-amber-500">02</div>
+      <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-amber-500">03</div>
+      <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-amber-500">04</div>
+      <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-amber-500">05</div>
+    </div>
+  </div>
+</Example>
+
+
+```html
+<div class="h-56 grid grid-cols-3 gap-4 **content-normal** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+</div>
+```
+
 ---
 
 ## <Heading ignore>Applying conditionally</Heading>
