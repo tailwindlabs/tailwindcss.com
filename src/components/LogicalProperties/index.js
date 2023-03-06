@@ -27,16 +27,14 @@ export function LogicalPropertyExample({ property = 'test' }) {
         in the inline direction:
       </p>
       <ExampleWrapper direction={direction} handleDirectionChange={setDirection}>
-        {property === 'margin' && <MarginExample direction={direction} hue="emerald" />}
-        {property === 'padding' && <PaddingExample direction={direction} hue="emerald" />}
-        {property === 'position' && <PositionExample direction={direction} hue="emerald" />}
-        {property === 'rounding' && <RoundingExample direction={direction} hue="emerald" />}
-        {property === 'borderWidth' && <BorderWidthExample direction={direction} hue="emerald" />}
-        {property === 'borderColor' && <BorderColorExample direction={direction} hue="emerald" />}
-        {property === 'scrollMargin' && <ScrollMarginExample direction={direction} hue="emerald" />}
-        {property === 'scrollPadding' && (
-          <ScrollPaddingExample direction={direction} hue="emerald" />
-        )}
+        {property === 'margin' && <MarginExample direction={direction} />}
+        {property === 'padding' && <PaddingExample direction={direction} />}
+        {property === 'position' && <PositionExample direction={direction} />}
+        {property === 'rounding' && <RoundingExample direction={direction} />}
+        {property === 'borderWidth' && <BorderWidthExample direction={direction} />}
+        {property === 'borderColor' && <BorderColorExample direction={direction} />}
+        {property === 'scrollMargin' && <ScrollMarginExample direction={direction} />}
+        {property === 'scrollPadding' && <ScrollPaddingExample direction={direction} />}
       </ExampleWrapper>
     </>
   )
