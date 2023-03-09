@@ -13,123 +13,123 @@ export const classes = { utilities }
 ## Basic usage
 
 ### Top
-Use `caption-top` to align a caption element to the top of a table.
+Use `caption-top` to position a caption element at the top of a table.
 
 <Example p="none">
     <div class="shadow-sm overflow-hidden px-4 py-8 sm:px-8">
-        <table class="table-auto w-full text-sm caption-top">
-        <caption class="border-b-0 border dark:border-slate-600 dark:bg-cyan-600/20  bg-cyan-50 bg-none text-slate-500 dark:text-slate-400 py-4  text-xs">
-            Pokémon and their types.
-        </caption>
-        <thead >
-            <tr>
-            <th class="border dark:border-slate-600 font-medium p-4 pl-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Name</th>
-            <th class="border dark:border-slate-600 font-medium p-4 pr-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Type</th>
-            </tr>
-        </thead>
-        <tbody class="bg-white dark:bg-slate-800">
-            <tr>
-            <td class="border border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Charmeleon</td>
-            <td class="border border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">🔥 Fire</td>
-            </tr>
-            <tr>
-            <td class="border border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Wartortle</td>
-            <td class="border border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">💦 Water</td>
-            </tr>
-            <tr>
-            <td class="border border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Pikachu</td>
-            <td class="border border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">⚡ Electric</td>
-            </tr>
-        </tbody>
+        <table class="border-collapse border dark:border-slate-600 table-auto w-full text-sm">
+          <caption class="text-slate-500 dark:text-slate-400 pb-4 text-xs caption-top">
+              WWE Superstars and their signature moves.
+          </caption>
+          <thead >
+              <tr>
+              <th class="border dark:border-slate-600 font-medium p-4 pl-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Wrestler</th>
+              <th class="border dark:border-slate-600 font-medium p-4 pr-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Signature Move(s)</th>
+              </tr>
+          </thead>
+          <tbody class="bg-white dark:bg-slate-800">
+              <tr>
+                <td class="border border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Batista</td>
+                <td class="border border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">Batista Bomb, Batista Bite</td>
+              </tr>
+              <tr>
+                <td class="border border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">The Big Show</td>
+                <td class="border border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">WMD, Chokeslam, Colossal Clutch</td>
+              </tr>
+              <tr>
+                <td class="border border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Edge</td>
+                <td class="border border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">Downward Spiral, Spear</td>
+              </tr>
+          </tbody>
         </table>
     </div>
 </Example>
 
 ```html
-<table class="**caption-top**">
-  <caption>
-    This caption is above the table.
+<table>
+  <caption class="**caption-top**">
+      WWE Superstars and their signature moves.
   </caption>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-    </tr>
+  <thead >
+      <tr>
+        <th>Wrestler</th>
+        <th>Signature Move(s)</th>
+      </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Charmeleon</td>
-      <td>🔥 Fire</td>
-    </tr>
-    <tr>
-      <td>Wartortle</td>
-      <td>💦 Water</td>
-    </tr>
-    <tr>
-      <td>Pikachu</td>
-      <td>⚡ Electric</td>
-    </tr>
+      <tr>
+        <td>Batista</td>
+        <td>Batista Bomb, Batista Bite</td>
+      </tr>
+      <tr>
+        <td>The Big Show</td>
+        <td >WMD, Chokeslam, Colossal Clutch</td>
+      </tr>
+      <tr>
+        <td>Edge</td>
+        <td>Downward Spiral, Spear</td>
+      </tr>
   </tbody>
 </table>
 ```
 
 ### Bottom
-Use `caption-bottom` to align a caption element to the bottom of a table.
+Use `caption-bottom` to position a caption element at the bottom of a table.
 
 <Example p="none">
     <div class="shadow-sm overflow-hidden px-4 py-8 sm:px-8">
-        <table class="border-collapse border dark:border-slate-600 table-auto w-full text-sm caption-bottom">
-        <caption class="border-t-0 border border-slate-100 dark:border-slate-700 dark:bg-cyan-600/20  bg-cyan-50 bg-none text-slate-500 dark:text-slate-400 py-4  text-xs">
-            Pokémon and their types.
-        </caption>
-        <thead >
-            <tr>
-            <th class="border dark:border-slate-600 font-medium p-4 pl-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Name</th>
-            <th class="border dark:border-slate-600 font-medium p-4 pr-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Type</th>
-            </tr>
-        </thead>
-        <tbody class="bg-white dark:bg-slate-800">
-            <tr>
-            <td class="border border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Charmeleon</td>
-            <td class="border border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">🔥 Fire</td>
-            </tr>
-            <tr>
-            <td class="border border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Wartortle</td>
-            <td class="border border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">💦 Water</td>
-            </tr>
-            <tr>
-            <td class="border border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Pikachu</td>
-            <td class="border border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">⚡ Electric</td>
-            </tr>
-        </tbody>
+        <table class="border-collapse border dark:border-slate-600 table-auto w-full text-sm">
+          <caption class="text-slate-500 dark:text-slate-400 pt-4 text-xs caption-bottom">
+              WWE Superstars and their signature moves.
+          </caption>
+          <thead >
+              <tr>
+              <th class="border dark:border-slate-600 font-medium p-4 pl-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Wrestler</th>
+              <th class="border dark:border-slate-600 font-medium p-4 pr-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Signature Move(s)</th>
+              </tr>
+          </thead>
+          <tbody class="bg-white dark:bg-slate-800">
+              <tr>
+                <td class="border border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Batista</td>
+                <td class="border border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">Batista Bomb, Batista Bite</td>
+              </tr>
+              <tr>
+                <td class="border border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">The Big Show</td>
+                <td class="border border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">WMD, Chokeslam, Colossal Clutch</td>
+              </tr>
+              <tr>
+                <td class="border border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Edge</td>
+                <td class="border border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">Downward Spiral, Spear</td>
+              </tr>
+          </tbody>
         </table>
     </div>
 </Example>
 
 ```html
-<table class="**caption-bottom**">
-  <caption>
-    This caption is above the table.
+<table>
+  <caption class="**caption-bottom**">
+      WWE Superstars and their signature moves.
   </caption>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-    </tr>
+  <thead >
+      <tr>
+        <th>Wrestler</th>
+        <th>Signature Move(s)</th>
+      </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Charmeleon</td>
-      <td>🔥 Fire</td>
-    </tr>
-    <tr>
-      <td>Wartortle</td>
-      <td>💦 Water</td>
-    </tr>
-    <tr>
-      <td>Pikachu</td>
-      <td>⚡ Electric</td>
-    </tr>
+      <tr>
+        <td>Batista</td>
+        <td>Batista Bomb, Batista Bite</td>
+      </tr>
+      <tr>
+        <td>The Big Show</td>
+        <td >WMD, Chokeslam, Colossal Clutch</td>
+      </tr>
+      <tr>
+        <td>Edge</td>
+        <td>Downward Spiral, Spear</td>
+      </tr>
   </tbody>
 </table>
 ```
@@ -140,10 +140,10 @@ Use `caption-bottom` to align a caption element to the bottom of a table.
 
 ### <Heading ignore>Hover, focus, and other states</Heading>
 
-<HoverFocusAndOtherStates featuredClass="caption-bottom" element="table" />
+<HoverFocusAndOtherStates defaultClass="caption-top" featuredClass="caption-bottom" element="table" />
 
 ### <Heading ignore>Breakpoints and media queries</Heading>
 
-<BreakpointsAndMediaQueries  featuredClass="caption-bottom" element="table" />
+<BreakpointsAndMediaQueries defaultClass="caption-top" featuredClass="caption-bottom" element="table" />
 
 ---
