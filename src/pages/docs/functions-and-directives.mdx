@@ -77,11 +77,11 @@ Use the `@layer` directive to tell Tailwind which "bucket" a set of custom style
 }
 ```
 
-Tailwind will automatically move any CSS within an `@layer` directive to the same place as the corresponding `@tailwind` rule, so you don't have to worry about authoring your CSS in a specific order to avoid specificity issues.
+Tailwind will automatically move the CSS within any `@layer` directive to the same place as the corresponding `@tailwind` rule, so you don't have to worry about authoring your CSS in a specific order to avoid specificity issues.
 
 Any custom CSS added to a layer will only be included in the final build if that CSS is actually used in your HTML, just like all of the classes built in to Tailwind by default.
 
-Wrapping any custom CSS in an `@layer` directive also makes it possible to use modifiers with those rules, like `hover:` and `focus:` or responsive modifiers like `md:` and `lg:`.
+Wrapping any custom CSS with `@layer` also makes it possible to use modifiers with those rules, like `hover:` and `focus:` or responsive modifiers like `md:` and `lg:`.
 
 ### @apply
 
