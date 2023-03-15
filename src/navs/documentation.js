@@ -128,6 +128,7 @@ export const documentationNav = {
     pages['vertical-align'],
     pages['whitespace'],
     pages['word-break'],
+    pages['hyphens'],
     pages['content'],
   ],
   Backgrounds: [
