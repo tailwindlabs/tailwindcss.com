@@ -131,6 +131,47 @@ Use `justify-evenly` to justify items along the container's main axis such that 
 </div>
 ```
 
+### Stretch
+
+Use `justify-stretch` to allow content items to fill the available space along the container's main axis:
+
+<Example>
+  <div class="grid grid-flow-col justify-stretch gap-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-fuchsia rounded-lg">
+    <div class="h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">01</div>
+    <div class="h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">02</div>
+    <div class="h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">03</div>
+  </div>
+</Example>
+
+```html
+<div class="grid grid-flow-col **justify-stretch** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+
+### Normal
+
+Use `justify-normal` to pack content items in their default position as if no `justify-content` value was set:
+
+<Example>
+  <div class="flex justify-normal space-x-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-blue rounded-lg">
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">01</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">02</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">03</div>
+  </div>
+</Example>
+
+```html
+<div class="flex **justify-normal** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
 ---
 
 ## <Heading ignore>Applying conditionally</Heading>
