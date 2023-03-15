@@ -5,7 +5,8 @@ export function BorderWidthExample({ direction }) {
     <div className="grid md:grid-cols-2 gap-12 justify-center py-14 md:px-10 px-4 text-sm font-medium">
       <div className="grid md:gap-8 gap-4 justify-center">
         <p className="text-center font-mono">border-l-2</p>
-        <motion.div layout style={{ direction }} className="grid grid-flow-col gap-3">
+        {/* max width is here to prevent make sure the arabic is over two lines */}
+        <motion.div layout style={{ direction }} className="grid grid-flow-col gap-3 max-w-[260px]">
           <motion.img
             layout
             className="h-12 w-12 rounded-full"
@@ -29,7 +30,8 @@ export function BorderWidthExample({ direction }) {
       </div>
       <div className="grid md:gap-8 gap-4 justify-center">
         <p className="text-center font-mono">border-s-2</p>
-        <motion.div layout style={{ direction }} className="grid grid-flow-col gap-3">
+        {/* max width is here to prevent make sure the arabic is over two lines */}
+        <motion.div layout style={{ direction }} className="grid grid-flow-col gap-3 max-w-[260px]">
           <motion.img
             layout
             className="h-12 w-12 rounded-full"

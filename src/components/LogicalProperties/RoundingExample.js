@@ -23,7 +23,7 @@ export function RoundingExample({ direction }) {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
-              className="w-5 h-5 currentColor"
+              className="w-5 h-5 fill-current"
             >
               <path
                 fill-rule="evenodd"
@@ -54,7 +54,7 @@ export function RoundingExample({ direction }) {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
-              className="w-5 h-5 currentColor"
+              className="w-5 h-5 fill-current"
             >
               <path
                 fill-rule="evenodd"

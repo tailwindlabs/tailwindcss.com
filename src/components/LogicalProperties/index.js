@@ -23,8 +23,8 @@ export function LogicalPropertyExample({ property = 'test' }) {
           {' '}
           logical properties
         </a>{' '}
-        which is useful when supporting multi-directional layouts. Currently, this is only supported
-        in the inline direction:
+        in the inline direction, which is useful when supporting both left-to-right and
+        right-to-left languages:
       </p>
       <ExampleWrapper direction={direction} handleDirectionChange={setDirection}>
         {property === 'margin' && <MarginExample direction={direction} />}

@@ -52,7 +52,7 @@ export function ScrollPaddingExample({ direction }) {
     },
   ]
   return (
-    <div className="grid py-10 gap-4 md:px-12 px-8 text-sm font-medium">
+    <div className="grid gap-4 pb-14 py-10 md:px-12 px-8 text-sm font-medium">
       <p className="text-center font-mono">scroll-pl-12</p>
       <motion.div
         style={{
@@ -60,7 +60,7 @@ export function ScrollPaddingExample({ direction }) {
         }}
         className="w-full relative overflow-x-auto shadow-inner border border-slate-200 dark:border-slate-700 rounded-md"
       >
-        <div className="bg-white dark:bg-slate-900 ps-12 pe-72 scroll-pl-12 snap-x overflow-x-auto grid grid-flow-col gap-12 py-4">
+        <div className="bg-white dark:bg-slate-900 ps-12 pe-96 scroll-pl-12 snap-x overflow-x-auto grid grid-flow-col gap-12 py-4">
           <div class="z-10 bg-stripes-pink w-12 absolute top-0 left-0 bottom-0" />
           {products.map((product) => (
             <div key={product.id} className="snap-start group relative">
@@ -91,7 +91,7 @@ export function ScrollPaddingExample({ direction }) {
         }}
         className="w-full relative overflow-x-auto shadow-inner border border-slate-200 dark:border-slate-700 rounded-md"
       >
-        <div className="bg-white dark:bg-slate-900 ps-12 pe-72 scroll-ps-12 snap-x overflow-x-auto grid grid-flow-col gap-12 py-4">
+        <div className="bg-white dark:bg-slate-900 ps-12 pe-96 scroll-ps-12 snap-x overflow-x-auto grid grid-flow-col gap-12 py-4">
           <motion.div layout class="z-10 bg-stripes-pink w-12 absolute top-0 start-0 bottom-0" />
           {products.map((product) => (
             <div key={product.id} className="snap-start group relative">
@@ -114,6 +114,12 @@ export function ScrollPaddingExample({ direction }) {
           ))}
         </div>
       </motion.div>
+      <p className="absolute bottom-2 text-center start-0 end-0 text-gray-400 font-normal italic">
+        Images courtesy of{' '}
+        <a className="underline text-blue-400 hover:text-blue-600" href="https://ugmonk.com">
+          Ugmonk
+        </a>
+      </p>
     </div>
   )
 }
