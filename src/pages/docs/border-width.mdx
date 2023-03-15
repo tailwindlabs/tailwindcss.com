@@ -125,9 +125,12 @@ Learn more in the [Divide Width](/docs/divide-width) and [Divide Color](/docs/di
 <LogicalPropertyExample property="borderWidth"/>
 
 ```html
-<div class="flex ...">
-  <div class="**border-s-4** ..."></div>
-  <div class="**border-e-4** ..."></div>
+<div class="grid grid-flow-col gap-3">
+  <img class="h-12 w-12 rounded-full" src="..."/>
+  <div class="grid gap-3 ps-3 **border-s-2** border-indigo-300" dark-class="grid gap-3 ps-3 **border-s-2** border-indigo-400">
+    <p class="italic text-slate-500" dark-class="italic text-slate-300">...</p>
+    <p class="text-slate-700" dark-class="text-slate-100">...</p>
+  </div>
 </div>
 ```
 

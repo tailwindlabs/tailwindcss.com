@@ -123,12 +123,16 @@ To use a negative margin value, prefix the class name with a dash to convert it 
 ```
 
 
+### Using logical properties
 <LogicalPropertyExample property="margin"/>
 
 ```html
-<div class="flex ...">
-  <div class="**me-12** ...">ms-8</div>
-  <div class="**ms-4** ...">me-4</div>
+<div class="grid grid-flow-col items-center">
+  <img class="h-12 w-12 rounded-full" src="..." alt="" />
+  <div class="**ms-3**">
+      <p class="text-slate-700" dark-class="text-slate-300">...</p>
+      <p class="text-slate-500" dark-class="text-slate-500">...</p>
+    </div>
 </div>
 ```
 

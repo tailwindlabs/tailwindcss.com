@@ -116,16 +116,22 @@ Control the padding on all sides of an element using the `p-{size}` utilities.
 <div class="**p-8** ...">p-8</div>
 ```
 
+### Using logical properties
 <LogicalPropertyExample property="padding"/>
 
+
 ```html
-<div class="flex ...">
-  <div class="**ps-4** ...">ps-4</div>
-  <div class="**pe-12** ...">pe-12</div>
+<div class="grid grid-flow-col items-center">
+  <img class="h-12 w-12 rounded-full" src="..." alt="" />
+  <div class="**ps-3**">
+      <p class="text-slate-700" dark-class="text-slate-300">...</p>
+      <p class="text-slate-500" dark-class="text-slate-500">...</p>
+    </div>
 </div>
 ```
 
 ---
+
 
 ## <Heading ignore>Applying conditionally</Heading>
 

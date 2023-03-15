@@ -2,39 +2,59 @@ import { motion } from 'framer-motion'
 
 export function BorderColorExample({ direction }) {
   return (
-    <>
-      <motion.div
-        layout
-        style={{
-          direction: direction,
-        }}
-        class="flex flex-col sm:flex-row items-center justify-around gap-4 text-white text-sm text-center font-bold leading-6 py-10"
-      >
+    <div className="grid md:grid-cols-2 gap-12 justify-center py-14 md:px-10 px-4 text-sm font-medium">
+      <div className="grid md:gap-8 gap-4 justify-center">
+        <p className="text-center font-mono">border-l-indigo-400</p>
         <motion.div
+          style={{ direction }}
           layout
-          style={{
-            direction: direction,
-          }}
-          class="flex flex-col items-center shrink-0"
+          className="grid gap-3 px-4 py-3 border-l-2 border-l-indigo-400 dark:border-l-indigo-500 border border-slate-200 dark:border-slate-700 bg-white dark:bg-transparent rounded-sm shadow-sm"
         >
-          <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">
-            border-s-indigo-500
+          <p className="italic font-normal text-slate-500 dark:text-slate-300">
+            {direction === 'ltr'
+              ? '"This has greatly improved my productivity"'
+              : '"لقد أدى هذا إلى تحسين إنتاجيتي بشكل كبير'}
           </p>
-          <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 w-16 h-16 border-indigo-200 dark:border-indigo-600/20 border-4 border-s-indigo-500 dark:border-s-indigo-500"></div>
+          <div className="grid grid-flow-col grid-cols-[auto,1fr] gap-2">
+            <motion.img
+              layout
+              className="h-9 w-9 rounded-full"
+              src="https://images.unsplash.com/photo-1563833717765-00462801314e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+              alt=""
+            />
+            <div className="text-slate-700 dark:text-slate-100">
+              <p>{direction === 'ltr' ? 'Tamer Karam' : 'تامر كرم'}</p>
+              <p>{direction === 'ltr' ? 'CEO' : 'المدير التنفيذي'}</p>
+            </div>
+          </div>
         </motion.div>
+      </div>
+      <div className="grid md:gap-8 gap-4 justify-center">
+        <p className="text-center font-mono">border-s-indigo-400</p>
         <motion.div
-          style={{
-            direction: direction,
-          }}
-          class="flex flex-col items-center shrink-0"
+          style={{ direction }}
           layout
+          className="grid gap-3 px-4 py-3 border-s-2 border-s-indigo-400 dark:border-s-indigo-500 border border-slate-200 dark:border-slate-700 bg-white dark:bg-transparent rounded-sm shadow-sm"
         >
-          <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">
-            border-e-indigo-500
+          <p className="italic font-normal text-slate-500 dark:text-slate-300">
+            {direction === 'ltr'
+              ? '"This has greatly improved my productivity"'
+              : '"لقد أدى هذا إلى تحسين إنتاجيتي بشكل كبير'}
           </p>
-          <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 w-16 h-16 border-indigo-200 dark:border-indigo-600/20 border-4 border-e-indigo-500 dark:border-e-indigo-500"></div>
+          <div className="grid grid-flow-col grid-cols-[auto,1fr] gap-2">
+            <motion.img
+              layout
+              className="h-9 w-9 rounded-full"
+              src="https://images.unsplash.com/photo-1563833717765-00462801314e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+              alt=""
+            />
+            <div className="text-slate-700 dark:text-slate-100">
+              <p>{direction === 'ltr' ? 'Tamer Karam' : 'تامر كرم'}</p>
+              <p>{direction === 'ltr' ? 'CEO' : 'المدير التنفيذي'}</p>
+            </div>
+          </div>
         </motion.div>
-      </motion.div>
-    </>
+      </div>
+    </div>
   )
 }

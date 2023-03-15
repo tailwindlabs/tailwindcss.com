@@ -1,79 +1,253 @@
+// import { motion } from 'framer-motion'
+
+// export function ScrollMarginExample({ direction }) {
+//   const products = [
+//     {
+//       id: 1,
+//       name: 'Black Tee',
+//       nameHebrew: 'חולצה קצרה',
+//       href: '#',
+//       imageSrc:
+//         'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+//       imageAlt: "Front of men's Basic Tee in black.",
+//       price: '$35',
+//       priceShekel: '₪130',
+//       color: 'Black',
+//     },
+//     {
+//       id: 2,
+//       name: 'White Tee',
+//       nameHebrew: 'חולצה קצרה',
+//       href: '#',
+//       imageSrc:
+//         'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg',
+//       imageAlt: "Front of men's Basic Tee in aspen white.",
+//       price: '$35',
+//       priceShekel: '₪130',
+//       color: 'Aspen White',
+//     },
+//     {
+//       id: 3,
+//       name: 'Gray Tee',
+//       nameHebrew: 'חולצה קצרה',
+//       href: '#',
+//       imageSrc:
+//         'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg',
+//       imageAlt: "Front of men's Basic Tee in aspen white.",
+//       price: '$35',
+//       priceShekel: '₪130',
+//       color: 'Charcoal',
+//     },
+//     {
+//       id: 4,
+//       name: 'Artwork Tee',
+//       nameHebrew: 'חולצה אומנותית',
+//       href: '#',
+//       imageSrc:
+//         'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-04.jpg',
+//       imageAlt: "Front of men's Basic Tee in aspen white.",
+//       price: '$35',
+//       priceShekel: '₪130',
+//       color: 'Aspen White',
+//     },
+//   ]
+//   return (
+//     <div className="grid items-center py-10 gap-4">
+//       <p className="text-center text-sm font-mono">scroll-margin-left</p>
+//       <motion.div
+//         style={{
+//           direction: direction,
+//         }}
+//         className="w-2/3 justify-self-center relative overflow-x-auto shadow-inner border border-slate-200 dark:border-slate-700 rounded-md"
+//       >
+//         <div className="bg-white dark:bg-slate-900 grid grid-flow-col gap-12 ps-6 snap-x overflow-x-auto py-4 ">
+//           {products.map((product) => (
+//             <div
+//               key={product.id}
+//               className="snap-start group scroll-ml-6 last:pe-[calc(100%*3)] relative"
+//             >
+//               <motion.div class="z-10 bg-stripes-pink w-6 absolute top-0 -left-6 bottom-0"></motion.div>
+//               <div className="bg-[#F7F7F7] w-36 h-36 overflow-hidden rounded-md group-hover:opacity-75">
+//                 <img
+//                   src={product.imageSrc}
+//                   alt={product.imageAlt}
+//                   className="h-full w-full object-contain object-center "
+//                 />
+//               </div>
+//               <div className="mt-2 flex justify-between w-36">
+//                 <div>
+//                   <h3 className="text-sm text-slate-700 dark:text-slate-300">
+//                     {direction === 'ltr' ? product.name : product.nameHebrew}
+//                   </h3>
+//                 </div>
+//                 <p className="text-sm font-medium text-slate-900 dark:text-slate-50">
+//                   {direction === 'ltr' ? product.price : product.priceShekel}
+//                 </p>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </motion.div>
+//       <p className="md:mt-12 mt-6 text-center text-sm font-mono">scroll-margin-inline-start</p>
+//       <motion.div
+//         style={{
+//           direction: direction,
+//         }}
+//         className="w-2/3 justify-self-center relative overflow-x-auto shadow-inner border border-slate-200 dark:border-slate-700 rounded-md"
+//       >
+//         <div className="bg-white dark:bg-slate-900 grid grid-flow-col gap-12 ps-6 snap-x overflow-x-auto py-4 ">
+//           {products.map((product) => (
+//             <div
+//               key={product.id}
+//               className="snap-start group scroll-ms-6 last:pe-[calc(100%*3)] relative"
+//             >
+//               <motion.div
+//                 layout={product.id === 1 ? true : false}
+//                 class="z-10 bg-stripes-pink w-6 absolute top-0 -start-6 bottom-0"
+//               ></motion.div>
+//               <div className="bg-[#F7F7F7] w-36 h-36 overflow-hidden rounded-md group-hover:opacity-75">
+//                 <img
+//                   src={product.imageSrc}
+//                   alt={product.imageAlt}
+//                   className="h-full w-full object-contain object-center "
+//                 />
+//               </div>
+//               <div className="mt-2 flex justify-between w-36">
+//                 <div>
+//                   <h3 className="text-sm text-slate-700 dark:text-slate-300">
+//                     {direction === 'ltr' ? product.name : product.nameHebrew}
+//                   </h3>
+//                 </div>
+//                 <p className="text-sm font-medium text-slate-900 dark:text-slate-50">
+//                   {direction === 'ltr' ? product.price : product.priceShekel}
+//                 </p>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </motion.div>
+//     </div>
+//   )
+// }
+
 import { motion } from 'framer-motion'
 
 export function ScrollMarginExample({ direction }) {
+  const products = [
+    {
+      id: 1,
+      name: 'Black Tee',
+      nameHebrew: 'חולצה קצרה',
+      href: '#',
+      imageSrc:
+        'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: '$35',
+      priceShekel: '₪130',
+      color: 'Black',
+    },
+    {
+      id: 2,
+      name: 'White Tee',
+      nameHebrew: 'חולצה קצרה',
+      href: '#',
+      imageSrc:
+        'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg',
+      imageAlt: "Front of men's Basic Tee in aspen white.",
+      price: '$35',
+      priceShekel: '₪130',
+      color: 'Aspen White',
+    },
+    {
+      id: 3,
+      name: 'Gray Tee',
+      nameHebrew: 'חולצה קצרה',
+      href: '#',
+      imageSrc:
+        'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg',
+      imageAlt: "Front of men's Basic Tee in aspen white.",
+      price: '$35',
+      priceShekel: '₪130',
+      color: 'Charcoal',
+    },
+    {
+      id: 4,
+      name: 'Artwork Tee',
+      nameHebrew: 'חולצה אומנותית',
+      href: '#',
+      imageSrc:
+        'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-04.jpg',
+      imageAlt: "Front of men's Basic Tee in aspen white.",
+      price: '$35',
+      priceShekel: '₪130',
+      color: 'Aspen White',
+    },
+  ]
   return (
-    <motion.div
-      layout
-      style={{
-        direction: direction,
-      }}
-      class="w-full flex gap-12 snap-x overflow-x-auto py-14"
-    >
+    <div className="grid py-10 gap-4 md:px-12 px-8 text-sm font-medium">
+      <p className="text-center font-mono">scroll-ml-6</p>
       <motion.div
-        layout
         style={{
           direction: direction,
         }}
-        class="snap-start scroll-ms-6 shrink-0 relative first:ps-6 last:pe-[calc(100%-21.5rem)] "
+        className="w-full relative overflow-x-auto shadow-inner border border-slate-200 dark:border-slate-700 rounded-md"
       >
-        <div class="bg-stripes-pink w-6 absolute top-0 start-0 bottom-0"></div>
-        <img
-          class="relative shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white"
-          src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
-        />
+        <div className="bg-white dark:bg-slate-900 ps-6 pe-72 snap-x overflow-x-auto grid grid-flow-col gap-12 py-4">
+          {products.map((product) => (
+            <div key={product.id} className="snap-start scroll-ml-6 group relative">
+              <div class="z-10 bg-stripes-pink w-6 absolute top-0 -left-6 bottom-0" />
+              <div className="bg-[#F7F7F7] w-36 h-36 overflow-hidden rounded-md group-hover:opacity-75 ">
+                <img
+                  src={product.imageSrc}
+                  alt={product.imageAlt}
+                  className="h-full w-full object-contain object-center "
+                />
+              </div>
+              <div className="mt-2 flex justify-between">
+                <h3 className="text-slate-700 dark:text-slate-300">
+                  {direction === 'ltr' ? product.name : product.nameHebrew}
+                </h3>
+                <p className="text-slate-900 dark:text-slate-50">
+                  {direction === 'ltr' ? product.price : product.priceShekel}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </motion.div>
+      <p className="md:mt-12 mt-4 text-center font-mono">scroll-ms-6</p>
       <motion.div
-        layout
         style={{
           direction: direction,
         }}
-        class="snap-start scroll-ms-6 shrink-0 relative first:ps-6 last:pe-[calc(100%-21.5rem)]"
+        className="w-full relative overflow-x-auto shadow-inner border border-slate-200 dark:border-slate-700 rounded-md"
       >
-        <div class="bg-stripes-pink w-6 absolute top-0 -start-6 bottom-0"></div>
-        <img
-          class="relative shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white"
-          src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
-        />
+        <div className="bg-white dark:bg-slate-900 ps-6 pe-72 snap-x overflow-x-auto grid grid-flow-col gap-12 py-4">
+          {products.map((product) => (
+            <div key={product.id} className="snap-start group relative scroll-ms-6">
+              <motion.div
+                layout
+                class="z-10 bg-stripes-pink w-6 absolute top-0 -start-6 bottom-0"
+              />
+              <div className=" bg-[#F7F7F7] w-36 h-36 overflow-hidden rounded-md group-hover:opacity-75 ">
+                <img
+                  src={product.imageSrc}
+                  alt={product.imageAlt}
+                  className="h-full w-full object-contain object-center "
+                />
+              </div>
+              <div className="mt-2 flex justify-between">
+                <h3 className="text-slate-700 dark:text-slate-300">
+                  {direction === 'ltr' ? product.name : product.nameHebrew}
+                </h3>
+                <p className="text-slate-900 dark:text-slate-50">
+                  {direction === 'ltr' ? product.price : product.priceShekel}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </motion.div>
-      <motion.div
-        layout
-        style={{
-          direction: direction,
-        }}
-        class="snap-start scroll-ms-6 shrink-0 relative first:ps-6 last:pe-[calc(100%-21.5rem)]"
-      >
-        <div class="bg-stripes-pink w-6 absolute top-0 -start-6 bottom-0"></div>
-        <img
-          class="relative shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white"
-          src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
-        />
-      </motion.div>
-      <motion.div
-        layout
-        style={{
-          direction: direction,
-        }}
-        class="snap-start scroll-ms-6 shrink-0 relative first:ps-6 last:pe-[calc(100%-21.5rem)]"
-      >
-        <div class="bg-stripes-pink w-6 absolute top-0 -start-6 bottom-0"></div>
-        <img
-          class="relative shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white"
-          src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
-        />
-      </motion.div>
-      <motion.div
-        layout
-        style={{
-          direction: direction,
-        }}
-        class="snap-start scroll-ms-6 shrink-0 relative first:ps-6 last:pe-[calc(100%-21.5rem)]"
-      >
-        <div class="bg-stripes-pink w-6 absolute top-0 -start-6 bottom-0"></div>
-        <img
-          class="relative shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white"
-          src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
-        />
-      </motion.div>
-    </motion.div>
+    </div>
   )
 }

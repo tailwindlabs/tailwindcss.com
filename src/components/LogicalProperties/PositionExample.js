@@ -2,35 +2,82 @@ import { motion } from 'framer-motion'
 
 export function PositionExample({ direction }) {
   return (
-    <>
-      <div class="flex justify-center font-mono text-white text-sm font-bold leading-6 py-8">
-        <motion.div
-          layout
-          style={{
-            direction: direction,
-          }}
-          class="bg-emerald-500 bg-stripes-emerald rounded-lg  w-3/4 relative h-32"
-        >
-          <motion.div
-            // have to set this translate in a template to avoid some framer motion weirdness
-            // https://github.com/framer/motion/issues/1711#issuecomment-1265147011
-            transformTemplate={(_, generated) => `translateY(-50%) ${generated}`}
-            layout="position"
-            class="bg-emerald-500 p-4 shadow-lg rounded-md absolute start-0 top-1/2"
+    <div className="grid md:grid-cols-2 gap-12 justify-center py-14 md:px-12 px-4 text-sm font-medium">
+      <div className="grid md:gap-8 gap-4">
+        <p className="text-center font-mono">right-0</p>
+        <motion.div layout style={{ direction }} className="grid gap-3">
+          <motion.label
+            layout
+            htmlFor="email"
+            className="justify-self-start text-slate-900 dark:text-slate-100"
           >
-            start-0
-          </motion.div>
-          <motion.div
-            // have to set this translate in a template to avoid some framer motion weirdness
-            // https://github.com/framer/motion/issues/1711#issuecomment-1265147011
-            transformTemplate={(_, generated) => `translateY(-50%) ${generated}`}
-            layout="position"
-            class="bg-emerald-500 p-4 shadow-lg rounded-md absolute end-0 top-1/2"
+            {direction === 'ltr' ? 'Email' : 'אימייל'}
+          </motion.label>
+          <div className="relative rounded-md shadow-sm">
+            <motion.div
+              layout
+              style={{ direction }}
+              className="pointer-events-none absolute inset-y-0 right-0 flex rounded items-center m-1 p-1 border-2 border-pink-300 dark:border-pink-400 bg-stripes-pink text-slate-400 dark:text-slate-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                className="w-5 h-5 fill-current bg-slate-50/40 dark:bg-slate-900/50 rounded"
+              >
+                <path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" />
+                <path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" />
+              </svg>
+            </motion.div>
+            <motion.input
+              layout
+              style={{ direction }}
+              type="text"
+              name="email"
+              id="email"
+              className="w-full bg-white dark:bg-slate-800 rounded-md border-0 py-1.5 pl-3 text-slate-900 dark:text-slate-100 ring-1 ring-inset ring-slate-300 dark:ring-slate-700 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+              placeholder="your@email.com"
+            />
+          </div>
+        </motion.div>
+      </div>
+      <div className="grid md:gap-8 gap-4">
+        <p className="text-center font-mono">end-0</p>
+        <motion.div layout style={{ direction }} className="grid gap-3">
+          <motion.label
+            layout
+            htmlFor="email"
+            className="justify-self-start text-slate-900 dark:text-slate-100"
           >
-            end-0
+            {direction === 'ltr' ? 'Email' : 'אימייל'}
+          </motion.label>
+          <motion.div style={{ direction }} layout className="relative rounded-md shadow-sm">
+            <motion.div
+              layout
+              style={{ direction }}
+              className="pointer-events-none absolute inset-y-0 end-0 flex rounded items-center m-1 p-1 border-2 border-pink-300 dark:border-pink-400 bg-stripes-pink text-slate-400 dark:text-slate-300"
+            >
+              <motion.svg
+                layout
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                className="w-5 h-5 fill-current bg-slate-50/40 dark:bg-slate-900/50 rounded"
+              >
+                <path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" />
+                <path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" />
+              </motion.svg>
+            </motion.div>
+            <motion.input
+              layout
+              style={{ direction }}
+              type="text"
+              name="email"
+              id="email"
+              className="w-full bg-white dark:bg-slate-800 rounded-md border-0 py-1.5 ps-3 text-slate-900 dark:text-slate-100 ring-1 ring-inset ring-slate-300 dark:ring-slate-700 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+              placeholder="your@email.com"
+            />
           </motion.div>
         </motion.div>
       </div>
-    </>
+    </div>
   )
 }
