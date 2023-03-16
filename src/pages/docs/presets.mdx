@@ -6,7 +6,7 @@ description: Creating your own reusable configuration presets.
 import { TipGood, TipBad } from '@/components/Tip'
 import { ThemeReference } from '@/components/ThemeReference'
 
-By default, any configuration you add in your own `tailwind.config.js` file is intelligently merged with the [default configuration](https://unpkg.com/browse/tailwindcss@^2/stubs/defaultConfig.stub.js), with your own configuration acting as a set of overrides and extensions.
+By default, any configuration you add in your own `tailwind.config.js` file is intelligently merged with the [default configuration](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/config.full.js), with your own configuration acting as a set of overrides and extensions.
 
 The `presets` option lets you specify a _different_ configuration to use as your base, making it easy to package up a set of customizations that you'd like to reuse across projects.
 
@@ -94,7 +94,7 @@ module.exports = {
 }
 ```
 
-By default, presets themselves extend Tailwind's [default configuration](https://unpkg.com/browse/tailwindcss@^3/stubs/defaultConfig.stub.js) just like your own configuration would. If you'd like to create a preset that completely replaces the default configuration, include an empty `presets` key in the preset itself:
+By default, presets themselves extend Tailwind's [default configuration](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/config.full.js) just like your own configuration would. If you'd like to create a preset that completely replaces the default configuration, include an empty `presets` key in the preset itself:
 
 ```js
 // Example preset
