@@ -199,7 +199,7 @@ let tabs = [
         code: {
           name: 'nuxt.config.js',
           lang: 'js',
-          code: `  // https://v3.nuxtjs.org/api/configuration/nuxt.config
+          code: `  // https://nuxt.com/docs/api/configuration/nuxt-config
   export default defineNuxtConfig({
 >   postcss: {
 >     plugins: {
@@ -263,7 +263,7 @@ let tabs = [
         code: {
           name: 'nuxt.config.js',
           lang: 'js',
-          code: `  // https://v3.nuxtjs.org/api/configuration/nuxt.config
+          code: `  // https://nuxt.com/docs/api/configuration/nuxt-config
   export default defineNuxtConfig({
 >   css: ['~/assets/css/main.css'],
     postcss: {
