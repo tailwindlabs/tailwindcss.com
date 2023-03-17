@@ -196,21 +196,6 @@ When you run into situations like this, you can work around them by overriding t
 
 ---
 
-## Buttons have a default outline
-
-To ensure that we provide accessible styles out of the box, we made sure
-that buttons have a default outline. You can of course override this by
-applying `focus:ring` or similar utilities to your buttons.
-
-```css
-button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-}
-```
-
----
-
 ## Extending Preflight
 
 If you'd like to add your own base styles on top of Preflight, simply add them to your CSS using the `@layer base` directive:
