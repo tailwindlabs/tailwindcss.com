@@ -60,7 +60,7 @@ export function ScrollMarginExample({ direction }) {
         }}
         className="w-full relative overflow-x-auto shadow-inner border border-slate-200 dark:border-slate-700 rounded-md"
       >
-        <div className="bg-white dark:bg-slate-900 ps-6 pe-96 snap-x overflow-x-auto grid grid-flow-col gap-12 py-4">
+        <div className="bg-white dark:bg-slate-900 ps-6 pe-[calc(9rem*3+3rem*2)] snap-x overflow-x-auto grid grid-flow-col gap-12 py-4">
           {products.map((product) => (
             <div key={product.id} className="snap-start scroll-ml-6 group relative">
               <div class="z-10 bg-stripes-pink w-6 absolute top-0 -left-6 bottom-0" />
@@ -90,7 +90,7 @@ export function ScrollMarginExample({ direction }) {
         }}
         className="w-full relative overflow-x-auto shadow-inner border border-slate-200 dark:border-slate-700 rounded-md"
       >
-        <div className="bg-white dark:bg-slate-900 ps-6 pe-96 snap-x overflow-x-auto grid grid-flow-col gap-12 py-4">
+        <div className="bg-white dark:bg-slate-900 ps-6 pe-[calc(9rem*3+3rem*2)] snap-x overflow-x-auto grid grid-flow-col gap-12 py-4">
           {products.map((product) => (
             <div key={product.id} className="snap-start group relative scroll-ms-6">
               <motion.div
