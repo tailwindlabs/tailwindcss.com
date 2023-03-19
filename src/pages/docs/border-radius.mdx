@@ -7,6 +7,7 @@ import utilities from 'utilities?plugin=borderRadius'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { LogicalPropertyExample } from '@/components/LogicalProperties'
 
 export const classes = { utilities }
 
@@ -112,7 +113,7 @@ Use `rounded-{t|r|b|l}{-size?}` to only round one side of an element.
 <div class="**rounded-l-lg** ..."></div>
 ```
 
-## Rounding corners separately
+### Rounding corners separately
 
 Use `rounded-{tl|tr|br|bl}{-size?}` to only round one corner an element.
 
@@ -142,6 +143,18 @@ Use `rounded-{tl|tr|br|bl}{-size?}` to only round one corner an element.
 <div class="**rounded-tr-lg** ..."></div>
 <div class="**rounded-br-lg** ..."></div>
 <div class="**rounded-bl-lg** ..."></div>
+```
+
+### Using logical properties
+<LogicalPropertyExample property="rounding"/>
+
+```html
+<div class="relative rounded-md shadow-sm">
+  <input class="rounded-lg ring ring-slate-300 text-gray-900" dark-class="rounded-lg ring ring-slate-700 bg-slate-800 text-slate-100"/>
+  <button class="**rounded-e-lg** border border-indigo-300 bg-indigo-50 text-indigo-500 absolute end-0" dark-class="**rounded-e-lg** border border-indigo-700 bg-indigo-700 text-indigo-300 absolute end-0">
+    <svg class="fill-current">...</svg>
+  </button>
+</div>
 ```
 
 ---
