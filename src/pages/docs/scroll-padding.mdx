@@ -8,6 +8,8 @@ import { numbersFirst } from '@/utils/sortClasses'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { LogicalPropertyExample } from '@/components/LogicalProperties'
+
 
 export const classes = {
   utilities,
@@ -58,6 +60,22 @@ Use the `scroll-p{side}-{size}` utilities to set the scroll offset of an element
   <div class="snap-start ...">
     <img src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
   </div>
+</div>
+```
+### Using logical properties
+<LogicalPropertyExample property="scrollPadding"/>
+
+
+```html
+<div class="bg-white **scroll-ps-12** snap-x overflow-x-auto grid grid-flow-col gap-12 py-4 ps-12" dark-class="bg-slate-900 **scroll-ps-12** snap-x overflow-x-auto grid grid-flow-col gap-12 py-4 ps-12">
+  <div class="snap-start">
+    <img src='...product-01.jpg'/>
+    <div class="mt-2 flex justify-between">
+      <h3 class="text-slate-700" dark-class="text-slate-300">...</h3>
+      <p class="text-slate-900" dark-class="text-slate-50">...</p>
+    </div>
+  </div>
+  ...
 </div>
 ```
 

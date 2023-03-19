@@ -8,11 +8,13 @@ import { numbersFirst } from '@/utils/sortClasses'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { LogicalPropertyExample } from '@/components/LogicalProperties'
 
 export const classes = {
   utilities,
   sort: (classes) => numbersFirst(classes),
 }
+
 
 ## Basic usage
 
@@ -118,6 +120,20 @@ To use a negative margin value, prefix the class name with a dash to convert it 
 ```html
 <div class="w-36 h-16 bg-sky-400 opacity-20 ..."></div>
 <div class="**-mt-8** bg-sky-300 ...">-mt-8</div>
+```
+
+
+### Using logical properties
+<LogicalPropertyExample property="margin"/>
+
+```html
+<div class="grid grid-flow-col items-center">
+  <img class="h-12 w-12 rounded-full" src="..." alt="" />
+  <div class="**ms-3**">
+    <p class="text-slate-700" dark-class="text-slate-300">...</p>
+    <p class="text-slate-500" dark-class="text-slate-500">...</p>
+  </div>
+</div>
 ```
 
 ---
