@@ -4,16 +4,15 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Create Your Project',
+    title: 'Create your project',
     body: () => (
       <p>
         Start by creating a new Ember.js project if you don't have one set up already. The most
-        common approach is outlined in the{' '}
+        common approach is to use{' '}
         <a href="https://guides.emberjs.com/release/getting-started/quick-start/#toc_create-a-new-application">
-          Create a New Application
-        </a>{' '}
-        introduction. Note that we're using the <code>--embroider</code> option to enable Ember's
-        new build system.
+          Ember CLI
+        </a>
+        .
       </p>
     ),
     code: {
@@ -38,10 +37,10 @@ let steps = [
     },
   },
   {
-    title: 'Enable PostCSS Support',
+    title: 'Enable PostCSS support',
     body: () => (
       <p>
-        In your <code>ember-cli-build.js</code> file, enable PostCSS Loader.
+        In your <code>ember-cli-build.js</code> file, configure PostCSS to process your CSS files.
       </p>
     ),
     code: {
@@ -58,7 +57,11 @@ let steps = [
 
     const { Webpack } = require('@embroider/webpack');
     return require('@embroider/compat').compatBuild(app, Webpack, {
-      skipBabel: [{ package: 'qunit' }],
+      skipBabel: [
+        {
+          package: 'qunit',
+        },
+      ],
 >     packagerOptions: {
 >       webpackConfig: {
 >         module: {
@@ -85,7 +88,7 @@ let steps = [
     },
   },
   {
-    title: 'Configure Your Template Paths',
+    title: 'Configure your template paths',
     body: () => (
       <p>
         Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
@@ -105,7 +108,7 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind Directives to Your CSS',
+    title: 'Add the Tailwind directives to your CSS',
     body: () => (
       <p>
         Create a <code>./app/app.css</code> file and add the <code>@tailwind</code> directives for
@@ -121,10 +124,10 @@ let steps = [
     },
   },
   {
-    title: 'Import the CSS File',
+    title: 'Import the CSS file',
     body: () => (
       <p>
-        Open the <code>./app/app.js</code> file and import the newly-created <code>app.css</code>{' '}
+        Import the newly-created <code>./app/app.css</code> file in your <code>./app/app.js</code>{' '}
         file.
       </p>
     ),
@@ -147,29 +150,29 @@ let steps = [
     },
   },
   {
-    title: 'Start Your Build Process',
+    title: 'Start your build process',
     body: () => (
       <p>
-        Run your build process with <code>npm start</code>.
+        Run your build process with <code>npm run start</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm start',
+      code: 'npm run start',
     },
   },
   {
-    title: 'Start Using Tailwind in Your Project',
+    title: 'Start using Tailwind in your project',
     body: () => <p>Start using Tailwind's utility classes to style your content.</p>,
     code: {
       name: 'application.hbs',
       lang: 'hbs',
       code: `  {{page-title "MyProject"}}
 
-> <h2 id="title" class="text-3xl font-bold underline">
-    Welcome to Ember
-  </h2>
+> <h1 class="text-3xl font-bold underline">
+>   Hello world!
+> </h1>
 
   {{outlet}}`,
     },
