@@ -7,8 +7,8 @@ const unified = require('unified')
 const markdown = unified().use(require('remark-parse'))
 
 const stubs = {
-  tailwind: fs.readFileSync(require.resolve('tailwindcss/stubs/simpleConfig.stub'), 'utf8'),
-  postcss: fs.readFileSync(require.resolve('tailwindcss/stubs/defaultPostCssConfig.stub'), 'utf8'),
+  tailwind: fs.readFileSync(require.resolve('tailwindcss/stubs/config.simple.js'), 'utf8'),
+  postcss: fs.readFileSync(require.resolve('tailwindcss/stubs/postcss.config.js'), 'utf8'),
 }
 
 // Abusing the front-matter plugin to parse the Yaml, so that we don't have to
