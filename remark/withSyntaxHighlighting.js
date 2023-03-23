@@ -1,4 +1,5 @@
 const { highlightCode, addImport } = require('./utils')
+const JSON5 = require('json5')
 
 module.exports.withSyntaxHighlighting = () => {
   return (tree) => {
@@ -46,11 +47,20 @@ module.exports.withSyntaxHighlighting = () => {
       }
 
       if (node.meta) {
+        if (node.meta.startsWith('{{')) {
+          node.meta = node.meta.slice(1, -1)
+        } else {
+          node.meta = `{ filename: '${node.meta}' }`
+        }
+
         if (!componentName) {
           componentName = addImport(preTree, '@/components/Editor', 'Editor')
         }
+
+        let props = JSON5.parse(node.meta)
+
         return [
-          { type: 'jsx', value: `<${componentName} filename="${node.meta}">` },
+          { type: 'jsx', value: `<${componentName} {...${JSON.stringify(props)}}>` },
           node,
           { type: 'jsx', value: `</${componentName}>` },
         ]
