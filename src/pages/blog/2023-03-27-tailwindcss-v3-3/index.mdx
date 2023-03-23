@@ -73,6 +73,64 @@ module.exports = {
 
 <img src={exampleImage.src} />
 
+```jsx {{ filename: 'messages.mdx', scroll: true, style: 'framed' }}
+## Create a message {{ tag: 'POST', label: '/v1/messages' }}
+
+<Row>
+  <Col>
+
+    Publishes a new message to a specific conversation.
+
+    ### Required attributes
+
+    <Properties>
+      <Property name="conversation_id" type="string">
+        Unique identifier for the conversation the message belongs to.
+      </Property>
+      <Property name="message" type="string">
+        The message content.
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="POST" label="/v1/messages">
+
+    ```bash {{ title: 'cURL' }}
+    curl https://api.protocol.chat/v1/messages \
+      -H "Authorization: Bearer {token}" \
+      -d conversation_id="xgQQXg3hrtjh7AvZ" \
+      -d message="You're what the French call 'les incompetents.'"
+    ```
+
+    ```js
+    import ApiClient from '@example/protocol-api'
+    const client = new ApiClient(token)
+    await client.messages.create({
+      conversation_id: 'xgQQXg3hrtjh7AvZ',
+      message: 'You're what the French call 'les incompetents.'',
+    })
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "id": "gWqY86BMFRiH5o11",
+      "conversation_id": "xgQQXg3hrtjh7AvZ",
+      "message": "You're what the French call 'les incompetents.'",
+      "reactions": [],
+      "created_at": 692233200,
+    }
+    ```
+
+    Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+
+  </Col>
+</Row>
+```
+
 ---
 
 Something about Tailwind CSS v3.3 being released woohoo.
