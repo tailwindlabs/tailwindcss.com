@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { TabBar } from '@/components/TabBar'
 
 export function Frame({ className = '', children }) {
@@ -20,27 +21,46 @@ export function Frame({ className = '', children }) {
   )
 }
 
-export function EditorPane({ filename, children }) {
+export function EditorPane({ filename, scroll = false, children }) {
   return (
     <div className="pt-2 bg-slate-800 shadow-lg">
       <TabBar primary={{ name: filename }} showTabMarkers={false} />
-      <div className="children:my-0 children:!shadow-none children:bg-transparent">{children}</div>
+      <div
+        className={clsx(
+          'children:my-0 children:!shadow-none children:bg-transparent',
+          scroll &&
+            clsx(
+              'overflow-y-auto max-h-96',
+              'scrollbar:w-4 scrollbar:h-4 scrollbar:transparent',
+              'scrollbar-thumb:border-4 scrollbar-thumb:border-solid scrollbar-thumb:border-slate-800 scrollbar-thumb:bg-slate-700 hover:scrollbar-thumb:bg-slate-600 scrollbar-thumb:rounded-full',
+              'scrollbar-track:rounded'
+            )
+        )}
+      >
+        {children}
+      </div>
     </div>
   )
 }
 
-export function Editor({ filename, style = 'plain', children }) {
+export function Editor({ filename, scroll = false, style = 'plain', children }) {
+  let passthrough = { scroll }
+
   if (style === 'framed') {
     return (
       <Frame className="mt-5 mb-8 first:mt-0 last:mb-0">
-        <EditorPane filename={filename}>{children}</EditorPane>
+        <EditorPane {...passthrough} filename={filename}>
+          {children}
+        </EditorPane>
       </Frame>
     )
   }
 
   return (
     <div className="mt-5 mb-8 first:mt-0 last:mb-0 relative overflow-hidden rounded-2xl">
-      <EditorPane filename={filename}>{children}</EditorPane>
+      <EditorPane {...passthrough} filename={filename}>
+        {children}
+      </EditorPane>
       <div
         className="pointer-events-none absolute inset-0 rounded-2xl dark:ring-1 dark:ring-white/10 dark:ring-inset"
         aria-hidden="true"
