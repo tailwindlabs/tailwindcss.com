@@ -31,7 +31,6 @@ export function EditorPane({ filename, children }) {
 
 export function Editor({ filename, style = 'plain', children }) {
   if (style === 'framed') {
-    console.log('whyyyy')
     return (
       <Frame className="mt-5 mb-8 first:mt-0 last:mb-0">
         <EditorPane filename={filename}>{children}</EditorPane>
