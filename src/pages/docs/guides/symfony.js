@@ -44,7 +44,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer postcss-loader\nnpx tailwindcss init -p',
+      code: 'npm install -D tailwindcss postcss postcss-loader autoprefixer\nnpx tailwindcss init -p',
     },
   },
   {
