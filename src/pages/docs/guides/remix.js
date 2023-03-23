@@ -76,7 +76,7 @@ let steps = [
       </p>
     ),
     code: {
-      name: 'app/tailwind.css',
+      name: 'tailwind.css',
       lang: 'css',
       code: '@tailwind base;\n@tailwind components;\n@tailwind utilities;',
     },
