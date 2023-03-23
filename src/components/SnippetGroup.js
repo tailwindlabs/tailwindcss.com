@@ -85,6 +85,19 @@ function TabItem({ children, selectedIndex, myIndex, marker }) {
   )
 }
 
+let snippetGroupWrappers = {
+  plain({ children }) {
+    return <div className="not-prose bg-slate-800 rounded-xl shadow-md">{children}</div>
+  },
+  framed({ children }) {
+    return (
+      <Frame>
+        <div className="not-prose bg-slate-800 rounded-tl-xl shadow-md">{children}</div>
+      </Frame>
+    )
+  },
+}
+
 /**
  * Group multiple code blocks into a tabbed UI
  *
@@ -94,19 +107,11 @@ function TabItem({ children, selectedIndex, myIndex, marker }) {
 export function SnippetGroup({ children, style = 'plain', actions }) {
   let [selectedIndex, setSelectedIndex] = useState(0)
 
-  let Wrapper =
-    {
-      plain: Fragment,
-      framed: Frame,
-    }[style] ?? Fragment
+  let Wrapper = snippetGroupWrappers[style]
 
   return (
     <Wrapper>
-      <Tab.Group
-        as="div"
-        onChange={setSelectedIndex}
-        className="not-prose bg-slate-800 rounded-xl shadow-md"
-      >
+      <Tab.Group as="div" onChange={setSelectedIndex}>
         <div className="flex">
           <Tab.List className="flex text-slate-400 text-xs leading-6 overflow-hidden rounded-tl-xl pt-2">
             {children.map((child, tabIndex) => (
