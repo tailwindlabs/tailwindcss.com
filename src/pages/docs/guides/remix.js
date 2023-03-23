@@ -20,7 +20,10 @@ let steps = [
   {
     title: 'Enable built-in Tailwind CSS support in Remix',
     body: () => (
-      <p>Set the <code>unstable_tailwind</code> feature flag in your <code>remix.config.js</code> file. Eventually this will become stable and won't be necessary.</p>
+      <p>
+        Set the <code>unstable_tailwind</code> feature flag in your <code>remix.config.js</code>{' '}
+        file. Eventually this will become stable and won't be necessary.
+      </p>
     ),
     code: {
       name: 'remix.config.js',
@@ -37,8 +40,8 @@ let steps = [
     title: 'Install Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code> via npm, and then run the
-        init command to generate a <code>tailwind.config.js</code> file.
+        Install <code>tailwindcss</code> via npm, and then run the init command to generate a{' '}
+        <code>tailwind.config.js</code> file.
       </p>
     ),
     code: {
