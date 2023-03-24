@@ -115,6 +115,7 @@ export const documentationNav = {
     pages['line-height'],
     pages['list-style-type'],
     pages['list-style-position'],
+    pages['list-style-image'],
     pages['text-align'],
     pages['text-color'],
     pages['text-decoration'],

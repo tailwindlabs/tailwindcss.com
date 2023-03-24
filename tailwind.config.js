@@ -7,6 +7,7 @@ module.exports = {
     optimizeUniversalDefaults: true,
   },
   content: ['./src/**/*.{js,jsx,mdx,html}', './remark/**/*.js'],
+  blocklist: ['list-image-[url(checkmark.png)]'],
   darkMode: 'class',
   theme: {
     // `demo-*` screens are used for the "mobile-first" responsive demo
