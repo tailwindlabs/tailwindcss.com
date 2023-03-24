@@ -112,6 +112,7 @@ export const documentationNav = {
     pages['font-weight'],
     pages['font-variant-numeric'],
     pages['letter-spacing'],
+    pages['line-clamp'],
     pages['line-height'],
     pages['list-style-image'],
     pages['list-style-position'],
@@ -235,10 +236,6 @@ export const documentationNav = {
     {
       title: 'Aspect Ratio',
       href: 'https://github.com/tailwindlabs/tailwindcss-aspect-ratio',
-    },
-    {
-      title: 'Line Clamp',
-      href: 'https://github.com/tailwindlabs/tailwindcss-line-clamp',
     },
     {
       title: 'Container Queries',
