@@ -9,12 +9,12 @@ import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 import { LogicalPropertyExample } from '@/components/LogicalProperties'
+import { UsingLogicalProperties } from '@/components/UsingLogicalProperties'
 
 export const classes = {
   utilities,
   sort: (classes) => numbersFirst(classes),
 }
-
 
 ## Basic usage
 
@@ -122,8 +122,33 @@ To use a negative margin value, prefix the class name with a dash to convert it 
 <div class="**-mt-8** bg-sky-300 ...">-mt-8</div>
 ```
 
+### <Heading ignore>Using logical properties</Heading>
+
+<UsingLogicalProperties feature="Margin" syntax="m{s|e}-{size}" />
+
+<Example>
+  <div class="grid grid-cols-2 gap-x-4 place-items-center">
+    <div class="flex flex-col items-start gap-y-4" dir="ltr">
+      <p class="text-sm font-medium">Left-to-right</p>
+      <div class="bg-stripes-indigo rounded-lg font-mono text-white text-sm font-bold leading-6">
+        <div class="bg-indigo-500 rounded-lg shadow-lg p-4 ms-8">ms-8</div>
+      </div>
+    </div>
+    <div class="flex flex-col items-start gap-y-4" dir="rtl">
+      <p class="text-sm font-medium">Right-to-left</p>
+      <div class="bg-stripes-indigo rounded-lg font-mono text-white text-sm font-bold leading-6">
+        <div class="bg-indigo-500 rounded-lg shadow-lg p-4 ms-8">ms-8</div>
+      </div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="**ms-8** ...">ms-8</div>
+```
 
 ### Using logical properties
+
 <LogicalPropertyExample property="margin"/>
 
 ```html

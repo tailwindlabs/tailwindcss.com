@@ -9,6 +9,7 @@ import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQuer
 import { CustomizePluginColors } from '@/components/CustomizePluginColors'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 import { LogicalPropertyExample } from '@/components/LogicalProperties'
+import { UsingLogicalProperties } from '@/components/UsingLogicalProperties'
 
 export const classes = {
   utilities,
@@ -147,7 +148,29 @@ Use the `border-{x|y}-{color}` utilities to set the border color on two sides of
 <div class="border-4 border-indigo-200 **border-y-indigo-500** ..."></div>
 ```
 
+### <Heading ignore>Using logical properties</Heading>
+
+<UsingLogicalProperties feature="Border color" syntax="border-{s|e}-{color}" />
+
+<Example>
+  <div class="grid grid-cols-2 gap-x-4 place-items-center">
+    <div class="flex flex-col items-start gap-y-4" dir="ltr">
+      <p class="text-sm font-medium">Left-to-right</p>
+      <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 w-16 h-16 border-indigo-200 dark:border-indigo-600/20 border-4 border-s-indigo-500 dark:border-s-indigo-500"></div>
+    </div>
+    <div class="flex flex-col items-start gap-y-4" dir="rtl">
+      <p class="text-sm font-medium">Right-to-left</p>
+      <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 w-16 h-16 border-indigo-200 dark:border-indigo-600/20 border-4 border-s-indigo-500 dark:border-s-indigo-500"></div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="**border-s-indigo-500** ..."></div>
+```
+
 ### Using logical properties
+
 <LogicalPropertyExample property="borderColor"/>
 
 ```html

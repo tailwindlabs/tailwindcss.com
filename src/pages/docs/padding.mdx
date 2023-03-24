@@ -9,7 +9,7 @@ import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 import { LogicalPropertyExample } from '@/components/LogicalProperties'
-
+import { UsingLogicalProperties } from '@/components/UsingLogicalProperties'
 
 export const classes = {
   utilities,
@@ -116,9 +116,42 @@ Control the padding on all sides of an element using the `p-{size}` utilities.
 <div class="**p-8** ...">p-8</div>
 ```
 
-### Using logical properties
-<LogicalPropertyExample property="padding"/>
+### <Heading ignore>Using logical properties</Heading>
 
+<UsingLogicalProperties feature="Padding" syntax="p{s|e}-{size}">
+
+For example, in a horizontal writing mode `ps-8` would add `2rem` of padding to the left of an element if the text direction is set to `ltr`. If the direction is set to `rtl` then the padding would be added to the right.
+
+You can use the `ps-{size}` and `pe-{size}` utilities to control the logical inline `start` and `end` padding respectively.
+
+</UsingLogicalProperties>
+
+<Example>
+  <div class="grid grid-cols-2 gap-x-4 place-items-center">
+    <div class="flex flex-col items-start gap-y-4">
+      <p class="text-sm font-medium">Left-to-right</p>
+      <div class="bg-indigo-500 rounded-lg shadow-lg overflow-hidden flex font-mono text-white text-sm font-bold leading-6">
+        <div class="w-8 bg-stripes-white"></div>
+        <div class="p-4">ps-8</div>
+      </div>
+    </div>
+    <div class="flex flex-col items-end gap-y-4">
+      <p class="text-sm font-medium">Right-to-left</p>
+      <div class="bg-indigo-500 rounded-lg shadow-lg overflow-hidden flex font-mono text-white text-sm font-bold leading-6">
+        <div class="p-4">ps-8</div>
+        <div class="w-8 bg-stripes-white"></div>
+      </div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="**ps-8** ...">ps-8</div>
+```
+
+### Using logical properties
+
+<LogicalPropertyExample property="padding" />
 
 ```html
 <div class="grid grid-flow-col items-center">
