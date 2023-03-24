@@ -23,7 +23,7 @@ export function Frame({ className = '', children }) {
 
 export function EditorPane({ filename, scroll = false, children }) {
   return (
-    <div className="pt-2 bg-slate-800 shadow-lg">
+    <div className="pt-2 bg-slate-800 shadow-lg group">
       <TabBar primary={{ name: filename }} showTabMarkers={false} />
       <div
         className={clsx(
@@ -32,7 +32,7 @@ export function EditorPane({ filename, scroll = false, children }) {
             clsx(
               'overflow-y-auto max-h-96',
               'scrollbar:w-4 scrollbar:h-4 scrollbar:transparent',
-              'scrollbar-thumb:border-4 scrollbar-thumb:border-solid scrollbar-thumb:border-slate-800 scrollbar-thumb:bg-slate-700 hover:scrollbar-thumb:bg-slate-600 scrollbar-thumb:rounded-full',
+              'scrollbar-thumb:border-4 scrollbar-thumb:border-solid scrollbar-thumb:border-slate-800 scrollbar-thumb:bg-slate-500/50 group-hover:scrollbar-thumb:bg-slate-500/60 scrollbar-thumb:rounded-full',
               'scrollbar-track:rounded'
             )
         )}
