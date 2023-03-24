@@ -36,13 +36,9 @@ These utilities are composable so you can enable multiple `font-variant-numeric`
 
 Note that many fonts don't support these features *(stacked fractions support for example is especially rare)*, so some of these utilities may have no effect depending on the font family you are using.
 
--- block
-
 ### Ordinal
 
 Use the `ordinal` utility to enable special glyphs for the ordinal markers.
-
--- column
 
 <Example>
   <p class="font-source ordinal text-center text-slate-900 text-lg dark:text-slate-200">1st</p>
@@ -52,15 +48,9 @@ Use the `ordinal` utility to enable special glyphs for the ordinal markers.
 <p class="**ordinal** ...">1st</p>
 ```
 
--- /block
-
--- block
-
 ### Slashed Zero
 
 Use the `slashed-zero` utility to force a 0 with a slash; this is useful when a clear distinction between O and 0 is needed.
-
--- column
 
 <Example>
   <p class="font-source slashed-zero text-center text-slate-900 text-lg dark:text-slate-200">0</p>
@@ -70,15 +60,9 @@ Use the `slashed-zero` utility to force a 0 with a slash; this is useful when a 
 <p class="**slashed-zero** ...">0</p>
 ```
 
--- /block
-
--- block
-
 ### Lining figures
 
 Use the `lining-nums` utility to use the numeric glyphs that are all aligned by their baseline. This corresponds to the `lnum` OpenType feature. This is the default for most fonts.
-
--- column
 
 <Example>
   <p class="font-source lining-nums text-center text-slate-900 text-lg dark:text-slate-200">1234567890</p>
@@ -90,15 +74,9 @@ Use the `lining-nums` utility to use the numeric glyphs that are all aligned by 
 </p>
 ```
 
--- /block
-
--- block
-
 ### Oldstyle figures
 
 Use the `oldstyle-nums` utility to use numeric glyphs where some numbers have descenders. This corresponds to the `onum` OpenType feature.
-
--- column
 
 <Example>
   <p class="font-source oldstyle-nums text-center text-slate-900 text-lg dark:text-slate-200">1234567890</p>
@@ -110,15 +88,9 @@ Use the `oldstyle-nums` utility to use numeric glyphs where some numbers have de
 </p>
 ```
 
--- /block
-
--- block
-
 ### Proportional figures
 
 Use the `proportional-nums` utility to use numeric glyphs that have proportional widths (rather than uniform/tabular). This corresponds to the `pnum` OpenType feature.
-
--- column
 
 <Example>
   <div class="max-w-sm text-right">
@@ -136,15 +108,9 @@ Use the `proportional-nums` utility to use numeric glyphs that have proportional
 </p>
 ```
 
--- /block
-
--- block
-
 ### Tabular figures
 
 Use the `tabular-nums` utility to use numeric glyphs that have uniform/tabular widths (rather than proportional). This corresponds to the `tnum` OpenType feature.
-
--- column
 
 <Example>
   <div class="max-w-sm text-right">
@@ -162,15 +128,9 @@ Use the `tabular-nums` utility to use numeric glyphs that have uniform/tabular w
 </p>
 ```
 
--- /block
-
--- block
-
 ### Diagonal fractions
 
 Use the `diagonal-fractions` utility to replace numbers separated by a slash with common diagonal fractions. This corresponds to the `frac` OpenType feature.
-
--- column
 
 <Example>
   <p class="font-source diagonal-fractions text-center text-slate-900 text-lg dark:text-slate-200">1/2 3/4 5/6</p>
@@ -182,15 +142,9 @@ Use the `diagonal-fractions` utility to replace numbers separated by a slash wit
 </p>
 ```
 
--- /block
-
--- block
-
 ### Stacked fractions
 
 Use the `stacked-fractions` utility to replace numbers separated by a slash with common stacked fractions. This corresponds to the `afrc` OpenType feature. Very few fonts seem to support this feature — we've used Ubuntu Mono here.
-
--- column
 
 <Example>
   <p class="font-ubuntu-mono stacked-fractions text-center text-slate-900 text-lg dark:text-slate-200">1/2 3/4 5/6</p>
@@ -201,8 +155,6 @@ Use the `stacked-fractions` utility to replace numbers separated by a slash with
   1/2 3/4 5/6
 </p>
 ```
-
--- /block
 
 ### Resetting numeric font variants
 
