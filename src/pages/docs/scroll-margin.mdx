@@ -8,7 +8,7 @@ import { numbersFirst } from '@/utils/sortClasses'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
-import { LogicalPropertyExample } from '@/components/LogicalProperties'
+import { UsingLogicalProperties } from '@/components/UsingLogicalProperties'
 
 export const classes = {
   utilities,
@@ -76,8 +76,74 @@ To use a negative scroll margin value, prefix the class name with a dash to conv
 </div>
 ```
 
-<LogicalPropertyExample property="scrollMargin"/>
+### <Heading ignore>Using logical properties</Heading>
 
+<UsingLogicalProperties feature="Scroll margin" syntax="scroll-m{s|e}-{size}" />
+
+<Example p="none" hint="Scroll in the grid of images to see the expected behaviour">
+  <p class="mb-4 pt-8 pl-6 text-sm font-medium">Left-to-right</p>
+  <div class="w-full flex gap-12 snap-x overflow-x-auto pb-10" dir="ltr">
+    <div class="snap-start scroll-ms-6 shrink-0 relative first:ps-6 last:pr-[calc(100%-21.5rem)]">
+      <div class="bg-stripes-pink w-6 absolute top-0 start-0 bottom-0"></div>
+      <img class="relative shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+    </div>
+    <div class="snap-start scroll-ms-6 shrink-0 relative first:ps-6 last:pr-[calc(100%-21.5rem)]">
+      <div class="bg-stripes-pink w-6 absolute top-0 -start-6 bottom-0"></div>
+      <img class="relative shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+    </div>
+    <div class="snap-start scroll-ms-6 shrink-0 relative first:ps-6 last:pr-[calc(100%-21.5rem)]">
+      <div class="bg-stripes-pink w-6 absolute top-0 -start-6 bottom-0"></div>
+      <img class="relative shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+    </div>
+    <div class="snap-start scroll-ms-6 shrink-0 relative first:ps-6 last:pr-[calc(100%-21.5rem)]">
+      <div class="bg-stripes-pink w-6 absolute top-0 -start-6 bottom-0"></div>
+      <img class="relative shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+    </div>
+    <div class="snap-start scroll-ms-6 shrink-0 relative first:ps-6 last:pr-[calc(100%-21.5rem)]">
+      <div class="bg-stripes-pink w-6 absolute top-0 -start-6 bottom-0"></div>
+      <img class="relative shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+    </div>
+  </div>
+  <p class="mb-4 mt-4 pl-6 text-sm font-medium">Right-to-left</p>
+  <div class="w-full flex gap-12 snap-x overflow-x-auto pb-10" dir="rtl">
+    <div class="snap-start scroll-ms-6 shrink-0 relative first:ps-6 last:pr-[calc(100%-21.5rem)]">
+      <div class="bg-stripes-pink w-6 absolute top-0 start-0 bottom-0"></div>
+      <img class="relative shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+    </div>
+    <div class="snap-start scroll-ms-6 shrink-0 relative first:ps-6 last:pr-[calc(100%-21.5rem)]">
+      <div class="bg-stripes-pink w-6 absolute top-0 -start-6 bottom-0"></div>
+      <img class="relative shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+    </div>
+    <div class="snap-start scroll-ms-6 shrink-0 relative first:ps-6 last:pr-[calc(100%-21.5rem)]">
+      <div class="bg-stripes-pink w-6 absolute top-0 -start-6 bottom-0"></div>
+      <img class="relative shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+    </div>
+    <div class="snap-start scroll-ms-6 shrink-0 relative first:ps-6 last:pr-[calc(100%-21.5rem)]">
+      <div class="bg-stripes-pink w-6 absolute top-0 -start-6 bottom-0"></div>
+      <img class="relative shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+    </div>
+    <div class="snap-start scroll-ms-6 shrink-0 relative first:ps-6 last:pr-[calc(100%-21.5rem)]">
+      <div class="bg-stripes-pink w-6 absolute top-0 -start-6 bottom-0"></div>
+      <img class="relative shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="snap-x ...">
+  <div class="**scroll-ms-6** snap-start ...">
+    <img src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+  </div>
+  <!-- ... -->
+</div>
+```
+
+Here are all the available scroll margin logical property utilities and their physical property equivalents in both LTR and RTL modes.
+
+| Class | Left-to-right | Right-to-left |
+| --- | --- | --- |
+| `scroll-ms-*` | `scroll-ml-*` | `scroll-mr-*` |
+| `scroll-me-*` | `scroll-mr-*` | `scroll-ml-*` |
 
 ```html
 <div class="bg-white snap-x overflow-x-auto grid grid-flow-col gap-12 py-4 ps-6" dark-class="bg-slate-900 snap-x overflow-x-auto grid grid-flow-col gap-12 py-4 ps-6">
