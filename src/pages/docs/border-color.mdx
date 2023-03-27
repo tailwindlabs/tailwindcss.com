@@ -8,7 +8,6 @@ import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { CustomizePluginColors } from '@/components/CustomizePluginColors'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
-import { UsingLogicalProperties } from '@/components/UsingLogicalProperties'
 
 export const classes = {
   utilities,
@@ -147,9 +146,11 @@ Use the `border-{x|y}-{color}` utilities to set the border color on two sides of
 <div class="border-4 border-indigo-200 **border-y-indigo-500** ..."></div>
 ```
 
-### <Heading ignore>Using logical properties</Heading>
+### Using logical properties
 
 <UsingLogicalProperties feature="Border color" syntax="border-{s|e}-{color}" />
+
+Use the `border-s-*` and `border-e-*` utilities to set the `border-inline-start-color` and `border-inline-end-color` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right border based on the text direction.
 
 <Example>
   <div class="grid grid-cols-2 gap-x-4 place-items-center">
@@ -165,15 +166,16 @@ Use the `border-{x|y}-{color}` utilities to set the border color on two sides of
 </Example>
 
 ```html
-<div class="**border-s-indigo-500** ..."></div>
+<div dir="**ltr**">
+  <div class="**border-s-indigo-500** ..."></div>
+<div>
+
+<div dir="**rtl**">
+  <div class="**border-s-indigo-500** ..."></div>
+<div>
 ```
 
-Here are all the available border color logical property utilities and their physical property equivalents in both LTR and RTL modes.
-
-| Class | Left-to-right | Right-to-left |
-| --- | --- | --- |
-| `border-s-*` | `border-l-*` | `border-r-*` |
-| `border-e-*` | `border-r-*` | `border-l-*` |
+For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus-and-other-states#rtl-support) to conditionally apply specific styles depending on the current text direction.
 
 ---
 

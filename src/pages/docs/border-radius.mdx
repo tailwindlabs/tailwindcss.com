@@ -7,7 +7,6 @@ import utilities from 'utilities?plugin=borderRadius'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
-import { UsingLogicalProperties } from '@/components/UsingLogicalProperties'
 
 export const classes = { utilities }
 
@@ -147,7 +146,7 @@ Use `rounded-{tl|tr|br|bl}{-size?}` to only round one corner an element.
 
 ### <Heading ignore>Using logical properties</Heading>
 
-<UsingLogicalProperties feature="Border radius" syntax="rounded-{s|e|ss|se|es|ee}{-size?}" />
+Use the `rounded-{s|e|ss|se|es|ee}{-size?}` utilities to set the border radius using [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to the appropriate corners based on the text direction.
 
 <Example>
   <div class="grid grid-cols-2 gap-x-4 place-items-center">
@@ -163,7 +162,13 @@ Use `rounded-{tl|tr|br|bl}{-size?}` to only round one corner an element.
 </Example>
 
 ```html
-<div class="**rounded-s-lg** ..."></div>
+<div dir="**ltr**">
+  <div class="**rounded-s-lg** ..."></div>
+<div>
+
+<div dir="**rtl**">
+  <div class="**rounded-s-lg** ..."></div>
+<div>
 ```
 
 Here are all the available border color logical property utilities and their physical property equivalents in both LTR and RTL modes.
@@ -176,6 +181,8 @@ Here are all the available border color logical property utilities and their phy
 | `rounded-se-*` | `rounded-tr-*` | `rounded-tl-*` |
 | `rounded-es-*` | `rounded-bl-*` | `rounded-br-*` |
 | `rounded-ee-*` | `rounded-br-*` | `rounded-bl-*` |
+
+For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus-and-other-states#rtl-support) to conditionally apply specific styles depending on the current text direction.
 
 ---
 

@@ -8,7 +8,6 @@ import { numbersFirst } from '@/utils/sortClasses'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
-import { UsingLogicalProperties } from '@/components/UsingLogicalProperties'
 
 export const classes = {
   utilities,
@@ -62,9 +61,9 @@ Use the `scroll-p{side}-{size}` utilities to set the scroll offset of an element
 </div>
 ```
 
-### <Heading ignore>Using logical properties</Heading>
+### Using logical properties
 
-<UsingLogicalProperties feature="Scroll padding" syntax="scroll-p{s|e}-{size}" />
+Use the `scroll-ps-*` and `scroll-pe-*` utilities to set the `scroll-padding-inline-start` and `scroll-padding-inline-end` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right side based on the text direction.
 
 <Example p="none" hint="Scroll in the grid of images to see the expected behaviour">
   <p class="mb-4 pt-8 pl-6 text-sm font-medium">Left-to-right</p>
@@ -112,17 +111,20 @@ Use the `scroll-p{side}-{size}` utilities to set the scroll offset of an element
 </Example>
 
 ```html
-<div class="**scroll-ps-6** snap-x ...">
-  <!-- ... -->
+<div dir="**ltr**">
+  <div class="**scroll-ps-6** snap-x ...">
+    <!-- ... -->
+  </div>
+</div>
+
+<div dir="**rtl**">
+  <div class="**scroll-ps-6** snap-x ...">
+    <!-- ... -->
+  </div>
 </div>
 ```
 
-Here are all the available scroll padding logical property utilities and their physical property equivalents in both LTR and RTL modes.
-
-| Class | Left-to-right | Right-to-left |
-| --- | --- | --- |
-| `scroll-ps-*` | `scroll-pl-*` | `scroll-pr-*` |
-| `scroll-pe-*` | `scroll-pr-*` | `scroll-pl-*` |
+For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus-and-other-states#rtl-support) to conditionally apply specific styles depending on the current text direction.
 
 ---
 

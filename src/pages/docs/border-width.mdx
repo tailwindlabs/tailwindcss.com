@@ -7,7 +7,6 @@ import utilities from 'utilities?plugin=borderWidth'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
-import { UsingLogicalProperties } from '@/components/UsingLogicalProperties'
 
 export const classes = { utilities }
 
@@ -121,9 +120,9 @@ You can also add borders between child elements using the `divide-{x/y}-{width}`
 
 Learn more in the [Divide Width](/docs/divide-width) and [Divide Color](/docs/divide-color) documentation.
 
-### <Heading ignore>Using logical properties</Heading>
+### Using logical properties
 
-<UsingLogicalProperties feature="Border width" syntax="border-{s|e}{-width?}" />
+Use the `border-s-*` and `border-e-*` utilities to set the `border-inline-start-width` and `border-inline-end-width` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right border based on the text direction.
 
 <Example>
   <div class="grid grid-cols-2 gap-x-4 place-items-center">
@@ -139,15 +138,16 @@ Learn more in the [Divide Width](/docs/divide-width) and [Divide Color](/docs/di
 </Example>
 
 ```html
-<div class="**border-s-4** ..."></div>
+<div dir="**ltr**">
+  <div class="**border-s-4** ..."></div>
+<div>
+
+<div dir="**rtl**">
+  <div class="**border-s-4** ..."></div>
+<div>
 ```
 
-Here are all the available border width logical property utilities and their physical property equivalents in both LTR and RTL modes.
-
-| Class | Left-to-right | Right-to-left |
-| --- | --- | --- |
-| `border-s-*` | `border-l-*` | `border-r-*` |
-| `border-e-*` | `border-r-*` | `border-l-*` |
+For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus-and-other-states#rtl-support) to conditionally apply specific styles depending on the current text direction.
 
 ---
 

@@ -8,7 +8,6 @@ import { numbersFirst } from '@/utils/sortClasses'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
-import { UsingLogicalProperties } from '@/components/UsingLogicalProperties'
 
 export const classes = {
   utilities,
@@ -76,9 +75,9 @@ To use a negative scroll margin value, prefix the class name with a dash to conv
 </div>
 ```
 
-### <Heading ignore>Using logical properties</Heading>
+### Using logical properties
 
-<UsingLogicalProperties feature="Scroll margin" syntax="scroll-m{s|e}-{size}" />
+Use the `scroll-ms-*` and `scroll-me-*` utilities to set the `scroll-margin-inline-start` and `scroll-margin-inline-end` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right side based on the text direction.
 
 <Example p="none" hint="Scroll in the grid of images to see the expected behaviour">
   <p class="mb-4 pt-8 pl-6 text-sm font-medium">Left-to-right</p>
@@ -130,20 +129,26 @@ To use a negative scroll margin value, prefix the class name with a dash to conv
 </Example>
 
 ```html
-<div class="snap-x ...">
-  <div class="**scroll-ms-6** snap-start ...">
-    <img src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+<div dir="**ltr**">
+  <div class="snap-x ...">
+    <div class="**scroll-ms-6** snap-start ...">
+      <img src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+    </div>
+    <!-- ... -->
   </div>
-  <!-- ... -->
+</div>
+
+<div dir="**rtl**">
+  <div class="snap-x ...">
+    <div class="**scroll-ms-6** snap-start ...">
+      <img src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+    </div>
+    <!-- ... -->
+  </div>
 </div>
 ```
 
-Here are all the available scroll margin logical property utilities and their physical property equivalents in both LTR and RTL modes.
-
-| Class | Left-to-right | Right-to-left |
-| --- | --- | --- |
-| `scroll-ms-*` | `scroll-ml-*` | `scroll-mr-*` |
-| `scroll-me-*` | `scroll-mr-*` | `scroll-ml-*` |
+For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus-and-other-states#rtl-support) to conditionally apply specific styles depending on the current text direction.
 
 ---
 
