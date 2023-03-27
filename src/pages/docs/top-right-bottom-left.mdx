@@ -8,7 +8,6 @@ import { numbersFirst } from '@/utils/sortClasses'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
-import { LogicalPropertyExample } from '@/components/LogicalProperties'
 import { UsingLogicalProperties } from '@/components/UsingLogicalProperties'
 
 export const classes = {
@@ -152,20 +151,6 @@ To use a negative top/right/bottom/left value, prefix the class name with a dash
 </div>
 <div class="relative h-32 w-32 ...">
   <div class="absolute h-14 w-14 bottom-0 **end-0** ..."></div>
-</div>
-```
-
-### Using logical properties
-
-<LogicalPropertyExample property="position"/>
-
-```html
-<label class="text-slate-90" dark-class="text-slate-100">...</label>
-<div class="relative rounded-md shadow-sm">
-  <div class="absolute **end-0** pointer-events-none inset-y-0 text-slate-400" dark-class="absolute **end-0** pointer-events-none inset-y-0 text-slate-300" >
-    <svg class="w-5 h-5 fill-current">...</svg>
-  </div>
-  <input class="bg-white rounded-md text-slate-900 ring-1 ring-inset ring-slate-300 placeholder:text-slate-400" dark-class="bg-slate-800 text-slate-100 rounded-md ring-1 ring-inset ring-slate-700 placeholder:text-slate-400"/>
 </div>
 ```
 

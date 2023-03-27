@@ -8,7 +8,6 @@ import { numbersFirst } from '@/utils/sortClasses'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
-import { LogicalPropertyExample } from '@/components/LogicalProperties'
 import { UsingLogicalProperties } from '@/components/UsingLogicalProperties'
 
 export const classes = {
@@ -147,20 +146,6 @@ You can use the `ps-{size}` and `pe-{size}` utilities to control the logical inl
 
 ```html
 <div class="**ps-8** ...">ps-8</div>
-```
-
-### Using logical properties
-
-<LogicalPropertyExample property="padding" />
-
-```html
-<div class="grid grid-flow-col items-center">
-  <img class="h-12 w-12 rounded-full" src="..." alt="" />
-  <div class="**ps-3**">
-    <p class="text-slate-700" dark-class="text-slate-300">...</p>
-    <p class="text-slate-500" dark-class="text-slate-500">...</p>
-  </div>
-</div>
 ```
 
 ---

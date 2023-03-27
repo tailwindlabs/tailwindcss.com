@@ -8,7 +8,6 @@ import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { CustomizePluginColors } from '@/components/CustomizePluginColors'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
-import { LogicalPropertyExample } from '@/components/LogicalProperties'
 import { UsingLogicalProperties } from '@/components/UsingLogicalProperties'
 
 export const classes = {
@@ -175,23 +174,6 @@ Here are all the available border color logical property utilities and their phy
 | --- | --- | --- |
 | `border-s-*` | `border-l-*` | `border-r-*`
 | `border-e-*` | `border-r-*` | `border-l-*`
-
-### Using logical properties
-
-<LogicalPropertyExample property="borderColor"/>
-
-```html
-<div class="grid border border-s-2 **border-s-indigo-400** border-slate-200 bg-white" dark-class="grid border border-s-2 **border-s-indigo-500** border-slate-700 ">
-  <p>...</p>
-  <div class="grid grid-flow-col">
-    <img class="h-9 w-9 rounded-full" src="..."/>
-    <div>
-      <p>...</p>
-      <p>...</p>
-    </div>
-  </div>
-</div>
-```
 
 ---
 
