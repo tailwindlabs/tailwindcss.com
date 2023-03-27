@@ -149,6 +149,21 @@ Use the `border-s-*` and `border-e-*` utilities to set the `border-inline-start-
 
 For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus-and-other-states#rtl-support) to conditionally apply specific styles depending on the current text direction.
 
+### Using without Preflight
+
+If you've [disabled Preflight](/docs/preflight#disabling-preflight) in your project, you'll need to include a [border style](/docs/border-style) utility any time you use one of the `border-width` utilities for the border to actually take effect:
+
+```diff-html
+- <div class="**border-4** border-indigo-500 ...">
++ <div class="**border-4 border-solid** border-indigo-500 ...">
+    <!-- ... -->
+  </div>
+```
+
+This is because browsers set the `border-style` of most elements to `none` by default, so adding a `border-width` on its own isn't enough to render a border.
+
+Preflight applies a global [border reset](/docs/preflight#border-styles-are-reset-globally) that sets `border-style` to `solid` and `border-width` to `0`, which is what makes it possible to add a border to an element using just a `border-width` utility in projects using Preflight.
+
 ---
 
 ## <Heading ignore>Applying conditionally</Heading>

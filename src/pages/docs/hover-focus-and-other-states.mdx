@@ -64,7 +64,7 @@ Tailwind includes modifiers for just about everything you'll ever need, includin
 
 - [Pseudo-classes](#pseudo-classes), like `:hover`, `:focus`, `:first-child`, and `:required`
 - [Pseudo-elements](#pseudo-elements), like `::before`, `::after`, `::placeholder`, and `::selection`
-- [Media queries](#media-queries), like responsive breakpoints, dark mode, and `prefers-reduced-motion`
+- [Media and feature queries](#media-and-feature-queries), like responsive breakpoints, dark mode, and `prefers-reduced-motion`
 - [Attribute selectors](#attribute-selectors), like `[dir="rtl"]` and `[open]`
 
 These modifiers can even be [stacked](#ordering-stacked-modifiers) to target more specific situations, for example changing the background color in dark mode, at the medium breakpoint, on hover:
@@ -304,7 +304,7 @@ Style form elements in different states using modifiers like `required`, `invali
 <form>
   <label class="block">
     <span class="block text-sm font-medium text-slate-700">Username</span>
-    <!-- Using form state modifers, the classes can be identical for every input -->
+    <!-- Using form state modifiers, the classes can be identical for every input -->
     <input type="text" value="tbone" disabled class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
       focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
       **disabled:bg-slate-50** **disabled:text-slate-500** **disabled:border-slate-200** **disabled:shadow-none**
@@ -1688,7 +1688,7 @@ Style an element when the user hovers over it with the mouse cursor using the `h
 
 #### focus <small>(:focus)</small>
 
-Style an element when it has focus the `focus` modifier:
+Style an element when it has focus using the `focus` modifier:
 
 ```html
 <input class="border-gray-300 **focus:border-blue-400** ..." />

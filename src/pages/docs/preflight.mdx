@@ -70,7 +70,7 @@ h6 {
 
 The reason for this is two-fold:
 
-- **It helps you avoid accidentally deviating from your type scale**. By default, the browsers assigns sizes to headings that don't exist in Tailwind's default type scale, and aren't guaranteed to exist in your own type scale.
+- **It helps you avoid accidentally deviating from your type scale**. By default, browsers assign sizes to headings that don't exist in Tailwind's default type scale, and aren't guaranteed to exist in your own type scale.
 - **In UI development, headings should often be visually de-emphasized**. Making headings unstyled by default means any styling you apply to headings happens consciously and deliberately.
 
 You can always add default header styles to your project by [adding your own base styles](/docs/adding-base-styles).
@@ -196,24 +196,9 @@ When you run into situations like this, you can work around them by overriding t
 
 ---
 
-## Buttons have a default outline
-
-To ensure that we provide accessible styles out of the box, we made sure
-that buttons have a default outline. You can of course override this by
-applying `focus:ring` or similar utilities to your buttons.
-
-```css
-button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-}
-```
-
----
-
 ## Extending Preflight
 
-If you'd like to add your own base styles on top of Preflight, simply add them to your CSS within a `@layer base` directive:
+If you'd like to add your own base styles on top of Preflight, simply add them to your CSS using the `@layer base` directive:
 
 ```css
 @tailwind base;

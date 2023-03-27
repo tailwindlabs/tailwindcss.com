@@ -62,7 +62,7 @@ function Header() {
             <NavPopover className="-my-1 ml-2 -mr-1" display="md:hidden" />
             <div className="hidden md:flex items-center">
               <nav>
-                <ul className="flex items-center space-x-8">
+                <ul className="flex items-center gap-x-8">
                   <NavItems />
                 </ul>
               </nav>
@@ -163,9 +163,9 @@ export default function Home() {
         />
         <title>Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.</title>
       </Head>
-      <div className="mb-20 space-y-20 overflow-hidden sm:mb-32 sm:space-y-32 md:mb-40 md:space-y-40">
+      <div className="mb-20 overflow-hidden sm:mb-32 md:mb-40">
         <Header />
-        <section className="text-center px-8">
+        <section className="text-center px-8 mt-20 sm:mt-32 md:mt-40">
           <h2 className="text-slate-900 text-4xl tracking-tight font-extrabold sm:text-5xl dark:text-white">
             “Best practices” don’t actually work.
           </h2>
@@ -202,7 +202,7 @@ export default function Home() {
         </section>
       </div>
       <Testimonials />
-      <div className="pt-20 mb-20 space-y-20 overflow-hidden sm:pt-32 sm:mb-32 sm:space-y-32 md:pt-40 md:mb-40 md:space-y-40">
+      <div className="pt-20 mb-20 flex flex-col gap-y-20 overflow-hidden sm:pt-32 sm:mb-32 sm:gap-y-32 md:pt-40 md:mb-40 md:gap-y-40">
         <ConstraintBased />
         <BuildAnything />
         <Performance />

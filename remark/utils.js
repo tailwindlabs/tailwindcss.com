@@ -131,7 +131,7 @@ function hasLineHighlights(code) {
   if (!/^>/m.test(code)) {
     return false
   }
-  return code.split('\n').every((line) => line === '' || /^[> ] /.test(line))
+  return code.split('\n').every((line) => line === '' || line === '>' || /^[> ] /.test(line))
 }
 
 module.exports.highlightCode = function highlightCode(code, prismLanguage) {

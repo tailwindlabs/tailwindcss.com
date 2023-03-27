@@ -77,11 +77,11 @@ Use the `@layer` directive to tell Tailwind which "bucket" a set of custom style
 }
 ```
 
-Tailwind will automatically move any CSS within a `@layer` directive to the same place as the corresponding `@tailwind` rule, so you don't have to worry about authoring your CSS in a specific order to avoid specificity issues.
+Tailwind will automatically move the CSS within any `@layer` directive to the same place as the corresponding `@tailwind` rule, so you don't have to worry about authoring your CSS in a specific order to avoid specificity issues.
 
 Any custom CSS added to a layer will only be included in the final build if that CSS is actually used in your HTML, just like all of the classes built in to Tailwind by default.
 
-Wrapping any custom CSS in a `@layer` directive also makes it possible to use modifiers with those rules, like `hover:` and `focus:` or responsive modifiers like `md:` and `lg:`.
+Wrapping any custom CSS with `@layer` also makes it possible to use modifiers with those rules, like `hover:` and `focus:` or responsive modifiers like `md:` and `lg:`.
 
 ### @apply
 
@@ -240,6 +240,32 @@ Use the `@config` directive to specify which config file Tailwind should use whe
 </SnippetGroup>
 
 The path you provide to the `@config` directive is relative to that CSS file, and will take precedence over a path defined in your PostCSS configuration or in the Tailwind CLI.
+
+Note that if you're using `postcss-import`, your `@import` statements need to come before `@config` for things to work correctly, as `postcss-import` is strict about following the CSS spec which requires `@import` statements to precede any other rules in the file.
+
+<TipBad>Don't put <code>@config</code> before your <code>@import</code> statements</TipBad>
+
+```css admin.css
+@config "./tailwind.admin.config.js";
+
+@import "tailwindcss/base";
+@import "./custom-base.css";
+@import "tailwindcss/components";
+@import "./custom-components.css";
+@import "tailwindcss/utilities";
+```
+
+<TipGood>Put your <code>@import</code> statements before the <code>@config</code> directive</TipGood>
+
+```css admin.css
+@import "tailwindcss/base";
+@import "./custom-base.css";
+@import "tailwindcss/components";
+@import "./custom-components.css";
+@import "tailwindcss/utilities";
+
+@config "./tailwind.admin.config.js";
+```
 
 ---
 

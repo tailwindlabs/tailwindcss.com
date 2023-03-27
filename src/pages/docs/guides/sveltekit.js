@@ -18,48 +18,44 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm init svelte@next my-app\ncd my-app',
+      code: 'npm init svelte@latest my-app\ncd my-app',
     },
   },
   {
     title: 'Install Tailwind CSS',
     body: () => (
       <p>
-        Using npm, install <code>tailwindcss</code> and its peer dependencies, as well as{' '}
-        <code>svelte-preprocess</code>, and then run the following commands to generate both{' '}
-        <code>tailwind.config.cjs</code> and <code>postcss.config.cjs</code>.
+        Using npm, install <code>tailwindcss</code> and its peer dependencies, and then run the
+        following commands to generate both <code>tailwind.config.cjs</code>
+        and <code>postcss.config.cjs</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer svelte-preprocess\nnpx tailwindcss init tailwind.config.cjs -p',
+      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init tailwind.config.cjs -p',
     },
   },
   {
     title: 'Enable use of PostCSS in <style> blocks',
     body: () => (
       <p>
-        In your <code>svelte.config.js</code> file, import <code>svelte-preprocess</code> and
-        configure it to process <code>&lt;style&gt;</code> blocks as PostCSS.
+        In your <code>svelte.config.js</code> file, import <code>vitePreprocess</code> to enable
+        processing <code>&lt;style&gt;</code> blocks as PostCSS.
       </p>
     ),
     code: {
       name: 'svelte.config.js',
       lang: 'js',
       code: `  import adapter from '@sveltejs/adapter-auto';
-> import preprocess from "svelte-preprocess";
+> import { vitePreprocess } from '@sveltejs/kit/vite';
 
   /** @type {import('@sveltejs/kit').Config} */
   const config = {
     kit: {
       adapter: adapter()
     },
->   preprocess: [
->     preprocess({
->       postcss: true,
->     }),
->   ],
+>   preprocess: vitePreprocess()
   };
 
   export default config;`,
@@ -134,13 +130,25 @@ let steps = [
   },
   {
     title: 'Start using Tailwind in your project',
-    body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
+    body: () => (
+      <p>
+        Start using Tailwind’s utility classes to style your content, making sure to set{' '}
+        <code>lang="postcss"</code> for any <code>&lt;style&gt;</code> blocks that need to be
+        processed by Tailwind.
+      </p>
+    ),
     code: {
       name: '+page.svelte',
       lang: 'html',
-      code: `<h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>`,
+      code: `> <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
+
+> <style lang="postcss">
+    :global(html) {
+      background-color: theme(colors.gray.100);
+    }
+  </style>`,
     },
   },
 ]

@@ -29,38 +29,15 @@ let tabs = [
         body: () => (
           <>
             <p>
-              Using npm, install <code>tailwindcss</code> and its peer dependencies, as well as{' '}
-              <code>@nuxt/postcss8</code>, and then run the init command to generate the{' '}
-              <code>tailwind.config.js</code> file.
-            </p>
-            <p className="mt-3 text-xs italic">
-              Using <code>@latest</code> is required because Nuxt installs PostCSS v7 and
-              Autoprefixer v9 by default.
+              Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the
+              init command to generate a <code>tailwind.config.js</code> file.
             </p>
           </>
         ),
         code: {
           name: 'Terminal',
           lang: 'terminal',
-          code: 'npm install -D tailwindcss postcss@latest autoprefixer@latest @nuxt/postcss8\nnpx tailwindcss init',
-        },
-      },
-      {
-        title: 'Enable the Nuxt.js PostCSS plugin',
-        body: () => (
-          <p>
-            In your <code>nuxt.config.js</code> file, enable the <code>@nuxt/postcss8</code> plugin.
-          </p>
-        ),
-        code: {
-          name: 'nuxt.config.js',
-          lang: 'js',
-          code: `  export default {
-    buildModules: [
->     '@nuxt/postcss8',
-      // ...
-    ],
-  }`,
+          code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init',
         },
       },
       {
@@ -77,9 +54,11 @@ let tabs = [
           code: `  export default {
     build: {
 >     postcss: {
->       plugins: {
->         tailwindcss: {},
->         autoprefixer: {},
+>       postcssOptions: {
+>         plugins: {
+>           tailwindcss: {},
+>           autoprefixer: {},
+>         },
 >       },
 >     },
     }
@@ -183,7 +162,7 @@ let tabs = [
           <p>
             Start by creating a new Nuxt.js project if you don’t have one set up already. The most
             common approach is to use the{' '}
-            <a href="https://v3.nuxtjs.org/getting-started/installation">
+            <a href="https://nuxt.com/docs/getting-started/installation">
               Nuxt Command Line Interface
             </a>
             .
@@ -220,7 +199,7 @@ let tabs = [
         code: {
           name: 'nuxt.config.js',
           lang: 'js',
-          code: `  // https://v3.nuxtjs.org/api/configuration/nuxt.config
+          code: `  // https://nuxt.com/docs/api/configuration/nuxt-config
   export default defineNuxtConfig({
 >   postcss: {
 >     plugins: {
@@ -284,7 +263,7 @@ let tabs = [
         code: {
           name: 'nuxt.config.js',
           lang: 'js',
-          code: `  // https://v3.nuxtjs.org/api/configuration/nuxt.config
+          code: `  // https://nuxt.com/docs/api/configuration/nuxt-config
   export default defineNuxtConfig({
 >   css: ['~/assets/css/main.css'],
     postcss: {

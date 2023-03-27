@@ -1,27 +1,19 @@
 # Tailwind CSS Documentation
 
-Tailwind CSS uses [Next.js](https://nextjs.org/) for its documentation. Here is how you can run the project locally:
+Tailwind CSS uses [Next.js](https://nextjs.org/) for its documentation.
 
-1. Clone this repo
+To run the project locally, first install the dependencies:
 
-    ```sh
-    git clone https://github.com/tailwindlabs/tailwindcss.com.git
-    ```
+```bash
+npm install
+```
 
-2. Go into the project root directory
+Next, run the development server:
 
-    ```sh
-    cd tailwindcss.com
-    ```
+```bash
+npm run dev
+```
 
-3. Install JS dependencies
+## License
 
-    ```sh
-    yarn
-    ```
-
-4. Start the dev server
-
-    ```sh
-    yarn dev
-    ```
+This project is not licensed under an open-source license and is the intellectual property of Tailwind Labs Inc. The source is available only as an educational resource and to accept fixes for minor mistakes.
