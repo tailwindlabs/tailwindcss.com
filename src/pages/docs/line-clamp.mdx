@@ -1,6 +1,6 @@
 ---
 title: "Line Clamp"
-description: "Utilities for controlling text line clamping."
+description: "Utilities for clamping text to a specific number of lines."
 ---
 
 import utilities from 'utilities?plugin=lineClamp'
@@ -12,9 +12,9 @@ export const classes = { utilities }
 
 ## Basic usage
 
-### Limiting content lines
+### Truncating multi-line text
 
-Use the `line-clamp-*` utilities to specify how many lines of text should be visible before truncating.
+Use the `line-clamp-*` utilities to truncate a block of text after a specific number of lines.
 
 <Example p="none">
   <div class="px-4 sm:px-0">
@@ -42,17 +42,15 @@ Use the `line-clamp-*` utilities to specify how many lines of text should be vis
 </article>
 ```
 
-### Removing line clamping
+### Undoing line clamping
 
-Use `line-clamp-none` to disable line clamping and restore the default text rendering.
+Use `line-clamp-none` to undo a previously applied line clamp utility.
 
 ```html
 <p class="line-clamp-3 **lg:line-clamp-none**">
   <!-- ... -->
 </p>
 ```
-
-The `line-clamp-none` utility only resets the `-webkit-line-clamp` property and does not remove the `overflow: hidden` and `display: -webkit-box` values. These properties need to be manually reset.
 
 ---
 
