@@ -16,7 +16,7 @@ export function ColorPaletteReference({ colors }) {
           typeof value === 'string'
             ? [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map((variant) => ({
                 name: variant,
-                value: dlv(colorPalette, [value, variant === 950 ? 900 : variant]),
+                value: dlv(colorPalette, [value, variant]),
               }))
             : Object.keys(value).map((name) => ({ name, value: value[name] }))
 
