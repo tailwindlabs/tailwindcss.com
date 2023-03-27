@@ -4,7 +4,6 @@ description: "Utilities for controlling the alignment of a caption element insid
 ---
 
 import utilities from 'utilities?plugin=captionSide'
-import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
@@ -13,6 +12,7 @@ export const classes = { utilities }
 ## Basic usage
 
 ### Top
+
 Use `caption-top` to position a caption element at the top of a table.
 
 <Example p="none">
@@ -50,7 +50,7 @@ Use `caption-top` to position a caption element at the top of a table.
   <caption class="**caption-top**">
     Table 3.1: Professional wrestlers and their signature moves.
   </caption>
-  <thead >
+  <thead>
     <tr>
       <th>Wrestler</th>
       <th>Signature Move(s)</th>
@@ -74,6 +74,7 @@ Use `caption-top` to position a caption element at the top of a table.
 ```
 
 ### Bottom
+
 Use `caption-bottom` to position a caption element at the bottom of a table.
 
 <Example p="none">
@@ -111,7 +112,7 @@ Use `caption-bottom` to position a caption element at the bottom of a table.
   <caption class="**caption-bottom**">
     Table 3.1: Professional wrestlers and their signature moves.
   </caption>
-  <thead >
+  <thead>
     <tr>
       <th>Wrestler</th>
       <th>Signature Move(s)</th>
@@ -145,5 +146,3 @@ Use `caption-bottom` to position a caption element at the bottom of a table.
 ### <Heading ignore>Breakpoints and media queries</Heading>
 
 <BreakpointsAndMediaQueries defaultClass="caption-top" featuredClass="caption-bottom" element="table" />
-
----

@@ -12,12 +12,12 @@ export const classes = { utilities }
 ## Basic usage
 
 ### None
-Use `hyphens-none` to prevent words from being hyphenated even if the line break suggestion `&shy;` is used:
 
+Use `hyphens-none` to prevent words from being hyphenated even if the line break suggestion `&shy;` is used:
 
 <Example p="none">
   <div class="overflow-x-scroll sm:overflow-x-visible px-4">
-    <div class="mx-auto max-w-xs bg-white shadow-xl p-12 text-slate-500 dark:bg-slate-800 dark:text-slate-400">  
+    <div class="mx-auto max-w-xs bg-white shadow-xl p-12 text-slate-500 dark:bg-slate-800 dark:text-slate-400">
       <p class="hyphens-none">Officially recognized by the Duden dictionary as the longest word in German, <span class="text-slate-900 font-medium dark:text-slate-200" lang="de"> Kraftfahrzeug&shy;Haftpflichtversicherung</span> is a 36 letter word for motor vehicle liability insurance.</p>
     </div>
   </div>
@@ -25,14 +25,13 @@ Use `hyphens-none` to prevent words from being hyphenated even if the line break
 
 ```html
 <p class="**hyphens-none** ...">
-    ... Kraftfahrzeug**&shy;**Haftpflichtversicherung is a ...
+  ... Kraftfahrzeug**&shy;**Haftpflichtversicherung is a ...
 </p>
 ```
 
 ### Manual
 
 Use `hyphens-manual` to only set hyphenation points where the line break suggestion `&shy;` is used:
-
 
 <Example p="none">
   <div class="overflow-x-scroll sm:overflow-x-visible px-4">
@@ -44,14 +43,13 @@ Use `hyphens-manual` to only set hyphenation points where the line break suggest
 
 ```html
 <p class="**hyphens-manual** ...">
-    ... Kraftfahrzeug**&shy;**Haftpflichtversicherung is a ...
+  ... Kraftfahrzeug**&shy;**Haftpflichtversicherung is a ...
 </p>
 ```
 
 ### Auto
 
 Use `hyphens-auto` to allow the browser to automatically choose hyphenation points based on the language. The line break suggestion `&shy;` will be preferred over automatic hyphenation points.
-
 
 <Example p="none">
   <div class="overflow-x-scroll sm:overflow-x-visible px-4">
@@ -63,10 +61,9 @@ Use `hyphens-auto` to allow the browser to automatically choose hyphenation poin
 
 ```html
 <p class="**hyphens-auto** ..." **lang**="de">
-    ... KraftfahrzeugHaftpflichtversicherung is a ...
+  ... KraftfahrzeugHaftpflichtversicherung is a ...
 </p>
 ```
-
 
 ---
 
