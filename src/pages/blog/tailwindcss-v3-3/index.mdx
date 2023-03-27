@@ -1,53 +1,40 @@
 import { adamwathan } from '@/authors'
-import card from './2023-03-24-14-17-37.png'
+import card from './card.jpg'
 import { SnippetGroup } from '@/components/SnippetGroup'
 
 export const meta = {
-  title: 'Tailwind CSS v3.3: ESM support, logical properties, and one more color',
+  title: 'Tailwind CSS v3.3: Extended color palette, ESM support, logical properties, and more',
   description: `It's been months in the making but I'm excited to finally release our next website template — Protocol, a beautiful starter kit for building amazing API reference websites.`,
   date: '2023-03-27T15:00:00.000Z',
   authors: [adamwathan],
 }
 
-Something about Tailwind CSS v3.3 being released woohoo.
-
-Probably an image here!
-
 <div className="my-8">
   <img src={card.src} alt="Tailwind CSS v3.3"/>
 </div>
 
-Tailwind CSS v3.2 is here with an absolutely _massive_ amount of new stuff, including support for dynamic breakpoints, multiple config files in a single project, nested groups, parameterized variants, container queries, and more.
+Tailwind CSS v3.3 is here — bringing a bunch of new features people have been asking for forever, and a bunch of new stuff you didn't even know you wanted.
 
-As always check out the [release notes](https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.2.0) for every nitty-gritty fix and improvement, but here's the highlight reel:
+- [Extended color palette for darker darks:](#extended-color-palette-for-darker-darks) New darker 950 shades for every color.
+- [ESM and TypeScript support:](#esm-and-typescript-support) Write your config file using ESM or TypeScript.
+- [Simplified RTL support with logical properties:](#simplified-rtl-support-with-logical-properties) Build layouts that adapt to different directions.
+- [Line-clamp out of the box:](#line-clamp-out-of-the-box) Truncate multi-line text without a plugin.
+- [New line-height modifier:](#new-line-height-shorthand-for-font-size-utilities) Set your font-size and line-height with one class.
+- [CSS variables without the var()](#css-variables-without-the-var): New shorthand syntax for arbitrary values.
+- [Configurable `font-variation-settings`:](#configure-font-variation-settings-for-custom-font-families) Baked directly into your `font-*` utilities.
+- [New `hyphens` utilities:](#new-hyphens-utilities) For fine-tuning hyphenation behavior.
+- [New `caption-side` utilities:](#new-caption-side-utilities) Title your tables with style.
+- [New `list-style-image` utilities:](#new-list-style-image-utilities) So you can use horrible clip art for bullet points.
 
+That covers the most exciting stuff, but check out the [release notes](https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.2.0) for an exhaustive list of every single little improvement we've made since the last release.
 
-Writing this sucks:
-
-- [ESM and TypeScript support](#esm-and-typescript-support)
-- [Extended color palette for darker darks](#extended-color-palette-for-darker-darks)
-- [Simplified RTL support with logical properties](#simplified-rtl-support-with-logical-properties)
-- [Line-clamp out of the box](#line-clamp-out-of-the-box)
-- [New line-height shorthand for font-size utilities](#new-line-height-shorthand-for-font-size-utilities)
-- [CSS variables without the var()](#css-variables-without-the-var)
-
-Wish I could just write:
-
-- [ARIA attribute variants](#aria-attribute-variants)
-- [Data attribute variants](#data-attribute-variants)
-- [Max-width and dynamic breakpoints](#max-width-and-dynamic-breakpoints)
-- [Dynamic `group-*` and `peer-*` variants](#dynamic-group-and-peer-variants)
-- [Dynamic variants with `matchVariant`](#dynamic-variants-with-matchvariant)
-- [Nested `group` and multiple `peer` support using variant modifiers](#nested-group-and-multiple-peer-support-using-variant-modifiers)
-- [Container queries](#container-queries)
-
-Upgrade your projects by installing the latest version of `tailwindcss` from npm:
+Upgrading your projects is as easy as installing the latest version of `tailwindcss` from npm:
 
 ```sh
 npm install -D tailwindcss@latest
 ```
 
-Or play with the new features in [Tailwind Play](https://play.tailwindcss.com) where you can try everything out instantly, right in the browser.
+You can also try out all of the new features on [Tailwind Play](https://play.tailwindcss.com), right in your browser.
 
 ---
 
@@ -247,22 +234,15 @@ module.exports = {
 }
 ```
 
-<h2 id="more-flexible-variant-stacking-with-is">More flexible variant stacking with <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">:is(...)</code></h2>
 
-- Explain issue, how couldn't put `dark` and `dir="rtl"` on same root element
-- Explain how `:is()` works, show what we've changed
-- Explain that as a bonus we've also applied the same improvements to the `important: "selector"` strategy
-
-## New utilities
-
-### Hyphens utilities
+<h2 id="new-hyphens-utilities">New <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">hyphens</code> utilities</h2>
 
 - Demo from docs
 
-### Caption-side utilities
+<h2 id="new-caption-side-utilities">New <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">caption-side</code> utilities</h2>
 
 - Demo from docs
 
-### List-style-image utilities
+<h2 id="new-list-style-image-utilities">New <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">list-style-image</code> utilities</h2>
 
 - Demo from docs (checkmark?)
