@@ -120,7 +120,7 @@ To use a negative top/right/bottom/left value, prefix the class name with a dash
 
 ### <Heading ignore>Using logical properties</Heading>
 
-<UsingLogicalProperties feature="Position" />
+<UsingLogicalProperties feature="Position" syntax="{start|end}-{size}" />
 
 <Example>
   <div class="grid grid-cols-2 gap-x-4 place-items-center">
@@ -129,17 +129,11 @@ To use a negative top/right/bottom/left value, prefix the class name with a dash
       <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
         <div class="p-4 w-14 h-14 absolute top-0 left-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg"></div>
       </div>
-      <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
-        <div class="p-4 w-14 h-14 absolute bottom-0 right-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg"></div>
-      </div>
     </div>
     <div class="flex flex-col items-end gap-y-4">
       <p class="text-sm font-medium">Right-to-left</p>
       <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
         <div class="p-4 w-14 h-14 absolute top-0 right-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg"></div>
-      </div>
-      <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
-        <div class="p-4 w-14 h-14 absolute bottom-0 left-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg"></div>
       </div>
     </div>
   </div>
@@ -149,10 +143,14 @@ To use a negative top/right/bottom/left value, prefix the class name with a dash
 <div class="relative h-32 w-32 ...">
   <div class="absolute h-14 w-14 top-0 **start-0** ..."></div>
 </div>
-<div class="relative h-32 w-32 ...">
-  <div class="absolute h-14 w-14 bottom-0 **end-0** ..."></div>
-</div>
 ```
+
+Here are all the available position logical property utilities and their physical property equivalents in both LTR and RTL modes.
+
+| Class | Left-to-right | Right-to-left |
+| --- | --- | --- |
+| `start-*` | `left-*` | `right-*` |
+| `end-*` | `right-*` | `left-*` |
 
 ---
 
