@@ -9,6 +9,12 @@ export const meta = {
   authors: [adamwathan],
 }
 
+<!--excerpt-->
+
+Tailwind CSS v3.3 is here — bringing a bunch of new features people have been asking for forever, and a bunch of new stuff you didn't even know you wanted.
+
+<!--/excerpt-->
+
 <div className="my-8">
   <img src={card.src} alt="Tailwind CSS v3.3"/>
 </div>
@@ -22,9 +28,9 @@ Tailwind CSS v3.3 is here — bringing a bunch of new features people have been 
 - [New line-height modifier:](#new-line-height-shorthand-for-font-size-utilities) Set your font-size and line-height with one class.
 - [CSS variables without the var()](#css-variables-without-the-var): New shorthand syntax for arbitrary values.
 - [Configurable `font-variation-settings`:](#configure-font-variation-settings-for-custom-font-families) Baked directly into your `font-*` utilities.
+- [New `list-style-image` utilities:](#new-list-style-image-utilities) So you can use horrible clip art for bullet points.
 - [New `hyphens` utilities:](#new-hyphens-utilities) For fine-tuning hyphenation behavior.
 - [New `caption-side` utilities:](#new-caption-side-utilities) Title your tables with style.
-- [New `list-style-image` utilities:](#new-list-style-image-utilities) So you can use horrible clip art for bullet points.
 
 That covers the most exciting stuff, but check out the [release notes](https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.2.0) for an exhaustive list of every single little improvement we've made since the last release.
 
@@ -40,15 +46,18 @@ You can also try out all of the new features on [Tailwind Play](https://play.tai
 
 <h2 id="extended-color-palette-for-darker-darks">Extended color palette for darker darks</h2>
 
+
+
 - Screenshot (or real demo?) some examples of where this is actually useful, show before and after
   - Sexy dark UI
   - Colored background with colored headline
 
+---
+
 <h2 id="esm-and-typescript-support">ESM and TypeScript support</h2>
 
-- Show an example config file, maybe tabbed example with all three formats?
-- Talk about `init` improvements with `--esm` and `--ts` flag, and detecting project type?
-- Talk about how it works? Frame it as "we've hesitated to implement because of this but you wanted it so here it is"
+Now you can configure Tailwind CSS in ESM, or even in TypeScript:
+
 
 ```js {{ filename: "tailwind.config.js", style: "framed" }}
 /** @type {import('tailwindcss').Config} */
@@ -61,23 +70,33 @@ export default {
 }
 ```
 
-```js {{ filename: "tailwind.config.ts", style: "framed" }}
-import type { Config } from 'tailwindcss'
+When you run `npx tailwindcss init`, we'll detect if your project is an ES Module and automatically generate your config file with the right syntax.
 
-export default {
-  content: [],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-} satisfies Config
+You can also generate an ESM config file explicitly by using the `--esm` flag:
+
+```sh
+npx tailwindcss init --esm
 ```
 
+To generate a TypeScript config file, use the `--ts` flag:
+
+```sh
+npx tailwindcss init --ts
+```
+
+A lot of people assume this is easy because they're writing their own code in ESM already (even if it's being transpiled by their build tool) but it's actually pretty tricky — we literally have to transpile the config file for you on the fly.
+
+It's a bit easier to understand why this has to happen when you think of the TypeScript case, because of course Tailwind is distributed as JavaScript, and it can't magically import an uncompiled TypeScript file.
+
+We're handling this with the wonderful [jiti](https://github.com/unjs/jiti) library under the hood, and using [Sucrase](https://github.com/alangpierce/sucrase) to transpile the code with the best possible performance while keeping the installation footprint small.
+
+---
 
 <h2 id="simplified-rtl-support-with-logical-properties">Simplified RTL support with logical properties</h2>
 
-- Demo of `ps-4` or something, showing the LTR and RTL design side by side
-- Show `pl-4 rtl:pr-4` as the old solution?
+We've made it possible to style multi-directional websites using our [LTR and RTL variants](https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support) for a while, but now you can use [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts) to do most of this styling more easily and automatically.
+
+Using new utilities like `ms-3` and `me-3`, you can style the _start_ and _end_ of an element so that your styles automatically adapt in RTL, instead of writing code like `ltr:ml-3 rtl:mr-3`:
 
 <Example>
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 max-w-lg mx-auto">
@@ -115,12 +134,41 @@ export default {
   </div>
 ```
 
+We've added new logical property utilities for [inset](/docs/top-right-bottom-left), [margin](/docs/margin), [padding](/docs/padding), [border-radius](/docs/border-radius), [scroll-margin](/docs/scroll-margin), and [scroll-padding](/docs/scroll-padding).
+
+Here's a full list of all of the new utilities we've added and what they map to:
+
+| New class      | Properties                                                | Physical counterpart (LTR) |
+| -------------- | --------------------------------------------------------- | -------------------------- |
+| `start-*`      | `inset-inline-start`                                      | `left-*`                   |
+| `end-*`        | `inset-inline-end`                                        | `right-*`                  |
+| `ms-*`         | `margin-inline-start`                                     | `ml-*`                     |
+| `me-*`         | `margin-inline-end`                                       | `mr-*`                     |
+| `ps-*`         | `padding-inline-start`                                    | `pl-*`                     |
+| `pe-*`         | `padding-inline-end`                                      | `pr-*`                     |
+| `rounded-s-*`  | `border-start-start-radius`<br/>`border-end-start-radius` | `rounded-l-*`              |
+| `rounded-e-*`  | `border-start-end-radius`<br/>`border-end-end-radius`     | `rounded-l-*`              |
+| `rounded-ss-*` | `border-start-start-radius`                               | `rounded-tl-*`             |
+| `rounded-se-*` | `border-start-end-radius`                                 | `rounded-tr-*`             |
+| `rounded-ee-*` | `border-end-end-radius`                                   | `rounded-br-*`             |
+| `rounded-es-*` | `border-end-start-radius`                                 | `rounded-bl-*`             |
+| `border-s-*`   | `border-inline-start-width`                               | `border-l-*`               |
+| `border-e-*`   | `border-inline-end-width`                                 | `border-r-*`               |
+| `border-s-*`   | `border-inline-start-color`                               | `border-l-*`               |
+| `border-e-*`   | `border-inline-end-color`                                 | `border-r-*`               |
+| `scroll-ms-*`  | `scroll-margin-inline-start`                              | `scroll-ml-*`              |
+| `scroll-me-*`  | `scroll-margin-inline-end`                                | `scroll-mr-*`              |
+| `scroll-ps-*`  | `scroll-padding-inline-start`                             | `scroll-pl-*`              |
+| `scroll-pe-*`  | `scroll-padding-inline-end`                               | `scroll-pr-*`              |
+
+These should save you a ton of code if you regularly build sites that need to support both LTR and RTL languages, and you can always combine these with the `ltr` and `rtl` variants when you need more control.
+
+
+---
+
 <h2 id="line-clamp-out-of-the-box">Line-clamp out of the box</h2>
 
-<!-- ![](./2023-03-22-16-32-33.png) -->
-
-- Demo with blog section thing on top, code below
-- Mention removing it from your config obviously if you have it installed
+We released our [official line-clamp plugin](https://tailwindcss.com/blog/multi-line-truncation-with-tailwindcss-line-clamp) just over two years ago and even though it uses a bunch of weird deprecated `-webkit-*` stuff, it works in every browser and it's going to work forever, so we decided to just bake it into the framework itself.
 
 <Example p="none">
   <div class="px-4 sm:px-0">
@@ -158,91 +206,108 @@ export default {
   </article>
 ```
 
+So when you upgrade to v3.3, you can safely remove the line-clamp plugin if you were using it:
+
+```diff-js tailwind.config.js
+  module.exports = {
+   // ...
+   plugins: [
+-   require('@tailwindcss/line-clamp')
+   ]
+  }
+```
+
+Don't let the door hit you in the ass on the way out, plugin.
+
+Check out the new [line-clamp documentation](/docs/line-clamp) to learn more about it all works if you haven't played with it before.
+
+---
 
 <h2 id="new-line-height-shorthand-for-font-size-utilities">New line-height shorthand for font-size utilities</h2>
 
-- Just a code demo, show the diff between the old way and new way
-- While ago introduced color opacity modifier, got to thinking where else could we improve the authoring experience using modifiers?
-- Explain found ourselves literally never changing the line-height without changing the font-size, so why not change them together and use a shorter syntax
-- Inspired by `font` property syntax (`font: small-caps bold 24px/1 sans`)
+One thing we've found over years and years of designing beautiful stuff with Tailwind is that we literally _never_ set a line-height without also setting the font-size at the same time.
 
-<Example>
-  <div class="flex flex-col gap-8">
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">text-base/6</span>
-      <p class="text-base/6 text-slate-900 dark:text-slate-200">
-        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
-      </p>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">text-base/7</span>
-      <p class="text-base/7 text-slate-900 dark:text-slate-200">
-        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
-      </p>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">text-base/loose</span>
-      <p class="text-base/loose text-slate-900 dark:text-slate-200">
-        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
-      </p>
-    </div>
-  </div>
-</Example>
+So inspired by our color opacity modifier syntax, we decided to make it possible to save a few characters by setting them together with a single utility:
 
-
-```html
-<p class="**text-base/6** ...">So I started to walk into the water...</p>
-<p class="**text-base/7** ...">So I started to walk into the water...</p>
-<p class="**text-base/loose** ...">So I started to walk into the water...</p>
+```diff-html {{ filename: 'index.html', style: 'framed' }}
+-   <p class="**text-lg leading-7** ...">
++   <p class="**text-lg/7** ...">
+      So I started to walk into the water. I won't lie to you boys, I was terrified. But
+      I pressed on, and as I made my way past the breakers a strange calm came over me.
+      I don't know if it was divine intervention or the kinship of all living things but
+      I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+    </p>
 ```
 
-You can use any value defined in your [line-height scale](/docs/line-height), or use arbitrary values if you need to deviate from your design tokens.
+You can use any value defined in your [line-height scale](/docs/line-height), or use arbitrary values if you need to deviate from your design tokens:
 
 ```html
 <p class="text-sm**/[17px]** ..."></p>
 ```
 
+Check out the [font size documentation](/docs/font-size#setting-the-line-height) for a few more examples.
+
+---
+
 <h2 id="css-variables-without-the-var">CSS variables without the var()</h2>
 
-- Code demo showing the syntax
+In the spirit of typing less, we've also made it possible to omit the `var()` when using a CSS variable as an arbitrary value:
 
-```html
-<div class="bg-[${company.brandColor}]">
-
-<div style="--brand-color: ${company.brandColor}; --brand-hover-color: ${company.brandHoverColor}" class="bg-[--brand-color] hover:bg-[--brand-hover-color]">
+```diff-jsx {{ style: 'framed', filename: 'my-component.jsx' }}
+  export function MyComponent({ company }) {
+    return (
+    <div
+      style={{
+        '--brand-color': ${company.brandColor},
+        '--brand-hover-color': ${company.brandHoverColor},
+      }}
+-     className="bg-[var(--brand-color)] hover:bg-[var(--brand-hover-color)]"
++     className="bg-[--brand-color] hover:bg-[--brand-hover-color]"
+    />
+    )
+  }
 ```
+
+That's a pretty cool trick right there for using things like `hover:` with styles that come from the database or something by the way.
+
+---
 
 <h2 id="configure-font-variation-settings-for-custom-font-families">Configure <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">font-variation-settings</code> for custom font families</h2>
 
-- Example Inter Display
-- Explain wtf `font-variation-settings` even is, give example of how Inter kinda ships multiple fonts in one file by taking advantage of this feature
-- Now any time you use the `font-sans` utility, your font-variation-settings configuration will automatically be applied.
+When using custom fonts, you'll often want to configure things like `font-feature-settings` or `font-variation-settings` to opt-in to specific tweaks the font offers.
 
-```
-module.exports = {
-  theme: {
-    fontFamily: {
-      sans: [
-        'Inter var, sans-serif',
-        {
-          fontFeatureSettings: '"cv11", "ss01"',
-          fontVariationSettings: '"opsz" 32',
-        },
-      ],
+We've made it easy to do this for `font-feature-settings` for a while, but now you can do the same thing with `font-variation-settings` by providing a value for it in the sort-of options object you can plop after the font list in your config file:
+
+```js {{ filename: 'tailwind.config.js', style: 'framed' }}
+  module.exports = {
+    theme: {
+      fontFamily: {
+        sans: [
+          'Inter var, sans-serif',
+>         {
+>           fontFeatureSettings: '"cv11", "ss01"',
+>           fontVariationSettings: '"opsz" 32',
+>         },
+        ],
+      },
     },
-  },
-}
+  }
 ```
 
+---
+
+<h2 id="new-list-style-image-utilities">New <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">list-style-image</code> utilities</h2>
+
+- Demo from docs (checkmark?)
+
+---
 
 <h2 id="new-hyphens-utilities">New <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">hyphens</code> utilities</h2>
 
 - Demo from docs
 
+---
+
 <h2 id="new-caption-side-utilities">New <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">caption-side</code> utilities</h2>
 
 - Demo from docs
-
-<h2 id="new-list-style-image-utilities">New <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">list-style-image</code> utilities</h2>
-
-- Demo from docs (checkmark?)
