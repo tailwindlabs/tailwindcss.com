@@ -299,16 +299,118 @@ We've made it easy to do this for `font-feature-settings` for a while, but now y
 
 <h2 id="new-list-style-image-utilities">New <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">list-style-image</code> utilities</h2>
 
-- Demo from docs (checkmark?)
+When the default browser list markers just don't cut it, you can now better express your creative side with the new `list-style-image` utilities.
+
+<Example p="none">
+  <div class="px-4 sm:px-0">
+    <div class="mx-auto max-w-sm bg-white p-8 text-sm leading-6 text-slate-700 shadow-xl dark:bg-slate-800 dark:text-slate-400 sm:text-base sm:leading-7">
+        <!--
+          This is the raw version of the base64 encoded image below:
+          <svg width="14" height="12" viewBox="0 0 14 12" xmlns="http://www.w3.org/2000/svg" fill="#38bdf8">
+            <path fill-rule="evenodd" d="M13.685.153a.752.752 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" />
+          </svg>
+        -->
+        <ul class="pl-4 text-slate-900 dark:text-slate-200 list-image-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxNCAxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSIjMzhiZGY4Ij48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMy42ODUuMTUzYS43NTIuNzUyIDAgMCAxIC4xNDMgMS4wNTJsLTggMTAuNWEuNzUuNzUgMCAwIDEtMS4xMjcuMDc1bC00LjUtNC41YS43NS43NSAwIDAgMSAxLjA2LTEuMDZsMy44OTQgMy44OTMgNy40OC05LjgxN2EuNzUuNzUgMCAwIDEgMS4wNS0uMTQzWiIgLz48L3N2Zz4=')]">
+          <li class="pl-2">5 cups chopped Porcini mushrooms</li>
+          <li class="pl-2">1/2 cup of olive oil</li>
+          <li class="pl-2">3lb of celery</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Example>
+
+```html
+<ul class="**list-image-[url(checkmark.png)]** ...">
+  <li>5 cups chopped Porcini mushrooms</li>
+  <!-- ... -->
+</ul>
+```
 
 ---
 
 <h2 id="new-hyphens-utilities">New <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">hyphens</code> utilities</h2>
 
-- Demo from docs
+Say goodbye to ugly word-breaks with the new `hyphens-*` utilities. Don't be `&shy;`, give it a try!
+
+These include `hyphens-manual` (what the browser does by default), `hyphens-auto` (allow the browser to automatically choose hyphenation points based on the language), and `hyphens-none` (disable hyphenation entirely).
+
+<Example p="none">
+  <div class="overflow-x-scroll sm:overflow-x-visible px-4">
+    <div class="mx-auto max-w-xs bg-white shadow-xl p-12 text-slate-500 dark:bg-slate-800 dark:text-slate-400 ">
+       <p class="hyphens-auto">Officially recognized by the Duden dictionary as the longest word in German, <span class="text-slate-900 font-medium dark:text-slate-200" lang="de"> KraftfahrzeugHaftpflichtversicherung</span> is a 36 letter word for motor vehicle liability insurance.</p>
+    </div>
+  </div>
+</Example>
+
+```html
+<p class="**hyphens-auto** ..." **lang**="de">
+    ... KraftfahrzeugHaftpflichtversicherung is a ...
+</p>
+```
 
 ---
 
 <h2 id="new-caption-side-utilities">New <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">caption-side</code> utilities</h2>
 
-- Demo from docs
+Did you know that CSS has a property for controlling the alignment of caption elements inside of a table? Neither did we! But now that we do, we've added utilities for it.
+
+Use `caption-top` to position a caption element at the top of a table, and `caption-bottom` to position it at the bottom.
+
+<Example p="none">
+  <div class="shadow-sm overflow-hidden px-4 py-8 sm:px-8">
+    <table class="border-collapse table-auto w-full text-sm">
+      <caption class="text-slate-500 dark:text-slate-400 pt-4 text-xs caption-bottom">
+          Table 3.1: Professional wrestlers and their signature moves.
+      </caption>
+      <thead>
+        <tr>
+          <th class="border dark:border-slate-600 font-medium p-4 pl-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Wrestler</th>
+          <th class="border dark:border-slate-600 font-medium p-4 pr-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Signature Move(s)</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white dark:bg-slate-800">
+        <tr>
+          <td class="border border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">"Stone Cold" Steve Austin</td>
+          <td class="border border-slate-200 dark:border-slate-600 p-4 pr-8 text-slate-500 dark:text-slate-400">Stone Cold Stunner, Lou Thesz Press</td>
+        </tr>
+        <tr>
+          <td class="border border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">Bret "The Hitman" Hart</td>
+          <td class="border border-slate-200 dark:border-slate-600 p-4 pr-8 text-slate-500 dark:text-slate-400">The Sharpshooter</td>
+        </tr>
+        <tr>
+          <td class="border border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">Razor Ramon</td>
+          <td class="border border-slate-200 dark:border-slate-600 p-4 pr-8 text-slate-500 dark:text-slate-400">Razor's Edge, Fallaway Slam</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Example>
+
+```html
+<table>
+  <caption class="**caption-bottom**">
+    Table 3.1: Professional wrestlers and their signature moves.
+  </caption>
+  <thead>
+    <tr>
+      <th>Wrestler</th>
+      <th>Signature Move(s)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>"Stone Cold" Steve Austin</td>
+      <td>Stone Cold Stunner, Lou Thesz Press</td>
+    </tr>
+    <tr>
+      <td>Bret "The Hitman" Hart</td>
+      <td >The Sharpshooter</td>
+    </tr>
+    <tr>
+      <td>Razor Ramon</td>
+      <td>Razor's Edge, Fallaway Slam</td>
+    </tr>
+  </tbody>
+</table>
+```
