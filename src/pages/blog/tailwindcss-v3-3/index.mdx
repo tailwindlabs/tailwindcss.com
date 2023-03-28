@@ -443,8 +443,8 @@ In the spirit of typing less, we've also made it possible to omit the `var()` wh
     return (
     <div
       style={{
-        '--brand-color': ${company.brandColor},
-        '--brand-hover-color': ${company.brandHoverColor},
+        '--brand-color': `${company.brandColor}`,
+        '--brand-hover-color': `${company.brandHoverColor}`,
       }}
 -     className="bg-[var(--brand-color)] hover:bg-[var(--brand-hover-color)]"
 +     className="bg-[--brand-color] hover:bg-[--brand-hover-color]"
