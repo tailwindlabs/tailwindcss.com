@@ -10,9 +10,9 @@ import { ThemeSelect, ThemeToggle } from './ThemeToggle'
 
 function Featured() {
   return (
-    <Link href="/blog/tailwindcss-v3-2">
+    <Link href="/blog/tailwindcss-v3-3">
       <a className="ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-sky-400/20">
-        <strong className="font-semibold">Tailwind CSS v3.2</strong>
+        <strong className="font-semibold">Tailwind CSS v3.3</strong>
         <svg
           width="2"
           height="2"
@@ -23,10 +23,10 @@ function Featured() {
           <circle cx="1" cy="1" r="1" />
         </svg>
         <span className="ml-2 min-[1372px]:hidden">
-          Dynamic breakpoints, container queries, and more
+          Extended color palette, ESM/TS support, and more
         </span>
         <span className="ml-2 hidden min-[1372px]:inline">
-          Dynamic breakpoints, multi-config, container queries, and more
+          Extended color palette, ESM/TS support, logical properties, and more
         </span>
         <svg
           width="3"
@@ -147,12 +147,7 @@ export function NavItems() {
       </li>
       <li>
         <Link href="/showcase">
-          <a className="hover:text-sky-500 dark:hover:text-sky-400">
-            Showcase
-            <span className="ml-2 font-medium text-xs leading-5 rounded-full text-sky-600 bg-sky-400/10 px-2 py-0.5  dark:text-sky-400">
-              New
-            </span>
-          </a>
+          <a className="hover:text-sky-500 dark:hover:text-sky-400">Showcase</a>
         </Link>
       </li>
     </>

@@ -63,7 +63,6 @@
     "seedrandom": "^3.0.5",
     "simple-functional-loader": "^1.2.1",
     "stringify-object": "^3.3.0",
-    "tailwindcss": "^0.0.0-insiders.b039e71",
     "tinytime": "^0.2.6",
     "unist-util-visit": "^2.0.3",
     "zustand": "^4.0.0-rc.0"
@@ -80,6 +79,7 @@
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "2.x",
     "glyphhanger": "^5.0.0",
-    "prettier": "^2.5.0"
+    "prettier": "^2.5.0",
+    "tailwindcss": "^0.0.0-insiders.3809127"
   }
 }

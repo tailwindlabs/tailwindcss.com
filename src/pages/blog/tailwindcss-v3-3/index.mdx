@@ -6,9 +6,9 @@ import darkSkyDark from './950-sky-dark.png'
 import { SnippetGroup } from '@/components/SnippetGroup'
 
 export const meta = {
-  title: 'Tailwind CSS v3.3: Extended color palette, ESM support, logical properties, and more',
-  description: `It's been months in the making but I'm excited to finally release our next website template — Protocol, a beautiful starter kit for building amazing API reference websites.`,
-  date: '2023-03-27T15:00:00.000Z',
+  title: 'Tailwind CSS v3.3: Extended color palette, ESM/TS support, logical properties, and more',
+  description: `Tailwind CSS v3.3 is here — bringing a bunch of new features people have been asking for forever, and a bunch of new stuff you didn't even know you wanted.`,
+  date: '2023-03-28T14:30:00.000Z',
   authors: [adamwathan],
   image: card,
 }
@@ -28,6 +28,7 @@ Tailwind CSS v3.3 is here — bringing a bunch of new features people have been 
 - [Extended color palette for darker darks:](#extended-color-palette-for-darker-darks) New darker 950 shades for every color.
 - [ESM and TypeScript support:](#esm-and-typescript-support) Write your config file using ESM or TypeScript.
 - [Simplified RTL support with logical properties:](#simplified-rtl-support-with-logical-properties) Build layouts that adapt to different directions.
+- [Fine-tune gradient color stop positions:](#fine-tune-gradient-color-stop-positions) Specify exactly where you want each color stop to go.
 - [Line-clamp out of the box:](#line-clamp-out-of-the-box) Truncate multi-line text without a plugin.
 - [New line-height modifier:](#new-line-height-shorthand-for-font-size-utilities) Set your font-size and line-height with one class.
 - [CSS variables without the var()](#css-variables-without-the-var): New shorthand syntax for arbitrary values.
@@ -81,7 +82,7 @@ Also pour one out for the 50 shades of gray jokes we used to be able to make.
 Now you can configure Tailwind CSS in ESM, or even in TypeScript:
 
 
-```js {{ filename: 'tailwind.config.js', style: 'framed', color: 'pink' }}
+```js {{ filename: 'tailwind.config.js', style: 'framed', color: 'sky' }}
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [],
@@ -160,116 +161,116 @@ We've added new logical property utilities for [inset](/docs/top-right-bottom-le
 
 Here's a full list of all of the new utilities we've added and what they map to:
 
-<div class="-mx-4 overflow-x-auto sm:mx-0">
-  <div class="inline-block min-w-full align-middle whitespace-nowrap">
+<div className="-mx-4 overflow-x-auto sm:mx-0">
+  <div className="inline-block min-w-full align-middle whitespace-nowrap">
     <table>
       <thead>
         <tr>
-          <th class="pl-4 sm:pl-0">New class</th>
+          <th className="pl-4 sm:pl-0">New class</th>
           <th>Properties</th>
-          <th class="pr-4 sm:pr-0">Physical counterpart (LTR)</th>
+          <th className="pr-4 sm:pr-0">Physical counterpart (LTR)</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="pl-4 sm:pl-0"><code>start-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>start-*</code></td>
           <td><code>inset-inline-start</code></td>
-          <td class="pr-4 sm:pr-0"><code>left-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>left-*</code></td>
         </tr>
         <tr>
-          <td class="pl-4 sm:pl-0"><code>end-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>end-*</code></td>
           <td><code>inset-inline-end</code></td>
-          <td class="pr-4 sm:pr-0"><code>right-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>right-*</code></td>
         </tr>
         <tr>
-          <td class="pl-4 sm:pl-0"><code>ms-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>ms-*</code></td>
           <td><code>margin-inline-start</code></td>
-          <td class="pr-4 sm:pr-0"><code>ml-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>ml-*</code></td>
         </tr>
         <tr>
-          <td class="pl-4 sm:pl-0"><code>me-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>me-*</code></td>
           <td><code>margin-inline-end</code></td>
-          <td class="pr-4 sm:pr-0"><code>mr-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>mr-*</code></td>
         </tr>
         <tr>
-          <td class="pl-4 sm:pl-0"><code>ps-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>ps-*</code></td>
           <td><code>padding-inline-start</code></td>
-          <td class="pr-4 sm:pr-0"><code>pl-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>pl-*</code></td>
         </tr>
         <tr>
-          <td class="pl-4 sm:pl-0"><code>pe-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>pe-*</code></td>
           <td><code>padding-inline-end</code></td>
-          <td class="pr-4 sm:pr-0"><code>pr-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>pr-*</code></td>
         </tr>
         <tr>
-          <td class="pl-4 sm:pl-0"><code>rounded-s-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>rounded-s-*</code></td>
           <td><code>border-start-start-radius</code><br /><code>border-end-start-radius</code></td>
-          <td class="pr-4 sm:pr-0"><code>rounded-l-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>rounded-l-*</code></td>
         </tr>
         <tr>
-          <td class="pl-4 sm:pl-0"><code>rounded-e-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>rounded-e-*</code></td>
           <td><code>border-start-end-radius</code><br /><code>border-end-end-radius</code></td>
-          <td class="pr-4 sm:pr-0"><code>rounded-l-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>rounded-l-*</code></td>
         </tr>
         <tr>
-          <td class="pl-4 sm:pl-0"><code>rounded-ss-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>rounded-ss-*</code></td>
           <td><code>border-start-start-radius</code></td>
-          <td class="pr-4 sm:pr-0"><code>rounded-tl-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>rounded-tl-*</code></td>
         </tr>
         <tr>
-          <td class="pl-4 sm:pl-0"><code>rounded-se-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>rounded-se-*</code></td>
           <td><code>border-start-end-radius</code></td>
-          <td class="pr-4 sm:pr-0"><code>rounded-tr-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>rounded-tr-*</code></td>
         </tr>
         <tr>
-          <td class="pl-4 sm:pl-0"><code>rounded-ee-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>rounded-ee-*</code></td>
           <td><code>border-end-end-radius</code></td>
-          <td class="pr-4 sm:pr-0"><code>rounded-br-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>rounded-br-*</code></td>
         </tr>
         <tr>
-          <td class="pl-4 sm:pl-0"><code>rounded-es-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>rounded-es-*</code></td>
           <td><code>border-end-start-radius</code></td>
-          <td class="pr-4 sm:pr-0"><code>rounded-bl-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>rounded-bl-*</code></td>
         </tr>
         <tr>
-          <td class="pl-4 sm:pl-0"><code>border-s-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>border-s-*</code></td>
           <td><code>border-inline-start-width</code></td>
-          <td class="pr-4 sm:pr-0"><code>border-l-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>border-l-*</code></td>
         </tr>
         <tr>
-          <td class="pl-4 sm:pl-0"><code>border-e-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>border-e-*</code></td>
           <td><code>border-inline-end-width</code></td>
-          <td class="pr-4 sm:pr-0"><code>border-r-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>border-r-*</code></td>
         </tr>
         <tr>
-          <td class="pl-4 sm:pl-0"><code>border-s-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>border-s-*</code></td>
           <td><code>border-inline-start-color</code></td>
-          <td class="pr-4 sm:pr-0"><code>border-l-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>border-l-*</code></td>
         </tr>
         <tr>
-          <td class="pl-4 sm:pl-0"><code>border-e-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>border-e-*</code></td>
           <td><code>border-inline-end-color</code></td>
-          <td class="pr-4 sm:pr-0"><code>border-r-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>border-r-*</code></td>
         </tr>
         <tr>
-          <td class="pl-4 sm:pl-0"><code>scroll-ms-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>scroll-ms-*</code></td>
           <td><code>scroll-margin-inline-start</code></td>
-          <td class="pr-4 sm:pr-0"><code>scroll-ml-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>scroll-ml-*</code></td>
         </tr>
         <tr>
-          <td class="pl-4 sm:pl-0"><code>scroll-me-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>scroll-me-*</code></td>
           <td><code>scroll-margin-inline-end</code></td>
-          <td class="pr-4 sm:pr-0"><code>scroll-mr-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>scroll-mr-*</code></td>
         </tr>
         <tr>
-          <td class="pl-4 sm:pl-0"><code>scroll-ps-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>scroll-ps-*</code></td>
           <td><code>scroll-padding-inline-start</code></td>
-          <td class="pr-4 sm:pr-0"><code>scroll-pl-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>scroll-pl-*</code></td>
         </tr>
         <tr>
-          <td class="pl-4 sm:pl-0"><code>scroll-pe-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>scroll-pe-*</code></td>
           <td><code>scroll-padding-inline-end</code></td>
-          <td class="pr-4 sm:pr-0"><code>scroll-pr-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>scroll-pr-*</code></td>
         </tr>
       </tbody>
     </table>
@@ -278,8 +279,66 @@ Here's a full list of all of the new utilities we've added and what they map to:
 
 These should save you a ton of code if you regularly build sites that need to support both LTR and RTL languages, and you can always combine these with the `ltr` and `rtl` variants when you need more control.
 
+---
+
+<h2 id="fine-tune-gradient-color-stop-positions">Fine-tune gradient color stop positions</h2>
+
+We've added new utilities like `from-5%`, `via-35%`, and `to-85%` that let you adjust the actual position of each color stop in your gradients:
+
+<svg className="hidden" hidden>
+  <symbol id="gradient-color-stop" viewBox="0 0 32 34">
+    <path d="M1 4a4 4 0 0 1 4-4h22a4 4 0 0 1 4 4v19.6a4 4 0 0 1-2.118 3.53L16 34 3.118 27.13A4 4 0 0 1 1 23.6V4Z"/>
+    <path fill="none" stroke="#000" strokeOpacity=".05" d="M5 .5h22A3.5 3.5 0 0 1 30.5 4v19.6a3.5 3.5 0 0 1-1.853 3.088L16 33.433 3.353 26.688A3.5 3.5 0 0 1 1.5 23.6V4A3.5 3.5 0 0 1 5 .5Z"/>
+  </symbol>
+</svg>
+
+<Example>
+  <div class="mx-5">
+    <div class="relative h-[3.625rem]">
+      <div class="h-12 flex flex-col items-center absolute top-0 left-[10%] -ml-4">
+        <svg viewBox="0 0 32 34" class="flex-none fill-indigo-500 w-8 drop-shadow">
+          <use href="#gradient-color-stop" />
+        </svg>
+        <div class="mt-2 w-0.5 h-2 bg-gray-900/30 dark:bg-white/30"></div>
+        <div class="absolute top-0 left-0 w-full h-8 flex items-center justify-center text-[0.6875rem] font-semibold text-white font-mono">10%</div>
+      </div>
+      <div class="h-12 flex flex-col items-center absolute top-0 left-[30%] -ml-4">
+        <svg viewBox="0 0 32 34" class="flex-none fill-sky-500 w-8 drop-shadow">
+          <use href="#gradient-color-stop" />
+        </svg>
+        <div class="mt-2 w-0.5 h-2 bg-gray-900/30 dark:bg-white/30"></div>
+        <div class="absolute top-0 left-0 w-full h-8 flex items-center justify-center text-[0.6875rem] font-semibold text-white font-mono">30%</div>
+      </div>
+      <div class="h-12 flex flex-col items-center absolute top-0 right-[10%] -mr-4">
+        <svg viewBox="0 0 32 34" class="flex-none fill-emerald-500 w-8 drop-shadow">
+          <use href="#gradient-color-stop" />
+        </svg>
+        <div class="mt-2 w-0.5 h-2 bg-gray-900/30 dark:bg-white/30"></div>
+        <div class="absolute top-0 left-0 w-full h-8 flex items-center justify-center text-[0.6875rem] font-semibold text-white font-mono">90%</div>
+      </div>
+    </div>
+    <div class="h-10 rounded-lg bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"></div>
+  </div>
+</Example>
+
+```html
+<div class="bg-gradient-to-r from-indigo-500 **from-10%** via-purple-500 **via-30%** to-pink-500 **to-90%** ...">
+  <!-- ... -->
+</div>
+```
+
+We've included every value from 0% to 100% in steps of 5 out of the box, but you can of course use arbitrary values to get exactly the effect you want:
+
+```html
+<div class="bg-gradient-to-r from-cyan-400 from-[21.56%] ...">
+  <!-- ... -->
+</div>
+```
+
+For more details, check out the [gradient color stops documentation](/docs/gradient-color-stops#specifying-stop-positions).
 
 ---
+
 
 <h2 id="line-clamp-out-of-the-box">Line-clamp out of the box</h2>
 
@@ -338,7 +397,7 @@ One thing we've found over years and years of designing beautiful stuff with Tai
 
 So inspired by our color opacity modifier syntax, we decided to make it possible to save a few characters by setting them together with a single utility:
 
-```diff-html {{ filename: 'index.html', style: 'framed', color: 'sky' }}
+```diff-html {{ filename: 'index.html', style: 'framed', color: 'indigo' }}
 -   <p class="**text-lg leading-7** ...">
 +   <p class="**text-lg/7** ...">
       So I started to walk into the water. I won't lie to you boys, I was terrified. But
@@ -362,7 +421,7 @@ Check out the [font size documentation](/docs/font-size#setting-the-line-height)
 
 In the spirit of typing less, we've also made it possible to omit the `var()` when using a CSS variable as an arbitrary value:
 
-```diff-jsx {{ style: 'framed', filename: 'my-component.jsx', color: 'indigo' }}
+```diff-jsx {{ style: 'framed', filename: 'my-component.jsx', color: 'sky' }}
   export function MyComponent({ company }) {
     return (
     <div
@@ -387,7 +446,7 @@ When using custom fonts, you'll often want to configure things like `font-featur
 
 We've made it easy to do this for `font-feature-settings` for a while, but now you can do the same thing with `font-variation-settings` by providing a value for it in the sort-of options object you can plop after the font list in your config file:
 
-```js {{ filename: 'tailwind.config.js', style: 'framed', color: 'fuchsia' }}
+```js {{ filename: 'tailwind.config.js', style: 'framed', color: 'indigo' }}
   module.exports = {
     theme: {
       fontFamily: {
