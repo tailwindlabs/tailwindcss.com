@@ -245,7 +245,7 @@ One thing we've found over years and years of designing beautiful stuff with Tai
 
 So inspired by our color opacity modifier syntax, we decided to make it possible to save a few characters by setting them together with a single utility:
 
-```diff-html {{ filename: 'index.html', style: 'framed' }}
+```diff-html {{ filename: 'index.html', style: 'framed', color: 'sky' }}
 -   <p class="**text-lg leading-7** ...">
 +   <p class="**text-lg/7** ...">
       So I started to walk into the water. I won't lie to you boys, I was terrified. But
@@ -269,7 +269,7 @@ Check out the [font size documentation](/docs/font-size#setting-the-line-height)
 
 In the spirit of typing less, we've also made it possible to omit the `var()` when using a CSS variable as an arbitrary value:
 
-```diff-jsx {{ style: 'framed', filename: 'my-component.jsx' }}
+```diff-jsx {{ style: 'framed', filename: 'my-component.jsx', color: 'indigo' }}
   export function MyComponent({ company }) {
     return (
     <div
@@ -294,7 +294,7 @@ When using custom fonts, you'll often want to configure things like `font-featur
 
 We've made it easy to do this for `font-feature-settings` for a while, but now you can do the same thing with `font-variation-settings` by providing a value for it in the sort-of options object you can plop after the font list in your config file:
 
-```js {{ filename: 'tailwind.config.js', style: 'framed' }}
+```js {{ filename: 'tailwind.config.js', style: 'framed', color: 'fuchsia' }}
   module.exports = {
     theme: {
       fontFamily: {
