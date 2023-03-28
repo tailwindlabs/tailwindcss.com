@@ -441,14 +441,14 @@ In the spirit of typing less, we've also made it possible to omit the `var()` wh
 ```diff-jsx {{ style: 'framed', filename: 'my-component.jsx', color: 'sky' }}
   export function MyComponent({ company }) {
     return (
-    <div
-      style={{
-        '--brand-color': ${company.brandColor},
-        '--brand-hover-color': ${company.brandHoverColor},
-      }}
--     className="bg-[var(--brand-color)] hover:bg-[var(--brand-hover-color)]"
-+     className="bg-[--brand-color] hover:bg-[--brand-hover-color]"
-    />
+      <div
+        style={{
+          '--brand-color': company.brandColor,
+          '--brand-hover-color': company.brandHoverColor,
+        }}
+-       className="bg-[var(--brand-color)] hover:bg-[var(--brand-hover-color)]"
++       className="bg-[--brand-color] hover:bg-[--brand-hover-color]"
+      />
     )
   }
 ```
