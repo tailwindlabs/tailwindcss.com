@@ -21,7 +21,7 @@ export function ColorPaletteReference({ colors }) {
             : Object.keys(value).map((name) => ({ name, value: value[name] }))
 
         return (
-          <div className="2xl:contents">
+          <div key={title} className="2xl:contents">
             <div className="text-sm font-semibold text-slate-900 dark:text-slate-200 2xl:col-end-1 2xl:pt-2.5">
               {title
                 .split('')
