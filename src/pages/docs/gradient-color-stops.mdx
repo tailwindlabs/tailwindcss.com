@@ -31,6 +31,13 @@ export const classes = {
   },
 }
 
+<svg className="hidden">
+  <symbol id="gradient-color-stop" viewBox="0 0 32 34">
+    <path d="M1 4a4 4 0 0 1 4-4h22a4 4 0 0 1 4 4v19.6a4 4 0 0 1-2.118 3.53L16 34 3.118 27.13A4 4 0 0 1 1 23.6V4Z"/>
+    <path fill="none" stroke="#000" strokeOpacity=".05" d="M5 .5h22A3.5 3.5 0 0 1 30.5 4v19.6a3.5 3.5 0 0 1-1.853 3.088L16 33.433 3.353 26.688A3.5 3.5 0 0 1 1.5 23.6V4A3.5 3.5 0 0 1 5 .5Z"/>
+  </symbol>
+</svg>
+
 ## Basic usage
 
 ### Starting color
@@ -38,14 +45,16 @@ export const classes = {
 Set the starting color of a gradient using the `from-{color}` utilities.
 
 <Example>
-  <div class="space-y-2 mx-5">
-    <div class="flex justify-between">
-      <div class="flex flex-col space-y-2 items-center -translate-x-5">
-        <div class="rounded-full h-10 w-10 bg-indigo-500 border-4 border-white shadow-lg"></div>
-        <div class="bg-slate-300 w-0.5 h-4"></div>
+  <div class="mx-5">
+    <div class="relative h-[3.625rem]">
+      <div class="h-12 flex flex-col items-center absolute top-0 left-0 -ml-4">
+        <svg viewBox="0 0 32 34" class="flex-none fill-indigo-500 w-8 drop-shadow">
+          <use href="#gradient-color-stop" />
+        </svg>
+        <div class="mt-2 w-0.5 h-2 bg-gray-900/30"></div>
       </div>
     </div>
-    <div class="p-4 rounded-lg bg-gradient-to-r from-indigo-500">&nbsp;</div>
+    <div class="h-10 rounded-lg bg-gradient-to-r from-indigo-500"></div>
   </div>
 </Example>
 
@@ -58,18 +67,22 @@ Set the starting color of a gradient using the `from-{color}` utilities.
 Set the ending color of a gradient using the `to-{color}` utilities.
 
 <Example>
-  <div class="space-y-2 mx-5">
-    <div class="flex justify-between">
-      <div class="flex flex-col space-y-2 items-center -translate-x-5">
-        <div class="rounded-full h-10 w-10 bg-cyan-500 border-4 border-white shadow-lg"></div>
-        <div class="bg-slate-300 w-0.5 h-4"></div>
+  <div class="mx-5">
+    <div class="relative h-[3.625rem]">
+      <div class="h-12 flex flex-col items-center absolute top-0 left-0 -ml-4">
+        <svg viewBox="0 0 32 34" class="flex-none fill-cyan-500 w-8 drop-shadow">
+          <use href="#gradient-color-stop" />
+        </svg>
+        <div class="mt-2 w-0.5 h-2 bg-gray-900/30"></div>
       </div>
-      <div class="flex flex-col space-y-2 items-center translate-x-5">
-        <div class="rounded-full h-10 w-10 bg-blue-500 border-4 border-white shadow-lg"></div>
-        <div class="bg-slate-300 w-0.5 h-4"></div>
+      <div class="h-12 flex flex-col items-center absolute top-0 right-0 -mr-4">
+        <svg viewBox="0 0 32 34" class="flex-none fill-blue-500 w-8 drop-shadow">
+          <use href="#gradient-color-stop" />
+        </svg>
+        <div class="mt-2 w-0.5 h-2 bg-gray-900/30"></div>
       </div>
     </div>
-    <div class="p-4 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500">&nbsp;</div>
+    <div class="h-10 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500"></div>
   </div>
 </Example>
 
@@ -84,22 +97,28 @@ Gradients to **do not** fade in from transparent by default. To fade in from tra
 Add a middle color to a gradient using the `via-{color}` utilities.
 
 <Example>
-  <div class="space-y-2 mx-5">
-    <div class="flex justify-between">
-      <div class="flex flex-col space-y-2 items-center -translate-x-5">
-        <div class="rounded-full h-10 w-10 bg-indigo-500 border-4 border-white shadow-lg"></div>
-        <div class="bg-slate-300 w-0.5 h-4"></div>
+  <div class="mx-5">
+    <div class="relative h-[3.625rem]">
+      <div class="h-12 flex flex-col items-center absolute top-0 left-0 -ml-4">
+        <svg viewBox="0 0 32 34" class="flex-none fill-indigo-500 w-8 drop-shadow">
+          <use href="#gradient-color-stop" />
+        </svg>
+        <div class="mt-2 w-0.5 h-2 bg-gray-900/30"></div>
       </div>
-      <div class="flex flex-col space-y-2 items-center">
-        <div class="rounded-full h-10 w-10 bg-purple-500 border-4 border-white shadow-lg"></div>
-        <div class="bg-slate-300 w-0.5 h-4"></div>
+      <div class="h-12 flex flex-col items-center absolute top-0 left-1/2 -ml-4">
+        <svg viewBox="0 0 32 34" class="flex-none fill-purple-500 w-8 drop-shadow">
+          <use href="#gradient-color-stop" />
+        </svg>
+        <div class="mt-2 w-0.5 h-2 bg-gray-900/30"></div>
       </div>
-      <div class="flex flex-col space-y-2 items-center translate-x-5">
-        <div class="rounded-full h-10 w-10 bg-pink-500 border-4 border-white shadow-lg"></div>
-        <div class="bg-slate-300 w-0.5 h-4"></div>
+      <div class="h-12 flex flex-col items-center absolute top-0 right-0 -mr-4">
+        <svg viewBox="0 0 32 34" class="flex-none fill-pink-500 w-8 drop-shadow">
+          <use href="#gradient-color-stop" />
+        </svg>
+        <div class="mt-2 w-0.5 h-2 bg-gray-900/30"></div>
       </div>
     </div>
-    <div class="p-4 rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">&nbsp;</div>
+    <div class="h-10 rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
   </div>
 </Example>
 
@@ -114,22 +133,31 @@ Gradients with a `from-{color}` and `via-{color}` will fade out to transparent b
 You can also specify the gradient color stop positions using the `from-{position}`, `via-{position}` and `to-{position}` utilities.
 
 <Example>
-  <div class="space-y-2 mx-5">
-    <div class="relative h-16">
-      <div class="absolute left-[calc(10%-20px)] flex flex-col space-y-2 items-center">
-        <div class="rounded-full h-10 w-10 bg-indigo-500 border-4 border-white shadow-lg text-white text-[11px] font-semibold font-mono flex items-center justify-center">10%</div>
-        <div class="bg-slate-300 w-0.5 h-4"></div>
+  <div class="mx-5">
+    <div class="relative h-[3.625rem]">
+      <div class="h-12 flex flex-col items-center absolute top-0 left-[10%] -ml-4">
+        <svg viewBox="0 0 32 34" class="flex-none fill-indigo-500 w-8 drop-shadow">
+          <use href="#gradient-color-stop" />
+        </svg>
+        <div class="mt-2 w-0.5 h-2 bg-gray-900/30"></div>
+        <div class="absolute top-0 left-0 w-full h-8 flex items-center justify-center text-[0.6875rem] font-semibold text-white font-mono">10%</div>
       </div>
-      <div class="absolute left-[calc(30%-20px)] flex flex-col space-y-2 items-center">
-        <div class="rounded-full h-10 w-10 bg-sky-500 border-4 border-white shadow-lg text-white text-[11px] font-semibold font-mono flex items-center justify-center">30%</div>
-        <div class="bg-slate-300 w-0.5 h-4"></div>
+      <div class="h-12 flex flex-col items-center absolute top-0 left-[30%] -ml-4">
+        <svg viewBox="0 0 32 34" class="flex-none fill-sky-500 w-8 drop-shadow">
+          <use href="#gradient-color-stop" />
+        </svg>
+        <div class="mt-2 w-0.5 h-2 bg-gray-900/30"></div>
+        <div class="absolute top-0 left-0 w-full h-8 flex items-center justify-center text-[0.6875rem] font-semibold text-white font-mono">30%</div>
       </div>
-      <div class="absolute left-[calc(90%-20px)] flex flex-col space-y-2 items-center">
-        <div class="rounded-full h-10 w-10 bg-emerald-500 border-4 border-white shadow-lg text-white text-[11px] font-semibold font-mono flex items-center justify-center">90%</div>
-        <div class="bg-slate-300 w-0.5 h-4"></div>
+      <div class="h-12 flex flex-col items-center absolute top-0 right-[10%] -mr-4">
+        <svg viewBox="0 0 32 34" class="flex-none fill-emerald-500 w-8 drop-shadow">
+          <use href="#gradient-color-stop" />
+        </svg>
+        <div class="mt-2 w-0.5 h-2 bg-gray-900/30"></div>
+        <div class="absolute top-0 left-0 w-full h-8 flex items-center justify-center text-[0.6875rem] font-semibold text-white font-mono">90%</div>
       </div>
     </div>
-    <div class="p-4 rounded-lg bg-gradient-to-r from-indigo-500 from-10 via-sky-500 via-30 to-emerald-500 to-90">&nbsp;</div>
+    <div class="h-10 rounded-lg bg-gradient-to-r from-indigo-500 from-10 via-sky-500 via-30 to-emerald-500 to-90"></div>
   </div>
 </Example>
 
