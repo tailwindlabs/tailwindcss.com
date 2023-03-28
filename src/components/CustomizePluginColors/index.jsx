@@ -1,7 +1,7 @@
 import { Editor } from '@/components/Editor'
 import { highlightedCode } from './snippet.js?highlight=diff-js'
 
-export function CustomizePluginColors({ name, configKey, children }) {
+export function CustomizePluginColors({ name, configKey, children, learnMore = true }) {
   return (
     <>
       <p>
@@ -27,10 +27,12 @@ export function CustomizePluginColors({ name, configKey, children }) {
         <code>theme.{configKey}</code> or <code>theme.extend.{configKey}</code> in your{' '}
         <code>tailwind.config.js</code> file.
       </p>
-      <p>
-        Learn more about customizing the default theme in the{' '}
-        <a href="/docs/theme#customizing-the-default-theme">theme customization</a> documentation.
-      </p>
+      {learnMore && (
+        <p>
+          Learn more about customizing the default theme in the{' '}
+          <a href="/docs/theme#customizing-the-default-theme">theme customization</a> documentation.
+        </p>
+      )}
     </>
   )
 }
