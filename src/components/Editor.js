@@ -1,22 +1,24 @@
 import clsx from 'clsx'
 import { TabBar } from '@/components/TabBar'
 
-export function Frame({ className = '', children }) {
+const frameColors = {
+  sky: 'from-sky-500 to-cyan-300',
+  indigo: 'from-indigo-500 to-blue-400',
+  pink: 'from-pink-500 to-fuchsia-400',
+  fuchsia: 'from-fuchsia-500 to-purple-400',
+  purple: 'from-violet-500 to-purple-500',
+}
+
+export function Frame({ className, color = 'sky', children }) {
   return (
     <div
-      className={`${className} relative isolate bg-sky-400 pt-12 pl-12 rounded-2xl overflow-hidden`}
+      className={clsx(
+        className,
+        frameColors[color],
+        'relative -mx-4 pt-6 pl-4 bg-gradient-to-b sm:mx-0 sm:rounded-2xl sm:pt-12 sm:pl-12'
+      )}
     >
-      <div
-        className="absolute -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-30deg] bg-sky-100 opacity-20 ring-1 ring-inset ring-white"
-        aria-hidden="true"
-      />
-
-      <div className="rounded-tl-xl overflow-hidden">{children}</div>
-
-      <div
-        className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl dark:ring-1 dark:ring-white/10 dark:ring-inset"
-        aria-hidden="true"
-      />
+      <div className="rounded-tl-xl overflow-hidden sm:rounded-br-xl">{children}</div>
     </div>
   )
 }
@@ -43,12 +45,12 @@ export function EditorPane({ filename, scroll = false, children }) {
   )
 }
 
-export function Editor({ filename, scroll = false, style = 'plain', children }) {
+export function Editor({ filename, scroll = false, style = 'plain', color, children }) {
   let passthrough = { scroll }
 
   if (style === 'framed') {
     return (
-      <Frame className="mt-5 mb-8 first:mt-0 last:mb-0">
+      <Frame className="mt-5 mb-8 first:mt-0 last:mb-0" color={color}>
         <EditorPane {...passthrough} filename={filename}>
           {children}
         </EditorPane>

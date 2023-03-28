@@ -89,9 +89,9 @@ let snippetGroupWrappers = {
   plain({ children }) {
     return <div className="not-prose bg-slate-800 rounded-xl shadow-md">{children}</div>
   },
-  framed({ children }) {
+  framed({ children, ...props }) {
     return (
-      <Frame>
+      <Frame {...props}>
         <div className="not-prose bg-slate-800 rounded-tl-xl shadow-md">{children}</div>
       </Frame>
     )
@@ -104,13 +104,13 @@ let snippetGroupWrappers = {
  * @param {object} props
  * @param {CodeBlock[]} props.children
  */
-export function SnippetGroup({ children, style = 'plain', actions }) {
+export function SnippetGroup({ children, style = 'plain', actions, ...props }) {
   let [selectedIndex, setSelectedIndex] = useState(0)
 
   let Wrapper = snippetGroupWrappers[style]
 
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <Tab.Group as="div" onChange={setSelectedIndex}>
         <div className="flex">
           <Tab.List className="flex text-slate-400 text-xs leading-6 overflow-hidden rounded-tl-xl pt-2">
