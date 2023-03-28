@@ -80,6 +80,6 @@
     "eslint-plugin-react-hooks": "2.x",
     "glyphhanger": "^5.0.0",
     "prettier": "^2.5.0",
-    "tailwindcss": "^0.0.0-insiders.3809127"
+    "tailwindcss": "^3.3.0"
   }
 }
