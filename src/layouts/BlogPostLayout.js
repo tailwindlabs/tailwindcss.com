@@ -32,7 +32,7 @@ export function BlogPostLayout({ children, meta }) {
         </div>
       </div>
       <div className="px-4 sm:px-6 md:px-8">
-        <div className="max-w-3xl mx-auto pb-28">
+        <div className="max-w-3xl mx-auto">
           <main>
             <article className="relative pt-10">
               <h1
@@ -88,21 +88,23 @@ export function BlogPostLayout({ children, meta }) {
             </article>
           </main>
           <footer className="mt-16">
-            <div className="relative">
-              <img
-                src={require('@/img/beams/blog-post-form@80.jpg').default.src}
-                alt=""
-                className="absolute top-px sm:left-auto sm:right-0 left-1/4 dark:hidden max-w-none"
-                width="476"
-                decoding="async"
-              />
-              <img
-                src={require('@/img/beams/blog-post-form-dark@90.jpg').default.src}
-                alt=""
-                className="absolute top-px -left-1/4 sm:left-0 hidden dark:block max-w-none"
-                width="1429"
-                decoding="async"
-              />
+            <div className="relative pb-28">
+              <div className="absolute inset-0 w-full dark:w-screen overflow-hidden">
+                <img
+                  src={require('@/img/beams/blog-post-form@80.jpg').default.src}
+                  alt=""
+                  className="absolute top-px sm:left-auto sm:right-0 left-1/4 dark:hidden max-w-none"
+                  width="476"
+                  decoding="async"
+                />
+                <img
+                  src={require('@/img/beams/blog-post-form-dark@90.jpg').default.src}
+                  alt=""
+                  className="absolute top-px -left-1/4 sm:left-0 hidden dark:block max-w-none"
+                  width="1429"
+                  decoding="async"
+                />
+              </div>
               <section className="relative py-16 border-t border-slate-200 dark:border-slate-200/5">
                 <h2 className="text-xl font-semibold text-slate-900 tracking-tight dark:text-white">
                   Get all of our updates directly to your&nbsp;inbox.
