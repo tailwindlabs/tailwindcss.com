@@ -1,5 +1,8 @@
 import { adamwathan } from '@/authors'
 import card from './card.jpg'
+import darkSlate from './950-slate.png'
+import darkSky from './950-sky.png'
+import darkSkyDark from './950-sky-dark.png'
 import { SnippetGroup } from '@/components/SnippetGroup'
 
 export const meta = {
@@ -47,11 +50,29 @@ You can also try out all of the new features on [Tailwind Play](https://play.tai
 
 <h2 id="extended-color-palette-for-darker-darks">Extended color palette for darker darks</h2>
 
+One of the most common feature requests we've had over the years is to add darker shades for every color — usually because someone is building a dark UI and just wants more options down in that dark end of the spectrum.
 
+Well wish granted — in Tailwind CSS v3.3 we've added a new `950` shade for every single color.
 
-- Screenshot (or real demo?) some examples of where this is actually useful, show before and after
-  - Sexy dark UI
-  - Colored background with colored headline
+In the grays they act as basically a tinted black, which is great for ultra dark UIs:
+
+<div className="my-8">
+  <img src={darkSlate.src} alt="Tailwind CSS v3.3"/>
+</div>
+
+And in the rest of the color spectrum we optimized `950` for high contrast text and tinted control backgrounds:
+
+<div className="my-8 dark:hidden">
+  <img src={darkSky.src} alt="Tailwind CSS v3.3"/>
+</div>
+
+<div className="my-8 hidden dark:block">
+  <img src={darkSkyDark.src} alt="Tailwind CSS v3.3"/>
+</div>
+
+Believe it or not the hardest part about this project was convincing ourselves to be okay with having 11 shades per color. Trying to make that look good in the [color palette documentation](/docs/customizing-colors) was a nightmare.
+
+Also pour one out for the 50 shades of gray jokes we used to be able to make.
 
 ---
 
@@ -244,7 +265,7 @@ Check out the [font size documentation](/docs/font-size#setting-the-line-height)
 
 ---
 
-<h2 id="css-variables-without-the-var">CSS variables without the var()</h2>
+<h2 id="css-variables-without-the-var">CSS variables without the <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">var()</code></h2>
 
 In the spirit of typing less, we've also made it possible to omit the `var()` when using a CSS variable as an arbitrary value:
 
@@ -289,11 +310,13 @@ We've made it easy to do this for `font-feature-settings` for a while, but now y
   }
 ```
 
+In the example above we're using a recent release of [Inter](https://github.com/rsms/inter/releases/tag/v4.0-beta7) that supports using the optical size axis to trigger the "Display" variation of the font, optimized for larger sizes like headlines.
+
 ---
 
 <h2 id="new-list-style-image-utilities">New <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">list-style-image</code> utilities</h2>
 
-When the default browser list markers just don't cut it, you can now better express your creative side with the new `list-style-image` utilities.
+Ever wanted to use a picture of a carrot as your list item marker? Well now you can, with the new `list-image-*` utilities.
 
 <Example p="none">
   <div class="px-4 sm:px-0">
@@ -304,7 +327,7 @@ When the default browser list markers just don't cut it, you can now better expr
             <path fill-rule="evenodd" d="M13.685.153a.752.752 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" />
           </svg>
         -->
-        <ul class="pl-4 text-slate-900 dark:text-slate-200 list-image-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxNCAxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSIjMzhiZGY4Ij48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMy42ODUuMTUzYS43NTIuNzUyIDAgMCAxIC4xNDMgMS4wNTJsLTggMTAuNWEuNzUuNzUgMCAwIDEtMS4xMjcuMDc1bC00LjUtNC41YS43NS43NSAwIDAgMSAxLjA2LTEuMDZsMy44OTQgMy44OTMgNy40OC05LjgxN2EuNzUuNzUgMCAwIDEgMS4wNS0uMTQzWiIgLz48L3N2Zz4=')]">
+        <ul class="pl-4 text-slate-900 dark:text-slate-200 marker:text-2xl list-image-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjMzhiZGY4Ij48cGF0aCBkPSJNMzQ2LjcgNkMzMzcuNiAxNyAzMjAgNDIuMyAzMjAgNzJjMCA0MCAxNS4zIDU1LjMgNDAgODBzNDAgNDAgODAgNDBjMjkuNyAwIDU1LTE3LjYgNjYtMjYuN2M0LTMuMyA2LTguMiA2LTEzLjNzLTItMTAtNi0xMy4yYy0xMS40LTkuMS0zOC4zLTI2LjgtNzQtMjYuOGMtMzIgMC00MCA4LTQwIDhzOC04IDgtNDBjMC0zNS43LTE3LjctNjIuNi0yNi44LTc0QzM3MCAyIDM2NS4xIDAgMzYwIDBzLTEwIDItMTMuMyA2ek0yNDQuNiAxMzZjLTQwIDAtNzcuMSAxOC4xLTEwMS43IDQ4LjJsNjAuNSA2MC41YzYuMiA2LjIgNi4yIDE2LjQgMCAyMi42cy0xNi40IDYuMi0yMi42IDBsLTU1LjMtNTUuMyAwIC4xTDIuMiA0NzcuOUMtMiA0ODctLjEgNDk3LjggNyA1MDVzMTcuOSA5IDI3LjEgNC44bDEzNC43LTYyLjQtNTIuMS01Mi4xYy02LjItNi4yLTYuMi0xNi40IDAtMjIuNnMxNi40LTYuMiAyMi42IDBMMTk5LjcgNDMzbDEwMC4yLTQ2LjRjNDYuNC0yMS41IDc2LjItNjggNzYuMi0xMTkuMkMzNzYgMTk0LjggMzE3LjIgMTM2IDI0NC42IDEzNnoiLz48L3N2Zz4=')]">
           <li class="pl-2">5 cups chopped Porcini mushrooms</li>
           <li class="pl-2">1/2 cup of olive oil</li>
           <li class="pl-2">3lb of celery</li>
@@ -315,41 +338,45 @@ When the default browser list markers just don't cut it, you can now better expr
 </Example>
 
 ```html
-<ul class="**list-image-[url(checkmark.png)]** ...">
+<ul class="**list-image-[url(carrot.png)]** ...">
   <li>5 cups chopped Porcini mushrooms</li>
   <!-- ... -->
 </ul>
 ```
 
+We're not going to start shipping vegetable clip art with the framework, but you can use any image you want either as an arbitrary value or configuring it in the `listStyleImage` section of your theme.
+
+Check out the [list style image documentation](/docs/list-style-image) to learn more.
+
 ---
 
 <h2 id="new-hyphens-utilities">New <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">hyphens</code> utilities</h2>
 
-Say goodbye to ugly word-breaks with the new `hyphens-*` utilities. Don't be `&shy;`, give it a try!
+Ever heard of the `&shy;` HTML entity? Me neither until we added support for these `hyphens-*` utilities.
 
-These include `hyphens-manual` (what the browser does by default), `hyphens-auto` (allow the browser to automatically choose hyphenation points based on the language), and `hyphens-none` (disable hyphenation entirely).
+Using `hyphens-manual` and a carefully placed `&shy;`, you can tell the browser where to insert a hyphen when it needs to break a word across multiple lines:
 
 <Example p="none">
   <div class="overflow-x-scroll sm:overflow-x-visible px-4">
     <div class="mx-auto max-w-xs bg-white shadow-xl p-12 text-slate-500 dark:bg-slate-800 dark:text-slate-400">
-       <p class="hyphens-auto">Officially recognized by the Duden dictionary as the longest word in German, <span class="text-slate-900 font-medium dark:text-slate-200" lang="de"> KraftfahrzeugHaftpflichtversicherung</span> is a 36 letter word for motor vehicle liability insurance.</p>
+       <p class="hyphens-manual">Officially recognized by the Duden dictionary as the longest word in German, <span class="text-slate-900 font-medium dark:text-slate-200" lang="de"> Kraftfahrzeug&shy;Haftpflichtversicherung</span> is a 36 letter word for motor vehicle liability insurance.</p>
     </div>
   </div>
 </Example>
 
 ```html
-<p class="**hyphens-auto** ..." **lang**="de">
-    ... KraftfahrzeugHaftpflichtversicherung is a ...
+<p class="**hyphens-manual** ...">
+    ... Kraftfahrzeug&shy;Haftpflichtversicherung is a ...
 </p>
 ```
+
+Maybe a code snippet like this would be useful to include as part of your unpronounceable death metal band's press kit so the journalists don't screw up the hyphenation in the article that finally breaks you on to the scene.
 
 ---
 
 <h2 id="new-caption-side-utilities">New <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">caption-side</code> utilities</h2>
 
-Did you know that CSS has a property for controlling the alignment of caption elements inside of a table? Neither did we! But now that we do, we've added utilities for it.
-
-Use `caption-top` to position a caption element at the top of a table, and `caption-bottom` to position it at the bottom.
+Another new one for me — the `<caption>` element! We've got new `caption-*` utilities you can use on table captions to control whether they appear at the top or bottom of the table they're attached to.
 
 <Example p="none">
   <div class="shadow-sm overflow-hidden px-4 py-8 sm:px-8">
@@ -408,3 +435,15 @@ Use `caption-top` to position a caption element at the top of a table, and `capt
   </tbody>
 </table>
 ```
+
+Check out the [caption side documentation](/docs/caption-side) for some more examples.
+
+---
+
+So that's Tailwind CSS v3.3! No breaking changes, just a bunch of fun new stuff. Give it a try in your projects today by updating to the latest version with npm:
+
+```sh
+npm install -D tailwindcss@latest
+```
+
+Yep, another release without `text-shadow` utilities. Remember that episode of Seinfeld where Kramer tries to see how far he can drive without stopping for gas? That's my favorite episode.
