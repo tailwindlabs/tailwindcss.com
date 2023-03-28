@@ -160,28 +160,121 @@ We've added new logical property utilities for [inset](/docs/top-right-bottom-le
 
 Here's a full list of all of the new utilities we've added and what they map to:
 
-| New class      | Properties                                                | Physical counterpart (LTR) |
-| -------------- | --------------------------------------------------------- | -------------------------- |
-| `start-*`      | `inset-inline-start`                                      | `left-*`                   |
-| `end-*`        | `inset-inline-end`                                        | `right-*`                  |
-| `ms-*`         | `margin-inline-start`                                     | `ml-*`                     |
-| `me-*`         | `margin-inline-end`                                       | `mr-*`                     |
-| `ps-*`         | `padding-inline-start`                                    | `pl-*`                     |
-| `pe-*`         | `padding-inline-end`                                      | `pr-*`                     |
-| `rounded-s-*`  | `border-start-start-radius`<br/>`border-end-start-radius` | `rounded-l-*`              |
-| `rounded-e-*`  | `border-start-end-radius`<br/>`border-end-end-radius`     | `rounded-l-*`              |
-| `rounded-ss-*` | `border-start-start-radius`                               | `rounded-tl-*`             |
-| `rounded-se-*` | `border-start-end-radius`                                 | `rounded-tr-*`             |
-| `rounded-ee-*` | `border-end-end-radius`                                   | `rounded-br-*`             |
-| `rounded-es-*` | `border-end-start-radius`                                 | `rounded-bl-*`             |
-| `border-s-*`   | `border-inline-start-width`                               | `border-l-*`               |
-| `border-e-*`   | `border-inline-end-width`                                 | `border-r-*`               |
-| `border-s-*`   | `border-inline-start-color`                               | `border-l-*`               |
-| `border-e-*`   | `border-inline-end-color`                                 | `border-r-*`               |
-| `scroll-ms-*`  | `scroll-margin-inline-start`                              | `scroll-ml-*`              |
-| `scroll-me-*`  | `scroll-margin-inline-end`                                | `scroll-mr-*`              |
-| `scroll-ps-*`  | `scroll-padding-inline-start`                             | `scroll-pl-*`              |
-| `scroll-pe-*`  | `scroll-padding-inline-end`                               | `scroll-pr-*`              |
+<div class="-mx-4 overflow-x-auto sm:mx-0">
+  <div class="inline-block min-w-full align-middle whitespace-nowrap">
+    <table>
+      <thead>
+        <tr>
+          <th class="pl-4 sm:pl-0">New class</th>
+          <th>Properties</th>
+          <th class="pr-4 sm:pr-0">Physical counterpart (LTR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="pl-4 sm:pl-0"><code>start-*</code></td>
+          <td><code>inset-inline-start</code></td>
+          <td class="pr-4 sm:pr-0"><code>left-*</code></td>
+        </tr>
+        <tr>
+          <td class="pl-4 sm:pl-0"><code>end-*</code></td>
+          <td><code>inset-inline-end</code></td>
+          <td class="pr-4 sm:pr-0"><code>right-*</code></td>
+        </tr>
+        <tr>
+          <td class="pl-4 sm:pl-0"><code>ms-*</code></td>
+          <td><code>margin-inline-start</code></td>
+          <td class="pr-4 sm:pr-0"><code>ml-*</code></td>
+        </tr>
+        <tr>
+          <td class="pl-4 sm:pl-0"><code>me-*</code></td>
+          <td><code>margin-inline-end</code></td>
+          <td class="pr-4 sm:pr-0"><code>mr-*</code></td>
+        </tr>
+        <tr>
+          <td class="pl-4 sm:pl-0"><code>ps-*</code></td>
+          <td><code>padding-inline-start</code></td>
+          <td class="pr-4 sm:pr-0"><code>pl-*</code></td>
+        </tr>
+        <tr>
+          <td class="pl-4 sm:pl-0"><code>pe-*</code></td>
+          <td><code>padding-inline-end</code></td>
+          <td class="pr-4 sm:pr-0"><code>pr-*</code></td>
+        </tr>
+        <tr>
+          <td class="pl-4 sm:pl-0"><code>rounded-s-*</code></td>
+          <td><code>border-start-start-radius</code><br /><code>border-end-start-radius</code></td>
+          <td class="pr-4 sm:pr-0"><code>rounded-l-*</code></td>
+        </tr>
+        <tr>
+          <td class="pl-4 sm:pl-0"><code>rounded-e-*</code></td>
+          <td><code>border-start-end-radius</code><br /><code>border-end-end-radius</code></td>
+          <td class="pr-4 sm:pr-0"><code>rounded-l-*</code></td>
+        </tr>
+        <tr>
+          <td class="pl-4 sm:pl-0"><code>rounded-ss-*</code></td>
+          <td><code>border-start-start-radius</code></td>
+          <td class="pr-4 sm:pr-0"><code>rounded-tl-*</code></td>
+        </tr>
+        <tr>
+          <td class="pl-4 sm:pl-0"><code>rounded-se-*</code></td>
+          <td><code>border-start-end-radius</code></td>
+          <td class="pr-4 sm:pr-0"><code>rounded-tr-*</code></td>
+        </tr>
+        <tr>
+          <td class="pl-4 sm:pl-0"><code>rounded-ee-*</code></td>
+          <td><code>border-end-end-radius</code></td>
+          <td class="pr-4 sm:pr-0"><code>rounded-br-*</code></td>
+        </tr>
+        <tr>
+          <td class="pl-4 sm:pl-0"><code>rounded-es-*</code></td>
+          <td><code>border-end-start-radius</code></td>
+          <td class="pr-4 sm:pr-0"><code>rounded-bl-*</code></td>
+        </tr>
+        <tr>
+          <td class="pl-4 sm:pl-0"><code>border-s-*</code></td>
+          <td><code>border-inline-start-width</code></td>
+          <td class="pr-4 sm:pr-0"><code>border-l-*</code></td>
+        </tr>
+        <tr>
+          <td class="pl-4 sm:pl-0"><code>border-e-*</code></td>
+          <td><code>border-inline-end-width</code></td>
+          <td class="pr-4 sm:pr-0"><code>border-r-*</code></td>
+        </tr>
+        <tr>
+          <td class="pl-4 sm:pl-0"><code>border-s-*</code></td>
+          <td><code>border-inline-start-color</code></td>
+          <td class="pr-4 sm:pr-0"><code>border-l-*</code></td>
+        </tr>
+        <tr>
+          <td class="pl-4 sm:pl-0"><code>border-e-*</code></td>
+          <td><code>border-inline-end-color</code></td>
+          <td class="pr-4 sm:pr-0"><code>border-r-*</code></td>
+        </tr>
+        <tr>
+          <td class="pl-4 sm:pl-0"><code>scroll-ms-*</code></td>
+          <td><code>scroll-margin-inline-start</code></td>
+          <td class="pr-4 sm:pr-0"><code>scroll-ml-*</code></td>
+        </tr>
+        <tr>
+          <td class="pl-4 sm:pl-0"><code>scroll-me-*</code></td>
+          <td><code>scroll-margin-inline-end</code></td>
+          <td class="pr-4 sm:pr-0"><code>scroll-mr-*</code></td>
+        </tr>
+        <tr>
+          <td class="pl-4 sm:pl-0"><code>scroll-ps-*</code></td>
+          <td><code>scroll-padding-inline-start</code></td>
+          <td class="pr-4 sm:pr-0"><code>scroll-pl-*</code></td>
+        </tr>
+        <tr>
+          <td class="pl-4 sm:pl-0"><code>scroll-pe-*</code></td>
+          <td><code>scroll-padding-inline-end</code></td>
+          <td class="pr-4 sm:pr-0"><code>scroll-pr-*</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 These should save you a ton of code if you regularly build sites that need to support both LTR and RTL languages, and you can always combine these with the `ltr` and `rtl` variants when you need more control.
 
