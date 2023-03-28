@@ -81,8 +81,9 @@ Also pour one out for the 50 shades of gray jokes we used to be able to make.
 
 Now you can configure Tailwind CSS in ESM, or even in TypeScript:
 
+<SnippetGroup style="framed">
 
-```js {{ filename: 'tailwind.config.js', style: 'framed', color: 'sky' }}
+```js {{ filename: 'ES Module' }}
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [],
@@ -91,7 +92,23 @@ export default {
   },
   plugins: [],
 }
+
+
 ```
+
+```js {{ filename: 'TypeScript' }}
+import type { Config } from 'tailwindcss'
+
+export default {
+  content: [],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+} satisfies Config
+```
+
+</SnippetGroup>
 
 When you run `npx tailwindcss init`, we'll detect if your project is an ES Module and automatically generate your config file with the right syntax.
 
