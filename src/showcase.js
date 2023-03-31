@@ -1,10 +1,10 @@
 export const showcase = [
   {
-    name: 'Wealthfront',
-    slug: 'wealthfront',
-    thumbnail: require('@/img/showcase/thumbnails/wealthfront.com.png').default,
-    video: require('@/videos/showcase/wealthfront.com.mp4').default,
-    description: 'Fintech marketing website',
+    name: 'OpenAI / ChatGPT',
+    slug: 'openai',
+    thumbnail: require('@/img/showcase/thumbnails/openai.com.png').default,
+    video: require('@/videos/showcase/openai.com.mp4').default,
+    description: 'Marketing website & chat interface',
   },
   {
     name: 'Lemon Squeezy',
@@ -19,6 +19,13 @@ export const showcase = [
     thumbnail: require('@/img/showcase/thumbnails/shopify.com.png').default,
     video: require('@/videos/showcase/shopify.com.mp4').default,
     description: 'Ecommerce platform website',
+  },
+  {
+    name: 'Wealthfront',
+    slug: 'wealthfront',
+    thumbnail: require('@/img/showcase/thumbnails/wealthfront.com.png').default,
+    video: require('@/videos/showcase/wealthfront.com.mp4').default,
+    description: 'Fintech marketing website',
   },
   {
     name: 'Netflix Global Top 10',
