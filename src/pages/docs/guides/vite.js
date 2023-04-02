@@ -28,9 +28,8 @@ let tabs = [
         title: 'Install Tailwind CSS',
         body: () => (
           <p>
-            Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the
-            init command to generate both <code>tailwind.config.cjs</code> and{' '}
-            <code>postcss.config.cjs</code>.
+            Install <code>tailwindcss</code> and its peer dependencies, then generate your{' '}
+            <code>tailwind.config.js</code> and <code>postcss.config.js</code> files.
           </p>
         ),
         code: {
@@ -43,15 +42,15 @@ let tabs = [
         title: 'Configure your template paths',
         body: () => (
           <p>
-            Add the paths to all of your template files in your <code>tailwind.config.cjs</code>{' '}
+            Add the paths to all of your template files in your <code>tailwind.config.js</code>{' '}
             file.
           </p>
         ),
         code: {
-          name: 'tailwind.config.cjs',
+          name: 'tailwind.config.js',
           lang: 'js',
           code: `  /** @type {import('tailwindcss').Config} */
-  module.exports = {
+  export default {
 >   content: [
 >     "./index.html",
 >     "./src/**/*.{js,ts,jsx,tsx}",
@@ -133,9 +132,8 @@ let tabs = [
         title: 'Install Tailwind CSS',
         body: () => (
           <p>
-            Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the
-            init command to generate both <code>tailwind.config.cjs</code> and{' '}
-            <code>postcss.config.cjs</code>.
+            Install <code>tailwindcss</code> and its peer dependencies, then generate your{' '}
+            <code>tailwind.config.js</code> and <code>postcss.config.js</code> files.
           </p>
         ),
         code: {
@@ -148,15 +146,15 @@ let tabs = [
         title: 'Configure your template paths',
         body: () => (
           <p>
-            Add the paths to all of your template files in your <code>tailwind.config.cjs</code>{' '}
+            Add the paths to all of your template files in your <code>tailwind.config.js</code>{' '}
             file.
           </p>
         ),
         code: {
-          name: 'tailwind.config.cjs',
+          name: 'tailwind.config.js',
           lang: 'js',
           code: `  /** @type {import('tailwindcss').Config} */
-  module.exports = {
+  export default {
 >   content: [
 >     "./index.html",
 >     "./src/**/*.{vue,js,ts,jsx,tsx}",

@@ -9,6 +9,7 @@
 
 .token.attr-name,
 .token.keyword,
+.token.module,
 .token.rule,
 .token.pseudo-class,
 .token.important {
@@ -54,7 +55,6 @@
 }
 
 .token.comment,
-.token.module,
 .token.operator,
 .token.combinator {
   @apply text-slate-400;
