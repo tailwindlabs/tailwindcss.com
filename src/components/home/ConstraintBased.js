@@ -173,15 +173,17 @@ function Colors() {
           className="bg-white rounded-lg shadow ring-1 ring-slate-700/5 p-2 dark:bg-slate-900 dark:ring-white/10"
         >
           <ul className="grid grid-cols-5 sm:grid-cols-10 lg:grid-cols-5 xl:grid-cols-10 gap-2">
-            {Object.keys(defaultConfig.theme.colors[color]).map((key) => (
-              <li
-                key={key}
-                className="pt-full rounded-sm ring-1 ring-inset ring-slate-900/5 dark:ring-0 dark:highlight-white/10"
-                style={{
-                  backgroundColor: defaultConfig.theme.colors[color][key],
-                }}
-              />
-            ))}
+            {Object.keys(defaultConfig.theme.colors[color])
+              .filter((key) => key !== '950')
+              .map((key) => (
+                <li
+                  key={key}
+                  className="pt-full rounded-sm ring-1 ring-inset ring-slate-900/5 dark:ring-0 dark:highlight-white/10"
+                  style={{
+                    backgroundColor: defaultConfig.theme.colors[color][key],
+                  }}
+                />
+              ))}
           </ul>
           <div className="mt-2 flex items-center justify-between text-slate-500">
             <span className="flex-1">{color}-50</span>
