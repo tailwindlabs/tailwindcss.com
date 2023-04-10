@@ -127,12 +127,12 @@ export default function FrameworkGuides() {
             description: 'The full stack JavaScript framework for developing cross-platform apps.',
             logo: MeteorLogo,
           },
-          {
-            name: 'Create React App',
-            slug: 'create-react-app',
-            description: 'CLI tool for scaffolding a new single-page React application.',
-            logo: CraLogo,
-          },
+//           {
+//             name: 'Create React App',
+//             slug: 'create-react-app',
+//             description: 'CLI tool for scaffolding a new single-page React application.',
+//             logo: CraLogo,
+//           },
           {
             name: 'AdonisJS',
             slug: 'adonisjs',
