@@ -18,6 +18,17 @@ export function SearchProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false)
   const [initialQuery, setInitialQuery] = useState(null)
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const searchParams = new URLSearchParams(window.location.search);
+      const query = searchParams.get('q');
+      if (query) {
+        setInitialQuery(query)
+        setIsOpen(true)
+      }
+    }
+  }, []); // the empty dependency array ensures that the effect runs only once
+
   const onOpen = useCallback(() => {
     setIsOpen(true)
   }, [setIsOpen])
