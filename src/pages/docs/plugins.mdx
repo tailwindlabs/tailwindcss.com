@@ -52,8 +52,8 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
-    require('@tailwindcss/line-clamp'),
     require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/container-queries'),
   ]
 }
 ```
@@ -108,6 +108,20 @@ The `@tailwindcss/aspect-ratio` plugin adds `aspect-w-{n}` and `aspect-h-{n}` cl
 ```
 
 [Learn more about the aspect ratio plugin &rarr;](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
+
+### Container queries
+
+The `@tailwindcss/container-queries` plugin adds a set of `@{size}` classes that makes it easier to style elements using container queries instead of media queries.
+
+```html
+<div class="@container">
+  <div class="@lg:text-sky-400">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+[Learn more about the container queries plugin &rarr;](https://github.com/tailwindlabs/tailwindcss-container-queries)
 
 ---
 
