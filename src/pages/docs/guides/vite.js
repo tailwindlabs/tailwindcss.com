@@ -77,6 +77,31 @@ let tabs = [
         },
       },
       {
+        title: 'Update your Vite config',
+        body: () => (
+          <p>
+            Add the following code to your <code>./vite.config.js</code> file.
+          </p>
+        ),
+        code: {
+          name: 'vite.config.js',
+          lang: 'js',
+          code: `import { defineConfig } from "vite";
+  import react from "@vitejs/plugin-react-swc";
+> import tailwindcss from "tailwindcss";
+  
+  // https://vitejs.dev/config/
+  export default defineConfig({
+    plugins: [react()],
+>   css: {
+>     postcss: {
+>       plugins: [tailwindcss],
+>     },
+>   },
+  });`,
+        },
+      },
+      {
         title: 'Start your build process',
         body: () => (
           <p>
