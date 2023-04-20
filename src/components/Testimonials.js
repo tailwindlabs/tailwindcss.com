@@ -184,7 +184,7 @@ let testimonials = [
     },
     {
       content:
-        'TailwindCSS is a framework like no other. Rather than constraining you to a set design, it gives you the tools and the standardization to build exactly what you want.',
+        'Tailwind CSS is a framework like no other. Rather than constraining you to a set design, it gives you the tools and the standardization to build exactly what you want.',
       url: 'https://twitter.com/carre_sam/status/1303750185663770625',
       author: {
         name: 'Sam Carré',
@@ -398,7 +398,7 @@ let testimonials = [
     },
     {
       content:
-        'I’ve been using TailwindCSS for many years, and yet they seem to still amaze us every year with the updates. It’s aided me in building websites super quickly, I could never go back to boring old CSS classes!',
+        'I’ve been using Tailwind CSS for many years, and yet they seem to still amaze us every year with the updates. It’s aided me in building websites super quickly, I could never go back to boring old CSS classes!',
       url: 'https://twitter.com/heychazza',
       author: {
         name: 'Charlie Joseph',
@@ -478,7 +478,7 @@ let testimonials = [
     },
     {
       content:
-        'Getting buy-in on TailwindCSS from our entire team of developers took some time and discussion, but once we implemented company wide, it has made it a breeze for any developer to jump into any project and quickly make changes/enhancements.',
+        'Getting buy-in on Tailwind CSS from our entire team of developers took some time and discussion, but once we implemented company wide, it has made it a breeze for any developer to jump into any project and quickly make changes/enhancements.',
       url: 'https://twitter.com/jerredchurst/status/1468657838494998530',
       author: {
         name: 'Jerred Hurst',
@@ -547,7 +547,7 @@ let testimonials = [
     },
     {
       content:
-        "TailwindCSS has single-handedly been the biggest and most impactful change for our team's development workflow. I'm glad I live in a universe where Tailwind exists.",
+        "Tailwind CSS has single-handedly been the biggest and most impactful change for our team's development workflow. I'm glad I live in a universe where Tailwind exists.",
       url: 'https://twitter.com/Megasanjay/status/1468674483099557890',
       author: {
         name: 'Sanjay Soundarajan',
@@ -657,7 +657,7 @@ let testimonials = [
     },
     {
       content:
-        "I've never felt more confident designing and styling websites and web apps than when I've used TailwindCSS.",
+        "I've never felt more confident designing and styling websites and web apps than when I've used Tailwind CSS.",
       url: 'https://twitter.com/grossmeyer/status/1468671286415089666',
       author: {
         name: 'Glenn Meyer',
@@ -822,7 +822,7 @@ let testimonials = [
       },
     },
     {
-      content: 'Using TailwindCSS will make you feel like you just unlocked a cheat code.',
+      content: 'Using Tailwind CSS will make you feel like you just unlocked a cheat code.',
       url: 'https://twitter.com/dpaluy/status/1468678245327454211',
       author: {
         name: 'David Paluy',
