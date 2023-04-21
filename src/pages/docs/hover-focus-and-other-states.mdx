@@ -524,7 +524,6 @@ It's important to note that the `peer` marker can only be used on _previous_ sib
 </label>
 ```
 
-
 #### Differentiating peers
 
 When using multiple peers, you can style something on the state of a _specific_ peer by giving that peer a unique name using a `peer/{name}` class, and including that name in modifiers using classes like `peer-checked/{name}`:
@@ -630,7 +629,6 @@ Style the `::before` and `::after` pseudo-elements using the `before` and `after
 ```
 
 When using these modifiers, Tailwind will automatically add `content: ''` by default so you don't have to specify it unless you want a different value:
-
 
 <Example p="none">
   <div class="px-6">
@@ -1245,8 +1243,6 @@ ARIA state modifiers can also target parent and sibling elements using the `grou
 
 </SnippetGroup>
 
-
-
 ### Data attributes
 
 Use the `data-*` modifier to conditionally apply styles based on [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes).
@@ -1353,7 +1349,6 @@ Use the `open` modifier to conditionally add styles when a `<details>` or `<dial
   </div>
 </Example>
 
-
 ```html
   <div class="max-w-lg mx-auto p-8">
 >   <details class="open:bg-white dark:open:bg-slate-900 open:ring-1 open:ring-black/5 dark:open:ring-white/10 open:shadow-lg p-6 rounded-lg" open>
@@ -1421,7 +1416,6 @@ Arbitrary variants can be stacked with built-in modifiers or with each other, ju
 
 </SnippetGroup>
 
-
 If you need spaces in your selector, you can use an underscore. For example, this arbitrary modifier selects all `p` elements within the element where you've added the class:
 
 <SnippetGroup>
@@ -1471,7 +1465,6 @@ With at-rule custom modifiers the `&` placeholder isn't necessary, just like whe
 
 You can even combine at-rules and regular selector modifiers by including the selector modifier within curly braces after the at-rule:
 
-
 <SnippetGroup>
 
 ```html HTML
@@ -1490,7 +1483,6 @@ You can even combine at-rules and regular selector modifiers by including the se
 ```
 
 </SnippetGroup>
-
 
 ### Creating a plugin
 
@@ -1583,7 +1575,6 @@ Another place this is important is when using modifiers like `prose-headings` th
 ```
 
 In the first example, every single heading is underlined when you hover over the article itself, whereas in the second example each heading is only underlined when you hover over that heading.
-
 
 ---
 
