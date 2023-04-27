@@ -43,9 +43,7 @@ const fallbackDefaultExports = {
   'src/pages/showcase/**/*': ['@/layouts/ShowcaseLayout', 'ShowcaseLayout'],
 }
 
-const fallbackGetStaticProps = {
-  'src/pages/blog/**/*': '@/layouts/BlogPostLayout',
-}
+const fallbackGetStaticProps = {}
 
 export default {
   swcMinify: true,
