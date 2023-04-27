@@ -3,12 +3,15 @@ title: "Brand"
 description: "Tailwind CSS brand assets and usage guidelines."
 ---
 
-export const Layout = require('@/layouts/DocumentationLayout').DocumentationLayout
-export default require('@/layouts/ContentsLayout').ContentsLayout
+import {DocumentationLayout} from '@/layouts/DocumentationLayout'
+import {ContentsLayout} from '@/layouts/ContentsLayout'
 
 import tailwindcssLogoMark from '@/img/brand/tailwindcss-mark.svg'
 import tailwindcssLogoType from '@/img/brand/tailwindcss-logotype.svg'
 import tailwindcssLogoTypeWhite from '@/img/brand/tailwindcss-logotype-white.svg'
+
+export const Layout = DocumentationLayout
+export default ContentsLayout
 
 ## Trademark Usage Agreement
 

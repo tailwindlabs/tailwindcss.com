@@ -1,7 +1,7 @@
 import { MDXProvider } from '@mdx-js/react'
 import { showcase } from '@/showcase'
 import Link from 'next/link'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import clsx from 'clsx'
 import { Children, cloneElement } from 'react'
 import { Footer } from '@/components/Footer'
@@ -133,7 +133,7 @@ export function ShowcaseLayout({ children, slug, meta }) {
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 grid items-center grid-cols-[1fr,auto,1fr] gap-6">
             <div className="text-center">
               <p className="text-[0.8125rem] leading-6 font-semibold text-sky-500">
-                <Link href="/showcase">
+                <Link legacyBehavior href="/showcase">
                   <a>Showcase</a>
                 </Link>
               </p>
@@ -143,7 +143,7 @@ export function ShowcaseLayout({ children, slug, meta }) {
             </div>
             <div className="order-first flex">
               {previousSite && (
-                <Link href={`/showcase/${previousSite.slug}`}>
+                <Link legacyBehavior href={`/showcase/${previousSite.slug}`}>
                   <a aria-label={`Previous site: ${previousSite.name}`} className="relative">
                     <div className="hidden md:block text-[0.8125rem] leading-6 text-slate-500">
                       <span aria-hidden="true">&larr; </span>
@@ -171,7 +171,7 @@ export function ShowcaseLayout({ children, slug, meta }) {
             </div>
             <div className="flex text-right justify-end">
               {nextSite && (
-                <Link href={`/showcase/${nextSite.slug}`}>
+                <Link legacyBehavior href={`/showcase/${nextSite.slug}`}>
                   <a aria-label={`Next site: ${nextSite.name}`} className="relative">
                     <div className="hidden md:block text-[0.8125rem] leading-6 text-slate-500">
                       Next
@@ -241,7 +241,7 @@ export function ShowcaseLayout({ children, slug, meta }) {
                 {
                   name: 'URL',
                   value: (
-                    <Link href={meta.url}>
+                    <Link legacyBehavior href={meta.url}>
                       <a>{meta.url.replace(/^https?:\/\//, '').replace(/\/+$/, '')}</a>
                     </Link>
                   ),
@@ -263,7 +263,7 @@ export function ShowcaseLayout({ children, slug, meta }) {
                 </div>
               ))}
             </dl>
-            <Link href={meta.url}>
+            <Link legacyBehavior href={meta.url}>
               <a
                 aria-label={`Visit ${meta.title}`}
                 className="relative flex-none text-sm text-center font-semibold text-white py-2.5 px-4 rounded-lg bg-slate-900 dark:bg-sky-500 dark:text-white focus:outline-none hover:bg-slate-700 focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 dark:highlight-white/20 dark:hover:bg-sky-400 dark:focus:ring-2 dark:focus:ring-sky-600 dark:focus:ring-offset-slate-900"

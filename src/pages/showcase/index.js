@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import Link from 'next/link'
 import { showcase } from '@/showcase'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import { Footer } from '@/components/Footer'
 import clsx from 'clsx'
 
@@ -127,7 +127,7 @@ function Site({ site, priority = false }) {
       </div>
       <div className="flex flex-wrap items-center mt-6">
         <h2 className="text-sm leading-6 text-slate-900 dark:text-white font-semibold group-hover:text-sky-500 dark:group-hover:text-sky-400">
-          <Link href={`/showcase/${site.slug}`}>
+          <Link legacyBehavior href={`/showcase/${site.slug}`}>
             <a>
               <span className="absolute inset-0 rounded-3xl" />
               {site.name}
@@ -189,7 +189,7 @@ export default function Showcase() {
           <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
             Well not quite <em>anything</em>, like you can't build a spaceship with it. But you can
             definitely build the website for the spaceship —{' '}
-            <Link href="/showcase/nasa">
+            <Link legacyBehavior href="/showcase/nasa">
               <a className="font-semibold border-b border-sky-300 text-gray-900 hover:border-b-2 dark:text-white dark:border-sky-400">
                 NASA did
               </a>

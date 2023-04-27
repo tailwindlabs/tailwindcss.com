@@ -82,7 +82,9 @@ export const ClassTable = memo(
               isScrollable && 'lg:supports-scrollbars:pr-2 lg:max-h-96'
             )}
           >
-            {custom || (
+            {custom ? (
+              custom()
+            ) : (
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr>

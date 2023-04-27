@@ -149,7 +149,7 @@ export default function FrameworkGuides() {
           <li key={name} className="relative flex flex-row-reverse">
             <div className="peer group ml-6 flex-auto">
               <h4 className="mb-2 leading-6 text-slate-900 font-semibold dark:text-slate-200">
-                <Link href={`/docs/guides/${slug}`}>
+                <Link legacyBehavior href={`/docs/guides/${slug}`}>
                   <a className="before:absolute before:-inset-3 before:rounded-2xl">
                     {name}
                     <svg
@@ -187,11 +187,11 @@ export default function FrameworkGuides() {
       <div className="mt-16 prose prose-slate max-w-3xl dark:prose-dark">
         <p>
           Don't see your framework of choice? Try using{' '}
-          <Link href="/docs/installation">
+          <Link legacyBehavior href="/docs/installation">
             <a>Tailwind CLI</a>
           </Link>{' '}
           or installing Tailwind{' '}
-          <Link href="/docs/installation/using-postcss">
+          <Link legacyBehavior href="/docs/installation/using-postcss">
             <a>as a PostCSS plugin</a>
           </Link>{' '}
           instead.

@@ -7,8 +7,8 @@ import { SidebarLayout, SidebarContext } from '@/layouts/SidebarLayout'
 import { PageHeader } from '@/components/PageHeader'
 import clsx from 'clsx'
 import { DocsFooter } from '@/components/DocsFooter'
-import { Heading } from '@/components/Heading'
 import { MDXProvider } from '@mdx-js/react'
+import { mdxComponents } from '@/utils/mdxComponents'
 
 export const ContentsContext = createContext()
 
@@ -127,12 +127,16 @@ function TableOfContents({ tableOfContents, currentSection }) {
   )
 }
 
+function getTop(id) {
+  return document.getElementById(id).getBoundingClientRect().top + window.scrollY
+}
+
 function useTableOfContents(tableOfContents) {
   let [currentSection, setCurrentSection] = useState(tableOfContents[0]?.slug)
   let [headings, setHeadings] = useState([])
 
-  const registerHeading = useCallback((id, top) => {
-    setHeadings((headings) => [...headings.filter((h) => id !== h.id), { id, top }])
+  const registerHeading = useCallback((id) => {
+    setHeadings((headings) => [...headings.filter((h) => id !== h.id), { id, top: getTop(id) }])
   }, [])
 
   const unregisterHeading = useCallback((id) => {
@@ -162,7 +166,17 @@ function useTableOfContents(tableOfContents) {
       passive: true,
     })
     onScroll()
+    let resizeObserver = new window.ResizeObserver(() => {
+      setHeadings((headings) =>
+        headings.map((h) => ({
+          id: h.id,
+          top: getTop(h.id),
+        }))
+      )
+    })
+    resizeObserver.observe(document.body)
     return () => {
+      resizeObserver.disconnect()
       window.removeEventListener('scroll', onScroll, {
         capture: true,
         passive: true,
@@ -224,7 +238,7 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
               id="content-wrapper"
               className="relative z-20 prose prose-slate mt-12 dark:prose-dark"
             >
-              <MDXProvider components={{ Heading }}>{children}</MDXProvider>
+              <MDXProvider components={mdxComponents}>{children}</MDXProvider>
             </div>
           </>
         ) : (
@@ -232,13 +246,14 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
             id="content-wrapper"
             className="relative z-20 prose prose-slate mt-8 dark:prose-dark"
           >
-            <MDXProvider components={{ Heading }}>{children}</MDXProvider>
+            <MDXProvider components={mdxComponents}>{children}</MDXProvider>
           </div>
         )}
       </ContentsContext.Provider>
 
       <DocsFooter previous={prev} next={next}>
         <Link
+          legacyBehavior
           href={`https://github.com/tailwindlabs/tailwindcss.com/edit/master/src/pages${router.pathname}.mdx`}
         >
           <a className="hover:text-slate-900 dark:hover:text-slate-400">Edit this page on GitHub</a>

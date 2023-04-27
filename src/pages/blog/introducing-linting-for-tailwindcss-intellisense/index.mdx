@@ -1,8 +1,4 @@
 import { bradlc } from '@/authors'
-import imgCss from './css.png'
-import imgCss2x from './css@2x.png'
-import imgHtml from './html.png'
-import imgHtml2x from './html@2x.png'
 import applyQuickFixVideo from './apply-quick-fix.mp4'
 import image from './card.jpg'
 
@@ -21,27 +17,13 @@ Today we’re releasing a new version of the [Tailwind CSS IntelliSense extensio
 
 Tailwind already detects CSS errors, for example when you mistype a screen name in the `@screen` directive. The linting feature for Tailwind CSS IntelliSense surfaces these errors and displays them in context, directly inside your editor. The linter will validate your `@tailwind`, `@screen`, `@variants` and `@apply` directives, as well as any `theme` function calls:
 
-<img
-  width="1524"
-  height="857"
-  alt="Screen capture showing CSS linting in action"
-  src={imgCss.src}
-  srcSet={`${imgCss} 762w, ${imgCss2x} 1524w`}
-  sizes="(min-width: 1280px) 51rem, (min-width: 768px) 45rem, (min-width: 640px) calc(100vw - 3rem), calc(100vw - 2rem)"
-/>
+![Screen capture showing CSS linting in action](./css@2x.png)
 
 ## Catching conflicts in your HTML
 
 There is one more lint rule which analyses class lists in your template files and highlights any instances where utilities seem to be in conflict. For example you probably didn’t intend to have `mt-4` and `mt-6` in the same class list!
 
-<img
-  width="1524"
-  height="857"
-  alt="Screen capture showing markup linting in action"
-  src={imgHtml.src}
-  srcSet={`${imgHtml} 762w, ${imgHtml2x} 1524w`}
-  sizes="(min-width: 1280px) 51rem, (min-width: 768px) 45rem, (min-width: 640px) calc(100vw - 3rem), calc(100vw - 2rem)"
-/>
+![Screen capture showing markup linting in action](./html@2x.png)
 
 ## Quick fixes included
 

@@ -6,7 +6,7 @@ module.exports = {
   experimental: {
     optimizeUniversalDefaults: true,
   },
-  content: ['./src/**/*.{js,jsx,mdx,html}', './remark/**/*.js'],
+  content: ['./src/**/*.{js,jsx,mjs,mdx,html}', './remark/**/*.{js,mjs}'],
   blocklist: [
     '[html:has(&)]:bg-blue-500',
     'list-image-[url(checkmark.png)]',

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import colorPalette from 'tailwindcss/colors'
 import { kebabToTitleCase } from '@/utils/kebabToTitleCase'
 import dlv from 'dlv'
-import Alert from '@reach/alert'
 import { Transition } from '@headlessui/react'
 
 export function ColorPaletteReference({ colors }) {
@@ -89,7 +88,7 @@ function ColorPalette({ name, value }) {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <Alert className="relative bg-sky-500 text-white font-mono text-[0.625rem] leading-6 font-medium px-1.5 rounded-lg">
+        <div className="relative bg-sky-500 text-white font-mono text-[0.625rem] leading-6 font-medium px-1.5 rounded-lg">
           Copied
           <svg
             aria-hidden="true"
@@ -105,7 +104,7 @@ function ColorPalette({ name, value }) {
               fill="currentColor"
             />
           </svg>
-        </Alert>
+        </div>
       </Transition>
     </div>
   )

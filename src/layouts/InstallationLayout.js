@@ -134,7 +134,7 @@ export function InstallationLayout({ children }) {
                 {Object.entries(tabs).map(([name, href]) => (
                   <li key={name}>
                     <h2>
-                      <Link href={href} scroll={false}>
+                      <Link legacyBehavior href={href} scroll={false}>
                         <a
                           className={clsx(
                             'flex text-sm leading-6 font-semibold pt-3 pb-2.5 border-b-2 -mb-px',
@@ -176,7 +176,7 @@ export function InstallationLayout({ children }) {
               />
               <div className="peer group flex-auto ml-6">
                 <h3 className="mb-2 font-semibold text-slate-900 dark:text-slate-200">
-                  <Link href={item.href}>
+                  <Link legacyBehavior href={item.href}>
                     <a className="before:absolute before:-inset-3 before:rounded-2xl sm:before:-inset-4">
                       {item.title}
                       <svg

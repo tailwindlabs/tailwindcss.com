@@ -5,7 +5,7 @@ import { Feed } from 'feed'
 import { getAllPosts } from '@/utils/getAllPosts'
 import { mdxComponents } from '@/utils/mdxComponents'
 
-export default function buildRss() {
+export default async function buildRss() {
   const baseUrl = 'https://tailwindcss.com'
   const blogUrl = `${baseUrl}/blog`
 
@@ -29,7 +29,9 @@ export default function buildRss() {
     },
   })
 
-  getAllPosts().forEach(({ slug, module: { meta, default: Content } }) => {
+  let posts = await getAllPosts()
+
+  posts.forEach(({ slug, module: { meta, default: Content } }) => {
     const mdx = (
       <MDXProvider components={mdxComponents}>
         <Content />

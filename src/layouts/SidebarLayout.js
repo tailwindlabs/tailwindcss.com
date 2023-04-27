@@ -11,7 +11,7 @@ export const SidebarContext = createContext()
 const NavItem = forwardRef(({ href, children, isActive, isPublished, fallbackHref }, ref) => {
   return (
     <li ref={ref} data-active={isActive ? 'true' : undefined}>
-      <Link href={isPublished ? href : fallbackHref}>
+      <Link legacyBehavior href={isPublished ? href : fallbackHref}>
         <a
           className={clsx('block border-l pl-4 -ml-px', {
             'text-sky-500 border-current font-semibold dark:text-sky-400': isActive,
@@ -237,7 +237,7 @@ function TopLevelLink({ href, as, ...props }) {
   }
 
   return (
-    <Link href={href} as={as} passHref>
+    <Link legacyBehavior href={href} as={as} passHref>
       <TopLevelAnchor {...props} />
     </Link>
   )

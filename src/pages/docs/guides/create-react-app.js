@@ -109,19 +109,19 @@ export default function UsingCRA({ code }) {
       <div hidden className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark">
         <p>
           We <strong>highly recommend</strong> using{' '}
-          <Link href="https://vitejs.dev">
+          <Link legacyBehavior href="https://vitejs.dev">
             <a>Vite</a>
           </Link>
           ,{' '}
-          <Link href="https://nextjs.org">
+          <Link legacyBehavior href="https://nextjs.org">
             <a>Next.js</a>
           </Link>
           ,{' '}
-          <Link href="https://remix.run">
+          <Link legacyBehavior href="https://remix.run">
             <a>Remix</a>
           </Link>
           , or{' '}
-          <Link href="https://parceljs.org">
+          <Link legacyBehavior href="https://parceljs.org">
             <a>Parcel</a>
           </Link>{' '}
           instead of Create React App. They provide an equivalent or better developer experience but
@@ -153,19 +153,19 @@ export default function UsingCRA({ code }) {
             </p>
             <p className="mt-3">
               We <strong className="dark:text-slate-200">highly recommend</strong> using{' '}
-              <Link href="/docs/guides/vite">
+              <Link legacyBehavior href="/docs/guides/vite">
                 <a className="underline font-bold dark:text-slate-200">Vite</a>
               </Link>
               ,{' '}
-              <Link href="/docs/guides/parcel">
+              <Link legacyBehavior href="/docs/guides/parcel">
                 <a className="underline font-bold dark:text-slate-200">Parcel</a>
               </Link>
               ,{' '}
-              <Link href="/docs/guides/nextjs">
+              <Link legacyBehavior href="/docs/guides/nextjs">
                 <a className="underline font-bold dark:text-slate-200">Next.js</a>
               </Link>
               , or{' '}
-              <Link href="/docs/guides/remix">
+              <Link legacyBehavior href="/docs/guides/remix">
                 <a className="underline font-bold dark:text-slate-200">Remix</a>
               </Link>{' '}
               instead of Create React App. They provide an equivalent or better developer experience

@@ -1,10 +1,15 @@
-const fs = require('fs')
-const fm = require('front-matter')
-const redent = require('redent')
-const visit = require('unist-util-visit')
+import * as fs from 'fs'
+import fm from 'front-matter'
+import redent from 'redent'
+import { visit } from 'unist-util-visit'
 
-const unified = require('unified')
-const markdown = unified().use(require('remark-parse'))
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import { createRequire } from 'node:module'
+
+const require = createRequire(import.meta.url)
+
+const markdown = unified().use(remarkParse)
 
 const stubs = {
   tailwind: fs.readFileSync(require.resolve('tailwindcss/stubs/config.simple.js'), 'utf8'),
@@ -324,9 +329,9 @@ function createPrevals({ tool: pageTool = error('UNKNOWN') } = {}) {
   }
 }
 
-module.exports.withPrevalInstructions = () => {
+export function withPrevalInstructions() {
   return (tree, VFile) => {
-    let context = VFile.contents.match(/export const meta = ([{[])(.*)/)
+    let context = VFile.value.match(/export const meta = ([{[])(.*)/)
     if (context !== null) {
       try {
         context = JSON.parse(context[1] + context[2])

@@ -12,7 +12,7 @@ export default function PostItem({ title, category, slug, date, children, wide =
       })}
     >
       <h3 className="mb-4 text-xl text-slate-900 tracking-tight font-bold dark:text-slate-200">
-        <Link href={`/blog/${slug}`}>
+        <Link legacyBehavior href={`/blog/${slug}`}>
           <a>{title}</a>
         </Link>
       </h3>

@@ -7,7 +7,7 @@ export function DocsFooter({ children, previous, next }) {
       {(previous || next) && (
         <div className="mb-10 text-slate-700 font-semibold flex items-center dark:text-slate-200">
           {previous && (
-            <Link href={previous.href}>
+            <Link legacyBehavior href={previous.href}>
               <a className="group flex items-center hover:text-slate-900 dark:hover:text-white">
                 <svg
                   viewBox="0 0 3 6"
@@ -27,7 +27,7 @@ export function DocsFooter({ children, previous, next }) {
             </Link>
           )}
           {next && (
-            <Link href={next.href}>
+            <Link legacyBehavior href={next.href}>
               <a className="group ml-auto flex items-center hover:text-slate-900 dark:hover:text-white">
                 {next.shortTitle || next.title}
                 <svg
@@ -52,7 +52,7 @@ export function DocsFooter({ children, previous, next }) {
         <div className="mb-6 sm:mb-0 sm:flex">
           <p>Copyright &copy; {new Date().getFullYear()} Tailwind Labs Inc.</p>
           <p className="sm:ml-4 sm:pl-4 sm:border-l sm:border-slate-200 dark:sm:border-slate-200/5">
-            <Link href="/brand">
+            <Link legacyBehavior href="/brand">
               <a className="hover:text-slate-900 dark:hover:text-slate-400">Trademark Policy</a>
             </Link>
           </p>

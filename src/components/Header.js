@@ -10,7 +10,7 @@ import { ThemeSelect, ThemeToggle } from './ThemeToggle'
 
 function Featured() {
   return (
-    <Link href="/blog/tailwindcss-v3-3">
+    <Link legacyBehavior href="/blog/tailwindcss-v3-3">
       <a className="ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-sky-400/20">
         <strong className="font-semibold">Tailwind CSS v3.3</strong>
         <svg
@@ -128,7 +128,7 @@ export function NavItems() {
   return (
     <>
       <li>
-        <Link href="/docs/installation">
+        <Link legacyBehavior href="/docs/installation">
           <a className="hover:text-sky-500 dark:hover:text-sky-400">Docs</a>
         </Link>
       </li>
@@ -141,12 +141,12 @@ export function NavItems() {
         </a>
       </li>
       <li>
-        <Link href="/blog">
+        <Link legacyBehavior href="/blog">
           <a className="hover:text-sky-500 dark:hover:text-sky-400">Blog</a>
         </Link>
       </li>
       <li>
-        <Link href="/showcase">
+        <Link legacyBehavior href="/showcase">
           <a className="hover:text-sky-500 dark:hover:text-sky-400">Showcase</a>
         </Link>
       </li>
@@ -216,7 +216,7 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
             )}
           >
             <div className="relative flex items-center">
-              <Link href="/">
+              <Link legacyBehavior href="/">
                 <a
                   className="mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto"
                   onContextMenu={(e) => {

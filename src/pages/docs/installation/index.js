@@ -100,7 +100,7 @@ export default function TailwindCli({ code }) {
         <p>
           The simplest and fastest way to get up and running with Tailwind CSS from scratch is with
           the Tailwind CLI tool. The CLI is also available as a{' '}
-          <Link href="/blog/standalone-cli">
+          <Link legacyBehavior href="/blog/standalone-cli">
             <a>standalone executable</a>
           </Link>{' '}
           if you want to use it without installing Node.js.

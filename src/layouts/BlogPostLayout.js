@@ -11,7 +11,7 @@ export function BlogPostLayout({ children, meta }) {
     <div className="overflow-hidden">
       <div className="max-w-8xl mx-auto">
         <div className="flex px-4 pt-8 pb-10 lg:px-8">
-          <Link href="/blog">
+          <Link legacyBehavior href="/blog">
             <a className="group flex font-semibold text-sm leading-6 text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white">
               <svg
                 viewBox="0 -9 3 24"

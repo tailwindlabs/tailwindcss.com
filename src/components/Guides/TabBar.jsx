@@ -15,7 +15,7 @@ export function TabBar({ tabs, selectedTabIndex }) {
           {tabs.map((tab, tabIndex) => (
             <li key={tab.key || tab.name}>
               <h2>
-                <Link href={tab.href} scroll={false}>
+                <Link legacyBehavior href={tab.href} scroll={false}>
                   <a
                     className={clsx(
                       'flex text-sm leading-6 font-semibold pt-3 pb-2.5 border-b-2 -mb-px',

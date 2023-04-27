@@ -23,7 +23,7 @@ export function Frame({ className, color = 'sky', children }) {
   )
 }
 
-export function EditorPane({ filename, scroll = false, children }) {
+export function EditorPane({ filename, scroll = false, code, children }) {
   return (
     <div className="pt-2 bg-slate-800 shadow-lg group">
       <TabBar primary={{ name: filename }} showTabMarkers={false} />
@@ -38,31 +38,26 @@ export function EditorPane({ filename, scroll = false, children }) {
               'scrollbar-track:rounded'
             )
         )}
-      >
-        {children}
-      </div>
+        {...(code ? { dangerouslySetInnerHTML: { __html: code } } : { children })}
+      />
     </div>
   )
 }
 
-export function Editor({ filename, scroll = false, style = 'plain', color, children }) {
+export function Editor({ filename, scroll = false, style = 'plain', color, children, code }) {
   let passthrough = { scroll }
 
   if (style === 'framed') {
     return (
       <Frame className="mt-5 mb-8 first:mt-0 last:mb-0" color={color}>
-        <EditorPane {...passthrough} filename={filename}>
-          {children}
-        </EditorPane>
+        <EditorPane {...passthrough} filename={filename} code={code} children={children} />
       </Frame>
     )
   }
 
   return (
     <div className="mt-5 mb-8 first:mt-0 last:mb-0 relative overflow-hidden rounded-2xl">
-      <EditorPane {...passthrough} filename={filename}>
-        {children}
-      </EditorPane>
+      <EditorPane {...passthrough} filename={filename} code={code} children={children} />
       <div
         className="pointer-events-none absolute inset-0 rounded-2xl dark:ring-1 dark:ring-white/10 dark:ring-inset"
         aria-hidden="true"

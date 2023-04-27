@@ -1,7 +1,6 @@
 import { SnippetGroup } from '@/components/SnippetGroup'
 import { adamwathan } from '@/authors'
 import card from './card.jpg'
-import discordMessage from './discord-message.png'
 
 export const meta = {
   title: 'Tailwind CSS v3.1: You wanna get nuts? Come on, let\'s get nuts!',
@@ -25,7 +24,7 @@ It's been about six months since we released [Tailwind CSS v3.0](/blog/tailwindc
 
 Then on a random Saturday night a couple of weeks ago, I was talking to Robin in our Discord about coming up with a way to target the `html` element using `:has` and a class deeper in the document, and explained how I thought it would look if we added support for arbitrary variants — something I've wanted to tackle for over a year:
 
-<img src={discordMessage.src} alt="Adam Wathan: I think if we do arbitrary variants, the syntax should just be that exact thing, '[html:has(&)]:bg-blue-500'. Feel like that is pretty flexible, like anything you can do with a real variant you can also do with an arbitrary variant since they are the same thing. '[&>*:not(:first-child)]:pl-4'. Robin: This is going to break my brain haha because '[html:has(&)]:bg-blue-500' would be used as a literal inside the '&'. That in combination with other variants... 🤯. Adam Wathan: 😅 it'll be a brain melter for sure. The CSS would be this lol 'html:has(\[html\:has\(\&\)\]\:bg-blue-500 { background: blue 500 }'. Robin: exactly haha. ok, now I want to try that brb." />
+![Adam Wathan: I think if we do arbitrary variants, the syntax should just be that exact thing, '[html:has(&)]:bg-blue-500'. Feel like that is pretty flexible, like anything you can do with a real variant you can also do with an arbitrary variant since they are the same thing. '[&>*:not(:first-child)]:pl-4'. Robin: This is going to break my brain haha because '[html:has(&)]:bg-blue-500' would be used as a literal inside the '&'. That in combination with other variants... 🤯. Adam Wathan: 😅 it'll be a brain melter for sure. The CSS would be this lol 'html:has(\\[html\\:has\\(\\&\\)\\]\\:bg-blue-500 \{ background: blue 500 \}'. Robin: exactly haha. ok, now I want to try that brb.](./discord-message.png)
 
 Twenty minutes later Robin had a working proof of concept _(in six lines of code!)_, and after another hour or so of Jordan performing regex miracles in our class detection engine, [arbitrary variants](https://github.com/tailwindlabs/tailwindcss/pull/8299) were born and we had our release-worthy feature.
 

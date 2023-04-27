@@ -1,8 +1,5 @@
 import { adamwathan } from '@/authors'
 import card from './card.jpg'
-import darkSlate from './950-slate.png'
-import darkSky from './950-sky.png'
-import darkSkyDark from './950-sky-dark.png'
 import { SnippetGroup } from '@/components/SnippetGroup'
 
 export const meta = {
@@ -13,15 +10,13 @@ export const meta = {
   image: card,
 }
 
-<!--excerpt-->
+{/*excerpt*/}
 
 Tailwind CSS v3.3 is here — bringing a bunch of new features people have been asking for forever, and a bunch of new stuff you didn't even know you wanted.
 
-<!--/excerpt-->
+{/*/excerpt*/}
 
-<div className="my-8">
-  <img src={card.src} alt="Tailwind CSS v3.3"/>
-</div>
+![Tailwind CSS v3.3](./card.jpg)
 
 Tailwind CSS v3.3 is here — bringing a bunch of new features people have been asking for forever, and a bunch of new stuff you didn't even know you wanted.
 
@@ -57,18 +52,16 @@ Well wish granted — in Tailwind CSS v3.3 we've added a new `950` shade for eve
 
 In the grays they act as basically a tinted black, which is great for ultra dark UIs:
 
-<div className="my-8">
-  <img src={darkSlate.src} alt="Comparison between two dark user interfaces, one using slate-900 as the darkest color and the other using slate-950 as the darkest color"/>
-</div>
+![Comparison between two dark user interfaces, one using slate-900 as the darkest color and the other using slate-950 as the darkest color](./950-slate.png)
 
 And in the rest of the color spectrum we optimized `950` for high contrast text and tinted control backgrounds:
 
-<div className="my-8 dark:hidden">
-  <img src={darkSky.src} alt="Comparison between two light user interfaces, one using sky-900 as the darkest color and the other using sky-950 as the darkest color"/>
+<div className="contents dark:hidden">
+![Comparison between two light user interfaces, one using sky-900 as the darkest color and the other using sky-950 as the darkest color](./950-sky.png)
 </div>
 
-<div className="my-8 hidden dark:block">
-  <img src={darkSkyDark.src} alt="Comparison between two light user interfaces, one using sky-900 as the darkest color and the other using sky-950 as the darkest color"/>
+<div className="hidden dark:contents">
+![Comparison between two light user interfaces, one using sky-900 as the darkest color and the other using sky-950 as the darkest color](./950-sky-dark.png)
 </div>
 
 Believe it or not the hardest part about this project was convincing ourselves to be okay with having 11 shades per color. Trying to make that look good in the [color palette documentation](/docs/customizing-colors) was a nightmare.
@@ -190,104 +183,104 @@ Here's a full list of all of the new utilities we've added and what they map to:
       </thead>
       <tbody>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>start-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'start-*'}</code></td>
           <td><code>inset-inline-start</code></td>
-          <td className="pr-4 sm:pr-0"><code>left-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'left-*'}</code></td>
         </tr>
         <tr>
           <td className="pl-4 sm:pl-0"><code>end-*</code></td>
           <td><code>inset-inline-end</code></td>
-          <td className="pr-4 sm:pr-0"><code>right-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'right-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>ms-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'ms-*'}</code></td>
           <td><code>margin-inline-start</code></td>
-          <td className="pr-4 sm:pr-0"><code>ml-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'ml-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>me-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'me-*'}</code></td>
           <td><code>margin-inline-end</code></td>
-          <td className="pr-4 sm:pr-0"><code>mr-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'mr-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>ps-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'ps-*'}</code></td>
           <td><code>padding-inline-start</code></td>
-          <td className="pr-4 sm:pr-0"><code>pl-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'pl-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>pe-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'pe-*'}</code></td>
           <td><code>padding-inline-end</code></td>
-          <td className="pr-4 sm:pr-0"><code>pr-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'pr-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>rounded-s-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'rounded-s-*'}</code></td>
           <td><code>border-start-start-radius</code><br /><code>border-end-start-radius</code></td>
-          <td className="pr-4 sm:pr-0"><code>rounded-l-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'rounded-l-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>rounded-e-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'rounded-e-*'}</code></td>
           <td><code>border-start-end-radius</code><br /><code>border-end-end-radius</code></td>
-          <td className="pr-4 sm:pr-0"><code>rounded-r-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'rounded-r-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>rounded-ss-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'rounded-ss-*'}</code></td>
           <td><code>border-start-start-radius</code></td>
-          <td className="pr-4 sm:pr-0"><code>rounded-tl-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'rounded-tl-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>rounded-se-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'rounded-se-*'}</code></td>
           <td><code>border-start-end-radius</code></td>
-          <td className="pr-4 sm:pr-0"><code>rounded-tr-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'rounded-tr-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>rounded-ee-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'rounded-ee-*'}</code></td>
           <td><code>border-end-end-radius</code></td>
-          <td className="pr-4 sm:pr-0"><code>rounded-br-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'rounded-br-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>rounded-es-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'rounded-es-*'}</code></td>
           <td><code>border-end-start-radius</code></td>
-          <td className="pr-4 sm:pr-0"><code>rounded-bl-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'rounded-bl-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>border-s-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'border-s-*'}</code></td>
           <td><code>border-inline-start-width</code></td>
-          <td className="pr-4 sm:pr-0"><code>border-l-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'border-l-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>border-e-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'border-e-*'}</code></td>
           <td><code>border-inline-end-width</code></td>
-          <td className="pr-4 sm:pr-0"><code>border-r-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'border-r-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>border-s-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'border-s-*'}</code></td>
           <td><code>border-inline-start-color</code></td>
-          <td className="pr-4 sm:pr-0"><code>border-l-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'border-l-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>border-e-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'border-e-*'}</code></td>
           <td><code>border-inline-end-color</code></td>
-          <td className="pr-4 sm:pr-0"><code>border-r-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'border-r-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>scroll-ms-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'scroll-ms-*'}</code></td>
           <td><code>scroll-margin-inline-start</code></td>
-          <td className="pr-4 sm:pr-0"><code>scroll-ml-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'scroll-ml-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>scroll-me-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'scroll-me-*'}</code></td>
           <td><code>scroll-margin-inline-end</code></td>
-          <td className="pr-4 sm:pr-0"><code>scroll-mr-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'scroll-mr-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>scroll-ps-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'scroll-ps-*'}</code></td>
           <td><code>scroll-padding-inline-start</code></td>
-          <td className="pr-4 sm:pr-0"><code>scroll-pl-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'scroll-pl-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>scroll-pe-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'scroll-pe-*'}</code></td>
           <td><code>scroll-padding-inline-end</code></td>
-          <td className="pr-4 sm:pr-0"><code>scroll-pr-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'scroll-pr-*'}</code></td>
         </tr>
       </tbody>
     </table>
@@ -490,12 +483,11 @@ Ever wanted to use a picture of a carrot as your list item marker? Well now you 
 <Example p="none">
   <div class="px-4 sm:px-0">
     <div class="mx-auto max-w-sm bg-white p-8 text-sm leading-6 text-slate-700 shadow-xl dark:bg-slate-800 dark:text-slate-400 sm:text-base sm:leading-7">
-        <ul class="pl-4 text-slate-900 dark:text-slate-200 marker:text-2xl list-image-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjZjk3MzE2Ij48cGF0aCBkPSJNMzQ2LjcgNkMzMzcuNiAxNyAzMjAgNDIuMyAzMjAgNzJjMCA0MCAxNS4zIDU1LjMgNDAgODBzNDAgNDAgODAgNDBjMjkuNyAwIDU1LTE3LjYgNjYtMjYuN2M0LTMuMyA2LTguMiA2LTEzLjNzLTItMTAtNi0xMy4yYy0xMS40LTkuMS0zOC4zLTI2LjgtNzQtMjYuOGMtMzIgMC00MCA4LTQwIDhzOC04IDgtNDBjMC0zNS43LTE3LjctNjIuNi0yNi44LTc0QzM3MCAyIDM2NS4xIDAgMzYwIDBzLTEwIDItMTMuMyA2ek0yNDQuNiAxMzZjLTQwIDAtNzcuMSAxOC4xLTEwMS43IDQ4LjJsNjAuNSA2MC41YzYuMiA2LjIgNi4yIDE2LjQgMCAyMi42cy0xNi40IDYuMi0yMi42IDBsLTU1LjMtNTUuMyAwIC4xTDIuMiA0NzcuOUMtMiA0ODctLjEgNDk3LjggNyA1MDVzMTcuOSA5IDI3LjEgNC44bDEzNC43LTYyLjQtNTIuMS01Mi4xYy02LjItNi4yLTYuMi0xNi40IDAtMjIuNnMxNi40LTYuMiAyMi42IDBMMTk5LjcgNDMzbDEwMC4yLTQ2LjRjNDYuNC0yMS41IDc2LjItNjggNzYuMi0xMTkuMkMzNzYgMTk0LjggMzE3LjIgMTM2IDI0NC42IDEzNnoiLz48L3N2Zz4=')]">
-          <li class="pl-2">5 cups chopped Porcini mushrooms</li>
-          <li class="pl-2">1/2 cup of olive oil</li>
-          <li class="pl-2">3lb of celery</li>
-        </ul>
-      </div>
+      <ul class="pl-4 text-slate-900 dark:text-slate-200 marker:text-2xl list-image-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjZjk3MzE2Ij48cGF0aCBkPSJNMzQ2LjcgNkMzMzcuNiAxNyAzMjAgNDIuMyAzMjAgNzJjMCA0MCAxNS4zIDU1LjMgNDAgODBzNDAgNDAgODAgNDBjMjkuNyAwIDU1LTE3LjYgNjYtMjYuN2M0LTMuMyA2LTguMiA2LTEzLjNzLTItMTAtNi0xMy4yYy0xMS40LTkuMS0zOC4zLTI2LjgtNzQtMjYuOGMtMzIgMC00MCA4LTQwIDhzOC04IDgtNDBjMC0zNS43LTE3LjctNjIuNi0yNi44LTc0QzM3MCAyIDM2NS4xIDAgMzYwIDBzLTEwIDItMTMuMyA2ek0yNDQuNiAxMzZjLTQwIDAtNzcuMSAxOC4xLTEwMS43IDQ4LjJsNjAuNSA2MC41YzYuMiA2LjIgNi4yIDE2LjQgMCAyMi42cy0xNi40IDYuMi0yMi42IDBsLTU1LjMtNTUuMyAwIC4xTDIuMiA0NzcuOUMtMiA0ODctLjEgNDk3LjggNyA1MDVzMTcuOSA5IDI3LjEgNC44bDEzNC43LTYyLjQtNTIuMS01Mi4xYy02LjItNi4yLTYuMi0xNi40IDAtMjIuNnMxNi40LTYuMiAyMi42IDBMMTk5LjcgNDMzbDEwMC4yLTQ2LjRjNDYuNC0yMS41IDc2LjItNjggNzYuMi0xMTkuMkMzNzYgMTk0LjggMzE3LjIgMTM2IDI0NC42IDEzNnoiLz48L3N2Zz4=')]">
+        <li class="pl-2">5 cups chopped Porcini mushrooms</li>
+        <li class="pl-2">1/2 cup of olive oil</li>
+        <li class="pl-2">3lb of celery</li>
+      </ul>
     </div>
   </div>
 </Example>
