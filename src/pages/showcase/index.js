@@ -127,11 +127,9 @@ function Site({ site, priority = false }) {
       </div>
       <div className="flex flex-wrap items-center mt-6">
         <h2 className="text-sm leading-6 text-slate-900 dark:text-white font-semibold group-hover:text-sky-500 dark:group-hover:text-sky-400">
-          <Link legacyBehavior href={`/showcase/${site.slug}`}>
-            <a>
-              <span className="absolute inset-0 rounded-3xl" />
-              {site.name}
-            </a>
+          <Link href={`/showcase/${site.slug}`}>
+            <span className="absolute inset-0 rounded-3xl" />
+            {site.name}
           </Link>
         </h2>
         {site.isTemplate && (
@@ -189,10 +187,11 @@ export default function Showcase() {
           <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
             Well not quite <em>anything</em>, like you can't build a spaceship with it. But you can
             definitely build the website for the spaceship —{' '}
-            <Link legacyBehavior href="/showcase/nasa">
-              <a className="font-semibold border-b border-sky-300 text-gray-900 hover:border-b-2 dark:text-white dark:border-sky-400">
-                NASA did
-              </a>
+            <Link
+              href="/showcase/nasa"
+              className="font-semibold border-b border-sky-300 text-gray-900 hover:border-b-2 dark:text-white dark:border-sky-400"
+            >
+              NASA did
             </Link>
             .
           </p>

@@ -253,10 +253,10 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
 
       <DocsFooter previous={prev} next={next}>
         <Link
-          legacyBehavior
           href={`https://github.com/tailwindlabs/tailwindcss.com/edit/master/src/pages${router.pathname}.mdx`}
+          className="hover:text-slate-900 dark:hover:text-slate-400"
         >
-          <a className="hover:text-slate-900 dark:hover:text-slate-400">Edit this page on GitHub</a>
+          Edit this page on GitHub
         </Link>
       </DocsFooter>
 

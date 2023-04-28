@@ -134,17 +134,17 @@ export function InstallationLayout({ children }) {
                 {Object.entries(tabs).map(([name, href]) => (
                   <li key={name}>
                     <h2>
-                      <Link legacyBehavior href={href} scroll={false}>
-                        <a
-                          className={clsx(
-                            'flex text-sm leading-6 font-semibold pt-3 pb-2.5 border-b-2 -mb-px',
-                            href === router.pathname
-                              ? 'text-sky-500 border-current'
-                              : 'text-slate-900 border-transparent hover:border-slate-300 dark:text-slate-200 dark:hover:border-slate-700'
-                          )}
-                        >
-                          {name}
-                        </a>
+                      <Link
+                        href={href}
+                        scroll={false}
+                        className={clsx(
+                          'flex text-sm leading-6 font-semibold pt-3 pb-2.5 border-b-2 -mb-px',
+                          href === router.pathname
+                            ? 'text-sky-500 border-current'
+                            : 'text-slate-900 border-transparent hover:border-slate-300 dark:text-slate-200 dark:hover:border-slate-700'
+                        )}
+                      >
+                        {name}
                       </Link>
                     </h2>
                   </li>
@@ -176,23 +176,24 @@ export function InstallationLayout({ children }) {
               />
               <div className="peer group flex-auto ml-6">
                 <h3 className="mb-2 font-semibold text-slate-900 dark:text-slate-200">
-                  <Link legacyBehavior href={item.href}>
-                    <a className="before:absolute before:-inset-3 before:rounded-2xl sm:before:-inset-4">
-                      {item.title}
-                      <svg
-                        viewBox="0 0 3 6"
-                        className="ml-3 w-auto h-1.5 overflow-visible inline -mt-px text-slate-400 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100"
-                      >
-                        <path
-                          d="M0 0L3 3L0 6"
-                          fill="none"
-                          strokeWidth="2"
-                          stroke="currentColor"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </a>
+                  <Link
+                    href={item.href}
+                    className="before:absolute before:-inset-3 before:rounded-2xl sm:before:-inset-4"
+                  >
+                    {item.title}
+                    <svg
+                      viewBox="0 0 3 6"
+                      className="ml-3 w-auto h-1.5 overflow-visible inline -mt-px text-slate-400 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100"
+                    >
+                      <path
+                        d="M0 0L3 3L0 6"
+                        fill="none"
+                        strokeWidth="2"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
                   </Link>
                 </h3>
                 <div className="prose prose-slate prose-sm text-slate-600 dark:prose-dark">
