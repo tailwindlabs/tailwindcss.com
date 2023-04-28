@@ -108,6 +108,7 @@ See the [pseudo-class reference](#pseudo-class-reference) for a complete list of
 Style an element when it is the first-child or last-child using the `first` and `last` modifiers:
 
 <Example p="none">
+  ```html
   <div class="px-4">
     <div class="max-w-md mx-auto bg-white shadow">
       <ul role="list" class="p-6 divide-y divide-slate-200">
@@ -142,6 +143,7 @@ Style an element when it is the first-child or last-child using the `first` and 
       </ul>
     </div>
   </div>
+  ```
 </Example>
 
 ```html
@@ -162,6 +164,7 @@ Style an element when it is the first-child or last-child using the `first` and 
 You can also style an element when it's an odd or even child using the `odd` and `even` modifiers:
 
 <Example p="none">
+  ```html
   <div class="px-0 sm:px-6">
     <div class="bg-white shadow">
       <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -244,6 +247,7 @@ You can also style an element when it's an odd or even child using the `odd` and
       </div>
     </div>
   </div>
+  ```
 </Example>
 
 ```html
@@ -529,6 +533,7 @@ It's important to note that the `peer` marker can only be used on _previous_ sib
 When using multiple peers, you can style something on the state of a _specific_ peer by giving that peer a unique name using a `peer/{name}` class, and including that name in modifiers using classes like `peer-checked/{name}`:
 
 <Example p="none">
+  ```html
   <div class="px-4">
     <fieldset class="mx-auto max-w-md bg-white p-8 text-sm shadow">
       <div class="mb-6 border-b border-slate-200 pb-2 text-base font-semibold">Published status</div>
@@ -537,6 +542,7 @@ When using multiple peers, you can style something on the state of a _specific_ 
       <div class="peer-checked/published:block mt-4 hidden text-gray-500">Your post will be publicly visible on your site.</div>
     </fieldset>
   </div>
+  ```
 </Example>
 
 ```html
@@ -609,6 +615,7 @@ For more control, you can use the `&` character to mark where `.peer` should end
 Style the `::before` and `::after` pseudo-elements using the `before` and `after` modifiers:
 
 <Example p="none">
+  ```html
   <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-5 px-6">
     <form>
       <label class="block">
@@ -617,6 +624,7 @@ Style the `::before` and `::after` pseudo-elements using the `before` and `after
       </label>
     </form>
   </div>
+  ```
 </Example>
 
 ```html
@@ -1142,6 +1150,7 @@ module.exports = {
 If you need to use a one-off `aria` modifier that doesn’t make sense to include in your theme, or for more complex ARIA attributes that take specific values, use square brackets to generate a property on the fly using any arbitrary value.
 
 <Example p="none">
+  ```html
   <div class="py-8">
     <table class="border-collapse w-full border-y border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-800 text-sm shadow-sm">
       <thead class="bg-slate-50 dark:bg-slate-700">
@@ -1177,6 +1186,7 @@ If you need to use a one-off `aria` modifier that doesn’t make sense to includ
       </tbody>
     </table>
   </div>
+  ```
 </Example>
 
 <SnippetGroup>

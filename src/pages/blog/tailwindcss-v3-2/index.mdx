@@ -24,7 +24,7 @@ As always check out the [release notes](https://github.com/tailwindlabs/tailwind
 - [Data attribute variants](#data-attribute-variants)
 - [Max-width and dynamic breakpoints](#max-width-and-dynamic-breakpoints)
 - [Dynamic `group-*` and `peer-*` variants](#dynamic-group-and-peer-variants)
-- [Dynamic variants with `matchVariant`](#dynamic-variants-with-matchvariant)
+- [Dynamic variants with `matchVariant`](#dynamic-variants-with-match-variant)
 - [Nested `group` and multiple `peer` support using variant modifiers](#nested-group-and-multiple-peer-support-using-variant-modifiers)
 - [Container queries](#container-queries)
 
@@ -38,7 +38,7 @@ Or play with the new features in [Tailwind Play](https://play.tailwindcss.com) w
 
 ---
 
-<h2 id="multiple-config-files-in-one-project-using-config">Multiple config files in one project using @config</h2>
+## Multiple config files in one project using @config
 
 We've added a new `@config` directive that you can use in a CSS file to specify which Tailwind CSS config to use for that file:
 
@@ -66,7 +66,7 @@ You've always technically been able to do this with enough webpack wizardry, but
 
 ---
 
-<h2 id="browser-support-based-styling-with-supports">Browser-support-based styling with supports-*</h2>
+## Browser-support-based styling with supports-*
 
 You can now conditionally style things based on whether a certain feature is supported in the user's browser with the `supports-[...]` variant, which generates [`@supports rules`](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) under the hood.
 
@@ -88,7 +88,7 @@ If you only need to check if a property itself is supported, you can even just s
 
 ---
 
-<h2 id="aria-attribute-variants">ARIA attribute variants</h2>
+## ARIA attribute variants
 
 You can now conditionally style things based on [ARIA attributes](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes) with the new `aria-*` variants.
 
@@ -234,7 +234,7 @@ ARIA state modifiers can also target parent and sibling elements using the `grou
 
 ---
 
-<h2 id="data-attribute-variants">Data attribute variants</h2>
+## Data attribute variants
 
 You can now conditionally style things based on [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes) with the new `data-*` variants.
 
@@ -358,7 +358,7 @@ So for now (and possibly forever), if you want to use these features, your `scre
 
 ---
 
-<h2 id="dynamic-group-and-peer-variants">Dynamic group-* and peer-* variants</h2>
+## Dynamic group-* and peer-* variants
 
 It's now possible to create custom `group-*` and `peer-*` variants on the fly by passing your own selector to be "groupified" or "peerified" between square brackets:
 
@@ -405,7 +405,7 @@ Let's be serious you're probably going to use these features like three times in
 
 ---
 
-<h2 id="dynamic-variants-with-matchvariant">Dynamic variants with matchVariant</h2>
+## Dynamic variants with matchVariant
 
 You've probably noticed this new `variant-[...]` syntax in a lot of these new features — this is all powered by a new `matchVariant` plugin API that makes it possible to create what we're calling "dynamic variants".
 
@@ -457,7 +457,7 @@ matchVariant("min", (value) => `@media (min-width: ${value})`, {
 
 ---
 
-<h2 id="nested-group-and-multiple-peer-support-using-variant-modifiers">Nested group and multiple peer support using variant modifiers</h2>
+## Nested group and multiple peer support using variant modifiers
 
 Sometimes you can run into problems when you have multiple `group` chunks nested within each other because Tailwind has no real way to disambiguate between them.
 

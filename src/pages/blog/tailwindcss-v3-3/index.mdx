@@ -21,7 +21,7 @@ Tailwind CSS v3.3 is here — bringing a bunch of new features people have been 
 Tailwind CSS v3.3 is here — bringing a bunch of new features people have been asking for forever, and a bunch of new stuff you didn't even know you wanted.
 
 - [Extended color palette for darker darks:](#extended-color-palette-for-darker-darks) New darker 950 shades for every color.
-- [ESM and TypeScript support:](#esm-and-typescript-support) Write your config file using ESM or TypeScript.
+- [ESM and TypeScript support:](#esm-and-type-script-support) Write your config file using ESM or TypeScript.
 - [Simplified RTL support with logical properties:](#simplified-rtl-support-with-logical-properties) Build layouts that adapt to different directions.
 - [Fine-tune gradient color stop positions:](#fine-tune-gradient-color-stop-positions) Specify exactly where you want each color stop to go.
 - [Line-clamp out of the box:](#line-clamp-out-of-the-box) Truncate multi-line text without a plugin.
@@ -44,7 +44,7 @@ You can also try out all of the new features on [Tailwind Play](https://play.tai
 
 ---
 
-<h2 id="extended-color-palette-for-darker-darks">Extended color palette for darker darks</h2>
+## Extended color palette for darker darks
 
 One of the most common feature requests we've had over the years is to add darker shades for every color — usually because someone is building a dark UI and just wants more options down in that dark end of the spectrum.
 
@@ -70,7 +70,7 @@ Also pour one out for the 50 shades of gray jokes we used to be able to make.
 
 ---
 
-<h2 id="esm-and-typescript-support">ESM and TypeScript support</h2>
+## ESM and TypeScript support
 
 Now you can configure Tailwind CSS in ESM, or even in TypeScript:
 
@@ -124,7 +124,7 @@ We're handling this with the wonderful [jiti](https://github.com/unjs/jiti) libr
 
 ---
 
-<h2 id="simplified-rtl-support-with-logical-properties">Simplified RTL support with logical properties</h2>
+## Simplified RTL support with logical properties
 
 We've made it possible to style multi-directional websites using our [LTR and RTL variants](https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support) for a while, but now you can use [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts) to do most of this styling more easily and automatically.
 
@@ -290,7 +290,7 @@ These should save you a ton of code if you regularly build sites that need to su
 
 ---
 
-<h2 id="fine-tune-gradient-color-stop-positions">Fine-tune gradient color stop positions</h2>
+## Fine-tune gradient color stop positions
 
 We've added new utilities like `from-5%`, `via-35%`, and `to-85%` that let you adjust the actual position of each color stop in your gradients:
 
@@ -348,7 +348,7 @@ For more details, check out the [gradient color stops documentation](/docs/gradi
 
 ---
 
-<h2 id="line-clamp-out-of-the-box">Line-clamp out of the box</h2>
+## Line-clamp out of the box
 
 We released our [official line-clamp plugin](https://tailwindcss.com/blog/multi-line-truncation-with-tailwindcss-line-clamp) just over two years ago and even though it uses a bunch of weird deprecated `-webkit-*` stuff, it works in every browser and it's going to work forever, so we decided to just bake it into the framework itself.
 
@@ -399,7 +399,7 @@ Check out the new [line-clamp documentation](/docs/line-clamp) to learn more abo
 
 ---
 
-<h2 id="new-line-height-shorthand-for-font-size-utilities">New line-height shorthand for font-size utilities</h2>
+## New line-height shorthand for font-size utilities
 
 One thing we've found over years and years of designing beautiful stuff with Tailwind is that we literally _never_ set a line-height without also setting the font-size at the same time.
 
@@ -425,7 +425,7 @@ Check out the [font size documentation](/docs/font-size#setting-the-line-height)
 
 ---
 
-<h2 id="css-variables-without-the-var">CSS variables without the <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">var()</code></h2>
+## CSS variables without the `var()`
 
 In the spirit of typing less, we've also made it possible to omit the `var()` when using a CSS variable as an arbitrary value:
 
@@ -448,7 +448,7 @@ That's a pretty cool trick right there for using things like `hover:` with style
 
 ---
 
-<h2 id="configure-font-variation-settings-for-custom-font-families">Configure <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">font-variation-settings</code> for custom font families</h2>
+## Configure `font-variation-settings` for custom font families
 
 When using custom fonts, you'll often want to configure things like `font-feature-settings` or `font-variation-settings` to opt-in to specific tweaks the font offers.
 
@@ -474,7 +474,7 @@ In the example above we're using a recent release of [Inter](https://github.com/
 
 ---
 
-<h2 id="new-list-style-image-utilities">New <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">list-style-image</code> utilities</h2>
+## New `list-style-image` utilities
 
 Ever wanted to use a picture of a carrot as your list item marker? Well now you can, with the new `list-image-*` utilities.
 
@@ -503,7 +503,7 @@ Check out the [list style image documentation](/docs/list-style-image) to learn 
 
 ---
 
-<h2 id="new-hyphens-utilities">New <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">hyphens</code> utilities</h2>
+## New `hyphens` utilities
 
 Ever heard of the `&shy;` HTML entity? Me neither until we added support for these `hyphens-*` utilities.
 
@@ -529,7 +529,7 @@ Check out the [hyphens documentation](/docs/hyphens) to learn more.
 
 ---
 
-<h2 id="new-caption-side-utilities">New <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">caption-side</code> utilities</h2>
+## New `caption-side` utilities
 
 Another new one for me — the `<caption>` element! We've got new `caption-*` utilities you can use on table captions to control whether they appear at the top or bottom of the table they're attached to.
 

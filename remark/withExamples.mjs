@@ -4,6 +4,24 @@ import remarkStringify from 'remark-stringify'
 import remarkMdx from 'remark-mdx'
 import { visit } from 'unist-util-visit'
 
+const voidElements = [
+  'area',
+  'base',
+  'br',
+  'col',
+  'embed',
+  'hr',
+  'img',
+  'input',
+  'keygen',
+  'link',
+  'meta',
+  'param',
+  'source',
+  'track',
+  'wbr',
+]
+
 export default () => {
   return (tree) => {
     let componentName
@@ -13,11 +31,24 @@ export default () => {
         return
       }
 
-      let html = unified()
-        .use(remarkStringify)
-        .use(remarkMdx)
-        .stringify({ type: 'root', children: node.children })
-      html = html.replace(/<([a-z]+)([^>]+)\/>/g, '<$1$2></$1>')
+      let html
+
+      if (node.children[0].type === 'code') {
+        html = node.children[0].value
+      } else {
+        html = unified()
+          .use(remarkStringify)
+          .use(remarkMdx)
+          .stringify({ type: 'root', children: node.children })
+        html = html
+          .replace(/<([a-z]+)([^>]+)\/>/g, (match, name, rest) => {
+            if (voidElements.includes(name)) {
+              return match
+            }
+            return `<${name}${rest}></${name}>`
+          })
+          .replace(/\{\/\*.*?\*\/\}/gs, '')
+      }
 
       let next = parentNode.children[nodeIndex + 1]
       if (!componentName) {
@@ -25,6 +56,7 @@ export default () => {
       }
 
       node.name = componentName
+      node.children = []
 
       node.attributes.push({
         type: 'mdxJsxAttribute',

@@ -94,6 +94,9 @@ module.exports = {
             'h2, h3, h4': {
               'scroll-margin-top': 'var(--scroll-mt)',
             },
+            'h2 code, h3 code': {
+              font: 'inherit',
+            },
             ul: {
               listStyleType: 'none',
               paddingLeft: 0,

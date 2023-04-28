@@ -1,13 +1,18 @@
 import { Heading } from '@/components/Heading'
 import Link from 'next/link'
 
-export const mdxComponents = {
-  Heading,
-  a: Link,
-  img: (props) => (
+function Img(props) {
+  return (
     <div className="relative not-prose [a:not(:first-child)>&]:mt-[2em] [a:not(:last-child)>&]:mb-[2em] my-[2em] first:mt-0 last:mb-0 rounded-2xl overflow-hidden [figure>&]:my-0">
       <img {...props} decoding="async" />
       <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 dark:ring-white/10" />
     </div>
-  ),
+  )
+}
+
+export const mdxComponents = {
+  Heading,
+  a: Link,
+  img: Img,
+  Img,
 }

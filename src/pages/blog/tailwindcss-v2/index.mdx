@@ -41,7 +41,7 @@ Tailwind CSS v2.0 is the first major update ever, including:
 - [**Extend variants**](#extend-variants), so you can enable extra variants like `focus-visible` without redeclaring the entire list or thinking about order
 - [**Group-hover and focus-within by default**](#group-hover-and-focus-within-by-default), because you were enabling them on every project anyways
 - [**Default transition duration and easing curve**](#default-transition-duration-and-easing-curve), so you only have to add 17 classes to make a button instead of 19
-- [**Incompatibility with IE11**](#incompatibility-with-ie11), so you can tell the person in charge _"sorry boss it's out of my hands, blame Tailwind"_
+- [**Incompatibility with IE11**](#incompatibility-with-ie-11), so you can tell the person in charge _"sorry boss it's out of my hands, blame Tailwind"_
 
 ...and [a bunch of other little things](https://github.com/tailwindlabs/tailwindcss/blob/master/CHANGELOG.md) too.
 
@@ -55,7 +55,7 @@ Also how about that [brand new website](https://tailwindcss.com) eh? Hot damn.
 
 ---
 
-<h2 id="all-new-color-palette">All-new color palette</h2>
+## All-new color palette
 
 We've learned a lot about color since the first time we tried to design a general purpose color palette back in the Tailwind CSS v0.1.0 days, and v2.0 represents our best attempt so far.
 
@@ -94,7 +94,7 @@ Learn more in the new [customizing colors documentation](https://tailwindcss.com
 
 ---
 
-<h2 id="dark-mode">Dark mode</h2>
+## Dark mode
 
 Ever since iOS added native dark mode all you dark mode nerds haven't been able to leave me alone about adding it to Tailwind. Well you did it, it's here, you win.
 
@@ -148,7 +148,7 @@ Check out the [dark mode docs](https://tailwindcss.com/docs/dark-mode) for all t
 
 ---
 
-<h2 id="extra-wide-2-xl-breakpoint">Extra wide 2XL breakpoint</h2>
+## Extra wide 2XL breakpoint
 
 I'm pretty sure they make an iPhone that is 1280px wide now, so it's time to step it up.
 
@@ -162,7 +162,7 @@ Exciting I know but also let's be serious [you've been able to add this yourself
 
 ---
 
-<h2 id="new-outline-ring-utilities">New outline ring utilities</h2>
+## New outline ring utilities
 
 You know how the `outline` property ignores border radius and pretty much just always looks bad? The `ring` utilities are our attempt to will a better solution into existence through blood, sweat, and tears.
 
@@ -198,7 +198,7 @@ The [ring width documentation](https://tailwindcss.com/docs/ring-width) is the b
 
 ---
 
-<h2 id="utility-friendly-form-styles">Utility-friendly form styles</h2>
+## Utility-friendly form styles
 
 One thing I am constantly surprised by is how few people complain about how unbelievably useless form elements are out of the box with Tailwind. They literally look awful and you can't do anything about it without writing custom CSS full of weird background-image SVG tricks and worrying about obscure edge cases that require CSS properties you've never heard of before like `color-adjust`.
 
@@ -227,9 +227,7 @@ Check out [the @tailwindcss/forms documentation](https://github.com/tailwindlabs
 
 ---
 
-<h2 id="default-line-heights-per-font-size">
-  Default line-heights per font-size
-</h2>
+## Default line-heights per font-size
 
 Every font-size utility in Tailwind now comes paired with a sensible default line-height:
 
@@ -273,9 +271,7 @@ Check out the [font size documentation](https://tailwindcss.com/docs/font-size#p
 
 ---
 
-<h2 id="extended-spacing-typography-and-opacity-scales">
-  Extended spacing, typography, and opacity scales
-</h2>
+## Extended spacing, typography, and opacity scales
 
 We've extended the default spacing scale to include a bunch of micro values like `0.5`, `1.5`, `2.5`, and `3.5`:
 
@@ -316,7 +312,7 @@ Peruse the entire [default config file](https://unpkg.com/browse/tailwindcss@^2/
 
 ---
 
-<h2 id="use-apply-with-anything">Use @apply with anything</h2>
+## Use @apply with anything
 
 By far the most common question I've gotten over the years is "why doesn't `@apply hover:bg-black` work?"
 
@@ -334,7 +330,7 @@ Check out [the updated @apply documentation](https://tailwindcss.com/docs/functi
 
 ---
 
-<h2 id="new-text-overflow-utilities">New text overflow utilities</h2>
+## New text overflow utilities
 
 Up until v2.0, if you wanted to control overflowing text all we really gave you was the fairly heavy-handed `truncate` utility.
 
@@ -350,7 +346,7 @@ Check out the new [text overflow documentation](https://tailwindcss.com/docs/tex
 
 ---
 
-<h2 id="extend-variants">Extend variants</h2>
+## Extend variants
 
 You know what sucks? Wanting to enable `focus-visible` for `backgroundColor` but having to list _every single default variant_ just to add one extra one:
 
@@ -380,9 +376,7 @@ module.exports = {
 
 ---
 
-<h2 id="group-hover-and-focus-within-by-default">
-  Group-hover and focus-within by default
-</h2>
+## Group-hover and focus-within by default
 
 One of the things we learned working on [Tailwind UI](https://tailwindui.com/components) is that `group-hover` and `focus-within` aren't nice-to-haves, they're must-haves.
 
@@ -398,9 +392,7 @@ Check out [the default variants reference](https://tailwindcss.com/docs/configur
 
 ---
 
-<h2 id="default-transition-duration-and-easing-curve">
-  Default transition duration and easing curve
-</h2>
+## Default transition duration and easing curve
 
 Until now, any time you wanted to add a transition in Tailwind you typically needed to add three classes:
 
@@ -443,7 +435,7 @@ Learn more about transitions in the [transition property documentation](https://
 
 ---
 
-<h2 id="incompatibility-with-ie11">Incompatibility with IE11</h2>
+## Incompatibility with IE11
 
 We've decided to unburden ourselves with caring about IE11 at all, which has allowed us to fully embrace CSS custom properties for [all sorts of crazy stuff](https://adamwathan.me/composing-the-uncomposable-with-css-variables/) and is what makes things like the new `ring` utilities even possible.
 
