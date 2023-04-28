@@ -99,7 +99,7 @@ The `@tailwindcss/forms` plugin adds an opinionated form reset layer that makes 
 
 ### Aspect ratio
 
-The `@tailwindcss/aspect-ratio` plugin adds `aspect-w-{n}` and `aspect-h-{n}` classes that can be combined to give an element a fixed aspect ratio.
+The `@tailwindcss/aspect-ratio` plugin is an alternative to native `aspect-ratio` support that works in older browsers, and adds `aspect-w-{n}` and `aspect-h-{n}` classes that can be combined to give an element a fixed aspect ratio.
 
 ```html
 <div class="aspect-w-16 aspect-h-9">
@@ -111,7 +111,7 @@ The `@tailwindcss/aspect-ratio` plugin adds `aspect-w-{n}` and `aspect-h-{n}` cl
 
 ### Container queries
 
-The `@tailwindcss/container-queries` plugin adds a set of `@{size}` classes that makes it easier to style elements using container queries instead of media queries.
+The `@tailwindcss/container-queries` plugin adds new `@{size}` variants like `@sm` and `@md` that let you style an element based on the dimensions of a parent marked with `@container` instead of the viewport.
 
 ```html
 <div class="@container">
