@@ -1,73 +1,60 @@
-import { addImport } from './utils.mjs'
-import { unified } from 'unified'
-import remarkStringify from 'remark-stringify'
-import remarkMdx from 'remark-mdx'
 import { visit } from 'unist-util-visit'
+import { Parser } from 'acorn'
+import acornJsx from 'acorn-jsx'
 
-const voidElements = [
-  'area',
-  'base',
-  'br',
-  'col',
-  'embed',
-  'hr',
-  'img',
-  'input',
-  'keygen',
-  'link',
-  'meta',
-  'param',
-  'source',
-  'track',
-  'wbr',
-]
+const JsxParser = Parser.extend(acornJsx())
 
 export default () => {
   return (tree) => {
-    let componentName
-
-    visit(tree, 'mdxJsxFlowElement', (node, nodeIndex, parentNode) => {
-      if (node.name !== 'Example') {
+    visit(tree, 'code', (node, nodeIndex, parentNode) => {
+      if (node.lang !== 'html') {
+        return
+      }
+      let meta = node.meta?.trim()
+      if (!meta) {
+        return
+      }
+      if (!/\bmode:\s*['"]example['"]/.test(meta)) {
         return
       }
 
-      let html
-
-      if (node.children[0].type === 'code') {
-        html = node.children[0].value
-      } else {
-        html = unified()
-          .use(remarkStringify)
-          .use(remarkMdx)
-          .stringify({ type: 'root', children: node.children })
-        html = html
-          .replace(/<([a-z]+)([^>]+)\/>/g, (match, name, rest) => {
-            if (voidElements.includes(name)) {
-              return match
-            }
-            return `<${name}${rest}></${name}>`
-          })
-          .replace(/\{\/\*.*?\*\/\}/gs, '')
-      }
-
-      let next = parentNode.children[nodeIndex + 1]
-      if (!componentName) {
-        componentName = addImport(tree, '@/components/Example', 'Example')
-      }
-
-      node.name = componentName
+      node.type = 'mdxJsxFlowElement'
+      node.name = 'Example'
       node.children = []
 
-      node.attributes.push({
-        type: 'mdxJsxAttribute',
-        name: 'containerClassName',
-        value: next?.type === 'code' ? 'mt-4 -mb-3' : 'my-6',
-      })
-      node.attributes.push({
-        type: 'mdxJsxAttribute',
-        name: 'html',
-        value: html,
-      })
+      let next = parentNode.children[nodeIndex + 1]
+
+      node.attributes = [
+        {
+          type: 'mdxJsxAttribute',
+          name: 'containerClassName',
+          value: next?.type === 'code' ? 'mt-4 -mb-3' : 'my-6',
+        },
+        {
+          type: 'mdxJsxAttribute',
+          name: 'html',
+          value: node.value,
+        },
+      ]
+
+      if (/^\{\s*\{.*?\}\s*\}$/.test(meta)) {
+        let props = `...${meta.slice(1, -1)}`
+        node.attributes.push({
+          type: 'mdxJsxExpressionAttribute',
+          value: props,
+          data: {
+            estree: {
+              type: 'Program',
+              body: [
+                {
+                  type: 'ExpressionStatement',
+                  expression: JsxParser.parseExpressionAt(`{${props}}`),
+                },
+              ],
+            },
+          },
+        })
+      }
     })
   }
 }

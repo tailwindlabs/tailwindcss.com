@@ -20,19 +20,19 @@ export const classes = {
 
 Use `w-{number}` or `w-px` to set an element to a fixed width.
 
-<Example>
-  <div class="flex justify-center">
-    <div class="space-y-4 font-mono font-bold text-xs text-center text-white">
-      <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg w-96 hidden sm:block">w-96</div>
-      <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg w-80 hidden sm:block">w-80</div>
-      <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg w-64 hidden sm:block">w-64</div>
-      <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg w-48">w-48</div>
-      <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg w-40">w-40</div>
-      <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg w-32">w-32</div>
-      <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg w-24">w-24</div>
-    </div>
+```html {{ mode: 'example' }}
+<div class="flex justify-center">
+  <div class="space-y-4 font-mono font-bold text-xs text-center text-white">
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg w-96 hidden sm:block">w-96</div>
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg w-80 hidden sm:block">w-80</div>
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg w-64 hidden sm:block">w-64</div>
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg w-48">w-48</div>
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg w-40">w-40</div>
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg w-32">w-32</div>
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg w-24">w-24</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="**w-96** ..."></div>
@@ -48,35 +48,35 @@ Use `w-{number}` or `w-px` to set an element to a fixed width.
 
 Use `w-{fraction}` or `w-full` to set an element to a percentage based width.
 
-<Example>
-  <div class="space-y-4 font-mono font-bold text-xs text-white">
-    <div class="flex space-x-4">
-      <div class="w-1/2 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-1/2</div>
-      <div class="w-1/2 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-1/2</div>
-    </div>
-    <div class="flex space-x-4">
-      <div class="w-2/5 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-2/5</div>
-      <div class="w-3/5 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-3/5</div>
-    </div>
-    <div class="flex space-x-4">
-      <div class="w-1/3 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-1/3</div>
-      <div class="w-2/3 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-2/3</div>
-    </div>
-    <div class="space-x-4 hidden sm:flex">
-      <div class="w-1/4 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-1/4</div>
-      <div class="w-3/4 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-3/4</div>
-    </div>
-    <div class="space-x-4 hidden sm:flex">
-      <div class="w-1/5 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-1/5</div>
-      <div class="w-4/5 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-4/5</div>
-    </div>
-    <div class="space-x-4 hidden sm:flex">
-      <div class="w-1/6 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-1/6</div>
-      <div class="w-5/6 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-5/6</div>
-    </div>
-    <div class="w-full px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center text-white font-mono">w-full</div>
+```html {{ mode: 'example' }}
+<div class="space-y-4 font-mono font-bold text-xs text-white">
+  <div class="flex space-x-4">
+    <div class="w-1/2 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-1/2</div>
+    <div class="w-1/2 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-1/2</div>
   </div>
-</Example>
+  <div class="flex space-x-4">
+    <div class="w-2/5 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-2/5</div>
+    <div class="w-3/5 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-3/5</div>
+  </div>
+  <div class="flex space-x-4">
+    <div class="w-1/3 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-1/3</div>
+    <div class="w-2/3 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-2/3</div>
+  </div>
+  <div class="space-x-4 hidden sm:flex">
+    <div class="w-1/4 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-1/4</div>
+    <div class="w-3/4 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-3/4</div>
+  </div>
+  <div class="space-x-4 hidden sm:flex">
+    <div class="w-1/5 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-1/5</div>
+    <div class="w-4/5 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-4/5</div>
+  </div>
+  <div class="space-x-4 hidden sm:flex">
+    <div class="w-1/6 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-1/6</div>
+    <div class="w-5/6 px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">w-5/6</div>
+  </div>
+  <div class="w-full px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center text-white font-mono">w-full</div>
+</div>
+```
 
 ```html
 <div class="flex ...">

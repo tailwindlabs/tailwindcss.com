@@ -130,30 +130,30 @@ We've made it possible to style multi-directional websites using our [LTR and RT
 
 Using new utilities like `ms-3` and `me-3`, you can style the _start_ and _end_ of an element so that your styles automatically adapt in RTL, instead of writing code like `ltr:ml-3 rtl:mr-3`:
 
-<Example>
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 max-w-lg mx-auto">
-    <div dir="ltr">
-      <p class="mb-4 text-sm font-medium">Left-to-right</p>
-      <div class="group flex items-center">
-        <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-        <div class="ms-3">
-          <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">Tom Cook</p>
-          <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">Director of Operations</p>
-        </div>
-      </div>
-    </div>
-    <div dir="rtl">
-      <p class="mb-4 text-sm font-medium">Right-to-left</p>
-      <div class="group flex items-center">
-        <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1563833717765-00462801314e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-        <div class="ms-3">
-          <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">تامر كرم</p>
-          <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">الرئيس التنفيذي</p>
-        </div>
+```html {{ mode: 'example' }}
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 max-w-lg mx-auto">
+  <div dir="ltr">
+    <p class="mb-4 text-sm font-medium">Left-to-right</p>
+    <div class="group flex items-center">
+      <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+      <div class="ms-3">
+        <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">Tom Cook</p>
+        <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">Director of Operations</p>
       </div>
     </div>
   </div>
-</Example>
+  <div dir="rtl">
+    <p class="mb-4 text-sm font-medium">Right-to-left</p>
+    <div class="group flex items-center">
+      <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1563833717765-00462801314e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+      <div class="ms-3">
+        <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">تامر كرم</p>
+        <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">الرئيس التنفيذي</p>
+      </div>
+    </div>
+  </div>
+</div>
+```
 
 ```diff-html
   <div class="group flex items-center">
@@ -301,34 +301,34 @@ We've added new utilities like `from-5%`, `via-35%`, and `to-85%` that let you a
   </symbol>
 </svg>
 
-<Example>
-  <div class="mx-5">
-    <div class="relative h-[3.625rem]">
-      <div class="h-12 flex flex-col items-center absolute top-0 left-[10%] -ml-4">
-        <svg viewBox="0 0 32 34" class="flex-none fill-indigo-500 w-8 drop-shadow">
-          <use href="#gradient-color-stop" />
-        </svg>
-        <div class="mt-2 w-0.5 h-2 bg-gray-900/30 dark:bg-white/30"></div>
-        <div class="absolute top-0 left-0 w-full h-8 flex items-center justify-center text-[0.6875rem] font-semibold text-white font-mono">10%</div>
-      </div>
-      <div class="h-12 flex flex-col items-center absolute top-0 left-[30%] -ml-4">
-        <svg viewBox="0 0 32 34" class="flex-none fill-sky-500 w-8 drop-shadow">
-          <use href="#gradient-color-stop" />
-        </svg>
-        <div class="mt-2 w-0.5 h-2 bg-gray-900/30 dark:bg-white/30"></div>
-        <div class="absolute top-0 left-0 w-full h-8 flex items-center justify-center text-[0.6875rem] font-semibold text-white font-mono">30%</div>
-      </div>
-      <div class="h-12 flex flex-col items-center absolute top-0 right-[10%] -mr-4">
-        <svg viewBox="0 0 32 34" class="flex-none fill-emerald-500 w-8 drop-shadow">
-          <use href="#gradient-color-stop" />
-        </svg>
-        <div class="mt-2 w-0.5 h-2 bg-gray-900/30 dark:bg-white/30"></div>
-        <div class="absolute top-0 left-0 w-full h-8 flex items-center justify-center text-[0.6875rem] font-semibold text-white font-mono">90%</div>
-      </div>
+```html {{ mode: 'example' }}
+<div class="mx-5">
+  <div class="relative h-[3.625rem]">
+    <div class="h-12 flex flex-col items-center absolute top-0 left-[10%] -ml-4">
+      <svg viewBox="0 0 32 34" class="flex-none fill-indigo-500 w-8 drop-shadow">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div class="mt-2 w-0.5 h-2 bg-gray-900/30 dark:bg-white/30"></div>
+      <div class="absolute top-0 left-0 w-full h-8 flex items-center justify-center text-[0.6875rem] font-semibold text-white font-mono">10%</div>
     </div>
-    <div class="h-10 rounded-lg bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"></div>
+    <div class="h-12 flex flex-col items-center absolute top-0 left-[30%] -ml-4">
+      <svg viewBox="0 0 32 34" class="flex-none fill-sky-500 w-8 drop-shadow">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div class="mt-2 w-0.5 h-2 bg-gray-900/30 dark:bg-white/30"></div>
+      <div class="absolute top-0 left-0 w-full h-8 flex items-center justify-center text-[0.6875rem] font-semibold text-white font-mono">30%</div>
+    </div>
+    <div class="h-12 flex flex-col items-center absolute top-0 right-[10%] -mr-4">
+      <svg viewBox="0 0 32 34" class="flex-none fill-emerald-500 w-8 drop-shadow">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div class="mt-2 w-0.5 h-2 bg-gray-900/30 dark:bg-white/30"></div>
+      <div class="absolute top-0 left-0 w-full h-8 flex items-center justify-center text-[0.6875rem] font-semibold text-white font-mono">90%</div>
+    </div>
   </div>
-</Example>
+  <div class="h-10 rounded-lg bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"></div>
+</div>
+```
 
 ```html
 <div class="bg-gradient-to-r from-indigo-500 **from-10%** via-purple-500 **via-30%** to-pink-500 **to-90%** ...">
@@ -352,19 +352,19 @@ For more details, check out the [gradient color stops documentation](/docs/gradi
 
 We released our [official line-clamp plugin](https://tailwindcss.com/blog/multi-line-truncation-with-tailwindcss-line-clamp) just over two years ago and even though it uses a bunch of weird deprecated `-webkit-*` stuff, it works in every browser and it's going to work forever, so we decided to just bake it into the framework itself.
 
-<Example p="none">
-  <div class="px-4 sm:px-0">
-    <article class="mx-auto max-w-sm bg-white p-8 text-sm leading-6 text-slate-700 shadow-xl dark:bg-slate-800 dark:text-slate-400 sm:text-base sm:leading-7">
-      <time datetime="2020-03-16" class="block text-sm leading-6 text-slate-500 dark:text-slate-400">Mar 10, 2020</time>
-      <h2 class="mt-2 text-lg font-semibold text-slate-900 dark:text-slate-200">Boost your conversion rate</h2>
-      <p class="line-clamp-3 mt-4 text-sm leading-6 text-slate-500 dark:text-slate-400">Nulla dolor velit adipisicing duis excepteur esse in duis nostrud occaecat mollit incididunt deserunt sunt. Ut ut sunt laborum ex occaecat eu tempor labore enim adipisicing minim ad. Est in quis eu dolore occaecat excepteur fugiat dolore nisi aliqua fugiat enim ut cillum. Labore enim duis nostrud eu. Est ut eiusmod consequat irure quis deserunt ex. Enim laboris dolor magna pariatur. Dolor et ad sint voluptate sunt elit mollit officia ad enim sit consectetur enim.</p>
-      <div class="mt-4 flex gap-x-2.5 text-sm font-semibold leading-6 text-slate-900 dark:text-slate-200">
-        <img class="h-6 w-6 flex-none rounded-full bg-slate-50 dark:bg-slate-900" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-        Lindsay Walton
-      </div>
-    </article>
-  </div>
-</Example>
+```html {{ mode: 'example', p: 'none' }}
+<div class="px-4 sm:px-0">
+  <article class="mx-auto max-w-sm bg-white p-8 text-sm leading-6 text-slate-700 shadow-xl dark:bg-slate-800 dark:text-slate-400 sm:text-base sm:leading-7">
+    <time datetime="2020-03-16" class="block text-sm leading-6 text-slate-500 dark:text-slate-400">Mar 10, 2020</time>
+    <h2 class="mt-2 text-lg font-semibold text-slate-900 dark:text-slate-200">Boost your conversion rate</h2>
+    <p class="line-clamp-3 mt-4 text-sm leading-6 text-slate-500 dark:text-slate-400">Nulla dolor velit adipisicing duis excepteur esse in duis nostrud occaecat mollit incididunt deserunt sunt. Ut ut sunt laborum ex occaecat eu tempor labore enim adipisicing minim ad. Est in quis eu dolore occaecat excepteur fugiat dolore nisi aliqua fugiat enim ut cillum. Labore enim duis nostrud eu. Est ut eiusmod consequat irure quis deserunt ex. Enim laboris dolor magna pariatur. Dolor et ad sint voluptate sunt elit mollit officia ad enim sit consectetur enim.</p>
+    <div class="mt-4 flex gap-x-2.5 text-sm font-semibold leading-6 text-slate-900 dark:text-slate-200">
+      <img class="h-6 w-6 flex-none rounded-full bg-slate-50 dark:bg-slate-900" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+      Lindsay Walton
+    </div>
+  </article>
+</div>
+```
 
 ```html
   <article>
@@ -478,17 +478,17 @@ In the example above we're using a recent release of [Inter](https://github.com/
 
 Ever wanted to use a picture of a carrot as your list item marker? Well now you can, with the new `list-image-*` utilities.
 
-<Example p="none">
-  <div class="px-4 sm:px-0">
-    <div class="mx-auto max-w-sm bg-white p-8 text-sm leading-6 text-slate-700 shadow-xl dark:bg-slate-800 dark:text-slate-400 sm:text-base sm:leading-7">
-      <ul class="pl-4 text-slate-900 dark:text-slate-200 marker:text-2xl list-image-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjZjk3MzE2Ij48cGF0aCBkPSJNMzQ2LjcgNkMzMzcuNiAxNyAzMjAgNDIuMyAzMjAgNzJjMCA0MCAxNS4zIDU1LjMgNDAgODBzNDAgNDAgODAgNDBjMjkuNyAwIDU1LTE3LjYgNjYtMjYuN2M0LTMuMyA2LTguMiA2LTEzLjNzLTItMTAtNi0xMy4yYy0xMS40LTkuMS0zOC4zLTI2LjgtNzQtMjYuOGMtMzIgMC00MCA4LTQwIDhzOC04IDgtNDBjMC0zNS43LTE3LjctNjIuNi0yNi44LTc0QzM3MCAyIDM2NS4xIDAgMzYwIDBzLTEwIDItMTMuMyA2ek0yNDQuNiAxMzZjLTQwIDAtNzcuMSAxOC4xLTEwMS43IDQ4LjJsNjAuNSA2MC41YzYuMiA2LjIgNi4yIDE2LjQgMCAyMi42cy0xNi40IDYuMi0yMi42IDBsLTU1LjMtNTUuMyAwIC4xTDIuMiA0NzcuOUMtMiA0ODctLjEgNDk3LjggNyA1MDVzMTcuOSA5IDI3LjEgNC44bDEzNC43LTYyLjQtNTIuMS01Mi4xYy02LjItNi4yLTYuMi0xNi40IDAtMjIuNnMxNi40LTYuMiAyMi42IDBMMTk5LjcgNDMzbDEwMC4yLTQ2LjRjNDYuNC0yMS41IDc2LjItNjggNzYuMi0xMTkuMkMzNzYgMTk0LjggMzE3LjIgMTM2IDI0NC42IDEzNnoiLz48L3N2Zz4=')]">
-        <li class="pl-2">5 cups chopped Porcini mushrooms</li>
-        <li class="pl-2">1/2 cup of olive oil</li>
-        <li class="pl-2">3lb of celery</li>
-      </ul>
-    </div>
+```html {{ mode: 'example', p: 'none' }}
+<div class="px-4 sm:px-0">
+  <div class="mx-auto max-w-sm bg-white p-8 text-sm leading-6 text-slate-700 shadow-xl dark:bg-slate-800 dark:text-slate-400 sm:text-base sm:leading-7">
+    <ul class="pl-4 text-slate-900 dark:text-slate-200 marker:text-2xl list-image-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjZjk3MzE2Ij48cGF0aCBkPSJNMzQ2LjcgNkMzMzcuNiAxNyAzMjAgNDIuMyAzMjAgNzJjMCA0MCAxNS4zIDU1LjMgNDAgODBzNDAgNDAgODAgNDBjMjkuNyAwIDU1LTE3LjYgNjYtMjYuN2M0LTMuMyA2LTguMiA2LTEzLjNzLTItMTAtNi0xMy4yYy0xMS40LTkuMS0zOC4zLTI2LjgtNzQtMjYuOGMtMzIgMC00MCA4LTQwIDhzOC04IDgtNDBjMC0zNS43LTE3LjctNjIuNi0yNi44LTc0QzM3MCAyIDM2NS4xIDAgMzYwIDBzLTEwIDItMTMuMyA2ek0yNDQuNiAxMzZjLTQwIDAtNzcuMSAxOC4xLTEwMS43IDQ4LjJsNjAuNSA2MC41YzYuMiA2LjIgNi4yIDE2LjQgMCAyMi42cy0xNi40IDYuMi0yMi42IDBsLTU1LjMtNTUuMyAwIC4xTDIuMiA0NzcuOUMtMiA0ODctLjEgNDk3LjggNyA1MDVzMTcuOSA5IDI3LjEgNC44bDEzNC43LTYyLjQtNTIuMS01Mi4xYy02LjItNi4yLTYuMi0xNi40IDAtMjIuNnMxNi40LTYuMiAyMi42IDBMMTk5LjcgNDMzbDEwMC4yLTQ2LjRjNDYuNC0yMS41IDc2LjItNjggNzYuMi0xMTkuMkMzNzYgMTk0LjggMzE3LjIgMTM2IDI0NC42IDEzNnoiLz48L3N2Zz4=')]">
+      <li class="pl-2">5 cups chopped Porcini mushrooms</li>
+      <li class="pl-2">1/2 cup of olive oil</li>
+      <li class="pl-2">3lb of celery</li>
+    </ul>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <ul class="**list-image-[url(carrot.png)]** ...">
@@ -509,13 +509,13 @@ Ever heard of the `&shy;` HTML entity? Me neither until we added support for the
 
 Using `hyphens-manual` and a carefully placed `&shy;`, you can tell the browser where to insert a hyphen when it needs to break a word across multiple lines:
 
-<Example p="none">
-  <div class="overflow-x-scroll sm:overflow-x-visible px-4">
-    <div class="mx-auto max-w-xs bg-white shadow-xl p-12 text-slate-500 dark:bg-slate-800 dark:text-slate-400">
-       <p class="hyphens-manual">Officially recognized by the Duden dictionary as the longest word in German, <span class="text-slate-900 font-medium dark:text-slate-200" lang="de"> Kraftfahrzeug&shy;haftpflichtversicherung</span> is a 36 letter word for motor vehicle liability insurance.</p>
-    </div>
+```html {{ mode: 'example', p: 'none' }}
+<div class="overflow-x-scroll sm:overflow-x-visible px-4">
+  <div class="mx-auto max-w-xs bg-white shadow-xl p-12 text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+     <p class="hyphens-manual">Officially recognized by the Duden dictionary as the longest word in German, <span class="text-slate-900 font-medium dark:text-slate-200" lang="de"> Kraftfahrzeug&shy;haftpflichtversicherung</span> is a 36 letter word for motor vehicle liability insurance.</p>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <p class="**hyphens-manual** ...">
@@ -533,35 +533,35 @@ Check out the [hyphens documentation](/docs/hyphens) to learn more.
 
 Another new one for me — the `<caption>` element! We've got new `caption-*` utilities you can use on table captions to control whether they appear at the top or bottom of the table they're attached to.
 
-<Example p="none">
-  <div class="shadow-sm overflow-hidden px-4 py-8 sm:px-8">
-    <table class="border-collapse table-auto w-full text-sm">
-      <caption class="text-slate-500 dark:text-slate-400 pt-4 text-xs caption-bottom">
-          Table 3.1: Professional wrestlers and their signature moves.
-      </caption>
-      <thead>
-        <tr>
-          <th class="border dark:border-slate-600 font-medium p-4 pl-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Wrestler</th>
-          <th class="border dark:border-slate-600 font-medium p-4 pr-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Signature Move(s)</th>
-        </tr>
-      </thead>
-      <tbody class="bg-white dark:bg-slate-800">
-        <tr>
-          <td class="border border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">"Stone Cold" Steve Austin</td>
-          <td class="border border-slate-200 dark:border-slate-600 p-4 pr-8 text-slate-500 dark:text-slate-400">Stone Cold Stunner, Lou Thesz Press</td>
-        </tr>
-        <tr>
-          <td class="border border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">Bret "The Hitman" Hart</td>
-          <td class="border border-slate-200 dark:border-slate-600 p-4 pr-8 text-slate-500 dark:text-slate-400">The Sharpshooter</td>
-        </tr>
-        <tr>
-          <td class="border border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">Razor Ramon</td>
-          <td class="border border-slate-200 dark:border-slate-600 p-4 pr-8 text-slate-500 dark:text-slate-400">Razor's Edge, Fallaway Slam</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</Example>
+```html {{ mode: 'example', p: 'none' }}
+<div class="shadow-sm overflow-hidden px-4 py-8 sm:px-8">
+  <table class="border-collapse table-auto w-full text-sm">
+    <caption class="text-slate-500 dark:text-slate-400 pt-4 text-xs caption-bottom">
+        Table 3.1: Professional wrestlers and their signature moves.
+    </caption>
+    <thead>
+      <tr>
+        <th class="border dark:border-slate-600 font-medium p-4 pl-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Wrestler</th>
+        <th class="border dark:border-slate-600 font-medium p-4 pr-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Signature Move(s)</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white dark:bg-slate-800">
+      <tr>
+        <td class="border border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">"Stone Cold" Steve Austin</td>
+        <td class="border border-slate-200 dark:border-slate-600 p-4 pr-8 text-slate-500 dark:text-slate-400">Stone Cold Stunner, Lou Thesz Press</td>
+      </tr>
+      <tr>
+        <td class="border border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">Bret "The Hitman" Hart</td>
+        <td class="border border-slate-200 dark:border-slate-600 p-4 pr-8 text-slate-500 dark:text-slate-400">The Sharpshooter</td>
+      </tr>
+      <tr>
+        <td class="border border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">Razor Ramon</td>
+        <td class="border border-slate-200 dark:border-slate-600 p-4 pr-8 text-slate-500 dark:text-slate-400">Razor's Edge, Fallaway Slam</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
 
 ```html
 <table>

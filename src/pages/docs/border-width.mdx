@@ -16,26 +16,26 @@ export const classes = { utilities }
 
 Use the `border`, `border-0`, `border-2`, `border-4`, or `border-8` utilities to set the border width for all sides of an element.
 
-<Example>
-  <div class="flex flex-col sm:flex-row items-center justify-around gap-4 text-white text-sm text-center font-bold leading-6">
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border</p>
-      <div class="p-4 shadow-sm bg-white dark:bg-slate-900 w-16 h-16 border-indigo-600 dark:border-sky-500 border"></div>
-    </div>
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-2</p>
-      <div class="p-4 shadow-sm bg-white dark:bg-slate-900 w-16 h-16 border-indigo-600 dark:border-sky-500 border-2"></div>
-    </div>
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-4</p>
-      <div class="p-4 shadow-sm bg-white dark:bg-slate-900 w-16 h-16 border-indigo-600 dark:border-sky-500 border-4"></div>
-    </div>
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-8</p>
-      <div class="p-4 shadow-sm bg-white dark:bg-slate-900 w-16 h-16 border-indigo-600 dark:border-sky-500 border-8"></div>
-    </div>
+```html {{ mode: 'example' }}
+<div class="flex flex-col sm:flex-row items-center justify-around gap-4 text-white text-sm text-center font-bold leading-6">
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border</p>
+    <div class="p-4 shadow-sm bg-white dark:bg-slate-900 w-16 h-16 border-indigo-600 dark:border-sky-500 border"></div>
   </div>
-</Example>
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-2</p>
+    <div class="p-4 shadow-sm bg-white dark:bg-slate-900 w-16 h-16 border-indigo-600 dark:border-sky-500 border-2"></div>
+  </div>
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-4</p>
+    <div class="p-4 shadow-sm bg-white dark:bg-slate-900 w-16 h-16 border-indigo-600 dark:border-sky-500 border-4"></div>
+  </div>
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-8</p>
+    <div class="p-4 shadow-sm bg-white dark:bg-slate-900 w-16 h-16 border-indigo-600 dark:border-sky-500 border-8"></div>
+  </div>
+</div>
+```
 
 ```html
 <div class="**border** border-indigo-600 ..." dark-class="**border** border-sky-500"></div>
@@ -48,26 +48,26 @@ Use the `border`, `border-0`, `border-2`, `border-4`, or `border-8` utilities to
 
 Use the `border-{side}`, `border-{side}-0`, `border-{side}-2`, `border-{side}-4`, or `border-{side}-8` utilities to set the border width for one side of an element.
 
-<Example>
-  <div class="flex flex-col sm:flex-row items-center justify-around gap-4 text-white text-sm text-center font-bold leading-6">
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-t-4</p>
-      <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 dark:ring-white/10 w-16 h-16 border-indigo-500 border-t-4"></div>
-    </div>
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-r-4</p>
-      <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 dark:ring-white/10 w-16 h-16 border-indigo-500 border-r-4"></div>
-    </div>
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-b-4</p>
-      <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 dark:ring-white/10 w-16 h-16 border-indigo-500 border-b-4"></div>
-    </div>
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-l-4</p>
-      <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 dark:ring-white/10 w-16 h-16 border-indigo-500 border-l-4"></div>
-    </div>
+```html {{ mode: 'example' }}
+<div class="flex flex-col sm:flex-row items-center justify-around gap-4 text-white text-sm text-center font-bold leading-6">
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-t-4</p>
+    <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 dark:ring-white/10 w-16 h-16 border-indigo-500 border-t-4"></div>
   </div>
-</Example>
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-r-4</p>
+    <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 dark:ring-white/10 w-16 h-16 border-indigo-500 border-r-4"></div>
+  </div>
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-b-4</p>
+    <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 dark:ring-white/10 w-16 h-16 border-indigo-500 border-b-4"></div>
+  </div>
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-l-4</p>
+    <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 dark:ring-white/10 w-16 h-16 border-indigo-500 border-l-4"></div>
+  </div>
+</div>
+```
 
 ```html
 <div class="**border-t-4** border-indigo-500 ..."></div>
@@ -80,18 +80,18 @@ Use the `border-{side}`, `border-{side}-0`, `border-{side}-2`, `border-{side}-4`
 
 Use the `border-{x|y}-{width}` utilities to set the border width on two sides of an element at the same time.
 
-<Example>
-  <div class="flex flex-col sm:flex-row items-center justify-around gap-4 text-white text-sm text-center font-bold leading-6">
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-x-4</p>
-      <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 dark:ring-white/10 w-16 h-16 border-indigo-500 border-x-4"></div>
-    </div>
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-y-4</p>
-      <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 dark:ring-white/10 w-16 h-16 border-indigo-500 border-y-4"></div>
-    </div>
+```html {{ mode: 'example' }}
+<div class="flex flex-col sm:flex-row items-center justify-around gap-4 text-white text-sm text-center font-bold leading-6">
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-x-4</p>
+    <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 dark:ring-white/10 w-16 h-16 border-indigo-500 border-x-4"></div>
   </div>
-</Example>
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-y-4</p>
+    <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 dark:ring-white/10 w-16 h-16 border-indigo-500 border-y-4"></div>
+  </div>
+</div>
+```
 
 ```html
 <div class="**border-x-4** border-indigo-500 ..."></div>
@@ -102,13 +102,13 @@ Use the `border-{x|y}-{width}` utilities to set the border width on two sides of
 
 You can also add borders between child elements using the `divide-{x/y}-{width}` and `divide-{color}` utilities.
 
-<Example p="none">
-  <div class="flex flex-col divide-y divide-slate-200 dark:divide-slate-700 font-mono text-white text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto">
-    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">01</div>
-    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">02</div>
-    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">03</div>
-  </div>
-</Example>
+```html {{ mode: 'example', p: 'none' }}
+<div class="flex flex-col divide-y divide-slate-200 dark:divide-slate-700 font-mono text-white text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto">
+  <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">01</div>
+  <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">02</div>
+  <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">03</div>
+</div>
+```
 
 ```html
 <div class="**divide-y** divide-slate-200 ..." dark-class="**divide-y** divide-slate-700 ...">
@@ -124,18 +124,18 @@ Learn more in the [Divide Width](/docs/divide-width) and [Divide Color](/docs/di
 
 Use the `border-s-*` and `border-e-*` utilities to set the `border-inline-start-width` and `border-inline-end-width` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right border based on the text direction.
 
-<Example>
-  <div class="grid grid-cols-2 gap-x-4 place-items-center">
-    <div class="flex flex-col items-start gap-y-4" dir="ltr">
-      <p class="text-sm font-medium">Left-to-right</p>
-      <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 dark:ring-white/10 w-16 h-16 border-indigo-500 border-s-4"></div>
-    </div>
-    <div class="flex flex-col items-start gap-y-4" dir="rtl">
-      <p class="text-sm font-medium">Right-to-left</p>
-      <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 dark:ring-white/10 w-16 h-16 border-indigo-500 border-s-4"></div>
-    </div>
+```html {{ mode: 'example' }}
+<div class="grid grid-cols-2 gap-x-4 place-items-center">
+  <div class="flex flex-col items-start gap-y-4" dir="ltr">
+    <p class="text-sm font-medium">Left-to-right</p>
+    <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 dark:ring-white/10 w-16 h-16 border-indigo-500 border-s-4"></div>
   </div>
-</Example>
+  <div class="flex flex-col items-start gap-y-4" dir="rtl">
+    <p class="text-sm font-medium">Right-to-left</p>
+    <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 dark:ring-white/10 w-16 h-16 border-indigo-500 border-s-4"></div>
+  </div>
+</div>
+```
 
 ```html
 <div dir="**ltr**">

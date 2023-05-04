@@ -1,4 +1,5 @@
 import { Heading } from '@/components/Heading'
+import { Example } from '@/components/Example'
 import Link from 'next/link'
 
 function Img(props) {
@@ -15,4 +16,5 @@ export const mdxComponents = {
   a: Link,
   img: Img,
   Img,
+  Example,
 }

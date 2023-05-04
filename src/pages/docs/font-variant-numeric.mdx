@@ -40,9 +40,9 @@ Note that many fonts don't support these features *(stacked fractions support fo
 
 Use the `ordinal` utility to enable special glyphs for the ordinal markers.
 
-<Example>
-  <p class="font-source ordinal text-center text-slate-900 text-lg dark:text-slate-200">1st</p>
-</Example>
+```html {{ mode: 'example' }}
+<p class="font-source ordinal text-center text-slate-900 text-lg dark:text-slate-200">1st</p>
+```
 
 ```html
 <p class="**ordinal** ...">1st</p>
@@ -52,9 +52,9 @@ Use the `ordinal` utility to enable special glyphs for the ordinal markers.
 
 Use the `slashed-zero` utility to force a 0 with a slash; this is useful when a clear distinction between O and 0 is needed.
 
-<Example>
-  <p class="font-source slashed-zero text-center text-slate-900 text-lg dark:text-slate-200">0</p>
-</Example>
+```html {{ mode: 'example' }}
+<p class="font-source slashed-zero text-center text-slate-900 text-lg dark:text-slate-200">0</p>
+```
 
 ```html
 <p class="**slashed-zero** ...">0</p>
@@ -64,9 +64,9 @@ Use the `slashed-zero` utility to force a 0 with a slash; this is useful when a 
 
 Use the `lining-nums` utility to use the numeric glyphs that are all aligned by their baseline. This corresponds to the `lnum` OpenType feature. This is the default for most fonts.
 
-<Example>
-  <p class="font-source lining-nums text-center text-slate-900 text-lg dark:text-slate-200">1234567890</p>
-</Example>
+```html {{ mode: 'example' }}
+<p class="font-source lining-nums text-center text-slate-900 text-lg dark:text-slate-200">1234567890</p>
+```
 
 ```html
 <p class="**lining-nums** ...">
@@ -78,9 +78,9 @@ Use the `lining-nums` utility to use the numeric glyphs that are all aligned by 
 
 Use the `oldstyle-nums` utility to use numeric glyphs where some numbers have descenders. This corresponds to the `onum` OpenType feature.
 
-<Example>
-  <p class="font-source oldstyle-nums text-center text-slate-900 text-lg dark:text-slate-200">1234567890</p>
-</Example>
+```html {{ mode: 'example' }}
+<p class="font-source oldstyle-nums text-center text-slate-900 text-lg dark:text-slate-200">1234567890</p>
+```
 
 ```html
 <p class="**oldstyle-nums** ...">
@@ -92,12 +92,12 @@ Use the `oldstyle-nums` utility to use numeric glyphs where some numbers have de
 
 Use the `proportional-nums` utility to use numeric glyphs that have proportional widths (rather than uniform/tabular). This corresponds to the `pnum` OpenType feature.
 
-<Example>
-  <div class="max-w-sm text-right">
-    <p class="font-source proportional-nums text-slate-900 text-lg dark:text-slate-200">12121</p>
-    <p class="font-source proportional-nums text-slate-900 text-lg dark:text-slate-200">90909</p>
-  </div>
-</Example>
+```html {{ mode: 'example' }}
+<div class="max-w-sm text-right">
+  <p class="font-source proportional-nums text-slate-900 text-lg dark:text-slate-200">12121</p>
+  <p class="font-source proportional-nums text-slate-900 text-lg dark:text-slate-200">90909</p>
+</div>
+```
 
 ```html
 <p class="**proportional-nums** ...">
@@ -112,12 +112,12 @@ Use the `proportional-nums` utility to use numeric glyphs that have proportional
 
 Use the `tabular-nums` utility to use numeric glyphs that have uniform/tabular widths (rather than proportional). This corresponds to the `tnum` OpenType feature.
 
-<Example>
-  <div class="max-w-sm text-right">
-    <p class="font-source tabular-nums text-slate-900 text-lg dark:text-slate-200">12121</p>
-    <p class="font-source tabular-nums text-slate-900 text-lg dark:text-slate-200">90909</p>
-  </div>
-</Example>
+```html {{ mode: 'example' }}
+<div class="max-w-sm text-right">
+  <p class="font-source tabular-nums text-slate-900 text-lg dark:text-slate-200">12121</p>
+  <p class="font-source tabular-nums text-slate-900 text-lg dark:text-slate-200">90909</p>
+</div>
+```
 
 ```html
 <p class="**tabular-nums** ...">
@@ -132,9 +132,9 @@ Use the `tabular-nums` utility to use numeric glyphs that have uniform/tabular w
 
 Use the `diagonal-fractions` utility to replace numbers separated by a slash with common diagonal fractions. This corresponds to the `frac` OpenType feature.
 
-<Example>
-  <p class="font-source diagonal-fractions text-center text-slate-900 text-lg dark:text-slate-200">1/2 3/4 5/6</p>
-</Example>
+```html {{ mode: 'example' }}
+<p class="font-source diagonal-fractions text-center text-slate-900 text-lg dark:text-slate-200">1/2 3/4 5/6</p>
+```
 
 ```html
 <p class="**diagonal-fractions** ...">
@@ -146,9 +146,9 @@ Use the `diagonal-fractions` utility to replace numbers separated by a slash wit
 
 Use the `stacked-fractions` utility to replace numbers separated by a slash with common stacked fractions. This corresponds to the `afrc` OpenType feature. Very few fonts seem to support this feature — we've used Ubuntu Mono here.
 
-<Example>
-  <p class="font-ubuntu-mono stacked-fractions text-center text-slate-900 text-lg dark:text-slate-200">1/2 3/4 5/6</p>
-</Example>
+```html {{ mode: 'example' }}
+<p class="font-ubuntu-mono stacked-fractions text-center text-slate-900 text-lg dark:text-slate-200">1/2 3/4 5/6</p>
+```
 
 ```html
 <p class="**stacked-fractions** ...">

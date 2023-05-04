@@ -11,13 +11,13 @@ Every utility class in Tailwind can be applied _conditionally_ by adding a modif
 
 For example, to apply the `bg-sky-700` class on hover, use the `hover:bg-sky-700` class:
 
-<Example hint="Hover over this button to see the background color change">
-  <div class="grid place-items-center">
-    <button class="bg-sky-500 hover:bg-sky-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white">
-      Save changes
-    </button>
-  </div>
-</Example>
+```html {{ mode: 'example', hint: 'Hover over this button to see the background color change' }}
+<div class="grid place-items-center">
+  <button class="bg-sky-500 hover:bg-sky-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white">
+    Save changes
+  </button>
+</div>
+```
 
 ```html
 <button class="bg-sky-500 **hover:bg-sky-700** ...">
@@ -85,13 +85,13 @@ In this guide you'll learn about every modifier available in the framework, how 
 
 Style elements on hover, focus, and active using the `hover`, `focus`, and `active` modifiers:
 
-<Example hint="Try interacting with this button to see the hover, focus, and active states">
-  <div class="grid place-items-center">
-    <button type="button" class="bg-violet-500 hover:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300 active:bg-violet-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white">
-      Save changes
-    </button>
-  </div>
-</Example>
+```html {{ mode: 'example', hint: 'Try interacting with this button to see the hover, focus, and active states' }}
+<div class="grid place-items-center">
+  <button type="button" class="bg-violet-500 hover:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300 active:bg-violet-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white">
+    Save changes
+  </button>
+</div>
+```
 
 ```html
 <button class="bg-violet-500 **hover:bg-violet-600** **active:bg-violet-700** **focus:outline-none focus:ring focus:ring-violet-300** ...">
@@ -107,44 +107,42 @@ See the [pseudo-class reference](#pseudo-class-reference) for a complete list of
 
 Style an element when it is the first-child or last-child using the `first` and `last` modifiers:
 
-<Example p="none">
-  ```html
-  <div class="px-4">
-    <div class="max-w-md mx-auto bg-white shadow">
-      <ul role="list" class="p-6 divide-y divide-slate-200">
-        <li class="py-4 flex first:pt-0 last:pb-0">
-          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-          <div class="ml-3 overflow-hidden">
-            <p class="text-sm font-medium text-slate-900">Kristen Ramos</p>
-            <p class="text-sm text-slate-500 truncate">kristen.ramos@example.com</p>
-          </div>
-        </li>
-        <li class="py-4 flex first:pt-0 last:pb-0">
-          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-          <div class="ml-3 overflow-hidden">
-            <p class="text-sm font-medium text-slate-900">Floyd Miles</p>
-            <p class="text-sm text-slate-500 truncate">floyd.miles@example.com</p>
-          </div>
-        </li>
-        <li class="py-4 flex first:pt-0 last:pb-0">
-          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-          <div class="ml-3 overflow-hidden">
-            <p class="text-sm font-medium text-slate-900">Courtney Henry</p>
-            <p class="text-sm text-slate-500 truncate">courtney.henry@example.com</p>
-          </div>
-        </li>
-        <li class="py-4 flex first:pt-0 last:pb-0">
-          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-          <div class="ml-3 overflow-hidden">
-            <p class="text-sm font-medium text-slate-900">Ted Fox</p>
-            <p class="text-sm text-slate-500 truncate">ted.fox@example.com</p>
-          </div>
-        </li>
-      </ul>
-    </div>
+```html {{ mode: 'example', p: 'none' }}
+<div class="px-4">
+  <div class="max-w-md mx-auto bg-white shadow">
+    <ul role="list" class="p-6 divide-y divide-slate-200">
+      <li class="py-4 flex first:pt-0 last:pb-0">
+        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+        <div class="ml-3 overflow-hidden">
+          <p class="text-sm font-medium text-slate-900">Kristen Ramos</p>
+          <p class="text-sm text-slate-500 truncate">kristen.ramos@example.com</p>
+        </div>
+      </li>
+      <li class="py-4 flex first:pt-0 last:pb-0">
+        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+        <div class="ml-3 overflow-hidden">
+          <p class="text-sm font-medium text-slate-900">Floyd Miles</p>
+          <p class="text-sm text-slate-500 truncate">floyd.miles@example.com</p>
+        </div>
+      </li>
+      <li class="py-4 flex first:pt-0 last:pb-0">
+        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+        <div class="ml-3 overflow-hidden">
+          <p class="text-sm font-medium text-slate-900">Courtney Henry</p>
+          <p class="text-sm text-slate-500 truncate">courtney.henry@example.com</p>
+        </div>
+      </li>
+      <li class="py-4 flex first:pt-0 last:pb-0">
+        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+        <div class="ml-3 overflow-hidden">
+          <p class="text-sm font-medium text-slate-900">Ted Fox</p>
+          <p class="text-sm text-slate-500 truncate">ted.fox@example.com</p>
+        </div>
+      </li>
+    </ul>
   </div>
-  ```
-</Example>
+</div>
+```
 
 ```html
 <ul role="list" class="p-6 divide-y divide-slate-200">
@@ -163,92 +161,90 @@ Style an element when it is the first-child or last-child using the `first` and 
 
 You can also style an element when it's an odd or even child using the `odd` and `even` modifiers:
 
-<Example p="none">
-  ```html
-  <div class="px-0 sm:px-6">
-    <div class="bg-white shadow">
-      <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="align-middle inline-block min-w-full sm:px-6 lg:px-8">
-          <div class="overflow-hidden">
-            <table class="min-w-full">
-              <thead class="bg-slate-50 border-b border-slate-200">
-                <tr>
-                  <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-slate-900">
-                    Name
-                  </th>
-                  <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-slate-900">
-                    Title
-                  </th>
-                  <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-slate-900">
-                    Email
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="odd:bg-white even:bg-slate-50">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">
-                    Jane Cooper
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
-                    Regional Paradigm Technician
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
-                    jane.cooper@example.com
-                  </td>
-                </tr>
-                <tr class="odd:bg-white even:bg-slate-50">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">
-                    Cody Fisher
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
-                    Product Directives Officer
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
-                    cody.fisher@example.com
-                  </td>
-                </tr>
-                <tr class="odd:bg-white even:bg-slate-50">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">
-                    Leonard Krasner
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
-                    Senior Designer
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
-                    leonard.krasner@example.com
-                  </td>
-                </tr>
-                <tr class="odd:bg-white even:bg-slate-50">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">
-                    Emily Selman
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
-                    VP, Hardware Engineering
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
-                    emily.selman@example.com
-                  </td>
-                </tr>
-                <tr class="odd:bg-white even:bg-slate-50">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">
-                    Anna Roberts
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
-                    Chief Strategy Officer
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
-                    anna.roberts@example.com
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+```html {{ mode: 'example', p: 'none' }}
+<div class="px-0 sm:px-6">
+  <div class="bg-white shadow">
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="align-middle inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="overflow-hidden">
+          <table class="min-w-full">
+            <thead class="bg-slate-50 border-b border-slate-200">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-slate-900">
+                  Name
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-slate-900">
+                  Title
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-slate-900">
+                  Email
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="odd:bg-white even:bg-slate-50">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">
+                  Jane Cooper
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
+                  Regional Paradigm Technician
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
+                  jane.cooper@example.com
+                </td>
+              </tr>
+              <tr class="odd:bg-white even:bg-slate-50">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">
+                  Cody Fisher
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
+                  Product Directives Officer
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
+                  cody.fisher@example.com
+                </td>
+              </tr>
+              <tr class="odd:bg-white even:bg-slate-50">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">
+                  Leonard Krasner
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
+                  Senior Designer
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
+                  leonard.krasner@example.com
+                </td>
+              </tr>
+              <tr class="odd:bg-white even:bg-slate-50">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">
+                  Emily Selman
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
+                  VP, Hardware Engineering
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
+                  emily.selman@example.com
+                </td>
+              </tr>
+              <tr class="odd:bg-white even:bg-slate-50">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">
+                  Anna Roberts
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
+                  Chief Strategy Officer
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
+                  anna.roberts@example.com
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
-  ```
-</Example>
+</div>
+```
 
 ```html
 <table>
@@ -274,35 +270,35 @@ See the [pseudo-class reference](#pseudo-class-reference) for a complete list of
 
 Style form elements in different states using modifiers like `required`, `invalid`, and `disabled`:
 
-<Example hint="Try making the email address valid to see the styles change" p="none">
-  <div class="max-w-sm mx-auto bg-white shadow py-5 px-6">
-    <form>
-      <div>
-        <label for="username" class="block text-sm font-medium text-slate-700">Username</label>
-        <div class="mt-1">
-          <input type="text" name="username" id="username" class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="tbone" disabled />
-        </div>
+```html {{ mode: 'example', p: 'none', hint: 'Try making the email address valid to see the styles change' }}
+<div class="max-w-sm mx-auto bg-white shadow py-5 px-6">
+  <form>
+    <div>
+      <label for="username" class="block text-sm font-medium text-slate-700">Username</label>
+      <div class="mt-1">
+        <input type="text" name="username" id="username" class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="tbone" disabled />
       </div>
-      <div class="mt-6">
-        <label for="email" class="block text-sm font-medium text-slate-700">Email</label>
-        <div class="mt-1">
-          <input type="email" name="email" id="email" class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="george@krugerindustrial." placeholder="you@example.com" />
-        </div>
+    </div>
+    <div class="mt-6">
+      <label for="email" class="block text-sm font-medium text-slate-700">Email</label>
+      <div class="mt-1">
+        <input type="email" name="email" id="email" class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="george@krugerindustrial." placeholder="you@example.com" />
       </div>
-      <div class="mt-6">
-        <label for="password" class="block text-sm font-medium text-slate-700">Password</label>
-        <div class="mt-1">
-          <input type="password" name="password" id="password" class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="Bosco" />
-        </div>
+    </div>
+    <div class="mt-6">
+      <label for="password" class="block text-sm font-medium text-slate-700">Password</label>
+      <div class="mt-1">
+        <input type="password" name="password" id="password" class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="Bosco" />
       </div>
-      <div class="mt-6 text-right">
-        <button class="bg-sky-500 hover:bg-sky-700 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white">
-          Save changes
-        </button>
-      </div>
-    </form>
-  </div>
-</Example>
+    </div>
+    <div class="mt-6 text-right">
+      <button class="bg-sky-500 hover:bg-sky-700 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white">
+        Save changes
+      </button>
+    </div>
+  </form>
+</div>
+```
 
 ```html
 <form>
@@ -330,20 +326,20 @@ See the [pseudo-class reference](#disabled) for a complete list of available pse
 
 When you need to style an element based on the state of some _parent_ element, mark the parent with the `group` class, and use `group-*` modifiers like `group-hover` to style the target element:
 
-<Example hint="Hover over the card to see both text elements change color">
-  <a href="#" class="group block max-w-xs mx-auto rounded-lg p-4 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
-    <div class="flex items-center space-x-3">
-      <svg class="h-6 w-6 stroke-sky-500 group-hover:stroke-white" fill="none" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M11 19H6.931A1.922 1.922 0 015 17.087V8h12.069C18.135 8 19 8.857 19 9.913V11" />
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M14 7.64L13.042 6c-.36-.616-1.053-1-1.806-1H7.057C5.921 5 5 5.86 5 6.92V11M17 15v4M19 17h-4" />
-      </svg>
-      <h3 class="text-sm text-slate-900 font-semibold group-hover:text-white">New project</h3>
-    </div>
-    <p class="text-sm text-slate-500 group-hover:text-white">Create a new project from a variety of starting templates.</p>
-  </a>
-</Example>
+```html {{ mode: 'example', hint: 'Hover over the card to see both text elements change color' }}
+<a href="#" class="group block max-w-xs mx-auto rounded-lg p-4 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
+  <div class="flex items-center space-x-3">
+    <svg class="h-6 w-6 stroke-sky-500 group-hover:stroke-white" fill="none" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M11 19H6.931A1.922 1.922 0 015 17.087V8h12.069C18.135 8 19 8.857 19 9.913V11" />
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M14 7.64L13.042 6c-.36-.616-1.053-1-1.806-1H7.057C5.921 5 5 5.86 5 6.92V11M17 15v4M19 17h-4" />
+    </svg>
+    <h3 class="text-sm text-slate-900 font-semibold group-hover:text-white">New project</h3>
+  </div>
+  <p class="text-sm text-slate-500 group-hover:text-white">Create a new project from a variety of starting templates.</p>
+</a>
+```
 
 ```html
 <a href="#" class="**group** block max-w-xs mx-auto rounded-lg p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
@@ -361,63 +357,63 @@ This pattern works with every pseudo-class modifier, for example `group-focus`, 
 
 When nesting groups, you can style something based on the state of a _specific_ parent group by giving that parent a unique group name using a `group/{name}` class, and including that name in modifiers using classes like `group-hover/{name}`:
 
-<Example p="none">
-  <div class="px-4">
-    <ul role="list" class="mx-auto max-w-md bg-white p-2 shadow">
-      <li class="group/item relative flex items-center justify-between rounded-xl p-4 hover:bg-slate-100">
-        <div class="flex gap-4">
-          <div class="flex-shrink-0">
-            <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-          </div>
-          <div class="w-full text-sm leading-6">
-            <a href="#" class="font-semibold text-slate-900"><span class="absolute inset-0 rounded-xl" aria-hidden="true"></span>Leslie Abbott</a>
-            <div class="text-slate-500">Co-Founder / CEO</div>
-          </div>
+```html {{ mode: 'example', p: 'none' }}
+<div class="px-4">
+  <ul role="list" class="mx-auto max-w-md bg-white p-2 shadow">
+    <li class="group/item relative flex items-center justify-between rounded-xl p-4 hover:bg-slate-100">
+      <div class="flex gap-4">
+        <div class="flex-shrink-0">
+          <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
         </div>
-        <a href="#" class="group/edit invisible relative flex items-center whitespace-nowrap rounded-full py-1 pl-4 pr-3 text-sm text-slate-500 transition hover:bg-slate-200 group-hover/item:visible">
-          <span class="font-semibold transition group-hover/edit:text-gray-700">Call</span>
-          <svg class="mt-px h-5 w-5 text-slate-400 transition group-hover/edit:translate-x-0.5 group-hover/edit:text-slate-500" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
-          </svg>
-        </a>
-      </li>
-      <li class="group/item relative flex items-center justify-between rounded-xl p-4 hover:bg-slate-100">
-        <div class="flex gap-4">
-          <div class="flex-shrink-0">
-            <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-          </div>
-          <div class="w-full text-sm leading-6">
-            <a href="#" class="font-semibold text-slate-900"><span class="absolute inset-0 rounded-xl" aria-hidden="true"></span>Hector Adams</a>
-            <div class="text-slate-500">VP, Marketing</div>
-          </div>
+        <div class="w-full text-sm leading-6">
+          <a href="#" class="font-semibold text-slate-900"><span class="absolute inset-0 rounded-xl" aria-hidden="true"></span>Leslie Abbott</a>
+          <div class="text-slate-500">Co-Founder / CEO</div>
         </div>
-        <a href="#" class="group/edit invisible relative flex items-center whitespace-nowrap rounded-full py-1 pl-4 pr-3 text-sm text-slate-500 transition hover:bg-slate-200 group-hover/item:visible">
-          <span class="font-semibold transition group-hover/edit:text-gray-700">Call</span>
-          <svg class="mt-px h-5 w-5 text-slate-400 transition group-hover/edit:translate-x-0.5 group-hover/edit:text-slate-500" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
-          </svg>
-        </a>
-      </li>
-      <li class="group/item relative flex items-center justify-between rounded-xl p-4 hover:bg-slate-100">
-        <div class="flex gap-4">
-          <div class="flex-shrink-0">
-            <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-          </div>
-          <div class="w-full text-sm leading-6">
-            <a href="#" class="font-semibold text-slate-900"><span class="absolute inset-0 rounded-xl" aria-hidden="true"></span>Blake Alexander</a>
-            <div class="text-slate-500">Account Coordinator</div>
-          </div>
+      </div>
+      <a href="#" class="group/edit invisible relative flex items-center whitespace-nowrap rounded-full py-1 pl-4 pr-3 text-sm text-slate-500 transition hover:bg-slate-200 group-hover/item:visible">
+        <span class="font-semibold transition group-hover/edit:text-gray-700">Call</span>
+        <svg class="mt-px h-5 w-5 text-slate-400 transition group-hover/edit:translate-x-0.5 group-hover/edit:text-slate-500" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </li>
+    <li class="group/item relative flex items-center justify-between rounded-xl p-4 hover:bg-slate-100">
+      <div class="flex gap-4">
+        <div class="flex-shrink-0">
+          <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
         </div>
-        <a href="#" class="group/edit invisible relative flex items-center whitespace-nowrap rounded-full py-1 pl-4 pr-3 text-sm text-slate-500 transition hover:bg-slate-200 group-hover/item:visible">
-          <span class="font-semibold transition group-hover/edit:text-gray-700">Call</span>
-          <svg class="mt-px h-5 w-5 text-slate-400 transition group-hover/edit:translate-x-0.5 group-hover/edit:text-slate-500" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
-          </svg>
-        </a>
-      </li>
-    </ul>
-  </div>
-</Example>
+        <div class="w-full text-sm leading-6">
+          <a href="#" class="font-semibold text-slate-900"><span class="absolute inset-0 rounded-xl" aria-hidden="true"></span>Hector Adams</a>
+          <div class="text-slate-500">VP, Marketing</div>
+        </div>
+      </div>
+      <a href="#" class="group/edit invisible relative flex items-center whitespace-nowrap rounded-full py-1 pl-4 pr-3 text-sm text-slate-500 transition hover:bg-slate-200 group-hover/item:visible">
+        <span class="font-semibold transition group-hover/edit:text-gray-700">Call</span>
+        <svg class="mt-px h-5 w-5 text-slate-400 transition group-hover/edit:translate-x-0.5 group-hover/edit:text-slate-500" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </li>
+    <li class="group/item relative flex items-center justify-between rounded-xl p-4 hover:bg-slate-100">
+      <div class="flex gap-4">
+        <div class="flex-shrink-0">
+          <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+        </div>
+        <div class="w-full text-sm leading-6">
+          <a href="#" class="font-semibold text-slate-900"><span class="absolute inset-0 rounded-xl" aria-hidden="true"></span>Blake Alexander</a>
+          <div class="text-slate-500">Account Coordinator</div>
+        </div>
+      </div>
+      <a href="#" class="group/edit invisible relative flex items-center whitespace-nowrap rounded-full py-1 pl-4 pr-3 text-sm text-slate-500 transition hover:bg-slate-200 group-hover/item:visible">
+        <span class="font-semibold transition group-hover/edit:text-gray-700">Call</span>
+        <svg class="mt-px h-5 w-5 text-slate-400 transition group-hover/edit:translate-x-0.5 group-hover/edit:text-slate-500" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </li>
+  </ul>
+</div>
+```
 
 ```html
 <ul role="list">
@@ -487,19 +483,19 @@ For more control, you can use the `&` character to mark where `.group` should en
 
 When you need to style an element based on the state of a _sibling_ element, mark the sibling with the `peer` class, and use `peer-*` modifiers like `peer-invalid` to style the target element:
 
-<Example hint="Try making the email address valid to see the warning disappear" p="none">
-  <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-5 px-6">
-    <form>
-      <div>
-        <label for="email" class="block text-sm font-medium text-slate-700">Email</label>
-        <div class="mt-1">
-          <input type="email" name="email" id="email" class="peer px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="george@krugerindustrial." placeholder="you@example.com" />
-          <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">Please provide a valid email address.</p>
-        </div>
+```html {{ mode: 'example', p: 'none', hint: 'Try making the email address valid to see the warning disappear' }}
+<div class="max-w-sm mx-auto bg-white shadow pt-6 pb-5 px-6">
+  <form>
+    <div>
+      <label for="email" class="block text-sm font-medium text-slate-700">Email</label>
+      <div class="mt-1">
+        <input type="email" name="email" id="email" class="peer px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="george@krugerindustrial." placeholder="you@example.com" />
+        <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">Please provide a valid email address.</p>
       </div>
-    </form>
-  </div>
-</Example>
+    </div>
+  </form>
+</div>
+```
 
 ```html
 <form>
@@ -532,18 +528,16 @@ It's important to note that the `peer` marker can only be used on _previous_ sib
 
 When using multiple peers, you can style something on the state of a _specific_ peer by giving that peer a unique name using a `peer/{name}` class, and including that name in modifiers using classes like `peer-checked/{name}`:
 
-<Example p="none">
-  ```html
-  <div class="px-4">
-    <fieldset class="mx-auto max-w-md bg-white p-8 text-sm shadow">
-      <div class="mb-6 border-b border-slate-200 pb-2 text-base font-semibold">Published status</div>
-      <input id="draft" class="peer/draft form-radio mr-2 mb-0.5 border-slate-300 text-sky-400 focus:ring-sky-300" type="radio" name="status" checked /><label class="peer-checked/draft:text-sky-500 font-medium" for="draft">Draft</label> <input id="published" class="peer/published form-radio mr-2 mb-0.5 ml-4 border-slate-300 text-sky-400 focus:ring-sky-300" type="radio" name="status" /><label class="peer-checked/published:text-sky-500 font-medium" for="published">Published</label>
-      <div class="peer-checked/draft:block mt-4 hidden text-gray-500">Drafts are only visible to administrators.</div>
-      <div class="peer-checked/published:block mt-4 hidden text-gray-500">Your post will be publicly visible on your site.</div>
-    </fieldset>
-  </div>
-  ```
-</Example>
+```html {{ mode: 'example', p: 'none' }}
+<div class="px-4">
+  <fieldset class="mx-auto max-w-md bg-white p-8 text-sm shadow">
+    <div class="mb-6 border-b border-slate-200 pb-2 text-base font-semibold">Published status</div>
+    <input id="draft" class="peer/draft form-radio mr-2 mb-0.5 border-slate-300 text-sky-400 focus:ring-sky-300" type="radio" name="status" checked /><label class="peer-checked/draft:text-sky-500 font-medium" for="draft">Draft</label> <input id="published" class="peer/published form-radio mr-2 mb-0.5 ml-4 border-slate-300 text-sky-400 focus:ring-sky-300" type="radio" name="status" /><label class="peer-checked/published:text-sky-500 font-medium" for="published">Published</label>
+    <div class="peer-checked/draft:block mt-4 hidden text-gray-500">Drafts are only visible to administrators.</div>
+    <div class="peer-checked/published:block mt-4 hidden text-gray-500">Your post will be publicly visible on your site.</div>
+  </fieldset>
+</div>
+```
 
 ```html
 <fieldset>
@@ -614,18 +608,16 @@ For more control, you can use the `&` character to mark where `.peer` should end
 
 Style the `::before` and `::after` pseudo-elements using the `before` and `after` modifiers:
 
-<Example p="none">
-  ```html
-  <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-5 px-6">
-    <form>
-      <label class="block">
-        <span class="block text-sm font-medium text-slate-700 after:content-['*'] after:ml-0.5 after:text-red-500">Email</span>
-        <input type="email" name="email" id="email" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="you@example.com" />
-      </label>
-    </form>
-  </div>
-  ```
-</Example>
+```html {{ mode: 'example', p: 'none' }}
+<div class="max-w-sm mx-auto bg-white shadow pt-6 pb-5 px-6">
+  <form>
+    <label class="block">
+      <span class="block text-sm font-medium text-slate-700 after:content-['*'] after:ml-0.5 after:text-red-500">Email</span>
+      <input type="email" name="email" id="email" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="you@example.com" />
+    </label>
+  </form>
+</div>
+```
 
 ```html
 <label class="block">
@@ -638,15 +630,15 @@ Style the `::before` and `::after` pseudo-elements using the `before` and `after
 
 When using these modifiers, Tailwind will automatically add `content: ''` by default so you don't have to specify it unless you want a different value:
 
-<Example p="none">
-  <div class="px-6">
-    <div class="max-w-lg mx-auto bg-white shadow py-8 px-6">
-      <blockquote class="text-2xl font-semibold italic text-center text-slate-900">
-        When you look <span class="relative inline-block before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500"><span class="relative text-white">annoyed</span></span> all the time, people think that you're busy.
-      </blockquote>
-    </div>
+```html {{ mode: 'example', p: 'none' }}
+<div class="px-6">
+  <div class="max-w-lg mx-auto bg-white shadow py-8 px-6">
+    <blockquote class="text-2xl font-semibold italic text-center text-slate-900">
+      When you look <span class="relative inline-block before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500"><span class="relative text-white">annoyed</span></span> all the time, people think that you're busy.
+    </blockquote>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <blockquote class="text-2xl font-semibold italic text-center text-slate-900">
@@ -689,26 +681,26 @@ Note that if you've disabled our [preflight base styles](/docs/preflight), the c
 
 Style the placeholder text of any input or textarea using the `placeholder` modifier:
 
-<Example>
-  <div class="max-w-sm mx-auto">
-    <form>
-      <label class="relative block">
-        <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-          <svg class="h-5 w-5 fill-slate-300" viewBox="0 0 20 20">
-            <path
-              fill-rule="evenodd"
-              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-              clip-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span class="sr-only">Search</span>
-        <input type="text" name="search" class="block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm placeholder:italic placeholder:text-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Search for anything..."
-        />
-      </label>
-    </form>
-  </div>
-</Example>
+```html {{ mode: 'example' }}
+<div class="max-w-sm mx-auto">
+  <form>
+    <label class="relative block">
+      <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+        <svg class="h-5 w-5 fill-slate-300" viewBox="0 0 20 20">
+          <path
+            fill-rule="evenodd"
+            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </span>
+      <span class="sr-only">Search</span>
+      <input type="text" name="search" class="block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm placeholder:italic placeholder:text-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Search for anything..."
+      />
+    </label>
+  </form>
+</div>
+```
 
 ```html
 <label class="relative block">
@@ -724,22 +716,22 @@ Style the placeholder text of any input or textarea using the `placeholder` modi
 
 Style the button in file inputs using the `file` modifier:
 
-<Example p="none">
-  <div class="px-6">
-    <div class="max-w-sm mx-auto bg-white shadow py-8 px-6">
-      <form class="flex items-center space-x-6">
-        <div class="shrink-0">
-          <img class="h-16 w-16 object-cover rounded-full" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80" alt="Current profile photo" />
-        </div>
-        <label class="block">
-          <span class="sr-only">Choose profile photo</span>
-          <input type="file" class="block w-full text-sm text-slate-500 file:text-sm file:font-semibold file:py-2 file:px-4 file:bg-violet-50 file:text-violet-700 file:rounded-full file:border-0 file:mr-4 hover:file:bg-violet-100"
-          />
-        </label>
-      </form>
-    </div>
+```html {{ mode: 'example', p: 'none' }}
+<div class="px-6">
+  <div class="max-w-sm mx-auto bg-white shadow py-8 px-6">
+    <form class="flex items-center space-x-6">
+      <div class="shrink-0">
+        <img class="h-16 w-16 object-cover rounded-full" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80" alt="Current profile photo" />
+      </div>
+      <label class="block">
+        <span class="sr-only">Choose profile photo</span>
+        <input type="file" class="block w-full text-sm text-slate-500 file:text-sm file:font-semibold file:py-2 file:px-4 file:bg-violet-50 file:text-violet-700 file:rounded-full file:border-0 file:mr-4 hover:file:bg-violet-100"
+        />
+      </label>
+    </form>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <form class="flex items-center space-x-6">
@@ -769,18 +761,18 @@ Note that Tailwind's [border reset](/docs/preflight#border-styles-are-reset-glob
 
 Style the counters or bullets in lists using the `marker` modifier:
 
-<Example p="none">
-  <div class="px-6">
-    <div class="max-w-sm mx-auto bg-white shadow py-8 px-8 dark:bg-slate-800">
-      <h2 class="text-base font-semibold text-slate-900 dark:text-slate-200">Ingredients</h2>
-      <ul role="list" class="mt-3 list-disc pl-5 space-y-3 text-slate-500 marker:text-sky-400 dark:text-slate-400">
-        <li>5 cups chopped Porcini mushrooms</li>
-        <li>1/2 cup of olive oil</li>
-        <li>3lb of celery</li>
-      </ul>
-    </div>
+```html {{ mode: 'example', p: 'none' }}
+<div class="px-6">
+  <div class="max-w-sm mx-auto bg-white shadow py-8 px-8 dark:bg-slate-800">
+    <h2 class="text-base font-semibold text-slate-900 dark:text-slate-200">Ingredients</h2>
+    <ul role="list" class="mt-3 list-disc pl-5 space-y-3 text-slate-500 marker:text-sky-400 dark:text-slate-400">
+      <li>5 cups chopped Porcini mushrooms</li>
+      <li>1/2 cup of olive oil</li>
+      <li>3lb of celery</li>
+    </ul>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <ul role="list" class="**marker:text-sky-400** list-disc pl-5 space-y-3 text-slate-500" dark-class="**marker:text-sky-400** list-disc pl-5 space-y-3 text-slate-400">
@@ -796,15 +788,15 @@ We've designed the `marker` modifier to be inheritable, so although you can use 
 
 Style the active text selection using the `selection` modifier:
 
-<Example p="none" hint="Try selecting some of this text with your mouse">
-  <div class="px-6">
-    <div class="max-w-lg mx-auto bg-white text-slate-700 shadow py-8 px-6 selection:bg-fuchsia-300 selection:text-fuchsia-900 dark:bg-slate-800 dark:text-slate-400">
-      <p>
-        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
-      </p>
-    </div>
+```html {{ mode: 'example', p: 'none', hint: 'Try selecting some of this text with your mouse' }}
+<div class="px-6">
+  <div class="max-w-lg mx-auto bg-white text-slate-700 shadow py-8 px-6 selection:bg-fuchsia-300 selection:text-fuchsia-900 dark:bg-slate-800 dark:text-slate-400">
+    <p>
+      So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+    </p>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="**selection:bg-fuchsia-300** **selection:text-fuchsia-900**">
@@ -837,18 +829,18 @@ This makes it easy to set the selection color to match your brand across your en
 
 Style the first line in a block of content using the `first-line` modifier, and the first letter using the `first-letter` modifier:
 
-<Example p="none">
-  <div class="px-6">
-    <div class="max-w-lg mx-auto bg-white text-slate-700 shadow py-8 px-6 font-serif dark:bg-slate-800 dark:text-slate-200">
-      <p class="first-line:uppercase first-line:tracking-widest first-letter:text-slate-900 first-letter:text-7xl first-letter:leading-none first-letter:float-left first-letter:font-bold first-letter:mr-3 dark:first-letter:text-white">
-        Well, let me tell you something, funny boy. Y'know that little stamp, the one that says "New York Public Library"? Well that may not mean anything to you, but that means a lot to me. One whole hell of a lot.
-      </p>
-      <p class="mt-6">
-        Sure, go ahead, laugh if you want to. I've seen your type before: Flashy, making the scene, flaunting convention. Yeah, I know what you're thinking. What's this guy making such a big stink about old library books? Well, let me give you a hint, junior.
-      </p>
-    </div>
+```html {{ mode: 'example', p: 'none' }}
+<div class="px-6">
+  <div class="max-w-lg mx-auto bg-white text-slate-700 shadow py-8 px-6 font-serif dark:bg-slate-800 dark:text-slate-200">
+    <p class="first-line:uppercase first-line:tracking-widest first-letter:text-slate-900 first-letter:text-7xl first-letter:leading-none first-letter:float-left first-letter:font-bold first-letter:mr-3 dark:first-letter:text-white">
+      Well, let me tell you something, funny boy. Y'know that little stamp, the one that says "New York Public Library"? Well that may not mean anything to you, but that means a lot to me. One whole hell of a lot.
+    </p>
+    <p class="mt-6">
+      Sure, go ahead, laugh if you want to. I've seen your type before: Flashy, making the scene, flaunting convention. Yeah, I know what you're thinking. What's this guy making such a big stink about old library books? Well, let me give you a hint, junior.
+    </p>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <p class="**first-line:uppercase** **first-line:tracking-widest**
@@ -902,42 +894,42 @@ The `prefers-color-scheme` media query tells you whether the user prefers a ligh
 
 Use utilities with no modifier to target light mode, and use the `dark` modifier to provide overrides for dark mode:
 
-<Example p="none">
-  <div class="grid grid-cols-1 sm:grid-cols-2">
-    <div class="p-8 pt-7">
-      <p class="mb-2 text-sm font-medium text-slate-500">Light mode</p>
-      <div class="bg-white rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
-        <div>
-          <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
-            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-            </svg>
-          </span>
-        </div>
-        <h3 class="mt-5 text-base font-medium text-slate-900 tracking-tight">Writes Upside-Down</h3>
-        <p class="mt-2 text-sm text-slate-500">
-          The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space.
-        </p>
+```html {{ mode: 'example', p: 'none' }}
+<div class="grid grid-cols-1 sm:grid-cols-2">
+  <div class="p-8 pt-7">
+    <p class="mb-2 text-sm font-medium text-slate-500">Light mode</p>
+    <div class="bg-white rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
+      <div>
+        <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
+          <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+          </svg>
+        </span>
       </div>
-    </div>
-    <div class="bg-slate-900 p-8 pt-7">
-      <p class="mb-2 text-sm font-medium text-slate-400">Dark mode</p>
-      <div class="bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
-        <div>
-          <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
-            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-            </svg>
-          </span>
-        </div>
-        <h3 class="mt-5 text-base font-medium text-white tracking-tight">Writes Upside-Down</h3>
-        <p class="mt-2 text-sm text-slate-400">
-          The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space.
-        </p>
-      </div>
+      <h3 class="mt-5 text-base font-medium text-slate-900 tracking-tight">Writes Upside-Down</h3>
+      <p class="mt-2 text-sm text-slate-500">
+        The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space.
+      </p>
     </div>
   </div>
-</Example>
+  <div class="bg-slate-900 p-8 pt-7">
+    <p class="mb-2 text-sm font-medium text-slate-400">Dark mode</p>
+    <div class="bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
+      <div>
+        <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
+          <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+          </svg>
+        </span>
+      </div>
+      <h3 class="mt-5 text-base font-medium text-white tracking-tight">Writes Upside-Down</h3>
+      <p class="mt-2 text-sm text-slate-400">
+        The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space.
+      </p>
+    </div>
+  </div>
+</div>
+```
 
 ```html
 <div class="bg-white **dark:bg-slate-900** rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
@@ -961,17 +953,17 @@ The `prefers-reduced-motion` media query tells you if the user has requested tha
 
 Use the `motion-reduce` modifier to conditionally add styles when the user has requested reduced motion:
 
-<Example hint="Try emulating `prefers-reduced-motion: reduce` in your developer tools to hide the spinner">
-  <div class="flex items-center justify-center">
-    <button type="button" class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500" disabled>
-      <svg class="motion-reduce:hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-      </svg>
-      Processing...
-    </button>
-  </div>
-</Example>
+```html {{ mode: 'example', hint: 'Try emulating &#96;prefers-reduced-motion: reduce&#96; in your developer tools to hide the spinner' }}
+<div class="flex items-center justify-center">
+  <button type="button" class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500" disabled>
+    <svg class="motion-reduce:hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+    </svg>
+    Processing...
+  </button>
+</div>
+```
 
 ```html
 <button type="button" class="bg-indigo-500 ..." disabled>
@@ -1000,19 +992,19 @@ The `prefers-contrast` media query tells you if the user has requested more or l
 
 Use the `contrast-more` modifier to conditionally add styles when the user has requested more contrast:
 
-<Example hint="Try emulating `prefers-contrast: more` in your developer tools to see the changes" p="none">
-  <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-4 px-6">
-    <form>
-      <div>
-        <label for="contrast-example" class="block text-sm font-medium text-slate-700">Social Security Number</label>
-        <div class="mt-1">
-          <input type="text" name="contrast-example" id="contrast-example" class="px-3 py-2 bg-white border shadow-sm border-slate-200 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 contrast-more:border-slate-400 contrast-more:placeholder-slate-500"  placeholder="000-00-0000" />
-          <p class="mt-2 text-sm text-slate-600 opacity-10 contrast-more:opacity-100">We need this to steal your identity.</p>
-        </div>
+```html {{ mode: 'example', p: 'none', hint: 'Try emulating &#96;prefers-contrast: more&#96; in your developer tools to see the changes' }}
+<div class="max-w-sm mx-auto bg-white shadow pt-6 pb-4 px-6">
+  <form>
+    <div>
+      <label for="contrast-example" class="block text-sm font-medium text-slate-700">Social Security Number</label>
+      <div class="mt-1">
+        <input type="text" name="contrast-example" id="contrast-example" class="px-3 py-2 bg-white border shadow-sm border-slate-200 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 contrast-more:border-slate-400 contrast-more:placeholder-slate-500"  placeholder="000-00-0000" />
+        <p class="mt-2 text-sm text-slate-600 opacity-10 contrast-more:opacity-100">We need this to steal your identity.</p>
       </div>
-    </form>
-  </div>
-</Example>
+    </div>
+  </form>
+</div>
+```
 
 ```html
 <form>
@@ -1149,45 +1141,43 @@ module.exports = {
 
 If you need to use a one-off `aria` modifier that doesn’t make sense to include in your theme, or for more complex ARIA attributes that take specific values, use square brackets to generate a property on the fly using any arbitrary value.
 
-<Example p="none">
-  ```html
-  <div class="py-8">
-    <table class="border-collapse w-full border-y border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-800 text-sm shadow-sm">
-      <thead class="bg-slate-50 dark:bg-slate-700">
-        <tr>
-          <th class="group border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left" aria-sort="ascending">
-            <span class="flex gap-2 items-center w-full justify-between">
-              Invoice #
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-5 h-5 fill-slate-500 group-aria-[sort=ascending]:rotate-0 group-aria-[sort=descending]:rotate-180">
-                <path fill-rule="evenodd" d="M10 5a.75.75 0 01.75.75v6.638l1.96-2.158a.75.75 0 111.08 1.04l-3.25 3.5a.75.75 0 01-1.08 0l-3.25-3.5a.75.75 0 111.08-1.04l1.96 2.158V5.75A.75.75 0 0110 5z" clip-rule="evenodd" />
-              </svg>
-            </span>
-          </th>
-          <th class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left">Client</th>
-          <th class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-right">Amount</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#100</td>
-          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">Pendant Publishing</td>
-          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">$2,000.00</td>
-        </tr>
-        <tr>
-          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#101</td>
-          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">Kruger Industrial Smoothing</td>
-          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">$545.00</td>
-        </tr>
-        <tr>
-          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#102</td>
-          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">J. Peterman</td>
-          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">$10,000.25</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  ```
-</Example>
+```html {{ mode: 'example', p: 'none' }}
+<div class="py-8">
+  <table class="border-collapse w-full border-y border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-800 text-sm shadow-sm">
+    <thead class="bg-slate-50 dark:bg-slate-700">
+      <tr>
+        <th class="group border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left" aria-sort="ascending">
+          <span class="flex gap-2 items-center w-full justify-between">
+            Invoice #
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-5 h-5 fill-slate-500 group-aria-[sort=ascending]:rotate-0 group-aria-[sort=descending]:rotate-180">
+              <path fill-rule="evenodd" d="M10 5a.75.75 0 01.75.75v6.638l1.96-2.158a.75.75 0 111.08 1.04l-3.25 3.5a.75.75 0 01-1.08 0l-3.25-3.5a.75.75 0 111.08-1.04l1.96 2.158V5.75A.75.75 0 0110 5z" clip-rule="evenodd" />
+            </svg>
+          </span>
+        </th>
+        <th class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left">Client</th>
+        <th class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-right">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#100</td>
+        <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">Pendant Publishing</td>
+        <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">$2,000.00</td>
+      </tr>
+      <tr>
+        <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#101</td>
+        <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">Kruger Industrial Smoothing</td>
+        <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">$545.00</td>
+      </tr>
+      <tr>
+        <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#102</td>
+        <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">J. Peterman</td>
+        <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">$10,000.25</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
 
 <SnippetGroup>
 
@@ -1295,30 +1285,30 @@ You can then use these custom `data-*` modifiers in your project:
 
 Use the `rtl` and `ltr` modifiers to conditionally add styles in right-to-left and left-to-right modes respectively when building multi-directional layouts:
 
-<Example>
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 max-w-lg mx-auto">
-    <div dir="ltr">
-      <p class="mb-4 text-sm font-medium">Left-to-right</p>
-      <div class="group flex items-center">
-        <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-        <div class="ml-3 rtl:ml-0 rtl:mr-3">
-          <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">Tom Cook</p>
-          <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">Director of Operations</p>
-        </div>
-      </div>
-    </div>
-    <div dir="rtl">
-      <p class="mb-4 text-sm font-medium">Right-to-left</p>
-      <div class="group flex items-center">
-        <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1563833717765-00462801314e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-        <div class="ml-3 rtl:ml-0 rtl:mr-3">
-          <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">تامر كرم</p>
-          <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">الرئيس التنفيذي</p>
-        </div>
+```html {{ mode: 'example' }}
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 max-w-lg mx-auto">
+  <div dir="ltr">
+    <p class="mb-4 text-sm font-medium">Left-to-right</p>
+    <div class="group flex items-center">
+      <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+      <div class="ml-3 rtl:ml-0 rtl:mr-3">
+        <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">Tom Cook</p>
+        <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">Director of Operations</p>
       </div>
     </div>
   </div>
-</Example>
+  <div dir="rtl">
+    <p class="mb-4 text-sm font-medium">Right-to-left</p>
+    <div class="group flex items-center">
+      <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1563833717765-00462801314e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+      <div class="ml-3 rtl:ml-0 rtl:mr-3">
+        <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">تامر كرم</p>
+        <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">الرئيس التنفيذي</p>
+      </div>
+    </div>
+  </div>
+</div>
+```
 
 ```html
   <div class="group flex items-center">
@@ -1346,18 +1336,18 @@ Remember, these modifiers are only useful if you are building a site that needs 
 
 Use the `open` modifier to conditionally add styles when a `<details>` or `<dialog>` element is in an open state:
 
-<Example hint="Try toggling the disclosure to see the styles change">
-  <div class="max-w-lg mx-auto">
-    <details class="open:bg-white dark:open:bg-slate-900 open:ring-1 open:ring-black/5 dark:open:ring-white/10 open:shadow-lg p-6 rounded-lg" open>
-      <summary class="text-sm leading-6 text-slate-900 dark:text-white font-semibold select-none">
-        Why do they call it Ovaltine?
-      </summary>
-      <div class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
-        <p>The mug is round. The jar is round. They should call it Roundtine.</p>
-      </div>
-    </details>
-  </div>
-</Example>
+```html {{ mode: 'example', hint: 'Try toggling the disclosure to see the styles change' }}
+<div class="max-w-lg mx-auto">
+  <details class="open:bg-white dark:open:bg-slate-900 open:ring-1 open:ring-black/5 dark:open:ring-white/10 open:shadow-lg p-6 rounded-lg" open>
+    <summary class="text-sm leading-6 text-slate-900 dark:text-white font-semibold select-none">
+      Why do they call it Ovaltine?
+    </summary>
+    <div class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
+      <p>The mug is round. The jar is round. They should call it Roundtine.</p>
+    </div>
+  </details>
+</div>
+```
 
 ```html
   <div class="max-w-lg mx-auto p-8">

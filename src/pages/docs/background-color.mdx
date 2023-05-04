@@ -38,13 +38,13 @@ export const classes = {
 
 Control the background color of an element using the `bg-{color}` utilities.
 
-<Example>
-  <div class="text-center">
-    <button type="button" class="py-2 px-3 bg-indigo-500 text-white text-sm font-semibold rounded-md shadow focus:outline-none" tabindex="-1">
-      Save changes
-    </button>
-  </div>
-</Example>
+```html {{ mode: 'example' }}
+<div class="text-center">
+  <button type="button" class="py-2 px-3 bg-indigo-500 text-white text-sm font-semibold rounded-md shadow focus:outline-none" tabindex="-1">
+    Save changes
+  </button>
+</div>
+```
 
 ```html
 <button class="**bg-indigo-500** ...">
@@ -56,22 +56,22 @@ Control the background color of an element using the `bg-{color}` utilities.
 
 Control the opacity of an element's background color using the color opacity modifier.
 
-<Example>
-  <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 text-sm text-white">
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">bg-sky-500</p>
-      <button class="px-4 py-2 font-semibold text-sm bg-sky-500 text-white rounded-md shadow-sm opacity-100">Button A</button>
-    </div>
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">bg-sky-500/75</p>
-      <button class="px-4 py-2 font-semibold text-sm bg-sky-500/75 text-white rounded-md shadow-sm opacity-100">Button B</button>
-    </div>
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">bg-sky-500/50</p>
-      <button class="px-4 py-2 font-semibold text-sm bg-sky-500/50 text-white rounded-md shadow-sm opacity-100">Button C</button>
-    </div>
+```html {{ mode: 'example' }}
+<div class="grid grid-cols-1 gap-4 sm:grid-cols-3 text-sm text-white">
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">bg-sky-500</p>
+    <button class="px-4 py-2 font-semibold text-sm bg-sky-500 text-white rounded-md shadow-sm opacity-100">Button A</button>
   </div>
-</Example>
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">bg-sky-500/75</p>
+    <button class="px-4 py-2 font-semibold text-sm bg-sky-500/75 text-white rounded-md shadow-sm opacity-100">Button B</button>
+  </div>
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">bg-sky-500/50</p>
+    <button class="px-4 py-2 font-semibold text-sm bg-sky-500/50 text-white rounded-md shadow-sm opacity-100">Button C</button>
+  </div>
+</div>
+```
 
 ```html
 <button class="bg-sky-500**/100** ..."></button>
@@ -93,13 +93,13 @@ You can use any value defined in your [opacity scale](/docs/opacity), or use arb
 
 <HoverFocusAndOtherStates featuredClass="bg-cyan-600">
 
-<Example hint="Try hovering over the button to see the background color change">
-  <div class="text-center">
-    <button type="button" class="py-2 px-3 bg-cyan-500 hover:bg-cyan-600 text-white text-sm font-semibold rounded-md shadow focus:outline-none" tabindex="-1">
-      Subscribe
-    </button>
-  </div>
-</Example>
+```html {{ mode: 'example', hint: 'Try hovering over the button to see the background color change' }}
+<div class="text-center">
+  <button type="button" class="py-2 px-3 bg-cyan-500 hover:bg-cyan-600 text-white text-sm font-semibold rounded-md shadow focus:outline-none" tabindex="-1">
+    Subscribe
+  </button>
+</div>
+```
 
 ```html
 <button class="bg-cyan-500 **hover:bg-cyan-600** ...">Subscribe</button>
