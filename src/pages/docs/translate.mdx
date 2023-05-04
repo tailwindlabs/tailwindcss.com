@@ -114,7 +114,7 @@ To use a negative translate value, prefix the class name with a dash to convert 
 
 By default, Tailwind provides fixed value `translate` utilities that match the [default spacing scale](/docs/customizing-spacing), as well as 50% and 100% variations for translating relative to the element's size.  You can customize your spacing scale by editing `theme.spacing` or `theme.extend.spacing` in your `tailwind.config.js` file.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {
@@ -128,7 +128,7 @@ By default, Tailwind provides fixed value `translate` utilities that match the [
 
 Alternatively, you can customize just the translate scale by editing `theme.translate` or `theme.extend.translate` in your `tailwind.config.js` file.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {

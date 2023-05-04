@@ -10,7 +10,7 @@ import { ThemeReference } from '@/components/ThemeReference'
 
 The `content` section of your `tailwind.config.js` file is where you configure the paths to all of your HTML templates, JavaScript components, and any other source files that contain Tailwind class names.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   content: [
     './pages/**/*.{html,js}',
@@ -32,7 +32,7 @@ In order for Tailwind to generate all of the CSS you need, it needs to know abou
 
 Configure the paths to all of your content files in the `content` section of your configuration file:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   content: [
     './pages/**/*.{html,js}',
@@ -60,7 +60,7 @@ If you use a really broad pattern like this one, Tailwind will even scan `node_m
 
 <TipBad>Don't use extremely broad patterns</TipBad>
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   content: [
     './**/*.{html,js}',
@@ -73,7 +73,7 @@ If you have any files you need to scan that are at the root of your project (oft
 
 <TipGood>Be specific with your content patterns</TipGood>
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   content: [
     './components/**/*.{html,js}',
@@ -88,7 +88,7 @@ Some frameworks hide their main HTML entry point in a different place than the r
 
 <TipGood>Remember to include your HTML entry point if applicable</TipGood>
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     content: [
 >     './public/index.html',
@@ -100,7 +100,7 @@ Some frameworks hide their main HTML entry point in a different place than the r
 
 If you have any JavaScript files that manipulate your HTML to add classes, make sure you include those as well:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   content: [
     // ...
@@ -110,7 +110,7 @@ module.exports = {
 }
 ```
 
-```js src/spaghetti.js
+```js {{ filename: 'src/spaghetti.js' }}
 // ...
 menuButton.addEventListener('click', function () {
   let classList = document.getElementById('nav').classList
@@ -124,7 +124,7 @@ It's also important that you don't scan any CSS files — configure Tailwind to 
 
 <TipBad>Never include CSS files in your content configuration</TipBad>
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   content: [
     './src/**/*.css',
@@ -161,7 +161,7 @@ For example, here's some HTML with every potential class name string individuall
 
 We don't just limit our search to `class="..."` attributes because you could be using classes anywhere, like in some JavaScript for toggling a menu:
 
-```html spaghetti.js
+```html {{ filename: 'spaghetti.js' }}
 <script>
   menuButton.addEventListener('click', function () {
     let classList = document.getElementById('nav').classList
@@ -173,7 +173,7 @@ We don't just limit our search to `class="..."` attributes because you could be 
 
 By using this very simple approach, Tailwind works extremely reliably with any programming language, like JSX for example:
 
-```jsx Button.jsx
+```jsx {{ filename: 'Button.jsx' }}
 const sizes = {
   md: 'px-4 py-2 rounded-md text-base',
   lg: 'px-5 py-3 rounded-lg text-lg',
@@ -275,7 +275,7 @@ As long as you always use complete class names in your code, Tailwind will gener
 
 If you're working with any third-party libraries (for example [Select2](https://select2.org/)) and styling that library with your own custom CSS, we recommend writing those styles _without_ using Tailwind's `@layer` feature:
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 
@@ -297,7 +297,7 @@ This will ensure that Tailwind _always_ includes those styles in your CSS, which
 
 If you've created your own reusable set of components that are styled with Tailwind and are importing them in multiple projects, make sure to configure Tailwind to scan those components for class names:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     content: [
       './components/**/*.{html,js}',
@@ -312,7 +312,7 @@ This will make sure Tailwind generates all of the CSS needed for those component
 
 If you're working in a monorepo with workspaces, you may need to use `require.resolve` to make sure Tailwind can see your content files:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
   const path = require('path');
 
   module.exports = {
@@ -331,7 +331,7 @@ By default Tailwind resolves non-absolute content paths relative to the current 
 
 To always resolve paths relative to the `tailwind.config.js` file, use the object notation for your `content` configuration and set the `relative` property to `true`:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     content: {
 +     relative: true,
@@ -350,7 +350,7 @@ This will likely become the default behavior in the next major version of the fr
 
 If for whatever reason you need to configure Tailwind to scan some raw content rather than the contents of a file, use an object with a `raw` key instead of a path:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   content: [
     './pages/**/*.{html,js}',
@@ -373,7 +373,7 @@ Safelisting is a last-resort, and should only be used in situations where it's i
 
 If you need to make sure Tailwind generates certain class names that don't exist in your content files, use the `safelist` option:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   content: [
     './pages/**/*.{html,js}',
@@ -394,7 +394,7 @@ One example of where this can be useful is if your site displays user-generated 
 
 Tailwind supports pattern-based safelisting for situations where you need to safelist a lot of classes:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   content: [
     './pages/**/*.{html,js}',
@@ -415,7 +415,7 @@ Patterns can only match against base utility names like `/bg-red-.+/`, and won't
 
 If you want to force Tailwind to generate variants for any matched classes, include them using the `variants` option:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   content: [
     './pages/**/*.{html,js}',
@@ -451,7 +451,7 @@ You may also want to prevent Tailwind from generating certain classes when those
 
 In these situations, you can use the `blocklist` option to tell Tailwind to ignore specific classes that it detects in your content:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   content: [
     './pages/**/*.{html,js}',
@@ -477,7 +477,7 @@ If you're authoring content in a format that _compiles_ to HTML (like Markdown),
 
 Use the `content.transform` option to transform any content matching a specific file extension before extracting classes:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const remark = require('remark')
 
 module.exports = {
@@ -501,7 +501,7 @@ When using `content.transform`, you'll need to provide your source paths using `
 
 Use the `extract` option to override the logic Tailwind uses to detect class names for specific file extensions:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   content: {
     files: ['./src/**/*.{html,wtf}'],
@@ -529,7 +529,7 @@ If Tailwind isn't generating classes, make sure your `content` configuration is 
 
 A common mistake is missing a file extension, for example if you're using `jsx` instead of `js` for your React components:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     content: [
 -     './src/**/*.{html,js}',
@@ -541,7 +541,7 @@ A common mistake is missing a file extension, for example if you're using `jsx` 
 
 Or creating a new folder mid-project that wasn't covered originally and forgetting to add it to your configuration:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     content: [
       './pages/**/*.{html,js}',
@@ -578,7 +578,7 @@ Many build tools (such as webpack) don't support this option, and as a result we
 
 That means that if building your CSS causes _any_ files in those directories to change, a rebuild will be triggered, even if the changed file doesn't match the extension in your glob.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   content: [
     // With some build tools, your CSS will rebuild
@@ -595,7 +595,7 @@ Ideally we could warn you about this in the console, but many tools support it p
 
 To solve this problem, use more specific paths in your `content` config, making sure to only include directories that won't change when your CSS builds:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     content: [
 -     './src/**/*.{html,js}',

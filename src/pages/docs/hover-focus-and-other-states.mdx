@@ -447,7 +447,7 @@ You can create one-off `group-*` modifiers on the fly by providing your own sele
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <div class="group is-published">
   <div class="hidden **group-[.is-published]:block**">
     Published
@@ -455,7 +455,7 @@ You can create one-off `group-*` modifiers on the fly by providing your own sele
 </div>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 .group.is-published .group-\[\.is-published\]\:block {
   display: block;
 }
@@ -467,7 +467,7 @@ For more control, you can use the `&` character to mark where `.group` should en
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <div class="group">
   <div class="group-[:nth-of-type(3)_&]:block">
     <!-- ... -->
@@ -475,7 +475,7 @@ For more control, you can use the `&` character to mark where `.group` should en
 </div>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 :nth-of-type(3) .group .group-\[\:nth-of-type\(3\)_\&\]\:block {
   display: block;
 }
@@ -568,7 +568,7 @@ You can create one-off `peer-*` modifiers on the fly by providing your own selec
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <form>
   <label for="email">Email:</label>
   <input id="email" name="email" type="email" class="is-dirty peer" required />
@@ -577,7 +577,7 @@ You can create one-off `peer-*` modifiers on the fly by providing your own selec
 </form>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 .peer.is-dirty:required ~ .peer-\[\.is-dirty\]\:peer-required\:block {
   display: block;
 }
@@ -589,7 +589,7 @@ For more control, you can use the `&` character to mark where `.peer` should end
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <div>
   <input type="text" class="peer" />
   <div class="hidden **peer-[:nth-of-type(3)_&]:block**">
@@ -598,7 +598,7 @@ For more control, you can use the `&` character to mark where `.peer` should end
 </div>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 :nth-of-type(3) .peer ~ .peer-\[\:nth-of-type\(3\)_\&\]\:block {
   display: block;
 }
@@ -1085,7 +1085,7 @@ For terseness, if you only need to check if a property is supported (and not a s
 
 You can configure shortcuts for common `@supports` rules you're using in your project in the `theme.supports` section of your `tailwind.config.js` file:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   theme: {
     supports: {
@@ -1134,7 +1134,7 @@ By default we've included modifiers for the most common boolean ARIA attributes:
 
 You can customize which `aria-*` modifiers are available by editing `theme.aria` or `theme.extend.aria` in your `tailwind.config.js` file:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   theme: {
     extend: {
@@ -1191,7 +1191,7 @@ If you need to use a one-off `aria` modifier that doesn’t make sense to includ
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <table>
   <thead>
     <tr>
@@ -1208,7 +1208,7 @@ If you need to use a one-off `aria` modifier that doesn’t make sense to includ
 </table>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 .aria-\[sort\=ascending\]\:bg-\[url\(\'\/img\/down-arrow\.svg\'\)\][aria-sort=ascending] {
   background-image: url('/img/down-arrow.svg');
 }
@@ -1224,7 +1224,7 @@ ARIA state modifiers can also target parent and sibling elements using the `grou
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <table>
   <thead>
     <tr>
@@ -1239,7 +1239,7 @@ ARIA state modifiers can also target parent and sibling elements using the `grou
 </table>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 .group[aria-sort=ascending] .group-aria-\[sort\=ascending\]\:rotate-0 {
   --tw-rotate: 0deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1273,7 +1273,7 @@ Since there are no standard `data-*` attributes by definition, by default we onl
 
 You can configure shortcuts for common data attribute selectors you're using in your project in the `theme.data` section of your `tailwind.config.js` file:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   theme: {
     data: {
@@ -1384,7 +1384,7 @@ Arbitrary variants are just format strings that represent the selector, wrapped 
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <ul role="list">
   {#each items as item}
     <li class="**[&:nth-child(3)]:underline**">{item}</li>
@@ -1392,7 +1392,7 @@ Arbitrary variants are just format strings that represent the selector, wrapped 
 </ul>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 /* https://media.giphy.com/media/uPnKU86sFa2fm/giphy.gif */
 .\[\&\:nth-child\(3\)\]\:underline:nth-child(3) {
   text-decoration-style: underline
@@ -1407,7 +1407,7 @@ Arbitrary variants can be stacked with built-in modifiers or with each other, ju
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <ul role="list">
   {#each items as item}
     <li class="**lg:[&:nth-child(3)]:hover:underline**">{item}</li>
@@ -1415,7 +1415,7 @@ Arbitrary variants can be stacked with built-in modifiers or with each other, ju
 </ul>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 /* https://media.giphy.com/media/Sd3cd0SrUKZEyWmAlM/giphy.gif */
 @media (min-width: 1024px) {
   .lg\:\[\&\:nth-child\(3\)\]\:hover\:underline:hover:nth-child(3) {
@@ -1430,7 +1430,7 @@ If you need spaces in your selector, you can use an underscore. For example, thi
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <div class="**[&_p]:mt-4**">
   <p>Lorem ipsum...</p>
   <ul>
@@ -1442,7 +1442,7 @@ If you need spaces in your selector, you can use an underscore. For example, thi
 </div>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 .\[\&_p\]\:mt-4 p {
     margin-top: 1rem;
 }
@@ -1454,13 +1454,13 @@ You can also use at-rules like `@media` or `@supports` in arbitrary variants:
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <div class="flex **[@supports(display:grid)]:grid**">
   <!-- ... -->
 </div>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 /* https://media.giphy.com/media/sEms56zTGDx96/giphy.gif */
 @supports (display: grid) {
   .\[\@supports\(display\:grid\)\]\:grid {
@@ -1477,13 +1477,13 @@ You can even combine at-rules and regular selector modifiers by including the se
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <button type="button" class="**[@media(any-hover:hover){&:hover}]:opacity-100**">
   <!-- ... -->
 </button>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 /* https://media.giphy.com/media/l0IypeKl9NJhPFMrK/giphy.gif */
 @media (any-hover: hover) {
   .\[\@media\(any-hover\:hover\)\{\&\:hover\}\]\:opacity-100:hover {
@@ -1498,7 +1498,7 @@ You can even combine at-rules and regular selector modifiers by including the se
 
 If you find yourself using the same arbitrary modifier multiple times in your project, it might be worth extracting it to a plugin using the `addVariant` API:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 let plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -1522,7 +1522,7 @@ Learn more in the [adding variant plugins](/docs/plugins#adding-variants) docume
 
 All of Tailwind's modifiers are available to use with your own custom classes as long as you've defined them in one of Tailwind's [layers](/docs/adding-custom-styles#using-css-and-layer) or added them using a [plugin](/docs/adding-custom-styles#writing-plugins):
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -1534,7 +1534,7 @@ All of Tailwind's modifiers are available to use with your own custom classes as
 }
 ```
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <div class="**lg:content-auto**">
   <!-- ... -->
 </div>

@@ -44,14 +44,14 @@ We've added a new `@config` directive that you can use in a CSS file to specify 
 
 <SnippetGroup>
 
-```css ./styles/admin.css
+```css {{ filename: './styles/admin.css' }}
 @config "./tailwind.admin.config.js";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 ```
 
-```css ./styles/client.css
+```css {{ filename: './styles/client.css' }}
 @config "./tailwind.client.config.js";
 @tailwind base;
 @tailwind components;
@@ -115,7 +115,7 @@ By default we've included modifiers for the most common boolean ARIA attributes:
 
 You can customize which `aria-*` modifiers are available by editing `theme.aria` or `theme.extend.aria` in your `tailwind.config.js` file:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   theme: {
     extend: {
@@ -170,7 +170,7 @@ If you need to use a one-off `aria` modifier that doesn’t make sense to includ
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <table>
   <thead>
     <tr>
@@ -187,7 +187,7 @@ If you need to use a one-off `aria` modifier that doesn’t make sense to includ
 </table>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 .aria-\[sort\=ascending\]\:bg-\[url\(\'\/img\/down-arrow\.svg\'\)\][aria-sort=ascending] {
   background-image: url('/img/down-arrow.svg');
 }
@@ -203,7 +203,7 @@ ARIA state modifiers can also target parent and sibling elements using the `grou
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <table>
   <thead>
     <tr>
@@ -218,7 +218,7 @@ ARIA state modifiers can also target parent and sibling elements using the `grou
 </table>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 .group[aria-sort=ascending] .group-aria-\[sort\=ascending\]\:rotate-0 {
   --tw-rotate: 0deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -364,7 +364,7 @@ It's now possible to create custom `group-*` and `peer-*` variants on the fly by
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <div class="group is-published">
   <div class="hidden **group-[.is-published]:block**">
     Published
@@ -372,7 +372,7 @@ It's now possible to create custom `group-*` and `peer-*` variants on the fly by
 </div>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 .group.is-published .group-\[\.is-published\]\:block {
   display: block;
 }
@@ -384,7 +384,7 @@ For more control, you can use the `&` character to mark where `.group` or `.peer
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <div>
   <input type="text" class="peer" />
   <div class="hidden **peer-[:nth-of-type(3)_&]:block**">
@@ -393,7 +393,7 @@ For more control, you can use the `&` character to mark where `.group` or `.peer
 </div>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 :nth-of-type(3) .peer ~ .peer-\[\:nth-of-type\(3\)_\&\]\:block {
   display: block;
 }

@@ -54,11 +54,11 @@ Using negative values doesn't make a ton of sense with the letter-spacing scale 
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <p class="**-tracking-2**">The quick brown fox ...</p>
 ```
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   theme: {
     letterSpacing: {
@@ -93,7 +93,7 @@ module.exports = {
 
 By default, Tailwind provides six tracking utilities. You can change, add, or remove these by editing the `theme.letterSpacing` section of your Tailwind config.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       letterSpacing: {

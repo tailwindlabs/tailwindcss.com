@@ -75,7 +75,7 @@ The palette even includes 5 different shades of gray now, so you can choose "blu
 
 We configure a well-balanced 8-color palette for you out of the box, but the complete color palette lives in a new `tailwindcss/colors` module that you can import at the top of your config file to curate your own custom palette however you like:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const colors = require('tailwindcss/colors')
 
 module.exports = {
@@ -100,7 +100,7 @@ Ever since iOS added native dark mode all you dark mode nerds haven't been able 
 
 Open up your `tailwind.config.js` file and flip `darkMode` to `media`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   darkMode: 'media',
   // ...
@@ -216,7 +216,7 @@ Alongside Tailwind CSS v2.0, we're releasing a brand new official plugin called 
 
 It's not included out of the box but you can add it to your `tailwind.config.js` file with a single line:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   // ...
   plugins: [require('@tailwindcss/forms')],
@@ -350,7 +350,7 @@ Check out the new [text overflow documentation](https://tailwindcss.com/docs/tex
 
 You know what sucks? Wanting to enable `focus-visible` for `backgroundColor` but having to list _every single default variant_ just to add one extra one:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   // ...
   variants: {
@@ -361,7 +361,7 @@ module.exports = {
 
 You know what's better? Just adding the one you want to enable:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   // ...
   variants: {
@@ -402,7 +402,7 @@ Until now, any time you wanted to add a transition in Tailwind you typically nee
 
 In v2.0, we've made it possible to specify a default duration and timing function that is used automatically any time any `transitionProperty` utility is added:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   // ...
   theme: {

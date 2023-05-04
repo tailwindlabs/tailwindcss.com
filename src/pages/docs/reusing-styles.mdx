@@ -161,7 +161,7 @@ If you need to reuse some styles across multiple files, the best strategy is to 
   </div>
 </Example>
 
-```html VacationCard.vue
+```html {{ filename: 'VacationCard.vue' }}
 <template>
   <div>
     <img class="rounded" :src="img" :alt="imgAlt">
@@ -248,7 +248,7 @@ Components and template partials solve this problem much better than CSS-only ab
   </div>
 </Example>
 
-```jsx Notification.jsx
+```jsx {{ filename: 'Notification.jsx' }}
 function Notification({ imageUrl, imageAlt, title, message }) {
   return (
     <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
@@ -284,7 +284,7 @@ Here's what a `btn-primary` class might look like using `@apply` to compose it f
   </div>
 </Example>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <!-- Before extracting a custom class -->
 <button class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
   Save changes
@@ -298,7 +298,7 @@ Here's what a `btn-primary` class might look like using `@apply` to compose it f
 
 <div className="-mb-4"/>
 
-```css CSS
+```css {{ filename: 'CSS' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

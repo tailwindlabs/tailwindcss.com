@@ -156,7 +156,7 @@ Component frameworks like Vue and Svelte support adding per-component styles wit
 
 If you try to `@apply` a custom class you've defined in your global CSS in one of these per-component `<style>` blocks, you'll get an error about the class not existing:
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -171,7 +171,7 @@ If you try to `@apply` a custom class you've defined in your global CSS in one o
 }
 ```
 
-```html Card.svelte
+```html {{ filename: 'Card.svelte' }}
 <div>
   <slot></slot>
 </div>
@@ -190,7 +190,7 @@ That means if you have 10 components that each have a `<style>` block, Tailwind 
 
 The solution to this problem is to define any custom styles you want to `@apply` in your components using the [plugin system](/docs/plugins) instead:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -220,7 +220,7 @@ Use the `@config` directive to specify which config file Tailwind should use whe
 
 <SnippetGroup>
 
-```css site.css
+```css {{ filename: 'site.css' }}
 @config "./tailwind.site.config.js";
 
 @tailwind base;
@@ -228,7 +228,7 @@ Use the `@config` directive to specify which config file Tailwind should use whe
 @tailwind utilities;
 ```
 
-```css admin.css
+```css {{ filename: 'admin.css' }}
 @config "./tailwind.admin.config.js";
 
 @tailwind base;
@@ -244,7 +244,7 @@ Note that if you're using `postcss-import`, your `@import` statements need to co
 
 <TipBad>Don't put <code>@config</code> before your <code>@import</code> statements</TipBad>
 
-```css admin.css
+```css {{ filename: 'admin.css' }}
 @config "./tailwind.admin.config.js";
 
 @import "tailwindcss/base";
@@ -256,7 +256,7 @@ Note that if you're using `postcss-import`, your `@import` statements need to co
 
 <TipGood>Put your <code>@import</code> statements before the <code>@config</code> directive</TipGood>
 
-```css admin.css
+```css {{ filename: 'admin.css' }}
 @import "tailwindcss/base";
 @import "./custom-base.css";
 @import "tailwindcss/components";

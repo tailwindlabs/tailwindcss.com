@@ -257,7 +257,7 @@ Animations by their very nature tend to be highly project-specific. **The animat
 
 By default, Tailwind provides utilities for four different example animations, as well as the `animate-none` utility. You can customize these values by editing `theme.animation` or `theme.extend.animation` in your `tailwind.config.js` file.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {
@@ -271,7 +271,7 @@ By default, Tailwind provides utilities for four different example animations, a
 
 To add new animation `@keyframes`, use the `keyframes` section of your theme configuration:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {
@@ -288,7 +288,7 @@ To add new animation `@keyframes`, use the `keyframes` section of your theme con
 
 You can then reference these keyframes by name in the `animation` section of your theme configuration:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {

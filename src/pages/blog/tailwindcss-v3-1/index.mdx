@@ -56,7 +56,7 @@ We're now shipping types for all of our JS APIs you work with when using Tailwin
 
 To set it up, just add the type annotation above your config definition:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
 + /** @type {import('tailwindcss').Config} */
   module.exports = {
     content: [
@@ -77,14 +77,14 @@ If you're using our CLI tool to compile your CSS, [`postcss-import`](https://git
 
 <SnippetGroup>
 
-```css main.css
+```css {{ filename: 'main.css' }}
   @import "tailwindcss/base";
 > @import "./select2-theme.css";
   @import "tailwindcss/components";
   @import "tailwindcss/utilities";
 ```
 
-```css select2-theme.css
+```css {{ filename: 'select2-theme.css' }}
 .select2-dropdown {
   @apply rounded-b-lg shadow-md;
 }
@@ -107,7 +107,7 @@ This is especially handy if you're using our [standalone CLI](https://tailwindcs
 
 I don't think tons of people know about this, but Tailwind exposes a [`theme()` function](/docs/functions-and-directives#theme) to your CSS files that lets you grab values from your config file — sort of turning them into variables that you can reuse.
 
-```css select2-theme.css
+```css {{ filename: 'select2-theme.css' }}
 .select2-dropdown {
   border-radius: theme(borderRadius.lg);
   background-color: theme(colors.gray.100);
@@ -118,7 +118,7 @@ I don't think tons of people know about this, but Tailwind exposes a [`theme()` 
 
 One limitation though was that you couldn't adjust the alpha channel any colors you grabbed this way. So in v3.1 we've added support for using a slash syntax to adjust the opacity, like you can with the modern `rgb` and `hsl` CSS color functions:
 
-```css select2-theme.css
+```css {{ filename: 'select2-theme.css' }}
   .select2-dropdown {
     border-radius: theme(borderRadius.lg);
 >   background-color: theme(colors.gray.100 / 50%);
@@ -129,7 +129,7 @@ One limitation though was that you couldn't adjust the alpha channel any colors 
 
 We've made this work with the `theme` function in your `tailwind.config.js` file, too:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     content: [
       // ...
@@ -160,7 +160,7 @@ Anything to avoid editing a CSS file am I right?
 
 If you like to define and configure your colors as CSS variables, you probably have some horrible boilerplate like this in your `tailwind.config.js` file right now:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 function withOpacityValue(variable) {
   return ({ opacityValue }) => {
     if (opacityValue === undefined) {
@@ -183,7 +183,7 @@ module.exports = {
 
 We've made this way less awful in v3.1 by adding support for defining your colors with a format string instead of having to use a function:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   theme: {
     colors: {
@@ -528,7 +528,7 @@ I recommend reading the [MDN Dialog documentation](https://developer.mozilla.org
 
 Okay so this one is the real highlight for me — you know how we give you the [`addVariant` API](https://tailwindcss.com/docs/plugins#adding-variants) for creating your own custom variants?
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
   const plugin = require('tailwindcss/plugin')
 
   module.exports = {

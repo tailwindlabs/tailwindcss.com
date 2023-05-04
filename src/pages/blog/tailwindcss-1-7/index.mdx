@@ -31,7 +31,7 @@ This is made possible by a new `backgroundImage` core plugin (which you can use 
 
 The default configuration for these plugins looks like this:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   theme: {
     backgroundImage: {
@@ -82,7 +82,7 @@ Combined with the new gradient features, you can use this to do cool gradient te
 
 Only responsive variants are enabled for the `backgroundClip` plugin by default:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   variants: {
     backgroundClip: ['responsive'],
@@ -102,7 +102,7 @@ These utilities will replace the old ones in v2.0, but for now they both exist t
 
 **We recommend migrating to the new names now, and disabling the old names using this feature flag:**
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
@@ -135,7 +135,7 @@ Learn more about it in [this great article by Rachel Andrew](https://rachelandre
 
 You can now configure a default letter-spacing value for each font-size in your `tailwind.config.js` theme, using a tuple syntax:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   theme: {
     fontSize: {
@@ -169,7 +169,7 @@ We've added utilities for setting the border style on the `divide` utilities:
 
 These utilities include `responsive` variants by default:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   variants: {
     divideStyle: ['responsive'],
@@ -194,7 +194,7 @@ You can now define your colors as callbacks, which receive a bag of parameters y
 
 This is particularly useful when trying to make your custom colors work with the `backgroundOpacity`, `textOpacity`, etc. utilities
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   theme: {
     colors: {
@@ -222,7 +222,7 @@ risk - https://tailwindcss.com/docs/upcoming-changes
 
 You can opt-in to a breaking change by setting that flag to `true` in your `tailwind.config.js` file:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
@@ -232,7 +232,7 @@ module.exports = {
 
 If you'd prefer not to opt-in but would like to silence the warning, explicitly set the flag to `false`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   future: {
     removeDeprecatedGapUtilities: false,
@@ -257,7 +257,7 @@ To migrate to the new class names, simply replace any existing usage of the old 
 
 To opt-in to the new names now, enable the `removeDeprecatedGapUtilities` flag in your `tailwind.config.js` file:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
@@ -273,7 +273,7 @@ It's important to note that **experimental features may introduce breaking chang
 
 If you like to live on the wild side though, you can enable all of them like so:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   experimental: 'all',
 }
@@ -297,7 +297,7 @@ This introduces breaking changes to how `@apply` worked before, so be sure to re
 
 To enable this feature, use the `applyComplexClasses` flag:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   experimental: {
     applyComplexClasses: true,
@@ -309,7 +309,7 @@ module.exports = {
 
 We've added a teaser of the new Tailwind 2.0 color palette that you can start playing with today using the `uniformColorPalette` flag:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   experimental: {
     uniformColorPalette: true,
@@ -327,7 +327,7 @@ We've added a much bigger spacing scale that includes new micro values like `0.5
 
 You can enable the extended spacing scale using the `extendedSpacingScale` flag:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   experimental: {
     extendedSpacingScale: true,
@@ -341,7 +341,7 @@ This is pretty stable, I would be surprised if we change this.
 
 We've added recommended default line-heights to every built-in font-size, which can be enabled using the `defaultLineHeights` flag:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   experimental: {
     defaultLineHeights: true,
@@ -357,7 +357,7 @@ We've added three new font sizes (`7xl`, `8xl`, and `9xl`) to keep up with the l
 
 You can enable them under the `extendedFontSizeScale` flag:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   experimental: {
     extendedFontSizeScale: true,
