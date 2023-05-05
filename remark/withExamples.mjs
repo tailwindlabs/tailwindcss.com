@@ -48,7 +48,9 @@ export default () => {
               body: [
                 {
                   type: 'ExpressionStatement',
-                  expression: JsxParser.parseExpressionAt(`{${props}}`),
+                  expression: JsxParser.parseExpressionAt(`{${props}}`, 0, {
+                    ecmaVersion: 'latest',
+                  }),
                 },
               ],
             },
