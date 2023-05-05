@@ -20,7 +20,7 @@ export const classes = {
 
 Use the `{top|right|bottom|left|inset}-{size}` utilities to set the horizontal or vertical position of a [positioned element](/docs/position).
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="grid grid-cols-3 grid-rows-3 place-items-center gap-4 font-mono text-white text-sm font-bold leading-6">
   <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
     <div class="p-4 w-14 h-14 absolute left-0 top-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">01</div>
@@ -103,7 +103,7 @@ Use the `{top|right|bottom|left|inset}-{size}` utilities to set the horizontal o
 
 To use a negative top/right/bottom/left value, prefix the class name with a dash to convert it to a negative value.
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
   <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
     <div class="p-4 w-14 h-14 absolute -left-4 -top-4 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg"></div>
@@ -121,7 +121,7 @@ To use a negative top/right/bottom/left value, prefix the class name with a dash
 
 Use the `start-*` and `end-*` utilities to set the `inset-inline-start` and `inset-inline-end` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right side based on the text direction.
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="grid grid-cols-2 gap-x-4 place-items-center">
   <div class="flex flex-col items-start gap-y-4">
     <p class="text-sm font-medium">Left-to-right</p>

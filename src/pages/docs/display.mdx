@@ -15,7 +15,7 @@ export const classes = { utilities }
 
 Use `inline`, `inline-block`, and `block` to control the flow of text and elements.
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="mx-auto max-w-xs bg-white shadow-xl p-4 text-slate-500 text-sm leading-6 sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
   When controlling the flow of text, using the CSS property <span class="inline bg-sky-100 font-bold text-sm text-slate-900 font-mono rounded dark:bg-slate-600 dark:text-slate-200">display: inline</span>
   will cause the text inside the element to wrap normally.
@@ -48,7 +48,7 @@ Use `inline`, `inline-block`, and `block` to control the flow of text and elemen
 
 Use `flow-root` to create a block-level element with its own [block formatting context](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context).
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="mx-auto max-w-xs bg-white shadow-xl p-4 text-slate-500 text-sm leading-6 sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
   <div class="flow-root bg-stripes-purple mb-0.5">
     <div class="my-4 bg-white dark:bg-slate-800">Well, let me tell you something, funny boy. Y'know that little stamp, the one that says "New York Public Library"? Well that may not mean anything to you, but that means a lot to me. One whole hell of a lot.</div>
@@ -74,7 +74,7 @@ Use `flow-root` to create a block-level element with its own [block formatting c
 
 Use `flex` to create a block-level flex container.
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="mx-auto max-w-xs bg-white shadow-xl p-4 text-slate-500 leading-6 flex justify-center dark:bg-slate-800 dark:text-slate-400">
   <div class="flex items-center gap-4 p-4">
     <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80" />
@@ -100,7 +100,7 @@ Use `flex` to create a block-level flex container.
 
 Use `inline-flex` to create an inline flex container that flows with text.
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <p class="mx-auto max-w-lg bg-white shadow-xl p-4 text-slate-500 text-sm leading-6 sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
   Today I spent most of the day researching ways to take advantage of the fact that bottles can be returned for 10 cents in Michigan, but only 5 cents here. <span class="ml-1 inline-flex items-baseline"><img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80" alt="" class="self-center w-5 h-5 rounded-full mr-1" /><span class="font-medium text-slate-900 dark:text-slate-200">Kramer</span></span> keeps telling me there is no way to make it work, that he has run the numbers on every possible approach, but I just have to believe there's a way to make it work, there's simply too much opportunity here.
 </p>
@@ -121,7 +121,7 @@ Use `inline-flex` to create an inline flex container that flows with text.
 
 Use `grid` to create a grid container.
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="grid grid-cols-3 grid-rows-3 gap-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-fuchsia rounded-lg text-center">
   <div class="p-4 bg-fuchsia-500 shadow-lg rounded-lg">01</div>
   <div class="p-4 bg-fuchsia-500 shadow-lg rounded-lg">02</div>
@@ -145,7 +145,7 @@ Use `grid` to create a grid container.
 
 Use `inline-grid` to create an inline grid container.
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="space-x-3 overflow-x-scroll w-full p-8 whitespace-nowrap">
   <div class="inline-grid grid-cols-3 gap-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-sky rounded-lg text-center">
     <div class="p-4 w-14 h-14 bg-sky-500 shadow-lg rounded-lg">01</div>
@@ -189,7 +189,7 @@ Use `inline-grid` to create an inline grid container.
 
 Use `contents` to create a "phantom" container whose children act like direct children of the parent.
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="flex gap-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-purple rounded-lg text-center">
   <div class="flex-1 p-4 bg-purple-500 shadow-lg rounded-lg">01</div>
   <div class="contents">
@@ -215,7 +215,7 @@ Use `contents` to create a "phantom" container whose children act like direct ch
 
 Use the `table`, `table-row`, `table-cell`, `table-caption`, `table-column`, `table-column-group`, `table-header-group`, `table-row-group`, and `table-footer-group` utilities to create elements that behave like their respective table elements.
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="shadow-sm overflow-hidden my-8">
   <div class="table border-collapse table-auto w-full text-sm">
     <div class="table-header-group">
@@ -279,7 +279,7 @@ Use the `table`, `table-row`, `table-cell`, `table-caption`, `table-column`, `ta
 
 Use `hidden` to set an element to `display: none` and remove it from the page layout (compare with `invisible` from the [visibility](/docs/visibility#invisible) documentation).
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="flex gap-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-purple rounded-lg text-center">
   <div class="hidden p-4 w-14 h-14 bg-purple-500 shadow-lg rounded-lg">01</div>
   <div class="p-4 w-14 h-14 bg-purple-500 shadow-lg rounded-lg">02</div>

@@ -20,7 +20,7 @@ export const classes = {
 
 Use the `scroll-m{side}-{size}` utilities to set the scroll offset around items within a snap container.
 
-```html {{ mode: 'example', p: 'none', hint: 'Scroll in the grid of images to see the expected behaviour' }}
+```html {{ example: { p: 'none', hint: 'Scroll in the grid of images to see the expected behaviour' } }}
 <div class="w-full flex gap-12 snap-x overflow-x-auto py-14">
   <div class="snap-start scroll-ml-6 shrink-0 relative first:pl-6 last:pr-[calc(100%-21.5rem)]">
     <div class="bg-stripes-pink w-6 absolute top-0 left-0 bottom-0"></div>
@@ -79,7 +79,7 @@ To use a negative scroll margin value, prefix the class name with a dash to conv
 
 Use the `scroll-ms-*` and `scroll-me-*` utilities to set the `scroll-margin-inline-start` and `scroll-margin-inline-end` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right side based on the text direction.
 
-```html {{ mode: 'example', p: 'none', hint: 'Scroll in the grid of images to see the expected behaviour' }}
+```html {{ example: { p: 'none', hint: 'Scroll in the grid of images to see the expected behaviour' } }}
 <p class="mb-4 pt-8 pl-6 text-sm font-medium">Left-to-right</p>
 <div class="w-full flex gap-12 snap-x overflow-x-auto pb-10" dir="ltr">
   <div class="snap-start scroll-ms-6 shrink-0 relative first:ps-6 last:pr-[calc(100%-21.5rem)]">

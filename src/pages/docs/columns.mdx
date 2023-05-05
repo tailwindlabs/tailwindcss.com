@@ -16,7 +16,7 @@ export const classes = { utilities }
 
 Use the `columns-{count}` utilities to set the number of columns that should be created for the content within an element. The column width will be automatically adjusted to accommodate that number.
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="relative">
   <div class="absolute inset-0 -top-8 -bottom-8 grid grid-cols-1 sm:grid-cols-3 gap-8">
     <div class="bg-stripes-blue opacity-75 w-full h-full"></div>
@@ -78,7 +78,7 @@ Use the `columns-{width}` utilities to set the ideal column width for the conten
 
 This "t-shirt" scale is the same as the [max-width](/docs/max-width) scale, with the addition of `2xs` and `3xs`, since smaller columns may be desirable.
 
-```html {{ mode: 'example', resizable: true, className: 'max-h-[800px]', hint: 'Resize the example to see the expected behaviour', hintClassName: 'hidden md:block' }}
+```html {{ example: { resizable: true, className: 'max-h-[800px]', hint: 'Resize the example to see the expected behaviour', hintClassName: 'hidden md:block' } }}
 <div class="relative">
   <div class="columns-3xs gap-8 space-y-8">
     <div class="relative aspect-w-16 aspect-h-9">
@@ -113,7 +113,7 @@ This "t-shirt" scale is the same as the [max-width](/docs/max-width) scale, with
 
 To specify the width between columns, you can use the [gap-x](/docs/gap) utilities:
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="relative">
   <div class="absolute inset-0 -top-8 -bottom-8 hidden sm:grid grid-cols-[1fr,2rem,1fr,2rem,1fr]">
     <div class="opacity-75 w-full h-full"></div>

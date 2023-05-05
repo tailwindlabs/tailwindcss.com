@@ -15,7 +15,7 @@ export const classes = { utilities }
 
 Use `invisible` to hide an element, but still maintain its place in the DOM, affecting the layout of other elements (compare with `hidden` from the [display](/docs/display#hidden) documentation).
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="grid grid-cols-3 gap-4 font-mono text-white text-sm font-bold leading-6">
   <div class="p-4 flex items-center justify-center bg-cyan-500 shadow-lg rounded-lg">01</div>
   <div class="invisible p-4 flex items-center justify-center bg-cyan-500 shadow-lg rounded-lg">02</div>
@@ -37,7 +37,7 @@ Use `collapse` to hide table rows, row groups, columns, and column groups as if 
 
 This makes it possible to dynamically toggle rows and columns without affecting the table layout.
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="py-8">
   <div class="mb-3 pl-4 text-sm font-medium text-slate-500 dark:text-slate-400">Showing all rows</div>
   <table class="border-collapse w-full border-y border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-800 text-sm shadow-sm">
@@ -156,7 +156,7 @@ This makes it possible to dynamically toggle rows and columns without affecting 
 
 Use `visible` to make an element visible. This is mostly useful for undoing the `invisible` utility at different screen sizes.
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="grid grid-cols-3 gap-4 font-mono text-white text-sm font-bold leading-6">
   <div class="p-4 flex items-center justify-center bg-fuchsia-500 shadow-lg rounded-lg">01</div>
   <div class="visible p-4 flex items-center justify-center bg-fuchsia-500 shadow-lg rounded-lg">02</div>

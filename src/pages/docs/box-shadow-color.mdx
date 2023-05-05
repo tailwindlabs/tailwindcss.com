@@ -20,7 +20,7 @@ export const classes = {
 
 Use the `shadow-{color}` utilities to change the color of an existing box shadow. By default colored shadows have an opacity of 100%, but you can adjust this using the opacity modifier.
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="flex flex-col sm:flex-row justify-center gap-8 sm:gap-16">
   <div class="flex flex-col items-center shrink-0">
     <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">shadow-cyan-500/50</p>
@@ -47,7 +47,7 @@ Use the `shadow-{color}` utilities to change the color of an existing box shadow
 
 When using shadows on a colored background, colored shadows can often look more natural than the default black-based shadows, which tend to appear gray and washed-out.
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="flex justify-around bg-indigo-300 px-8 pt-10 pb-12 space-x-6">
   <div class="flex flex-col items-center">
     <p class="mb-3 text-sm font-medium text-indigo-900">Default shadow</p>

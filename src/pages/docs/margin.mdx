@@ -22,7 +22,7 @@ Control the margin on one side of an element using the `m{t|r|b|l}-{size}` utili
 
 For example, `mt-6` would add `1.5rem` of margin to the top of an element, `mr-4` would add `1rem` of margin to the right of an element, `mb-8` would add `2rem` of margin to the bottom of an element, and `ml-2` would add `0.5rem` of margin to the left of an element.
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="relative font-mono text-white text-sm font-bold leading-6 h-56">
   <div class="absolute top-0 left-1/2 -translate-x-1/2 md:-ml-24">
     <div class="flow-root bg-stripes-purple rounded-b-lg">
@@ -58,7 +58,7 @@ For example, `mt-6` would add `1.5rem` of margin to the top of an element, `mr-4
 
 Control the horizontal margin of an element using the `mx-{size}` utilities.
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
   <div class="bg-stripes-indigo rounded-lg">
     <div class="bg-indigo-500 rounded-lg shadow-lg p-4 mx-8">mx-8</div>
@@ -74,7 +74,7 @@ Control the horizontal margin of an element using the `mx-{size}` utilities.
 
 Control the vertical margin of an element using the `my-{size}` utilities.
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
   <div class="flow-root bg-stripes-pink rounded-lg">
     <div class="bg-pink-500 rounded-lg shadow-lg p-4 my-8">my-8</div>
@@ -90,7 +90,7 @@ Control the vertical margin of an element using the `my-{size}` utilities.
 
 Control the margin on all sides of an element using the `m-{size}` utilities.
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
   <div class="flow-root bg-stripes-blue rounded-lg">
     <div class="bg-blue-500 rounded-lg shadow-lg p-4 m-8">m-8</div>
@@ -106,7 +106,7 @@ Control the margin on all sides of an element using the `m-{size}` utilities.
 
 To use a negative margin value, prefix the class name with a dash to convert it to a negative value.
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
   <div class="flex flex-col items-center">
     <div class="relative w-36 h-16 bg-sky-400/20 border border-sky-700/10 rounded-md overflow-hidden"></div>
@@ -124,7 +124,7 @@ To use a negative margin value, prefix the class name with a dash to convert it 
 
 Use the `ms-*` and `me-*` utilities to set the `margin-inline-start` and `margin-inline-end` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right side based on the text direction.
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="grid grid-cols-2 gap-x-4 place-items-center">
   <div class="flex flex-col items-start gap-y-4" dir="ltr">
     <p class="text-sm font-medium">Left-to-right</p>

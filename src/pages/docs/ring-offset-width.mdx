@@ -22,7 +22,7 @@ export const classes = {
 
 Use the `ring-offset-{width}` utilities to simulate an offset by adding solid white box-shadow and increasing the thickness of the accompanying outline ring to accommodate the offset.
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-white text-sm text-center font-bold leading-6">
   <div class="flex flex-col items-center shrink-0">
     <p class="font-medium text-sm font-mono text-slate-500 text-center mb-3 dark:text-slate-400">ring-offset-0</p>
@@ -49,7 +49,7 @@ Use the `ring-offset-{width}` utilities to simulate an offset by adding solid wh
 
 You can't actually offset a box-shadow in CSS, so we have to fake it using a solid color shadow that matches the parent background color. We use white by default, but if you are adding a ring offset over a different background color, you should use the `ring-offset-{color}` utilities to match the parent background color:
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="grid place-content-center text-white text-sm text-center font-bold leading-6">
   <div class="flex flex-col items-center shrink-0">
     <p class="font-medium text-sm font-mono text-slate-500 text-center mb-3 dark:text-slate-400">

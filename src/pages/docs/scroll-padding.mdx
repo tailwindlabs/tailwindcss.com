@@ -20,7 +20,7 @@ export const classes = {
 
 Use the `scroll-p{side}-{size}` utilities to set the scroll offset of an element within a snap container.
 
-```html {{ mode: 'example', p: 'none', hint: 'Scroll in the grid of images to see the expected behaviour' }}
+```html {{ example: { p: 'none', hint: 'Scroll in the grid of images to see the expected behaviour' } }}
 <div class="bg-stripes-pink w-6 absolute left-0 top-0 bottom-0 rounded-l-lg"></div>
 <div class="w-full flex gap-8 snap-x scroll-pl-6 overflow-x-auto py-14">
   <div class="snap-start shrink-0 first:pl-6 last:pr-[calc(100%-21.5rem)]">
@@ -65,7 +65,7 @@ Use the `scroll-p{side}-{size}` utilities to set the scroll offset of an element
 
 Use the `scroll-ps-*` and `scroll-pe-*` utilities to set the `scroll-padding-inline-start` and `scroll-padding-inline-end` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right side based on the text direction.
 
-```html {{ mode: 'example', p: 'none', hint: 'Scroll in the grid of images to see the expected behaviour' }}
+```html {{ example: { p: 'none', hint: 'Scroll in the grid of images to see the expected behaviour' } }}
 <p class="mb-4 pt-8 pl-6 text-sm font-medium">Left-to-right</p>
 <div class="relative" dir="ltr">
   <div class="bg-stripes-pink w-6 absolute start-0 top-0 bottom-10"></div>

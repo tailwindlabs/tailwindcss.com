@@ -14,7 +14,7 @@ export default () => {
       if (!meta) {
         return
       }
-      if (!/\bmode:\s*['"]example['"]/.test(meta)) {
+      if (!/^{\s*{.*?example:/.test(meta)) {
         return
       }
 
@@ -37,8 +37,8 @@ export default () => {
         },
       ]
 
-      if (/^\{\s*\{.*?\}\s*\}$/.test(meta)) {
-        let props = `...${meta.slice(1, -1)}`
+      if (!/\bexample:\s*true/.test(meta)) {
+        let props = `...(${meta.slice(1, -1)}).example`
         node.attributes.push({
           type: 'mdxJsxExpressionAttribute',
           value: props,

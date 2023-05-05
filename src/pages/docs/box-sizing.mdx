@@ -19,7 +19,7 @@ This means a 100px &times; 100px element with a 2px border and 4px of padding on
 
 Tailwind makes this the default for all elements in our [preflight base styles](/docs/preflight).
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="relative grid grid-cols-[1fr,1fr,1fr] grid-rows-[1fr,3fr,1fr] gap-px bg-slate-700/10 font-mono text-sm font-bold leading-6 max-w-sm mx-auto w-full shadow-xl dark:bg-slate-700">
   <div class="bg-white col-start-1 row-start-1 dark:bg-slate-800"></div>
   <div class="relative bg-white col-start-2 row-start-1 dark:bg-slate-800">
@@ -81,7 +81,7 @@ Use `box-content` to set an element's `box-sizing` to `content-box`, telling the
 
 This means a 100px &times; 100px element with a 2px border and 4px of padding on all sides will actually be rendered as 112px &times; 112px, with an internal content area of 100px &times; 100px.
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="relative grid grid-cols-[1fr,1fr,1fr] grid-rows-[1fr,2fr,1fr] gap-px bg-slate-700/10 font-mono text-sm font-bold leading-6 max-w-sm mx-auto w-full shadow-xl dark:bg-slate-700">
   <div class="bg-white col-start-1 row-start-1 dark:bg-slate-800"></div>
   <div class="relative bg-white col-start-2 row-start-1 dark:bg-slate-800">

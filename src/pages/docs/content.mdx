@@ -23,7 +23,7 @@ Out of the box, `content-none` is the only available preconfigured content utili
 
 Use the square bracket notation to define any arbitrary content value on the fly.
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="px-4 sm:px-0">
   <div class="p-8 w-full max-w-xl mx-auto bg-white shadow-lg text-slate-500 dark:bg-slate-800 dark:text-slate-400">
     Higher resolution means more than just a better-quality image. With a Retina 6K display, <a href="https://www.apple.com/pro-display-xdr/" class="text-blue-600 dark:text-sky-400 font-medium after:content-['_↗'] after:text-sm after:font-bold" target="_blank">Pro Display XDR</a> gives you nearly 40 percent more screen real estate than a 5K display.
@@ -42,7 +42,7 @@ nearly 40 percent more screen real estate than a 5K display.
 
 These content utilities even support CSS features like the `attr()` function, which you can use to reference a value stored in an attribute:
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="px-4 sm:px-0">
   <div class="font-semibold text-slate-900 p-8 w-full max-w-xl mx-auto bg-white shadow-lg flex items-center justify-center dark:bg-slate-800 dark:text-slate-200">
     <div before="Hello World" class="before:content-[attr(before)]"></div>
@@ -60,7 +60,7 @@ These content utilities even support CSS features like the `attr()` function, wh
 
 Since whitespace denotes the end of a class in HTML, replace any spaces in an arbitrary value with an underscore:
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="px-4 sm:px-0">
   <div class="font-semibold text-slate-900 p-8 w-full max-w-xl mx-auto bg-white shadow-lg flex items-center justify-center dark:bg-slate-800 dark:text-slate-200">
     <div class="before:content-['Hello_World']"></div>
@@ -76,7 +76,7 @@ Since whitespace denotes the end of a class in HTML, replace any spaces in an ar
 
 If you need to include an actual underscore, you can do this by escaping it with a backslash:
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="px-4 sm:px-0">
   <div class="font-semibold text-slate-900 p-8 w-full max-w-xl mx-auto bg-white shadow-lg flex items-center justify-center dark:bg-slate-800 dark:text-slate-200">
     <div class="before:content-['Hello\_World']"></div>

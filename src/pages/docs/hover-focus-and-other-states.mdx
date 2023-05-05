@@ -11,7 +11,7 @@ Every utility class in Tailwind can be applied _conditionally_ by adding a modif
 
 For example, to apply the `bg-sky-700` class on hover, use the `hover:bg-sky-700` class:
 
-```html {{ mode: 'example', hint: 'Hover over this button to see the background color change' }}
+```html {{ example: { hint: 'Hover over this button to see the background color change' } }}
 <div class="grid place-items-center">
   <button class="bg-sky-500 hover:bg-sky-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white">
     Save changes
@@ -85,7 +85,7 @@ In this guide you'll learn about every modifier available in the framework, how 
 
 Style elements on hover, focus, and active using the `hover`, `focus`, and `active` modifiers:
 
-```html {{ mode: 'example', hint: 'Try interacting with this button to see the hover, focus, and active states' }}
+```html {{ example: { hint: 'Try interacting with this button to see the hover, focus, and active states' } }}
 <div class="grid place-items-center">
   <button type="button" class="bg-violet-500 hover:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300 active:bg-violet-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white">
     Save changes
@@ -107,7 +107,7 @@ See the [pseudo-class reference](#pseudo-class-reference) for a complete list of
 
 Style an element when it is the first-child or last-child using the `first` and `last` modifiers:
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="px-4">
   <div class="max-w-md mx-auto bg-white shadow">
     <ul role="list" class="p-6 divide-y divide-slate-200">
@@ -161,7 +161,7 @@ Style an element when it is the first-child or last-child using the `first` and 
 
 You can also style an element when it's an odd or even child using the `odd` and `even` modifiers:
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="px-0 sm:px-6">
   <div class="bg-white shadow">
     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -270,7 +270,7 @@ See the [pseudo-class reference](#pseudo-class-reference) for a complete list of
 
 Style form elements in different states using modifiers like `required`, `invalid`, and `disabled`:
 
-```html {{ mode: 'example', p: 'none', hint: 'Try making the email address valid to see the styles change' }}
+```html {{ example: { p: 'none', hint: 'Try making the email address valid to see the styles change' } }}
 <div class="max-w-sm mx-auto bg-white shadow py-5 px-6">
   <form>
     <div>
@@ -326,7 +326,7 @@ See the [pseudo-class reference](#disabled) for a complete list of available pse
 
 When you need to style an element based on the state of some _parent_ element, mark the parent with the `group` class, and use `group-*` modifiers like `group-hover` to style the target element:
 
-```html {{ mode: 'example', hint: 'Hover over the card to see both text elements change color' }}
+```html {{ example: { hint: 'Hover over the card to see both text elements change color' } }}
 <a href="#" class="group block max-w-xs mx-auto rounded-lg p-4 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
   <div class="flex items-center space-x-3">
     <svg class="h-6 w-6 stroke-sky-500 group-hover:stroke-white" fill="none" viewBox="0 0 24 24">
@@ -357,7 +357,7 @@ This pattern works with every pseudo-class modifier, for example `group-focus`, 
 
 When nesting groups, you can style something based on the state of a _specific_ parent group by giving that parent a unique group name using a `group/{name}` class, and including that name in modifiers using classes like `group-hover/{name}`:
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="px-4">
   <ul role="list" class="mx-auto max-w-md bg-white p-2 shadow">
     <li class="group/item relative flex items-center justify-between rounded-xl p-4 hover:bg-slate-100">
@@ -483,7 +483,7 @@ For more control, you can use the `&` character to mark where `.group` should en
 
 When you need to style an element based on the state of a _sibling_ element, mark the sibling with the `peer` class, and use `peer-*` modifiers like `peer-invalid` to style the target element:
 
-```html {{ mode: 'example', p: 'none', hint: 'Try making the email address valid to see the warning disappear' }}
+```html {{ example: { p: 'none', hint: 'Try making the email address valid to see the warning disappear' } }}
 <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-5 px-6">
   <form>
     <div>
@@ -528,7 +528,7 @@ It's important to note that the `peer` marker can only be used on _previous_ sib
 
 When using multiple peers, you can style something on the state of a _specific_ peer by giving that peer a unique name using a `peer/{name}` class, and including that name in modifiers using classes like `peer-checked/{name}`:
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="px-4">
   <fieldset class="mx-auto max-w-md bg-white p-8 text-sm shadow">
     <div class="mb-6 border-b border-slate-200 pb-2 text-base font-semibold">Published status</div>
@@ -608,7 +608,7 @@ For more control, you can use the `&` character to mark where `.peer` should end
 
 Style the `::before` and `::after` pseudo-elements using the `before` and `after` modifiers:
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-5 px-6">
   <form>
     <label class="block">
@@ -630,7 +630,7 @@ Style the `::before` and `::after` pseudo-elements using the `before` and `after
 
 When using these modifiers, Tailwind will automatically add `content: ''` by default so you don't have to specify it unless you want a different value:
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="px-6">
   <div class="max-w-lg mx-auto bg-white shadow py-8 px-6">
     <blockquote class="text-2xl font-semibold italic text-center text-slate-900">
@@ -681,7 +681,7 @@ Note that if you've disabled our [preflight base styles](/docs/preflight), the c
 
 Style the placeholder text of any input or textarea using the `placeholder` modifier:
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="max-w-sm mx-auto">
   <form>
     <label class="relative block">
@@ -716,7 +716,7 @@ Style the placeholder text of any input or textarea using the `placeholder` modi
 
 Style the button in file inputs using the `file` modifier:
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="px-6">
   <div class="max-w-sm mx-auto bg-white shadow py-8 px-6">
     <form class="flex items-center space-x-6">
@@ -761,7 +761,7 @@ Note that Tailwind's [border reset](/docs/preflight#border-styles-are-reset-glob
 
 Style the counters or bullets in lists using the `marker` modifier:
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="px-6">
   <div class="max-w-sm mx-auto bg-white shadow py-8 px-8 dark:bg-slate-800">
     <h2 class="text-base font-semibold text-slate-900 dark:text-slate-200">Ingredients</h2>
@@ -788,7 +788,7 @@ We've designed the `marker` modifier to be inheritable, so although you can use 
 
 Style the active text selection using the `selection` modifier:
 
-```html {{ mode: 'example', p: 'none', hint: 'Try selecting some of this text with your mouse' }}
+```html {{ example: { p: 'none', hint: 'Try selecting some of this text with your mouse' } }}
 <div class="px-6">
   <div class="max-w-lg mx-auto bg-white text-slate-700 shadow py-8 px-6 selection:bg-fuchsia-300 selection:text-fuchsia-900 dark:bg-slate-800 dark:text-slate-400">
     <p>
@@ -829,7 +829,7 @@ This makes it easy to set the selection color to match your brand across your en
 
 Style the first line in a block of content using the `first-line` modifier, and the first letter using the `first-letter` modifier:
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="px-6">
   <div class="max-w-lg mx-auto bg-white text-slate-700 shadow py-8 px-6 font-serif dark:bg-slate-800 dark:text-slate-200">
     <p class="first-line:uppercase first-line:tracking-widest first-letter:text-slate-900 first-letter:text-7xl first-letter:leading-none first-letter:float-left first-letter:font-bold first-letter:mr-3 dark:first-letter:text-white">
@@ -894,7 +894,7 @@ The `prefers-color-scheme` media query tells you whether the user prefers a ligh
 
 Use utilities with no modifier to target light mode, and use the `dark` modifier to provide overrides for dark mode:
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="grid grid-cols-1 sm:grid-cols-2">
   <div class="p-8 pt-7">
     <p class="mb-2 text-sm font-medium text-slate-500">Light mode</p>
@@ -953,7 +953,7 @@ The `prefers-reduced-motion` media query tells you if the user has requested tha
 
 Use the `motion-reduce` modifier to conditionally add styles when the user has requested reduced motion:
 
-```html {{ mode: 'example', hint: 'Try emulating &#96;prefers-reduced-motion: reduce&#96; in your developer tools to hide the spinner' }}
+```html {{ example: { hint: 'Try emulating &#96;prefers-reduced-motion: reduce&#96; in your developer tools to hide the spinner' } }}
 <div class="flex items-center justify-center">
   <button type="button" class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500" disabled>
     <svg class="motion-reduce:hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -992,7 +992,7 @@ The `prefers-contrast` media query tells you if the user has requested more or l
 
 Use the `contrast-more` modifier to conditionally add styles when the user has requested more contrast:
 
-```html {{ mode: 'example', p: 'none', hint: 'Try emulating &#96;prefers-contrast: more&#96; in your developer tools to see the changes' }}
+```html {{ example: { p: 'none', hint: 'Try emulating &#96;prefers-contrast: more&#96; in your developer tools to see the changes' } }}
 <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-4 px-6">
   <form>
     <div>
@@ -1141,7 +1141,7 @@ module.exports = {
 
 If you need to use a one-off `aria` modifier that doesn’t make sense to include in your theme, or for more complex ARIA attributes that take specific values, use square brackets to generate a property on the fly using any arbitrary value.
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="py-8">
   <table class="border-collapse w-full border-y border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-800 text-sm shadow-sm">
     <thead class="bg-slate-50 dark:bg-slate-700">
@@ -1285,7 +1285,7 @@ You can then use these custom `data-*` modifiers in your project:
 
 Use the `rtl` and `ltr` modifiers to conditionally add styles in right-to-left and left-to-right modes respectively when building multi-directional layouts:
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 max-w-lg mx-auto">
   <div dir="ltr">
     <p class="mb-4 text-sm font-medium">Left-to-right</p>
@@ -1336,7 +1336,7 @@ Remember, these modifiers are only useful if you are building a site that needs 
 
 Use the `open` modifier to conditionally add styles when a `<details>` or `<dialog>` element is in an open state:
 
-```html {{ mode: 'example', hint: 'Try toggling the disclosure to see the styles change' }}
+```html {{ example: { hint: 'Try toggling the disclosure to see the styles change' } }}
 <div class="max-w-lg mx-auto">
   <details class="open:bg-white dark:open:bg-slate-900 open:ring-1 open:ring-black/5 dark:open:ring-white/10 open:shadow-lg p-6 rounded-lg" open>
     <summary class="text-sm leading-6 text-slate-900 dark:text-white font-semibold select-none">

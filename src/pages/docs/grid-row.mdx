@@ -20,7 +20,7 @@ export const classes = {
 
 Use the `row-span-{n}` utilities to make an element span _n_ rows.
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="grid grid-rows-3 grid-flow-col gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-fuchsia rounded-lg">
   <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500 grid place-content-center row-span-3">01</div>
   <div class="p-4 rounded-lg bg-fuchsia-300 grid place-content-center col-span-2 dark:bg-fuchsia-800 dark:text-fuchsia-400">02</div>
@@ -42,7 +42,7 @@ Use the `row-start-{n}` and `row-end-{n}` utilities to make an element start or 
 
 Note that CSS grid lines start at 1, not 0, so a full-height element in a 3-row grid would start at line 1 and end at line 4.
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="grid grid-rows-3 grid-flow-col gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-sky rounded-lg">
   <div class="p-4 sm:p-12 rounded-lg shadow-lg bg-blue-500 grid place-content-center row-start-2 row-span-2">01</div>
   <div class="p-4 sm:p-12 rounded-lg shadow-lg bg-blue-500 grid place-content-center row-end-3 row-span-2">02</div>

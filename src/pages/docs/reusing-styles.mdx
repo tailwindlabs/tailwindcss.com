@@ -12,7 +12,7 @@ But of course as a project grows, you'll inevitably find yourself repeating comm
 
 For example, in the template below you can see the utility classes for each avatar image are repeated five separate times:
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="w-72 sm:w-96 px-8 sm:px-12 py-6 sm:py-8 mx-auto bg-white shadow">
   <div class="flex text-base items-center space-x-2">
     <h4 class="text-base font-semibold text-slate-900">Contributors</h4>
@@ -74,7 +74,7 @@ A lot of the time a design element that shows up more than once in the rendered 
 
 For example, the duplicate avatars at the beginning of this guide would almost certainly be rendered in a loop in a real project:
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="w-72 sm:w-96 px-8 sm:px-12 py-6 sm:py-8 mx-auto bg-white shadow">
   <div class="flex text-base items-center space-x-2">
     <h4 class="text-base font-semibold text-slate-900">Contributors</h4>
@@ -110,7 +110,7 @@ For example, the duplicate avatars at the beginning of this guide would almost c
 
 You could even rewrite the navigation example using a loop or `map` if you preferred as well:
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="sm:px-8 flex sm:justify-center">
   <div class="bg-white px-6 py-4 shadow">
     <nav class="flex justify-center space-x-4">
@@ -144,7 +144,7 @@ When elements are rendered in a loop like this, the actual class list is only wr
 
 If you need to reuse some styles across multiple files, the best strategy is to create a _component_ if you're using a front-end framework like React, Svelte, or Vue, or a _template partial_ if you're using a templating language like Blade, ERB, Twig, or Nunjucks.
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="w-72 sm:w-96 px-8 sm:px-12 py-6 sm:py-8 mx-auto bg-white shadow">
   <div>
     <img class="rounded" src="https://images.unsplash.com/photo-1452784444945-3f422708fe5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=512&q=80" width="512" height="341" alt="Beach" />
@@ -192,7 +192,7 @@ Unless a component is a single HTML element, the information needed to define it
 
 <TipBad>Don't rely on CSS classes to extract complex components</TipBad>
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="px-6 py-12">
   <div class="max-w-sm mx-auto p-6 flex items-center bg-white rounded-xl shadow-md space-x-4">
     <div class="shrink-0">
@@ -234,7 +234,7 @@ Components and template partials solve this problem much better than CSS-only ab
 
 <TipGood>Create a template partial or JavaScript component</TipGood>
 
-```html {{ mode: 'example', p: 'none' }}
+```html {{ example: { p: 'none' } }}
 <div class="px-6 py-12">
   <div class="max-w-sm mx-auto p-6 flex items-center bg-white rounded-xl shadow-md space-x-4">
     <div class="shrink-0">
@@ -276,7 +276,7 @@ While it's highly recommended that you create proper template partials for more 
 
 Here's what a `btn-primary` class might look like using `@apply` to compose it from existing utilities:
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="text-center">
   <button type="button" class="py-2 px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75">
     Save changes

@@ -45,7 +45,7 @@ export const classes = {
 
 Control the border color of an element using the `border-{color}` utilities.
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="max-w-xs mx-auto space-y-1">
   <label>
     <span class="text-slate-900 dark:text-slate-200 text-sm font-medium">Email address</span>
@@ -63,7 +63,7 @@ Control the border color of an element using the `border-{color}` utilities.
 
 Control the opacity of an element's border color using the color opacity modifier.
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="grid lg:grid-cols-3 gap-4 text-white text-sm text-center font-bold leading-6">
   <div class="flex flex-col items-center shrink-0">
     <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-indigo-500/100</p>
@@ -96,7 +96,7 @@ You can use any value defined in your [opacity scale](/docs/opacity), or use arb
 
 Use the `border-{side}-{color}` utilities to set the border color for one side of an element.
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="flex flex-col sm:flex-row items-center justify-around gap-4 text-white text-sm text-center font-bold leading-6">
   <div class="flex flex-col items-center shrink-0">
     <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-t-indigo-500</p>
@@ -128,7 +128,7 @@ Use the `border-{side}-{color}` utilities to set the border color for one side o
 
 Use the `border-{x|y}-{color}` utilities to set the border color on two sides of an element at the same time.
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="flex flex-col sm:flex-row items-center justify-around gap-4 text-white text-sm text-center font-bold leading-6">
   <div class="flex flex-col items-center shrink-0">
     <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">border-x-indigo-500</p>
@@ -150,7 +150,7 @@ Use the `border-{x|y}-{color}` utilities to set the border color on two sides of
 
 Use the `border-s-*` and `border-e-*` utilities to set the `border-inline-start-color` and `border-inline-end-color` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right border based on the text direction.
 
-```html {{ mode: 'example' }}
+```html {{ example: true }}
 <div class="grid grid-cols-2 gap-x-4 place-items-center">
   <div class="flex flex-col items-start gap-y-4" dir="ltr">
     <p class="text-sm font-medium">Left-to-right</p>
@@ -183,7 +183,7 @@ For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus
 
 <HoverFocusAndOtherStates featuredClass="border-gray-500">
 
-```html {{ mode: 'example', hint: 'Try hovering over the text to see the expected behaviour' }}
+```html {{ example: { hint: 'Try hovering over the text to see the expected behaviour' } }}
 <div class="grid place-content-center text-white text-sm text-center font-bold leading-6">
   <button class="px-4 py-2 font-semibold text-sm bg-white dark:bg-slate-700 text-slate-700 dark:text-white border border-slate-300 dark:border-slate-600 hover:border-indigo-300 dark:hover:border-slate-400 rounded-md shadow-sm">Send email</button>
 </div>
