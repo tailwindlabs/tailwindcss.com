@@ -17,7 +17,7 @@
     "@juggle/resize-observer": "^3.2.0",
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
-    "@napi-rs/canvas": "^0.1.29",
+    "@napi-rs/canvas": "^0.1.40",
     "@next/bundle-analyzer": "^9.4.4",
     "@reach/alert": "^0.16.0",
     "@reach/rect": "^0.17.0",
