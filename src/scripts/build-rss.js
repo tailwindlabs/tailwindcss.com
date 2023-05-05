@@ -4,6 +4,7 @@ import { MDXProvider } from '@mdx-js/react'
 import { Feed } from 'feed'
 import { getAllPosts } from '@/utils/getAllPosts'
 import { mdxComponents } from '@/utils/mdxComponents'
+import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider'
 
 export default async function buildRss() {
   const baseUrl = 'https://tailwindcss.com'
@@ -33,9 +34,11 @@ export default async function buildRss() {
 
   posts.forEach(({ slug, module: { meta, default: Content } }) => {
     const mdx = (
-      <MDXProvider components={mdxComponents}>
-        <Content />
-      </MDXProvider>
+      <MemoryRouterProvider>
+        <MDXProvider components={mdxComponents}>
+          <Content />
+        </MDXProvider>
+      </MemoryRouterProvider>
     )
     const html = ReactDOMServer.renderToStaticMarkup(mdx)
     const postText = `<p><em>(The post <a href="${blogUrl}/${slug}">${meta.title}</a> appeared first on <a href="${blogUrl}">Tailwind CSS Blog</a>.)</em></p>`
