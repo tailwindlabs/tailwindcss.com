@@ -41,15 +41,15 @@ export const classes = {
 
 Control the horizontal space between elements using the `space-x-{amount}` utilities.
 
-<Example>
-  <div class="flex justify-start font-mono text-white text-sm font-bold leading-6">
-    <div class="flex space-x-4 bg-stripes-fuchsia rounded-lg">
-      <div class="w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-fuchsia-500">01</div>
-      <div class="w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-fuchsia-500">02</div>
-      <div class="w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-fuchsia-500">03</div>
-    </div>
+```html {{ example: true }}
+<div class="flex justify-start font-mono text-white text-sm font-bold leading-6">
+  <div class="flex space-x-4 bg-stripes-fuchsia rounded-lg">
+    <div class="w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-fuchsia-500">01</div>
+    <div class="w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-fuchsia-500">02</div>
+    <div class="w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-fuchsia-500">03</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="flex **space-x-4** ...">
@@ -63,15 +63,15 @@ Control the horizontal space between elements using the `space-x-{amount}` utili
 
 Control the vertical space between elements using the `space-y-{amount}` utilities.
 
-<Example>
-  <div class="flex flex-col justify-center text-center w-full font-mono text-white text-sm font-bold leading-6">
-    <div class="flex flex-col space-y-4 bg-stripes-indigo rounded-lg">
-      <div class="p-4 flex items-center justify-center shadow-lg rounded-lg bg-indigo-500">01</div>
-      <div class="p-4 flex items-center justify-center shadow-lg rounded-lg bg-indigo-500">02</div>
-      <div class="p-4 flex items-center justify-center shadow-lg rounded-lg bg-indigo-500">03</div>
-    </div>
+```html {{ example: true }}
+<div class="flex flex-col justify-center text-center w-full font-mono text-white text-sm font-bold leading-6">
+  <div class="flex flex-col space-y-4 bg-stripes-indigo rounded-lg">
+    <div class="p-4 flex items-center justify-center shadow-lg rounded-lg bg-indigo-500">01</div>
+    <div class="p-4 flex items-center justify-center shadow-lg rounded-lg bg-indigo-500">02</div>
+    <div class="p-4 flex items-center justify-center shadow-lg rounded-lg bg-indigo-500">03</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="flex flex-col **space-y-4** ...">
@@ -85,15 +85,15 @@ Control the vertical space between elements using the `space-y-{amount}` utiliti
 
 If your elements are in reverse order (using say `flex-row-reverse` or `flex-col-reverse`), use the `space-x-reverse` or `space-y-reverse` utilities to ensure the space is added to the correct side of each element.
 
-<Example>
-  <div class="flex justify-end font-mono text-white text-sm font-bold leading-6">
-    <div class="flex flex-row-reverse space-x-4 space-x-reverse bg-stripes-cyan rounded-lg">
-      <div class="w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">01</div>
-      <div class="w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">02</div>
-      <div class="w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">03</div>
-    </div>
+```html {{ example: true }}
+<div class="flex justify-end font-mono text-white text-sm font-bold leading-6">
+  <div class="flex flex-row-reverse space-x-4 space-x-reverse bg-stripes-cyan rounded-lg">
+    <div class="w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">01</div>
+    <div class="w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">02</div>
+    <div class="w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">03</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="flex flex-row-reverse **space-x-4 space-x-reverse** ...">
@@ -153,7 +153,7 @@ The `space-*` utilities are not designed to work together with the [divide utili
 
 By default, Tailwind's space scale uses the [default spacing scale](/docs/customizing-spacing). You can customize your spacing scale by editing `theme.spacing` or `theme.extend.spacing` in your `tailwind.config.js` file.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {
@@ -167,7 +167,7 @@ By default, Tailwind's space scale uses the [default spacing scale](/docs/custom
 
 Alternatively, you can customize just the space scale by editing `theme.space` or `theme.extend.space` in your `tailwind.config.js` file.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {

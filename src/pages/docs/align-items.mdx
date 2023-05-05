@@ -15,15 +15,15 @@ export const classes = { utilities }
 
 Use `items-stretch` to stretch items to fill the container's cross axis:
 
-<Example>
-  <div class="font-mono text-white text-sm font-bold leading-6">
-    <div class="flex items-stretch gap-4 w-full rounded-lg bg-stripes-cyan text-center">
-      <div class="py-4 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">01</div>
-      <div class="py-12 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">02</div>
-      <div class="py-8 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">03</div>
-    </div>
+```html {{ example: true }}
+<div class="font-mono text-white text-sm font-bold leading-6">
+  <div class="flex items-stretch gap-4 w-full rounded-lg bg-stripes-cyan text-center">
+    <div class="py-4 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">01</div>
+    <div class="py-12 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">02</div>
+    <div class="py-8 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">03</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="flex **items-stretch** ...">
@@ -37,15 +37,15 @@ Use `items-stretch` to stretch items to fill the container's cross axis:
 
 Use `items-start` to align items to the start of the container's cross axis:
 
-<Example>
-  <div class="font-mono text-white text-sm font-bold leading-6">
-    <div class="flex items-start gap-4 w-full rounded-lg bg-stripes-pink text-center">
-      <div class="py-4 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-pink-500">01</div>
-      <div class="py-12 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-pink-500">02</div>
-      <div class="py-8 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-pink-500">03</div>
-    </div>
+```html {{ example: true }}
+<div class="font-mono text-white text-sm font-bold leading-6">
+  <div class="flex items-start gap-4 w-full rounded-lg bg-stripes-pink text-center">
+    <div class="py-4 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-pink-500">01</div>
+    <div class="py-12 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-pink-500">02</div>
+    <div class="py-8 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-pink-500">03</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="flex **items-start** ...">
@@ -59,15 +59,15 @@ Use `items-start` to align items to the start of the container's cross axis:
 
 Use `items-center` to align items along the center of the container's cross axis:
 
-<Example>
-  <div class="font-mono text-white text-sm font-bold leading-6">
-    <div class="flex items-center gap-4 w-full rounded-lg bg-stripes-violet text-center">
-      <div class="py-4 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-violet-500">01</div>
-      <div class="py-12 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-violet-500">02</div>
-      <div class="py-8 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-violet-500">03</div>
-    </div>
+```html {{ example: true }}
+<div class="font-mono text-white text-sm font-bold leading-6">
+  <div class="flex items-center gap-4 w-full rounded-lg bg-stripes-violet text-center">
+    <div class="py-4 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-violet-500">01</div>
+    <div class="py-12 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-violet-500">02</div>
+    <div class="py-8 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-violet-500">03</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="flex **items-center** ...">
@@ -81,15 +81,15 @@ Use `items-center` to align items along the center of the container's cross axis
 
 Use `items-end` to align items to the end of the container's cross axis:
 
-<Example>
-  <div class="font-mono text-white text-sm font-bold leading-6">
-    <div class="flex items-end gap-4 w-full rounded-lg bg-stripes-sky text-center">
-      <div class="py-4 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-sky-500">01</div>
-      <div class="py-12 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-sky-500">02</div>
-      <div class="py-8 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-sky-500">03</div>
-    </div>
+```html {{ example: true }}
+<div class="font-mono text-white text-sm font-bold leading-6">
+  <div class="flex items-end gap-4 w-full rounded-lg bg-stripes-sky text-center">
+    <div class="py-4 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-sky-500">01</div>
+    <div class="py-12 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-sky-500">02</div>
+    <div class="py-8 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-sky-500">03</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="flex **items-end** ...">
@@ -103,15 +103,15 @@ Use `items-end` to align items to the end of the container's cross axis:
 
 Use `items-baseline` to align items along the container's cross axis such that all of their baselines align:
 
-<Example>
-  <div class="font-mono text-white text-sm font-bold leading-6">
-    <div class="flex items-baseline gap-4 w-full rounded-lg bg-stripes-blue text-center">
-      <div class="pt-2 pb-6 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-blue-500">01</div>
-      <div class="pt-8 pb-12 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-blue-500">02</div>
-      <div class="pt-12 pb-4 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-blue-500">03</div>
-    </div>
+```html {{ example: true }}
+<div class="font-mono text-white text-sm font-bold leading-6">
+  <div class="flex items-baseline gap-4 w-full rounded-lg bg-stripes-blue text-center">
+    <div class="pt-2 pb-6 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-blue-500">01</div>
+    <div class="pt-8 pb-12 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-blue-500">02</div>
+    <div class="pt-12 pb-4 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-blue-500">03</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="flex **items-baseline** ...">

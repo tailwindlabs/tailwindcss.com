@@ -100,10 +100,8 @@ export default function TailwindCli({ code }) {
         <p>
           The simplest and fastest way to get up and running with Tailwind CSS from scratch is with
           the Tailwind CLI tool. The CLI is also available as a{' '}
-          <Link href="/blog/standalone-cli">
-            <a>standalone executable</a>
-          </Link>{' '}
-          if you want to use it without installing Node.js.
+          <Link href="/blog/standalone-cli">standalone executable</Link> if you want to use it
+          without installing Node.js.
         </p>
       </div>
       <Steps level={4} steps={steps} code={code} />

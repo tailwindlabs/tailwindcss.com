@@ -20,45 +20,45 @@ export const classes = {
 
 Use `h-{number}` or `h-px` to set an element to a fixed height.
 
-<Example>
-  <div class="flex justify-center items-end space-x-4 font-mono font-bold text-xs text-center text-white">
-    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-96 relative">
-      <div class="absolute w-8 bottom-6">
-        <div class="-rotate-90">h-96</div>
-      </div>
-    </div>
-    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-80 relative">
-      <div class="absolute w-8 bottom-6">
-        <div class="-rotate-90">h-80</div>
-      </div>
-    </div>
-    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-64 relative">
-      <div class="absolute w-8 bottom-6">
-        <div class="-rotate-90">h-64</div>
-      </div>
-    </div>
-    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-48 relative">
-      <div class="absolute w-8 bottom-6">
-        <div class="-rotate-90">h-48</div>
-      </div>
-    </div>
-    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-40 relative">
-      <div class="absolute w-8 bottom-6">
-        <div class="-rotate-90">h-40</div>
-      </div>
-    </div>
-    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-32 relative">
-      <div class="absolute w-8 bottom-6">
-        <div class="-rotate-90">h-32</div>
-      </div>
-    </div>
-    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-24 relative">
-      <div class="absolute w-8 bottom-6">
-        <div class="-rotate-90">h-24</div>
-      </div>
+```html {{ example: true }}
+<div class="flex justify-center items-end space-x-4 font-mono font-bold text-xs text-center text-white">
+  <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-96 relative">
+    <div class="absolute w-8 bottom-6">
+      <div class="-rotate-90">h-96</div>
     </div>
   </div>
-</Example>
+  <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-80 relative">
+    <div class="absolute w-8 bottom-6">
+      <div class="-rotate-90">h-80</div>
+    </div>
+  </div>
+  <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-64 relative">
+    <div class="absolute w-8 bottom-6">
+      <div class="-rotate-90">h-64</div>
+    </div>
+  </div>
+  <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-48 relative">
+    <div class="absolute w-8 bottom-6">
+      <div class="-rotate-90">h-48</div>
+    </div>
+  </div>
+  <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-40 relative">
+    <div class="absolute w-8 bottom-6">
+      <div class="-rotate-90">h-40</div>
+    </div>
+  </div>
+  <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-32 relative">
+    <div class="absolute w-8 bottom-6">
+      <div class="-rotate-90">h-32</div>
+    </div>
+  </div>
+  <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-24 relative">
+    <div class="absolute w-8 bottom-6">
+      <div class="-rotate-90">h-24</div>
+    </div>
+  </div>
+</div>
+```
 
 ```html
 <div class="**h-96** ...">h-96</div>
@@ -114,7 +114,7 @@ By default, Tailwind's height scale is a combination of the [default spacing sca
 
 You can customize your spacing scale by editing `theme.spacing` or `theme.extend.spacing` in your `tailwind.config.js` file.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {
@@ -128,7 +128,7 @@ You can customize your spacing scale by editing `theme.spacing` or `theme.extend
 
 To customize height separately, use the `theme.height` section of your `tailwind.config.js` file.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {

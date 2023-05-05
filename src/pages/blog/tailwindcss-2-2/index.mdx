@@ -9,13 +9,13 @@ export const meta = {
   image,
 }
 
-<!--excerpt-->
+{/*excerpt*/}
 
 Well I can't say we were really planning on it but over the last few weeks we've been having a ton of fun dumping new and exciting features into Tailwind and now feels like the right time to cut a release, so here it is — Tailwind CSS v2.2!
 
 We've built-in a new high-performance CLI tool, added `::before` and `::after` support, introduced new `peer-*` variants for sibling styling, added variants for styling highlighted text, and tons more.
 
-<!--/excerpt-->
+{/*/excerpt*/}
 
 Well I can't say we were really planning on it but over the last few weeks we've been having a ton of fun dumping new and exciting features into Tailwind and now feels like the right time to cut a release, so here it is — Tailwind CSS v2.2!
 
@@ -467,7 +467,7 @@ We've added first-class support for a bunch of important PurgeCSS features and m
 
 First is `safelist`, which is super useful if you need to protect specific classes from being removed from your production CSS, perhaps because they are used in content that comes from a database or similar:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   purge: {
     content: ['./src/**/*.html'],
@@ -487,7 +487,7 @@ module.exports = {
 
 Next is `transform`, which lets you transform content for different file extensions before scanning it for potential class names:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 let remark = require('remark')
 
 module.exports = {
@@ -507,7 +507,7 @@ This is really useful if you have templates that are written in a language that 
 
 Finally we have `extract`, which lets you customize the logic that Tailwind uses to detect class names in specific file types:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   purge: {
     content: ['./src/**/*.{html,md}'],

@@ -20,17 +20,17 @@ export const classes = {
 
 Use the `col-span-{n}` utilities to make an element span _n_ columns.
 
-<Example>
-  <div class="grid grid-cols-3 gap-4 font-mono text-white text-sm text-center font-bold leading-6">
-    <div class="p-4 rounded-lg bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">01</div>
-    <div class="p-4 rounded-lg bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">02</div>
-    <div class="p-4 rounded-lg bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">03</div>
-    <div class="p-4 rounded-lg shadow-lg bg-indigo-500 col-span-2">04</div>
-    <div class="p-4 rounded-lg bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">05</div>
-    <div class="p-4 rounded-lg bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">06</div>
-    <div class="p-4 rounded-lg shadow-lg bg-indigo-500 col-span-2">07</div>
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="grid grid-cols-3 gap-4 font-mono text-white text-sm text-center font-bold leading-6">
+  <div class="p-4 rounded-lg bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">01</div>
+  <div class="p-4 rounded-lg bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">02</div>
+  <div class="p-4 rounded-lg bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">03</div>
+  <div class="p-4 rounded-lg shadow-lg bg-indigo-500 col-span-2">04</div>
+  <div class="p-4 rounded-lg bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">05</div>
+  <div class="p-4 rounded-lg bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">06</div>
+  <div class="p-4 rounded-lg shadow-lg bg-indigo-500 col-span-2">07</div>
+</div>
+```
 
 ```html
 <div class="grid grid-cols-3 gap-4">
@@ -50,18 +50,18 @@ Use the `col-start-{n}` and `col-end-{n}` utilities to make an element start or 
 
 Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-column grid would start at line 1 and end at line 7.
 
-<Example>
-  <div class="grid grid-cols-6 gap-4 font-mono text-white text-sm text-center font-bold leading-6">
-    <div class="p-4 rounded-lg bg-stripes-sky"></div>
-    <div class="p-4 rounded-lg shadow-lg bg-sky-500 col-start-2 col-span-4">01</div>
-    <div class="p-4 rounded-lg bg-stripes-sky"></div>
-    <div class="p-4 rounded-lg shadow-lg bg-sky-500 col-start-1 col-end-3">02</div>
-    <div class="p-4 rounded-lg bg-stripes-sky"></div>
-    <div class="p-4 rounded-lg bg-stripes-sky"></div>
-    <div class="p-4 rounded-lg shadow-lg bg-sky-500 col-end-7 col-span-2">03</div>
-    <div class="p-4 rounded-lg shadow-lg bg-sky-500 col-start-1 col-end-7">04</div>
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="grid grid-cols-6 gap-4 font-mono text-white text-sm text-center font-bold leading-6">
+  <div class="p-4 rounded-lg bg-stripes-sky"></div>
+  <div class="p-4 rounded-lg shadow-lg bg-sky-500 col-start-2 col-span-4">01</div>
+  <div class="p-4 rounded-lg bg-stripes-sky"></div>
+  <div class="p-4 rounded-lg shadow-lg bg-sky-500 col-start-1 col-end-3">02</div>
+  <div class="p-4 rounded-lg bg-stripes-sky"></div>
+  <div class="p-4 rounded-lg bg-stripes-sky"></div>
+  <div class="p-4 rounded-lg shadow-lg bg-sky-500 col-end-7 col-span-2">03</div>
+  <div class="p-4 rounded-lg shadow-lg bg-sky-500 col-start-1 col-end-7">04</div>
+</div>
+```
 
 ```html
 <div class="grid grid-cols-6 gap-4">
@@ -94,7 +94,7 @@ By default, Tailwind includes grid-column utilities for working with grids with 
 
 For creating more `col-{value}` utilities that control the `grid-column` shorthand property directly, customize the `gridColumn` section of your Tailwind theme config:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {
@@ -110,7 +110,7 @@ We use this internally for our `col-span-{n}` utilities. Note that since this co
 
 To add new `col-start-{n}` utilities, use the `gridColumnStart` section of your Tailwind theme config:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {
@@ -128,7 +128,7 @@ To add new `col-start-{n}` utilities, use the `gridColumnStart` section of your 
 
 To add new `col-end-{n}` utilities, use the `gridColumnEnd` section of your Tailwind theme config:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {

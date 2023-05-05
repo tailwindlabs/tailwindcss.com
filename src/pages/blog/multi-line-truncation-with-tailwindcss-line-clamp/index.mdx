@@ -9,7 +9,7 @@ export const meta = {
   image,
 }
 
-<!--excerpt-->
+{/*excerpt*/}
 
 Imagine you're implementing a beautiful design you or someone on your team carefully crafted in Figma. You've nailed all the different layouts at each breakpoint, perfected the whitespace and typography, and the photography you're using is really bringing the design to life.
 
@@ -17,15 +17,9 @@ It looks totally amazing — until you connect it your actual production content
 
 Sound familiar? If so, the line-clamp plugin is here to save your bacon.
 
-<!--/excerpt-->
+{/*/excerpt*/}
 
-<p className="lead">
-  A few weeks back we released{' '}
-  <a href="https://github.com/tailwindlabs/tailwindcss-line-clamp">
-    <code>@tailwindcss/line-clamp</code>
-  </a>
-  , an official Tailwind CSS plugin for truncating text to a specific number of lines.
-</p>
+<p className="lead">A few weeks back we released <a href="https://github.com/tailwindlabs/tailwindcss-line-clamp"><code>@tailwindcss/line-clamp</code></a>, an official Tailwind CSS plugin for truncating text to a specific number of lines.</p>
 
 Imagine you're implementing a beautiful design you or someone on your team carefully crafted in Figma. You've nailed all the different layouts at each breakpoint, perfected the whitespace and typography, and the photography you're using is really bringing the design to life.
 
@@ -49,7 +43,7 @@ First, install the plugin and add it to your `tailwind.config.js` file:
 npm install @tailwindcss/line-clamp
 ```
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   // ...
   plugins: [

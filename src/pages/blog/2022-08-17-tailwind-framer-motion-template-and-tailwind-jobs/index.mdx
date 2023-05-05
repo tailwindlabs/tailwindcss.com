@@ -1,5 +1,4 @@
 import { adamwathan } from '@/authors'
-import pocketPreview from './pocket-preview.png'
 import tailwindJobs from './tailwind-jobs.jpg'
 import card from './card.jpg'
 
@@ -11,11 +10,11 @@ export const meta = {
   image: card,
 }
 
-<!--excerpt-->
+{/*excerpt*/}
 
 All about the brand new Tailwind UI template we just shipped, the official Tailwind CSS job board, and a bunch of new projects coming out in the next few weeks.
 
-<!--/excerpt-->
+{/*/excerpt*/}
 
 Got another update for you today on some cool things we've shipped, and some other things that are in the works but shipping soon!
 
@@ -31,11 +30,7 @@ About a week ago we shipped a brand new Tailwind UI template, built with Next.js
 
 We're calling it [Pocket](https://tailwindui.com/templates/pocket), and it's a mobile app landing page loaded with tons of fun animations and interactions, powered by [Framer Motion](https://www.framer.com/motion/) which is basically the coolest library anyone has ever made.
 
-<div className="my-8">
-  <a href="https://tailwindui.com/templates/pocket">
-    <img src={pocketPreview.src} alt="Learn about the Pocket template"/>
-  </a>
-</div>
+[![Learn about the Pocket template](./pocket-preview.png)](https://tailwindui.com/templates/pocket)
 
 Be sure to check out [the live preview](https://pocket.tailwindui.com/) for the full experience — screenshots miss all the coolest parts, like the graph that draws in on page load, the animated mobile device UI in the features section, and the Frogger-inspired testimonials animation.
 
@@ -59,11 +54,7 @@ We've tossed around the idea of building an official Tailwind CSS job board for 
 
 If you're a company that uses Tailwind and are looking for front-end engineers or you're a developer who wants to work at a company that uses Tailwind, [check out Tailwind Jobs](https://jobs.tailwindcss.com/) to learn more about it.
 
-<div className="my-8">
-  <a href="https://jobs.tailwindcss.com">
-    <img src={tailwindJobs.src} alt="Tailwind Jobs"/>
-  </a>
-</div>
+[![Tailwind Jobs](./tailwind-jobs.jpg)](https://jobs.tailwindcss.com)
 
 We broke ground on the codebase on July 14th, and launched the site to companies on August 2nd. We built it with [Laravel](https://laravel.com/), [Inertia](https://inertiajs.com/), [React](https://reactjs.org/), and of course Tailwind CSS. Pretty amazing what you can build with tools like these in just 20 days!
 

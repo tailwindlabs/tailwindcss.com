@@ -81,7 +81,7 @@ The new engine generates the styles you need for your project on-demand, and mig
 
 If you were already opting in to `mode: 'jit'` in Tailwind CSS v2.x, you can safely remove that from your configuration in v3.0:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
 -   mode: 'jit',
     // ...
@@ -92,7 +92,7 @@ If you were already opting in to `mode: 'jit'` in Tailwind CSS v2.x, you can saf
 
 Since Tailwind no longer uses PurgeCSS under the hood, we've renamed the `purge` option to `content` to better reflect what it's for:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
 -   purge: [
 +   content: [
@@ -115,7 +115,7 @@ Since we're not using PurgeCSS under the hood anymore, some of the advanced purg
 
 The dark mode feature is now enabled using the `media` strategy by default, so you can remove this key entirely from your `tailwind.config.js` file, *unless* you're using the `class` strategy.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
 -   darkMode: 'media',
     // ...
@@ -124,7 +124,7 @@ The dark mode feature is now enabled using the `media` strategy by default, so y
 
 You can also safely remove this key if it's currently set to `false`:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
 -   darkMode: false,
     // ...
@@ -135,7 +135,7 @@ You can also safely remove this key if it's currently set to `false`:
 
 In Tailwind CSS v3.0, every variant is automatically available for every utility by default, so you can remove the `variants` section from your `tailwind.config.js` file:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     // ...
 -   variants: {
@@ -216,7 +216,7 @@ In v3.0, these colors use their extended names by default, so what was previousl
 
 If you're using these colors in your project, the simplest way to upgrade is to alias them back to their previous names in your `tailwind.config.js` file:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   const colors = require('tailwindcss/colors')
 
   module.exports = {
@@ -249,7 +249,7 @@ As part of enabling all of the extended colors by default, we've given the diffe
 
 If you were referencing any of the extended grays, you should update your references to the new names, for example:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   const colors = require('tailwindcss/colors')
 
   module.exports = {
@@ -357,7 +357,7 @@ The dash (`-`) character cannot be used as a custom separator in v3.0 because of
 
 You'll have to switch to another character like `_` instead:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     // ...
 -   separator: '-',
@@ -369,7 +369,7 @@ You'll have to switch to another character like `_` instead:
 
 Prior to Tailwind CSS v3.0, it was possible to define your class prefix as a function:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   // ...
   prefix(selector) {
@@ -382,7 +382,7 @@ This isn't possible in the new engine and we've had to remove support for this f
 
 Instead, use a static prefix that is the same for every class Tailwind generates:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   // ...
   prefix: 'tw-',
@@ -406,7 +406,7 @@ The `fill-{color}` and `stroke-{color}` utilities mirror your `theme.colors` key
 
 Add `current` to your custom color palette to resolve this:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     // ...
     theme: {
@@ -439,13 +439,13 @@ In Tailwind CSS v3.0, the `@tailwind base` directive must be present for utiliti
 
 If you were previously disabling Tailwind's base styles by not including this directive, you should add it back and disable `preflight` in your `corePlugins` configuration instead:
 
-```diff-css main.css
+```diff-css {{ filename: 'main.css' }}
 +  @tailwind base;
    @tailwind components;
    @tailwind utilities;
 ```
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     // ...
 +   corePlugins: {
@@ -460,7 +460,7 @@ This will disable Tailwind's global base styles without affecting utilities that
 
 The `@tailwind screens` layer has been renamed to `@tailwind variants`:
 
-```diff-css main.css
+```diff-css {{ filename: 'main.css' }}
    /* ... */
 -  @tailwind screens;
 +  @tailwind variants;

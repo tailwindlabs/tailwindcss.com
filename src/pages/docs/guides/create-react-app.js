@@ -108,26 +108,13 @@ export default function UsingCRA({ code }) {
     >
       <div hidden className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark">
         <p>
-          We <strong>highly recommend</strong> using{' '}
-          <Link href="https://vitejs.dev">
-            <a>Vite</a>
-          </Link>
-          ,{' '}
-          <Link href="https://nextjs.org">
-            <a>Next.js</a>
-          </Link>
-          ,{' '}
-          <Link href="https://remix.run">
-            <a>Remix</a>
-          </Link>
-          , or{' '}
-          <Link href="https://parceljs.org">
-            <a>Parcel</a>
-          </Link>{' '}
-          instead of Create React App. They provide an equivalent or better developer experience but
-          with more flexibility, giving you more control over how Tailwind and PostCSS are
-          configured. Create React App does not support custom PostCSS configurations, so you can't
-          use
+          We <strong>highly recommend</strong> using <Link href="https://vitejs.dev">Vite</Link>,{' '}
+          <Link href="https://nextjs.org">Next.js</Link>,{' '}
+          <Link href="https://remix.run">Remix</Link>, or{' '}
+          <Link href="https://parceljs.org">Parcel</Link> instead of Create React App. They provide
+          an equivalent or better developer experience but with more flexibility, giving you more
+          control over how Tailwind and PostCSS are configured. Create React App does not support
+          custom PostCSS configurations, so you can't use
         </p>
       </div>
 
@@ -153,20 +140,20 @@ export default function UsingCRA({ code }) {
             </p>
             <p className="mt-3">
               We <strong className="dark:text-slate-200">highly recommend</strong> using{' '}
-              <Link href="/docs/guides/vite">
-                <a className="underline font-bold dark:text-slate-200">Vite</a>
+              <Link href="/docs/guides/vite" className="underline font-bold dark:text-slate-200">
+                Vite
               </Link>
               ,{' '}
-              <Link href="/docs/guides/parcel">
-                <a className="underline font-bold dark:text-slate-200">Parcel</a>
+              <Link href="/docs/guides/parcel" className="underline font-bold dark:text-slate-200">
+                Parcel
               </Link>
               ,{' '}
-              <Link href="/docs/guides/nextjs">
-                <a className="underline font-bold dark:text-slate-200">Next.js</a>
+              <Link href="/docs/guides/nextjs" className="underline font-bold dark:text-slate-200">
+                Next.js
               </Link>
               , or{' '}
-              <Link href="/docs/guides/remix">
-                <a className="underline font-bold dark:text-slate-200">Remix</a>
+              <Link href="/docs/guides/remix" className="underline font-bold dark:text-slate-200">
+                Remix
               </Link>{' '}
               instead of Create React App. They provide an equivalent or better developer experience
               but with more flexibility, giving you more control over how Tailwind and PostCSS are

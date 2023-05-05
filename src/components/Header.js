@@ -10,40 +10,41 @@ import { ThemeSelect, ThemeToggle } from './ThemeToggle'
 
 function Featured() {
   return (
-    <Link href="/blog/tailwindcss-v3-3">
-      <a className="ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-sky-400/20">
-        <strong className="font-semibold">Tailwind CSS v3.3</strong>
-        <svg
-          width="2"
-          height="2"
-          fill="currentColor"
-          aria-hidden="true"
-          className="ml-2 text-sky-600 dark:text-sky-400/70"
-        >
-          <circle cx="1" cy="1" r="1" />
-        </svg>
-        <span className="ml-2 min-[1372px]:hidden">
-          Extended color palette, ESM/TS support, and more
-        </span>
-        <span className="ml-2 hidden min-[1372px]:inline">
-          Extended color palette, ESM/TS support, logical properties, and more
-        </span>
-        <svg
-          width="3"
-          height="6"
-          className="ml-3 overflow-visible text-sky-300 dark:text-sky-400"
-          aria-hidden="true"
-        >
-          <path
-            d="M0 0L3 3L0 6"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </a>
+    <Link
+      href="/blog/tailwindcss-v3-3"
+      className="ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-sky-400/20"
+    >
+      <strong className="font-semibold">Tailwind CSS v3.3</strong>
+      <svg
+        width="2"
+        height="2"
+        fill="currentColor"
+        aria-hidden="true"
+        className="ml-2 text-sky-600 dark:text-sky-400/70"
+      >
+        <circle cx="1" cy="1" r="1" />
+      </svg>
+      <span className="ml-2 min-[1372px]:hidden">
+        Extended color palette, ESM/TS support, and more
+      </span>
+      <span className="ml-2 hidden min-[1372px]:inline">
+        Extended color palette, ESM/TS support, logical properties, and more
+      </span>
+      <svg
+        width="3"
+        height="6"
+        className="ml-3 overflow-visible text-sky-300 dark:text-sky-400"
+        aria-hidden="true"
+      >
+        <path
+          d="M0 0L3 3L0 6"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
     </Link>
   )
 }
@@ -128,8 +129,8 @@ export function NavItems() {
   return (
     <>
       <li>
-        <Link href="/docs/installation">
-          <a className="hover:text-sky-500 dark:hover:text-sky-400">Docs</a>
+        <Link href="/docs/installation" className="hover:text-sky-500 dark:hover:text-sky-400">
+          Docs
         </Link>
       </li>
       <li>
@@ -141,13 +142,13 @@ export function NavItems() {
         </a>
       </li>
       <li>
-        <Link href="/blog">
-          <a className="hover:text-sky-500 dark:hover:text-sky-400">Blog</a>
+        <Link href="/blog" className="hover:text-sky-500 dark:hover:text-sky-400">
+          Blog
         </Link>
       </li>
       <li>
-        <Link href="/showcase">
-          <a className="hover:text-sky-500 dark:hover:text-sky-400">Showcase</a>
+        <Link href="/showcase" className="hover:text-sky-500 dark:hover:text-sky-400">
+          Showcase
         </Link>
       </li>
     </>
@@ -216,17 +217,16 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
             )}
           >
             <div className="relative flex items-center">
-              <Link href="/">
-                <a
-                  className="mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto"
-                  onContextMenu={(e) => {
-                    e.preventDefault()
-                    Router.push('/brand')
-                  }}
-                >
-                  <span className="sr-only">Tailwind CSS home page</span>
-                  <Logo className="w-auto h-5" />
-                </a>
+              <Link
+                href="/"
+                className="mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto"
+                onContextMenu={(e) => {
+                  e.preventDefault()
+                  Router.push('/brand')
+                }}
+              >
+                <span className="sr-only">Tailwind CSS home page</span>
+                <Logo className="w-auto h-5" />
               </Link>
               <VersionSwitcher />
               <Featured />

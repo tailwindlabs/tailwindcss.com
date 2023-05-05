@@ -16,28 +16,28 @@ export const classes = { utilities }
 
 You can control the typeface of text using the font family utilities.
 
-<Example>
-  <div class="flex flex-col gap-8">
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-sans</span>
-      <p class="font-sans text-lg font-medium text-slate-900 dark:text-slate-200">
-        The quick brown fox jumps over the lazy dog.
-      </p>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-serif</span>
-      <p class="font-serif text-lg font-medium text-slate-900 dark:text-slate-200">
-        The quick brown fox jumps over the lazy dog.
-      </p>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-mono</span>
-      <p class="font-mono text-lg font-medium text-slate-900 dark:text-slate-200">
-        The quick brown fox jumps over the lazy dog.
-      </p>
-    </div>
+```html {{ example: true }}
+<div class="flex flex-col gap-8">
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-sans</span>
+    <p class="font-sans text-lg font-medium text-slate-900 dark:text-slate-200">
+      The quick brown fox jumps over the lazy dog.
+    </p>
   </div>
-</Example>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-serif</span>
+    <p class="font-serif text-lg font-medium text-slate-900 dark:text-slate-200">
+      The quick brown fox jumps over the lazy dog.
+    </p>
+  </div>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-mono</span>
+    <p class="font-mono text-lg font-medium text-slate-900 dark:text-slate-200">
+      The quick brown fox jumps over the lazy dog.
+    </p>
+  </div>
+</div>
+```
 
 ```html
 <p class="**font-sans** ...">The quick brown fox ...</p>
@@ -65,7 +65,7 @@ You can control the typeface of text using the font family utilities.
 
 By default, Tailwind provides three font family utilities: a cross-browser sans-serif stack, a cross-browser serif stack, and a cross-browser monospaced stack. You can change, add, or remove these by editing the `theme.fontFamily` section of your Tailwind config.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       fontFamily: {
@@ -112,7 +112,7 @@ Learn more about customizing the default theme in the [theme customization](/doc
 
 You can optionally provide default [font-feature-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings) and [font-variation-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variation-settings) for each font in your project using a tuple of the form `[fontFamilies, { fontFeatureSettings, fontVariationSettings }]` when configuring custom fonts.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       fontFamily: {
@@ -136,7 +136,7 @@ You can optionally provide default [font-feature-settings](https://developer.moz
 
 For convenience, [Preflight](/docs/preflight) sets the font family on the `html` element to match your configured `sans` font, so one way to change the default font for your project is to customize the `sans` key in your `fontFamily` configuration:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   const defaultTheme = require('tailwindcss/defaultTheme')
 
   module.exports = {
@@ -152,7 +152,7 @@ For convenience, [Preflight](/docs/preflight) sets the font family on the `html`
 
 You can also customize the default font used in your project by [adding a custom base style](/docs/adding-custom-styles#adding-base-styles) that sets the `font-family` property explicitly:
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

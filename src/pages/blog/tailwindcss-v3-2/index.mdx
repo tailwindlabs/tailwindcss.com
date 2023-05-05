@@ -12,9 +12,7 @@ export const meta = {
 
 Well it's that time again! The time where we quickly go from _"I really have no idea what we could even add to a new Tailwind release"_ to _"wow, well this is actually a ridiculous amount of new stuff — we better tag a release before things get completely out of hand"_.
 
-<div className="my-8">
-  <img src={card.src} alt="Tailwind CSS v3.2"/>
-</div>
+![Tailwind CSS v3.2](./card.jpg)
 
 Tailwind CSS v3.2 is here with an absolutely _massive_ amount of new stuff, including support for dynamic breakpoints, multiple config files in a single project, nested groups, parameterized variants, container queries, and more.
 
@@ -26,7 +24,7 @@ As always check out the [release notes](https://github.com/tailwindlabs/tailwind
 - [Data attribute variants](#data-attribute-variants)
 - [Max-width and dynamic breakpoints](#max-width-and-dynamic-breakpoints)
 - [Dynamic `group-*` and `peer-*` variants](#dynamic-group-and-peer-variants)
-- [Dynamic variants with `matchVariant`](#dynamic-variants-with-matchvariant)
+- [Dynamic variants with `matchVariant`](#dynamic-variants-with-match-variant)
 - [Nested `group` and multiple `peer` support using variant modifiers](#nested-group-and-multiple-peer-support-using-variant-modifiers)
 - [Container queries](#container-queries)
 
@@ -40,20 +38,20 @@ Or play with the new features in [Tailwind Play](https://play.tailwindcss.com) w
 
 ---
 
-<h2 id="multiple-config-files-in-one-project-using-config">Multiple config files in one project using @config</h2>
+## Multiple config files in one project using @config
 
 We've added a new `@config` directive that you can use in a CSS file to specify which Tailwind CSS config to use for that file:
 
 <SnippetGroup>
 
-```css ./styles/admin.css
+```css {{ filename: './styles/admin.css' }}
 @config "./tailwind.admin.config.js";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 ```
 
-```css ./styles/client.css
+```css {{ filename: './styles/client.css' }}
 @config "./tailwind.client.config.js";
 @tailwind base;
 @tailwind components;
@@ -68,7 +66,7 @@ You've always technically been able to do this with enough webpack wizardry, but
 
 ---
 
-<h2 id="browser-support-based-styling-with-supports">Browser-support-based styling with supports-*</h2>
+## Browser-support-based styling with supports-*
 
 You can now conditionally style things based on whether a certain feature is supported in the user's browser with the `supports-[...]` variant, which generates [`@supports rules`](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) under the hood.
 
@@ -90,7 +88,7 @@ If you only need to check if a property itself is supported, you can even just s
 
 ---
 
-<h2 id="aria-attribute-variants">ARIA attribute variants</h2>
+## ARIA attribute variants
 
 You can now conditionally style things based on [ARIA attributes](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes) with the new `aria-*` variants.
 
@@ -117,7 +115,7 @@ By default we've included modifiers for the most common boolean ARIA attributes:
 
 You can customize which `aria-*` modifiers are available by editing `theme.aria` or `theme.extend.aria` in your `tailwind.config.js` file:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   theme: {
     extend: {
@@ -132,47 +130,47 @@ module.exports = {
 
 If you need to use a one-off `aria` modifier that doesn’t make sense to include in your theme, or for more complex ARIA attributes that take specific values, use square brackets to generate a property on the fly using any arbitrary value.
 
-<Example p="none">
-  <div class="py-8">
-    <table class="border-collapse w-full border-y border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-800 text-sm shadow-sm">
-      <thead class="bg-slate-50 dark:bg-slate-700">
-        <tr>
-          <th class="group border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left" aria-sort="ascending">
-            <span class="flex gap-2 items-center w-full justify-between">
-              Invoice #
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-5 h-5 fill-slate-500 group-aria-[sort=ascending]:rotate-0 group-aria-[sort=descending]:rotate-180">
-                <path fill-rule="evenodd" d="M10 5a.75.75 0 01.75.75v6.638l1.96-2.158a.75.75 0 111.08 1.04l-3.25 3.5a.75.75 0 01-1.08 0l-3.25-3.5a.75.75 0 111.08-1.04l1.96 2.158V5.75A.75.75 0 0110 5z" clip-rule="evenodd" />
-              </svg>
-            </span>
-          </th>
-          <th class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left">Client</th>
-          <th class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-right">Amount</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#100</td>
-          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">Pendant Publishing</td>
-          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">$2,000.00</td>
-        </tr>
-        <tr>
-          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#101</td>
-          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">Kruger Industrial Smoothing</td>
-          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">$545.00</td>
-        </tr>
-        <tr>
-          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#102</td>
-          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">J. Peterman</td>
-          <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">$10,000.25</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</Example>
+```html {{ example: { p: 'none' } }}
+<div class="py-8">
+  <table class="border-collapse w-full border-y border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-800 text-sm shadow-sm">
+    <thead class="bg-slate-50 dark:bg-slate-700">
+      <tr>
+        <th class="group border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left" aria-sort="ascending">
+          <span class="flex gap-2 items-center w-full justify-between">
+            Invoice #
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-5 h-5 fill-slate-500 group-aria-[sort=ascending]:rotate-0 group-aria-[sort=descending]:rotate-180">
+              <path fill-rule="evenodd" d="M10 5a.75.75 0 01.75.75v6.638l1.96-2.158a.75.75 0 111.08 1.04l-3.25 3.5a.75.75 0 01-1.08 0l-3.25-3.5a.75.75 0 111.08-1.04l1.96 2.158V5.75A.75.75 0 0110 5z" clip-rule="evenodd" />
+            </svg>
+          </span>
+        </th>
+        <th class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left">Client</th>
+        <th class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-right">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#100</td>
+        <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">Pendant Publishing</td>
+        <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">$2,000.00</td>
+      </tr>
+      <tr>
+        <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#101</td>
+        <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">Kruger Industrial Smoothing</td>
+        <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">$545.00</td>
+      </tr>
+      <tr>
+        <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">#102</td>
+        <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">J. Peterman</td>
+        <td class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">$10,000.25</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <table>
   <thead>
     <tr>
@@ -189,7 +187,7 @@ If you need to use a one-off `aria` modifier that doesn’t make sense to includ
 </table>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 .aria-\[sort\=ascending\]\:bg-\[url\(\'\/img\/down-arrow\.svg\'\)\][aria-sort=ascending] {
   background-image: url('/img/down-arrow.svg');
 }
@@ -205,7 +203,7 @@ ARIA state modifiers can also target parent and sibling elements using the `grou
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <table>
   <thead>
     <tr>
@@ -220,7 +218,7 @@ ARIA state modifiers can also target parent and sibling elements using the `grou
 </table>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 .group[aria-sort=ascending] .group-aria-\[sort\=ascending\]\:rotate-0 {
   --tw-rotate: 0deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -236,7 +234,7 @@ ARIA state modifiers can also target parent and sibling elements using the `grou
 
 ---
 
-<h2 id="data-attribute-variants">Data attribute variants</h2>
+## Data attribute variants
 
 You can now conditionally style things based on [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes) with the new `data-*` variants.
 
@@ -360,13 +358,13 @@ So for now (and possibly forever), if you want to use these features, your `scre
 
 ---
 
-<h2 id="dynamic-group-and-peer-variants">Dynamic group-* and peer-* variants</h2>
+## Dynamic group-* and peer-* variants
 
 It's now possible to create custom `group-*` and `peer-*` variants on the fly by passing your own selector to be "groupified" or "peerified" between square brackets:
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <div class="group is-published">
   <div class="hidden **group-[.is-published]:block**">
     Published
@@ -374,7 +372,7 @@ It's now possible to create custom `group-*` and `peer-*` variants on the fly by
 </div>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 .group.is-published .group-\[\.is-published\]\:block {
   display: block;
 }
@@ -386,7 +384,7 @@ For more control, you can use the `&` character to mark where `.group` or `.peer
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <div>
   <input type="text" class="peer" />
   <div class="hidden **peer-[:nth-of-type(3)_&]:block**">
@@ -395,7 +393,7 @@ For more control, you can use the `&` character to mark where `.group` or `.peer
 </div>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 :nth-of-type(3) .peer ~ .peer-\[\:nth-of-type\(3\)_\&\]\:block {
   display: block;
 }
@@ -407,7 +405,7 @@ Let's be serious you're probably going to use these features like three times in
 
 ---
 
-<h2 id="dynamic-variants-with-matchvariant">Dynamic variants with matchVariant</h2>
+## Dynamic variants with matchVariant
 
 You've probably noticed this new `variant-[...]` syntax in a lot of these new features — this is all powered by a new `matchVariant` plugin API that makes it possible to create what we're calling "dynamic variants".
 
@@ -459,7 +457,7 @@ matchVariant("min", (value) => `@media (min-width: ${value})`, {
 
 ---
 
-<h2 id="nested-group-and-multiple-peer-support-using-variant-modifiers">Nested group and multiple peer support using variant modifiers</h2>
+## Nested group and multiple peer support using variant modifiers
 
 Sometimes you can run into problems when you have multiple `group` chunks nested within each other because Tailwind has no real way to disambiguate between them.
 

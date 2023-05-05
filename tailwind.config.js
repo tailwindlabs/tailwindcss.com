@@ -6,7 +6,7 @@ module.exports = {
   experimental: {
     optimizeUniversalDefaults: true,
   },
-  content: ['./src/**/*.{js,jsx,mdx,html}', './remark/**/*.js'],
+  content: ['./src/**/*.{js,jsx,mjs,mdx,html}', './remark/**/*.{js,mjs}'],
   blocklist: [
     '[html:has(&)]:bg-blue-500',
     'list-image-[url(checkmark.png)]',
@@ -93,6 +93,9 @@ module.exports = {
             },
             'h2, h3, h4': {
               'scroll-margin-top': 'var(--scroll-mt)',
+            },
+            'h2 code, h3 code': {
+              font: 'inherit',
             },
             ul: {
               listStyleType: 'none',

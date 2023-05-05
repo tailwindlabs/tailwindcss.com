@@ -149,23 +149,24 @@ export default function FrameworkGuides() {
           <li key={name} className="relative flex flex-row-reverse">
             <div className="peer group ml-6 flex-auto">
               <h4 className="mb-2 leading-6 text-slate-900 font-semibold dark:text-slate-200">
-                <Link href={`/docs/guides/${slug}`}>
-                  <a className="before:absolute before:-inset-3 before:rounded-2xl">
-                    {name}
-                    <svg
-                      viewBox="0 0 3 6"
-                      className="ml-3 w-auto h-1.5 overflow-visible inline -mt-px text-slate-400 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100"
-                    >
-                      <path
-                        d="M0 0L3 3L0 6"
-                        fill="none"
-                        strokeWidth="2"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </a>
+                <Link
+                  href={`/docs/guides/${slug}`}
+                  className="before:absolute before:-inset-3 before:rounded-2xl"
+                >
+                  {name}
+                  <svg
+                    viewBox="0 0 3 6"
+                    className="ml-3 w-auto h-1.5 overflow-visible inline -mt-px text-slate-400 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100"
+                  >
+                    <path
+                      d="M0 0L3 3L0 6"
+                      fill="none"
+                      strokeWidth="2"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </Link>
               </h4>
               <p className="text-sm leading-6 text-slate-700 dark:text-slate-400">{description}</p>
@@ -187,14 +188,8 @@ export default function FrameworkGuides() {
       <div className="mt-16 prose prose-slate max-w-3xl dark:prose-dark">
         <p>
           Don't see your framework of choice? Try using{' '}
-          <Link href="/docs/installation">
-            <a>Tailwind CLI</a>
-          </Link>{' '}
-          or installing Tailwind{' '}
-          <Link href="/docs/installation/using-postcss">
-            <a>as a PostCSS plugin</a>
-          </Link>{' '}
-          instead.
+          <Link href="/docs/installation">Tailwind CLI</Link> or installing Tailwind{' '}
+          <Link href="/docs/installation/using-postcss">as a PostCSS plugin</Link> instead.
         </p>
       </div>
     </InstallationLayout>

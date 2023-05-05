@@ -18,24 +18,23 @@ Control the marker image for list items using the `list-image-{value}` utilities
 
 Out of the box, `list-image-none` is the only available preconfigured list style image utility. And while you can add additional utilities by [customizing your theme](#customizing-your-theme), you can also use the square bracket notation to generate an arbitrary value on the fly.
 
-<Example p="none">
-  <div class="px-4 sm:px-0">
-    <div class="mx-auto max-w-sm bg-white p-8 text-sm leading-6 text-slate-700 shadow-xl dark:bg-slate-800 dark:text-slate-400 sm:text-base sm:leading-7">
-        <!--
-          This is the raw version of the base64 encoded image below:
-          <svg width="14" height="12" viewBox="0 0 14 12" xmlns="http://www.w3.org/2000/svg" fill="#38bdf8">
-            <path fill-rule="evenodd" d="M13.685.153a.752.752 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" />
-          </svg>
-        -->
-        <ul class="pl-4 text-slate-900 dark:text-slate-200 list-image-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxNCAxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSIjMzhiZGY4Ij48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMy42ODUuMTUzYS43NTIuNzUyIDAgMCAxIC4xNDMgMS4wNTJsLTggMTAuNWEuNzUuNzUgMCAwIDEtMS4xMjcuMDc1bC00LjUtNC41YS43NS43NSAwIDAgMSAxLjA2LTEuMDZsMy44OTQgMy44OTMgNy40OC05LjgxN2EuNzUuNzUgMCAwIDEgMS4wNS0uMTQzWiIgLz48L3N2Zz4=')]">
-          <li class="pl-2">5 cups chopped Porcini mushrooms</li>
-          <li class="pl-2">1/2 cup of olive oil</li>
-          <li class="pl-2">3lb of celery</li>
-        </ul>
-      </div>
-    </div>
+```html {{ example: { p: 'none' } }}
+<div class="px-4 sm:px-0">
+  <div class="mx-auto max-w-sm bg-white p-8 text-sm leading-6 text-slate-700 shadow-xl dark:bg-slate-800 dark:text-slate-400 sm:text-base sm:leading-7">
+    <!--
+      This is the raw version of the base64 encoded image below:
+      <svg width="14" height="12" viewBox="0 0 14 12" xmlns="http://www.w3.org/2000/svg" fill="#38bdf8">
+        <path fill-rule="evenodd" d="M13.685.153a.752.752 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" />
+      </svg>
+    -->
+    <ul class="pl-4 text-slate-900 dark:text-slate-200 list-image-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxNCAxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSIjMzhiZGY4Ij48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMy42ODUuMTUzYS43NTIuNzUyIDAgMCAxIC4xNDMgMS4wNTJsLTggMTAuNWEuNzUuNzUgMCAwIDEtMS4xMjcuMDc1bC00LjUtNC41YS43NS43NSAwIDAgMSAxLjA2LTEuMDZsMy44OTQgMy44OTMgNy40OC05LjgxN2EuNzUuNzUgMCAwIDEgMS4wNS0uMTQzWiIgLz48L3N2Zz4=')]">
+      <li class="pl-2">5 cups chopped Porcini mushrooms</li>
+      <li class="pl-2">1/2 cup of olive oil</li>
+      <li class="pl-2">3lb of celery</li>
+    </ul>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <ul class="**list-image-[url(checkmark.png)]** ...">
@@ -64,7 +63,7 @@ Out of the box, `list-image-none` is the only available preconfigured list style
 
 By default, Tailwind only provides the `list-image-none` utility. You can customize these values by editing `theme.listStyleImage` or `theme.extend.listStyleImage` in your `tailwind.config.js` file.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {

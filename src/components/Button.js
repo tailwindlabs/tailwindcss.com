@@ -38,7 +38,6 @@ let colorsDark = {
 export function Button({
   color = 'gray',
   darkColor = color,
-  href,
   children,
   className = '',
   reverse = false,
@@ -48,37 +47,35 @@ export function Button({
   let darkColorClasses = typeof darkColor === 'string' ? colorsDark[darkColor] || [] : darkColor
 
   return (
-    <Link href={href}>
-      <a
+    <Link
+      className={clsx(
+        'group inline-flex items-center h-9 rounded-full text-sm font-semibold whitespace-nowrap px-3 focus:outline-none focus:ring-2',
+        colorClasses[0],
+        darkColorClasses[0],
+        className,
+        reverse && 'flex-row-reverse'
+      )}
+      {...props}
+    >
+      {children}
+      <svg
         className={clsx(
-          'group inline-flex items-center h-9 rounded-full text-sm font-semibold whitespace-nowrap px-3 focus:outline-none focus:ring-2',
-          colorClasses[0],
-          darkColorClasses[0],
-          className,
-          reverse && 'flex-row-reverse'
+          'overflow-visible',
+          reverse ? 'mr-3' : 'ml-3',
+          colorClasses[1],
+          darkColorClasses[1]
         )}
-        {...props}
+        width="3"
+        height="6"
+        viewBox="0 0 3 6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
-        {children}
-        <svg
-          className={clsx(
-            'overflow-visible',
-            reverse ? 'mr-3' : 'ml-3',
-            colorClasses[1],
-            darkColorClasses[1]
-          )}
-          width="3"
-          height="6"
-          viewBox="0 0 3 6"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d={reverse ? 'M3 0L0 3L3 6' : 'M0 0L3 3L0 6'} />
-        </svg>
-      </a>
+        <path d={reverse ? 'M3 0L0 3L3 6' : 'M0 0L3 3L0 6'} />
+      </svg>
     </Link>
   )
 }

@@ -1,10 +1,4 @@
 import { adamwathan } from '@/authors'
-import spotlightPreview from './spotlight-preview.png'
-import spotlightDetail from './spotlight-detail.png'
-import heroiconsCover from './heroicons-cover.jpg'
-import headlessuiCard from './headlessui-v17.jpg'
-import playInsiders from './play-insiders.png'
-import phoenix from './phoenix.png'
 import card from './card.jpg'
 
 export const meta = {
@@ -15,11 +9,11 @@ export const meta = {
   image: card,
 }
 
-<!--excerpt-->
+{/*excerpt*/}
 
 We just released a stunning new personal website template for Tailwind UI, redesigned Heroicons from scratch, tagged a new version of Headless UI with some exciting new features, and more.
 
-<!--/excerpt-->
+{/*/excerpt*/}
 
 It's been a busy week wrapping up a bunch of projects we've been working on, but everything is finally out the door so it feels like a good time for another update.
 
@@ -33,21 +27,13 @@ Speaking of beautiful stuff, here's what shipped over the last couple of weeks!
 
 A couple of days ago we released [Spotlight](https://tailwindui.com/templates/spotlight), a stunning new personal website template we designed for Tailwind UI.
 
-<div className="my-8">
-  <a href="https://tailwindui.com/templates/spotlight">
-    <img src={spotlightPreview.src} alt="Learn about the Spotlight template"/>
-  </a>
-</div>
+[![Learn about the Spotlight template](./spotlight-preview.png)](https://tailwindui.com/templates/spotlight)
 
 Like our other templates, it's built with [Next.js](https://nextjs.org/), and this time we're using [MDX](https://mdxjs.com/) to power all of the markdown-driven stuff like the blog section.
 
 Designing this template was a pretty fun and interesting challenge — we wanted to come up with something that was really beautiful and inspiring, but that was also unopinionated enough to feel like a good fit for almost anyone. We landed on a pretty minimalist design that gets it's personality from little touches like rotated images, hints of color for links, and some subtle depth from shadows and layering in places like the top navigation.
 
-<div className="my-8">
-  <a href="https://spotlight.tailwindui.com">
-    <img src={spotlightDetail.src} alt="Preview the Spotlight template"/>
-  </a>
-</div>
+[![Preview the Spotlight template](./spotlight-detail.png)](https://spotlight.tailwindui.com)
 
 As always, I recommend checking out [the live preview](https://spotlight.tailwindui.com/) for the full experience — especially pay attention to the way the avatar and navigation works on the home page as you scroll, it's very _\*chef's kiss\*_ when you're playing with the real site.
 
@@ -61,11 +47,7 @@ If you've got a [Tailwind UI all-access](https://tailwindui.com/all-access) lice
 
 Last year we released [Heroicons v1.0](https://tailwindcss.com/blog/heroicons-v1). Well last week we released [Heroicons v2.0](https://heroicons.com/), which is a brand new icon set, illustrated from scratch that Steve has been working on for about a year.
 
-<div className="my-8">
-  <a href="https://heroicons.com">
-    <img src={heroiconsCover.src} alt="Heroicons v2.0"/>
-  </a>
-</div>
+[![Heroicons v2.0](./heroicons-cover.jpg)](https://heroicons.com)
 
 It includes 280 icons drawn in three distinct styles:
 
@@ -85,11 +67,7 @@ To explore all of the new icons, visit the totally [redesigned Heroicons website
 
 Earlier this week we tagged a new release of [Headless UI](https://headlessui.com/), our React and Vue libraries of unstyled UI components.
 
-<div className="my-8">
-  <a href="https://headlessui.com">
-    <img src={headlessuiCard.src} alt="Headless UI v1.7"/>
-  </a>
-</div>
+[![Headless UI v1.7](./headlessui-v17.jpg)](https://headlessui.com)
 
 Headless UI v1.7 includes the usual slew of bug fixes and improvements, but also some really useful new features!
 
@@ -197,11 +175,7 @@ Not everyone knows this but we ship an `insiders` build of Tailwind CSS to npm t
 
 Well now we include access to the insiders build in [Tailwind Play](https://play.tailwindcss.com/) as well, so you can play with bleeding edge stuff without even setting up a project:
 
-<div className="my-8">
-  <a href="https://play.tailwindcss.com">
-    <img src={playInsiders.src} alt="Tailwind Play insiders option"/>
-  </a>
-</div>
+[![Tailwind Play insiders option](./play-insiders.png)](https://play.tailwindcss.com)
 
 We only keep the _latest_ insiders build on Play, so if you create a demo using an insiders build know that it might break if the next insiders build changes something in some unreleased feature you were using. You shouldn't be putting important things there anyways, come on be a professional.
 
@@ -213,9 +187,7 @@ A while ago we started talking with the [Phoenix](https://www.phoenixframework.o
 
 We designed a new splash screen and all of the necessary scaffolding for their generator system, which will ship as part of Phoenix v1.7.
 
-<div className="my-8">
-  <img src={phoenix.src} alt="New designs for Phoenix v1.7"/>
-</div>
+![New designs for Phoenix v1.7](./phoenix.png)
 
 Chris McCord the creator of Phoenix gave [a great talk](https://www.youtube.com/watch?v=9-rqBLjr5Eo) last week that walks through all of the Tailwind CSS stuff they are shipping, worth a watch if you're curious to learn more.
 

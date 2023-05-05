@@ -16,14 +16,14 @@ export const classes = { utilities }
 
 To give an element a linear gradient background, use one of the `bg-gradient-{direction}` utilities, in combination with the [gradient color stop](/docs/gradient-color-stops) utilities.
 
-<Example>
-  <div class="space-y-4">
-    <div class="h-14 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500"></div>
-    <div class="h-14 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-500"></div>
-    <div class="h-14 rounded-lg bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
-    <div class="h-14 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500"></div>
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="space-y-4">
+  <div class="h-14 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+  <div class="h-14 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-500"></div>
+  <div class="h-14 rounded-lg bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
+  <div class="h-14 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500"></div>
+</div>
+```
 
 ```html
 <div class="h-14 **bg-gradient-to-r from-cyan-500 to-blue-500**"></div>
@@ -54,7 +54,7 @@ By default, Tailwind includes background image utilities for creating linear gra
 
 You can add your own background images by editing the `theme.backgroundImage` section of your `tailwind.config.js` file:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {

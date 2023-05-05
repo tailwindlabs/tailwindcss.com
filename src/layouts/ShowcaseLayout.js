@@ -1,7 +1,7 @@
 import { MDXProvider } from '@mdx-js/react'
 import { showcase } from '@/showcase'
 import Link from 'next/link'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import clsx from 'clsx'
 import { Children, cloneElement } from 'react'
 import { Footer } from '@/components/Footer'
@@ -133,9 +133,7 @@ export function ShowcaseLayout({ children, slug, meta }) {
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 grid items-center grid-cols-[1fr,auto,1fr] gap-6">
             <div className="text-center">
               <p className="text-[0.8125rem] leading-6 font-semibold text-sky-500">
-                <Link href="/showcase">
-                  <a>Showcase</a>
-                </Link>
+                <Link href="/showcase">Showcase</Link>
               </p>
               <h1 className="mt-1 text-xl leading-8 tracking-tight font-semibold text-slate-900 dark:text-white">
                 {meta.title}
@@ -143,57 +141,61 @@ export function ShowcaseLayout({ children, slug, meta }) {
             </div>
             <div className="order-first flex">
               {previousSite && (
-                <Link href={`/showcase/${previousSite.slug}`}>
-                  <a aria-label={`Previous site: ${previousSite.name}`} className="relative">
-                    <div className="hidden md:block text-[0.8125rem] leading-6 text-slate-500">
-                      <span aria-hidden="true">&larr; </span>
-                      Previous
-                    </div>
-                    <div className="hidden md:block mt-2 text-sm leading-6 font-semibold text-slate-900 dark:text-white">
-                      {previousSite.name}
-                    </div>
-                    <div className="absolute -inset-1 md:hidden" />
-                    <svg
-                      className="md:hidden w-6 h-6 stroke-slate-900 dark:stroke-white"
-                      fill="none"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M13.25 8.75 9.75 12l3.5 3.25"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </a>
+                <Link
+                  href={`/showcase/${previousSite.slug}`}
+                  aria-label={`Previous site: ${previousSite.name}`}
+                  className="relative"
+                >
+                  <div className="hidden md:block text-[0.8125rem] leading-6 text-slate-500">
+                    <span aria-hidden="true">&larr; </span>
+                    Previous
+                  </div>
+                  <div className="hidden md:block mt-2 text-sm leading-6 font-semibold text-slate-900 dark:text-white">
+                    {previousSite.name}
+                  </div>
+                  <div className="absolute -inset-1 md:hidden" />
+                  <svg
+                    className="md:hidden w-6 h-6 stroke-slate-900 dark:stroke-white"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M13.25 8.75 9.75 12l3.5 3.25"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </Link>
               )}
             </div>
             <div className="flex text-right justify-end">
               {nextSite && (
-                <Link href={`/showcase/${nextSite.slug}`}>
-                  <a aria-label={`Next site: ${nextSite.name}`} className="relative">
-                    <div className="hidden md:block text-[0.8125rem] leading-6 text-slate-500">
-                      Next
-                      <span aria-hidden="true"> &rarr;</span>
-                    </div>
-                    <div className="hidden md:block mt-2 text-sm leading-6 font-semibold text-slate-900 dark:text-white">
-                      {nextSite.name}
-                    </div>
-                    <div className="absolute -inset-1 md:hidden" />
-                    <svg
-                      className="md:hidden w-6 h-6 stroke-slate-900 dark:stroke-white"
-                      fill="none"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="m10.75 8.75 3.5 3.25-3.5 3.25"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </a>
+                <Link
+                  href={`/showcase/${nextSite.slug}`}
+                  aria-label={`Next site: ${nextSite.name}`}
+                  className="relative"
+                >
+                  <div className="hidden md:block text-[0.8125rem] leading-6 text-slate-500">
+                    Next
+                    <span aria-hidden="true"> &rarr;</span>
+                  </div>
+                  <div className="hidden md:block mt-2 text-sm leading-6 font-semibold text-slate-900 dark:text-white">
+                    {nextSite.name}
+                  </div>
+                  <div className="absolute -inset-1 md:hidden" />
+                  <svg
+                    className="md:hidden w-6 h-6 stroke-slate-900 dark:stroke-white"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="m10.75 8.75 3.5 3.25-3.5 3.25"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </Link>
               )}
             </div>
@@ -242,7 +244,7 @@ export function ShowcaseLayout({ children, slug, meta }) {
                   name: 'URL',
                   value: (
                     <Link href={meta.url}>
-                      <a>{meta.url.replace(/^https?:\/\//, '').replace(/\/+$/, '')}</a>
+                      {meta.url.replace(/^https?:\/\//, '').replace(/\/+$/, '')}
                     </Link>
                   ),
                 },
@@ -263,13 +265,12 @@ export function ShowcaseLayout({ children, slug, meta }) {
                 </div>
               ))}
             </dl>
-            <Link href={meta.url}>
-              <a
-                aria-label={`Visit ${meta.title}`}
-                className="relative flex-none text-sm text-center font-semibold text-white py-2.5 px-4 rounded-lg bg-slate-900 dark:bg-sky-500 dark:text-white focus:outline-none hover:bg-slate-700 focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 dark:highlight-white/20 dark:hover:bg-sky-400 dark:focus:ring-2 dark:focus:ring-sky-600 dark:focus:ring-offset-slate-900"
-              >
-                Go to website <span aria-hidden="true">&rarr;</span>
-              </a>
+            <Link
+              href={meta.url}
+              aria-label={`Visit ${meta.title}`}
+              className="relative flex-none text-sm text-center font-semibold text-white py-2.5 px-4 rounded-lg bg-slate-900 dark:bg-sky-500 dark:text-white focus:outline-none hover:bg-slate-700 focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 dark:highlight-white/20 dark:hover:bg-sky-400 dark:focus:ring-2 dark:focus:ring-sky-600 dark:focus:ring-offset-slate-900"
+            >
+              Go to website <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
           <MDXProvider

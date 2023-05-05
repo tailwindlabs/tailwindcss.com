@@ -7,13 +7,7 @@ import { Description, OgDescription, OgTitle, Title } from '@/components/Meta'
 import Router from 'next/router'
 import ProgressBar from '@badrap/bar-of-progress'
 import Head from 'next/head'
-import { ResizeObserver } from '@juggle/resize-observer'
-import 'intersection-observer'
 import { SearchProvider } from '@/components/Search'
-
-if (typeof window !== 'undefined' && !('ResizeObserver' in window)) {
-  window.ResizeObserver = ResizeObserver
-}
 
 const progress = new ProgressBar({
   size: 2,
@@ -105,7 +99,7 @@ export default function App({ Component, pageProps, router }) {
           />
         )}
         <Layout {...layoutProps}>
-          <Component section={section} {...pageProps} />
+          <Component section={section} {...Component.layoutProps} {...pageProps} />
         </Layout>
       </SearchProvider>
     </>
