@@ -104,26 +104,6 @@ export function fixSelectorEscapeTokens(tokens) {
   }
 }
 
-export function addImport(tree, mod, name) {
-  let value = `import { ${name} as _${name} } from '${mod}'`
-  tree.children.unshift({
-    type: 'mdxjsEsm',
-    value,
-    data: { estree: parse(value, { ecmaVersion: 'latest', sourceType: 'module' }) },
-  })
-  return `_${name}`
-}
-
-export function addDefaultImport(tree, mod, name) {
-  let value = `import _${name} from '${mod}'`
-  tree.children.unshift({
-    type: 'mdxjsEsm',
-    value,
-    data: { estree: parse(value, { ecmaVersion: 'latest', sourceType: 'module' }) },
-  })
-  return `_${name}`
-}
-
 export function addExport(tree, name, value) {
   value = `export const ${name} = ${JSON.stringify(value)}`
   tree.children.push({

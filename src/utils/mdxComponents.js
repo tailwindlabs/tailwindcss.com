@@ -1,5 +1,6 @@
 import { Heading } from '@/components/Heading'
 import { Example } from '@/components/Example'
+import { Editor } from '@/components/Editor'
 import Link from 'next/link'
 
 function Img(props) {
@@ -17,4 +18,5 @@ export const mdxComponents = {
   img: Img,
   Img,
   Example,
+  Editor,
 }

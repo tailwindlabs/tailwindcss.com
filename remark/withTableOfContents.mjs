@@ -1,4 +1,4 @@
-import { addImport, addExport } from './utils.mjs'
+import { addExport } from './utils.mjs'
 import slugify from '@sindresorhus/slugify'
 import { toString } from 'mdast-util-to-string'
 import { parseExpressionAt } from 'acorn'
@@ -6,7 +6,6 @@ import { filter } from 'unist-util-filter'
 
 export const withTableOfContents = () => {
   return (tree) => {
-    const component = addImport(tree, '@/components/Heading', 'Heading')
     const contents = []
 
     for (let nodeIndex = 0; nodeIndex < tree.children.length; nodeIndex++) {
@@ -44,7 +43,6 @@ export const withTableOfContents = () => {
         }
 
         if (node.children[0].type === 'mdxJsxTextElement' && node.children[0].name === 'Heading') {
-          node.children[0].name = component
           let override = node.children[0].attributes.find((attr) => attr.name === 'toc')?.value
           if (override) {
             title = override
@@ -78,7 +76,7 @@ export const withTableOfContents = () => {
           }
           tree.children[nodeIndex] = node.children[0]
         } else {
-          node.name = component
+          node.name = 'Heading'
           node.attributes = []
           for (let prop in props) {
             let value = JSON.stringify(props[prop])

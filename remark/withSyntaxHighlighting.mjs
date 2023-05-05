@@ -1,12 +1,10 @@
-import { highlightCode, addImport } from './utils.mjs'
+import { highlightCode } from './utils.mjs'
 import JSON5 from 'json5'
 import { parse, parseExpressionAt } from 'acorn'
 import { visit } from 'unist-util-visit'
 
 export const withSyntaxHighlighting = () => {
   return (tree) => {
-    let componentName
-
     visit(tree, 'code', (node) => {
       if (node.lang === null) return node
 
@@ -78,10 +76,7 @@ export const withSyntaxHighlighting = () => {
 
       code = `<pre class="language-${node.lang}">${code}</pre>`
 
-      if (!componentName) {
-        componentName = addImport(tree, '@/components/Editor', 'Editor')
-      }
-      node.name = componentName
+      node.name = 'Editor'
       node.attributes = []
       let props = {}
 
