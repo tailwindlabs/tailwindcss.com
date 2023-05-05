@@ -17,7 +17,7 @@
     "@headlessui/react": "^1.7.2",
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
-    "@napi-rs/canvas": "^0.1.29",
+    "@napi-rs/canvas": "^0.1.40",
     "@silvenon/remark-smartypants": "^1.0.0",
     "@sindresorhus/slugify": "^2.2.0",
     "@svgr/webpack": "^5.5.0",

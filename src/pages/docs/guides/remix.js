@@ -8,7 +8,7 @@ let steps = [
     body: () => (
       <p>
         Start by creating a new Remix project if you don’t have one set up already. The most common
-        approach is to use <a href="https://remix.run/docs/en/v1">Create Remix</a>.
+        approach is to use <a href="https://remix.run/docs">Create Remix</a>.
       </p>
     ),
     code: {
@@ -21,8 +21,7 @@ let steps = [
     title: 'Enable built-in Tailwind CSS support in Remix',
     body: () => (
       <p>
-        Set the <code>unstable_tailwind</code> feature flag in your <code>remix.config.js</code>{' '}
-        file. Eventually this will become stable and won't be necessary.
+        Set the <code>tailwind</code> flag in your <code>remix.config.js</code> file.
       </p>
     ),
     code: {
@@ -30,9 +29,7 @@ let steps = [
       lang: 'js',
       code: `  /** @type {import('@remix-run/dev').AppConfig} */
   module.exports = {
->   future: {
->     unstable_tailwind: true,
->   },
+>   tailwind: true,
   }`,
     },
   },
@@ -41,13 +38,13 @@ let steps = [
     body: () => (
       <p>
         Install <code>tailwindcss</code> via npm, and then run the init command to generate a{' '}
-        <code>tailwind.config.js</code> file.
+        <code>tailwind.config.ts</code> file.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss\nnpx tailwindcss init',
+      code: 'npm install -D tailwindcss\nnpx tailwindcss init --ts',
     },
   },
   {
@@ -58,16 +55,17 @@ let steps = [
       </p>
     ),
     code: {
-      name: 'tailwind.config.js',
-      lang: 'js',
-      code: `  /** @type {import('tailwindcss').Config} */
-  module.exports = {
->   content: ["./app/**/*.{js,jsx,ts,tsx}"],
+      name: 'tailwind.config.ts',
+      lang: 'ts',
+      code: `  import type { Config } from 'tailwindcss'
+
+  export default {
+>   content: ['./app/**/*.{js,jsx,ts,tsx}'],
     theme: {
       extend: {},
     },
     plugins: [],
-  }`,
+  } satisfies Config`,
     },
   },
   {
