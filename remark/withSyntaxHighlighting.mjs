@@ -1,6 +1,6 @@
 import { highlightCode } from './utils.mjs'
 import JSON5 from 'json5'
-import { parse, parseExpressionAt } from 'acorn'
+import { parse } from 'acorn'
 import { visit } from 'unist-util-visit'
 
 export const withSyntaxHighlighting = () => {
@@ -43,7 +43,8 @@ export const withSyntaxHighlighting = () => {
       }
 
       if (!node.meta) {
-        let value = `{__html:${JSON.stringify(code)}}`
+        let json = JSON.stringify(code)
+        let value = `{__html:${json}}`
         node.name = 'pre'
         node.attributes = [
           {
@@ -63,7 +64,20 @@ export const withSyntaxHighlighting = () => {
                   body: [
                     {
                       type: 'ExpressionStatement',
-                      expression: parseExpressionAt(value, 0, { ecmaVersion: 'latest' }),
+                      expression: {
+                        type: 'ObjectExpression',
+                        properties: [
+                          {
+                            type: 'Property',
+                            method: false,
+                            shorthand: false,
+                            computed: false,
+                            key: { type: 'Identifier', name: '__html' },
+                            value: { type: 'Literal', value: code, raw: json },
+                            kind: 'init',
+                          },
+                        ],
+                      },
                     },
                   ],
                 },
