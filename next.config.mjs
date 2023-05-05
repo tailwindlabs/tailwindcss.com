@@ -13,7 +13,6 @@ import {
   simplifyToken,
   normalizeTokens,
 } from './remark/utils.mjs'
-import { withPrevalInstructions } from './remark/withPrevalInstructions.mjs'
 import remarkGfm from 'remark-gfm'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import { recmaImportImages } from './recma/importImages.mjs'
@@ -186,7 +185,6 @@ export default {
                 remarkPlugins: [
                   remarkGfm,
                   remarkUnwrapImages,
-                  withPrevalInstructions,
                   withExamples,
                   withTableOfContents,
                   withSyntaxHighlighting,
