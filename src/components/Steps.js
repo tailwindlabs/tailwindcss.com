@@ -1,7 +1,6 @@
 import clsx from 'clsx'
 import { useEffect, useState } from 'react'
 import redent from 'redent'
-import Alert from '@reach/alert'
 import { SnippetGroup } from '@/components/SnippetGroup'
 import { Editor } from '@/components/Editor'
 import { Transition } from '@headlessui/react'
@@ -102,7 +101,7 @@ function CopyButton({ code }) {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <Alert className="relative bg-sky-500 text-white font-mono text-[0.625rem] leading-6 font-medium px-1.5 rounded-lg">
+        <div className="relative bg-sky-500 text-white font-mono text-[0.625rem] leading-6 font-medium px-1.5 rounded-lg">
           Copied
           <svg
             aria-hidden="true"
@@ -118,7 +117,7 @@ function CopyButton({ code }) {
               fill="currentColor"
             />
           </svg>
-        </Alert>
+        </div>
       </Transition>
     </div>
   )

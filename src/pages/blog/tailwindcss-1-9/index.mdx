@@ -23,11 +23,11 @@ For the complete summary of changes [check out the release notes on GitHub](http
 
 ---
 
-<h2 id="configuration-presets">Configuration presets</h2>
+## Configuration presets
 
 Tailwind CSS v1.9 adds a new `presets` key to the `tailwind.config.js` file that makes it possible to configure a custom "base configuration" for your projects.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   presets: [require('@my-company/tailwind-base')],
   theme: {
@@ -42,7 +42,7 @@ Whatever you provide under `presets` _replaces_ the default Tailwind base config
 
 You can even list multiple presets, which are merged together from top to bottom:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   presets: [
     require('@my-company/tailwind-base'),
@@ -60,9 +60,7 @@ The logic to merge your project-specific configuration with your custom base con
 
 ---
 
-<h2 id="utilities-for-grid-auto-columns-and-grid-auto-rows">
-  Utilities for grid-auto-columns and grid-auto-rows
-</h2>
+## Utilities for grid-auto-columns and grid-auto-rows
 
 We've added new `gridAutoColumns` and `gridAutoRows` core plugins that add new utilities for the `grid-auto-columns` and `grid-auto-rows` CSS properties respectively.
 
@@ -93,9 +91,7 @@ We include `responsive` variants for these utilities by default, and they can be
 
 ---
 
-<h2 id="focus-indicator-improvements-and-configurable-outlines">
-  Focus indicator improvements and configurable outlines
-</h2>
+## Focus indicator improvements and configurable outlines
 
 We've updated the `outline-none` class to render a _transparent_ outline by default instead of rendering _no_ outline. This is really helpful for people who use [Windows high contrast mode](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/), where custom box-shadow-based focus styles are completely invisible.
 
@@ -133,7 +129,7 @@ Of course, you're also free to create whatever custom focus styles you like usin
 
 We've made the `outline` property configurable as well, so you can now define custom outlines in your `tailwind.config.js` file:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   theme: {
     extend: {
@@ -147,7 +143,7 @@ module.exports = {
 
 You can also provide an `outline-offset` value for any custom outline utilities using a tuple of the form `[outline, outlineOffset]`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   theme: {
     extend: {
@@ -161,9 +157,7 @@ module.exports = {
 
 ---
 
-<h2 id="extended-border-radius-rotate-and-skew-scales">
-  Extended border radius, rotate, and skew scales
-</h2>
+## Extended border radius, rotate, and skew scales
 
 We've added three new border radius utilities by default:
 
@@ -189,7 +183,7 @@ Negative versions are included for all of these as well. Super handy for more su
 
 ---
 
-<h2 id="upgrading">Upgrading</h2>
+## Upgrading
 
 Tailwind CSS v1.9 is a non-breaking minor release, so to upgrade all you need to do is run:
 

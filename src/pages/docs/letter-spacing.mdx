@@ -17,28 +17,28 @@ export const classes = { utilities }
 
 Control the letter spacing of an element using the `tracking-{size}` utilities.
 
-<Example>
-  <div class="flex flex-col gap-8">
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">tracking-tight</span>
-      <p class="tracking-tight text-lg font-medium text-slate-900 dark:text-slate-200">
-        The quick brown fox jumps over the lazy dog.
-      </p>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">tracking-normal</span>
-      <p class="tracking-normal text-lg font-medium text-slate-900 dark:text-slate-200">
-        The quick brown fox jumps over the lazy dog.
-      </p>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">tracking-wide</span>
-      <p class="tracking-wide text-lg font-medium text-slate-900 dark:text-slate-200">
-        The quick brown fox jumps over the lazy dog.
-      </p>
-    </div>
+```html {{ example: true }}
+<div class="flex flex-col gap-8">
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">tracking-tight</span>
+    <p class="tracking-tight text-lg font-medium text-slate-900 dark:text-slate-200">
+      The quick brown fox jumps over the lazy dog.
+    </p>
   </div>
-</Example>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">tracking-normal</span>
+    <p class="tracking-normal text-lg font-medium text-slate-900 dark:text-slate-200">
+      The quick brown fox jumps over the lazy dog.
+    </p>
+  </div>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">tracking-wide</span>
+    <p class="tracking-wide text-lg font-medium text-slate-900 dark:text-slate-200">
+      The quick brown fox jumps over the lazy dog.
+    </p>
+  </div>
+</div>
+```
 
 ```html
 <p class="**tracking-tight** ...">The quick brown fox ...</p>
@@ -54,11 +54,11 @@ Using negative values doesn't make a ton of sense with the letter-spacing scale 
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <p class="**-tracking-2**">The quick brown fox ...</p>
 ```
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   theme: {
     letterSpacing: {
@@ -93,7 +93,7 @@ module.exports = {
 
 By default, Tailwind provides six tracking utilities. You can change, add, or remove these by editing the `theme.letterSpacing` section of your Tailwind config.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       letterSpacing: {

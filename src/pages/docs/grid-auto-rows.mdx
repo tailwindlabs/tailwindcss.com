@@ -14,7 +14,7 @@ export const classes = { utilities }
 
 ### Sizing implicitly-created grid rows
 
-Use the `auto-rows-{size}` utilities to control the size implicitly-created grid rows.
+Use the `auto-rows-{size}` utilities to control the size of implicitly-created grid rows.
 
 ```html
 <div class="grid grid-flow-row **auto-rows-max**">
@@ -44,7 +44,7 @@ Use the `auto-rows-{size}` utilities to control the size implicitly-created grid
 
 By default, Tailwind includes four general purpose `grid-auto-rows` utilities. You can customize these values by editing `theme.gridAutoRows` or `theme.extend.gridAutoRows` in your `tailwind.config.js` file.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {

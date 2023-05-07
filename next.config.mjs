@@ -1,26 +1,36 @@
-const path = require('path')
-const { createLoader } = require('simple-functional-loader')
-const frontMatter = require('front-matter')
-const withSmartQuotes = require('@silvenon/remark-smartypants')
-const { withTableOfContents } = require('./remark/withTableOfContents')
-const { withSyntaxHighlighting } = require('./remark/withSyntaxHighlighting')
-const { withNextLinks } = require('./remark/withNextLinks')
-const { withLinkRoles } = require('./rehype/withLinkRoles')
-const minimatch = require('minimatch')
-const withExamples = require('./remark/withExamples')
-const {
+import * as path from 'path'
+import { createLoader } from 'simple-functional-loader'
+import frontMatter from 'front-matter'
+import withSmartQuotes from '@silvenon/remark-smartypants'
+import { withTableOfContents } from './remark/withTableOfContents.mjs'
+import { withSyntaxHighlighting } from './remark/withSyntaxHighlighting.mjs'
+import { withLinkRoles } from './rehype/withLinkRoles.mjs'
+import minimatch from 'minimatch'
+import withExamples from './remark/withExamples.mjs'
+import {
   highlightCode,
   fixSelectorEscapeTokens,
   simplifyToken,
   normalizeTokens,
-} = require('./remark/utils')
-const { withPrevalInstructions } = require('./remark/withPrevalInstructions')
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-})
-const defaultConfig = require('tailwindcss/resolveConfig')(require('tailwindcss/defaultConfig'))
-const dlv = require('dlv')
-const Prism = require('prismjs')
+} from './remark/utils.mjs'
+import remarkGfm from 'remark-gfm'
+import remarkUnwrapImages from 'remark-unwrap-images'
+import { recmaImportImages } from './recma/importImages.mjs'
+import resolveConfig from 'tailwindcss/resolveConfig.js'
+import tailwindDefaultConfig from 'tailwindcss/defaultConfig.js'
+import dlv from 'dlv'
+import Prism from 'prismjs'
+import corePlugins from 'tailwindcss/lib/corePlugins.js'
+import * as fs from 'fs'
+import negateValue from 'tailwindcss/lib/util/negateValue.js'
+import nameClass from 'tailwindcss/lib/util/nameClass.js'
+import { createRequire } from 'node:module'
+import * as url from 'node:url'
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
+
+const require = createRequire(import.meta.url)
+
+const defaultConfig = resolveConfig(tailwindDefaultConfig)
 
 const fallbackLayouts = {
   'src/pages/docs/**/*': ['@/layouts/DocumentationLayout', 'DocumentationLayout'],
@@ -32,18 +42,16 @@ const fallbackDefaultExports = {
   'src/pages/showcase/**/*': ['@/layouts/ShowcaseLayout', 'ShowcaseLayout'],
 }
 
-const fallbackGetStaticProps = {
-  'src/pages/blog/**/*': '@/layouts/BlogPostLayout',
-}
+const fallbackGetStaticProps = {}
 
-module.exports = withBundleAnalyzer({
+export default {
   swcMinify: true,
   pageExtensions: ['js', 'jsx', 'mdx'],
   experimental: {
     esmExternals: false,
   },
   async redirects() {
-    return require('./redirects.json')
+    return JSON.parse(fs.readFileSync(require.resolve('./redirects.json'), 'utf8'))
   },
   webpack(config, options) {
     config.module.rules.push({
@@ -54,7 +62,7 @@ module.exports = withBundleAnalyzer({
           loader: 'file-loader',
           options: {
             publicPath: '/_next',
-            name: 'static/media/[name].[hash].[ext]',
+            name: 'static/media/[name].[sha1:hash].[ext]',
           },
         },
       ],
@@ -76,7 +84,7 @@ module.exports = withBundleAnalyzer({
       test: require.resolve('tailwindcss/lib/corePlugins.js'),
       use: createLoader(function (_source) {
         let pluginName = new URLSearchParams(this.resourceQuery).get('plugin')
-        let plugin = require('tailwindcss/lib/corePlugins.js').corePlugins[pluginName]
+        let plugin = corePlugins.corePlugins[pluginName]
         return `export default ${JSON.stringify(getUtilities(plugin))}`
       }),
     })
@@ -85,7 +93,7 @@ module.exports = withBundleAnalyzer({
       resourceQuery: /examples/,
       test: require.resolve('tailwindcss/lib/corePlugins.js'),
       use: createLoader(function (_source) {
-        let plugins = require('tailwindcss/lib/corePlugins.js').corePlugins
+        let plugins = corePlugins.corePlugins
         let examples = Object.entries(plugins).map(([name, plugin]) => {
           let utilities = getUtilities(plugin)
           return {
@@ -112,7 +120,7 @@ module.exports = withBundleAnalyzer({
           loader: 'file-loader',
           options: {
             publicPath: '/_next',
-            name: 'static/media/[name].[hash].[ext]',
+            name: 'static/media/[name].[sha1:hash].[ext]',
           },
         },
       ],
@@ -171,18 +179,20 @@ module.exports = withBundleAnalyzer({
         loader: '@mdx-js/loader',
         options:
           plugins === null
-            ? {}
+            ? { providerImportSource: '@mdx-js/react' }
             : {
+                providerImportSource: '@mdx-js/react',
                 remarkPlugins: [
-                  withPrevalInstructions,
+                  remarkGfm,
+                  remarkUnwrapImages,
                   withExamples,
                   withTableOfContents,
                   withSyntaxHighlighting,
-                  withNextLinks,
                   withSmartQuotes,
                   ...plugins,
                 ],
                 rehypePlugins: [withLinkRoles],
+                recmaPlugins: [[recmaImportImages, { property: 'src' }]],
               },
       },
       createLoader(function (source) {
@@ -196,13 +206,14 @@ module.exports = withBundleAnalyzer({
     ]
 
     config.module.rules.push({
-      test: { and: [/\.mdx$/, /snippets/] },
+      test: { and: [/\.md$/, /snippets/] },
       resourceQuery: { not: [/rss/, /preview/] },
       use: [
         options.defaultLoaders.babel,
         {
           loader: '@mdx-js/loader',
           options: {
+            providerImportSource: '@mdx-js/react',
             remarkPlugins: [withSyntaxHighlighting],
           },
         },
@@ -221,8 +232,8 @@ module.exports = withBundleAnalyzer({
       use: [
         options.defaultLoaders.babel,
         createLoader(function (src) {
-          const [preview] = src.split('<!--/excerpt-->')
-          return preview.replace('<!--excerpt-->', '')
+          const [preview] = src.split('{/*/excerpt*/}')
+          return preview.replace('{/*excerpt*/}', '')
         }),
         ...mdx([
           () => (tree) => {
@@ -245,11 +256,15 @@ module.exports = withBundleAnalyzer({
         options.defaultLoaders.babel,
         createLoader(function (source) {
           if (source.includes('/*START_META*/')) {
-            const [meta] = source.match(/\/\*START_META\*\/(.*?)\/\*END_META\*\//s)
-            return 'export default ' + meta
+            let match = source.match(/^export const meta = (\{.*?\n\})/ms)
+            return 'export default ' + match[1]
           }
+          let exports = Array.from(source.matchAll(/^export const ([^=\s]+)/gm)).map(
+            ([, name]) => name
+          )
           return (
-            source.replace(/export const/gs, 'const') + `\nMDXContent.layoutProps = layoutProps\n`
+            source.replace(/export const/gs, 'const') +
+            `\nMDXContent.layoutProps = { ${exports.join(',')} }\n`
           )
         }),
         ...mdx(plugins),
@@ -315,7 +330,7 @@ module.exports = withBundleAnalyzer({
           return [
             ...(typeof fields === 'undefined' ? extra : []),
             typeof fields === 'undefined'
-              ? body.replace(/<!--excerpt-->.*<!--\/excerpt-->/s, '')
+              ? body.replace(/\{\/\*excerpt\*\/\}.*\{\/\*\/excerpt\*\/\}/s, '')
               : '',
             metaExport,
           ]
@@ -340,7 +355,7 @@ module.exports = withBundleAnalyzer({
 
     return config
   },
-})
+}
 
 function normalizeProperties(input) {
   if (typeof input !== 'object') return input
@@ -388,7 +403,7 @@ function getUtilities(plugin, { includeNegativeValues = false } = {}) {
       if (includeNegativeValues && supportsNegativeValues) {
         let negativeValues = []
         for (let [key, value] of modifierValues) {
-          let negatedValue = require('tailwindcss/lib/util/negateValue').default(value)
+          let negatedValue = negateValue.default(value)
           if (negatedValue) {
             negativeValues.push([`-${key}`, negatedValue])
           }
@@ -410,7 +425,7 @@ function getUtilities(plugin, { includeNegativeValues = false } = {}) {
             }
 
             return {
-              [require('tailwindcss/lib/util/nameClass').default(name, modifier)]: declarations,
+              [nameClass.default(name, modifier)]: declarations,
             }
           })
           .filter(Boolean)

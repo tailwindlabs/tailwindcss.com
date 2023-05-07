@@ -63,7 +63,7 @@ export function TipCompat({ children }) {
 
 export function TipInfo({ children }) {
   return (
-    <div className="not-prose mt-6 -mb-1 flex space-x-2">
+    <div className="mt-6 -mb-1 flex space-x-2">
       <svg
         className="flex-none w-5 h-5 text-slate-400 dark:text-slate-600"
         viewBox="0 0 20 20"
@@ -77,7 +77,7 @@ export function TipInfo({ children }) {
         />
       </svg>
 
-      <p className="text-slate-700 text-sm font-medium dark:text-slate-200">{children}</p>
+      <p className="m-0 text-slate-700 text-sm font-medium dark:text-slate-200">{children}</p>
     </div>
   )
 }

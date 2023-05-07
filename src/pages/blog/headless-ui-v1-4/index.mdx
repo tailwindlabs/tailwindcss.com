@@ -1,16 +1,14 @@
 import { adamwathan, robinmalfait } from '@/authors'
 import card from './card.jpg'
-import banner from './banner.jpg'
-import ecommerce from './ecommerce-screenie.jpg'
 import { Tab } from '@headlessui/react'
-import ReactExample1 from './snippets/react-1.mdx'
-import ReactExample2 from './snippets/react-2.mdx'
-import ReactExample3 from './snippets/react-3.mdx'
-import ReactExample4 from './snippets/react-4.mdx'
-import VueExample1 from './snippets/vue-1.mdx'
-import VueExample2 from './snippets/vue-2.mdx'
-import VueExample3 from './snippets/vue-3.mdx'
-import VueExample4 from './snippets/vue-4.mdx'
+import ReactExample1 from './snippets/react-1.md'
+import ReactExample2 from './snippets/react-2.md'
+import ReactExample3 from './snippets/react-3.md'
+import ReactExample4 from './snippets/react-4.md'
+import VueExample1 from './snippets/vue-1.md'
+import VueExample2 from './snippets/vue-2.md'
+import VueExample3 from './snippets/vue-3.md'
+import VueExample4 from './snippets/vue-4.md'
 
 export const meta = {
   title: 'Headless UI v1.4: The One With Tabs',
@@ -22,43 +20,34 @@ export const meta = {
 
 We just released Headless UI v1.4, which includes a brand new `Tab` component, and new APIs for manually closing `Popover` and `Disclosure` components more easily.
 
-<a href="https://headlessui.dev">
-  <img src={banner.src} alt="Headless UI v1.4" />
-</a>
+[![Headless UI v1.4](./banner.jpg)](https://headlessui.dev)
 
 ## Tabs
 
 Earlier this year we started working on [Tailwind UI Ecommerce](https://tailwindui.com/ecommerce), and we realized pretty quickly we were going to need to support tabs in Headless UI to be able to build the new interfaces we were designing.
 
-<a href="https://tailwindui.com/ecommerce">
-  <img
-    src={ecommerce.src}
-    alt="Product details interface design from Tailwind UI Ecommerce."
-  />
-</a>
+[![Product details interface design from Tailwind UI Ecommerce.](./ecommerce-screenie.jpg)](https://tailwindui.com/ecommerce)
 
 Here's what we ended up with:
 
 <Tab.Group as="div" className="my-6 bg-slate-800 rounded-xl dark:ring-1 dark:ring-inset dark:ring-white/10">
   <Tab.List className="relative space-x-2 px-4 pt-3">
     <Tab
+      children="React"
       className={({ selected }) =>
         `py-2 px-4 inline-block rounded-md ${
           selected ? 'bg-slate-700' : 'bg-transparent hover:bg-slate-700'
         } text-sm text-white font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-slate-600`
       }
-    >
-      React
-    </Tab>
+    />
     <Tab
+      children="Vue"
       className={({ selected }) =>
         `py-2 px-4 inline-block rounded-md ${
           selected ? 'bg-slate-700' : 'bg-transparent hover:bg-slate-700'
         } text-sm text-white font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-slate-600`
       }
-    >
-      Vue
-    </Tab>
+    />
   </Tab.List>
   <Tab.Panels>
     <Tab.Panel className="prose prose-slate focus:outline-none children:!shadow-none children:bg-transparent">
@@ -85,23 +74,21 @@ Now you can use `Disclosure.Button` or (`DisclosureButton` in Vue) within your d
 <Tab.Group as="div" className="my-6 bg-slate-800 rounded-xl dark:ring-1 dark:ring-inset dark:ring-white/10">
   <Tab.List className="relative space-x-2 px-4 pt-3">
     <Tab
+      children="React"
       className={({ selected }) =>
         `py-2 px-4 inline-block rounded-md ${
           selected ? 'bg-slate-700' : 'bg-transparent hover:bg-slate-700'
         } text-sm text-white font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-slate-600`
       }
-    >
-      React
-    </Tab>
+    />
     <Tab
+      children="Vue"
       className={({ selected }) =>
         `py-2 px-4 inline-block rounded-md ${
           selected ? 'bg-slate-700' : 'bg-transparent hover:bg-slate-700'
         } text-sm text-white font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-slate-600`
       }
-    >
-      Vue
-    </Tab>
+    />
   </Tab.List>
   <Tab.Panels>
     <Tab.Panel className="prose prose-slate focus:outline-none children:!shadow-none children:bg-transparent">
@@ -118,23 +105,21 @@ The same thing works with `Popover` components, too:
 <Tab.Group as="div" className="my-6 bg-slate-800 rounded-xl dark:ring-1 dark:ring-inset dark:ring-white/10">
   <Tab.List className="relative space-x-2 px-4 pt-3">
     <Tab
+      children="React"
       className={({ selected }) =>
         `py-2 px-4 inline-block rounded-md ${
           selected ? 'bg-slate-700' : 'bg-transparent hover:bg-slate-700'
         } text-sm text-white font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-slate-600`
       }
-    >
-      React
-    </Tab>
+    />
     <Tab
+      children="Vue"
       className={({ selected }) =>
         `py-2 px-4 inline-block rounded-md ${
           selected ? 'bg-slate-700' : 'bg-transparent hover:bg-slate-700'
         } text-sm text-white font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-slate-600`
       }
-    >
-      Vue
-    </Tab>
+    />
   </Tab.List>
   <Tab.Panels>
     <Tab.Panel className="prose prose-slate focus:outline-none children:!shadow-none children:bg-transparent">
@@ -151,23 +136,21 @@ If you need finer control, we also pass a `close` function via the render prop/s
 <Tab.Group as="div" className="my-6 bg-slate-800 rounded-xl dark:ring-1 dark:ring-inset dark:ring-white/10">
   <Tab.List className="relative space-x-2 px-4 pt-3">
     <Tab
+      children="React"
       className={({ selected }) =>
         `py-2 px-4 inline-block rounded-md ${
           selected ? 'bg-slate-700' : 'bg-transparent hover:bg-slate-700'
         } text-sm text-white font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-slate-600`
       }
-    >
-      React
-    </Tab>
+    />
     <Tab
+      children="Vue"
       className={({ selected }) =>
         `py-2 px-4 inline-block rounded-md ${
           selected ? 'bg-slate-700' : 'bg-transparent hover:bg-slate-700'
         } text-sm text-white font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-slate-600`
       }
-    >
-      Vue
-    </Tab>
+    />
   </Tab.List>
   <Tab.Panels>
     <Tab.Panel className="prose prose-slate focus:outline-none children:!shadow-none children:bg-transparent">

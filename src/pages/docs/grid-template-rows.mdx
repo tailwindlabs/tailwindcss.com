@@ -16,19 +16,19 @@ export const classes = { utilities }
 
 Use the `grid-rows-{n}` utilities to create grids with _n_ equally sized rows.
 
-<Example>
-  <div class="grid grid-rows-4 grid-flow-col gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-pink rounded-lg">
-    <div class="p-4 rounded-lg shadow-lg bg-pink-500">01</div>
-    <div class="p-4 rounded-lg shadow-lg bg-pink-500">02</div>
-    <div class="p-4 rounded-lg shadow-lg bg-pink-500">03</div>
-    <div class="p-4 rounded-lg shadow-lg bg-pink-500">04</div>
-    <div class="p-4 rounded-lg shadow-lg bg-pink-500">05</div>
-    <div class="p-4 rounded-lg shadow-lg bg-pink-500">06</div>
-    <div class="p-4 rounded-lg shadow-lg bg-pink-500">07</div>
-    <div class="p-4 rounded-lg shadow-lg bg-pink-500">08</div>
-    <div class="p-4 rounded-lg shadow-lg bg-pink-500">09</div>
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="grid grid-rows-4 grid-flow-col gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-pink rounded-lg">
+  <div class="p-4 rounded-lg shadow-lg bg-pink-500">01</div>
+  <div class="p-4 rounded-lg shadow-lg bg-pink-500">02</div>
+  <div class="p-4 rounded-lg shadow-lg bg-pink-500">03</div>
+  <div class="p-4 rounded-lg shadow-lg bg-pink-500">04</div>
+  <div class="p-4 rounded-lg shadow-lg bg-pink-500">05</div>
+  <div class="p-4 rounded-lg shadow-lg bg-pink-500">06</div>
+  <div class="p-4 rounded-lg shadow-lg bg-pink-500">07</div>
+  <div class="p-4 rounded-lg shadow-lg bg-pink-500">08</div>
+  <div class="p-4 rounded-lg shadow-lg bg-pink-500">09</div>
+</div>
+```
 
 ```html
 <div class="grid **grid-rows-4** grid-flow-col gap-4">
@@ -60,7 +60,7 @@ By default, Tailwind includes `grid-template-row` utilities for creating basic g
 
 You have direct access to the `grid-template-rows` CSS property here so you can make your custom rows values as generic or as complicated and site-specific as you like.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {

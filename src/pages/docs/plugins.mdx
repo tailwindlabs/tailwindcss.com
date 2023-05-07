@@ -12,7 +12,7 @@ Plugins let you register new styles for Tailwind to inject into the user's style
 
 To get started with your first plugin, import Tailwind's `plugin` function from `tailwindcss/plugin`. Then inside your `plugins` array, call the imported `plugin` function with an anonymous function as the first argument.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -46,14 +46,14 @@ We've developed a handful of official plugins for popular features that for one 
 
 Plugins can be added to your project by installing them via npm, then adding them to your `tailwind.config.js` file:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   // ...
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
-    require('@tailwindcss/line-clamp'),
     require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/container-queries'),
   ]
 }
 ```
@@ -98,7 +98,7 @@ The `@tailwindcss/forms` plugin adds an opinionated form reset layer that makes 
 
 ### Aspect ratio
 
-The `@tailwindcss/aspect-ratio` plugin adds `aspect-w-{n}` and `aspect-h-{n}` classes that can be combined to give an element a fixed aspect ratio.
+The `@tailwindcss/aspect-ratio` plugin is an alternative to native `aspect-ratio` support that works in older browsers, and adds `aspect-w-{n}` and `aspect-h-{n}` classes that can be combined to give an element a fixed aspect ratio.
 
 ```html
 <div class="aspect-w-16 aspect-h-9">
@@ -107,6 +107,20 @@ The `@tailwindcss/aspect-ratio` plugin adds `aspect-w-{n}` and `aspect-h-{n}` cl
 ```
 
 [Learn more about the aspect ratio plugin &rarr;](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
+
+### Container queries
+
+The `@tailwindcss/container-queries` plugin adds new `@{size}` variants like `@sm` and `@md` that let you style an element based on the dimensions of a parent marked with `@container` instead of the viewport.
+
+```html
+<div class="@container">
+  <div class="@lg:text-sky-400">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+[Learn more about the container queries plugin &rarr;](https://github.com/tailwindlabs/tailwindcss-container-queries)
 
 ---
 
@@ -120,7 +134,7 @@ Like with the utilities Tailwind includes by default, utilities added by a plugi
 
 Use the `addUtilities` function to register simple static utilities that don't support user-provided values:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -148,7 +162,7 @@ Learn more about how to represent your styles in JavaScript in the [CSS-in-JS sy
 
 Use the `matchUtilities` function to register utilities that map to values defined in the user's `theme` configuration:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -189,7 +203,7 @@ By default, plugin utilities automatically respect the user's [`prefix`](/docs/c
 
 That means that given this Tailwind configuration:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   prefix: 'tw-',
   important: true,
@@ -227,7 +241,7 @@ Learn more in the [Hover, Focus, and Other States](/docs/hover-focus-and-other-s
 
 Utility plugins can provide default values by including a configuration object as the second argument to the `plugin` function:
 
-```js ./plugins/tab-size.js
+```js {{ filename: './plugins/tab-size.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = plugin(function({ matchUtilities, theme }) {
@@ -263,7 +277,7 @@ Use it to add more opinionated, complex classes like buttons, form controls, ale
 
 To add new component styles from a plugin, call `addComponents`, passing in your styles using [CSS-in-JS syntax](#css-in-js-syntax):
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -303,7 +317,7 @@ By default, component classes automatically respect the user's `prefix` preferen
 
 That means that given this Tailwind configuration:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   prefix: 'tw-',
   important: true,
@@ -337,7 +351,7 @@ module.exports = {
 
 Although there's rarely a good reason to make component declarations important, if you really need to do it you can always add `!important` manually:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -358,7 +372,7 @@ module.exports = {
 
 All classes in a selector will be prefixed by default, so if you add a more complex style like:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -406,7 +420,7 @@ The `addBase` function allows you to register new styles in Tailwind's `base` la
 
 To add new base styles from a plugin, call `addBase`, passing in your styles using [CSS-in-JS syntax](#css-in-js-syntax):
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -434,7 +448,7 @@ The `addVariant` and `matchVariant` functions allow you to register your own cus
 
 Use the `addVariant` function for simple custom variants, passing in the name of your custom variant, and a format string that represents how the selector should be modified.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -462,7 +476,7 @@ The first argument is the modifier name that users will use in their HTML, so th
 
 Use the `matchVariant` function to register new parameterized variants like the built-in `supports-*`, `data-*`, and `aria-*` variants:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -510,7 +524,7 @@ Your custom modifiers won't automatically work with Tailwind's [parent](/docs/ho
 
 To support the `group-*` and `peer-*` versions of your own custom modifiers, register them as separate variants using the special `:merge` directive to ensure the `.group` and `.peer` classes only appear once in the final selector.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
   const plugin = require('tailwindcss/plugin')
 
   module.exports = {
@@ -531,7 +545,7 @@ To support the `group-*` and `peer-*` versions of your own custom modifiers, reg
 
 Plugins can merge their own set of configuration values into the user's `tailwind.config.js` configuration by providing an object as the second argument to the `plugin` function:
 
-```js ./plugins/tab-size.js
+```js {{ filename: './plugins/tab-size.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = plugin(function({ matchUtilities, theme }) {
@@ -565,7 +579,7 @@ Sometimes it makes sense for a plugin to be configurable in a way that doesn't r
 
 For cases like this, you can use `plugin.withOptions` to define a plugin that can be invoked with a configuration object. This API is similar to the regular `plugin` API, except each argument should be a function that receives the user's `options` and returns the value that you would have normally passed in using the regular API:
 
-```js ./plugins/markdown.js
+```js {{ filename: './plugins/markdown.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = plugin.withOptions(function (options = {}) {
@@ -591,7 +605,7 @@ module.exports = plugin.withOptions(function (options = {}) {
 
 The user would invoke your plugin passing along their options when registering it in their `plugins` configuration:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   theme: {
     // ...
@@ -606,7 +620,7 @@ module.exports = {
 
 The user can also register plugins created this way normally without invoking them if they don't need to pass in any custom options:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   theme: {
     // ...

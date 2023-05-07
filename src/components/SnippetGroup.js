@@ -137,9 +137,10 @@ export function SnippetGroup({ children, style = 'plain', actions, ...props }) {
             <Tab.Panel
               key={child.props.filename}
               className="flex-none min-w-full p-5 text-sm leading-6 text-slate-50 ligatures-none"
-            >
-              {child.props.children}
-            </Tab.Panel>
+              {...(child.props.code
+                ? { dangerouslySetInnerHTML: { __html: child.props.code } }
+                : { children: child.props.children })}
+            />
           ))}
         </Tab.Panels>
       </Tab.Group>

@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react'
 import { Combobox, Transition } from '@headlessui/react'
-import { Example } from '../../../components/Example'
+import { Example } from '@/components/Example'
 
 const people = [
   { id: 1, name: 'Wade Cooper' },

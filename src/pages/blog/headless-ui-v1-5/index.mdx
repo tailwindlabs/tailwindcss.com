@@ -1,11 +1,9 @@
 import { reinink, adamwathan } from '@/authors'
 import card from './card.jpg'
-import banner from './banner.jpg'
-import commandPalette from './command-palette.jpg'
 import { Transition, Tab } from '@headlessui/react'
-import Demo from './Demo'
-import ReactSnippet from './snippets/react.mdx'
-import VueSnippet from './snippets/vue.mdx'
+import Demo from '@/components/blog/ComboboxDemo'
+import ReactSnippet from './snippets/react.md'
+import VueSnippet from './snippets/vue.md'
 
 export const meta = {
   title: 'Headless UI v1.5: The One With Comboboxes',
@@ -17,9 +15,7 @@ export const meta = {
 
 We just released Headless UI v1.5, which includes a brand new `Combobox` component. Comboboxes are like select controls but with autocomplete/typeahead functionality, and are a great alternative to a regular select when you're working with large datasets and want to quickly filter for the right option.
 
-<a href="https://headlessui.dev">
-  <img src={banner.src} alt="Headless UI v1.5" />
-</a>
+[![Headless UI v1.5](./banner.jpg)](https://headlessui.dev)
 
 Like all other Headless UI components, the combobox abstracts away all of the complex accessibility considerations but leaves the styling completely up to you, giving you total control to design exactly the combobox you want without worrying about things like keyboard navigation or screen reader support.
 
@@ -34,23 +30,21 @@ Here's what it looks like to filter the results using a basic string comparison:
 <Tab.Group as="div" className="my-6 bg-slate-800 rounded-xl dark:ring-1 dark:ring-inset dark:ring-white/10">
   <Tab.List className="relative space-x-2 px-4 pt-3">
     <Tab
+      children="React"
       className={({ selected }) =>
         `py-2 px-4 inline-block rounded-md ${
           selected ? 'bg-slate-700' : 'bg-transparent hover:bg-slate-700'
         } text-sm text-white font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-slate-600`
       }
-    >
-      React
-    </Tab>
+    />
     <Tab
+      children="Vue"
       className={({ selected }) =>
         `py-2 px-4 inline-block rounded-md ${
           selected ? 'bg-slate-700' : 'bg-transparent hover:bg-slate-700'
         } text-sm text-white font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-slate-600`
       }
-    >
-      Vue
-    </Tab>
+    />
   </Tab.List>
   <Tab.Panels>
     <Tab.Panel className="prose prose-slate focus:outline-none children:!shadow-none children:bg-transparent">
@@ -70,15 +64,13 @@ This is actually what originally motivated us to create the combobox component i
 
 If you happen to have a Tailwind UI license, be sure to browse the new [Command Palettes](https://tailwindui.com/components/application-ui/navigation/command-palettes) category to see how these turned out. And if you're wondering, we also added a new [Comboboxes](https://tailwindui.com/components/application-ui/forms/comboboxes) category as well.
 
-<a href="https://tailwindui.com/components/application-ui/navigation/command-palettes">
-  <img src={commandPalette.src} alt="Command palette from Tailwind UI" />
-</a>
+[![Command palette from Tailwind UI](./command-palette.jpg)](https://tailwindui.com/components/application-ui/navigation/command-palettes)
 
 Riding on the excitement of the new command palettes, we also just published a new [in-depth screencast](https://www.youtube.com/watch?v=-jix4KyxLuQ) on building a command palette from scratch with Tailwind CSS, React and Headless UI.
 
 It covers tons of interesting Tailwind tricks for getting the design and animations just right, and teaches you a ton about how to use the new combobox component and wire it into your app.
 
-<!-- Command palettes video -->
+{/* Command palettes video */}
 
 ## Try it out
 

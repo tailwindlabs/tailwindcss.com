@@ -1,7 +1,6 @@
 import { SnippetGroup } from '@/components/SnippetGroup'
 import { adamwathan } from '@/authors'
 import card from './card.jpg'
-import discordMessage from './discord-message.png'
 
 export const meta = {
   title: 'Tailwind CSS v3.1: You wanna get nuts? Come on, let\'s get nuts!',
@@ -25,7 +24,7 @@ It's been about six months since we released [Tailwind CSS v3.0](/blog/tailwindc
 
 Then on a random Saturday night a couple of weeks ago, I was talking to Robin in our Discord about coming up with a way to target the `html` element using `:has` and a class deeper in the document, and explained how I thought it would look if we added support for arbitrary variants — something I've wanted to tackle for over a year:
 
-<img src={discordMessage.src} alt="Adam Wathan: I think if we do arbitrary variants, the syntax should just be that exact thing, '[html:has(&)]:bg-blue-500'. Feel like that is pretty flexible, like anything you can do with a real variant you can also do with an arbitrary variant since they are the same thing. '[&>*:not(:first-child)]:pl-4'. Robin: This is going to break my brain haha because '[html:has(&)]:bg-blue-500' would be used as a literal inside the '&'. That in combination with other variants... 🤯. Adam Wathan: 😅 it'll be a brain melter for sure. The CSS would be this lol 'html:has(\[html\:has\(\&\)\]\:bg-blue-500 { background: blue 500 }'. Robin: exactly haha. ok, now I want to try that brb." />
+![Adam Wathan: I think if we do arbitrary variants, the syntax should just be that exact thing, '[html:has(&)]:bg-blue-500'. Feel like that is pretty flexible, like anything you can do with a real variant you can also do with an arbitrary variant since they are the same thing. '[&>*:not(:first-child)]:pl-4'. Robin: This is going to break my brain haha because '[html:has(&)]:bg-blue-500' would be used as a literal inside the '&'. That in combination with other variants... 🤯. Adam Wathan: 😅 it'll be a brain melter for sure. The CSS would be this lol 'html:has(\\[html\\:has\\(\\&\\)\\]\\:bg-blue-500 \{ background: blue 500 \}'. Robin: exactly haha. ok, now I want to try that brb.](./discord-message.png)
 
 Twenty minutes later Robin had a working proof of concept _(in six lines of code!)_, and after another hour or so of Jordan performing regex miracles in our class detection engine, [arbitrary variants](https://github.com/tailwindlabs/tailwindcss/pull/8299) were born and we had our release-worthy feature.
 
@@ -57,7 +56,7 @@ We're now shipping types for all of our JS APIs you work with when using Tailwin
 
 To set it up, just add the type annotation above your config definition:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
 + /** @type {import('tailwindcss').Config} */
   module.exports = {
     content: [
@@ -78,14 +77,14 @@ If you're using our CLI tool to compile your CSS, [`postcss-import`](https://git
 
 <SnippetGroup>
 
-```css main.css
+```css {{ filename: 'main.css' }}
   @import "tailwindcss/base";
 > @import "./select2-theme.css";
   @import "tailwindcss/components";
   @import "tailwindcss/utilities";
 ```
 
-```css select2-theme.css
+```css {{ filename: 'select2-theme.css' }}
 .select2-dropdown {
   @apply rounded-b-lg shadow-md;
 }
@@ -108,7 +107,7 @@ This is especially handy if you're using our [standalone CLI](https://tailwindcs
 
 I don't think tons of people know about this, but Tailwind exposes a [`theme()` function](/docs/functions-and-directives#theme) to your CSS files that lets you grab values from your config file — sort of turning them into variables that you can reuse.
 
-```css select2-theme.css
+```css {{ filename: 'select2-theme.css' }}
 .select2-dropdown {
   border-radius: theme(borderRadius.lg);
   background-color: theme(colors.gray.100);
@@ -119,7 +118,7 @@ I don't think tons of people know about this, but Tailwind exposes a [`theme()` 
 
 One limitation though was that you couldn't adjust the alpha channel any colors you grabbed this way. So in v3.1 we've added support for using a slash syntax to adjust the opacity, like you can with the modern `rgb` and `hsl` CSS color functions:
 
-```css select2-theme.css
+```css {{ filename: 'select2-theme.css' }}
   .select2-dropdown {
     border-radius: theme(borderRadius.lg);
 >   background-color: theme(colors.gray.100 / 50%);
@@ -130,7 +129,7 @@ One limitation though was that you couldn't adjust the alpha channel any colors 
 
 We've made this work with the `theme` function in your `tailwind.config.js` file, too:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     content: [
       // ...
@@ -161,7 +160,7 @@ Anything to avoid editing a CSS file am I right?
 
 If you like to define and configure your colors as CSS variables, you probably have some horrible boilerplate like this in your `tailwind.config.js` file right now:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 function withOpacityValue(variable) {
   return ({ opacityValue }) => {
     if (opacityValue === undefined) {
@@ -184,7 +183,7 @@ module.exports = {
 
 We've made this way less awful in v3.1 by adding support for defining your colors with a format string instead of having to use a function:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   theme: {
     colors: {
@@ -204,32 +203,32 @@ If you haven't seen any of this before, check out our updated [Using CSS variabl
 
 We've added new set of utilities for the `border-spacing` property, so you can control the space between table borders when using [separate borders](/docs/border-collapse#separate):
 
-<Example p="none">
-  <div class="px-4 py-8 sm:px-8">
-    <table class="border-separate border-spacing-2 w-full text-sm">
-      <thead class="bg-slate-100 dark:bg-slate-700">
-        <tr>
-          <th class="w-1/2 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left">State</th>
-          <th class="w-1/2 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left">City</th>
-        </tr>
-      </thead>
-      <tbody class="bg-white">
-        <tr>
-          <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">Indiana</td>
-          <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">Indianapolis</td>
-        </tr>
-        <tr>
-          <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">Ohio</td>
-          <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">Columbus</td>
-        </tr>
-        <tr>
-          <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">Michigan</td>
-          <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">Detroit</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</Example>
+```html {{ example: { p: 'none' } }}
+<div class="px-4 py-8 sm:px-8">
+  <table class="border-separate border-spacing-2 w-full text-sm">
+    <thead class="bg-slate-100 dark:bg-slate-700">
+      <tr>
+        <th class="w-1/2 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left">State</th>
+        <th class="w-1/2 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left">City</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white">
+      <tr>
+        <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">Indiana</td>
+        <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">Indianapolis</td>
+      </tr>
+      <tr>
+        <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">Ohio</td>
+        <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">Columbus</td>
+      </tr>
+      <tr>
+        <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">Michigan</td>
+        <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">Detroit</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
 
 ```html
 <table class="border-separate **border-spacing-2** ..." dark-class="border-separate **border-spacing-2** ...">
@@ -253,91 +252,91 @@ I know what you're thinking — _"I have never in my life wanted to build a tabl
 
 One situation where this is actually super useful is when building a table with a sticky header row and you want a persistent bottom border under the headings:
 
-<Example p="none" hint="Scroll this table to see the sticky header row in action">
-  <div class="isolate h-72 overflow-auto rounded-xl">
-    <table class="min-w-full border-separate border-spacing-0">
-      <thead class="bg-gray-50">
-        <tr>
-          <th scope="col" class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8">Name</th>
-          <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell">Email</th>
-          <th scope="col" class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter">Role</th>
-        </tr>
-      </thead>
-      <tbody class="bg-white">
-        <tr>
-          <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Courtney Henry</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">courtney.henry@example.com</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Admin</td>
-        </tr>
-        <tr>
-          <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Tom Cook</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">tom.cook@example.com</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Member</td>
-        </tr>
-        <tr>
-          <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Whitney Francis</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">whitney.francis@example.com</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Admin</td>
-        </tr>
-        <tr>
-          <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Leonard Krasner</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">leonard.krasner@example.com</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Owner</td>
-        </tr>
-        <tr>
-          <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Floyd Miles</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">floyd.miles@example.com</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Member</td>
-        </tr>
-        <tr>
-          <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Emily Selman</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">emily.selman@example.com</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Member</td>
-        </tr>
-        <tr>
-          <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Kristin Watson</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">kristin.watson@example.com</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Admin</td>
-        </tr>
-        <tr>
-          <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Emma Dorsey</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">emma.dorsey@example.com</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Member</td>
-        </tr>
-        <tr>
-          <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Alicia Bell</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">alicia.bell@example.com</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Admin</td>
-        </tr>
-        <tr>
-          <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Jenny Wilson</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">jenny.wilson@example.com</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Owner</td>
-        </tr>
-        <tr>
-          <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Anna Roberts</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">anna.roberts@example.com</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Member</td>
-        </tr>
-        <tr>
-          <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Benjamin Russel</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">benjamin.russel@example.com</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Member</td>
-        </tr>
-        <tr>
-          <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Jeffrey Webb</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">jeffrey.webb@example.com</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Admin</td>
-        </tr>
-        <tr>
-          <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Kathryn Murphy</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">kathryn.murphy@example.com</td>
-          <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Member</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</Example>
+```html {{ example: { p: 'none', hint: 'Scroll this table to see the sticky header row in action' } }}
+<div class="isolate h-72 overflow-auto rounded-xl">
+  <table class="min-w-full border-separate border-spacing-0">
+    <thead class="bg-gray-50">
+      <tr>
+        <th scope="col" class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8">Name</th>
+        <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell">Email</th>
+        <th scope="col" class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter">Role</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white">
+      <tr>
+        <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Courtney Henry</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">courtney.henry@example.com</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Admin</td>
+      </tr>
+      <tr>
+        <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Tom Cook</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">tom.cook@example.com</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Member</td>
+      </tr>
+      <tr>
+        <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Whitney Francis</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">whitney.francis@example.com</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Admin</td>
+      </tr>
+      <tr>
+        <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Leonard Krasner</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">leonard.krasner@example.com</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Owner</td>
+      </tr>
+      <tr>
+        <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Floyd Miles</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">floyd.miles@example.com</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Member</td>
+      </tr>
+      <tr>
+        <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Emily Selman</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">emily.selman@example.com</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Member</td>
+      </tr>
+      <tr>
+        <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Kristin Watson</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">kristin.watson@example.com</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Admin</td>
+      </tr>
+      <tr>
+        <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Emma Dorsey</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">emma.dorsey@example.com</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Member</td>
+      </tr>
+      <tr>
+        <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Alicia Bell</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">alicia.bell@example.com</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Admin</td>
+      </tr>
+      <tr>
+        <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Jenny Wilson</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">jenny.wilson@example.com</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Owner</td>
+      </tr>
+      <tr>
+        <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Anna Roberts</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">anna.roberts@example.com</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Member</td>
+      </tr>
+      <tr>
+        <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Benjamin Russel</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">benjamin.russel@example.com</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Member</td>
+      </tr>
+      <tr>
+        <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Jeffrey Webb</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">jeffrey.webb@example.com</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Admin</td>
+      </tr>
+      <tr>
+        <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Kathryn Murphy</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">kathryn.murphy@example.com</td>
+        <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Member</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
 
 ```html
 <table class="**border-separate border-spacing-0**">
@@ -373,13 +372,13 @@ Ouch, that hurts because it's true — I pretty much just write emails and answe
 
 But check out this disabled button example:
 
-<Example>
-  <div class="flex items-center justify-center">
-    <button type="button" class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500 hover:bg-indigo-400 transition ease-in-out duration-150 cursor-not-allowed disabled:opacity-75" disabled>
-      Processing...
-    </button>
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="flex items-center justify-center">
+  <button type="button" class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500 hover:bg-indigo-400 transition ease-in-out duration-150 cursor-not-allowed disabled:opacity-75" disabled>
+    Processing...
+  </button>
+</div>
+```
 
 ```html
 <button type="button" class="bg-indigo-500 hover:bg-indigo-400 disabled:opacity-75 ..." disabled>
@@ -397,13 +396,13 @@ Notice how when you hover over the button, the background still changes color ev
 
 But with the new `enabled` modifier, you can write it like this instead:
 
-<Example>
-  <div class="flex items-center justify-center">
-    <button type="button" class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500 hover:enabled:bg-indigo-400 transition ease-in-out duration-150 cursor-not-allowed disabled:opacity-75" disabled>
-      Processing...
-    </button>
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="flex items-center justify-center">
+  <button type="button" class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500 hover:enabled:bg-indigo-400 transition ease-in-out duration-150 cursor-not-allowed disabled:opacity-75" disabled>
+    Processing...
+  </button>
+</div>
+```
 
 ```html
 <button type="button" class="bg-indigo-500 **hover:enabled:bg-indigo-400** disabled:opacity-75  ..." disabled>
@@ -415,35 +414,35 @@ Instead of overriding the hover color back to the default color when the button 
 
 Here's an example combining the new `optional` modifier with our [sibling state features](/docs/hover-focus-and-other-states#styling-based-on-sibling-state) to hide a little "Required" notice for fields that aren't required:
 
-<Example p="none">
-  <div class="max-w-sm mx-auto bg-white shadow py-5 px-6">
-    <form>
-      <div>
-        <label for="optional-email" class="block text-sm font-medium text-slate-700">Email</label>
-        <div class="mt-1 relative">
-          <input required type="text" name="email" id="optional-email" class="peer px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
-          <div class="peer-optional:hidden absolute inset-y-0 right-0 text-sm pr-3 py-2 border-y border-transparent text-slate-400">
-            Required
-          </div>
+```html {{ example: { p: 'none' } }}
+<div class="max-w-sm mx-auto bg-white shadow py-5 px-6">
+  <form>
+    <div>
+      <label for="optional-email" class="block text-sm font-medium text-slate-700">Email</label>
+      <div class="mt-1 relative">
+        <input required type="text" name="email" id="optional-email" class="peer px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
+        <div class="peer-optional:hidden absolute inset-y-0 right-0 text-sm pr-3 py-2 border-y border-transparent text-slate-400">
+          Required
         </div>
       </div>
-      <div class="mt-6">
-        <label for="optional-name" class="block text-sm font-medium text-slate-700">Name</label>
-        <div class="mt-1 relative">
-          <input type="text" name="name" id="optional-name" class="peer px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
-          <div class="peer-optional:hidden absolute inset-y-0 right-0 text-sm pr-3 py-2 border-y border-transparent text-slate-400">
-            Required
-          </div>
+    </div>
+    <div class="mt-6">
+      <label for="optional-name" class="block text-sm font-medium text-slate-700">Name</label>
+      <div class="mt-1 relative">
+        <input type="text" name="name" id="optional-name" class="peer px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
+        <div class="peer-optional:hidden absolute inset-y-0 right-0 text-sm pr-3 py-2 border-y border-transparent text-slate-400">
+          Required
         </div>
       </div>
-      <div class="mt-6 text-right">
-        <button class="bg-sky-500 hover:bg-sky-700 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white">
-          Submit
-        </button>
-      </div>
-    </form>
-  </div>
-</Example>
+    </div>
+    <div class="mt-6 text-right">
+      <button class="bg-sky-500 hover:bg-sky-700 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+```
 
 ```html
 <form>
@@ -477,19 +476,19 @@ Did you know there's a `prefers-contrast` media query? Well there is, and now Ta
 
 Use the new `contrast-more` and `contrast-less` variants to modify your design when the user has requested more or less contrast, usually through an operating system accessibility preference like "Increase contrast" on macOS.
 
-<Example hint="Try emulating `prefers-contrast: more` in your developer tools to see the changes" p="none">
-  <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-4 px-6">
-    <form>
-      <div>
-        <label for="contrast-example" class="block text-sm font-medium text-slate-700">Social Security Number</label>
-        <div class="mt-1">
-          <input type="text" name="contrast-example" id="contrast-example" class="px-3 py-2 bg-white border shadow-sm border-slate-200 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 contrast-more:border-slate-400 contrast-more:placeholder-slate-500"  placeholder="000-00-0000" />
-          <p class="mt-2 text-sm text-slate-600 opacity-10 contrast-more:opacity-100">We need this to steal your identity.</p>
-        </div>
+```html {{ example: { p: 'none', hint: 'Try emulating &#96;prefers-contrast: more&#96; in your developer tools to see the changes' } }}
+<div class="max-w-sm mx-auto bg-white shadow pt-6 pb-4 px-6">
+  <form>
+    <div>
+      <label for="contrast-example" class="block text-sm font-medium text-slate-700">Social Security Number</label>
+      <div class="mt-1">
+        <input type="text" name="contrast-example" id="contrast-example" class="px-3 py-2 bg-white border shadow-sm border-slate-200 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 contrast-more:border-slate-400 contrast-more:placeholder-slate-500"  placeholder="000-00-0000" />
+        <p class="mt-2 text-sm text-slate-600 opacity-10 contrast-more:opacity-100">We need this to steal your identity.</p>
       </div>
-    </form>
-  </div>
-</Example>
+    </div>
+  </form>
+</div>
+```
 
 ```html
 <form>
@@ -527,7 +526,7 @@ I recommend reading the [MDN Dialog documentation](https://developer.mozilla.org
 
 Okay so this one is the real highlight for me — you know how we give you the [`addVariant` API](https://tailwindcss.com/docs/plugins#adding-variants) for creating your own custom variants?
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
   const plugin = require('tailwindcss/plugin')
 
   module.exports = {
@@ -566,35 +565,35 @@ This is super useful for variants that sort of feel like they need to be paramet
 
 You can even use this feature to target child elements with arbitrary variants like `[&>*]`:
 
-<Example p="none">
-  <div class="px-4 py-6">
-    <div class="max-w-md mx-auto">
-      <ul role="list" class="[&>*]:p-4 [&>*]:bg-white [&>*]:rounded-lg [&>*]:shadow space-y-4">
-        <li class="flex">
-          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-          <div class="ml-3 overflow-hidden">
-            <p class="text-sm font-medium text-slate-900">Kristen Ramos</p>
-            <p class="text-sm text-slate-500 truncate">kristen.ramos@example.com</p>
-          </div>
-        </li>
-        <li class="flex">
-          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-          <div class="ml-3 overflow-hidden">
-            <p class="text-sm font-medium text-slate-900">Floyd Miles</p>
-            <p class="text-sm text-slate-500 truncate">floyd.miles@example.com</p>
-          </div>
-        </li>
-        <li class="flex">
-          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-          <div class="ml-3 overflow-hidden">
-            <p class="text-sm font-medium text-slate-900">Courtney Henry</p>
-            <p class="text-sm text-slate-500 truncate">courtney.henry@example.com</p>
-          </div>
-        </li>
-      </ul>
-    </div>
+```html {{ example: { p: 'none' } }}
+<div class="px-4 py-6">
+  <div class="max-w-md mx-auto">
+    <ul role="list" class="[&>*]:p-4 [&>*]:bg-white [&>*]:rounded-lg [&>*]:shadow space-y-4">
+      <li class="flex">
+        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+        <div class="ml-3 overflow-hidden">
+          <p class="text-sm font-medium text-slate-900">Kristen Ramos</p>
+          <p class="text-sm text-slate-500 truncate">kristen.ramos@example.com</p>
+        </div>
+      </li>
+      <li class="flex">
+        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+        <div class="ml-3 overflow-hidden">
+          <p class="text-sm font-medium text-slate-900">Floyd Miles</p>
+          <p class="text-sm text-slate-500 truncate">floyd.miles@example.com</p>
+        </div>
+      </li>
+      <li class="flex">
+        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+        <div class="ml-3 overflow-hidden">
+          <p class="text-sm font-medium text-slate-900">Courtney Henry</p>
+          <p class="text-sm text-slate-500 truncate">courtney.henry@example.com</p>
+        </div>
+      </li>
+    </ul>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <ul role="list" class="**[&>*]:p-4** **[&>*]:bg-white** **[&>*]:rounded-lg** **[&>*]:shadow** space-y-4">
@@ -611,35 +610,35 @@ You can even use this feature to target child elements with arbitrary variants l
 
 You can even style the first `p` inside the `div` in the second child `li` but only on `hover`:
 
-<Example p="none"hint="Try hovering over the text &ldquo;Floyd Miles&rdquo;" >
-  <div class="px-4 py-6">
-    <div class="max-w-md mx-auto">
-      <ul role="list" class="hover:[&>li:nth-child(2)>div>p:first-child]:text-indigo-500 [&>*]:p-4 [&>*]:bg-white [&>*]:rounded-lg [&>*]:shadow space-y-4">
-        <li class="flex">
-          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-          <div class="ml-3 overflow-hidden">
-            <p class="text-sm font-medium text-slate-900">Kristen Ramos</p>
-            <p class="text-sm text-slate-500 truncate">kristen.ramos@example.com</p>
-          </div>
-        </li>
-        <li class="flex">
-          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-          <div class="ml-3 overflow-hidden">
-            <p class="text-sm font-medium text-slate-900">Floyd Miles</p>
-            <p class="text-sm text-slate-500 truncate">floyd.miles@example.com</p>
-          </div>
-        </li>
-        <li class="flex">
-          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-          <div class="ml-3 overflow-hidden">
-            <p class="text-sm font-medium text-slate-900">Courtney Henry</p>
-            <p class="text-sm text-slate-500 truncate">courtney.henry@example.com</p>
-          </div>
-        </li>
-      </ul>
-    </div>
+```html {{ example: { p: 'none', hint: 'Try hovering over the text &ldquo;Floyd Miles&rdquo;' } }}
+<div class="px-4 py-6">
+  <div class="max-w-md mx-auto">
+    <ul role="list" class="hover:[&>li:nth-child(2)>div>p:first-child]:text-indigo-500 [&>*]:p-4 [&>*]:bg-white [&>*]:rounded-lg [&>*]:shadow space-y-4">
+      <li class="flex">
+        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+        <div class="ml-3 overflow-hidden">
+          <p class="text-sm font-medium text-slate-900">Kristen Ramos</p>
+          <p class="text-sm text-slate-500 truncate">kristen.ramos@example.com</p>
+        </div>
+      </li>
+      <li class="flex">
+        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+        <div class="ml-3 overflow-hidden">
+          <p class="text-sm font-medium text-slate-900">Floyd Miles</p>
+          <p class="text-sm text-slate-500 truncate">floyd.miles@example.com</p>
+        </div>
+      </li>
+      <li class="flex">
+        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+        <div class="ml-3 overflow-hidden">
+          <p class="text-sm font-medium text-slate-900">Courtney Henry</p>
+          <p class="text-sm text-slate-500 truncate">courtney.henry@example.com</p>
+        </div>
+      </li>
+    </ul>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <ul role="list" class="**hover:[&>li:nth-child(2)>div>p:first-child]:text-indigo-500** [&>*]:p-4 [&>*]:bg-white [&>*]:rounded-lg [&>*]:shadow space-y-4">

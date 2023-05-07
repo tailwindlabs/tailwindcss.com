@@ -22,22 +22,22 @@ export const classes = {
 
 Use the `ring-offset-{width}` utilities to simulate an offset by adding solid white box-shadow and increasing the thickness of the accompanying outline ring to accommodate the offset.
 
-<Example>
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-white text-sm text-center font-bold leading-6">
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm font-mono text-slate-500 text-center mb-3 dark:text-slate-400">ring-offset-0</p>
-      <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm ring-2 ring-offset-slate-50 ring-pink-500 ring-offset-0 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent dark:ring-offset-slate-900">Button A</button>
-    </div>
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm font-mono text-slate-500 text-center mb-3 dark:text-slate-400">ring-offset-2</p>
-      <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm ring-2 ring-offset-slate-50 ring-pink-500 ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent dark:ring-offset-slate-900">Button B</button>
-    </div>
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm font-mono text-slate-500 text-center mb-3 dark:text-slate-400">ring-offset-4</p>
-      <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm ring-2 ring-offset-slate-50 ring-pink-500 ring-offset-4 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent dark:ring-offset-slate-900">Button C</button>
-    </div>
+```html {{ example: true }}
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-white text-sm text-center font-bold leading-6">
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm font-mono text-slate-500 text-center mb-3 dark:text-slate-400">ring-offset-0</p>
+    <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm ring-2 ring-offset-slate-50 ring-pink-500 ring-offset-0 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent dark:ring-offset-slate-900">Button A</button>
   </div>
-</Example>
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm font-mono text-slate-500 text-center mb-3 dark:text-slate-400">ring-offset-2</p>
+    <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm ring-2 ring-offset-slate-50 ring-pink-500 ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent dark:ring-offset-slate-900">Button B</button>
+  </div>
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm font-mono text-slate-500 text-center mb-3 dark:text-slate-400">ring-offset-4</p>
+    <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm ring-2 ring-offset-slate-50 ring-pink-500 ring-offset-4 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent dark:ring-offset-slate-900">Button C</button>
+  </div>
+</div>
+```
 
 ```html
 <button class="... ring ring-pink-500 **ring-offset-0**">Button A</button>
@@ -49,17 +49,17 @@ Use the `ring-offset-{width}` utilities to simulate an offset by adding solid wh
 
 You can't actually offset a box-shadow in CSS, so we have to fake it using a solid color shadow that matches the parent background color. We use white by default, but if you are adding a ring offset over a different background color, you should use the `ring-offset-{color}` utilities to match the parent background color:
 
-<Example>
-  <div class="grid place-content-center text-white text-sm text-center font-bold leading-6">
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm font-mono text-slate-500 text-center mb-3 dark:text-slate-400">
-        <span class="dark:hidden">ring-offset-slate-50</span>
-        <span class="hidden dark:inline">dark:ring-offset-slate-900</span>
-      </p>
-      <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm ring-2 ring-offset-4 ring-offset-slate-50 ring-pink-500 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent dark:ring-offset-slate-900">Save Changes</button>
-    </div>
+```html {{ example: true }}
+<div class="grid place-content-center text-white text-sm text-center font-bold leading-6">
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm font-mono text-slate-500 text-center mb-3 dark:text-slate-400">
+      <span class="dark:hidden">ring-offset-slate-50</span>
+      <span class="hidden dark:inline">dark:ring-offset-slate-900</span>
+    </p>
+    <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm ring-2 ring-offset-4 ring-offset-slate-50 ring-pink-500 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent dark:ring-offset-slate-900">Save Changes</button>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <button class="ring ring-pink-500 **ring-offset-2** **ring-offset-slate-50** **dark:ring-offset-slate-900** ...">
@@ -89,7 +89,7 @@ For more information, see the [ring offset color](/docs/ring-offset-color) docum
 
 To customize which ring offset width utilities are generated, add your custom values under `ringOffsetWidth` key in the `theme` section of your `tailwind.config.js` file.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   theme: {
     extend: {

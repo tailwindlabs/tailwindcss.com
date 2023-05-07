@@ -9,13 +9,13 @@ export const meta = {
   image,
 }
 
-<!--excerpt-->
+{/*excerpt*/}
 
 I was hoping to save v1.5.0 for something _really_ exciting but we needed a new feature to support the new [`@tailwindcss/typography`](https://github.com/tailwindcss/typography) plugin so h\*ck it, we're dropping some new stuff on you early.
 
 No breaking changes, this is a minor release and we're professionals you silly goose.
 
-<!--/excerpt-->
+{/*/excerpt*/}
 
 I was hoping to save v1.5.0 for something _really_ exciting but we needed a new feature to support the new [`@tailwindcss/typography`](https://github.com/tailwindcss/typography) plugin so h\*ck it, we're dropping some new stuff on you early.
 
@@ -88,7 +88,7 @@ Piggy-backing off of the new component `variants` support, the `container` class
 
 We've enabled responsive variants by default, but if you are sick in the head you can also manually enable other variants like `focus`, `group-hover`, whatever:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   // ...
   variants: {
@@ -111,7 +111,7 @@ This is super useful for adding focus styles that _only_ appear to keyboard user
 
 It's not enabled for anything by default, but you can enable it in the `variants` section of your config file:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   // ...
   variants: {
@@ -132,7 +132,7 @@ We've added a new `checked` variant you can use to conditionally style things li
 
 It's not enabled for anything by default, but you can enable it in the `variants` section of your config file:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   // ...
   variants: {

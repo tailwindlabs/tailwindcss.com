@@ -1,8 +1,5 @@
 import { adamwathan } from '@/authors'
 import card from './card.jpg'
-import darkSlate from './950-slate.png'
-import darkSky from './950-sky.png'
-import darkSkyDark from './950-sky-dark.png'
 import { SnippetGroup } from '@/components/SnippetGroup'
 
 export const meta = {
@@ -13,20 +10,18 @@ export const meta = {
   image: card,
 }
 
-<!--excerpt-->
+{/*excerpt*/}
 
 Tailwind CSS v3.3 is here — bringing a bunch of new features people have been asking for forever, and a bunch of new stuff you didn't even know you wanted.
 
-<!--/excerpt-->
+{/*/excerpt*/}
 
-<div className="my-8">
-  <img src={card.src} alt="Tailwind CSS v3.3"/>
-</div>
+![Tailwind CSS v3.3](./card.jpg)
 
 Tailwind CSS v3.3 is here — bringing a bunch of new features people have been asking for forever, and a bunch of new stuff you didn't even know you wanted.
 
 - [Extended color palette for darker darks:](#extended-color-palette-for-darker-darks) New darker 950 shades for every color.
-- [ESM and TypeScript support:](#esm-and-typescript-support) Write your config file using ESM or TypeScript.
+- [ESM and TypeScript support:](#esm-and-type-script-support) Write your config file using ESM or TypeScript.
 - [Simplified RTL support with logical properties:](#simplified-rtl-support-with-logical-properties) Build layouts that adapt to different directions.
 - [Fine-tune gradient color stop positions:](#fine-tune-gradient-color-stop-positions) Specify exactly where you want each color stop to go.
 - [Line-clamp out of the box:](#line-clamp-out-of-the-box) Truncate multi-line text without a plugin.
@@ -49,7 +44,7 @@ You can also try out all of the new features on [Tailwind Play](https://play.tai
 
 ---
 
-<h2 id="extended-color-palette-for-darker-darks">Extended color palette for darker darks</h2>
+## Extended color palette for darker darks
 
 One of the most common feature requests we've had over the years is to add darker shades for every color — usually because someone is building a dark UI and just wants more options down in that dark end of the spectrum.
 
@@ -57,18 +52,16 @@ Well wish granted — in Tailwind CSS v3.3 we've added a new `950` shade for eve
 
 In the grays they act as basically a tinted black, which is great for ultra dark UIs:
 
-<div className="my-8">
-  <img src={darkSlate.src} alt="Comparison between two dark user interfaces, one using slate-900 as the darkest color and the other using slate-950 as the darkest color"/>
-</div>
+![Comparison between two dark user interfaces, one using slate-900 as the darkest color and the other using slate-950 as the darkest color](./950-slate.png)
 
 And in the rest of the color spectrum we optimized `950` for high contrast text and tinted control backgrounds:
 
-<div className="my-8 dark:hidden">
-  <img src={darkSky.src} alt="Comparison between two light user interfaces, one using sky-900 as the darkest color and the other using sky-950 as the darkest color"/>
+<div className="contents dark:hidden">
+![Comparison between two light user interfaces, one using sky-900 as the darkest color and the other using sky-950 as the darkest color](./950-sky.png)
 </div>
 
-<div className="my-8 hidden dark:block">
-  <img src={darkSkyDark.src} alt="Comparison between two light user interfaces, one using sky-900 as the darkest color and the other using sky-950 as the darkest color"/>
+<div className="hidden dark:contents">
+![Comparison between two light user interfaces, one using sky-900 as the darkest color and the other using sky-950 as the darkest color](./950-sky-dark.png)
 </div>
 
 Believe it or not the hardest part about this project was convincing ourselves to be okay with having 11 shades per color. Trying to make that look good in the [color palette documentation](/docs/customizing-colors) was a nightmare.
@@ -77,7 +70,7 @@ Also pour one out for the 50 shades of gray jokes we used to be able to make.
 
 ---
 
-<h2 id="esm-and-typescript-support">ESM and TypeScript support</h2>
+## ESM and TypeScript support
 
 Now you can configure Tailwind CSS in ESM, or even in TypeScript:
 
@@ -131,36 +124,36 @@ We're handling this with the wonderful [jiti](https://github.com/unjs/jiti) libr
 
 ---
 
-<h2 id="simplified-rtl-support-with-logical-properties">Simplified RTL support with logical properties</h2>
+## Simplified RTL support with logical properties
 
 We've made it possible to style multi-directional websites using our [LTR and RTL variants](https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support) for a while, but now you can use [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts) to do most of this styling more easily and automatically.
 
 Using new utilities like `ms-3` and `me-3`, you can style the _start_ and _end_ of an element so that your styles automatically adapt in RTL, instead of writing code like `ltr:ml-3 rtl:mr-3`:
 
-<Example>
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 max-w-lg mx-auto">
-    <div dir="ltr">
-      <p class="mb-4 text-sm font-medium">Left-to-right</p>
-      <div class="group flex items-center">
-        <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-        <div class="ms-3">
-          <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">Tom Cook</p>
-          <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">Director of Operations</p>
-        </div>
-      </div>
-    </div>
-    <div dir="rtl">
-      <p class="mb-4 text-sm font-medium">Right-to-left</p>
-      <div class="group flex items-center">
-        <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1563833717765-00462801314e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-        <div class="ms-3">
-          <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">تامر كرم</p>
-          <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">الرئيس التنفيذي</p>
-        </div>
+```html {{ example: true }}
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 max-w-lg mx-auto">
+  <div dir="ltr">
+    <p class="mb-4 text-sm font-medium">Left-to-right</p>
+    <div class="group flex items-center">
+      <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+      <div class="ms-3">
+        <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">Tom Cook</p>
+        <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">Director of Operations</p>
       </div>
     </div>
   </div>
-</Example>
+  <div dir="rtl">
+    <p class="mb-4 text-sm font-medium">Right-to-left</p>
+    <div class="group flex items-center">
+      <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1563833717765-00462801314e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+      <div class="ms-3">
+        <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">تامر كرم</p>
+        <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">الرئيس التنفيذي</p>
+      </div>
+    </div>
+  </div>
+</div>
+```
 
 ```diff-html
   <div class="group flex items-center">
@@ -189,104 +182,104 @@ Here's a full list of all of the new utilities we've added and what they map to:
       </thead>
       <tbody>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>start-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'start-*'}</code></td>
           <td><code>inset-inline-start</code></td>
-          <td className="pr-4 sm:pr-0"><code>left-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'left-*'}</code></td>
         </tr>
         <tr>
           <td className="pl-4 sm:pl-0"><code>end-*</code></td>
           <td><code>inset-inline-end</code></td>
-          <td className="pr-4 sm:pr-0"><code>right-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'right-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>ms-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'ms-*'}</code></td>
           <td><code>margin-inline-start</code></td>
-          <td className="pr-4 sm:pr-0"><code>ml-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'ml-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>me-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'me-*'}</code></td>
           <td><code>margin-inline-end</code></td>
-          <td className="pr-4 sm:pr-0"><code>mr-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'mr-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>ps-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'ps-*'}</code></td>
           <td><code>padding-inline-start</code></td>
-          <td className="pr-4 sm:pr-0"><code>pl-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'pl-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>pe-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'pe-*'}</code></td>
           <td><code>padding-inline-end</code></td>
-          <td className="pr-4 sm:pr-0"><code>pr-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'pr-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>rounded-s-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'rounded-s-*'}</code></td>
           <td><code>border-start-start-radius</code><br /><code>border-end-start-radius</code></td>
-          <td className="pr-4 sm:pr-0"><code>rounded-l-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'rounded-l-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>rounded-e-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'rounded-e-*'}</code></td>
           <td><code>border-start-end-radius</code><br /><code>border-end-end-radius</code></td>
-          <td className="pr-4 sm:pr-0"><code>rounded-r-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'rounded-r-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>rounded-ss-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'rounded-ss-*'}</code></td>
           <td><code>border-start-start-radius</code></td>
-          <td className="pr-4 sm:pr-0"><code>rounded-tl-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'rounded-tl-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>rounded-se-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'rounded-se-*'}</code></td>
           <td><code>border-start-end-radius</code></td>
-          <td className="pr-4 sm:pr-0"><code>rounded-tr-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'rounded-tr-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>rounded-ee-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'rounded-ee-*'}</code></td>
           <td><code>border-end-end-radius</code></td>
-          <td className="pr-4 sm:pr-0"><code>rounded-br-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'rounded-br-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>rounded-es-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'rounded-es-*'}</code></td>
           <td><code>border-end-start-radius</code></td>
-          <td className="pr-4 sm:pr-0"><code>rounded-bl-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'rounded-bl-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>border-s-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'border-s-*'}</code></td>
           <td><code>border-inline-start-width</code></td>
-          <td className="pr-4 sm:pr-0"><code>border-l-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'border-l-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>border-e-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'border-e-*'}</code></td>
           <td><code>border-inline-end-width</code></td>
-          <td className="pr-4 sm:pr-0"><code>border-r-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'border-r-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>border-s-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'border-s-*'}</code></td>
           <td><code>border-inline-start-color</code></td>
-          <td className="pr-4 sm:pr-0"><code>border-l-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'border-l-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>border-e-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'border-e-*'}</code></td>
           <td><code>border-inline-end-color</code></td>
-          <td className="pr-4 sm:pr-0"><code>border-r-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'border-r-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>scroll-ms-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'scroll-ms-*'}</code></td>
           <td><code>scroll-margin-inline-start</code></td>
-          <td className="pr-4 sm:pr-0"><code>scroll-ml-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'scroll-ml-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>scroll-me-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'scroll-me-*'}</code></td>
           <td><code>scroll-margin-inline-end</code></td>
-          <td className="pr-4 sm:pr-0"><code>scroll-mr-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'scroll-mr-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>scroll-ps-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'scroll-ps-*'}</code></td>
           <td><code>scroll-padding-inline-start</code></td>
-          <td className="pr-4 sm:pr-0"><code>scroll-pl-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'scroll-pl-*'}</code></td>
         </tr>
         <tr>
-          <td className="pl-4 sm:pl-0"><code>scroll-pe-*</code></td>
+          <td className="pl-4 sm:pl-0"><code>{'scroll-pe-*'}</code></td>
           <td><code>scroll-padding-inline-end</code></td>
-          <td className="pr-4 sm:pr-0"><code>scroll-pr-*</code></td>
+          <td className="pr-4 sm:pr-0"><code>{'scroll-pr-*'}</code></td>
         </tr>
       </tbody>
     </table>
@@ -297,7 +290,7 @@ These should save you a ton of code if you regularly build sites that need to su
 
 ---
 
-<h2 id="fine-tune-gradient-color-stop-positions">Fine-tune gradient color stop positions</h2>
+## Fine-tune gradient color stop positions
 
 We've added new utilities like `from-5%`, `via-35%`, and `to-85%` that let you adjust the actual position of each color stop in your gradients:
 
@@ -308,34 +301,34 @@ We've added new utilities like `from-5%`, `via-35%`, and `to-85%` that let you a
   </symbol>
 </svg>
 
-<Example>
-  <div class="mx-5">
-    <div class="relative h-[3.625rem]">
-      <div class="h-12 flex flex-col items-center absolute top-0 left-[10%] -ml-4">
-        <svg viewBox="0 0 32 34" class="flex-none fill-indigo-500 w-8 drop-shadow">
-          <use href="#gradient-color-stop" />
-        </svg>
-        <div class="mt-2 w-0.5 h-2 bg-gray-900/30 dark:bg-white/30"></div>
-        <div class="absolute top-0 left-0 w-full h-8 flex items-center justify-center text-[0.6875rem] font-semibold text-white font-mono">10%</div>
-      </div>
-      <div class="h-12 flex flex-col items-center absolute top-0 left-[30%] -ml-4">
-        <svg viewBox="0 0 32 34" class="flex-none fill-sky-500 w-8 drop-shadow">
-          <use href="#gradient-color-stop" />
-        </svg>
-        <div class="mt-2 w-0.5 h-2 bg-gray-900/30 dark:bg-white/30"></div>
-        <div class="absolute top-0 left-0 w-full h-8 flex items-center justify-center text-[0.6875rem] font-semibold text-white font-mono">30%</div>
-      </div>
-      <div class="h-12 flex flex-col items-center absolute top-0 right-[10%] -mr-4">
-        <svg viewBox="0 0 32 34" class="flex-none fill-emerald-500 w-8 drop-shadow">
-          <use href="#gradient-color-stop" />
-        </svg>
-        <div class="mt-2 w-0.5 h-2 bg-gray-900/30 dark:bg-white/30"></div>
-        <div class="absolute top-0 left-0 w-full h-8 flex items-center justify-center text-[0.6875rem] font-semibold text-white font-mono">90%</div>
-      </div>
+```html {{ example: true }}
+<div class="mx-5">
+  <div class="relative h-[3.625rem]">
+    <div class="h-12 flex flex-col items-center absolute top-0 left-[10%] -ml-4">
+      <svg viewBox="0 0 32 34" class="flex-none fill-indigo-500 w-8 drop-shadow">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div class="mt-2 w-0.5 h-2 bg-gray-900/30 dark:bg-white/30"></div>
+      <div class="absolute top-0 left-0 w-full h-8 flex items-center justify-center text-[0.6875rem] font-semibold text-white font-mono">10%</div>
     </div>
-    <div class="h-10 rounded-lg bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"></div>
+    <div class="h-12 flex flex-col items-center absolute top-0 left-[30%] -ml-4">
+      <svg viewBox="0 0 32 34" class="flex-none fill-sky-500 w-8 drop-shadow">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div class="mt-2 w-0.5 h-2 bg-gray-900/30 dark:bg-white/30"></div>
+      <div class="absolute top-0 left-0 w-full h-8 flex items-center justify-center text-[0.6875rem] font-semibold text-white font-mono">30%</div>
+    </div>
+    <div class="h-12 flex flex-col items-center absolute top-0 right-[10%] -mr-4">
+      <svg viewBox="0 0 32 34" class="flex-none fill-emerald-500 w-8 drop-shadow">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div class="mt-2 w-0.5 h-2 bg-gray-900/30 dark:bg-white/30"></div>
+      <div class="absolute top-0 left-0 w-full h-8 flex items-center justify-center text-[0.6875rem] font-semibold text-white font-mono">90%</div>
+    </div>
   </div>
-</Example>
+  <div class="h-10 rounded-lg bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"></div>
+</div>
+```
 
 ```html
 <div class="bg-gradient-to-r from-indigo-500 **from-10%** via-purple-500 **via-30%** to-pink-500 **to-90%** ...">
@@ -355,23 +348,23 @@ For more details, check out the [gradient color stops documentation](/docs/gradi
 
 ---
 
-<h2 id="line-clamp-out-of-the-box">Line-clamp out of the box</h2>
+## Line-clamp out of the box
 
 We released our [official line-clamp plugin](https://tailwindcss.com/blog/multi-line-truncation-with-tailwindcss-line-clamp) just over two years ago and even though it uses a bunch of weird deprecated `-webkit-*` stuff, it works in every browser and it's going to work forever, so we decided to just bake it into the framework itself.
 
-<Example p="none">
-  <div class="px-4 sm:px-0">
-    <article class="mx-auto max-w-sm bg-white p-8 text-sm leading-6 text-slate-700 shadow-xl dark:bg-slate-800 dark:text-slate-400 sm:text-base sm:leading-7">
-      <time datetime="2020-03-16" class="block text-sm leading-6 text-slate-500 dark:text-slate-400">Mar 10, 2020</time>
-      <h2 class="mt-2 text-lg font-semibold text-slate-900 dark:text-slate-200">Boost your conversion rate</h2>
-      <p class="line-clamp-3 mt-4 text-sm leading-6 text-slate-500 dark:text-slate-400">Nulla dolor velit adipisicing duis excepteur esse in duis nostrud occaecat mollit incididunt deserunt sunt. Ut ut sunt laborum ex occaecat eu tempor labore enim adipisicing minim ad. Est in quis eu dolore occaecat excepteur fugiat dolore nisi aliqua fugiat enim ut cillum. Labore enim duis nostrud eu. Est ut eiusmod consequat irure quis deserunt ex. Enim laboris dolor magna pariatur. Dolor et ad sint voluptate sunt elit mollit officia ad enim sit consectetur enim.</p>
-      <div class="mt-4 flex gap-x-2.5 text-sm font-semibold leading-6 text-slate-900 dark:text-slate-200">
-        <img class="h-6 w-6 flex-none rounded-full bg-slate-50 dark:bg-slate-900" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-        Lindsay Walton
-      </div>
-    </article>
-  </div>
-</Example>
+```html {{ example: { p: 'none' } }}
+<div class="px-4 sm:px-0">
+  <article class="mx-auto max-w-sm bg-white p-8 text-sm leading-6 text-slate-700 shadow-xl dark:bg-slate-800 dark:text-slate-400 sm:text-base sm:leading-7">
+    <time datetime="2020-03-16" class="block text-sm leading-6 text-slate-500 dark:text-slate-400">Mar 10, 2020</time>
+    <h2 class="mt-2 text-lg font-semibold text-slate-900 dark:text-slate-200">Boost your conversion rate</h2>
+    <p class="line-clamp-3 mt-4 text-sm leading-6 text-slate-500 dark:text-slate-400">Nulla dolor velit adipisicing duis excepteur esse in duis nostrud occaecat mollit incididunt deserunt sunt. Ut ut sunt laborum ex occaecat eu tempor labore enim adipisicing minim ad. Est in quis eu dolore occaecat excepteur fugiat dolore nisi aliqua fugiat enim ut cillum. Labore enim duis nostrud eu. Est ut eiusmod consequat irure quis deserunt ex. Enim laboris dolor magna pariatur. Dolor et ad sint voluptate sunt elit mollit officia ad enim sit consectetur enim.</p>
+    <div class="mt-4 flex gap-x-2.5 text-sm font-semibold leading-6 text-slate-900 dark:text-slate-200">
+      <img class="h-6 w-6 flex-none rounded-full bg-slate-50 dark:bg-slate-900" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+      Lindsay Walton
+    </div>
+  </article>
+</div>
+```
 
 ```html
   <article>
@@ -391,7 +384,7 @@ We released our [official line-clamp plugin](https://tailwindcss.com/blog/multi-
 
 So when you upgrade to v3.3, you can safely remove the line-clamp plugin if you were using it:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     // ...
     plugins: [
@@ -406,7 +399,7 @@ Check out the new [line-clamp documentation](/docs/line-clamp) to learn more abo
 
 ---
 
-<h2 id="new-line-height-shorthand-for-font-size-utilities">New line-height shorthand for font-size utilities</h2>
+## New line-height shorthand for font-size utilities
 
 One thing we've found over years and years of designing beautiful stuff with Tailwind is that we literally _never_ set a line-height without also setting the font-size at the same time.
 
@@ -432,7 +425,7 @@ Check out the [font size documentation](/docs/font-size#setting-the-line-height)
 
 ---
 
-<h2 id="css-variables-without-the-var">CSS variables without the <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">var()</code></h2>
+## CSS variables without the `var()`
 
 In the spirit of typing less, we've also made it possible to omit the `var()` when using a CSS variable as an arbitrary value:
 
@@ -455,7 +448,7 @@ That's a pretty cool trick right there for using things like `hover:` with style
 
 ---
 
-<h2 id="configure-font-variation-settings-for-custom-font-families">Configure <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">font-variation-settings</code> for custom font families</h2>
+## Configure `font-variation-settings` for custom font families
 
 When using custom fonts, you'll often want to configure things like `font-feature-settings` or `font-variation-settings` to opt-in to specific tweaks the font offers.
 
@@ -481,22 +474,21 @@ In the example above we're using a recent release of [Inter](https://github.com/
 
 ---
 
-<h2 id="new-list-style-image-utilities">New <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">list-style-image</code> utilities</h2>
+## New `list-style-image` utilities
 
 Ever wanted to use a picture of a carrot as your list item marker? Well now you can, with the new `list-image-*` utilities.
 
-<Example p="none">
-  <div class="px-4 sm:px-0">
-    <div class="mx-auto max-w-sm bg-white p-8 text-sm leading-6 text-slate-700 shadow-xl dark:bg-slate-800 dark:text-slate-400 sm:text-base sm:leading-7">
-        <ul class="pl-4 text-slate-900 dark:text-slate-200 marker:text-2xl list-image-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjZjk3MzE2Ij48cGF0aCBkPSJNMzQ2LjcgNkMzMzcuNiAxNyAzMjAgNDIuMyAzMjAgNzJjMCA0MCAxNS4zIDU1LjMgNDAgODBzNDAgNDAgODAgNDBjMjkuNyAwIDU1LTE3LjYgNjYtMjYuN2M0LTMuMyA2LTguMiA2LTEzLjNzLTItMTAtNi0xMy4yYy0xMS40LTkuMS0zOC4zLTI2LjgtNzQtMjYuOGMtMzIgMC00MCA4LTQwIDhzOC04IDgtNDBjMC0zNS43LTE3LjctNjIuNi0yNi44LTc0QzM3MCAyIDM2NS4xIDAgMzYwIDBzLTEwIDItMTMuMyA2ek0yNDQuNiAxMzZjLTQwIDAtNzcuMSAxOC4xLTEwMS43IDQ4LjJsNjAuNSA2MC41YzYuMiA2LjIgNi4yIDE2LjQgMCAyMi42cy0xNi40IDYuMi0yMi42IDBsLTU1LjMtNTUuMyAwIC4xTDIuMiA0NzcuOUMtMiA0ODctLjEgNDk3LjggNyA1MDVzMTcuOSA5IDI3LjEgNC44bDEzNC43LTYyLjQtNTIuMS01Mi4xYy02LjItNi4yLTYuMi0xNi40IDAtMjIuNnMxNi40LTYuMiAyMi42IDBMMTk5LjcgNDMzbDEwMC4yLTQ2LjRjNDYuNC0yMS41IDc2LjItNjggNzYuMi0xMTkuMkMzNzYgMTk0LjggMzE3LjIgMTM2IDI0NC42IDEzNnoiLz48L3N2Zz4=')]">
-          <li class="pl-2">5 cups chopped Porcini mushrooms</li>
-          <li class="pl-2">1/2 cup of olive oil</li>
-          <li class="pl-2">3lb of celery</li>
-        </ul>
-      </div>
-    </div>
+```html {{ example: { p: 'none' } }}
+<div class="px-4 sm:px-0">
+  <div class="mx-auto max-w-sm bg-white p-8 text-sm leading-6 text-slate-700 shadow-xl dark:bg-slate-800 dark:text-slate-400 sm:text-base sm:leading-7">
+    <ul class="pl-4 text-slate-900 dark:text-slate-200 marker:text-2xl list-image-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjZjk3MzE2Ij48cGF0aCBkPSJNMzQ2LjcgNkMzMzcuNiAxNyAzMjAgNDIuMyAzMjAgNzJjMCA0MCAxNS4zIDU1LjMgNDAgODBzNDAgNDAgODAgNDBjMjkuNyAwIDU1LTE3LjYgNjYtMjYuN2M0LTMuMyA2LTguMiA2LTEzLjNzLTItMTAtNi0xMy4yYy0xMS40LTkuMS0zOC4zLTI2LjgtNzQtMjYuOGMtMzIgMC00MCA4LTQwIDhzOC04IDgtNDBjMC0zNS43LTE3LjctNjIuNi0yNi44LTc0QzM3MCAyIDM2NS4xIDAgMzYwIDBzLTEwIDItMTMuMyA2ek0yNDQuNiAxMzZjLTQwIDAtNzcuMSAxOC4xLTEwMS43IDQ4LjJsNjAuNSA2MC41YzYuMiA2LjIgNi4yIDE2LjQgMCAyMi42cy0xNi40IDYuMi0yMi42IDBsLTU1LjMtNTUuMyAwIC4xTDIuMiA0NzcuOUMtMiA0ODctLjEgNDk3LjggNyA1MDVzMTcuOSA5IDI3LjEgNC44bDEzNC43LTYyLjQtNTIuMS01Mi4xYy02LjItNi4yLTYuMi0xNi40IDAtMjIuNnMxNi40LTYuMiAyMi42IDBMMTk5LjcgNDMzbDEwMC4yLTQ2LjRjNDYuNC0yMS41IDc2LjItNjggNzYuMi0xMTkuMkMzNzYgMTk0LjggMzE3LjIgMTM2IDI0NC42IDEzNnoiLz48L3N2Zz4=')]">
+      <li class="pl-2">5 cups chopped Porcini mushrooms</li>
+      <li class="pl-2">1/2 cup of olive oil</li>
+      <li class="pl-2">3lb of celery</li>
+    </ul>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <ul class="**list-image-[url(carrot.png)]** ...">
@@ -511,19 +503,19 @@ Check out the [list style image documentation](/docs/list-style-image) to learn 
 
 ---
 
-<h2 id="new-hyphens-utilities">New <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">hyphens</code> utilities</h2>
+## New `hyphens` utilities
 
 Ever heard of the `&shy;` HTML entity? Me neither until we added support for these `hyphens-*` utilities.
 
 Using `hyphens-manual` and a carefully placed `&shy;`, you can tell the browser where to insert a hyphen when it needs to break a word across multiple lines:
 
-<Example p="none">
-  <div class="overflow-x-scroll sm:overflow-x-visible px-4">
-    <div class="mx-auto max-w-xs bg-white shadow-xl p-12 text-slate-500 dark:bg-slate-800 dark:text-slate-400">
-       <p class="hyphens-manual">Officially recognized by the Duden dictionary as the longest word in German, <span class="text-slate-900 font-medium dark:text-slate-200" lang="de"> Kraftfahrzeug&shy;haftpflichtversicherung</span> is a 36 letter word for motor vehicle liability insurance.</p>
-    </div>
+```html {{ example: { p: 'none' } }}
+<div class="overflow-x-scroll sm:overflow-x-visible px-4">
+  <div class="mx-auto max-w-xs bg-white shadow-xl p-12 text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+     <p class="hyphens-manual">Officially recognized by the Duden dictionary as the longest word in German, <span class="text-slate-900 font-medium dark:text-slate-200" lang="de"> Kraftfahrzeug&shy;haftpflichtversicherung</span> is a 36 letter word for motor vehicle liability insurance.</p>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <p class="**hyphens-manual** ...">
@@ -537,39 +529,39 @@ Check out the [hyphens documentation](/docs/hyphens) to learn more.
 
 ---
 
-<h2 id="new-caption-side-utilities">New <code className="font-[number:inherit] font-[inherit] text-[length:inherit]">caption-side</code> utilities</h2>
+## New `caption-side` utilities
 
 Another new one for me — the `<caption>` element! We've got new `caption-*` utilities you can use on table captions to control whether they appear at the top or bottom of the table they're attached to.
 
-<Example p="none">
-  <div class="shadow-sm overflow-hidden px-4 py-8 sm:px-8">
-    <table class="border-collapse table-auto w-full text-sm">
-      <caption class="text-slate-500 dark:text-slate-400 pt-4 text-xs caption-bottom">
-          Table 3.1: Professional wrestlers and their signature moves.
-      </caption>
-      <thead>
-        <tr>
-          <th class="border dark:border-slate-600 font-medium p-4 pl-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Wrestler</th>
-          <th class="border dark:border-slate-600 font-medium p-4 pr-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Signature Move(s)</th>
-        </tr>
-      </thead>
-      <tbody class="bg-white dark:bg-slate-800">
-        <tr>
-          <td class="border border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">"Stone Cold" Steve Austin</td>
-          <td class="border border-slate-200 dark:border-slate-600 p-4 pr-8 text-slate-500 dark:text-slate-400">Stone Cold Stunner, Lou Thesz Press</td>
-        </tr>
-        <tr>
-          <td class="border border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">Bret "The Hitman" Hart</td>
-          <td class="border border-slate-200 dark:border-slate-600 p-4 pr-8 text-slate-500 dark:text-slate-400">The Sharpshooter</td>
-        </tr>
-        <tr>
-          <td class="border border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">Razor Ramon</td>
-          <td class="border border-slate-200 dark:border-slate-600 p-4 pr-8 text-slate-500 dark:text-slate-400">Razor's Edge, Fallaway Slam</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</Example>
+```html {{ example: { p: 'none' } }}
+<div class="shadow-sm overflow-hidden px-4 py-8 sm:px-8">
+  <table class="border-collapse table-auto w-full text-sm">
+    <caption class="text-slate-500 dark:text-slate-400 pt-4 text-xs caption-bottom">
+        Table 3.1: Professional wrestlers and their signature moves.
+    </caption>
+    <thead>
+      <tr>
+        <th class="border dark:border-slate-600 font-medium p-4 pl-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Wrestler</th>
+        <th class="border dark:border-slate-600 font-medium p-4 pr-8 pt-3 pb-3 text-slate-400 dark:text-slate-200 text-left">Signature Move(s)</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white dark:bg-slate-800">
+      <tr>
+        <td class="border border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">"Stone Cold" Steve Austin</td>
+        <td class="border border-slate-200 dark:border-slate-600 p-4 pr-8 text-slate-500 dark:text-slate-400">Stone Cold Stunner, Lou Thesz Press</td>
+      </tr>
+      <tr>
+        <td class="border border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">Bret "The Hitman" Hart</td>
+        <td class="border border-slate-200 dark:border-slate-600 p-4 pr-8 text-slate-500 dark:text-slate-400">The Sharpshooter</td>
+      </tr>
+      <tr>
+        <td class="border border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">Razor Ramon</td>
+        <td class="border border-slate-200 dark:border-slate-600 p-4 pr-8 text-slate-500 dark:text-slate-400">Razor's Edge, Fallaway Slam</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
 
 ```html
 <table>

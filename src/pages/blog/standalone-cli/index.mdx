@@ -9,13 +9,13 @@ export const meta = {
   image,
 }
 
-<!--excerpt-->
+{/*excerpt*/}
 
 Tailwind CSS is written in JavaScript and distributed as an npm package, which means you've always had to have Node.js and npm installed to use it.
 
 Today we're announcing a new [standalone CLI build](https://github.com/tailwindlabs/tailwindcss/releases/latest) that gives you the full power of Tailwind CLI in a self-contained executable — no Node.js or npm required.
 
-<!--/excerpt-->
+{/*/excerpt*/}
 
 Tailwind CSS is written in JavaScript and distributed as an npm package, which means you've always had to have Node.js and npm installed to use it.
 
@@ -29,7 +29,7 @@ Today we're announcing a new [standalone CLI build](https://github.com/tailwindl
 
 To install it, grab the executable for your platform from the [latest release](https://github.com/tailwindlabs/tailwindcss/releases/latest) on GitHub, making sure to give it executable permissions:
 
-```shell Terminal
+```shell {{ filename: 'Terminal' }}
 # Example for macOS arm64
 curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-macos-arm64
 chmod +x tailwindcss-macos-arm64
@@ -38,7 +38,7 @@ mv tailwindcss-macos-arm64 tailwindcss
 
 Now you can use it just like our npm-distributed CLI tool:
 
-```shell Terminal
+```shell {{ filename: 'Terminal' }}
 # Create a tailwind.config.js file
 ./tailwindcss init
 
@@ -51,7 +51,7 @@ Now you can use it just like our npm-distributed CLI tool:
 
 We've even bundled the latest versions of all of our first-party plugins, so if you want to use them in your project, just `require` them in your `tailwind.config.js` file like you would in a Node-based project:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   // ...
   plugins: [

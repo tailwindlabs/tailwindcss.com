@@ -10,7 +10,7 @@ By default, any configuration you add in your own `tailwind.config.js` file is i
 
 The `presets` option lets you specify a _different_ configuration to use as your base, making it easy to package up a set of customizations that you'd like to reuse across projects.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   presets: [
     require('@acmecorp/tailwind-base')
@@ -27,7 +27,7 @@ This can be very useful for teams that manage multiple Tailwind projects for the
 
 Presets are just regular Tailwind configuration objects, taking the exact same shape as the configuration you would add in your `tailwind.config.js` file.
 
-```js my-preset.js
+```js {{ filename: 'my-preset.js' }}
 // Example preset
 module.exports = {
   theme: {
@@ -78,7 +78,7 @@ As you can see, presets can contain all of the configuration options you're used
 
 Assuming this preset was saved at `./my-preset.js`, you would use it by adding it to the `tailwind.config.js` file in your actual project under the `presets` key:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   presets: [
     require('./my-preset.js')
@@ -151,7 +151,7 @@ The `corePlugins` option behaves differently depending on whether you configure 
 
 If you configure `corePlugins` as an object, it is merged across configurations.
 
-```js my-preset.js
+```js {{ filename: 'my-preset.js' }}
 module.exports = {
   // ...
   corePlugins: {
@@ -160,7 +160,7 @@ module.exports = {
 }
 ```
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   presets: [
     require('./my-preset.js'),
@@ -174,7 +174,7 @@ module.exports = {
 
 If you configure `corePlugins` as an array, it replaces any `corePlugins` configuration provided by your configured preset(s).
 
-```js my-preset.js
+```js {{ filename: 'my-preset.js' }}
 module.exports = {
   // ...
   corePlugins: {
@@ -183,7 +183,7 @@ module.exports = {
 }
 ```
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   presets: [
     require('./example-preset.js'),
@@ -199,7 +199,7 @@ module.exports = {
 
 The `presets` option is an array and can accept multiple presets. This is useful if you want to split your reusable customizations up into composable chunks that can be imported independently.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   presets: [
     require('@acmecorp/tailwind-colors'),
@@ -213,7 +213,7 @@ When adding multiple presets, it's important to note that if they overlap in any
 
 For example, if both of these configurations provided a custom color palette (and were not using `extend`), the color palette from `configuration-b` would be used:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   presets: [
     require('@acmecorp/configuration-a'),
@@ -228,7 +228,7 @@ module.exports = {
 
 If you'd like to completely disable the default configuration and start with no base configuration at all, set `presets` to an empty array:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   presets: [],
   // ...
@@ -239,17 +239,17 @@ This will completely disable all of Tailwind's defaults, so no colors, font fami
 
 You can also do this from within a preset if you'd like your preset to provide a complete design system on its own that doesn't extend Tailwind's defaults:
 
-```js my-preset.js
+```js {{ filename: 'my-preset.js' }}
 module.exports = {
   presets: [],
   // ...
 }
 ```
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   presets: [
-    require('./example-preset.js')
+    require('./my-preset.js')
   ],
   // ...
 }

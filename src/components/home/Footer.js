@@ -34,10 +34,11 @@ export function Footer() {
                   <ul className="mt-3 space-y-2">
                     {items.map((item) => (
                       <li key={item.href}>
-                        <Link href={item.href}>
-                          <a className="hover:text-slate-900 dark:hover:text-slate-300">
-                            {item.title}
-                          </a>
+                        <Link
+                          href={item.href}
+                          className="hover:text-slate-900 dark:hover:text-slate-300"
+                        >
+                          {item.title}
                         </Link>
                       </li>
                     ))}

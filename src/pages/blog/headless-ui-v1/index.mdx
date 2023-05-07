@@ -13,9 +13,7 @@ Last fall we announced [Headless UI](https://blog.tailwindcss.com/headless-ui-un
 
 Today we’re super excited to release [Headless UI v1.0](https://headlessui.dev), which more than doubles the amount of included components for both React and Vue.
 
-<a href="https://headlessui.dev">
-  <img src={card.src} alt="Headless UI" />
-</a>
+[![Headless UI](./card.jpg)](https://headlessui.dev)
 
 ## What’s new
 
@@ -153,9 +151,9 @@ Headless UI v1.0 brings our React `Transition` component to Vue as well, which m
 
 ```html
 <template>
-  <!— This `show` prop controls all nested `Transition.Child` components. —>
+  <!-- This `show` prop controls all nested `Transition.Child` components. -->
   <TransitionRoot :show="isOpen">
-    <!— Background overlay —>
+    <!-- Background overlay -->
     <TransitionChild
       enter="transition-opacity"
       ease-linear
@@ -168,10 +166,10 @@ Headless UI v1.0 brings our React `Transition` component to Vue as well, which m
       leave-from="opacity-100"
       leave-to="opacity-0"
     >
-      <!— … —>
+      <!-- … -->
     </TransitionChild>
 
-    <!— Sliding sidebar —>
+    <!-- Sliding sidebar -->
     <TransitionChild
       enter="transition"
       ease-in-out
@@ -186,7 +184,7 @@ Headless UI v1.0 brings our React `Transition` component to Vue as well, which m
       leave-from="translate-x-0"
       leave-to="-translate-x-full"
     >
-      <!— … —>
+      <!-- … -->
     </TransitionChild>
   </TransitionRoot>
 </template>
