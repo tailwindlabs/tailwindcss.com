@@ -34,6 +34,29 @@ let steps = [
       lang: 'terminal',
       code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init -p',
     },
+  },
+    {
+    title: 'Enable use of PostCSS in <style> blocks',
+    body: () => (
+      <p>
+        In your <code>svelte.config.js</code> file, import <code>vitePreprocess</code> to enable
+        processing <code>&lt;style&gt;</code> blocks as PostCSS.
+      </p>
+    ),
+    code: {
+      name: 'svelte.config.js',
+      lang: 'js',
+      code: `  import adapter from '@sveltejs/adapter-auto';
+> import { vitePreprocess } from '@sveltejs/kit/vite';
+  /** @type {import('@sveltejs/kit').Config} */
+  const config = {
+    kit: {
+      adapter: adapter()
+    },
+>   preprocess: vitePreprocess()
+  };
+  export default config;`,
+    },
   },  
   {
     title: 'Configure your template paths',
