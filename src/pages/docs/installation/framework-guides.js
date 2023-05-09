@@ -2,6 +2,8 @@ import { DocumentationLayout } from '@/layouts/DocumentationLayout'
 import { InstallationLayout } from '@/layouts/InstallationLayout'
 import Link from 'next/link'
 
+import { ReactComponent as AstroLogo } from '@/img/guides/astro.svg'
+import { ReactComponent as AstroLogoWhite } from '@/img/guides/astro-white.svg'
 import { ReactComponent as AdonisLogo } from '@/img/guides/adonis.svg'
 import { ReactComponent as AngularLogo } from '@/img/guides/angular.svg'
 import { ReactComponent as AngularLogoWhite } from '@/img/guides/angular-white.svg'
@@ -145,6 +147,13 @@ export default function FrameworkGuides() {
             description: 'A JavaScript framework for ambitious web developers.',
             logo: EmberLogo,
           },
+          {
+            name: 'Astro',
+            slug: 'astro',
+            description: 'All-in-one web framework designed for speed.',
+            logo: AstroLogo,
+            logoDark: AstroLogoWhite
+          }
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">
             <div className="peer group ml-6 flex-auto">
