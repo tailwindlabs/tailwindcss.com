@@ -9,7 +9,7 @@ let steps = [
       <p>
         Start by creating a new Astro project if you don't have one set up already. The most
         common approach is outlined in the{' '}
-        <a href="https://docs.astro.build/en/getting-started/">
+        <a href="https://docs.astro.build/en/getting-started/#start-your-first-project">
           Getting Started with Astro
         </a>{' '}
         introduction.
