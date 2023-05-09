@@ -22,7 +22,7 @@ let steps = [
     },
   },
     {
-    title: 'Install TailwindCSS',
+    title: 'Install Tailwind CSS',
     body: () => (
       <p>
         Run the <code>astro add</code> command to install <code>tailwindcss</code> and its peer dependencies. The command will also generate a minimal <code>tailwind.config.cjs</code> file.
