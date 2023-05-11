@@ -10,11 +10,12 @@ import { ThemeSelect, ThemeToggle } from './ThemeToggle'
 
 function Featured() {
   return (
-    <Link
-      href="/blog/tailwindcss-v3-3"
+    <a
+      href="https://connect.tailwindcss.com"
+      target="_blank"
       className="ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-sky-400/20"
     >
-      <strong className="font-semibold">Tailwind CSS v3.3</strong>
+      <strong className="font-semibold">Tailwind Connect 2023</strong>
       <svg
         width="2"
         height="2"
@@ -24,12 +25,7 @@ function Featured() {
       >
         <circle cx="1" cy="1" r="1" />
       </svg>
-      <span className="ml-2 min-[1372px]:hidden">
-        Extended color palette, ESM/TS support, and more
-      </span>
-      <span className="ml-2 hidden min-[1372px]:inline">
-        Extended color palette, ESM/TS support, logical properties, and more
-      </span>
+      <span className="ml-2">We’re hosting a special in-person event on June 20th</span>
       <svg
         width="3"
         height="6"
@@ -45,7 +41,7 @@ function Featured() {
           strokeLinejoin="round"
         />
       </svg>
-    </Link>
+    </a>
   )
 }
 
