@@ -25,9 +25,8 @@ let steps = [
     title: 'Install Tailwind CSS',
     body: () => (
       <p>
-        Run the <code>astro add</code> command to install the <code>@astro/tailwind</code> plugin as
-        well as <code>tailwindcss</code>. The command will also generate a minimal{' '}
-        <code>tailwind.config.cjs</code> file.
+        Run the <code>astro add</code> command to install both <code>tailwindcss</code> and{' '}
+        <code>@astro/tailwind</code> as well as generate a <code>tailwind.config.cjs</code> file.
       </p>
     ),
     code: {
