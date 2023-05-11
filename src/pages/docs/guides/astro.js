@@ -37,22 +37,6 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
-    body: () => (
-      <p>
-        Create a <code>./src/app.css</code> file and add the <code>@tailwind</code> directives for
-        each of Tailwind’s layers.
-      </p>
-    ),
-    code: {
-      name: 'app.css',
-      lang: 'css',
-      code: `@tailwind base;
-@tailwind components;
-@tailwind utilities;`,
-    },
-  },
-  {
     title: 'Start your build process',
     body: () => (
       <p>
