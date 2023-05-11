@@ -21,11 +21,13 @@ let steps = [
       code: 'npm create astro@latest my-app\ncd my-app',
     },
   },
-    {
+  {
     title: 'Install Tailwind CSS',
     body: () => (
       <p>
-        Run the <code>astro add</code> command to install <code>tailwindcss</code> and its peer dependencies. The command will also generate a minimal <code>tailwind.config.cjs</code> file.
+        Run the <code>astro add</code> command to install the <code>@astro/tailwind</code> plugin as
+        well as <code>tailwindcss</code>. The command will also generate a minimal{' '}
+        <code>tailwind.config.cjs</code> file.
       </p>
     ),
     code: {
