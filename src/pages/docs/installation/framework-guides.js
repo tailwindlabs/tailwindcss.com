@@ -150,10 +150,10 @@ export default function FrameworkGuides() {
           {
             name: 'Astro',
             slug: 'astro',
-            description: 'All-in-one web framework designed for speed.',
+            description: 'The all-in-one web framework designed for speed.',
             logo: AstroLogo,
-            logoDark: AstroLogoWhite
-          }
+            logoDark: AstroLogoWhite,
+          },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">
             <div className="peer group ml-6 flex-auto">
