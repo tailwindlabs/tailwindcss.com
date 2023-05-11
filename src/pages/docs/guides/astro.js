@@ -7,12 +7,12 @@ let steps = [
     title: 'Create your project',
     body: () => (
       <p>
-        Start by creating a new Astro project if you don't have one set up already. The most
-        common approach is outlined in the{' '}
+        Start by creating a new Astro project if you don't have one set up already. The most common
+        approach is to use{' '}
         <a href="https://docs.astro.build/en/getting-started/#start-your-first-project">
-          Getting Started with Astro
-        </a>{' '}
-        introduction.
+          create astro
+        </a>
+        .
       </p>
     ),
     code: {
