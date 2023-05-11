@@ -67,11 +67,7 @@ let steps = [
   },
   {
     title: 'Start using Tailwind in your project',
-    body: () => (
-      <p>
-        Start using Tailwind's utility classes to style your content.
-      </p>
-    ),
+    body: () => <p>Start using Tailwind's utility classes to style your content.</p>,
     code: {
       name: 'index.astro',
       lang: 'html',
