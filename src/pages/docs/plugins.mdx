@@ -513,7 +513,7 @@ Use the `sort` option to control the source order of the generated CSS if needed
 ```js
 matchVariant("min", (value) => `@media (min-width: ${value})`, {
   sort(a, z) {
-    return parseInt(a) - parseInt(z);
+    return parseInt(a.value) - parseInt(z.value);
   },
 });
 ```
