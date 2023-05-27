@@ -18,13 +18,18 @@ export const withTableOfContents = () => {
         )
         let slug = slugify(title)
 
+        if (node.children[node.children.length - 1].type === 'mdxTextExpression') {
+          slug = node.children.pop().value
+          slug = slug.slice(2, slug.length - 2)
+        }
+
         let allOtherSlugs = contents.flatMap((entry) => [
           entry.slug,
           ...entry.children.map(({ slug }) => slug),
         ])
         let slugIndex = 1
         while (allOtherSlugs.indexOf(slug) > -1) {
-          slug = `${slugify(title)}-${slugIndex}`
+          slug = `${slug}-${slugIndex}`
           slugIndex++
         }
 
