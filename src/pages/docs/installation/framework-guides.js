@@ -19,6 +19,7 @@ import { ReactComponent as ParcelLogo } from '@/img/guides/parcel.svg'
 import { ReactComponent as PhoenixLogo } from '@/img/guides/phoenix.svg'
 import { ReactComponent as RailsLogo } from '@/img/guides/rails.svg'
 import { ReactComponent as RailsLogoWhite } from '@/img/guides/rails-white.svg'
+import { ReactComponent as RedwoodJsLogo } from '@/img/guides/redwoodjs.svg'
 import { ReactComponent as RemixLogo } from '@/img/guides/remix.svg'
 import { ReactComponent as RemixLogoWhite } from '@/img/guides/remix-white.svg'
 import { ReactComponent as SolidJSLogo } from '@/img/guides/solidjs.svg'
@@ -153,6 +154,12 @@ export default function FrameworkGuides() {
             description: 'The all-in-one web framework designed for speed.',
             logo: AstroLogo,
             logoDark: AstroLogoWhite,
+          },
+          {
+            name: 'RedwoodJS',
+            slug: 'redwoodjs',
+            description: 'The full-stack web framework designed to help you grow from side project to startup.',
+            logo: RedwoodJsLogo,
           },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">
