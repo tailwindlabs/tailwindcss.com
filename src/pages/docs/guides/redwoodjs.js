@@ -25,7 +25,7 @@ let steps = [
     title: 'Install Tailwind CSS',
     body: () => (
       <p>
-        Run the <code>rw setup ui</code> command to install <code>tailwindcss</code> as well as generate a <code>tailwind.config.cjs</code> file.
+        Run the <code>rw setup ui</code> command to install <code>tailwindcss</code> as well as generate a <code>tailwind.config.js</code> file.
       </p>
     ),
     code: {
