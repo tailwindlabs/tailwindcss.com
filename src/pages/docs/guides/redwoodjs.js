@@ -58,6 +58,15 @@ let steps = [
 </h1>`,
     },
   },
+  {
+    title: 'Bonus: Tailwind is already configured to work with Storybook',
+    body: () => <p>Start <code>storybook</code> and use Tailwind classes in your stories.</p>,
+    code: {
+      name: 'Terminal',
+      lang: 'terminal',
+      code: 'yarn rw storybook',
+    },
+  },
 ]
 
 export default function UsingRedwood({ code }) {
