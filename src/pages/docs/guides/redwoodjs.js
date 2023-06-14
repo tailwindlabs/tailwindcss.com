@@ -73,7 +73,7 @@ export default function UsingRedwood({ code }) {
   return (
     <FrameworkGuideLayout
       title="Install Tailwind CSS with RedwoodJS"
-      description="Setting up Tailwind CSS in an RedwoodJS project."
+      description="Setting up Tailwind CSS in a RedwoodJS project."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
