@@ -268,6 +268,79 @@ When you create components and template partials like this, there's no reason to
 
 ---
 
+## Separating component with styling
+
+When extracting component still make your file bloated, typical approach is by also extracting/separating every css styling from your component to separate css file. If you familar with CSS Modules, especially if you developing with Javascript framework/libraries with Tailwind CSS, usually you use this approach:
+
+<TipBad>Don't use typical CSS modules like this</TipBad>
+
+```css {{ filename: 'Component.module.css' }}
+.card {
+  @apply rounded-3xl shadow ...manyClasses;
+}
+
+.headings {
+  @apply text-lg font-bold ...manyClasses;
+}
+```
+
+```jsx {{ filename: 'Component.jsx' }}
+import styles from './Component.module.css';
+export default function Card() {
+  <div className={styles.card}>
+    <h3 className={styles.headings}>
+      Hello world
+    </h3>
+  </div>
+}
+```
+
+
+Under the hood, CSS Modules will creating new unique classes, and that leads to make your CSS bundle larger.
+
+Instead, you can separate component and its styling by creating `Component.style.js` or `Component.style.ts` file:
+
+
+<TipGood>If you want to separate styling with it's component, use JS/TS module instead</TipGood>
+
+```javascript {{ filename: 'Component.style.js' }}
+const styles = {
+  card: 'rounded-3xl shadow ...manyClasses',
+    headings: 'text-lg font-bold ...manyClasses'
+};
+
+export default styles;
+```
+
+```jsx {{ filename: 'Component.jsx' }}
+import styles from './Component.style.js';
+export default function Card() {
+  <div className={styles.card}>
+    <h3 className={styles.headings}>
+      Hello world
+    </h3>
+  </div>
+}
+```
+
+That way, the `Component.style.js` actually will treated as usual Javascript file that uses Tailwind CSS classes but still organized by separating component and its styling.
+
+### Tailwind Intellisense Support
+
+If you also using Tailwind Intellisense extensions, you might want to add this additional regex configuration so it will help you to show autocomplete and suggestions when you separating component and its styling:
+
+```json {{ filename: 'settings.json' }}
+"tailwindCSS.experimental.classRegex": 
+[
+  [
+    "const styles[^]?=[^]?\\{([^}]+)\\\}",
+    ":[^]?['\"`]([^'\"`]*)['\"`]"
+  ]
+]
+```
+
+--
+
 ## Extracting classes with @apply
 
 If you're using a traditional templating language like ERB or Twig, creating a template partial for something as small as a button can feel like overkill compared to a simple CSS class like `btn`.
