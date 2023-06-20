@@ -13,17 +13,17 @@ But of course as a project grows, you'll inevitably find yourself repeating comm
 For example, in the template below you can see the utility classes for each avatar image are repeated five separate times:
 
 ```html {{ example: { p: 'none' } }}
-<div class="w-72 sm:w-96 px-8 sm:px-12 py-6 sm:py-8 mx-auto bg-white shadow">
-  <div class="flex text-base items-center space-x-2">
+<div class="px-8 py-6 mx-auto bg-white shadow w-72 sm:w-96 sm:px-12 sm:py-8">
+  <div class="flex items-center space-x-2 text-base">
     <h4 class="text-base font-semibold text-slate-900">Contributors</h4>
-    <span class="text-xs rounded-full px-2 py-1 bg-slate-100 font-semibold text-slate-700">204</span>
+    <span class="px-2 py-1 text-xs font-semibold rounded-full bg-slate-100 text-slate-700">204</span>
   </div>
-  <div class="mt-3 flex -space-x-2 overflow-hidden">
-    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
-    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
-    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt=""/>
-    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
-    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+  <div class="flex mt-3 -space-x-2 overflow-hidden">
+    <img class="inline-block w-12 h-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+    <img class="inline-block w-12 h-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+    <img class="inline-block w-12 h-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt=""/>
+    <img class="inline-block w-12 h-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+    <img class="inline-block w-12 h-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
   </div>
   <div class="mt-3 text-sm font-medium"><a href="#" class="text-blue-500">+ 198 others</a></div>
 </div>
@@ -33,9 +33,9 @@ For example, in the template below you can see the utility classes for each avat
 <div>
   <div class="flex items-center space-x-2 text-base">
     <h4 class="font-semibold text-slate-900">Contributors</h4>
-    <span class="rounded-full bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700">204</span>
+    <span class="px-2 py-1 text-xs font-semibold rounded-full bg-slate-100 text-slate-700">204</span>
   </div>
-  <div class="mt-3 flex -space-x-2 overflow-hidden">
+  <div class="flex mt-3 -space-x-2 overflow-hidden">
     <img class="**inline-block h-12 w-12 rounded-full ring-2 ring-white**" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
     <img class="**inline-block h-12 w-12 rounded-full ring-2 ring-white**" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
     <img class="**inline-block h-12 w-12 rounded-full ring-2 ring-white**" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt=""/>
@@ -75,17 +75,17 @@ A lot of the time a design element that shows up more than once in the rendered 
 For example, the duplicate avatars at the beginning of this guide would almost certainly be rendered in a loop in a real project:
 
 ```html {{ example: { p: 'none' } }}
-<div class="w-72 sm:w-96 px-8 sm:px-12 py-6 sm:py-8 mx-auto bg-white shadow">
-  <div class="flex text-base items-center space-x-2">
+<div class="px-8 py-6 mx-auto bg-white shadow w-72 sm:w-96 sm:px-12 sm:py-8">
+  <div class="flex items-center space-x-2 text-base">
     <h4 class="text-base font-semibold text-slate-900">Contributors</h4>
-    <span class="text-xs rounded-full px-2 py-1 bg-slate-100 font-semibold text-slate-700">204</span>
+    <span class="px-2 py-1 text-xs font-semibold rounded-full bg-slate-100 text-slate-700">204</span>
   </div>
-  <div class="mt-3 flex -space-x-2 overflow-hidden">
-    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
-    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
-    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt=""/>
-    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
-    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+  <div class="flex mt-3 -space-x-2 overflow-hidden">
+    <img class="inline-block w-12 h-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+    <img class="inline-block w-12 h-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+    <img class="inline-block w-12 h-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt=""/>
+    <img class="inline-block w-12 h-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+    <img class="inline-block w-12 h-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
   </div>
   <div class="mt-3 text-sm font-medium"><a href="#" class="text-blue-500">+ 198 others</a></div>
 </div>
@@ -95,11 +95,11 @@ For example, the duplicate avatars at the beginning of this guide would almost c
 <div>
   <div class="flex items-center space-x-2 text-base">
     <h4 class="font-semibold text-slate-900">Contributors</h4>
-    <span class="rounded-full bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700">204</span>
+    <span class="px-2 py-1 text-xs font-semibold rounded-full bg-slate-100 text-slate-700">204</span>
   </div>
-  <div class="mt-3 flex -space-x-2 overflow-hidden">
+  <div class="flex mt-3 -space-x-2 overflow-hidden">
 **    {#each contributors as user}**
-**      <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="{user.avatarUrl}" alt="{user.handle}"/>**
+**      <img class="inline-block w-12 h-12 rounded-full ring-2 ring-white" src="{user.avatarUrl}" alt="{user.handle}"/>**
 **    {/each}**
   </div>
   <div class="mt-3 text-sm font-medium">
@@ -111,13 +111,13 @@ For example, the duplicate avatars at the beginning of this guide would almost c
 You could even rewrite the navigation example using a loop or `map` if you preferred as well:
 
 ```html {{ example: { p: 'none' } }}
-<div class="sm:px-8 flex sm:justify-center">
-  <div class="bg-white px-6 py-4 shadow">
+<div class="flex sm:px-8 sm:justify-center">
+  <div class="px-6 py-4 bg-white shadow">
     <nav class="flex justify-center space-x-4">
-      <a href="#/dashboard" class="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900">Home</a>
-      <a href="#/team" class="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900">Team</a>
-      <a href="#/projects" class="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900">Projects</a>
-      <a href="#/reports" class="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900">Reports</a>
+      <a href="#/dashboard" class="px-3 py-2 font-medium rounded-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900">Home</a>
+      <a href="#/team" class="px-3 py-2 font-medium rounded-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900">Team</a>
+      <a href="#/projects" class="px-3 py-2 font-medium rounded-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900">Projects</a>
+      <a href="#/reports" class="px-3 py-2 font-medium rounded-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900">Reports</a>
     </nav>
   </div>
 </div>
@@ -145,13 +145,13 @@ When elements are rendered in a loop like this, the actual class list is only wr
 If you need to reuse some styles across multiple files, the best strategy is to create a _component_ if you're using a front-end framework like React, Svelte, or Vue, or a _template partial_ if you're using a templating language like Blade, ERB, Twig, or Nunjucks.
 
 ```html {{ example: { p: 'none' } }}
-<div class="w-72 sm:w-96 px-8 sm:px-12 py-6 sm:py-8 mx-auto bg-white shadow">
+<div class="px-8 py-6 mx-auto bg-white shadow w-72 sm:w-96 sm:px-12 sm:py-8">
   <div>
     <img class="rounded" src="https://images.unsplash.com/photo-1452784444945-3f422708fe5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=512&q=80" width="512" height="341" alt="Beach" />
     <div class="mt-2">
       <div>
-        <div class="text-xs text-slate-600 uppercase font-bold tracking-wider">Private Villa</div>
-        <div class="font-bold text-slate-700 leading-snug">
+        <div class="text-xs font-bold tracking-wider uppercase text-slate-600">Private Villa</div>
+        <div class="font-bold leading-snug text-slate-700">
           <a href="#" class="hover:underline">Relaxing All-Inclusive Resort in Cancun</a>
         </div>
         <div class="mt-2 text-sm text-slate-600">$299 USD per night</div>
@@ -167,8 +167,8 @@ If you need to reuse some styles across multiple files, the best strategy is to 
     <img class="rounded" :src="img" :alt="imgAlt">
     <div class="mt-2">
       <div>
-        <div class="text-xs text-slate-600 uppercase font-bold tracking-wider">{{ eyebrow }}</div>
-        <div class="font-bold text-slate-700 leading-snug">
+        <div class="text-xs font-bold tracking-wider uppercase text-slate-600">{{ eyebrow }}</div>
+        <div class="font-bold leading-snug text-slate-700">
           <a :href="url" class="hover:underline">{{ title }}</a>
         </div>
         <div class="mt-2 text-sm text-slate-600">{{ pricing }}</div>
@@ -194,12 +194,12 @@ Unless a component is a single HTML element, the information needed to define it
 
 ```html {{ example: { p: 'none' } }}
 <div class="px-6 py-12">
-  <div class="max-w-sm mx-auto p-6 flex items-center bg-white rounded-xl shadow-md space-x-4">
+  <div class="flex items-center max-w-sm p-6 mx-auto space-x-4 bg-white shadow-md rounded-xl">
     <div class="shrink-0">
-      <svg class="h-12 w-12" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#2397B3" offset="0%"/><stop stop-color="#13577E" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#73DFF2" offset="0%"/><stop stop-color="#47B1EB" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path d="M28.872 22.096c.084.622.128 1.258.128 1.904 0 7.732-6.268 14-14 14-2.176 0-4.236-.496-6.073-1.382l-6.022 2.007c-1.564.521-3.051-.966-2.53-2.53l2.007-6.022A13.944 13.944 0 0 1 1 24c0-7.331 5.635-13.346 12.81-13.95A9.967 9.967 0 0 0 13 14c0 5.523 4.477 10 10 10a9.955 9.955 0 0 0 5.872-1.904z" fill="url(#a)" transform="translate(1 1)"/><path d="M35.618 20.073l2.007 6.022c.521 1.564-.966 3.051-2.53 2.53l-6.022-2.007A13.944 13.944 0 0 1 23 28c-7.732 0-14-6.268-14-14S15.268 0 23 0s14 6.268 14 14c0 2.176-.496 4.236-1.382 6.073z" fill="url(#b)" transform="translate(1 1)"/><path d="M18 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM24 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM30 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" fill="#FFF"/></g></svg>
+      <svg class="w-12 h-12" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#2397B3" offset="0%"/><stop stop-color="#13577E" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#73DFF2" offset="0%"/><stop stop-color="#47B1EB" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path d="M28.872 22.096c.084.622.128 1.258.128 1.904 0 7.732-6.268 14-14 14-2.176 0-4.236-.496-6.073-1.382l-6.022 2.007c-1.564.521-3.051-.966-2.53-2.53l2.007-6.022A13.944 13.944 0 0 1 1 24c0-7.331 5.635-13.346 12.81-13.95A9.967 9.967 0 0 0 13 14c0 5.523 4.477 10 10 10a9.955 9.955 0 0 0 5.872-1.904z" fill="url(#a)" transform="translate(1 1)"/><path d="M35.618 20.073l2.007 6.022c.521 1.564-.966 3.051-2.53 2.53l-6.022-2.007A13.944 13.944 0 0 1 23 28c-7.732 0-14-6.268-14-14S15.268 0 23 0s14 6.268 14 14c0 2.176-.496 4.236-1.382 6.073z" fill="url(#b)" transform="translate(1 1)"/><path d="M18 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM24 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM30 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" fill="#FFF"/></g></svg>
     </div>
     <div>
-      <div class="text-base sm:text-xl font-medium text-black">ChitChat</div>
+      <div class="text-base font-medium text-black sm:text-xl">ChitChat</div>
       <p class="text-sm sm:text-base text-slate-500">You have a new message!</p>
     </div>
   </div>
@@ -236,12 +236,12 @@ Components and template partials solve this problem much better than CSS-only ab
 
 ```html {{ example: { p: 'none' } }}
 <div class="px-6 py-12">
-  <div class="max-w-sm mx-auto p-6 flex items-center bg-white rounded-xl shadow-md space-x-4">
+  <div class="flex items-center max-w-sm p-6 mx-auto space-x-4 bg-white shadow-md rounded-xl">
     <div class="shrink-0">
-      <svg class="h-12 w-12" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#2397B3" offset="0%"/><stop stop-color="#13577E" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#73DFF2" offset="0%"/><stop stop-color="#47B1EB" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path d="M28.872 22.096c.084.622.128 1.258.128 1.904 0 7.732-6.268 14-14 14-2.176 0-4.236-.496-6.073-1.382l-6.022 2.007c-1.564.521-3.051-.966-2.53-2.53l2.007-6.022A13.944 13.944 0 0 1 1 24c0-7.331 5.635-13.346 12.81-13.95A9.967 9.967 0 0 0 13 14c0 5.523 4.477 10 10 10a9.955 9.955 0 0 0 5.872-1.904z" fill="url(#a)" transform="translate(1 1)"/><path d="M35.618 20.073l2.007 6.022c.521 1.564-.966 3.051-2.53 2.53l-6.022-2.007A13.944 13.944 0 0 1 23 28c-7.732 0-14-6.268-14-14S15.268 0 23 0s14 6.268 14 14c0 2.176-.496 4.236-1.382 6.073z" fill="url(#b)" transform="translate(1 1)"/><path d="M18 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM24 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM30 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" fill="#FFF"/></g></svg>
+      <svg class="w-12 h-12" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#2397B3" offset="0%"/><stop stop-color="#13577E" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#73DFF2" offset="0%"/><stop stop-color="#47B1EB" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path d="M28.872 22.096c.084.622.128 1.258.128 1.904 0 7.732-6.268 14-14 14-2.176 0-4.236-.496-6.073-1.382l-6.022 2.007c-1.564.521-3.051-.966-2.53-2.53l2.007-6.022A13.944 13.944 0 0 1 1 24c0-7.331 5.635-13.346 12.81-13.95A9.967 9.967 0 0 0 13 14c0 5.523 4.477 10 10 10a9.955 9.955 0 0 0 5.872-1.904z" fill="url(#a)" transform="translate(1 1)"/><path d="M35.618 20.073l2.007 6.022c.521 1.564-.966 3.051-2.53 2.53l-6.022-2.007A13.944 13.944 0 0 1 23 28c-7.732 0-14-6.268-14-14S15.268 0 23 0s14 6.268 14 14c0 2.176-.496 4.236-1.382 6.073z" fill="url(#b)" transform="translate(1 1)"/><path d="M18 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM24 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM30 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" fill="#FFF"/></g></svg>
     </div>
     <div>
-      <div class="text-base sm:text-xl font-medium text-black">ChitChat</div>
+      <div class="text-base font-medium text-black sm:text-xl">ChitChat</div>
       <p class="text-sm sm:text-base text-slate-500">You have a new message!</p>
     </div>
   </div>
@@ -268,6 +268,77 @@ When you create components and template partials like this, there's no reason to
 
 ---
 
+## Separating component with styling
+
+When extracting component still make your file bloated, typical approach is by also extracting/separating every css styling from your component to separate css file. If you familar with CSS Modules, especially if you developing with Javascript framework/libraries with Tailwind CSS, usually you use this approach:
+
+<TipBad>Don't use typical CSS modules like this</TipBad>
+
+```css {{ filename: 'Component.module.css' }}
+.card {
+  @apply rounded-3xl shadow ...manyClasses;
+}
+
+.headings {
+  @apply text-lg font-bold ...manyClasses;
+}
+```
+
+```jsx {{ filename: 'Component.jsx' }}
+import styles from './Component.module.css';
+export default function Card() {
+  <div className={styles.card}>
+    <h3 className={styles.headings}>
+      Hello world
+    </h3>
+  </div>
+}
+```
+
+Under the hood, CSS Modules will creating new unique classes, and that leads to make your CSS bundle larger.
+
+Instead, you can separate component and its styling by creating `Component.style.js` or `Component.style.ts` file:
+
+<TipGood>If you want to separate styling with it's component, use JS/TS module instead</TipGood>
+
+```javascript {{ filename: 'Component.style.js' }}
+const styles = {
+  card: 'rounded-3xl shadow ...manyClasses',
+    headings: 'text-lg font-bold ...manyClasses'
+};
+
+export default styles;
+```
+
+```jsx {{ filename: 'Component.jsx' }}
+import styles from './Component.style.js';
+export default function Card() {
+  <div className={styles.card}>
+    <h3 className={styles.headings}>
+      Hello world
+    </h3>
+  </div>
+}
+```
+
+That way, the `Component.style.js` actually will treated as usual Javascript file that uses Tailwind CSS classes but still organized by separating component and its styling.
+
+### Tailwind Intellisense Support
+
+If you also using Tailwind Intellisense extensions, you might want to add this additional regex configuration so it will help you to show autocomplete and suggestions when you separating component and its styling:
+
+```json {{ filename: 'settings.json' }}
+"tailwindCSS.experimental.classRegex": 
+[
+  [
+    "const styles[^]?=[^]?\\{([^}]+)\\\}",
+    ":[^]?['\"`]([^'\"`]*)['\"`]"
+  ]
+]
+```
+
+---
+
 ## Extracting classes with @apply
 
 If you're using a traditional templating language like ERB or Twig, creating a template partial for something as small as a button can feel like overkill compared to a simple CSS class like `btn`.
@@ -278,7 +349,7 @@ Here's what a `btn-primary` class might look like using `@apply` to compose it f
 
 ```html {{ example: true }}
 <div class="text-center">
-  <button type="button" class="py-2 px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75">
+  <button type="button" class="px-5 py-2 font-semibold text-white rounded-full shadow-md bg-violet-500 hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75">
     Save changes
   </button>
 </div>
@@ -286,7 +357,7 @@ Here's what a `btn-primary` class might look like using `@apply` to compose it f
 
 ```html {{ filename: 'HTML' }}
 <!-- Before extracting a custom class -->
-<button class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+<button class="px-4 py-2 font-semibold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
   Save changes
 </button>
 
