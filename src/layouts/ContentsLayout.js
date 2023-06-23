@@ -145,6 +145,7 @@ function useTableOfContents(tableOfContents) {
 
   useEffect(() => {
     if (tableOfContents.length === 0 || headings.length === 0) return
+
     function onScroll() {
       let style = window.getComputedStyle(document.documentElement)
       let scrollMt = parseFloat(style.getPropertyValue('--scroll-mt').match(/[\d.]+/)?.[0] ?? 0)
@@ -161,19 +162,20 @@ function useTableOfContents(tableOfContents) {
       }
       setCurrentSection(current)
     }
+
     window.addEventListener('scroll', onScroll, {
       capture: true,
       passive: true,
     })
+
     onScroll()
+
     let resizeObserver = new window.ResizeObserver(() => {
-      setHeadings((headings) =>
-        headings.map((h) => ({
-          id: h.id,
-          top: getTop(h.id),
-        }))
-      )
+      for (let heading of headings) {
+        heading.top = getTop(heading.id)
+      }
     })
+
     resizeObserver.observe(document.body)
     return () => {
       resizeObserver.disconnect()
