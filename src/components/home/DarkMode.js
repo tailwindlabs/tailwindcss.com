@@ -118,7 +118,7 @@ export function DarkMode() {
         </BigText>
         <Paragraph>
           Don’t want to be one of those websites that blinds people when they open it on their phone
-          at 2am? Enable dark mode in your configuration file then throw{' '}
+          at 2AM? Enable dark mode in your configuration file and throw{' '}
           <InlineCode>dark:</InlineCode> in front of any color utility to apply it when dark mode is
           active. Works for background colors, text colors, border colors, and even gradients.
         </Paragraph>
