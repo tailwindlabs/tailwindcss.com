@@ -17,6 +17,7 @@ import { ReactComponent as NextJsLogoWhite } from '@/img/guides/nextjs-white.svg
 import { ReactComponent as NuxtJsLogo } from '@/img/guides/nuxtjs.svg'
 import { ReactComponent as ParcelLogo } from '@/img/guides/parcel.svg'
 import { ReactComponent as PhoenixLogo } from '@/img/guides/phoenix.svg'
+import { ReactComponent as QwikLogo } from '@/img/guides/qwik.svg'
 import { ReactComponent as RailsLogo } from '@/img/guides/rails.svg'
 import { ReactComponent as RailsLogoWhite } from '@/img/guides/rails-white.svg'
 import { ReactComponent as RemixLogo } from '@/img/guides/remix.svg'
@@ -153,6 +154,12 @@ export default function FrameworkGuides() {
             description: 'The all-in-one web framework designed for speed.',
             logo: AstroLogo,
             logoDark: AstroLogoWhite,
+          },
+          {
+            name: 'Qwik',
+            slug: 'qwik',
+            description: 'Deliver instant apps at scale.',
+            logo: QwikLogo,
           },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">
