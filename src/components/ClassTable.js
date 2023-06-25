@@ -132,7 +132,7 @@ export const ClassTable = memo(
                         <td
                           translate="no"
                           className={clsx(
-                            'py-2 pr-2 font-mono font-medium text-xs leading-6 text-sky-500 whitespace-nowrap dark:text-sky-400',
+                            'py-2 pr-2 font-mono font-medium text-xs leading-6 text-sky-500 whitespace-nowrap dark:text-sky-400 select-all',
                             {
                               'border-t border-slate-100 dark:border-slate-400/10': i !== 0,
                             }
