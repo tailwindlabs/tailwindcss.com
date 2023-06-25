@@ -8,7 +8,7 @@ let steps = [
     body: () => (
       <p>
         Start by creating a new Qwik project if you don't have one set up already. The most common
-        approach is to use <a href="https://qwik.builder.io/docs/getting-started/">create Qwik</a>.
+        approach is to use <a href="https://qwik.builder.io/docs/getting-started/">create qwik</a>.
       </p>
     ),
     code: {
