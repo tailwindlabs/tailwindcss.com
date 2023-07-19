@@ -1,5 +1,6 @@
 import { adamwathan } from '@/authors'
 import twitterCard from './twitter-card.png'
+import foundryTavern from './foundry-tavern.jpg'
 
 export const meta = {
   title: 'Tailwind Connect 2023: Recapping our first-ever live event',
@@ -8,8 +9,6 @@ export const meta = {
   authors: [adamwathan],
   image: twitterCard,
 }
-
-
 
 <div className="aspect-w-16 aspect-h-9 my-12 bg-slate-700 rounded-xl overflow-hidden">
   <iframe
@@ -21,12 +20,59 @@ export const meta = {
   ></iframe>
 </div>
 
-
 Last month, over 200 people got together in my hometown of Cambridge, Ontario to hang out, talk shop, and get a peek behind the curtain at some of the new stuff we've been working on.
 
-Tailwind Connect started out as an idea for just throwing a little local meetup while we had the team in town for a retreat, but naturally ballooned into us renting a massive hall, hiring a crew of four videographers, and racking up a catering bill that put my own wedding to shame.
+[Tailwind Connect](https://connect.tailwindcss.com) started out as an idea for throwing just a little local meetup while we had the team in town for a retreat, but naturally ballooned into us renting a massive hall, hiring a crew of four videographers, and racking up a catering bill that put my own wedding to shame.
+
+But even though we got a little carried away with the production, we really tried to make it feel more like a meetup than a full-blown conference. We ran the event in the evening and kept it to just one presentation, leaving as much time as possible for people to just hang out and connect over pizza and beer.
+
+We originally expected it to be a "drive there after work" local-heavy event, but almost half of the people who attended traveled by plane to get here. So to help everyone make the most of their time here, we set up a Discord server for the event so people traveling in could make plans with each other, and rented out the patio at the [Foundry Tavern](https://www.instagram.com/foundrytavern/) next door to the event space for the afternoon to give people a reason to meet up early and make some new friends.
+
+<figure>
+  <div className="relative not-prose [a:not(:first-child)>&]:mt-[2em] [a:not(:last-child)>&]:mb-[2em] my-[2em] first:mt-0 last:mb-0 rounded-2xl overflow-hidden [figure>&]:my-0">
+    <img src={foundryTavern.src} alt="Tailwind Connect attendees enjoying their lunch at the Foundry Tavern" decoding="async" />
+    <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 dark:ring-white/10" />
+  </div>
+  <figcaption>Those two guys in the Tailwind CSS shirts flew in from Germany for this thing.</figcaption>
+</figure>
+
+We opened up the doors for the event around 5:30pm and started the night with an hour long opening reception, where people could hang out and talk and enjoy some canapés.
+
+![](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-205_twujze.jpg)
+
+One detail I thought we really nailed was the badges — when you bought a ticket we gave you a basic markdown field where you could write anything you wanted about yourself that might help people start interesting conversations with you.
+
+![](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-2_qrjpj0.jpg)
+
+I found myself looking at everyone's badges all night and it was an awesome way to immediately break the ice and have something to talk about.
+
+At around 6:30pm everyone took a seat for the keynote presentation. I kicked it off with a bit of history on Tailwind CSS as a project, and how it got to where it is today — being downloaded over 25 million times per month by millions of people, and used by some of the world's biggest companies to build the world's biggest websites.
+
+![](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-60_uyw5la.jpg)
+
+After that, [Sam Selikoff](https://twitter.com/samselikoff) walked through some brilliant demos showing off some of the coolest new features in CSS, and how you can take advantage of them with Tailwind.
+
+![](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-73_tvlsrp.jpg)
+
+Sam is an awesome friend, I asked him to come up for the event and be a part of the keynote without really even having a plan for what I was going to ask him to do at all, and he put together his whole presentation in about 36 hours after he arrived and absolutely nailed it. No slides, all live-coding, and crushed it like a pro. Highly recommend his [YouTube channel](https://www.youtube.com/samselikoff) and training site [Build UI](https://buildui.com/) — dude is a fantastic teacher.
+
+Next, I gave a sneak peek at the next evolution of the Tailwind CSS engine, which we're calling Oxide.
+
+![](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-101_c9your.jpg)
+
+Oxide is a lot of different pieces but they all boil down to two goals — improved performance, and simplifying the developer experience.
+
+We're making Tailwind more of an all-in-one CSS processing tool by integrating [Lightning CSS](https://lightningcss.dev/), which means in the next version of Tailwind, things like importing other CSS files, nesting, vendor prefixes, and syntax transforms for future CSS features will just work — no need to install or configure any additional tooling.
+
+Lightning CSS is written in Rust which makes it extremely fast, and we're dipping our toes into Rust ourselves too by using it to rewrite some of most computationally expensive parts of Tailwind, like scanning all of your template files for class names.
+
+With these improvements, we're seeing build times drop by over 50% in real-world projects, bringing the production build time down to around 150ms for even our largest projects.
+
+Oxide is also going to bring a simplified configuration experience. We're adding automatic content detection so you won't need to configure the paths to all of your template files anymore, and making it even easier to add Tailwind to your own CSS by replacing the need for all of the `@tailwind` directives with a simple `@import "tailwindcss"` call at the top of your CSS file.
 
 ![](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-193_walmmg.jpg)
+
+
 
 
 ![](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-215_mbbxax.jpg)
@@ -40,7 +86,6 @@ Tailwind Connect started out as an idea for just throwing a little local meetup 
 
 
 
-![](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-60_uyw5la.jpg)
 
 ![](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-55_bdevxe.jpg)
 
