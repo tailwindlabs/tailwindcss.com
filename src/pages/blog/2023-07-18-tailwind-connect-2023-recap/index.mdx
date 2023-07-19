@@ -1,14 +1,18 @@
 import { adamwathan } from '@/authors'
 import twitterCard from './twitter-card.png'
 import foundryTavern from './foundry-tavern.jpg'
+import oxidePerformance from './oxide-performance.jpg'
+import catalystPreview from './catalyst-preview.png'
 
 export const meta = {
   title: 'Tailwind Connect 2023: Recapping our first-ever live event',
-  description: `Over the last four months we've probably done more work on Tailwind UI than we ever have, and having finally wrapped up what we set out to achieve I'm excited to lay it all out for you.`,
-  date: '2023-07-18T14:00:00.000Z',
+  description: `Last month, over 200 people got together in my hometown of Cambridge, Ontario to hang out, talk shop, and get a peek behind the curtain at some of the new stuff we've been working on.`,
+  date: '2023-07-19T15:00:00.000Z',
   authors: [adamwathan],
   image: twitterCard,
 }
+
+Last month, over 200 people got together in my hometown of Cambridge, Ontario to hang out, talk shop, and get a peek behind the curtain at some of the new stuff we've been working on.
 
 <div className="aspect-w-16 aspect-h-9 my-12 bg-slate-700 rounded-xl overflow-hidden">
   <iframe
@@ -19,8 +23,6 @@ export const meta = {
     allowFullScreen
   ></iframe>
 </div>
-
-Last month, over 200 people got together in my hometown of Cambridge, Ontario to hang out, talk shop, and get a peek behind the curtain at some of the new stuff we've been working on.
 
 [Tailwind Connect](https://connect.tailwindcss.com) started out as an idea for throwing just a little local meetup while we had the team in town for a retreat, but naturally ballooned into us renting a massive hall, hiring a crew of four videographers, and racking up a catering bill that put my own wedding to shame.
 
@@ -38,68 +40,117 @@ We originally expected it to be a "drive there after work" local-heavy event, bu
 
 We opened up the doors for the event around 5:30pm and started the night with an hour long opening reception, where people could hang out and talk and enjoy some canapés.
 
-![](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-205_twujze.jpg)
+![Attendees talking and enjoying drinks before the event](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-205_twujze.jpg)
 
 One detail I thought we really nailed was the badges — when you bought a ticket we gave you a basic markdown field where you could write anything you wanted about yourself that might help people start interesting conversations with you.
 
-![](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-2_qrjpj0.jpg)
+![Attendee badges laid out on a table near the event entrance](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-2_qrjpj0.jpg)
 
 I found myself looking at everyone's badges all night and it was an awesome way to immediately break the ice and have something to talk about.
 
-At around 6:30pm everyone took a seat for the keynote presentation. I kicked it off with a bit of history on Tailwind CSS as a project, and how it got to where it is today — being downloaded over 25 million times per month by millions of people, and used by some of the world's biggest companies to build the world's biggest websites.
+---
 
-![](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-60_uyw5la.jpg)
+At around 6:30pm everyone took a seat for the [keynote presentation](https://www.youtube.com/watch?v=CLkxRnRQtDE&t=0s). I kicked it off with a bit of history on Tailwind CSS as a project, and how it got to where it is today.
 
-After that, [Sam Selikoff](https://twitter.com/samselikoff) walked through some brilliant demos showing off some of the coolest new features in CSS, and how you can take advantage of them with Tailwind.
+![Adam Wathan standing on stage in front of a slide highlighting some of the companies using Tailwind CSS](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-60_uyw5la.jpg)
 
-![](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-73_tvlsrp.jpg)
+Six years ago it was just a couple of stylesheets I was copying and pasting from project to project. Today it's downloaded over 25 million times per month by millions of developers, and is used by some of the world's biggest companies to build some of the world's biggest websites. It was really special to me to finally get a chance to celebrate how far we've come in person with so many people from the community.
+
+---
+
+After that, [Sam Selikoff](https://twitter.com/samselikoff) walked through [some brilliant demos](https://www.youtube.com/watch?v=CLkxRnRQtDE&t=600s) showing off some of the coolest new features in CSS. He demoed things like accent color, fluid typography, headline balancing, container queries, and even masonry grid, all using Tailwind CSS and the utility-first workflow.
+
+![Sam Selikoff live-coding a demo of headling balancing on stage](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-73_tvlsrp.jpg)
 
 Sam is an awesome friend, I asked him to come up for the event and be a part of the keynote without really even having a plan for what I was going to ask him to do at all, and he put together his whole presentation in about 36 hours after he arrived and absolutely nailed it. No slides, all live-coding, and crushed it like a pro. Highly recommend his [YouTube channel](https://www.youtube.com/samselikoff) and training site [Build UI](https://buildui.com/) — dude is a fantastic teacher.
 
-Next, I gave a sneak peek at the next evolution of the Tailwind CSS engine, which we're calling Oxide.
+---
 
-![](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-101_c9your.jpg)
+Next, I gave a [sneak peek at Oxide](https://www.youtube.com/watch?v=CLkxRnRQtDE&t=2146s), the next evolution of the Tailwind CSS engine.
+
+![Adam Wathan on stage in front of a slide that says "Oxide"](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-101_c9your.jpg)
 
 Oxide is a lot of different pieces but they all boil down to two goals — improved performance, and simplifying the developer experience.
 
-We're making Tailwind more of an all-in-one CSS processing tool by integrating [Lightning CSS](https://lightningcss.dev/), which means in the next version of Tailwind, things like importing other CSS files, nesting, vendor prefixes, and syntax transforms for future CSS features will just work — no need to install or configure any additional tooling.
+We're making Tailwind more of an all-in-one CSS processing tool by integrating [Lightning CSS](https://lightningcss.dev/), which means that in the next version of Tailwind, things like importing other CSS files, nesting, vendor prefixes, and syntax transforms for future CSS features will just work — no need to install or configure any additional tooling like `autoprefixer` or `postcss-import`.
 
-Lightning CSS is written in Rust which makes it extremely fast, and we're dipping our toes into Rust ourselves too by using it to rewrite some of most computationally expensive parts of Tailwind, like scanning all of your template files for class names.
+![Adam Wathan on stage in front of a slide that says "Lightning CSS"](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-112_uvpct5.jpg)
+
+Lightning CSS is written in Rust which makes it extremely fast, and we're dipping our toes into Rust ourselves too by rewriting some of most critical paths, like scanning all of your template files for class names.
 
 With these improvements, we're seeing build times drop by over 50% in real-world projects, bringing the production build time down to around 150ms for even our largest projects.
 
+<div className="relative not-prose [a:not(:first-child)>&]:mt-[2em] [a:not(:last-child)>&]:mb-[2em] my-[2em] first:mt-0 last:mb-0 rounded-2xl overflow-hidden [figure>&]:my-0">
+  <img src={oxidePerformance.src} alt="Chart showing Tailwind CSS v3.4 as more than twice as fast as Tailwind CSS v3.3" decoding="async" />
+  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 dark:ring-white/10" />
+</div>
+
+
 Oxide is also going to bring a simplified configuration experience. We're adding automatic content detection so you won't need to configure the paths to all of your template files anymore, and making it even easier to add Tailwind to your own CSS by replacing the need for all of the `@tailwind` directives with a simple `@import "tailwindcss"` call at the top of your CSS file.
 
-![](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-193_walmmg.jpg)
+I also shared a very early look at an idea we're exploring for configuring Tailwind CSS right in your CSS file instead of in JavaScript. With CSS-based configuration, automatic content detection, and the simplified import story, configuring Tailwind with some custom colors and fonts might look as simple as this in the future:
 
+```css
+@import "tailwindcss";
+@import "./fonts" layer(base);
 
+:theme {
+  --colors-neon-pink: oklch(71.7% 0.25 360);
+  --colors-neon-lime: oklch(91.5% 0.258 129);
+  --colors-neon-cyan: oklch(91.3% 0.139 195.8);
 
+  --font-family-sans: "Inter", sans-serif;
+  --font-family-display: "Satoshi", sans-serif;
+}
+```
 
-![](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-215_mbbxax.jpg)
+We're planning to introduce all of this stuff without any breaking changes, and many of these improvements (including Lightning CSS integration and our Rust-based template parser) will be available in Tailwind CSS v3.4 in the next couple of months.
 
+I'll definitely write about this stuff in a lot more detail closer to release time, but [watch the keynote](https://www.youtube.com/watch?v=CLkxRnRQtDE&t=2146s) if you want to take a closer look before then.
 
-![](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-44_txibpz.jpg)
-![](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-207_hfodbb.jpg)
+---
 
+We closed out the keynote with a [preview of Catalyst](https://youtu.be/CLkxRnRQtDE?t=3512), the new React UI kit we've been working on since late last year.
 
-![](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-214_iqkdyp.jpg)
+![Adam Wathan on stage in front of a slide that says "Catalyst"](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-129_dbsbuj.jpg)
 
+This is something that's been on our roadmap for two years at this point, and after many months of ironing out the best approach, we finally broke ground on it last October.
 
+Catalyst is a batteries-included component system with thoughtfully designed APIs, and includes all of the basic building blocks you need to build your own applications. It inclues things like buttons, form controls, dialogs, slide-overs, tables, dropdowns, and more.
 
+<div className="relative not-prose [a:not(:first-child)>&]:mt-[2em] [a:not(:last-child)>&]:mb-[2em] my-[2em] first:mt-0 last:mb-0 rounded-2xl overflow-hidden [figure>&]:my-0">
+  <img src={catalystPreview.src} alt="A collage of components included in the Catalyst UI kit." decoding="async" />
+  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 dark:ring-white/10" />
+</div>
 
-![](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-55_bdevxe.jpg)
+The biggest difference between Catalyst and our existing application UI component examples is that the components in Catalyst are all wired together like they'd be in a real project, instead of being isolated copy and paste code snippets.
 
-- Started the night with an hour of hanging out
-- Keynote started, talked about how we got here, how big Tailwind is today
-- Sam Selikoff ran through some demos showcasing some of the latest features CSS has to offer
+But just like with our [site templates](https://tailwindui.com/templates), the code in Catalyst is yours. If you want to tweak something, you just open up the file and tweak it — it's not a library you install via npm.
 
+Think of it like a  starting point for your own component system. You download the latest version from us, copy the contents of the `/components` directory into your project, then start building.
 
-- Oxide, new engine we're working on, focused on performance and developer experience improvements
-  - Lightning CSS
-  - Rust parser
+If you need to change something, change it.
 
-- Catalyst, early preview of React UI kit we've been building since October
-- Steve walked through design details
-- I wrapped up with a cool trick for doing responsive transitions with Framer Motion + arbitrary properties in Tailwind CSS
+When you want to create your own new components, create them.
 
-- Make this a Twitter thread?
+The whole idea is that 6 months down the road the codebase feels so _yours_ that you'll almost forget you kickstarted it with Catalyst in the first place.
+
+After introducing the project and giving everyone a bit of a tour, I handed things off to [Steve Schoger](https://twitter.com/steveschoger) who did an amazing job walking through [all of the little design details](https://www.youtube.com/watch?v=CLkxRnRQtDE&t=4209s) that went into making Catalyst feel like such a polished design system.
+
+![Steve Schoger on stage explaining some visual design details in Catalyst](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-139_fvxk2r.jpg)
+
+I wrapped things up by showing off a couple of advanced Tailwind CSS tricks we had to use to implement some of those design details, like how to implement responsive transitions with Framer Motion using CSS variables and Tailwind's arbitrary property feature.
+
+![Adam Wathan on stage live-coding a demo with Tailwind CSS and Framer Motion](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-149_ohxxxq.jpg)
+
+Catalyst is still a work-in-progress so don't hold me to it, but with any luck we'll have an early version and more details to share with Tailwind UI customers in the next month or so.
+
+---
+
+For the next three hours we got to hang out in the event space enjoying some refreshments, and getting to meet all of the people who made the trip to attend.
+
+![Attendees at Tailwind Connect socializing after the event](https://res.cloudinary.com/tailwind-labs/image/upload/connect/tailwind-connect-240_iorjwp.jpg)
+
+I mentioned it in the keynote, but this was the first time in the history of the project that we'd ever gotten a bunch of Tailwind fans into the same room, and it was a really special experience for me to finally meet so many people who have gotten so much out of using the framework. It's easy to sort of underappreciate the impact of the work we do here when everything is just on GitHub and Twitter, and to see it manifested in physical space with real people just left me beaming with pride.
+
+It's really an honor to work on these projects and be able to help so many people have more fun building things for the web. Looking forward to doing another event like this in the future — a major life highlight for me for sure.
