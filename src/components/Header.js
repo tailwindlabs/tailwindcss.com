@@ -11,11 +11,10 @@ import { ThemeSelect, ThemeToggle } from './ThemeToggle'
 function Featured() {
   return (
     <a
-      href="https://www.youtube.com/watch?v=CLkxRnRQtDE"
-      target="_blank"
+      href="/blog/2023-07-18-tailwind-connect-2023-recap"
       className="ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-sky-400/20"
     >
-      <strong className="font-semibold">Connect 2023</strong>
+      <strong className="font-semibold">Connect 2023 Recap</strong>
       <svg
         width="2"
         height="2"
@@ -25,7 +24,7 @@ function Featured() {
       >
         <circle cx="1" cy="1" r="1" />
       </svg>
-      <span className="ml-2">Watch the keynote presentation from our special event</span>
+      <span className="ml-2">Everything that was announced at our special event</span>
       <svg
         width="3"
         height="6"
