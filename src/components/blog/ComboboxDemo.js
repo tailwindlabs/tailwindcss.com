@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useMemo } from 'react'
 import { Combobox, Transition } from '@headlessui/react'
 import { Example } from '@/components/Example'
 
@@ -15,7 +15,7 @@ export default function Demo() {
   const [selected, setSelected] = useState(people[3])
   const [query, setQuery] = useState('')
 
-  const filteredPeople =
+  const filteredPeople = useMemo(() =>
     query === ''
       ? people
       : people.filter((person) =>
@@ -24,6 +24,7 @@ export default function Demo() {
             .replace(/\s+/g, '')
             .includes(query.toLowerCase().replace(/\s+/g, ''))
         )
+  , [query]);
 
   return (
     <Example className="h-96 flex items-start justify-center pt-12">
