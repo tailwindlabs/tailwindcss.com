@@ -38,7 +38,6 @@ export function Heading({
       <a
         className={clsx('group relative', hidden ? 'sr-only' : '-ml-2 pl-2')}
         href={`#${id}`}
-        aria-label="Anchor"
       >
         <div className="absolute -ml-8 hidden items-center border-0 opacity-0 group-hover:opacity-100 lg:flex">
           &#8203;
