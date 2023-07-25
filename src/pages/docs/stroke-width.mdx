@@ -48,9 +48,7 @@ This can be useful for styling icon sets like [Heroicons](https://heroicons.com)
 
 ### Customizing your theme
 
-By default, Tailwind includes `stroke-width` utilities for creating basic grids with up to 6 equal width rows. You can customize these values by editing `theme.strokeWidth` or `theme.extend.strokeWidth` in your `tailwind.config.js` file.
-
-You have direct access to the `stroke-width` CSS property here so you can make your custom rows values as generic or as complicated and site-specific as you like.
+By default, Tailwind provides three `stroke-width` utilities. You change, add, or remove these by editing the `theme.strokeWidth` section of your Tailwind config.
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
