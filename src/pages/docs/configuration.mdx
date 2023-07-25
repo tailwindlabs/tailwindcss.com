@@ -102,6 +102,52 @@ Alternatively, you can specify your custom configuration path using the `@config
 
 Learn more about the `@config` directive in the [Functions & Directives](/docs/functions-and-directives#config) documentation.
 
+### Using ESM or TypeScript
+
+You can also configure Tailwind CSS in ESM or even TypeScript:
+
+<SnippetGroup>
+
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+```
+
+```js {{ filename: 'tailwind.config.ts' }}
+import type { Config } from 'tailwindcss'
+
+export default {
+  content: [],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+} satisfies Config
+```
+
+</SnippetGroup>
+
+When you run `npx tailwindcss init`, we’ll detect if your project is an ES Module and automatically generate your config file with the right syntax.
+
+You can also generate an ESM config file explicitly by using the `--esm` flag:
+
+```sh
+npx tailwindcss init --esm
+```
+
+To generate a TypeScript config file, use the `--ts` flag:
+
+```sh
+npx tailwindcss init --ts
+```
+
 ### Generating a PostCSS configuration file
 
 Use the `-p` flag if you'd like to also generate a basic `postcss.config.js` file alongside your `tailwind.config.js` file:
