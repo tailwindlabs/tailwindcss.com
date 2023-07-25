@@ -35,11 +35,8 @@ export function Heading({
       data-docsearch-ignore={ignore ? '' : undefined}
       {...props}
     >
-      <a
-        className={clsx('group relative', hidden ? 'sr-only' : '-ml-2 pl-2')}
-        href={`#${id}`}
-      >
         <div className="absolute -ml-8 hidden items-center border-0 opacity-0 group-hover:opacity-100 lg:flex">
+      <a className={clsx('group relative', hidden ? 'sr-only' : '-ml-2 pl-2')} href={`#${id}`}>
           &#8203;
           <div className="flex h-6 w-6 items-center justify-center rounded-md text-slate-400 shadow-sm ring-1 ring-slate-900/5 hover:text-slate-700 hover:shadow hover:ring-slate-900/10 dark:bg-slate-700 dark:text-slate-300 dark:shadow-none dark:ring-0">
             <svg width="12" height="12" fill="none" aria-hidden="true">
