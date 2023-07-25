@@ -6,8 +6,6 @@ export function Heading({
   level,
   id,
   children,
-  number,
-  badge,
   className = '',
   hidden = false,
   ignore = false,
@@ -28,8 +26,7 @@ export function Heading({
 
   return (
     <Component
-      className={clsx('group flex whitespace-pre-wrap', className, {
-        '-ml-4 pl-4': !hidden,
+      className={clsx('flex whitespace-pre-wrap not-prose', className, {
         'mb-2 text-sm leading-6 text-sky-500 font-semibold tracking-normal dark:text-sky-400':
           level === 2 && nextElement?.type === 'heading' && nextElement?.depth === 3,
       })}
@@ -38,14 +35,14 @@ export function Heading({
       data-docsearch-ignore={ignore ? '' : undefined}
       {...props}
     >
-      {!hidden && (
-        <a
-          href={`#${id}`}
-          className="absolute -ml-10 flex items-center opacity-0 border-0 group-hover:opacity-100"
-          aria-label="Anchor"
-        >
+      <a
+        className={clsx('group relative', hidden ? 'sr-only' : '-ml-2 pl-2')}
+        href={`#${id}`}
+        aria-label="Anchor"
+      >
+        <div className="absolute -ml-8 hidden items-center border-0 opacity-0 group-hover:opacity-100 lg:flex">
           &#8203;
-          <div className="w-6 h-6 text-slate-400 ring-1 ring-slate-900/5 rounded-md shadow-sm flex items-center justify-center hover:ring-slate-900/10 hover:shadow hover:text-slate-700 dark:bg-slate-700 dark:text-slate-300 dark:shadow-none dark:ring-0">
+          <div className="flex h-6 w-6 items-center justify-center rounded-md text-slate-400 shadow-sm ring-1 ring-slate-900/5 hover:text-slate-700 hover:shadow hover:ring-slate-900/10 dark:bg-slate-700 dark:text-slate-300 dark:shadow-none dark:ring-0">
             <svg width="12" height="12" fill="none" aria-hidden="true">
               <path
                 d="M3.75 1v10M8.25 1v10M1 3.75h10M1 8.25h10"
@@ -55,19 +52,9 @@ export function Heading({
               />
             </svg>
           </div>
-        </a>
-      )}
-      {number && (
-        <span className="bg-cyan-100 w-8 h-8 inline-flex items-center justify-center rounded-full text-cyan-700 text-xl mr-3 flex-none">
-          {number}
-        </span>
-      )}
-      <span className={hidden ? 'sr-only' : undefined}>{children}</span>
-      {badge && (
-        <span className="ml-3 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium leading-4 bg-green-150 text-green-900">
-          {badge}
-        </span>
-      )}
+        </div>
+        {children}
+      </a>
     </Component>
   )
 }
