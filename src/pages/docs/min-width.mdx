@@ -52,6 +52,20 @@ You can customize your `min-width` scale by editing `theme.minWidth` or `theme.e
   }
 ```
 
+By defining the minWidth option as a function, you can access the theme function which lets you access other properties of the theme, for the default spacing scale.
+
+```diff-js {{ filename: 'tailwind.config.js' }}
+  module.exports = {
+    theme: {
+      extend: {
++       minWidth: (theme) => ({
++         ...theme('spacing'),
++       }),
+      }
+    }
+  }
+```
+
 Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
 
 ### Arbitrary values
