@@ -48,12 +48,21 @@ let steps = [
       lang: 'js',
       code: `  import adapter from '@sveltejs/adapter-auto';
 > import { vitePreprocess } from '@sveltejs/kit/vite';
+> import { dirname, join } from 'path';
+> import { fileURLToPath } from 'url';
+> const __dirname = dirname(fileURLToPath(import.meta.url));
   /** @type {import('@sveltejs/kit').Config} */
   const config = {
     kit: {
       adapter: adapter()
     },
->   preprocess: vitePreprocess()
+>   preprocess: vitePreprocess({
+>      style: {
+>        css: {
+>          postcss: join(__dirname, 'postcss.config.js')
+>        }
+>      }
+>    })
   };
   export default config;`,
     },
