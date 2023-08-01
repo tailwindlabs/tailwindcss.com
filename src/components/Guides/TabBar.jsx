@@ -11,7 +11,7 @@ export function TabBar({ tabs, selectedTabIndex }) {
   return (
     <div className="flex overflow-auto mb-6 -mx-4 sm:-mx-6">
       <div className="flex-none min-w-full px-4 sm:px-6">
-        <ul className="border-b border-slate-200 space-x-6 flex whitespace-nowrap dark:border-slate-200/5">
+        <ul className="border-b border-slate-200 space-x-6 flex whitespace-nowrap dark:border-slate-200/5 mb-px">
           {tabs.map((tab, tabIndex) => (
             <li key={tab.key || tab.name}>
               <h2>
