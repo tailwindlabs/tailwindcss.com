@@ -138,7 +138,7 @@ export function InstallationLayout({ children }) {
                         href={href}
                         scroll={false}
                         className={clsx(
-                          'flex text-sm leading-6 font-semibold pt-3 pb-2.5 border-b',
+                          'flex text-sm leading-6 font-semibold pt-3 pb-2.5 border-b-2 -mb-px',
                           href === router.pathname
                             ? 'text-sky-500 border-current'
                             : 'text-slate-900 border-transparent hover:border-slate-300 dark:text-slate-200 dark:hover:border-slate-700'
