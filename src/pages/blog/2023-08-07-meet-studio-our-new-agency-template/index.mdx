@@ -1,0 +1,86 @@
+import { adamwathan } from '@/authors'
+import twitterCard from './twitter-card.png'
+
+export const meta = {
+  title: 'Meet Studio: Our beautiful new agency site template',
+  description: `Over the last four months we've probably done more work on Tailwind UI than we ever have, and having finally wrapped up what we set out to achieve I'm excited to lay it all out for you.`,
+  date: '2023-08-07T13:00:00.000Z',
+  authors: [adamwathan],
+  image: twitterCard,
+}
+
+
+
+
+
+{/*excerpt*/}
+
+We
+
+{/*/excerpt*/}
+
+
+We just released [Studio](https://tailwindui.com/templates/studio) — a beautiful new agency website template we've been working on for the last couple of months for Tailwind UI.
+
+[![Learn about the Studio template](./template.png)](https://tailwindui.com/templates/studio)
+
+We built it with Next.js, MDX, and of course Tailwind CSS, and it's the first template we've published using the new Next.js [App Router](https://nextjs.org/docs/app).
+
+Designing an agency template is an interesting project, because creative agencies commonly use their own website to show off some really flashy, bespoke ideas, and using a template just kind of feels strange when the goal is to show what you're own company is capable of.
+
+So we tried to approach this one with two goals in mind to actually make it useful to people:
+
+1. **Teach people how to do some of the cool stuff you see on flash agency sites** — I've always believed our templates are just as (if not more) valuable as an educational resource than as simply templates, so we wanted to use this template as an opportunity to show off how we'd build a lot of the cool interactive and animated details you see on these sorts of sites.
+2. **Design it for agencies that don't sell design** — there are a lot of agencies out there who just focus on engineering work, and a lot of the time those companies struggle to stand out design-wise. We tried to design this template in a way that it didn't depend on tons of screenshots of design work and stuff to look good, so that an agency that focuses on code could use it as a starting point for their own site.
+
+
+I think we what we came up with nailed these two goals and I'm really proud of how it all turned out.
+
+Check out the [live preview](https://studio.tailwindui.com/) as always for the full experience — there are tons of cool details in this one that you have to see in the browser to really appreciate.
+
+---
+
+## Delightfully animated
+
+One of the unspoken rules of an agency website is that it's gotta be flashy. We didn't go full replace-the-mouse-cursor or render-the-entire-site-with-WebGL but we did look for opportunities to tastefully introduce animations and interactivity whenever we could.
+
+For instance, we built a light declarative component-based API around some features of [Framer Motion](https://www.framer.com/motion/) to make it easy to do scroll-triggered entrance animations:
+
+<div className="relative rounded-2xl overflow-hidden">
+  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 pointer-events-none"></div>
+  <video src="https://assets.tailwindcss.com/blog/2023-08-07-meet-studio-our-new-agency-template/entrance-animations.mp4" autoPlay playsInline loop muted className="block m-0" />
+</div>
+
+logo animation:
+
+<div className="relative rounded-2xl overflow-hidden">
+  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 pointer-events-none"></div>
+  <video src="https://assets.tailwindcss.com/blog/2023-08-07-meet-studio-our-new-agency-template/logo-animation.mp4" autoPlay playsInline loop muted className="block m-0" />
+</div>
+
+menu  animation:
+
+<div className="relative rounded-2xl overflow-hidden">
+  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 pointer-events-none"></div>
+  <video src="https://assets.tailwindcss.com/blog/2023-08-07-meet-studio-our-new-agency-template/menu-animation.mp4" autoPlay playsInline loop muted className="block m-0" />
+</div>
+
+scroll saturation animation:
+
+<div className="relative rounded-2xl overflow-hidden">
+  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 pointer-events-none"></div>
+  <video src="https://assets.tailwindcss.com/blog/2023-08-07-meet-studio-our-new-agency-template/scroll-saturation-animation.mp4" autoPlay playsInline loop muted className="block m-0" />
+</div>
+
+
+---
+
+## Developer-centric case study and blog workflow
+
+- Case study and blog support, authored in markdown
+  - Also published plugin we created to make it easy to include custom components in Markdown files without wrapping them with typography styles (https://www.npmjs.com/package/remark-rehype-wrap)
+
+
+---
+
+So that's [Studio](https://tailwindui.com/templates/studio)! Like all of our templates it's included with a one-time purchase [Tailwind UI all-access](https://tailwindui.com/all-access) license, which is the best way to support our work on Tailwind CSS and make it possible for us to keep building awesome stuff for years to come.
