@@ -158,7 +158,7 @@ export default function FrameworkGuides() {
           {
             name: 'Qwik',
             slug: 'qwik',
-            description: 'Deliver instant apps at scale.',
+            description: 'Build instantly-interactive web apps without effort.',
             logo: QwikLogo,
           },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
