@@ -18,7 +18,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm create astro@latest my-app\ncd my-app',
+      code: 'npm create astro@latest my-project\ncd my-project',
     },
   },
   {

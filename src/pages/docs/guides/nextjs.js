@@ -63,7 +63,7 @@ let steps = [
     title: 'Add the Tailwind directives to your CSS',
     body: () => (
       <p>
-        Add the <code>@tailwind</code> directives for each Tailwind’s layers to your{' '}
+        Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
         <code>globals.css</code> file.
       </p>
     ),

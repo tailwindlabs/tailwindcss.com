@@ -18,7 +18,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm init svelte@latest my-app\ncd my-app',
+      code: 'npm init svelte@latest my-project\ncd my-project',
     },
   },
   {
