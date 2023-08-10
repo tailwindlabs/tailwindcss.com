@@ -13,6 +13,7 @@ You define your project's breakpoints in the `theme.screens` section of your `ta
 The default breakpoints are inspired by common device resolutions:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     screens: {
@@ -42,6 +43,7 @@ Feel free to have as few or as many screens as you want, naming them in whatever
 To completely replace the default breakpoints, add your custom `screens` configuration directly under the `theme` key:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     screens: {
@@ -65,6 +67,7 @@ Any default screens you haven't overridden (such as `xl` using the above example
 To override a single screen size (like `lg`), add your custom `screens` value under the `theme.extend` key:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     extend: {
@@ -84,6 +87,7 @@ This will replace the default `screens` value with the same name, without changi
 The easiest way to add an additional larger breakpoint is using the `extend` key:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     extend: {
@@ -125,6 +129,7 @@ We expose the default theme at `tailwindcss/defaultTheme` so you don't have to m
 You can name your custom screens whatever you like, and are not limited to following the `sm`/`md`/`lg`/`xl`/`2xl`  convention that Tailwind uses by default.
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     screens: {
@@ -160,6 +165,7 @@ By default, breakpoints are min-width to encourage a [mobile-first](/docs/respon
 If you want to work with max-width breakpoints instead of min-width, you can specify your screens as objects with a `max` key:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     screens: {
@@ -189,6 +195,7 @@ Make sure to list max-width breakpoints in descending order so that they overrid
 If you want your breakpoints to specify both a `min-width` and a `max-width`, use the `min` and `max` keys together:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     screens: {
@@ -227,6 +234,7 @@ Sometimes it can be useful to have a single breakpoint definition apply in multi
 For example, say you have a sidebar and want your breakpoints to be based on the content-area width rather than the entire viewport. You can simulate this by having one of your breakpoints fall back to a smaller breakpoint when the sidebar becomes visible and shrinks the content area:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     screens: {
@@ -250,6 +258,7 @@ module.exports = {
 If you want full control over the generated media query, use the `raw` key:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     extend: {

@@ -370,6 +370,7 @@ You'll have to switch to another character like `_` instead:
 Prior to Tailwind CSS v3.0, it was possible to define your class prefix as a function:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   // ...
   prefix(selector) {
@@ -383,6 +384,7 @@ This isn't possible in the new engine and we've had to remove support for this f
 Instead, use a static prefix that is the same for every class Tailwind generates:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   // ...
   prefix: 'tw-',

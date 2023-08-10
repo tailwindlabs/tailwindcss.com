@@ -1078,6 +1078,7 @@ For terseness, if you only need to check if a property is supported (and not a s
 You can configure shortcuts for common `@supports` rules you're using in your project in the `theme.supports` section of your `tailwind.config.js` file:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     supports: {
@@ -1127,6 +1128,7 @@ By default we've included modifiers for the most common boolean ARIA attributes:
 You can customize which `aria-*` modifiers are available by editing `theme.aria` or `theme.extend.aria` in your `tailwind.config.js` file:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     extend: {
@@ -1264,6 +1266,7 @@ Since there are no standard `data-*` attributes by definition, by default we onl
 You can configure shortcuts for common data attribute selectors you're using in your project in the `theme.data` section of your `tailwind.config.js` file:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     data: {

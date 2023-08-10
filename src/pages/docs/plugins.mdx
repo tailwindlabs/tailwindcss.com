@@ -47,6 +47,7 @@ We've developed a handful of official plugins for popular features that for one 
 Plugins can be added to your project by installing them via npm, then adding them to your `tailwind.config.js` file:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   // ...
   plugins: [
@@ -204,6 +205,7 @@ By default, plugin utilities automatically respect the user's [`prefix`](/docs/c
 That means that given this Tailwind configuration:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   prefix: 'tw-',
   important: true,
@@ -318,6 +320,7 @@ By default, component classes automatically respect the user's `prefix` preferen
 That means that given this Tailwind configuration:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   prefix: 'tw-',
   important: true,
@@ -606,6 +609,7 @@ module.exports = plugin.withOptions(function (options = {}) {
 The user would invoke your plugin passing along their options when registering it in their `plugins` configuration:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     // ...
@@ -621,6 +625,7 @@ module.exports = {
 The user can also register plugins created this way normally without invoking them if they don't need to pass in any custom options:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     // ...

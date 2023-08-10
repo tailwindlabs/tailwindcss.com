@@ -141,6 +141,7 @@ Learn more about customizing the default theme in the [theme customization](/doc
 Tailwind's default theme configures a sensible default `line-height` for each `text-{size}` utility. You can configure your own default line heights when using custom font sizes by defining each size using a tuple of the form `[fontSize, lineHeight]` in your `tailwind.config.js` file.
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     fontSize: {
@@ -156,6 +157,7 @@ module.exports = {
 You can also specify a default line height using the object syntax, which allows you to also provide default `letter-spacing` and `font-weight` values. You can do this using a tuple of the form `[fontSize, { lineHeight?, letterSpacing?, fontWeight? }]`.
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     fontSize: {

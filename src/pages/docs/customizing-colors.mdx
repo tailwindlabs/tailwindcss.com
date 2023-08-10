@@ -45,6 +45,7 @@ Tailwind includes an expertly-crafted default color palette out-of-the-box that 
 But when you do need to customize your palette, you can configure your colors under the `colors` key in the `theme` section of your `tailwind.config.js` file:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     colors: {
@@ -63,6 +64,7 @@ When it comes to building a custom color palette, you can either [configure your
 If you'd like to completely replace the default color palette with your own custom colors, add your colors directly under the `theme.colors` section of your configuration file:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     colors: {
@@ -96,6 +98,7 @@ Don't forget to include values like `transparent` and `currentColor` if you want
 When your palette includes multiple shades of the same color, it can be convenient to group them together using our nested color object syntax:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     colors: {
@@ -124,6 +127,7 @@ The nested keys will be combined with the parent key to form class names like `b
 Like many other places in Tailwind, the special `DEFAULT` key can be used when you want to define a value with no suffix:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     colors: {
@@ -229,6 +233,7 @@ This is especially common for grays, as you usually only use one set in any give
 If you'd like to add a brand new color to the default palette, add it in the `theme.extend.colors` section of your configuration file:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     extend: {
@@ -254,6 +259,7 @@ module.exports = {
 You can also use `theme.extend.colors` to add additional shades to an existing color if it's needed for your design:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     extend: {
@@ -299,6 +305,7 @@ Tailwind uses literal color names _(like red, green, etc.)_ and a numeric scale 
 That said, you can name your colors in Tailwind whatever you like, and if you're working on a project that needs to support multiple themes for example, it might make sense to use more abstract names:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     colors: {
@@ -369,6 +376,7 @@ If you'd like to define your colors as CSS variables, you'll need to define thos
 Then define your colors in your configuration file, being sure to include the color space you're using, and the special `<alpha-value>` placeholder that Tailwind will use to inject the alpha value when using an opacity modifier:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     colors: {

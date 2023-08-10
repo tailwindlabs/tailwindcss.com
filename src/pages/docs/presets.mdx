@@ -11,6 +11,7 @@ By default, any configuration you add in your own `tailwind.config.js` file is i
 The `presets` option lets you specify a _different_ configuration to use as your base, making it easy to package up a set of customizations that you'd like to reuse across projects.
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [
     require('@acmecorp/tailwind-base')
@@ -79,6 +80,7 @@ As you can see, presets can contain all of the configuration options you're used
 Assuming this preset was saved at `./my-preset.js`, you would use it by adding it to the `tailwind.config.js` file in your actual project under the `presets` key:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [
     require('./my-preset.js')
@@ -161,6 +163,7 @@ module.exports = {
 ```
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [
     require('./my-preset.js'),
@@ -184,6 +187,7 @@ module.exports = {
 ```
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [
     require('./example-preset.js'),
@@ -200,6 +204,7 @@ module.exports = {
 The `presets` option is an array and can accept multiple presets. This is useful if you want to split your reusable customizations up into composable chunks that can be imported independently.
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [
     require('@acmecorp/tailwind-colors'),
@@ -214,6 +219,7 @@ When adding multiple presets, it's important to note that if they overlap in any
 For example, if both of these configurations provided a custom color palette (and were not using `extend`), the color palette from `configuration-b` would be used:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [
     require('@acmecorp/configuration-a'),
@@ -229,6 +235,7 @@ module.exports = {
 If you'd like to completely disable the default configuration and start with no base configuration at all, set `presets` to an empty array:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [],
   // ...
@@ -247,6 +254,7 @@ module.exports = {
 ```
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [
     require('./my-preset.js')

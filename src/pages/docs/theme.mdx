@@ -10,6 +10,7 @@ import { ThemeReference } from '@/components/ThemeReference'
 The `theme` section of your `tailwind.config.js` file is where you define your project's color palette, type scale, fonts, breakpoints, border radius values, and more.
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     screens: {
@@ -61,6 +62,7 @@ See the [theme configuration reference](#configuration-reference) or the [defaul
 The `screens` key allows you to customize the responsive breakpoints in your project.
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     screens: {
@@ -81,6 +83,7 @@ To learn more, see the [breakpoint customization documentation](/docs/breakpoint
 The `colors` key allows you to customize the global color palette for your project.
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     colors: {
@@ -108,6 +111,7 @@ To learn more, see the [color customization documentation](/docs/colors).
 The `spacing` key allows you to customize the global spacing and sizing scale for your project.
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     spacing: {
@@ -206,6 +210,7 @@ If you'd like to preserve the default values for a theme option but also add new
 For example, if you wanted to add an extra breakpoint but preserve the existing ones, you could extend the `screens` property:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     extend: {
@@ -223,6 +228,7 @@ module.exports = {
 To override an option in the default theme, add your overrides directly under the `theme` section of your `tailwind.config.js`:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     // Replaces all of the default `opacity` values
@@ -245,6 +251,7 @@ Any keys you **do not** provide will be inherited from the default theme, so in 
 You can of course both override some parts of the default theme and extend other parts of the default theme within the same configuration:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     opacity: {
@@ -271,6 +278,7 @@ If you need to reference another value in your theme, you can do so by providing
 For example, you could generate `background-size` utilities for every value in your spacing scale by referencing `theme('spacing')` in your `backgroundSize` configuration:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     spacing: {
@@ -293,6 +301,7 @@ Note that you can only use this kind of closure with top-level theme keys, not t
 <TipBad>You can't use functions for individual values</TipBad>
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     fill: {
@@ -305,6 +314,7 @@ module.exports = {
 <TipGood>Use functions for top-level theme keys</TipGood>
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     fill: ({ theme }) => ({
@@ -344,6 +354,7 @@ If you don't want to generate any classes for a certain core plugin, it's better
 <TipBad>Don't assign an empty object in your theme configuration</TipBad>
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     opacity: {},
@@ -354,6 +365,7 @@ module.exports = {
 <TipGood>Do disable the plugin in your corePlugins configuration</TipGood>
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   corePlugins: {
     opacity: false,

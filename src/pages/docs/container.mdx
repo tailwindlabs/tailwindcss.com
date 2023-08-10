@@ -104,6 +104,7 @@ The `container` class also includes responsive variants like `md:container` by d
 To center containers by default, set the `center` option to `true` in the `theme.container` section of your config file:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     container: {
@@ -118,6 +119,7 @@ module.exports = {
 To add horizontal padding by default, specify the amount of padding you'd like using the `padding` option in the `theme.container` section of your config file:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     container: {
@@ -130,6 +132,7 @@ module.exports = {
 If you want to specify a different padding amount for each breakpoint, use an object to provide a `default` value and any breakpoint-specific overrides:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     container: {

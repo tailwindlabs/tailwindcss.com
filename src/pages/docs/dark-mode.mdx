@@ -71,6 +71,7 @@ By default this uses the `prefers-color-scheme` CSS media feature, but you can a
 If you want to support toggling dark mode manually instead of relying on the operating system preference, use the `class` strategy instead of the `media` strategy:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
   // ...
@@ -138,6 +139,7 @@ Some frameworks (like NativeScript) have their own approach to enabling dark mod
 You can customize the dark mode selector name by setting `darkMode` to an array with your custom selector as the second item:
 
 ```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ['class', '[data-mode="dark"]'],
   // ...
