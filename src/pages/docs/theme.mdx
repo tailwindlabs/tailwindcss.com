@@ -223,6 +223,21 @@ module.exports = {
 }
 ```
 
+To use any of the extended values you can call them like you would with a normal one.
+
+Using the example above with the new screens `3xl` property we get:
+
+```html
+<div class="h-full w-full bg-white">
+  <div class="grid h-full w-full grid-cols-1 3xl:grid-cols-3">
+    <div class="h-full w-full bg-blue-200 opacity-75"></div>
+    <div class="hidden h-full w-full bg-red-200 opacity-75 3xl:block"></div>
+    <div class="hidden h-full w-full bg-green-200 opacity-75 3xl:block"></div>
+  </div>
+</div>
+
+```
+
 ### Overriding the default theme
 
 To override an option in the default theme, add your overrides directly under the `theme` section of your `tailwind.config.js`:
