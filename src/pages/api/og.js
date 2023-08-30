@@ -212,7 +212,15 @@ export default async function handler(req, res) {
               </div>
               {description && (
                 <div tw="mt-4 flex text-slate-500 text-[32px] leading-[56px] font-medium">
-                  {t(description)}
+                  {description.split(' ').length > 2 ? (
+                    <div tw="flex">
+                      {t(description.split(' ').slice(0, -1).join(' '))}
+                      &nbsp;
+                      {t(description.split(' ').at(-1))}
+                    </div>
+                  ) : (
+                    <div tw="flex">{t(description)}</div>
+                  )}
                 </div>
               )}
             </div>
