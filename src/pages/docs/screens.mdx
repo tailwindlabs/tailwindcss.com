@@ -80,11 +80,11 @@ module.exports = {
 }
 ```
 
-This will replace the default `screens` value with the same name, without changing the order of your breakpoints.
+This will replace the default `screens` value with the same name and Tailwind will re-sort them based on size.
 
-### Adding larger breakpoints
+### Adding additional breakpoints
 
-The easiest way to add an additional larger breakpoint is using the `extend` key:
+The easiest way to add additional smaller or larger breakpoints is using the `extend` key:
 
 ```js {{ filename: 'tailwind.config.js' }}
 /** @type {import('tailwindcss').Config} */
@@ -92,6 +92,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
+        'xs': '475px',
         '3xl': '1600px',
       },
     },
@@ -100,29 +101,7 @@ module.exports = {
 }
 ```
 
-This will add your custom screen to the end of the default breakpoint list.
-
-### Adding smaller breakpoints
-
-If you want to add an additional small breakpoint, you can't use `extend` because the small breakpoint would be added to the end of the breakpoint list, and breakpoints need to be sorted from smallest to largest in order to work as expected with a min-width breakpoint system.
-
-Instead, override the entire `screens` key, re-specifying the default breakpoints:
-
-```js {{ filename: 'tailwind.config.js' }}
-const defaultTheme = require('tailwindcss/defaultTheme')
-
-module.exports = {
-  theme: {
-    screens: {
-      'xs': '475px',
-      ...defaultTheme.screens,
-    },
-  },
-  plugins: [],
-}
-```
-
-We expose the default theme at `tailwindcss/defaultTheme` so you don't have to maintain the list of default breakpoints yourself.
+This will make the screen `xs` available at the smallest size and `3xl` at the largest because Tailwind automatically sorts breakpoints by size.
 
 ### Using custom screen names
 
@@ -158,7 +137,7 @@ Your responsive modifiers will reflect these custom screen names, so using them 
 
 ## Advanced configuration
 
-By default, breakpoints are min-width to encourage a [mobile-first](/docs/responsive-design#working-mobile-first) workflow. If you need more control over your media queries, you can also define them using an object syntax that lets you specify explicit min-width and max-width values.
+By default, breakpoints are min-width to encourage a [mobile-first](/docs/responsive-design#working-mobile-first) workflow. If you need more control over your media queries, you can also define them using an object syntax that lets you specify explicit min-width and max-width values. Please note that if you define any advanced screens, Tailwind does not sort these automatically and you must make sure they're listed in the correct order.
 
 ### Max-width breakpoints
 
@@ -189,6 +168,8 @@ module.exports = {
 ```
 
 Make sure to list max-width breakpoints in descending order so that they override each other as expected.
+
+Note: Tailwind has a `max-*` variant that automatically turns simple screen `min-width` breakpoints into `max-width` breakpoints that are properly sorted. You can use these as an alternative to re-defining your screens config with max-width values.
 
 ### Fixed-range breakpoints
 
