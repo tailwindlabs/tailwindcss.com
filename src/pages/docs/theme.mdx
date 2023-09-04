@@ -207,7 +207,7 @@ Out of the box, your project will automatically inherit the values from [the def
 
 Most properties under `theme` map to utility classes and any values you add will become available as suffixes for existing utilities. If you'd like to preserve the default values for a theme option but also add new values, add your extensions under the `theme.extend` key in your configuration file. Values under this key are merged with existing `theme` values and automatically become available as new classes that you can use.
 
-As an example, here we extend the `fontSize` property to add the classes `font-smol` and `font-reallybig` to change the font size:
+As an example, here we extend the `fontSize` property to add the classes `text-2xs` and `text-10xl` to change the font size:
 
 ```js {{ filename: 'tailwind.config.js' }}
 /** @type {import('tailwindcss').Config} */
@@ -215,8 +215,8 @@ module.exports = {
   theme: {
     extend: {
       fontSize: {
-        smol: '10px', // adds the class `font-smol`
-        reallybig: '96px', // adds the class `font-reallybig`
+        '2xs': '0.625rem', // adds a new `text-2xs` class
+        '10xl': '10rem', // adds a new `text-10xl` class
       }
     }
   }
@@ -226,10 +226,10 @@ module.exports = {
 After adding these to your theme you can use them just as with any other utility in your HTML:
 
 ```html
-<h1 class="**font-reallybig**">
+<h1 class="**text-2xs**">
   Hello world!
 </h1>
-<span class="**font-smol**">
+<span class="**text-10xl**">
   Hi world
 </span>
 ```
@@ -242,14 +242,14 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        '3xl': '1600px', // adds new utilities prefxied with `3xl:`
+        '3xl': '1600px', // adds a new `3xl:` screen variant
       }
     }
   }
 }
 ```
 
-With this addition to the theme, a new `3xl` screen size is made available alongside the existing screen sizes like `sm`, `md`, `lg`, etc… You can use this new screen size by placing it before the utility name just like any of the existing screen sizes:
+With this addition to the theme, a new `3xl` screen size is made available alongside the existing screen sizes like `sm`, `md`, `lg`, etc. You can use this new screen size by placing it before the utility name just like any of the existing screen sizes:
 
 ```html
 <blockquote class="text-base md:text-md **3xl:text-lg**">
