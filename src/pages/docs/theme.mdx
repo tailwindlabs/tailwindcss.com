@@ -205,25 +205,51 @@ Out of the box, your project will automatically inherit the values from [the def
 
 ### Extending the default theme
 
-If you'd like to preserve the default values for a theme option but also add new values, add your extensions under the `extend` key in the `theme` section of your configuration file.
+Most properties under `theme` map to utility classes and any values you add will become available as suffixes for existing utilities. If you'd like to preserve the default values for a theme option but also add new values, add your extensions under the `theme.extend` key in your configuration file. Values under this key are merged with existing `theme` values and automatically become available as new classes that you can use.
 
-For example, if you wanted to add an extra breakpoint but preserve the existing ones, you could extend the `screens` property:
+As an example, here we extend the `fontSize` property to add the classes `font-smol` and `font-reallybig` to change the font size:
 
 ```js {{ filename: 'tailwind.config.js' }}
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     extend: {
-      // Adds a new breakpoint in addition to the default breakpoints
-      screens: {
-        '3xl': '1600px',
+      fontSize: {
+        smol: '10px', // adds the class `font-smol`
+        reallybig: '96px', // adds the class `font-reallybig`
       }
     }
   }
 }
 ```
 
-Values under the `theme.extend` key are merged with existing `theme` values and automatically become available as new classes that you can use. For example, in the snippet above that adds a new `3xl` screen size, classes can now be prefixed with `3xl:` just like the other responsive variants:
+After adding these to your theme you can use them just as with any other utility in your HTML:
+
+```html
+<h1 class="**font-reallybig**">
+  Hello world!
+</h1>
+<span class="**font-smol**">
+  Hi world
+</span>
+```
+
+In some case, properties map to [variants](https://tailwindcss.com/docs/hover-focus-and-other-states) that can be placed in front of a utility to alter their behavior. For example, to add a `3xl` screen size that works just like the existing responsive screens, add a property under the `screens` key:
+
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  theme: {
+    extend: {
+      screens: {
+        '3xl': '1600px', // adds new utilities prefxied with `3xl:`
+      }
+    }
+  }
+}
+```
+
+With this addition to the theme, a new `3xl` screen size is made available alongside the existing screen sizes like `sm`, `md`, `lg`, etc… You can use this new screen size by placing it before the utility name just like any of the existing screen sizes:
 
 ```html
 <blockquote class="text-base md:text-md **3xl:text-lg**">
