@@ -30,7 +30,7 @@ npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
 
 Note that Tailwind CSS v3.0 requires PostCSS 8, and no longer supports PostCSS 7. If you can't upgrade to PostCSS 8, we recommend using [Tailwind CLI](/docs/installation) instead of installing Tailwind as a PostCSS plugin.
 
-If you are using nesting in your custom CSS (in combination with a PostCSS nesting plugin), you should also [configure the `tailwindcss/nesting` plugin](https://tailwindcss.com/docs/using-with-preprocessors#nesting) in your PostCSS configuration to ensure compatibility with Tailwind CSS v3.0.
+If you are using nesting in your custom CSS (in combination with a PostCSS nesting plugin), you should also [configure the `tailwindcss/nesting` plugin](/docs/using-with-preprocessors#nesting) in your PostCSS configuration to ensure compatibility with Tailwind CSS v3.0.
 
 ### Official plugins
 
@@ -178,7 +178,7 @@ While there's no harm in leaving them in your HTML, they can safely be removed â
 
 ### New opacity modifier syntax
 
-The new engine introduces [a new syntax](https://tailwindcss.com/docs/background-color#changing-the-opacity) for changing the opacity of color utilities that we recommend migrating to from utilities like `bg-opacity-{value}`:
+The new engine introduces [a new syntax](/docs/background-color#changing-the-opacity) for changing the opacity of color utilities that we recommend migrating to from utilities like `bg-opacity-{value}`:
 
 ```diff-html
 - <div class="bg-black bg-opacity-25">

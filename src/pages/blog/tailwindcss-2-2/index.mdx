@@ -28,7 +28,7 @@ Well I can't say we were really planning on it but over the last few weeks we've
   ></iframe>
 </div>
 
-This has to be one of the most feature-rich Tailwind releases of all-time. Introducing [Just-in-Time mode](https://tailwindcss.com/docs/just-in-time-mode) back in v2.1 has opened the doors to a lot of cool features we couldn't have easily added otherwise, and this release is loaded with great examples of that.
+This has to be one of the most feature-rich Tailwind releases of all-time. Introducing [Just-in-Time mode](/docs/just-in-time-mode) back in v2.1 has opened the doors to a lot of cool features we couldn't have easily added otherwise, and this release is loaded with great examples of that.
 
 Here are the highlights:
 
@@ -80,7 +80,7 @@ Here are some of the highlights:
 
 It's fully backwards-compatible with the previous CLI, so if you've got any scripts set up already you should be able to upgrade to v2.2 without making any changes to your scripts.
 
-Check out our [updated Tailwind CLI documentation](https://tailwindcss.com/docs/installation#using-tailwind-cli) to learn more.
+Check out our [updated Tailwind CLI documentation](/docs/installation#using-tailwind-cli) to learn more.
 
 _Note that if you were using the `tailwindcss-cli` wrapper package, you can safely switch to `tailwindcss` as we've managed to resolve the peer-dependency issues that forced us to create the wrapper package in the first place._
 
@@ -88,7 +88,7 @@ _Note that if you were using the `tailwindcss-cli` wrapper package, you can safe
 
 ## Before and after pseudo-element variants
 
-_This feature is only available in [Just-in-Time mode](https://tailwindcss.com/docs/just-in-time-mode)_.
+_This feature is only available in [Just-in-Time mode](/docs/just-in-time-mode)_.
 
 People have been asking for this for years and it's finally here! We've added first-party support for styling pseudo-elements like `before` and `after`:
 
@@ -117,7 +117,7 @@ This can be super helpful when your content has spaces in it, since spaces can't
 
 ## First-letter/line variants
 
-_This feature is only available in [Just-in-Time mode](https://tailwindcss.com/docs/just-in-time-mode)_.
+_This feature is only available in [Just-in-Time mode](/docs/just-in-time-mode)_.
 
 We've added variants for the `first-letter` and `first-line` pseudo-elements, so you can do stuff like drop caps:
 
@@ -134,7 +134,7 @@ We've added variants for the `first-letter` and `first-line` pseudo-elements, so
 
 ## Selected text variants
 
-_This feature is only available in [Just-in-Time mode](https://tailwindcss.com/docs/just-in-time-mode)_.
+_This feature is only available in [Just-in-Time mode](/docs/just-in-time-mode)_.
 
 We've added a new `selection` variant that makes it super easy to style highlighted to match your design:
 
@@ -166,7 +166,7 @@ We've even built this feature in such a way that it can be applied to a parent e
 
 ## List marker variants
 
-_This feature is only available in [Just-in-Time mode](https://tailwindcss.com/docs/just-in-time-mode)_.
+_This feature is only available in [Just-in-Time mode](/docs/just-in-time-mode)_.
 
 You can use the new `marker` variant to style the bullets or numbers at the beginning of a list:
 
@@ -192,7 +192,7 @@ Like the `selection` variant, we've implemented this in a way that it cascades f
 
 ## Sibling selector variants
 
-_This feature is only available in [Just-in-Time mode](https://tailwindcss.com/docs/just-in-time-mode)_.
+_This feature is only available in [Just-in-Time mode](/docs/just-in-time-mode)_.
 
 Tailwind CSS v2.2 adds new `peer-*` variants that behave much like the `group-*` variants, but for targeting sibling elements instead of parent elements.
 
@@ -222,7 +222,7 @@ So just like in vanilla CSS, it will only work for targeting _previous_ siblings
 
 ## Exhaustive pseudo-class support
 
-_This feature is only available in [Just-in-Time mode](https://tailwindcss.com/docs/just-in-time-mode)_.
+_This feature is only available in [Just-in-Time mode](/docs/just-in-time-mode)_.
 
 We've added variants for basically every single missing pseudo-class we could think of in this release:
 
@@ -254,7 +254,7 @@ Personal favorite in the list is `placeholder-shown` — when combined with the 
 
 ## Shorthand color opacity syntax
 
-_This feature is only available in [Just-in-Time mode](https://tailwindcss.com/docs/just-in-time-mode)_.
+_This feature is only available in [Just-in-Time mode](/docs/just-in-time-mode)_.
 
 Instead of using utilities like `bg-opacity-50`, `text-opacity-25`, or `placeholder-opacity-40`, Tailwind CSS v2.2 gives you a new color opacity shorthand you can use to tweak the alpha channel of a color directly in the color utility itself:
 
@@ -281,7 +281,7 @@ If I'm being honest, I am more excited about never having to create another core
 
 ## Extended arbitrary value support
 
-_This feature is only available in [Just-in-Time mode](https://tailwindcss.com/docs/just-in-time-mode)_.
+_This feature is only available in [Just-in-Time mode](/docs/just-in-time-mode)_.
 
 We've gone over every core plugin in Tailwind to try and add the most flexible arbitrary value support we possibly could, and I think we've covered pretty much everything at this point.
 
@@ -376,7 +376,7 @@ You probably won't need to use this yourself but it could be helpful if you're e
 
 ## Caret color utilities
 
-_This feature is only available in [Just-in-Time mode](https://tailwindcss.com/docs/just-in-time-mode)_.
+_This feature is only available in [Just-in-Time mode](/docs/just-in-time-mode)_.
 
 You can now set the color of the cursor in form fields using the new `caret-{color}` utilities:
 
@@ -415,13 +415,13 @@ We've added new utilities for the `background-origin` property, which let you co
 </div>
 ```
 
-Learn more in the [background origin documentation](https://tailwindcss.com/docs/background-origin).
+Learn more in the [background origin documentation](/docs/background-origin).
 
 <a name="simplified-transform-and-filter-composition"></a>
 
 ## Simplified transform and filter composition
 
-_This feature is only available in [Just-in-Time mode](https://tailwindcss.com/docs/just-in-time-mode)_.
+_This feature is only available in [Just-in-Time mode](/docs/just-in-time-mode)_.
 
 The `transform`, `filter`, and `backdrop-filter` classes are no longer necessary to "enable" their respective set of composable utilities.
 
@@ -445,7 +445,7 @@ I don't expect this will be a real problem for most people, but it's technically
 
 ## Per-side border color utilities
 
-_This feature is only available in [Just-in-Time mode](https://tailwindcss.com/docs/just-in-time-mode)_.
+_This feature is only available in [Just-in-Time mode](/docs/just-in-time-mode)_.
 
 Requested at least once a month for the last four years, I'm excited to share that we've finally added per-side border color support now that we don't have to sweat the development stylesheet size.
 
@@ -523,7 +523,7 @@ module.exports = {
 
 This is an advanced feature and most users won’t need it. The default extraction logic in Tailwind works extremely well for almost all projects.
 
-For more information on these features, check out our [optimizing for production documentation](https://tailwindcss.com/docs/optimizing-for-production).
+For more information on these features, check out our [optimizing for production documentation](/docs/optimizing-for-production).
 
 ---
 

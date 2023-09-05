@@ -101,7 +101,7 @@ If you're using our CLI tool to compile your CSS, [`postcss-import`](https://git
 
 If you're not using our CLI tool and instead using Tailwind as a PostCSS plugin, you'll still need to install and configure `postcss-import` yourself just like you do with `autoprefixer`, but if you _are_ using our CLI tool this will totally just work now.
 
-This is especially handy if you're using our [standalone CLI](https://tailwindcss.com/blog/standalone-cli) and don't want to install any node dependencies at all.
+This is especially handy if you're using our [standalone CLI](/blog/standalone-cli) and don't want to install any node dependencies at all.
 
 ## Change color opacity when using the theme function
 
@@ -524,7 +524,7 @@ I recommend reading the [MDN Dialog documentation](https://developer.mozilla.org
 
 ## Arbitrary values but for variants
 
-Okay so this one is the real highlight for me — you know how we give you the [`addVariant` API](https://tailwindcss.com/docs/plugins#adding-variants) for creating your own custom variants?
+Okay so this one is the real highlight for me — you know how we give you the [`addVariant` API](/docs/plugins#adding-variants) for creating your own custom variants?
 
 ```js {{ filename: 'tailwind.config.js' }}
   const plugin = require('tailwindcss/plugin')
@@ -539,7 +539,7 @@ Okay so this one is the real highlight for me — you know how we give you the [
   }
 ```
 
-...and you know how we have [arbitrary values](https://tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values) for using any value you want with a utility directly in your HTML?
+...and you know how we have [arbitrary values](/docs/adding-custom-styles#using-arbitrary-values) for using any value you want with a utility directly in your HTML?
 
 ```html
 <div class="**top-[117px]**">
