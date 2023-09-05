@@ -128,7 +128,8 @@ function TableOfContents({ tableOfContents, currentSection }) {
 }
 
 function getTop(id) {
-  return document.getElementById(id).getBoundingClientRect().top + window.scrollY
+  let el = document.getElementById(id)
+  return el ? el.getBoundingClientRect().top + window.scrollY : 0
 }
 
 function useTableOfContents(tableOfContents) {
