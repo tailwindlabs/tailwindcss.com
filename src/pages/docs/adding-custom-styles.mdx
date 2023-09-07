@@ -435,13 +435,12 @@ If you want to add some custom CSS that should always be included, add it to you
 ```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
+@tailwind utilities;
 
 /* This will always be included in your compiled CSS */
 .card {
   /* ... */
 }
-
-@tailwind utilities;
 ```
 
 Make sure to put your custom styles where they need to go to get the precedence behavior you want. In the example above, we've added the `.card` class before `@tailwind utilities` to make sure utilities can still override it.
