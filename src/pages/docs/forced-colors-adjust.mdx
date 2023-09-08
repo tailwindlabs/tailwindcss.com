@@ -1,0 +1,20 @@
+---
+title: "Forced Colors Adjust"
+description: "Utilities for controlling whether forced-colors mode applies to an element."
+---
+
+import utilities from 'utilities?plugin=forcedColorsAdjust'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Opt-out of forced colors
+
+Use `forced-colors-none` to opt an element out of `forced-colors` adjustment:
+
+```html
+<div class="forced-colors-none">
+  <!-- Content that needs to opt out of forced-colors mode -->
+</div>
+```
