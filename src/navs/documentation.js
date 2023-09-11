@@ -229,10 +229,7 @@ export const documentationNav = {
   Accessibility: [pages['screen-readers']],
   'Official Plugins': [
     pages['typography-plugin'],
-    {
-      title: 'Forms',
-      href: 'https://github.com/tailwindlabs/tailwindcss-forms',
-    },
+    pages['forms-plugin'],
     {
       title: 'Aspect Ratio',
       href: 'https://github.com/tailwindlabs/tailwindcss-aspect-ratio',

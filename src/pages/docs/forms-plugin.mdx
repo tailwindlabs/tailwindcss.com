@@ -1,0 +1,133 @@
+---
+title: '@tailwindcss/forms'
+shortTitle: Forms
+description: Form elements easy to override with utilities.
+repo: https://github.com/tailwindlabs/tailwindcss-forms
+---
+
+import { TipGood, TipBad, TipInfo } from '@/components/Tip'
+
+A plugin that provides a basic reset for form styles that makes form elements easy to override with utilities.
+
+<a href="https://play.tailwindcss.com/mrLcmA4vXu?layout=preview">
+  <img src={require('@/img/forms-demo.jpg').default.src} alt="Tailwind CSS IntelliSense extension for Visual Studio Code" width={3086} height={1658} className="rounded-lg ring-1 ring-black/5" />
+</a>
+
+To see what it looks like in action, check out our [live demo](https://play.tailwindcss.com/mrLcmA4vXu?layout=preview) on Tailwind Play.
+
+---
+
+## Installation
+
+Install the plugin from npm:
+
+```shell
+npm install -D @tailwindcss/forms
+```
+
+Then add the plugin to your `tailwind.config.js` file:
+
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  theme: {
+    // ...
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+    // ...
+  ],
+}
+```
+
+---
+
+## Basic usage
+
+All of the basic form elements you use will now have some simple default styles that are easy to override with utilities.
+
+### Form Styles
+
+Currently we add basic utility-friendly form styles for the following form element types:
+
+| Element Types                      |
+| ---------------------------------- |
+| `input[type='text']`               |
+| `input[type='password']`           |
+| `input[type='email']`              |
+| `input[type='number']`             |
+| `input[type='url']`                |
+| `input[type='date']`               |
+| `input[type='datetime-local']`     |
+| `input[type='month']`              |
+| `input[type='week']`               |
+| `input[type='time']`               |
+| `input[type='search']`             |
+| `input[type='tel']`                |
+| `input[type='checkbox']`           |
+| `input[type='radio']`              |
+| `select`                           |
+| `select[multiple]`                 |
+| `textarea`                         |
+
+Every element has been normalized/reset to a simple visually consistent style that is easy to customize with utilities, even elements like `<select>` or `<input type="checkbox">` that normally need to be reset with `appearance: none` and customized using custom CSS:
+
+```html
+<!-- You can actually customize padding on a select element now: -->
+<select class="px-4 py-3 rounded-full">
+  <!-- ... -->
+</select>
+
+<!-- Or change a checkbox color using text color utilities: -->
+<input type="checkbox" class="rounded text-pink-500" />
+```
+
+More customization examples and best practices coming soon.
+
+
+Here is a complete table of the provided `form-*` classes for reference:
+
+
+| Base                     |  Class            |
+| ------------------------ | ----------------- |
+| `[type='text']`          | `form-input`      |
+| `[type='email']`         | `form-input`      |
+| `[type='url']`           | `form-input`      |
+| `[type='password']`      | `form-input`      |
+| `[type='number']`        | `form-input`      |
+| `[type='date']`          | `form-input`      |
+| `[type='datetime-local']`| `form-input`      |
+| `[type='month']`         | `form-input`      |
+| `[type='search']`        | `form-input`      |
+| `[type='tel']`           | `form-input`      |
+| `[type='time']`          | `form-input`      |
+| `[type='week']`          | `form-input`      |
+| `textarea`               | `form-textarea`   |
+| `select`                 | `form-select`     |
+| `select[multiple]`       | `form-multiselect`|
+| `[type='checkbox']`      | `form-checkbox`   |
+| `[type='radio']`         | `form-radio`      |
+
+
+
+### Using only global styles or only classes
+
+Although we recommend thinking of this plugin as a "form reset" rather than a collection of form component styles, 
+in some cases our default approach may be too heavy-handed, especially when integrating this plugin into existing projects.
+
+If generating both the global (base) styles and classes doesn't work well with your project, you can use the `strategy` option to limit the plugin to just one of these approaches.
+
+```js
+// tailwind.config.js
+plugins: [
+  require("@tailwindcss/forms")({
+    strategy: 'base', // only generate global styles
+    strategy: 'class', // only generate classes
+  }),
+],
+```
+
+
+When using the `base` strategy, form elements are styled globally, and no `form-{name}` classes are generated.
+
+When using the `class` strategy, form elements are not styled globally, and instead must be styled using the generated `form-{name}` classes.
