@@ -6,8 +6,8 @@ import { TabBar } from '@/components/Guides/TabBar.jsx'
 
 let tabs = [
   {
-    name: 'Standard method',
-    href: '#3',
+    name: 'Standard installation',
+    href: '#standard',
     steps: [
       {
         title: 'Create your project',
@@ -158,7 +158,7 @@ let tabs = [
   },
   {
     name: 'Using Nuxt Modules',
-    href: '#module',
+    href: '#modules',
     steps: [
       {
         title: 'Create your project',
