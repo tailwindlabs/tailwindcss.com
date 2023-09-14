@@ -26,8 +26,15 @@ function renderProperties(
           return (
             <Fragment key={i}>
               {'  '.repeat(indent)}
-              {property}: {transformedValue};
-              {px && <span className="text-indigo-400"> {`/* ${px} */`}</span>}
+              <a
+                className="border-b border-dotted"
+                href={'https://developer.mozilla.org/en-US/docs/Web/CSS/' + property}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {property}
+              </a>
+              : {transformedValue};{px && <span className="text-indigo-400"> {`/* ${px} */`}</span>}
               {'\n'}
             </Fragment>
           )
