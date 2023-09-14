@@ -13,7 +13,7 @@ let tabs = [
         title: 'Create your project',
         body: () => (
           <p>
-            Start by creating a new Nuxt.js project if you don’t have one set up already. The most
+            Start by creating a new Nuxt project if you don’t have one set up already. The most
             common approach is to use{' '}
             <a href="https://nuxtjs.org/guides/get-started/installation">Create Nuxt App</a>.
           </p>
@@ -160,7 +160,7 @@ let tabs = [
         title: 'Create your project',
         body: () => (
           <p>
-            Start by creating a new Nuxt.js project if you don’t have one set up already. The most
+            Start by creating a new Nuxt project if you don’t have one set up already. The most
             common approach is to use the{' '}
             <a href="https://nuxt.com/docs/getting-started/installation">
               Nuxt Command Line Interface
@@ -316,8 +316,8 @@ export default function UsingNuxtJs({ code }) {
 
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with Nuxt.js"
-      description="Setting up Tailwind CSS in a Nuxt.js project."
+      title="Install Tailwind CSS with Nuxt"
+      description="Setting up Tailwind CSS in a Nuxt project."
     >
       <TabBar tabs={tabs} selectedTabIndex={selectedTabIndex} />
       <Steps steps={tabs[selectedTabIndex].steps} code={code[selectedTabIndex]} />
@@ -337,8 +337,8 @@ export function getStaticProps() {
 
 UsingNuxtJs.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Nuxt.js',
-    description: 'Setting up Tailwind CSS in a Nuxt.js project.',
+    title: 'Install Tailwind CSS with Nuxt',
+    description: 'Setting up Tailwind CSS in a Nuxt project.',
     section: 'Installation',
   },
   Layout: DocumentationLayout,

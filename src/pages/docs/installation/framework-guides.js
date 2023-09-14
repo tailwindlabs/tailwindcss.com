@@ -60,7 +60,7 @@ export default function FrameworkGuides() {
             logo: ViteLogo,
           },
           {
-            name: 'Nuxt.js',
+            name: 'Nuxt',
             slug: 'nuxtjs',
             description: 'Intuitive Vue framework for building universal applications.',
             logo: NuxtJsLogo,
