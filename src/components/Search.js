@@ -49,14 +49,14 @@ export function SearchProvider({ children }) {
   })
 
   useEffect(() => {
-    // Prepend "Tailwind UI" to Tailwind UI results that are shown in the "recent" view
+    // Prepend "Components" to Tailwind UI results that are shown in the "recent" view
     if (!isOpen) {
       let key = `__DOCSEARCH_RECENT_SEARCHES__${INDEX_NAME}`
       try {
         let data = JSON.parse(window.localStorage.getItem(key))
         for (let item of data) {
-          if (isTailwindUIURL(item.url) && !item.hierarchy.lvl1.startsWith('Tailwind UI')) {
-            item.hierarchy.lvl1 = `Tailwind UI / ${item.hierarchy.lvl1}`
+          if (isTailwindUIURL(item.url) && !item.hierarchy.lvl1.startsWith('Components')) {
+            item.hierarchy.lvl1 = `Components / ${item.hierarchy.lvl1}`
           }
         }
         window.localStorage.setItem(key, JSON.stringify(data))
