@@ -54,6 +54,7 @@ let tabs = [
           lang: 'js',
           code: `  // https://nuxt.com/docs/api/configuration/nuxt-config
   export default defineNuxtConfig({
+    devtools: { enabled: true },
 >   postcss: {
 >     plugins: {
 >       tailwindcss: {},
@@ -117,6 +118,7 @@ let tabs = [
           lang: 'js',
           code: `  // https://nuxt.com/docs/api/configuration/nuxt-config
   export default defineNuxtConfig({
+    devtools: { enabled: true },
 >   css: ['~/assets/css/main.css'],
     postcss: {
       plugins: {
@@ -187,7 +189,7 @@ let tabs = [
         code: {
           name: 'Terminal',
           lang: 'terminal',
-          code: 'npx nuxi module add @nuxtjs/tailwindcss',
+          code: 'npm install\nnpx nuxi module add @nuxtjs/tailwindcss\nnpx tailwindcss init',
         },
       },
       {
