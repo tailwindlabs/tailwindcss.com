@@ -183,7 +183,8 @@ let tabs = [
         title: 'Install Tailwind CSS',
         body: () => (
           <p>
-            Install the <code>@nuxtjs/tailwindcss</code> module.
+            Use <code>nuxi</code> to install the <code>@nuxtjs/tailwindcss</code> module and then
+            run the init command to generate a <code>tailwind.config.js</code> file.
           </p>
         ),
         code: {
