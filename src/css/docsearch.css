@@ -267,6 +267,8 @@
 
   .DocSearch-Hit-action {
     @apply w-6 h-6;
+    background-repeat: no-repeat;
+    background-position: center;
     background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m11 9 3 3-3 3' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   }
 
@@ -522,4 +524,20 @@
 
 .DocSearch-Hit-action + .DocSearch-Hit-action {
   @apply ml-3 pl-3 border-l border-slate-200 dark:border-slate-200/5;
+}
+
+.DocSearch-Hit--TailwindUI .DocSearch-Hit-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='m6 9 6-3 6 3v6l-6 3-6-3V9Z' fill='%23e0e7ff' /%3E%3Cpath d='m6 9 6 3v7l-6-3V9Z' fill='%23a5b4fc' /%3E%3Cpath d='m18 9-6 3v7l6-3V9Z' fill='%23818cf8' /%3E%3C/svg%3E");
+}
+
+.DocSearch-Hit[aria-selected='true'] .DocSearch-Hit--TailwindUI .DocSearch-Hit-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='m6 9 6-3 6 3v6l-6 3-6-3V9Z' fill='%23fff' fill-opacity='.5' /%3E%3Cpath d='m6 9 6 3v7l-6-3V9Z' fill='%23fff' fill-opacity='.6' /%3E%3Cpath d='m18 9-6 3v7l6-3V9Z' fill='%23fff' /%3E%3C/svg%3E");
+}
+
+.DocSearch-Hit--TailwindUI .DocSearch-Hit-action {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='none'%3E%3Cpath stroke='%23475569' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 1h3m0 0v3m0-3L5 5M3.5 1H3a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-.5'/%3E%3C/svg%3E");
+}
+
+.DocSearch-Hit[aria-selected='true'] .DocSearch-Hit--TailwindUI .DocSearch-Hit-action {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='none'%3E%3Cpath stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 1h3m0 0v3m0-3L5 5M3.5 1H3a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-.5'/%3E%3C/svg%3E");
 }
