@@ -7,8 +7,8 @@ import { DocSearchModal } from '@docsearch/react'
 import clsx from 'clsx'
 import { useActionKey } from '@/hooks/useActionKey'
 
-const INDEX_NAME = 'crawler_tailwindcss-dev'
-const API_KEY = '09867f2bc13a133de25ecd005d499130'
+const INDEX_NAME = 'tailwindcss'
+const API_KEY = '5fc87cef58bb80203d2207578309fab6'
 const APP_ID = 'KNPXZI5B0M'
 
 function isTailwindUIURL(url) {
@@ -95,7 +95,7 @@ export function SearchProvider({ children }) {
               initialQuery={initialQuery}
               initialScrollY={window.scrollY}
               searchParameters={{
-                // facetFilters: 'version:v3',
+                facetFilters: 'version:v3',
                 distinct: 1,
                 attributesToRetrieve: [
                   'hierarchy.lvl0',
