@@ -16,7 +16,7 @@ function isTailwindUIURL(url) {
 }
 
 function isExternalURL(url) {
-  return url.startsWith('https://')
+  return !url.startsWith(window.location.origin)
 }
 
 const SearchContext = createContext()
