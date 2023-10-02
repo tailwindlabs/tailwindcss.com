@@ -117,7 +117,7 @@ You can optionally provide default [font-feature-settings](https://developer.moz
     theme: {
       fontFamily: {
         sans: [
-          "Inter var, sans-serif",
+          '"Inter var", sans-serif',
 +         {
 +           fontFeatureSettings: '"cv11", "ss01"',
 +           fontVariationSettings: '"opsz" 32'
@@ -143,7 +143,7 @@ For convenience, [Preflight](/docs/preflight) sets the font family on the `html`
     theme: {
       extend: {
         fontFamily: {
-+         'sans': ['Proxima Nova', ...defaultTheme.fontFamily.sans],
++         'sans': ['"Proxima Nova"', ...defaultTheme.fontFamily.sans],
         },
       }
     }
@@ -159,7 +159,7 @@ You can also customize the default font used in your project by [adding a custom
 
 @layer base {
   html {
-    font-family: Proxima Nova, system-ui, sans-serif;
+    font-family: "Proxima Nova", system-ui, sans-serif;
   }
 }
 ```
