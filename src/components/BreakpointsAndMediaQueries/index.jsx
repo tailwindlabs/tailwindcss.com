@@ -30,7 +30,10 @@ export function BreakpointsAndMediaQueries({
         To learn more, check out the documentation on{' '}
         <a href="/docs/responsive-design">Responsive Design</a>,{' '}
         <a href="/docs/dark-mode">Dark Mode</a> and{' '}
-        <a href="/docs/hover-focus-and-other-states#media-queries">other media query modifiers</a>.
+        <a href="/docs/hover-focus-and-other-states#media-and-feature-queries">
+          other media query modifiers
+        </a>
+        .
       </p>
     </>
   )
