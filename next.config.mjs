@@ -49,6 +49,7 @@ export default {
   pageExtensions: ['js', 'jsx', 'mdx'],
   experimental: {
     esmExternals: false,
+    scrollRestoration: true,
   },
   async redirects() {
     return JSON.parse(fs.readFileSync(require.resolve('./redirects.json'), 'utf8'))
