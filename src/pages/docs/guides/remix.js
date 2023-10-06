@@ -35,7 +35,7 @@ let steps = [
     title: 'Configure your template paths',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+        Add the paths to all of your template files in your <code>tailwind.config.ts</code> file.
       </p>
     ),
     code: {
