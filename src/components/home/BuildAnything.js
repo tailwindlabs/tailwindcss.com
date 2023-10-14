@@ -22,7 +22,7 @@ const code = {
   </div>
   <form class="flex-auto p-6">
     <div class="flex flex-wrap">
-      <h1 class="flex-auto text-lg font-semibold text-slate-900">Classic Utility Jacket</h1>
+      <h1 class="flex-auto text-lg font-semibold text-slate-900">Utility Jacket</h1>
       <div class="text-lg font-semibold text-slate-500">$110.00</div>
       <div class="w-full flex-none text-sm font-medium text-slate-700 mt-2">In stock</div>
     </div>
