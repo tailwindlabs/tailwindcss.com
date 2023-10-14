@@ -222,7 +222,7 @@ const classes = {
 }
 
 const content = {
-  Simple: ['/classic-utility-jacket.jpg', 'Classic Utility Jacket', '$110.00'],
+  Simple: ['/classic-utility-jacket.jpg', 'Utility Jacket', '$110.00'],
   Playful: ['/kids-jumpsuit.jpg', 'Kids Jumpsuit', '$39.00'],
   Elegant: ['/dogtooth-style-jacket.jpg', 'DogTooth Style Jacket', '$350.00'],
   Brutalist: ['/retro-shoe.jpg', 'Retro Shoe', '$89.00'],
