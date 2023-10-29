@@ -519,7 +519,7 @@ module.exports = {
     files: ['./src/**/*.{html,wtf}'],
     extract: {
       wtf: (content) => {
-        return content.match(/[^<>"'`\s]*/)
+        return content.match(/[^<>"'`\s]*/g)
       }
     }
   },
