@@ -103,7 +103,7 @@ let tabs = [
           </p>
         ),
         code: {
-          name: 'app.blade.php',
+          name: 'welcome.blade.php',
           lang: 'html',
           code: `  <!doctype html>
   <html>
@@ -218,7 +218,7 @@ let tabs = [
           </p>
         ),
         code: {
-          name: 'app.blade.php',
+          name: 'welcome.blade.php',
           lang: 'html',
           code: `  <!doctype html>
   <html>
