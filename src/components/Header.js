@@ -48,7 +48,7 @@ function BlackFriday() {
   return (
     <Link
       href="https://tailwindui.com/all-access"
-      className="ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-sky-400/20"
+      className="ml-3 text-xs leading-5 font-medium text-white dark:text-sky-400 bg-slate-900 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-slate-700"
     >
       <strong className="font-semibold">Black Friday Deal</strong>
       <svg
@@ -56,7 +56,7 @@ function BlackFriday() {
         height="2"
         fill="currentColor"
         aria-hidden="true"
-        className="ml-2 text-sky-600 dark:text-sky-400/70"
+        className="ml-2 text-slate-400 dark:text-sky-400/70"
       >
         <circle cx="1" cy="1" r="1" />
       </svg>
@@ -67,7 +67,7 @@ function BlackFriday() {
       <svg
         width="3"
         height="6"
-        className="ml-3 overflow-visible text-sky-300 dark:text-sky-400"
+        className="ml-3 overflow-visible text-slate-300 dark:text-sky-400"
         aria-hidden="true"
       >
         <path
