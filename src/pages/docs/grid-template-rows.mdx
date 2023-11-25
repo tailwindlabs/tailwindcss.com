@@ -38,6 +38,39 @@ Use the `grid-rows-{n}` utilities to create grids with _n_ equally sized rows.
 </div>
 ```
 
+### Subgrid
+
+Use the `grid-rows-subgrid` utility to adopt the row tracks defined by the item's parent.
+
+```html {{ example: true }}
+  <div class=" grid grid-rows-4 grid-flow-col gap-4 rounded-lg text-center font-mono text-sm font-bold leading-6 text-indigo-400">
+    <div class="rounded-lg bg-indigo-800 grid items-center justify-center h-14 shadow-lg">01</div>
+    <div class="rounded-lg bg-indigo-800 grid items-center justify-center h-14 shadow-lg">02</div>
+    <div class="rounded-lg bg-indigo-800 grid items-center justify-center h-14 shadow-lg">03</div>
+    <div class="rounded-lg bg-indigo-800 grid items-center justify-center h-14 shadow-lg">04</div>
+    <div class="rounded-lg bg-indigo-800 grid items-center justify-center h-14 shadow-lg">05</div>
+    <div class="row-span-3 grid grid-row-subgrid gap-4 text-white">
+      <div class="rounded-lg bg-stripes-pink h-14 shadow-lg"></div>
+      <div class="rounded-lg bg-pink-500 grid items-center justify-center h-14 shadow-lg">06</div>
+      <div class="rounded-lg bg-stripes-pink h-14 shadow-lg"></div>
+    </div>
+    <div class="rounded-lg bg-indigo-800 grid items-center justify-center h-14 shadow-lg">07</div>
+    <div class="rounded-lg bg-indigo-800 grid items-center justify-center h-14 shadow-lg">08</div>
+    <div class="rounded-lg bg-indigo-800 grid items-center justify-center h-14 shadow-lg">09</div>
+    <div class="rounded-lg bg-indigo-800 grid items-center justify-center h-14 shadow-lg">10</div>
+  </div>
+```
+
+```html
+<div class="grid grid-rows-4 grid-flow-col gap-4">
+  <!-- ... -->
+  <div class="grid **grid-row-subgrid** gap-4 row-span-3">
+      <div class="row-start-2">06</div>
+  </div>
+  <!-- ... -->
+</div>
+```
+
 ---
 
 ## <Heading ignore>Applying conditionally</Heading>
