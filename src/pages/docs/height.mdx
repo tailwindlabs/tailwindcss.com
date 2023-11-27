@@ -6,6 +6,7 @@ description: "Utilities for setting the height of an element."
 import utilities from 'utilities?plugin=height'
 import { numbersFirst } from '@/utils/sortClasses'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { MobileBrowser } from '@/components/DynamicViewportHeights'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
@@ -91,6 +92,45 @@ Use `h-screen` to make an element span the entire height of the viewport.
   <!-- ... -->
 </div>
 ```
+
+### Dynamic viewport height
+
+Use `h-dvh` to make an element span the entire dynamic height of the viewport. The dynamic height changes when parts of the browser UI are shown/hidden.
+
+  <MobileBrowser/>
+
+  ```html
+<div class="**h-dvh**">
+  <!-- ... -->
+</div>
+```
+
+
+### Large viewport height
+
+Use `h-lvh` to make an element span the entire height of the viewport regardless of any browser UI. This behaves the same as `h-100vh`.
+
+  <MobileBrowser/>
+
+  ```html
+<div class="**h-lvh**">
+  <!-- ... -->
+</div>
+```
+
+
+### Small viewport height
+
+Use `h-svh` to make an element span the entire height of the viewport minus the height of the browser UI at its largest. 
+
+  <MobileBrowser/>
+
+  ```html
+<div class="**h-svh**">
+  <!-- ... -->
+</div>
+```
+
 
 ---
 
