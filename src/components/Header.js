@@ -50,7 +50,7 @@ function BlackFriday() {
       href="https://tailwindui.com/all-access"
       className="ml-3 text-xs leading-5 font-medium text-white dark:text-sky-400 bg-slate-900 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-slate-700"
     >
-      <strong className="font-semibold">Black Friday Deal</strong>
+      <strong className="font-semibold">Sale ends today</strong>
       <svg
         width="2"
         height="2"
