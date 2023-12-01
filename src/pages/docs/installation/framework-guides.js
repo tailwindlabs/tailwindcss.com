@@ -27,6 +27,7 @@ import { ReactComponent as SvelteLogo } from '@/img/guides/svelte.svg'
 import { ReactComponent as SymfonyLogo } from '@/img/guides/symfony.svg'
 import { ReactComponent as SymfonyLogoWhite } from '@/img/guides/symfony-white.svg'
 import { ReactComponent as ViteLogo } from '@/img/guides/vite.svg'
+import { ReactComponent as RspackLogo } from '@/img/guides/rspack.svg'
 
 export default function FrameworkGuides() {
   return (
@@ -161,6 +162,12 @@ export default function FrameworkGuides() {
             description: 'Build instantly-interactive web apps without effort.',
             logo: QwikLogo,
           },
+          {
+            name: 'Rspack',
+            slug: 'rspack',
+            description: 'A fast rust-based web bundler.',
+            logo: RspackLogo,
+          }
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">
             <div className="peer group ml-6 flex-auto">
