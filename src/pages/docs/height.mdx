@@ -6,7 +6,7 @@ description: "Utilities for setting the height of an element."
 import utilities from 'utilities?plugin=height'
 import { numbersFirst } from '@/utils/sortClasses'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
-import { MobileBrowser } from '@/components/DynamicViewportHeights'
+import { DynamicViewportExample } from '@/components/DynamicViewportHeights'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
@@ -97,7 +97,7 @@ Use `h-screen` to make an element span the entire height of the viewport.
 
 Use `h-dvh` to make an element span the entire dynamic height of the viewport. The dynamic height changes when parts of the browser UI are shown/hidden.
 
-  <MobileBrowser/>
+<DynamicViewportExample unit='dvh' colorStyles='dark:bg-blue-500 bg-blue-500 border border-blue-400' containerBackground='bg-stripes-blue'/>
 
   ```html
 <div class="**h-dvh**">
@@ -110,7 +110,7 @@ Use `h-dvh` to make an element span the entire dynamic height of the viewport. T
 
 Use `h-lvh` to make an element span the entire height of the viewport regardless of any browser UI. This behaves the same as `h-100vh`.
 
-  <MobileBrowser/>
+<DynamicViewportExample  unit='lvh' colorStyles='dark:bg-indigo-500 bg-indigo-500 border border-indigo-400' containerBackground='bg-stripes-indigo'/>
 
   ```html
 <div class="**h-lvh**">
@@ -123,7 +123,7 @@ Use `h-lvh` to make an element span the entire height of the viewport regardless
 
 Use `h-svh` to make an element span the entire height of the viewport minus the height of the browser UI at its largest. 
 
-  <MobileBrowser/>
+<DynamicViewportExample unit='svh' colorStyles='dark:bg-purple-500 bg-purple-500 border border-purple-400' containerBackground='bg-stripes-purple'/>
 
   ```html
 <div class="**h-svh**">
