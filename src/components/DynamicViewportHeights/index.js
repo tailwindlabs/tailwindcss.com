@@ -80,96 +80,93 @@ export function DynamicViewportExample({
       </div>
       <div className="not-prose relative bg-slate-50 rounded-xl overflow-hidden dark:bg-slate-800/25 md:px-8 py-8 px-4">
         <div className="relative grid justify-items-center">
-          <motion.div
-            layout
+          <div
             ref={parent}
             style={{ width: `${viewport.width}px`, height: `${viewport.lvh}px` }}
             className={clsx(
               containerBackground,
-              `relative grid grid-rows-[auto_1fr] rounded-lg border dark:border-slate-700 border-slate-300 text-center text-xs text-white overflow-y-scroll no-scrollbar `
+              'relative rounded-lg border dark:border-slate-700 border-slate-300 text-center text-xs overflow-y-scroll no-scrollbar '
             )}
           >
+            {' '}
             <motion.div
-              layout
+              className="absolute w-full overflow-hidden overscroll-none"
               transition={{
                 ...transition,
               }}
               variants={{
                 visible: {
                   y: 0,
+                  height: `${viewport.lvh}px`,
                 },
                 hidden: {
                   y: `-${viewport.navBarHeight}px`,
-                },
-              }}
-              initial="visible"
-              animate={hidden ? 'hidden' : 'visible'}
-              className="absolute w-full grid grid-cols-[auto,1fr,auto] items-center justify-start gap-4 rounded-t-lg border-b border-slate-300 dark:border-slate-600 dark:bg-slate-800 bg-slate-100 px-3 h-[48px]"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="h-5 w-5 text-slate-600 dark:text-slate-400"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-                />
-              </svg>
-              <div className="w-full rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-700 px-4 py-1  text-slate-600 dark:text-slate-400">
-                tailwindcss.com
-              </div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="h-5 w-5 text-slate-600 dark:text-slate-400"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
-                />
-              </svg>
-            </motion.div>
-
-            <motion.div
-              key="modal"
-              layout
-              className="sticky w-full p-[5px] pointer-events-none"
-              transition={{
-                ...transition,
-              }}
-              variants={{
-                visible: {
-                  top: `${viewport.navBarHeight}px`,
-                  height: `${unit === 'lvh' ? viewport.lvh : viewport.svh}px`,
-                },
-                hidden: {
-                  top: '0px',
-                  height: `${unit === 'svh' ? viewport.svh : viewport.lvh}px`,
+                  height: `${viewport.lvh + viewport.navBarHeight}px`,
                 },
               }}
               initial="visible"
               animate={hidden ? 'hidden' : 'visible'}
             >
-              <div
-                className={clsx(
-                  colorStyles,
-                  'text-slate-50 font-mono font-bold w-full h-full rounded-md  grid items-center justify-center'
-                )}
-              >
-                h-{unit}
+              <div className=" w-full grid grid-cols-[auto,1fr,auto] items-center justify-start gap-4 rounded-t-lg border-b border-slate-300 dark:border-slate-600 dark:bg-slate-800 bg-slate-100 px-3 h-[48px]">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="h-5 w-5 text-slate-600 dark:text-slate-400"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                  />
+                </svg>
+                <div className="w-full rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-700 px-4 py-1  text-slate-600 dark:text-slate-400">
+                  tailwindcss.com
+                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="h-5 w-5 text-slate-600 dark:text-slate-400"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+                  />
+                </svg>
               </div>
+              <motion.div
+                className="w-full p-[5px] pointer-events-none "
+                transition={{
+                  ...transition,
+                }}
+                variants={{
+                  visible: {
+                    height: `${unit === 'lvh' ? viewport.lvh : viewport.svh}px`,
+                  },
+                  hidden: {
+                    height: `${unit === 'svh' ? viewport.svh : viewport.lvh}px`,
+                  },
+                }}
+                initial="visible"
+                animate={hidden ? 'hidden' : 'visible'}
+              >
+                <div
+                  className={clsx(
+                    colorStyles,
+                    'text-slate-50 font-mono font-bold w-full h-full rounded-md grid items-center justify-center overflow-hidden'
+                  )}
+                >
+                  h-{unit}
+                </div>
+              </motion.div>
             </motion.div>
-            <div style={{ height: `${viewport.navBarHeight}px` }}></div>
-          </motion.div>
+          </div>
           {unit === 'lvh' && (
             <motion.div
               transition={{
@@ -191,10 +188,10 @@ export function DynamicViewportExample({
               style={{ width: `${viewport.width - 12}px` }}
               className={clsx(
                 colorStyles,
-                `opacity-20 rounded-b-md absolute left-0 right-0 mx-auto`
+                'opacity-20 rounded-b-md absolute left-0 right-0 mx-auto'
               )}
             ></motion.div>
-          )}
+          )}{' '}
         </div>
         <div
           style={{ backgroundPosition: '10px 10px' }}
