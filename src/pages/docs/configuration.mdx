@@ -575,7 +575,7 @@ We ship first-party TypeScript types for the `tailwind.config.js` file which giv
 
 Configuration files generated with Tailwind CLI include the necessary type annotation by default, but to configure TypeScript types manually, just add the type annotation above your configuration object:
 
-```js {{ filename: 'tailwind.config.js' }}
+```ts {{ filename: 'tailwind.config.ts' }}
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
