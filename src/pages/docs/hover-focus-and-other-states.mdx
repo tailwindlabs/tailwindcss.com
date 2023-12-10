@@ -999,7 +999,7 @@ Use the `contrast-more` modifier to conditionally add styles when the user has r
       <label for="contrast-example" class="block text-sm font-medium text-slate-700">Social Security Number</label>
       <div class="mt-1">
         <input type="text" name="contrast-example" id="contrast-example" class="px-3 py-2 bg-white border shadow-sm border-slate-200 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 contrast-more:border-slate-400 contrast-more:placeholder-slate-500"  placeholder="000-00-0000" />
-        <p class="mt-2 text-sm text-slate-600 opacity-10 contrast-more:opacity-100">We need this to steal your identity.</p>
+        <p class="mt-2 text-sm text-slate-600 opacity-10 contrast-more:opacity-100 ">We need this to steal your identity.</p>
       </div>
     </div>
   </form>
@@ -1019,6 +1019,40 @@ Use the `contrast-more` modifier to conditionally add styles when the user has r
 ```
 
 Tailwind also includes a `contrast-less` modifier you can use to conditionally add styles when the user has requested less contrast.
+
+### Forced colors mode
+
+The `forced-colors` media query tells you if the user is using a forced colors mode. In forced color modes your site's colors will be overridden by a user defined palette for text, backgrounds, links and buttons.
+
+Use the `forced-colors` modifier to conditionally add styles when the user has enabled a forced color mode:
+
+```html {{ example: { p: 'none', hint: 'Try emulating &#96;prefers-contrast: more&#96; in your developer tools to see the changes' } }}
+<div class="max-w-sm mx-auto bg-white shadow pt-6 pb-4 px-6">
+  <form>
+    <div>
+      <label for="contrast-example" class="block text-sm font-medium text-slate-700">Social Security Number</label>
+      <div class="mt-1">
+        <input type="text" name="contrast-example" id="contrast-example" class="px-3 py-2 bg-white border shadow-sm border-slate-200 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 contrast-more:border-slate-400 contrast-more:placeholder-slate-500"  placeholder="000-00-0000" />
+        <p class="mt-2 text-sm text-slate-600 opacity-10 forced-colors:opacity-100 forced-color-adjust-none">We need this to steal your identity.</p>
+      </div>
+    </div>
+  </form>
+</div>
+```
+
+```html
+<form>
+  <label class="block">
+    <span class="block text-sm font-medium text-slate-700">Social Security Number</span>
+    <input class="border-slate-200 placeholder-slate-400 **contrast-more:border-slate-400** **contrast-more:placeholder-slate-500**"/>
+    <p class="mt-2 opacity-10 **contrast-more:opacity-100** text-slate-600 text-sm">
+      We need this to steal your identity.
+    </p>
+  </label>
+</form>
+```
+
+Tailwind also includes a `forced-color-adjust-none` modifier you can use to opt certain elements out of forced color modes, as well as `forced-color-adjust-auto` to set elements back to the user preference.
 
 ### Viewport orientation
 
