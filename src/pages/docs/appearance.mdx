@@ -14,7 +14,10 @@ export const classes = { utilities }
 
 ### Removing default element appearance
 
+
 Use `appearance-none` to reset any browser specific styling on an element. This utility is often used when creating [custom form components](/docs/examples/forms).
+
+Use `appearance-auto` to revert to the default browser specific styling on an element.
 
 ```html {{ example: true }}
 <div class="max-w-sm mx-auto items-center">
@@ -42,15 +45,25 @@ Use `appearance-none` to reset any browser specific styling on an element. This 
 ```
 
 ```html
-<select>
+<select class="**appearance-auto**">
   <option>Yes</option>
   <option>No</option>
   <option>Maybe</option>
 </select>
 
-<select class="appearance-none">
+<select class="**appearance-none**">
   <option>Yes</option>
   <option>No</option>
   <option>Maybe</option>
 </select>
 ```
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="appearance-auto" featuredClass="appearance-none" variant="hover" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="appearance-auto" featuredClass="appearance-none" />
