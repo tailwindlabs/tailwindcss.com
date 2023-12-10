@@ -126,6 +126,7 @@ export const documentationNav = {
     pages['text-underline-offset'],
     pages['text-transform'],
     pages['text-overflow'],
+    pages['text-wrap'],
     pages['text-indent'],
     pages['vertical-align'],
     pages['whitespace'],
