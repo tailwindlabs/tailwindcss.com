@@ -22,6 +22,34 @@ Set the minimum width of an element using the `min-w-{width}` utilities.
 </span>
 ```
 
+### Fixed minimum widths
+
+Use `min-w-{number}` to set an element to a fixed minimum width based on the default spacing scale.
+
+```html {{ example: { resizable: true }, }}
+<div class="grid gap-4 font-mono font-bold text-xs text-center text-white justify-center justify-items-start align-start">
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg min-w-96 hidden sm:block">min-w-96</div>
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg min-w-80 hidden sm:block">min-w-80</div>
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg min-w-64 hidden sm:block">min-w-64</div>
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg min-w-48">min-w-48</div>
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg min-w-40">min-w-40</div>
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg min-w-32">min-w-32</div>
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg min-w-24">min-w-24</div>
+</div>
+```
+
+```html
+<div class="grid justify-items-start ...">
+  <div class="**min-w-96** ...">min-w-96</div>
+  <div class="**min-w-80** ...">min-w-80</div>
+  <div class="**min-w-64** ...">min-w-64</div>
+  <div class="**min-w-48** ...">min-w-48</div>
+  <div class="**min-w-40** ...">min-w-40</div>
+  <div class="**min-w-32** ...">min-w-32</div>
+  <div class="**min-w-24** ...">min-w-24</div>
+</div>
+```
+
 ---
 
 ## <Heading ignore>Applying conditionally</Heading>
@@ -39,15 +67,32 @@ Set the minimum width of an element using the `min-w-{width}` utilities.
 ## Using custom values
 
 ### Customizing your theme
+By default, Tailwind's minimum width scale is a combination of the [default spacing scale](/docs/customizing-spacing#default-spacing-scale) as well as some additional values specific to widths.
 
-You can customize your `min-width` scale by editing `theme.minWidth` or `theme.extend.minWidth` in your `tailwind.config.js` file.
+You can customize your spacing scale by editing `theme.spacing` or `theme.extend.spacing` in your `tailwind.config.js` file.
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
-+     minWidth: {
-+       '1/2': '50%',
-+     }
+      extend: {
++       spacing: {
++         '128': '32rem',
++       }
+      }
+    }
+  }
+```
+
+To customize `min-width` separately, use the `theme.minWidth` section of your `tailwind.config.js` file.
+
+```diff-js {{ filename: 'tailwind.config.js' }}
+  module.exports = {
+    theme: {
+      extend: {
++       minWidth: {
++         '128': '32rem',
++       }
+      }
     }
   }
 ```
@@ -56,4 +101,4 @@ Learn more about customizing the default theme in the [theme customization](/doc
 
 ### Arbitrary values
 
-<ArbitraryValues property="min-width" featuredClass="min-w-[50%]" />
+<ArbitraryValues property="min-width" featuredClass="min-w-[220px]" />
