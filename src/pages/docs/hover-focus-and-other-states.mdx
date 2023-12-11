@@ -1022,19 +1022,46 @@ Tailwind also includes a `contrast-less` modifier you can use to conditionally a
 
 ### Forced colors mode
 
-The `forced-colors` media query tells you if the user is using a forced colors mode. In forced color modes your site's colors will be overridden by a user defined palette for text, backgrounds, links and buttons.
+The `forced-colors` media query indicates if the user is using a forced colors mode. These modes override your site's colors with a user defined palette for text, backgrounds, links and buttons.
 
 Use the `forced-colors` modifier to conditionally add styles when the user has enabled a forced color mode:
 
-```html {{ example: { p: 'none', hint: 'Try emulating &#96;prefers-contrast: more&#96; in your developer tools to see the changes' } }}
+```html {{ example: { p: 'none', hint: 'Try emulating &#96;forced-colors: active&#96; in your developer tools to see the changes' } }}
 <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-4 px-6">
   <form>
-    <div>
-      <label for="contrast-example" class="block text-sm font-medium text-slate-700">Social Security Number</label>
-      <div class="mt-1">
-        <input type="text" name="contrast-example" id="contrast-example" class="px-3 py-2 bg-white border shadow-sm border-slate-200 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 contrast-more:border-slate-400 contrast-more:placeholder-slate-500"  placeholder="000-00-0000" />
-        <p class="mt-2 text-sm text-slate-600 opacity-10 forced-colors:opacity-100 forced-color-adjust-none">We need this to steal your identity.</p>
-      </div>
+    <legend> Choose a theme: </legend>
+    <div class="grid grid-flow-col mt-4 forced-colors:hidden">
+      <label for="theme-1" class="text-sm font-medium text-slate-700">
+        <input type="radio" name="themes" id="theme-1" class="peer sr-only" checked />
+        <div class="relative h-16 w-16 rounded-xl border border-transparent text-white hover:bg-slate-50 peer-checked:border-cyan-500 peer-checked:bg-cyan-50 peer-checked:text-cyan-50">
+          <div class="absolute left-3 top-3 h-6 w-6 rounded-full bg-cyan-200"></div>
+          <div class="absolute bottom-3 right-3 h-6 w-6 rounded-full bg-cyan-500 ring-2 ring-current"></div>
+        </div>
+      </label>
+      <label for="theme-2" class="text-sm font-medium text-slate-700">
+        <input type="radio" name="themes" id="theme-2" class="peer sr-only" />
+        <div class="relative h-16 w-16 rounded-xl border border-transparent text-white hover:bg-slate-50 peer-checked:border-blue-500 peer-checked:bg-blue-50 peer-checked:text-blue-50">
+          <div class="absolute left-3 top-3 h-6 w-6 rounded-full bg-blue-200"></div>
+          <div class="absolute bottom-3 right-3 h-6 w-6 rounded-full bg-blue-500 ring-2 ring-current"></div>
+        </div>
+      </label>
+      <label for="theme-3" class="text-sm font-medium text-slate-700">
+        <input type="radio" name="themes" id="theme-3" class="peer sr-only" />
+        <div class="relative h-16 w-16 rounded-xl border border-transparent text-white hover:bg-slate-50 peer-checked:border-indigo-500 peer-checked:bg-indigo-50 peer-checked:text-indigo-50">
+          <div class="absolute left-3 top-3 h-6 w-6 rounded-full bg-indigo-200"></div>
+          <div class="absolute bottom-3 right-3 h-6 w-6 rounded-full bg-indigo-500 ring-2 ring-current"></div>
+        </div>
+      </label>
+      <label for="theme-4" class="text-sm font-medium text-slate-700">
+        <input type="radio" name="themes" id="theme-4" class="peer sr-only" />
+        <div class="relative h-16 w-16 rounded-xl border border-transparent text-white hover:bg-slate-50 peer-checked:border-purple-500 peer-checked:bg-purple-50 peer-checked:text-purple-50">
+          <div class="absolute left-3 top-3 h-6 w-6 rounded-full bg-purple-200"></div>
+          <div class="absolute bottom-3 right-3 h-6 w-6 rounded-full bg-purple-500 ring-2 ring-current"></div>
+        </div>
+      </label>
+    </div>
+    <div class="mt-4 hidden h-16 w-full items-center justify-center rounded-lg border border-slate-200 forced-colors:flex">
+      <p>Never mind.</p>
     </div>
   </form>
 </div>
@@ -1042,13 +1069,13 @@ Use the `forced-colors` modifier to conditionally add styles when the user has e
 
 ```html
 <form>
-  <label class="block">
-    <span class="block text-sm font-medium text-slate-700">Social Security Number</span>
-    <input class="border-slate-200 placeholder-slate-400 **contrast-more:border-slate-400** **contrast-more:placeholder-slate-500**"/>
-    <p class="mt-2 opacity-10 **contrast-more:opacity-100** text-slate-600 text-sm">
-      We need this to steal your identity.
-    </p>
-  </label>
+  <legend> Choose a theme: </legend>
+  <div class="... grid **forced-colors:hidden**">
+    <!-- ... -->
+  </div>
+  <div class="... hidden **forced-colors:flex**">
+    <p>Never mind.</p>
+  </div>
 </form>
 ```
 
