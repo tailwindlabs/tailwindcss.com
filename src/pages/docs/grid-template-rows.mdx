@@ -56,7 +56,7 @@ Use the `grid-rows-{n}` utilities to create grids with _n_ equally sized rows.
 
 ### Customizing your theme
 
-By default, Tailwind includes `grid-template-row` utilities for creating basic grids with up to 6 equal width rows. You can customize these values by editing `theme.gridTemplateRows` or `theme.extend.gridTemplateRows` in your `tailwind.config.js` file.
+By default, Tailwind includes `grid-template-row` utilities for creating basic grids with up to 12 equal width rows. You can customize these values by editing `theme.gridTemplateRows` or `theme.extend.gridTemplateRows` in your `tailwind.config.js` file.
 
 You have direct access to the `grid-template-rows` CSS property here so you can make your custom rows values as generic or as complicated and site-specific as you like.
 
@@ -65,8 +65,8 @@ You have direct access to the `grid-template-rows` CSS property here so you can 
     theme: {
       extend: {
         gridTemplateRows: {
-          // Simple 8 row grid
-+         '8': 'repeat(8, minmax(0, 1fr))',
+          // Simple 16 row grid
++         '16': 'repeat(16, minmax(0, 1fr))',
 
           // Complex site-specific row configuration
 +         'layout': '200px minmax(900px, 1fr) 100px',
