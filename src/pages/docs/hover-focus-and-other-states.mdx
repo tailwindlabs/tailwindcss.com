@@ -656,7 +656,7 @@ Use the `has-*` modifier to style a parent based on the state or content of a ch
 </label>
 ```
 
-### Selecting siblings
+#### Selecting siblings
 
 The `has-` modifier can also be used with a combinator, like `~` or `+`, to style an element based on specific siblings.
 
@@ -708,15 +708,15 @@ The `has-` modifier can also be used with a combinator, like `~` or `+`, to styl
 </label>
 ```
 
-The `has-*` modifier can also be used with the `peer-*` modifier to target a previous sibling.
+It can also be combined with the `peer-*` modifier to target a previous sibling with `peer-has-`.
 
 ```html {{ example: { p: 'none' } }}
-<div class=' max-w-md mx-auto bg-slate-800 shadow py-6 px-4'>
+<div class=' max-w-md mx-auto bg-white shadow py-6 px-4'>
   <fieldset class="grid">  
     <legend>Shopping List:</legend>
     <div class="grid grid-cols-[auto_1fr] gap-4 items-center pt-3">  
-      <input class="peer accent-pink-500 rounded-sm appearance-none checked:appearance-auto border size-3.5 border-slate-500" id="item_1" checked type="checkbox">
-      <label for="item_1" class="peer-has-[:checked]:text-blue-500 peer-has-[:checked]:line-through text-gray-100">Testing</label>    
+      <input class="peer accent-pink-500 rounded-sm appearance-none checked:appearance-auto border size-3.5 border-slate-300 dark:border-slate-500" id="item_1" checked type="checkbox">
+      <label for="item_1" class="peer-has-[:checked]:text-blue-500 peer-has-[:checked]:line-through text-slate-700">Testing</label>    
     </div>
   </fieldset>
 </div>
