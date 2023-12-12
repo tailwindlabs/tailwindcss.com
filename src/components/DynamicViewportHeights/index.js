@@ -85,12 +85,11 @@ export function DynamicViewportExample({
             style={{ width: `${viewport.width}px`, height: `${viewport.lvh}px` }}
             className={clsx(
               containerBackground,
-              'relative rounded-lg border dark:border-slate-700 border-slate-300 text-center text-xs overflow-y-scroll no-scrollbar '
+              'relative rounded-lg border dark:border-slate-700 border-slate-300 text-center text-xs overflow-y-scroll no-scrollbar'
             )}
           >
-            {' '}
             <motion.div
-              className="absolute w-full overflow-hidden overscroll-none"
+              className="absolute w-full overflow-hidden overscroll-none snap-start"
               transition={{
                 ...transition,
               }}
@@ -100,8 +99,8 @@ export function DynamicViewportExample({
                   height: `${viewport.lvh}px`,
                 },
                 hidden: {
-                  y: `-${viewport.navBarHeight}px`,
-                  height: `${viewport.lvh + viewport.navBarHeight}px`,
+                  y: `-${viewport.navBarHeight - 2}px`,
+                  height: `${viewport.lvh + viewport.navBarHeight - 1}px`,
                 },
               }}
               initial="visible"
@@ -141,16 +140,17 @@ export function DynamicViewportExample({
                 </svg>
               </div>
               <motion.div
-                className="w-full p-[5px] pointer-events-none "
+                className="w-full p-[5px] h-full pointer-events-none "
                 transition={{
                   ...transition,
+                  delay: hidden ? 0.4 : 0,
                 }}
                 variants={{
                   visible: {
-                    height: `${unit === 'lvh' ? viewport.lvh : viewport.svh}px`,
+                    maxHeight: `${unit === 'lvh' ? viewport.lvh : viewport.svh - 2}px`,
                   },
                   hidden: {
-                    height: `${unit === 'svh' ? viewport.svh : viewport.lvh}px`,
+                    maxHeight: `${unit === 'svh' ? viewport.svh : viewport.lvh - 1}px`,
                   },
                 }}
                 initial="visible"
