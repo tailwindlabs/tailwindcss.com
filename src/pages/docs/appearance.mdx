@@ -17,12 +17,11 @@ export const classes = { utilities }
 
 Use `appearance-none` to reset any browser specific styling on an element. This utility is often used when creating [custom form components](/docs/examples/forms).
 
-Use `appearance-auto` to revert to the default browser specific styling on an element.
 
 ```html {{ example: true }}
 <div class="max-w-sm mx-auto items-center">
   <div class="flex my-6">
-    <select class="w-16">
+    <select class="w-20">
       <option>Yes</option>
       <option>No</option>
       <option>Maybe</option>
@@ -32,30 +31,101 @@ Use `appearance-auto` to revert to the default browser specific styling on an el
     </div>
   </div>
   <div class="flex my-6 items-center">
-    <select class="appearance-none w-16">
-      <option>Yes</option>
-      <option>No</option>
-      <option>Maybe</option>
-    </select>
+    <div class="grid relative items-center">
+      <svg  class="forced-colors:hidden h-4 w-4 pointer-events-none self-end justify-self-end z-10 row-start-1 col-start-1 right-2 overflow-visible" aria-hidden="true">
+        <path d="M0 0L3 3L6 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+      </svg>
+      <select id="dropdown_1" class="w-20 appearance-none forced-colors:appearance-auto border row-start-1 col-start-1 rounded-lg bg-slate-50 dark:bg-slate-800 hover:border-cyan-500 dark:hover:border-cyan-700 hover:bg-white dark:hover:bg-slate-700 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 px-2">
+        <option>Yes</option>
+        <option>No</option>
+        <option>Maybe</option>
+      </select>
+    </div>
     <div class="mx-6 text-slate-900 text-sm font-semibold dark:text-slate-200">
-      Default styles removed
+      Remove default browser styles
     </div>
   </div>
 </div>
 ```
 
 ```html
-<select class="**appearance-auto**">
+<select>
   <option>Yes</option>
   <option>No</option>
   <option>Maybe</option>
 </select>
 
-<select class="**appearance-none**">
-  <option>Yes</option>
-  <option>No</option>
-  <option>Maybe</option>
-</select>
+<div class="grid relative items-center">
+  <select class="**appearance-none** row-start-1 col-start-1 ...">
+    <option>Yes</option>
+    <option>No</option>
+    <option>Maybe</option>
+  </select>
+  <svg class="row-start-1 col-start-1">
+    <!-- ... -->
+  </svg>
+</div>
+```
+
+### Reverting to the default element appearance
+
+Use `appearance-auto` to revert to the default browser specific styling on an element. This is mostly useful for reverting to the standard browser controls in certain accessibility modes.
+
+```html {{ example: { hint: 'Try emulating &#96;forced-colors: active&#96; in your developer tools to see the difference' } }}
+<div class="grid max-w-sm mx-auto my-6 gap-8 items-center justify-center">
+    <div class="flex items-center">
+      <label for="checkbox_2" class="select-none mx-6 grid grid-flow-col gap-3 items-center text-slate-900 text-sm font-semibold dark:text-slate-200">
+        <div class="grid items-center justify-center">
+          <input type='checkbox' id="checkbox_2" class="peer row-start-1 col-start-1 appearance-none forced-colors:appearance-auto w-4 h-4 border ring-transparent border-slate-300 rounded dark:border-slate-600 dark:hover:border-purple-400 hover:border-purple-500 focus:ring-purple-500 checked:bg-purple-100 dark:checked:bg-purple-600 checked:border-purple-500 dark:checked:border-purple-700" />
+        <svg width="16" height="16" viewBox="0 -4 6 13" class="forced-colors:hidden invisible peer-checked:visible  row-start-1 col-start-1 text-purple-700  dark:text-purple-300" >
+          <path
+            d="M6 0L2 4.5L0 2.5"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>  
+      </div>
+      Falls back to default appearance
+    </label>
+  </div>
+  <div class="flex  items-center">
+    <label for="checkbox_1" class="select-none mx-6 grid grid-flow-col gap-3 items-center text-slate-900 text-sm font-semibold dark:text-slate-200">
+      <div class="grid items-center justify-center">
+        <input type='checkbox' id="checkbox_1" class="peer row-start-1 col-start-1 appearance-none w-4 h-4 border ring-transparent border-slate-300 rounded dark:border-slate-600 dark:hover:border-purple-400 hover:border-purple-500 focus:ring-purple-500 checked:bg-purple-100 dark:checked:bg-purple-600 checked:border-purple-500 dark:checked:border-purple-700" />
+        <svg width="16" height="16" viewBox="0 -4 6 13" class=" invisible peer-checked:visible  row-start-1 col-start-1 text-purple-700  dark:text-purple-300" >
+          <path
+            d="M6 0L2 4.5L0 2.5"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>  
+      </div>
+      Keeps custom appearance
+    </label>
+  </div>
+</div>
+```
+
+```html
+<div class="grid items-center justify-center">
+  <input type='checkbox' class="appearance-none **forced-colors:appearance-auto** ..." />
+  <svg class="forced-colors:hidden invisible peer-checked:visible ..." >
+  <!-- ... -->
+  </svg>  
+</div>
+
+<div class="grid items-center justify-center">
+  <input type='checkbox' class="appearance-none ..." />
+  <svg class="invisible peer-checked:visible ...">
+  <!-- ... -->
+  </svg>  
+</div>
 ```
 
 ## <Heading ignore>Applying conditionally</Heading>
