@@ -11,7 +11,9 @@ const viewport = {
 }
 
 const transition = {
-  duration: 0.4,
+  duration: 0.2,
+  ease: 'linear',
+  type: 'tween',
 }
 export function DynamicViewportExample({
   unit = 'dvh',
@@ -140,10 +142,12 @@ export function DynamicViewportExample({
                 </svg>
               </div>
               <motion.div
-                className="w-full p-[5px] h-full pointer-events-none "
+                className="w-full p-[7px] h-full pointer-events-none "
                 transition={{
                   ...transition,
-                  delay: hidden ? 0.4 : 0,
+                  duration: 0.2,
+                  // duration: unit === 'dvh' ? 0.4 : 0.2,
+                  delay: unit === 'dvh' ? 0.4 : 0,
                 }}
                 variants={{
                   visible: {
@@ -159,10 +163,51 @@ export function DynamicViewportExample({
                 <div
                   className={clsx(
                     colorStyles,
-                    'text-slate-50 font-mono font-bold w-full h-full rounded-md grid items-center justify-center overflow-hidden'
+                    'text-slate-50 font-mono font-bold py-4 w-full h-full gap-5 rounded-md grid grid-rows-[1fr_auto_1fr] items-center content-center self-center justify-items-center  overflow-hidden'
                   )}
                 >
-                  h-{unit}
+                  {/* <div class="grid grid-rows-[1fr] h-full items-start overflow-y-hidden">
+                    <svg
+                      class="w-[12px] text-pink-300"
+                      viewBox="0 0 9 162"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4.5 161.5V1M4.5 1L8.5 5M4.5 1L0.5 5"
+                        stroke="currentColor"
+                        // strokeWidth={1.5}
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div> */}
+                  <div class="grid grid-rows-[1px_1fr] h-full justify-items-center">
+                    <div class="bg-white/60 w-[12px] h-full"></div>
+                    <div class="bg-white/40 w-[1.5px] h-full"></div>
+                  </div>
+                  <p>h-{unit}</p>
+
+                  {/* <div class="grid grid-rows-[1fr] h-full items-end overflow-y-hidden">
+                    <svg
+                      class="w-[12px] text-pink-300"
+                      viewBox="0 0 10 162"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.00001 1L5 161.5M5 161.5L1 157.5M5 161.5L9 157.5"
+                        stroke="currentColor"
+                        // strokeWidth={1.5}
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div> */}
+                  <div class="grid grid-rows-[1fr_1px] h-full justify-items-center">
+                    <div class="bg-white/40 w-[1.5px] h-full"></div>
+                    <div class="bg-white/60 w-[12px] h-full"></div>
+                  </div>
                 </div>
               </motion.div>
             </motion.div>
