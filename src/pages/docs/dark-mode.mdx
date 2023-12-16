@@ -145,3 +145,24 @@ module.exports = {
   // ...
 }
 ```
+
+### Providing entirely custom selectors
+
+If your use-case calls for a more complicated CSS selector (or set of selectors), you can disable the core Tailwind `dark:` variant by setting `darkMode: null` in your Tailwind config, and then define your own custom `dark:` variant with the [`addVariant` plugin API](/docs/plugins#adding-variants):
+
+```js {{ filename: 'tailwind.config.js' }}
+const plugin = require('tailwindcss/plugin')
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: null,
+  plugins: [
+    plugin(function({ addVariant }) {
+      addVariant('dark', [
+        '@media (prefers-color-scheme: dark) { &:not(:root[data-mode="light"] *) }',
+        '&:is(:root[data-mode="dark"] *)',
+      ])
+    })
+  ]
+}
+```
