@@ -1,6 +1,6 @@
 import { adamwathan } from '@/authors'
 import card from './card.jpg'
-import { IconGrid } from './IconGrid.js'
+import * as icons from '@heroicons/react/16/solid'
 
 export const meta = {
   title: 'Heroicons Micro: What are these, icons for ants?',
@@ -32,7 +32,13 @@ Icons always turn out a lot sharper when you design them for the exact size they
 About a month later we had a brand new set of 288 icons, meticulously crafted for higher density interfaces like what we've been working on with Catalyst.
 
 <div className="my-12">
-  <IconGrid/>
+  <div className="grid grid-cols-[repeat(auto-fill,1rem)] gap-x-12 gap-y-8 justify-between">
+    {Object.entries(icons)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([name, Icon]) => (
+        <Icon key={name} className="h-4 w-4 fill-slate-950" />
+      ))}
+  </div>
 </div>
 
 You can check out all of the new icons on the [Heroicons website](https://heroicons.com), start designing with them using our official [Heroicons Figma library](https://www.figma.com/community/file/958423903283802665/heroicons), and add them to your projects with our [React and Vue libraries](https://github.com/tailwindlabs/heroicons).
