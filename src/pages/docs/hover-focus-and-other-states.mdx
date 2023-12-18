@@ -602,20 +602,21 @@ For more control, you can use the `&` character to mark where `.peer` should end
 
 ---
 
-### Styling based on child state <small>(has-{'{modifier}'})</small>
+### Styling based on descendants <small>(has-{'{modifier}'})</small>
 
-Use the `has-*` modifier to style a parent based on the state or content of a child element.
+Use the `has-*` modifier to style an element based on the state or content of it's descendants.
+
 
 ```html {{ example: { p: 'none' } }}
 <div class=' max-w-md mx-auto bg-white shadow py-6 px-4'>
   <fieldset class="grid w-full items-start gap-1">
     <legend class='text-slate-500 mb-4'>Select   payment method:</legend>
-    <label for="apple-1" class="text-slate-700 has-[:checked]:ring-indigo-500 has-[:checked]:bg-indigo-50 grid h-[64px] grid-cols-[24px_1fr_auto] items-center gap-6 rounded-lg px-4 ring-1 ring-transparent hover:bg-slate-100">
+    <label for="apple-1" class="text-slate-700 has-[:checked]:ring-indigo-500  has-[:checked]:bg-indigo-50 grid h-[64px] grid-cols-[24px_1fr_auto] items-center gap-6 rounded-lg px-4 ring-1 ring-transparent hover:bg-slate-100">
       <svg class="w-8 fill-slate-500" viewBox="0 0 24 13">
         <path d="M3.96299 1.735C3.22833 1.73504 2.50814 1.9393 1.88285 2.32497C1.25756 2.71063 0.751781 3.26252 0.42199 3.919C0.144511 4.47115 0 5.08054 0 5.6985C0 6.31645 0.144511 6.92584 0.42199 7.478C0.751781 8.13447 1.25756 8.68636 1.88285 9.07202C2.50814 9.45769 3.22833 9.66195 3.96299 9.662C5.03299 9.662 5.93299 9.31 6.58999 8.705C7.33799 8.015 7.76999 6.995 7.76999 5.789C7.76976 5.51882 7.74634 5.24916 7.69999 4.983H3.96399V6.509H6.10399C6.06043 6.75276 5.96798 6.98519 5.83221 7.19228C5.69644 7.39937 5.52016 7.57684 5.31399 7.714C4.95799 7.955 4.49999 8.093 3.96399 8.093C2.92999 8.093 2.05299 7.396 1.73899 6.457C1.57315 5.96493 1.57315 5.43207 1.73899 4.94C2.05299 4 2.92999 3.304 3.96399 3.304C4.52899 3.29475 5.07496 3.50811 5.48399 3.898L6.61599 2.768C5.89873 2.09384 4.94728 1.72362 3.96299 1.735ZM10.464 2.285V9.185H11.35V6.39H12.815C13.418 6.39 13.925 6.194 14.337 5.802C14.5421 5.61815 14.705 5.39214 14.8146 5.13945C14.9242 4.88676 14.9779 4.61337 14.972 4.338C14.9762 4.06405 14.9216 3.79238 14.8121 3.54125C14.7026 3.29011 14.5406 3.06533 14.337 2.882C14.1354 2.68674 13.897 2.53337 13.6358 2.43073C13.3746 2.32809 13.0956 2.27822 12.815 2.284L10.464 2.285ZM12.891 3.135C13.0456 3.13769 13.1981 3.17139 13.3395 3.23408C13.4808 3.29678 13.6082 3.3872 13.714 3.5C13.8267 3.60959 13.9162 3.74065 13.9774 3.88544C14.0385 4.03024 14.07 4.18582 14.07 4.343C14.07 4.50017 14.0385 4.65576 13.9774 4.80055C13.9162 4.94534 13.8267 5.07641 13.714 5.186C13.6007 5.30328 13.4642 5.39562 13.3132 5.45709C13.1622 5.51857 13 5.54783 12.837 5.543H11.35V3.135H12.837C12.855 3.13458 12.873 3.13458 12.891 3.135ZM17.015 4.31C16.173 4.31 15.538 4.618 15.108 5.235L15.889 5.726C16.177 5.309 16.569 5.1 17.064 5.1C17.3798 5.09612 17.6855 5.21145 17.92 5.423C18.0354 5.51846 18.1282 5.63844 18.1915 5.77423C18.2548 5.91001 18.2871 6.05818 18.286 6.208V6.41C17.946 6.217 17.512 6.121 16.986 6.121C16.369 6.121 15.876 6.266 15.507 6.555C15.137 6.843 14.953 7.232 14.953 7.72C14.949 7.9396 14.994 8.15734 15.0848 8.35733C15.1757 8.55732 15.31 8.73451 15.478 8.876C15.828 9.184 16.263 9.339 16.783 9.339C17.393 9.339 17.881 9.069 18.248 8.529H18.286V9.184H19.134V6.275C19.134 5.665 18.944 5.185 18.566 4.835C18.186 4.485 17.67 4.31 17.015 4.31ZM19.278 4.464L21.224 8.886L20.126 11.266H21.041L24 4.463H23.035L21.667 7.854H21.647L20.241 4.464H19.278ZM17.132 6.832C17.626 6.832 18.012 6.942 18.288 7.162C18.288 7.534 18.141 7.858 17.848 8.135C17.5835 8.39951 17.225 8.54839 16.851 8.549C16.6011 8.55376 16.3573 8.47178 16.161 8.317C16.0697 8.25093 15.9954 8.16402 15.9445 8.06349C15.8935 7.96295 15.8673 7.85171 15.868 7.739C15.868 7.482 15.988 7.269 16.231 7.092C16.471 6.919 16.772 6.832 17.132 6.832Z" />
       </svg>
       Google Pay
-      <input name="paymentMethod" id="apple-1" value="google" type="radio" class="box-content h-1.5 w-1.5 appearance-none rounded-full border-[5px] border-white bg-white bg-clip-padding outline-none ring-1 ring-gray-950/10 checked:border-indigo-500 checked:ring-white" />
+      <input name="paymentMethod" id="apple-1" vaxlue="google" type="radio" class="box-content h-1.5 w-1.5 appearance-none rounded-full border-[5px] border-white bg-white bg-clip-padding outline-none ring-1 ring-gray-950/10 checked:border-indigo-500 checked:ring-white" />
     </label>
     <label for="google-1" class="text-slate-700 has-[:checked]:ring-indigo-500 has-[:checked]:bg-indigo-50 grid h-[64px] grid-cols-[24px_1fr_auto] items-center gap-6 rounded-lg px-4 ring-1 ring-transparent hover:bg-slate-100">
      <svg class="w-8 text-slate-500 " viewBox="0 0 24 13">
@@ -655,83 +656,125 @@ Use the `has-*` modifier to style a parent based on the state or content of a ch
   <input type="radio" class="... checked:border-indigo-500 checked:ring-white" />
 </label>
 ```
+You can use `has-*` with a pseudo-class modifier, like `has-[:focus]`, to detect state changes in descendants but you can also use element selectors, like `has-[img]` or `has-[a]`, to style an element based on the _content_ of it's descendants.
 
-#### Selecting siblings
 
-The `has-` modifier can also be used with a combinator, like `~` or `+`, to style an element based on specific siblings.
 
+#### Styling based on the descendants of a group <small>(group-has-{'{modifier}'})</small>
+
+If you need to style an element based on the descendants of a parent element, you can mark the parent with the `group` class and use the `group-has-*` modifier to style the target element.
 
 ```html {{ example: { p: 'none' } }}
-<div class="mx-auto max-w-md bg-white px-4 py-6 shadow">
-  <fieldset class="grid w-full grid-cols-2 items-start gap-4">
-    <legend class="mb-4 text-slate-500">Select shipping method:</legend>
-    <label for="standard" class="has-[:checked]:ring-blue-400 has-[:checked]:bg-blue-50 grid grid-cols-[1fr_auto] gap-y-3 rounded-lg p-3 text-slate-700 ring-1 ring-slate-100 hover:ring-slate-200">
-      <div class="grid">
-        <span class="font-medium">Standard</span>
-        <span class="text-sm text-slate-500">5-10 business days</span>
-      </div>
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="has-[~:checked]:text-blue-500 h-6 w-6 text-slate-500">
-        <path d="M4.74994 8L11.9999 4.75L19.2499 8L11.9999 11.25L4.74994 8Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M4.74994 16L11.9999 19.25L19.2499 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M19.2499 8V16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M4.74994 8V16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M11.9999 11.5V19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-      <input name="shippingMethod" id="standard" value="google" type="radio" class="sr-only appearance-none" checked />
-      <div class="text-sm font-semibold">Free</div>
-    </label>
-    <label for="express" class="has-[:checked]:ring-blue-400 has-[:checked]:bg-blue-50 grid grid-cols-[1fr_auto] gap-y-3 rounded-lg p-3 text-slate-700 ring-1 ring-slate-100 hover:ring-slate-200">
-      <div class="grid">
-        <span class="font-medium">Express</span>
-        <span class="text-sm text-slate-500">2-4 business days</span>
-      </div>
-      <svg class="has-[~:checked]:text-blue-500 w-6 text-slate-500" viewBox="0 0 24 24" fill="none">
-        <path d="M18.25 13C18.25 16.4518 15.4518 19.25 12 19.25C8.54822 19.25 5.75 16.4518 5.75 13C5.75 9.54822 8.54822 6.75 12 6.75C15.4518 6.75 18.25 9.54822 18.25 13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M16.5 8.5L17.25 7.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M12 6.5V4.75M12 4.75H9.75M12 4.75H14.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M12 9.75V13.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-      <input name="shippingMethod" id="express" value="google" type="radio" class="sr-only appearance-none" />
-      <div class="text-sm font-semibold">+$10.00</div>
-    </label>
-  </fieldset>
+<div class=' max-w-md mx-auto bg-white shadow  grid  divide-y divide-slate-100 text-slate-700'>
+  <div class="has-[a]:hover:bg-slate-50 group grid grid-cols-[32px_1fr_auto] pt-6 items-center gap-x-4 px-4 py-4">
+    <img class="size-[32px] rounded-full" src="https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Favatar.51a13c67.jpg&w=128&q=80" alt="" />
+    <h4 class="font-semibold text-slate-900">Spencer Sharp</h4>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="size-4 group-has-[a]:block hidden group-hover:text-blue-600">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+    </svg>
+    <p class="col-start-2 text-sm">Product Designer at <a class="text-blue-500 underline">planeteria.tech</a></p>
+  </div>
+  <div class="has-[a]:hover:bg-slate-50 group grid grid-cols-[32px_1fr_auto] items-center gap-x-4 px-4 py-4">
+    <img class="size-[32px] rounded-full" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=256&h=256&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+    <h4 class="font-semibold text-slate-900">Casey Jordan</h4>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="size-4 group-has-[a]:block hidden group-hover:text-blue-600">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+    </svg>
+    <p class="col-start-2 text-sm">Just happy to be here.</p>
+  </div> 
+  <div class="has-[a]:hover:bg-slate-50 group grid grid-cols-[32px_1fr_auto] items-center gap-x-4 px-4 py-4">
+    <img class="size-[32px] rounded-full" src="https://images.unsplash.com/photo-1590895340509-793cb98788c9?q=80&w=256&h=256&&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+    <h4 class="font-semibold text-slate-900">Alex Reed</h4>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="size-4 group-has-[a]:block hidden group-hover:text-blue-600">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+    </svg>
+    <p class="col-start-2 text-sm">A multidisciplinary designer, working at the intersection of art and technology.<br/><a class="text-blue-500 underline">alex-reed.com</a> </p>
+  </div>
+  <div class="has-[a]:hover:bg-slate-50 group grid grid-cols-[32px_1fr_auto] items-center pb-6 gap-x-4 px-4 py-4">
+    <img class="size-[32px] rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=256&h=256&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+    <h4 class="font-semibold text-slate-900">Taylor Bailey</h4>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="size-4 group-has-[a]:block hidden group-hover:text-blue-600">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+    </svg>
+    <p class="col-start-2 text-sm">Pushing pixels. Slinging divs.</p>
+  </div>   
 </div>
 ```
 
 ```html
-<label class="... has-[:checked]:ring-blue-500 has-[:checked]:bg-blue-50">
-  <!-- ... -->
-  <svg class="... **has-[~:checked]:text-blue-500**">
-    <!-- ... -->
+<div class="**group** ... ">
+  <img class="rounded-full"/>
+  <h4 class="font-semibold text-slate-900">Spencer Sharp</h4>
+  <svg class="hidden **group-has-[a]:block** group-hover:text-blue-600">
+    ...
   </svg>
-  <input type="radio" class="sr-only appearance-none" />
-</label>
+  <p class="text-sm">Product Designer at <a class="text-blue-500 underline">planeteria.tech</a></p>
+</div> 
 ```
 
-It can also be combined with the `peer-*` modifier to target a previous sibling with `peer-has-`.
+#### Styling based on the descendants of a peer <small>(peer-has-{'{modifier}'})</small>
+
+If you need to style an element based on the descendants of a sibling element, you can mark the sibling with the `peer` class and use the `peer-has-*` modifier to style the target element.
+
 
 ```html {{ example: { p: 'none' } }}
 <div class=' max-w-md mx-auto bg-white shadow py-6 px-4'>
-  <fieldset class="grid">  
-    <legend>Shopping List:</legend>
-    <div class="grid grid-cols-[auto_1fr] gap-4 items-center pt-3">  
-      <input class="peer accent-pink-500 rounded-sm appearance-none checked:appearance-auto border size-3.5 border-slate-300 dark:border-slate-500" id="item_1" checked type="checkbox">
-      <label for="item_1" class="peer-has-[:checked]:text-blue-500 peer-has-[:checked]:line-through text-slate-700">Testing</label>    
+  <fieldset>  
+    <legend>To do list:</legend>
+    <div class="grid grid-cols-[1fr_24px] items-center gap-6 pt-3">
+      <div class="peer grid grid-cols-[auto_1fr] items-center gap-3 rounded-md px-2 hover:bg-slate-100">
+        <input class="peer size-3.5 appearance-none rounded-sm border border-slate-300 accent-pink-500 dark:accent-pink-600 checked:appearance-auto" id="item_1" checked type="checkbox" />
+        <label for="item_1" class="select-none text-slate-700 peer-checked:text-slate-400 peer-checked:line-through">Create a to do list</label>
+      </div>
+      <div class="size-[26px] rounded-md p-1 hover:bg-red-50 hover:text-red-500 peer-has-[:checked]:hidden">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </div>
+    </div>
+    <div class="grid grid-cols-[1fr_24px] items-center gap-6 pt-3">
+      <div class="peer grid grid-cols-[auto_1fr] items-center gap-3 rounded-md px-2 hover:bg-slate-100">
+        <input class="peer size-3.5 appearance-none rounded-sm border border-slate-300 accent-pink-500 dark:accent-pink-600 checked:appearance-auto" id="item_2" type="checkbox" />
+        <label for="item_2" class="select-none text-slate-700 peer-checked:text-slate-400 peer-checked:line-through">Check off first item</label>
+      </div>
+      <div class="size-[26px] rounded-md p-1 hover:bg-red-50 hover:text-red-500 peer-has-[:checked]:hidden">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </div>
+    </div>
+    <div class="grid grid-cols-[1fr_24px] items-center gap-6 pt-3">
+      <div class="peer grid grid-cols-[auto_1fr] items-center gap-3 rounded-md px-2 hover:bg-slate-100">
+        <input class="peer size-3.5 appearance-none rounded-sm border border-slate-300 accent-pink-500 dark:accent-pink-600 checked:appearance-auto" id="item_3"  type="checkbox" />
+        <label for="item_3" class="select-none text-slate-700 peer-checked:text-slate-400 peer-checked:line-through">Investigate race condition</label>
+      </div>
+      <div class="size-[26px] rounded-md p-1 hover:bg-red-50 hover:text-red-500 block peer-has-[:checked]:hidden">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </div>
     </div>
   </fieldset>
 </div>
 ```
 
 ```html
-<label class="... **has-[:checked]:ring-indigo-500** **has-[:checked]:bg-indigo-50**">
-  <svg>
-    <!-- ... -->
-  </svg>
-  Google Pay
-  <input type="radio" class="... checked:border-indigo-500 checked:ring-white" />
-</label>
-```
+<fieldset>  
+  <legend>To do list:</legend>
 
+  <div class="peer ...">
+    <input type="checkbox" id="item_1" />
+    <label for="item_1">Create a to do list</label>
+  </div>
+  <div class="block **peer-has-[:checked]:hidden** ...">
+    <svg>
+      <!-- ... -->
+    </svg>
+  </div>
+  
+  <!-- ... -->
+</fieldset>
+```
 ---
 
 ## Pseudo-elements
@@ -1730,6 +1773,7 @@ A quick reference table of every single modifier included in Tailwind by default
 | <a href="#active" className="whitespace-nowrap">active</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:active</code> |
 | <a href="#visited" className="whitespace-nowrap">visited</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:visited</code> |
 | <a href="#target" className="whitespace-nowrap">target</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:target</code> |
+| <a href="#styling-based-on-descendants" className="whitespace-nowrap">has</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:has</code> |
 | <a href="#first" className="whitespace-nowrap">first</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:first-child</code> |
 | <a href="#last" className="whitespace-nowrap">last</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:last-child</code> |
 | <a href="#only" className="whitespace-nowrap">only</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:only-child</code> |
