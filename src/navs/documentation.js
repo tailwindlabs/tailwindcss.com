@@ -228,7 +228,7 @@ export const documentationNav = {
     pages['will-change'],
   ],
   SVG: [pages['fill'], pages['stroke'], pages['stroke-width']],
-  Accessibility: [pages['screen-readers']],
+  Accessibility: [pages['screen-readers'], pages['forced-color-adjust']],
   'Official Plugins': [
     pages['typography-plugin'],
     {

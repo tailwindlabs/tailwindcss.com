@@ -1219,7 +1219,7 @@ Use the `contrast-more` modifier to conditionally add styles when the user has r
       <label for="contrast-example" class="block text-sm font-medium text-slate-700">Social Security Number</label>
       <div class="mt-1">
         <input type="text" name="contrast-example" id="contrast-example" class="px-3 py-2 bg-white border shadow-sm border-slate-200 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 contrast-more:border-slate-400 contrast-more:placeholder-slate-500"  placeholder="000-00-0000" />
-        <p class="mt-2 text-sm text-slate-600 opacity-10 contrast-more:opacity-100">We need this to steal your identity.</p>
+        <p class="mt-2 text-sm text-slate-600 opacity-10 contrast-more:opacity-100 ">We need this to steal your identity.</p>
       </div>
     </div>
   </form>
@@ -1239,6 +1239,79 @@ Use the `contrast-more` modifier to conditionally add styles when the user has r
 ```
 
 Tailwind also includes a `contrast-less` modifier you can use to conditionally add styles when the user has requested less contrast.
+
+### Forced colors mode
+
+The `forced-colors` media query indicates if the user is using a forced colors mode. These modes override your site's colors with a user defined palette for text, backgrounds, links and buttons.
+
+Use the `forced-colors` modifier to conditionally add styles when the user has enabled a forced color mode:
+
+```html {{ example: { p: 'none', hint: 'Try emulating &#96;forced-colors: active&#96; in your developer tools to see the changes' } }}
+<div class="max-w-sm mx-auto bg-white shadow pt-6 pb-4 px-6">
+  <form>
+    <legend> Choose a theme: </legend>
+    <div class="grid grid-flow-col mt-4 ">
+      <label for="theme-1" class="text-sm font-medium text-slate-700">
+        <div class="relative h-16 w-16 rounded-xl forced-colors:border-0 bg-transparent border border-transparent text-white hover:bg-slate-50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-50 grid items-center justify-center">
+          <input type="radio" name="themes" id="theme-1" class="forced-colors:appearance-auto appearance-none" checked />
+          <p class="forced-colors:block hidden">
+            Cyan
+          </p>
+          <div class="absolute left-3 top-3 h-6 w-6 rounded-full bg-cyan-200 forced-colors:hidden"></div>
+          <div class="absolute bottom-3 right-3 h-6 w-6 rounded-full bg-cyan-500 ring-2 ring-current forced-colors:hidden"></div>
+        </div>
+      </label>
+      <label for="theme-2" class="text-sm font-medium text-slate-700">
+        <div class="relative h-16 w-16 rounded-xl forced-colors:border-0 bg-transparent border border-transparent text-white hover:bg-slate-50 has-[:checked]:border-blue-500 has-[:checked]:bg-blue-50 has-[:checked]:text-blue-50 grid items-center justify-center">
+          <input type="radio" name="themes" id="theme-2" class="forced-colors:appearance-auto appearance-none" />
+          <p class="forced-colors:block hidden">
+            Blue
+          </p>
+          <div class="absolute left-3 top-3 h-6 w-6 rounded-full bg-blue-200 forced-colors:hidden"></div>
+          <div class="absolute bottom-3 right-3 h-6 w-6 rounded-full bg-blue-500 ring-2 ring-current forced-colors:hidden"></div>
+        </div>
+      </label>
+      <label for="theme-3" class="text-sm font-medium text-slate-700">
+        <div class="relative h-16 w-16 rounded-xl forced-colors:border-0 border bg-transparent border-transparent text-white hover:bg-slate-50 has-[:checked]:border-indigo-500 has-[:checked]:bg-indigo-50 has-[:checked]:text-indigo-50 grid items-center justify-center">
+          <input type="radio" name="themes" id="theme-3" class="forced-colors:appearance-auto appearance-none" />
+          <p class="forced-colors:block hidden">
+            Indigo
+          </p>
+          <div class="absolute left-3 top-3 h-6 w-6 rounded-full bg-indigo-200  forced-colors:hidden"></div>
+          <div class="absolute bottom-3 right-3 h-6 w-6 rounded-full bg-indigo-500 ring-2 ring-current forced-colors:hidden"></div>
+        </div>
+      </label>
+      <label for="theme-4" class="text-sm font-medium text-slate-700">
+        <div class="relative h-16 w-16 rounded-xl forced-colors:border-0 border bg-transparent border-transparent text-white hover:bg-slate-50 has-[:checked]:border-purple-500 has-[:checked]:bg-purple-50 has-[:checked]:text-purple-50 grid items-center justify-center">
+          <input type="radio" name="themes" id="theme-4" class="forced-colors:appearance-auto appearance-none" />
+          <p class="forced-colors:block hidden">
+            Purple
+          </p>
+          <div class="absolute left-3 top-3 h-6 w-6 rounded-full bg-purple-200 forced-colors:hidden"></div>
+          <div class="absolute bottom-3 right-3 h-6 w-6 rounded-full bg-purple-500 ring-2 ring-current forced-colors:hidden"></div>
+        </div>
+      </label>
+    </div>
+  </form>
+</div>
+```
+
+```html
+<form>
+  <legend> Choose a theme: </legend>
+  <label>
+    <input type="radio" class="**forced-colors:appearance-auto** appearance-none" />
+    <p class="**forced-colors:block** hidden">
+      Cyan
+    </p>
+    <div class="**forced-colors:hidden** h-6 w-6 rounded-full bg-cyan-200 ..."></div>
+    <div class="**forced-colors:hidden** h-6 w-6 rounded-full bg-cyan-500 ..."></div>
+  </label>
+  <!-- ... -->
+</form>
+```
+
+Tailwind also includes a `forced-color-adjust-none` modifier you can use to opt certain elements out of forced color modes, as well as `forced-color-adjust-auto` to set elements back to the user preference.
 
 ### Viewport orientation
 
