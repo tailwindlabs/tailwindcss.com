@@ -26,7 +26,7 @@ export function Frame({ className, color = 'sky', children }) {
 export function EditorPane({ filename, scroll = false, code, children }) {
   return (
     <div className="pt-2 bg-slate-800 shadow-lg group">
-      <TabBar primary={{ name: filename }} showTabMarkers={false} />
+      {filename && <TabBar primary={{ name: filename }} showTabMarkers={false} />}
       <div
         className={clsx(
           'children:my-0 children:!shadow-none children:bg-transparent',

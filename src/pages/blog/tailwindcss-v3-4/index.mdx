@@ -2,8 +2,8 @@ import { adamwathan } from '@/authors'
 import card from './card.jpg'
 
 export const meta = {
-  title: 'Tailwind CSS v3.4: Subgrid, :has(), dynamic viewport utilities, a children variant, and more',
-  description: `Tailwind CSS v3.3 is here — bringing a bunch of new features people have been asking for forever, and a bunch of new stuff you didn't even know you wanted.`,
+  title: "Tailwind CSS v3.4: Dynamic viewport units, :has() support, balanced headlines, subgrid, and more",
+  description: `There’s nothing like building a major new product for finding all the features you wish you had in your own tools, so we capitalized on that inspiration and turned it into this — Tailwind CSS v3.4.`,
   date: '2023-12-19T15:00:00.000Z',
   authors: [adamwathan],
   image: card,
@@ -11,64 +11,162 @@ export const meta = {
 
 {/*excerpt*/}
 
-Tailwind CSS v3.3 is here — bringing a bunch of new features people have been asking for forever, and a bunch of new stuff you didn't even know you wanted.
+There's nothing like building [a major new product](https://twitter.com/steveschoger/status/1732143245696639167) for finding all the features you wish you had in your own tools, so we capitalized on some of that inspiration and turned it into this — Tailwind CSS v3.4.
 
 {/*/excerpt*/}
 
 ![Tailwind CSS v3.3](./card.jpg)
 
-Tailwind CSS v3.3 is here — bringing a bunch of new features people have been asking for forever, and a bunch of new stuff you didn't even know you wanted.
+There's nothing like building [a major new product](https://twitter.com/steveschoger/status/1732143245696639167) for finding all the features you wish you had in your own tools, so we capitalized on some of that inspiration and turned it into this — Tailwind CSS v3.4.
 
-- [Extended color palette for darker darks:](#extended-color-palette-for-darker-darks) New darker 950 shades for every color.
-- [ESM and TypeScript support:](#esm-and-type-script-support) Write your config file using ESM or TypeScript.
-- [Simplified RTL support with logical properties:](#simplified-rtl-support-with-logical-properties) Build layouts that adapt to different directions.
-- [Fine-tune gradient color stop positions:](#fine-tune-gradient-color-stop-positions) Specify exactly where you want each color stop to go.
-- [Line-clamp out of the box:](#line-clamp-out-of-the-box) Truncate multi-line text without a plugin.
-- [New line-height modifier:](#new-line-height-shorthand-for-font-size-utilities) Set your font-size and line-height with one class.
-- [CSS variables without the var()](#css-variables-without-the-var): New shorthand syntax for arbitrary values.
-- [Configurable `font-variation-settings`:](#configure-font-variation-settings-for-custom-font-families) Baked directly into your `font-*` utilities.
-- [New `list-style-image` utilities:](#new-list-style-image-utilities) So you can use horrible clip art for bullet points.
-- [New `hyphens` utilities:](#new-hyphens-utilities) For fine-tuning hyphenation behavior.
-- [New `caption-side` utilities:](#new-caption-side-utilities) Title your tables with style.
+As always the improvements range from things you've been angry about for years, to supporting CSS features you've never even heard of and probably can't even use at work.
 
-That covers the most exciting stuff, but check out the [release notes](https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.3.0) for an exhaustive list of every single little improvement we've made since the last release.
+- [**Dynamic viewport units:**](#)
+- [**New `:has()` variant**:](#)
+- [**Style children with the `*` variant**:](#)
+- [**New `size-*` utilities**:](#)
+- [**Balanced headlines and pretty paragraphs with `text-wrap` utilities**:](#)
+- [**Subgrid support**:](#)
+- [**Extended min-width, max-width, and min-height scales**:](#)
+- [**Extended opacity scale**:](#)
+- [**Extended `grid-rows-*` scale**:](#)
+- [**New `forced-colors` variant**:](#)
+- [**New `forced-color-adjust` utilities**:](#)
 
-Upgrading your projects is as easy as installing the latest version of `tailwindcss` from npm:
+All the good stuff is in that list, but check out the [release notes](#) for a couple more details that weren't exciting enough to earn a spot in this post.
 
-```sh
-npm install -D tailwindcss@latest
+Upgrade your projects by installing the latest version of `tailwindcss` from npm:
+
+```bash
+$ npm install tailwindcss@latest
 ```
 
-You can also try out all of the new features on [Tailwind Play](https://play.tailwindcss.com), right in your browser.
+Or try out all of the new features on [Tailwind Play](https://play.tailwindcss.com), right in your browser.
 
 ---
 
-## Extended color palette for darker darks
+## Dynamic viewport units
 
-One of the most common feature requests we've had over the years is to add darker shades for every color — usually because someone is building a dark UI and just wants more options down in that dark end of the spectrum.
+When the `vh` unit was added to browsers we all got so excited — finally a way to build full-height application layouts and stuff without drilling `height: 100%` through 17 layers of DOM! But mobile devices and their damn disappearing menu bars spoiled all the fun, effectively making the `vh` unit just a cruel reminder of a future that could've been so great.
 
-Well wish granted — in Tailwind CSS v3.3 we've added a new `950` shade for every single color.
+Well we've got a new future now — `dvh`, `lvh`, and `svh` are here and Tailwind CSS v3.4 supports them out of the box:
 
-In the grays they act as basically a tinted black, which is great for ultra dark UIs:
-
-![Comparison between two dark user interfaces, one using slate-900 as the darkest color and the other using slate-950 as the darkest color](./950-slate.png)
-
-And in the rest of the color spectrum we optimized `950` for high contrast text and tinted control backgrounds:
-
-<div className="contents dark:hidden">
-![Comparison between two light user interfaces, one using sky-900 as the darkest color and the other using sky-950 as the darkest color](./950-sky.png)
+```html {{ filename: 'layout.html', style: 'framed', color: 'sky' }}
+<div class="**min-h-lvh** ...">
+  <!-- ... -->
 </div>
+```
 
-<div className="hidden dark:contents">
-![Comparison between two light user interfaces, one using sky-900 as the darkest color and the other using sky-950 as the darkest color](./950-sky-dark.png)
-</div>
+We've added the following classes by default in the latest version:
 
-Believe it or not the hardest part about this project was convincing ourselves to be okay with having 11 shades per color. Trying to make that look good in the [color palette documentation](/docs/customizing-colors) was a nightmare.
+| Class       | CSS                  |
+| ----------- | -------------------- |
+| `h-svh`     | `height: 100svh`     |
+| `h-lvh`     | `height: 100lvh`     |
+| `h-dvh`     | `height: 100dvh`     |
+| `min-h-svh` | `min-height: 100svh` |
+| `min-h-lvh` | `min-height: 100lvh` |
+| `min-h-dvh` | `min-height: 100dvh` |
+| `max-h-svh` | `max-height: 100svh` |
+| `max-h-lvh` | `max-height: 100lvh` |
+| `max-h-dvh` | `max-height: 100dvh` |
 
-Also pour one out for the 50 shades of gray jokes we used to be able to make.
+If you need values other than 100, you can always use arbitrary values too like `min-h-[75dvh]`.
+
+Browser support is [pretty great](https://caniuse.com/viewport-unit-variants) for these nowadays, so unless you need to support Safari 14 you can start using these right away.
 
 ---
 
-## ESM and TypeScript support
+## New `:has()` variant
 
-Now you can configure Tailwind CSS in ESM, or even in TypeScript:
+The [`:has()` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:has) is the most powerful thing that's been added to CSS since flexbox. For the first time ever, you can style an element based on its _children_, not just based on its parents. It even makes it possible to style based on subsequent siblings.
+
+I feel like I've found a new use-case for `:has()` every week while working on this new UI kit we've been building for the last month, and it's replaced a crazy amount of JavaScript in our code.
+
+Here's a simplified example of how we use it to layout optional elements in a field group:
+
+```jsx {{ filename: 'Field.jsx', style: 'framed', color: 'indigo' }}
+function Field({ children }) {
+  return (
+    <div className="data-[slot=description]:*:has-[data-slot=description]:mt-4 ...">
+      {children}
+    </div>
+  )
+}
+
+function Description({ children }) {
+  return (
+    <p data-slot="description">{children}</p>
+  )
+}
+
+function Example() {
+  return (
+    <Field>
+      <Label>First name</Label>
+      <Input />
+      <Description>Please tell me you know your own name.</Description>
+    </Field>
+  )
+}
+```
+
+See that crazy `data-[slot=description]:*:has-[data-slot=description]:mt-4`
+
+This one is pretty bleeding edge but as of literally today it's now supported in the latest version of all major browsers.
+
+---
+
+## Style children with the `*` variant
+
+Here's one people have wanted for literally ever — a way to style children from the parent using utility classes.
+
+We've added a new `*` variant that targets direct children, letting you do stuff like this:
+
+```html {{ filename: 'HTML', style: 'framed', color: 'indigo' }}
+<nav class="***:underline** ...">
+  <a href="/products">Products</a>
+  <a href="/support">Support</a>
+  <a href="/company">Company</a>
+</nav>
+```
+
+It can be composed with other variants too, for instance `hover:*:underline` will style any child when the child is hovered.
+
+Here's a cool way we're using that to conditionally add layout styles to different child elements in the new UI kit we're working on:
+
+```jsx {{ filename: 'JSX', style: 'framed', color: 'pink' }}
+function Field({ children }) {
+  return (
+    <div className="data-[slot=description]:*:mt-4 ...">
+      {children}
+    </div>
+  )
+}
+
+function Description({ children }) {
+  return (
+    <p data-slot="description" ...>{children}</p>
+  )
+}
+
+function Example() {
+  return (
+    <Field>
+      <Label>First name</Label>
+      <Input />
+      <Description>Please tell me you know your own name.</Description>
+    </Field>
+  )
+}
+```
+
+See that crazy `data-[slot=description]:*:mt-4` class? It first targets all direct children (that's the `*:` part), then filters them down to just items with a `data-slot="description"` attribute using `data-[slot=description]`.
+
+This makes it easy to target only specific children, without having to drop all the way down to a raw arbitrary variant.
+
+Looking forward to seeing all the horrible stuff everyone does to make me regret adding this feature.
+
+---
+
+What about Oxide? Coming soon.
