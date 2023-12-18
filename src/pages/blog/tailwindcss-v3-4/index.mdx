@@ -1,0 +1,74 @@
+import { adamwathan } from '@/authors'
+import card from './card.jpg'
+
+export const meta = {
+  title: 'Tailwind CSS v3.4: Subgrid, :has(), dynamic viewport utilities, a children variant, and more',
+  description: `Tailwind CSS v3.3 is here — bringing a bunch of new features people have been asking for forever, and a bunch of new stuff you didn't even know you wanted.`,
+  date: '2023-12-19T15:00:00.000Z',
+  authors: [adamwathan],
+  image: card,
+}
+
+{/*excerpt*/}
+
+Tailwind CSS v3.3 is here — bringing a bunch of new features people have been asking for forever, and a bunch of new stuff you didn't even know you wanted.
+
+{/*/excerpt*/}
+
+![Tailwind CSS v3.3](./card.jpg)
+
+Tailwind CSS v3.3 is here — bringing a bunch of new features people have been asking for forever, and a bunch of new stuff you didn't even know you wanted.
+
+- [Extended color palette for darker darks:](#extended-color-palette-for-darker-darks) New darker 950 shades for every color.
+- [ESM and TypeScript support:](#esm-and-type-script-support) Write your config file using ESM or TypeScript.
+- [Simplified RTL support with logical properties:](#simplified-rtl-support-with-logical-properties) Build layouts that adapt to different directions.
+- [Fine-tune gradient color stop positions:](#fine-tune-gradient-color-stop-positions) Specify exactly where you want each color stop to go.
+- [Line-clamp out of the box:](#line-clamp-out-of-the-box) Truncate multi-line text without a plugin.
+- [New line-height modifier:](#new-line-height-shorthand-for-font-size-utilities) Set your font-size and line-height with one class.
+- [CSS variables without the var()](#css-variables-without-the-var): New shorthand syntax for arbitrary values.
+- [Configurable `font-variation-settings`:](#configure-font-variation-settings-for-custom-font-families) Baked directly into your `font-*` utilities.
+- [New `list-style-image` utilities:](#new-list-style-image-utilities) So you can use horrible clip art for bullet points.
+- [New `hyphens` utilities:](#new-hyphens-utilities) For fine-tuning hyphenation behavior.
+- [New `caption-side` utilities:](#new-caption-side-utilities) Title your tables with style.
+
+That covers the most exciting stuff, but check out the [release notes](https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.3.0) for an exhaustive list of every single little improvement we've made since the last release.
+
+Upgrading your projects is as easy as installing the latest version of `tailwindcss` from npm:
+
+```sh
+npm install -D tailwindcss@latest
+```
+
+You can also try out all of the new features on [Tailwind Play](https://play.tailwindcss.com), right in your browser.
+
+---
+
+## Extended color palette for darker darks
+
+One of the most common feature requests we've had over the years is to add darker shades for every color — usually because someone is building a dark UI and just wants more options down in that dark end of the spectrum.
+
+Well wish granted — in Tailwind CSS v3.3 we've added a new `950` shade for every single color.
+
+In the grays they act as basically a tinted black, which is great for ultra dark UIs:
+
+![Comparison between two dark user interfaces, one using slate-900 as the darkest color and the other using slate-950 as the darkest color](./950-slate.png)
+
+And in the rest of the color spectrum we optimized `950` for high contrast text and tinted control backgrounds:
+
+<div className="contents dark:hidden">
+![Comparison between two light user interfaces, one using sky-900 as the darkest color and the other using sky-950 as the darkest color](./950-sky.png)
+</div>
+
+<div className="hidden dark:contents">
+![Comparison between two light user interfaces, one using sky-900 as the darkest color and the other using sky-950 as the darkest color](./950-sky-dark.png)
+</div>
+
+Believe it or not the hardest part about this project was convincing ourselves to be okay with having 11 shades per color. Trying to make that look good in the [color palette documentation](/docs/customizing-colors) was a nightmare.
+
+Also pour one out for the 50 shades of gray jokes we used to be able to make.
+
+---
+
+## ESM and TypeScript support
+
+Now you can configure Tailwind CSS in ESM, or even in TypeScript:
