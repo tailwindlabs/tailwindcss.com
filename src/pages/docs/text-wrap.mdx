@@ -1,0 +1,122 @@
+---
+title: "Text Wrap"
+description: "Utilities for controlling text wrapping in an element."
+---
+
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = {
+  utilities: {
+    'text-wrap': { 'text-wrap': 'wrap' },
+    'text-nowrap': { 'text-wrap': 'nowrap' },
+    'text-balance': { 'text-wrap': 'balance' },
+    'text-pretty': { 'text-wrap': 'pretty' },
+  },
+}
+
+## Basic usage
+
+### Wrap
+
+Use `text-wrap` to wrap overflowing text onto multiple lines at logical points in the text.
+
+```html {{ example: { p: 'none' } }}
+<div class="px-4 sm:px-0">
+  <div class="grid gap-4 mx-auto max-w-sm bg-white shadow-xl p-8 text-slate-700  leading-6  dark:bg-slate-800 dark:text-slate-400 text-wrap">
+    <h3 class="text-xl dark:text-white font-medium text-slate-900"> Beloved Manhattan Soup Stand Closes<h3>
+    <p class="text-sm">
+      New Yorkers are facing the winter chill with less warmth this year as the city's most revered soup stand unexpectedly shutters, following a series of events that have left the community puzzled.
+    </p>
+  </div>
+</div>
+```
+
+```html
+<article class="**text-wrap** ...">
+  <h3>...<h3>
+  <p>...</p>
+</article>
+```
+
+### No Wrap
+
+Use `text-nowrap` to allow text to overflow its container rather than wrapping onto a new line.
+
+```html {{ example: { p: 'none' } }}
+<div class="px-4 sm:px-0">
+  <div class="grid gap-4 mx-auto max-w-sm bg-white shadow-xl p-8 text-slate-700  leading-6  dark:bg-slate-800 dark:text-slate-400 text-nowrap">
+    <h3 class="text-xl dark:text-white font-medium text-slate-900"> Beloved Manhattan Soup Stand Closes<h3>
+    <p class="text-sm">
+      New Yorkers are facing the winter chill with less warmth this year as the city's most revered soup stand unexpectedly shutters, following a series of events that have left the community puzzled.
+    </p>
+  </div>
+</div>
+```
+
+```html
+<article class="**text-nowrap** ...">
+  <h3>...<h3>
+  <p>...</p>
+</article>
+```
+
+### Balance
+
+Use `text-balance` to balance the number of characters on each line. 
+
+```html {{ example: { p: 'none' } }}
+<div class="px-4 sm:px-0">
+  <div class="grid gap-4 mx-auto max-w-sm bg-white shadow-xl p-8 text-slate-700  leading-6  dark:bg-slate-800 dark:text-slate-400 text-balance">
+    <h3 class="text-xl dark:text-white font-medium text-slate-900"> Beloved Manhattan Soup Stand Closes<h3>
+    <p class="text-sm">
+      New Yorkers are facing the winter chill with less warmth this year as the city's most revered soup stand unexpectedly shutters, following a series of events that have left the community puzzled.
+    </p>
+  </div>
+</div>
+```
+
+```html
+<article class="**text-balance** ...">
+  <h3>...<h3>
+  <p>...</p>
+</article>
+```
+
+Due to performance limitations, browsers limit `text-balance` to blocks that are ~6 lines or less - making it mainly useful for balancing large headlines. 
+
+### Pretty
+
+Use `text-pretty` to prevent orphans (a single word on its own line) at the end of a text block.
+
+```html {{ example: { p: 'none' } }}
+<div class="px-4 sm:px-0">
+  <div class="grid gap-4 mx-auto max-w-sm bg-white shadow-xl p-8 text-slate-700  leading-6  dark:bg-slate-800 dark:text-slate-400 text-pretty">
+    <h3 class="text-xl dark:text-white font-medium text-slate-900"> Beloved Manhattan Soup Stand Closes<h3>
+    <p class="text-sm">
+      New Yorkers are facing the winter chill with less warmth this year as the city's most revered soup stand unexpectedly shutters, following a series of events that have left the community puzzled.
+    </p>
+  </div>
+</div>
+```
+
+```html
+<article class="**text-pretty** ...">
+  <h3>...<h3>
+  <p>...</p>
+</article>
+```
+
+Because `text-pretty` is only applied to the final few lines of a paragraph it can be used on text blocks of any length - making it suitable for much longer text blocks than `text-balance`.
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="text-wrap" featuredClass="text-balance" element="h1" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="text-wrap" featuredClass="text-balance" element="h1" />
