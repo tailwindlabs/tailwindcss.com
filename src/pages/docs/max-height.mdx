@@ -18,19 +18,7 @@ export const classes = {
 
 ### Setting the maximum height
 
-Set the maximum height of an element using the `max-h-full` or `max-h-screen` utilities.
-
-```html
-<div class="h-24 ...">
-  <div class="h-48 **max-h-full** ...">
-    <!-- ... -->
-  </div>
-</div>
-```
-
-### Fixed maximum heights
-
-Use `max-h-{number}` to set an element to a fixed maximum height based on the default spacing scale.
+Set the minimum height of an element using `max-h-{height}` or `max-h-{number}` utilities.
 
 ```html {{ example: true }}
 <div class="flex justify-center items-end space-x-4 font-mono font-bold text-xs text-center text-white">
@@ -41,45 +29,52 @@ Use `max-h-{number}` to set an element to a fixed maximum height based on the de
       </div>
     </div>
   </div>
-    <div class="w-8 grid items-end bg-stripes-blue rounded-lg h-96 ">
+  <div class="w-8 grid items-end bg-stripes-blue rounded-lg h-96 ">
     <div class="w-full bg-blue-500 rounded-lg shadow-lg h-full max-h-80 relative">
       <div class="absolute w-8 text-nowrap bottom-6">
         <div class="-rotate-90">max-h-80</div>
       </div>
     </div>
   </div>
-    <div class="w-8 grid items-end bg-stripes-blue rounded-lg h-96 ">
+  <div class="w-8 grid items-end bg-stripes-blue rounded-lg h-96 ">
     <div class="w-full bg-blue-500 rounded-lg shadow-lg h-full max-h-64 relative">
       <div class="absolute w-8 text-nowrap bottom-6">
         <div class="-rotate-90">max-h-64</div>
       </div>
     </div>
   </div>
-    <div class="w-8 grid items-end bg-stripes-blue rounded-lg h-96 ">
+  <div class="w-8 grid items-end bg-stripes-blue rounded-lg h-96 ">
     <div class="w-full bg-blue-500 rounded-lg shadow-lg h-full max-h-48 relative">
       <div class="absolute w-8 text-nowrap bottom-6">
         <div class="-rotate-90">max-h-48</div>
       </div>
     </div>
   </div>
-    <div class="w-8 grid items-end bg-stripes-blue rounded-lg h-96 ">
+  <div class="w-8 grid items-end bg-stripes-blue rounded-lg h-96 ">
     <div class="w-full bg-blue-500 rounded-lg shadow-lg h-full max-h-40 relative">
       <div class="absolute w-8 text-nowrap bottom-6">
         <div class="-rotate-90">max-h-40</div>
       </div>
     </div>
   </div>
-    <div class="w-8 grid items-end bg-stripes-blue rounded-lg h-96 ">
+  <div class="w-8 grid items-end bg-stripes-blue rounded-lg h-96 ">
     <div class="w-full bg-blue-500 rounded-lg shadow-lg h-full max-h-32 relative">
       <div class="absolute w-8 text-nowrap bottom-6">
         <div class="-rotate-90">max-h-32</div>
       </div>
     </div>
   </div>
-    <div class="w-8 grid items-end bg-stripes-blue rounded-lg h-96 ">
+  <div class="w-8 grid items-end bg-stripes-blue rounded-lg h-96 ">
     <div class="w-full bg-blue-500 rounded-lg shadow-lg h-full max-h-24 relative">
       <div class="absolute w-8 text-nowrap bottom-6">
         <div class="-rotate-90">max-h-24</div>
+      </div>
+    </div>
+  </div>
+  <div class="w-8 grid items-end bg-stripes-blue rounded-lg h-96 ">
+    <div class="w-full bg-blue-500 rounded-lg shadow-lg h-full max-h-full relative">
+      <div class="absolute w-8 text-nowrap bottom-6">
+        <div class="-rotate-90">max-h-full</div>
       </div>
     </div>
   </div>
@@ -88,13 +83,14 @@ Use `max-h-{number}` to set an element to a fixed maximum height based on the de
 
 ```html
 <div class="flex items-end ...">
-  <div class="h-full **max-h-96** ...">min-h-96</div>
-  <div class="h-full **max-h-80** ...">min-h-80</div>
-  <div class="h-full **max-h-64** ...">min-h-64</div>
-  <div class="h-full **max-h-48** ...">min-h-48</div>
-  <div class="h-full **max-h-40** ...">min-h-40</div>
-  <div class="h-full **max-h-32** ...">min-h-32</div>
-  <div class="h-full **max-h-24** ...">min-h-24</div>
+  <div class="h-full **max-h-96** ...">max-h-96</div>
+  <div class="h-full **max-h-80** ...">max-h-80</div>
+  <div class="h-full **max-h-64** ...">max-h-64</div>
+  <div class="h-full **max-h-48** ...">max-h-48</div>
+  <div class="h-full **max-h-40** ...">max-h-40</div>
+  <div class="h-full **max-h-32** ...">max-h-32</div>
+  <div class="h-full **max-h-24** ...">max-h-24</div>
+  <div class="h-full **max-h-full** ...">max-h-full</div>
 </div>
 ```
 
