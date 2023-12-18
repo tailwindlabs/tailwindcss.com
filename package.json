@@ -15,6 +15,7 @@
     "@badrap/bar-of-progress": "^0.1.1",
     "@docsearch/react": "^3.3.3",
     "@headlessui/react": "^1.7.2",
+    "@heroicons/react": "^0.0.0-insiders.9600adb",
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
     "@silvenon/remark-smartypants": "^1.0.0",
