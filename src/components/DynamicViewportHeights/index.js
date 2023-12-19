@@ -87,11 +87,11 @@ export function DynamicViewportExample({
             style={{ width: `${viewport.width}px`, height: `${viewport.lvh}px` }}
             className={clsx(
               containerBackground,
-              'relative rounded-lg border dark:border-slate-700 border-slate-300 text-center text-xs overflow-y-scroll no-scrollbar'
+              'relative rounded-lg border dark:border-slate-700 overscroll-none border-slate-300 text-center text-xs overflow-y-scroll no-scrollbar'
             )}
           >
             <motion.div
-              className="absolute w-full overflow-hidden overscroll-none snap-start"
+              className="absolute w-full overflow-hidden snap-start"
               transition={{
                 ...transition,
               }}
