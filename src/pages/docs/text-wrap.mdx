@@ -3,17 +3,11 @@ title: "Text Wrap"
 description: "Utilities for controlling text wrapping in an element."
 ---
 
+import utilities from 'utilities?plugin=textWrap'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = {
-  utilities: {
-    'text-wrap': { 'text-wrap': 'wrap' },
-    'text-nowrap': { 'text-wrap': 'nowrap' },
-    'text-balance': { 'text-wrap': 'balance' },
-    'text-pretty': { 'text-wrap': 'pretty' },
-  },
-}
+export const classes = { utilities }
 
 ## Basic usage
 
