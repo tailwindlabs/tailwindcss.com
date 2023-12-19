@@ -38,6 +38,43 @@ Use the `grid-rows-{n}` utilities to create grids with _n_ equally sized rows.
 </div>
 ```
 
+### Subgrid
+
+Use the `grid-rows-subgrid` utility to adopt the row tracks defined by the item's parent.
+
+```html {{ example: true }}
+<div class="grid grid-rows-4 grid-flow-col gap-4 rounded-lg text-center font-mono text-sm font-bold leading-6 text-white">
+  <div class="rounded-lg dark:bg-indigo-900 bg-indigo-300 grid items-center justify-center h-14 shadow-lg">01</div>
+  <div class="rounded-lg dark:bg-indigo-900 bg-indigo-300 grid items-center justify-center h-14 shadow-lg">02</div>
+  <div class="rounded-lg dark:bg-indigo-900 bg-indigo-300 grid items-center justify-center h-14 shadow-lg">03</div>
+  <div class="rounded-lg dark:bg-indigo-900 bg-indigo-300 grid items-center justify-center h-14 shadow-lg">04</div>
+  <div class="rounded-lg dark:bg-indigo-900 bg-indigo-300 grid items-center justify-center h-14 shadow-lg">05</div>
+  <div class="row-span-3 grid grid-row-subgrid gap-4">
+    <div class="rounded-lg bg-stripes-fuchsia h-14"></div>
+    <div class="rounded-lg bg-fuchsia-500 grid items-center justify-center h-14 shadow-lg">06</div>
+    <div class="rounded-lg bg-stripes-fuchsia h-14"></div>
+  </div>
+  <div class="rounded-lg dark:bg-indigo-900 bg-indigo-300 grid items-center justify-center h-14 shadow-lg">07</div>
+  <div class="rounded-lg dark:bg-indigo-900 bg-indigo-300 grid items-center justify-center h-14 shadow-lg">08</div>
+  <div class="rounded-lg dark:bg-indigo-900 bg-indigo-300 grid items-center justify-center h-14 shadow-lg">09</div>
+  <div class="rounded-lg dark:bg-indigo-900 bg-indigo-300 grid items-center justify-center h-14 shadow-lg">10</div>
+</div>
+```
+
+```html
+<div class="grid grid-rows-4 grid-flow-col gap-4">
+  <div>01</div>
+  <!-- ... -->
+  <div>05</div>
+  <div class="grid **grid-row-subgrid** gap-4 row-span-3">
+      <div class="row-start-2">06</div>
+  </div>
+  <div>07</div>
+  <!-- ... -->
+  <div>10</div>
+</div>
+```
+
 ---
 
 ## <Heading ignore>Applying conditionally</Heading>
@@ -56,7 +93,7 @@ Use the `grid-rows-{n}` utilities to create grids with _n_ equally sized rows.
 
 ### Customizing your theme
 
-By default, Tailwind includes `grid-template-row` utilities for creating basic grids with up to 6 equal width rows. You can customize these values by editing `theme.gridTemplateRows` or `theme.extend.gridTemplateRows` in your `tailwind.config.js` file.
+By default, Tailwind includes `grid-template-row` utilities for creating basic grids with up to 12 equal width rows. You can customize these values by editing `theme.gridTemplateRows` or `theme.extend.gridTemplateRows` in your `tailwind.config.js` file.
 
 You have direct access to the `grid-template-rows` CSS property here so you can make your custom rows values as generic or as complicated and site-specific as you like.
 
@@ -65,8 +102,8 @@ You have direct access to the `grid-template-rows` CSS property here so you can 
     theme: {
       extend: {
         gridTemplateRows: {
-          // Simple 8 row grid
-+         '8': 'repeat(8, minmax(0, 1fr))',
+          // Simple 16 row grid
++         '16': 'repeat(16, minmax(0, 1fr))',
 
           // Complex site-specific row configuration
 +         'layout': '200px minmax(900px, 1fr) 100px',

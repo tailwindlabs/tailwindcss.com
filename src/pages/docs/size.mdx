@@ -1,0 +1,121 @@
+---
+title: "Size"
+description: "Utilities for setting the width and height of an element at the same time."
+---
+
+import utilities from 'utilities?plugin=size'
+import { numbersFirst } from '@/utils/sortClasses'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = {
+  utilities,
+  sort: numbersFirst,
+}
+
+## Basic usage
+
+### Fixed sizes
+
+Use `size-{number}` or `size-px` to set an element to a fixed width and height at the same time.
+
+```html {{ example: true }}
+<div class="grid grid-flow-col justify-center gap-4 font-mono font-bold text-xs text-center text-white">
+    <div class="grid items-center justify-center bg-blue-500 rounded-lg shadow-lg size-16">size-16</div>
+    <div class="grid items-center justify-center bg-blue-500 rounded-lg shadow-lg size-20">size-20</div>
+    <div class="items-center justify-center bg-blue-500 rounded-lg shadow-lg size-24 grid">size-24</div>
+    <div class="items-center justify-center bg-blue-500 rounded-lg shadow-lg size-32 hidden sm:grid">size-32</div>
+    <div class="items-center justify-center bg-blue-500 rounded-lg shadow-lg size-40 hidden md:grid">size-40</div>
+</div>
+```
+
+```html
+<div class="**size-16** ...">size-16</div>
+<div class="**size-20** ...">size-20</div>
+<div class="**size-24** ...">size-24</div>
+<div class="**size-32** ...">size-32</div>
+<div class="**size-40** ...">size-40</div>
+```
+
+### Percentage sizes
+
+Use `size-full` to set an element's width and height to be 100% of the parent container's width and height.
+
+```html {{ example: true }}
+<div class="space-y-4 font-mono font-bold text-xs text-white">
+  <div class="h-56 bg-stripes-purple p-2">
+    <div class="size-full flex items-center justify-center px-4 py-2 bg-violet-500 rounded-lg shadow-lg">size-full</div>
+  </div>
+</div>
+```
+
+```html
+<div class="h-56 p-2 ...">
+  <div class="**size-full** ...">size-full</div>
+</div>
+```
+
+### Resetting the size
+
+The `size-auto` utility can be useful if you need to remove an element's assigned width and height under a specific condition, like at a particular breakpoint:
+
+```html
+<div class="size-full md:size-auto">
+  <!-- ... -->
+</div>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="size-48" featuredClass="size-full" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="size-48" featuredClass="size-full" />
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+By default, Tailwind's size scale is a combination of the [default spacing scale](/docs/customizing-spacing#default-spacing-scale) as well as some additional values specific to sizing.
+
+You can customize your spacing scale by editing `theme.spacing` or `theme.extend.spacing` in your `tailwind.config.js` file.
+
+```diff-js {{ filename: 'tailwind.config.js' }}
+  module.exports = {
+    theme: {
+      extend: {
++       spacing: {
++         '128': '32rem',
++       }
+      }
+    }
+  }
+```
+
+To customize size separately, use the `theme.size` section of your `tailwind.config.js` file.
+
+```diff-js {{ filename: 'tailwind.config.js' }}
+  module.exports = {
+    theme: {
+      extend: {
++       size: {
++         '128': '32rem',
++       }
+      }
+    }
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+
+### Arbitrary values
+
+<ArbitraryValues property="size" featuredClass="size-[32rem]" />

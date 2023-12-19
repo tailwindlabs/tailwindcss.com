@@ -4,7 +4,6 @@ description: "Utilities for suppressing native form control styling."
 ---
 
 import utilities from 'utilities?plugin=appearance'
-import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
@@ -19,7 +18,7 @@ Use `appearance-none` to reset any browser specific styling on an element. This 
 ```html {{ example: true }}
 <div class="max-w-sm mx-auto items-center">
   <div class="flex my-6">
-    <select class="w-16">
+    <select class="w-20">
       <option>Yes</option>
       <option>No</option>
       <option>Maybe</option>
@@ -29,13 +28,18 @@ Use `appearance-none` to reset any browser specific styling on an element. This 
     </div>
   </div>
   <div class="flex my-6 items-center">
-    <select class="appearance-none w-16">
-      <option>Yes</option>
-      <option>No</option>
-      <option>Maybe</option>
-    </select>
+    <div class="grid">
+      <svg class="pointer-events-none z-10 right-1 relative col-start-1 row-start-1 h-4 w-4 self-center justify-self-end forced-colors:hidden" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+      </svg>
+      <select class="w-20 appearance-none forced-colors:appearance-auto border row-start-1 col-start-1 rounded-lg bg-slate-50 dark:bg-slate-800 hover:border-cyan-500 dark:hover:border-cyan-700 hover:bg-white dark:hover:bg-slate-700 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 px-2">
+        <option>Yes</option>
+        <option>No</option>
+        <option>Maybe</option>
+      </select>
+    </div>
     <div class="mx-6 text-slate-900 text-sm font-semibold dark:text-slate-200">
-      Default styles removed
+      Remove default browser styles
     </div>
   </div>
 </div>
@@ -48,9 +52,77 @@ Use `appearance-none` to reset any browser specific styling on an element. This 
   <option>Maybe</option>
 </select>
 
-<select class="appearance-none">
-  <option>Yes</option>
-  <option>No</option>
-  <option>Maybe</option>
-</select>
+<div class="grid">
+  <select class="**appearance-none** row-start-1 col-start-1 bg-slate-50 dark:bg-slate-800 ...">
+    <option>Yes</option>
+    <option>No</option>
+    <option>Maybe</option>
+  </select>
+  <svg class="pointer-events-none row-start-1 col-start-1 ...">
+    <!-- ... -->
+  </svg>
+</div>
 ```
+
+### Restoring the default element appearance
+
+Use `appearance-auto` to restore the default browser specific styling on an element. This is useful for reverting to the standard browser controls in certain accessibility modes.
+
+```html {{ example: { hint: 'Try emulating &#96;forced-colors: active&#96; in your developer tools to see the difference' } }}
+<div class="grid max-w-sm mx-auto my-6 gap-8 items-center justify-center">
+  <div class="flex items-center">
+    <label for="checkbox_2" class="select-none mx-6 grid grid-flow-col gap-3 items-center text-slate-900 text-sm font-semibold dark:text-slate-200">
+      <div class="grid items-center justify-center">
+        <input type="checkbox" id="checkbox_2" checked class="peer row-start-1 col-start-1 appearance-none w-4 h-4 border ring-transparent border-slate-300 rounded dark:border-slate-600 checked:bg-violet-600 checked:border-violet-600 dark:checked:border-violet-600 forced-colors:appearance-auto" />
+        <svg viewBox="0 0 14 14" fill="none" class="invisible peer-checked:visible row-start-1 col-start-1 stroke-white dark:text-violet-300 forced-colors:hidden">
+          <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </div>
+      Falls back to default appearance
+    </label>
+  </div>
+  <div class="flex items-center">
+    <label for="checkbox_1" class="select-none mx-6 grid grid-flow-col gap-3 items-center text-slate-900 text-sm font-semibold dark:text-slate-200">
+      <div class="grid items-center justify-center">
+        <input type="checkbox" id="checkbox_1" checked class="peer row-start-1 col-start-1 appearance-none w-4 h-4 border ring-transparent border-slate-300 rounded dark:border-slate-600 checked:bg-violet-600 checked:border-violet-600 dark:checked:border-violet-600" />
+        <svg viewBox="0 0 14 14" fill="none" class="invisible peer-checked:visible row-start-1 col-start-1 stroke-white dark:text-violet-300">
+          <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </div>
+      Keeps custom appearance
+    </label>
+  </div>
+</div>
+```
+
+```html
+<label>
+  <div>
+    <input type="checkbox" class="appearance-none **forced-colors:appearance-auto** ..." />
+    <svg class="invisible peer-checked:visible **forced-colors:hidden** ..." >
+      <!-- ... -->
+    </svg>
+  </div>
+  Falls back to default appearance
+</label>
+
+<label>
+  <div>
+    <input type="checkbox" class="appearance-none ..." />
+    <svg class="invisible peer-checked:visible ...">
+      <!-- ... -->
+    </svg>
+  </div>
+  Keeps custom appearance
+</label>
+```
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates defaultClass="appearance-auto" featuredClass="appearance-none" variant="hover" />
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="appearance-auto" featuredClass="appearance-none" />

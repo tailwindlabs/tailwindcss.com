@@ -6,6 +6,7 @@ description: "Utilities for setting the height of an element."
 import utilities from 'utilities?plugin=height'
 import { numbersFirst } from '@/utils/sortClasses'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { DynamicViewportExample } from '@/components/DynamicViewportHeights'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
@@ -88,6 +89,43 @@ Use `h-screen` to make an element span the entire height of the viewport.
 
 ```html
 <div class="**h-screen**">
+  <!-- ... -->
+</div>
+```
+
+### Dynamic viewport height
+
+Use `h-dvh` to make an element span the entire height of the viewport, which changes as the browser UI expands or contracts.
+
+<DynamicViewportExample unit="dvh" colorStyles="dark:bg-pink-500 bg-pink-500 border border-pink-400" containerBackground="bg-stripes-pink" />
+
+```html
+<div class="**h-dvh**">
+  <!-- ... -->
+</div>
+```
+
+### Large viewport height
+
+Use `h-lvh` to set an element's height to the largest possible height of the viewport. This behaves the same as `100vh`.
+
+<DynamicViewportExample unit="lvh" colorStyles="dark:bg-indigo-500 bg-indigo-500 border border-indigo-400" containerBackground="bg-stripes-indigo" />
+
+```html
+<div class="**h-lvh**">
+  <!-- ... -->
+</div>
+```
+
+
+### Small viewport height
+
+Use `h-svh` to set an element's height to the smallest possible height of the viewport.
+
+<DynamicViewportExample unit="svh" colorStyles="dark:bg-purple-500 bg-purple-500 border border-purple-400" containerBackground="bg-stripes-purple" />
+
+```html
+<div class="**h-svh**">
   <!-- ... -->
 </div>
 ```

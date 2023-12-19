@@ -600,6 +600,217 @@ For more control, you can use the `&` character to mark where `.peer` should end
 
 </SnippetGroup>
 
+### Styling direct children <small>(*-{'{modifier}'})</small>
+
+While it's generally preferable to put utility classes directly on child elements, you can use the `*` modifier in situations where you need to style direct children that you don’t have control over.
+
+```html {{ example: { p: 'none' } }}
+<div class="max-w-md mx-auto bg-white shadow p-6 dark:bg-slate-800">
+  <h2 class="text-base font-semibold text-slate-900 dark:text-slate-200">Categories</h2>
+  <div class="flex flex-wrap gap-2 pt-4 text-sm text-sky-600 *:rounded-full *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5 dark:text-sky-300 dark:*:border-sky-500/15 dark:*:bg-sky-500/10">
+    <div>Sales</div>
+    <div>Marketing</div>
+    <div>SEO</div>
+    <div>Analytics</div>
+    <div>Design</div>
+    <div>Strategy</div>
+    <div>Security</div>
+    <div>Growth</div>
+    <div>Mobile</div>
+    <div>UX/UI</div>
+  </div>
+</div>
+```
+
+```html
+<div>
+  <h2>Categories<h2>
+  <ul class="***:rounded-full *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5 dark:text-sky-300 dark:*:border-sky-500/15 dark:*:bg-sky-500/10** ...">
+    <li>Sales</li>
+    <li>Marketing</li>
+    <li>SEO</li>
+    <!-- ... -->
+  </ul>
+</div>
+```
+
+It's important to note that overriding a style with a utility directly on the child itself won't work due to the specificity of the generated child selector.
+
+<TipBad>Won't work, children can't override their own styling.</TipBad>
+
+```html
+<ul class="***:bg-sky-50** ...">
+  <li class="**bg-red-50** ...">Sales</li>
+  <li>Marketing</li>
+  <li>SEO</li>
+  <!-- ... -->
+</ul>
+```
+
+---
+
+### Styling based on descendants <small>(has-{'{modifier}'})</small>
+
+Use the `has-*` modifier to style an element based on the state or content of its descendants.
+
+```html {{ example: { p: 'none' } }}
+<div class="max-w-md mx-auto bg-white shadow py-6 px-4">
+  <fieldset>
+    <legend class="text-base font-semibold text-slate-900 dark:text-slate-200">Payment method</legend>
+    <div class="mt-4 space-y-2">
+      <label for="apple" class="text-slate-700 has-[:checked]:ring-indigo-200 has-[:checked]:text-indigo-900 has-[:checked]:bg-indigo-50 grid grid-cols-[24px_1fr_auto] items-center gap-6 rounded-lg p-4 ring-1 ring-transparent hover:bg-slate-100">
+        <svg class="w-8" fill="currentColor" viewBox="0 0 24 13">
+          <path d="M3.96299 1.735C3.22833 1.73504 2.50814 1.9393 1.88285 2.32497C1.25756 2.71063 0.751781 3.26252 0.42199 3.919C0.144511 4.47115 0 5.08054 0 5.6985C0 6.31645 0.144511 6.92584 0.42199 7.478C0.751781 8.13447 1.25756 8.68636 1.88285 9.07202C2.50814 9.45769 3.22833 9.66195 3.96299 9.662C5.03299 9.662 5.93299 9.31 6.58999 8.705C7.33799 8.015 7.76999 6.995 7.76999 5.789C7.76976 5.51882 7.74634 5.24916 7.69999 4.983H3.96399V6.509H6.10399C6.06043 6.75276 5.96798 6.98519 5.83221 7.19228C5.69644 7.39937 5.52016 7.57684 5.31399 7.714C4.95799 7.955 4.49999 8.093 3.96399 8.093C2.92999 8.093 2.05299 7.396 1.73899 6.457C1.57315 5.96493 1.57315 5.43207 1.73899 4.94C2.05299 4 2.92999 3.304 3.96399 3.304C4.52899 3.29475 5.07496 3.50811 5.48399 3.898L6.61599 2.768C5.89873 2.09384 4.94728 1.72362 3.96299 1.735ZM10.464 2.285V9.185H11.35V6.39H12.815C13.418 6.39 13.925 6.194 14.337 5.802C14.5421 5.61815 14.705 5.39214 14.8146 5.13945C14.9242 4.88676 14.9779 4.61337 14.972 4.338C14.9762 4.06405 14.9216 3.79238 14.8121 3.54125C14.7026 3.29011 14.5406 3.06533 14.337 2.882C14.1354 2.68674 13.897 2.53337 13.6358 2.43073C13.3746 2.32809 13.0956 2.27822 12.815 2.284L10.464 2.285ZM12.891 3.135C13.0456 3.13769 13.1981 3.17139 13.3395 3.23408C13.4808 3.29678 13.6082 3.3872 13.714 3.5C13.8267 3.60959 13.9162 3.74065 13.9774 3.88544C14.0385 4.03024 14.07 4.18582 14.07 4.343C14.07 4.50017 14.0385 4.65576 13.9774 4.80055C13.9162 4.94534 13.8267 5.07641 13.714 5.186C13.6007 5.30328 13.4642 5.39562 13.3132 5.45709C13.1622 5.51857 13 5.54783 12.837 5.543H11.35V3.135H12.837C12.855 3.13458 12.873 3.13458 12.891 3.135ZM17.015 4.31C16.173 4.31 15.538 4.618 15.108 5.235L15.889 5.726C16.177 5.309 16.569 5.1 17.064 5.1C17.3798 5.09612 17.6855 5.21145 17.92 5.423C18.0354 5.51846 18.1282 5.63844 18.1915 5.77423C18.2548 5.91001 18.2871 6.05818 18.286 6.208V6.41C17.946 6.217 17.512 6.121 16.986 6.121C16.369 6.121 15.876 6.266 15.507 6.555C15.137 6.843 14.953 7.232 14.953 7.72C14.949 7.9396 14.994 8.15734 15.0848 8.35733C15.1757 8.55732 15.31 8.73451 15.478 8.876C15.828 9.184 16.263 9.339 16.783 9.339C17.393 9.339 17.881 9.069 18.248 8.529H18.286V9.184H19.134V6.275C19.134 5.665 18.944 5.185 18.566 4.835C18.186 4.485 17.67 4.31 17.015 4.31ZM19.278 4.464L21.224 8.886L20.126 11.266H21.041L24 4.463H23.035L21.667 7.854H21.647L20.241 4.464H19.278ZM17.132 6.832C17.626 6.832 18.012 6.942 18.288 7.162C18.288 7.534 18.141 7.858 17.848 8.135C17.5835 8.39951 17.225 8.54839 16.851 8.549C16.6011 8.55376 16.3573 8.47178 16.161 8.317C16.0697 8.25093 15.9954 8.16402 15.9445 8.06349C15.8935 7.96295 15.8673 7.85171 15.868 7.739C15.868 7.482 15.988 7.269 16.231 7.092C16.471 6.919 16.772 6.832 17.132 6.832Z" />
+        </svg>
+        Google Pay
+        <input name="payment_method" id="apple" value="google" type="radio" class="box-content h-1.5 w-1.5 appearance-none rounded-full border-[5px] border-white bg-white bg-clip-padding outline-none ring-1 ring-gray-950/10 checked:border-indigo-500 checked:ring-indigo-500" checked />
+      </label>
+      <label for="google" class="text-slate-700 has-[:checked]:ring-indigo-200 has-[:checked]:text-indigo-800 has-[:checked]:bg-indigo-50 grid grid-cols-[24px_1fr_auto] items-center gap-6 rounded-lg p-4 ring-1 ring-transparent hover:bg-slate-100">
+        <svg class="w-8 mt-1 fill-current" fill="currentColor" viewBox="0 0 24 13">
+          <path d="M4.38526 1.86704C4.10401 2.19606 3.65392 2.45565 3.20387 2.41854C3.14762 1.97367 3.36793 1.50091 3.62579 1.20892C3.90704 0.870635 4.39932 0.62962 4.79781 0.611084C4.84468 1.07453 4.66182 1.52871 4.38526 1.86704ZM4.79312 2.50663C4.14146 2.46956 3.5836 2.87272 3.27418 2.87272C2.96012 2.87272 2.48659 2.52517 1.97092 2.53443C1.30056 2.5437 0.677025 2.91906 0.33479 3.51694C-0.368428 4.71265 0.151978 6.48308 0.831712 7.45632C1.16457 7.9383 1.56306 8.46662 2.0881 8.44809C2.58507 8.42955 2.78195 8.12834 3.38204 8.12834C3.98677 8.12834 4.16026 8.44809 4.68531 8.43882C5.2291 8.42955 5.57134 7.95688 5.9042 7.47485C6.28388 6.92799 6.43862 6.39499 6.44799 6.36718C6.43862 6.35791 5.3979 5.96402 5.38853 4.77753C5.37915 3.78576 6.20893 3.31304 6.24643 3.28524C5.77759 2.59931 5.04629 2.52517 4.79312 2.50663ZM8.55765 1.16258V8.38789H9.69212V5.91768H11.2626C12.6971 5.91768 13.7051 4.94445 13.7051 3.53552C13.7051 2.12664 12.7159 1.16262 11.3001 1.16262H8.5576L8.55765 1.16258ZM9.69212 2.10806H11.0001C11.9846 2.10806 12.5471 2.62711 12.5471 3.54011C12.5471 4.4531 11.9846 4.97684 10.9954 4.97684H9.69212V2.10806ZM15.7772 8.44345C16.4898 8.44345 17.1508 8.08664 17.4508 7.52119H17.4743V8.38785H18.5244V4.79143C18.5244 3.74868 17.6806 3.07666 16.3819 3.07666C15.1771 3.07666 14.2864 3.75795 14.2536 4.69412H15.2756C15.36 4.24921 15.7771 3.95722 16.3491 3.95722C17.043 3.95722 17.4321 4.27701 17.4321 4.86562V5.26415L16.0163 5.34756C14.6989 5.42634 13.9864 5.95934 13.9864 6.88629C13.9864 7.82245 14.7224 8.44345 15.7772 8.44345ZM16.0819 7.58607C15.4772 7.58607 15.0927 7.29876 15.0927 6.85844C15.0927 6.4043 15.4631 6.14012 16.171 6.09841L17.4321 6.01963V6.42743C17.4321 7.10408 16.8508 7.58607 16.0819 7.58607H16.0819ZM19.9261 10.3529C21.0325 10.3529 21.5529 9.93584 22.0076 8.67057L24 3.14617H22.8467L21.5107 7.41456H21.4872L20.1511 3.14617H18.9651L20.8871 8.40638L20.784 8.72618C20.6106 9.2684 20.3293 9.47698 19.8277 9.47698C19.7386 9.47698 19.5652 9.46771 19.4948 9.45844V10.3251C19.5604 10.3436 19.8417 10.3529 19.9261 10.3529Z" />
+        </svg>
+        Apple Pay
+        <input name="payment_method" id="google" value="apple" type="radio" class="box-content h-1.5 w-1.5 appearance-none rounded-full border-[5px] border-white bg-white bg-clip-padding outline-none ring-1 ring-gray-950/10 checked:border-indigo-500 checked:ring-indigo-500" />
+      </label>
+      <label for="credit-card" class="text-slate-700 has-[:checked]:ring-indigo-200 has-[:checked]:text-indigo-800 has-[:checked]:bg-indigo-50 grid grid-cols-[24px_1fr_auto] items-center gap-6 rounded-lg p-4 ring-1 ring-transparent hover:bg-slate-100">
+        <svg class="w-8" viewBox="0 0 24 13" fill="none">
+          <rect stroke="currentColor" x="0.5" y="0.5" width="23" height="11" rx="1.5" />
+          <path fill="currentColor" d="M16.539 3.18591C16.0742 3.01652 15.5828 2.93152 15.088 2.93491C13.488 2.93491 12.358 3.74091 12.35 4.89791C12.34 5.74791 13.153 6.22691 13.768 6.51091C14.399 6.80291 14.61 6.98691 14.608 7.24791C14.604 7.64491 14.104 7.82491 13.639 7.82491C13 7.82491 12.651 7.73591 12.114 7.51291L11.915 7.41991L11.688 8.75191C12.077 8.91391 12.778 9.05291 13.502 9.06491C15.203 9.06491 16.315 8.26391 16.328 7.03291C16.342 6.35391 15.902 5.84091 14.976 5.41691C14.413 5.14191 14.064 4.95791 14.064 4.67891C14.064 4.43191 14.363 4.16791 14.988 4.16791C15.404 4.15785 15.8174 4.23589 16.201 4.39691L16.351 4.46391L16.578 3.17691L16.539 3.18591ZM20.691 3.04291H19.441C19.052 3.04291 18.759 3.14991 18.589 3.53591L16.185 8.98191H17.886L18.226 8.08891L20.302 8.09091C20.351 8.29991 20.501 8.98191 20.501 8.98191H22.001L20.691 3.04291ZM10.049 2.99291H11.67L10.656 8.93491H9.03705L10.049 2.99091V2.99291ZM5.93405 6.26791L6.10205 7.09291L7.68605 3.04291H9.40305L6.85205 8.97391H5.13905L3.73905 3.95191C3.71637 3.8691 3.66312 3.79798 3.59005 3.75291C3.08545 3.49225 2.55079 3.29444 1.99805 3.16391L2.02005 3.03891H4.62905C4.98305 3.05291 5.26805 3.16391 5.36305 3.54191L5.93305 6.27091L5.93405 6.26791ZM18.691 6.87391L19.337 5.21191C19.329 5.22991 19.47 4.86891 19.552 4.64591L19.663 5.15891L20.038 6.87291H18.69L18.691 6.87391Z"  />
+        </svg>
+        Credit Card
+        <input name="payment_method" id="credit-card" value="credit-card" type="radio" class="box-content h-1.5 w-1.5 appearance-none rounded-full border-[5px] border-white bg-white bg-clip-padding outline-none ring-1 ring-gray-950/10 checked:border-indigo-500 checked:ring-indigo-500" />
+      </label>
+    </div>
+  </fieldset>
+</div>
+```
+
+```html
+<label class="**has-[:checked]:bg-indigo-50 has-[:checked]:text-indigo-900 has-[:checked]:ring-indigo-200** ..">
+  <svg fill="currentColor">
+    <!-- ... -->
+  </svg>
+  Google Pay
+  <input type="radio" class="checked:border-indigo-500 ..." />
+</label>
+```
+
+You can use `has-*` with a pseudo-class, like `has-[:focus]`, to style an element based on the state of its descendants. You can also use element selectors, like `has-[img]` or `has-[a]`, to style an element based on the content of its descendants.
+
+#### Styling based on the descendants of a group <small>(group-has-{'{modifier}'})</small>
+
+If you need to style an element based on the descendants of a parent element, you can mark the parent with the `group` class and use the `group-has-*` modifier to style the target element.
+
+```html {{ example: { p: 'none' } }}
+<div class="mx-auto grid max-w-md divide-y divide-slate-100 bg-white text-slate-700 shadow">
+  <div class="group grid grid-cols-[32px_1fr_auto] pt-6 items-center gap-x-4 px-4 py-4">
+    <img class="size-[32px] rounded-full" src="https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Favatar.51a13c67.jpg&w=128&q=80" alt="" />
+    <h4 class="font-semibold text-slate-900">Spencer Sharp</h4>
+    <svg fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="size-4 group-has-[a]:block hidden">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+    </svg>
+    <p class="col-start-2 text-sm">Product Designer at <a href="#" class="text-blue-500 underline">planeteria.tech</a></p>
+  </div>
+  <div class="group grid grid-cols-[32px_1fr_auto] items-center gap-x-4 px-4 py-4">
+    <img class="size-[32px] rounded-full" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=256&h=256&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+    <h4 class="font-semibold text-slate-900">Casey Jordan</h4>
+    <svg fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="size-4 group-has-[a]:block hidden">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+    </svg>
+    <p class="col-start-2 text-sm">Just happy to be here.</p>
+  </div>
+  <div class="group grid grid-cols-[32px_1fr_auto] items-center gap-x-4 px-4 py-4">
+    <img class="size-[32px] rounded-full" src="https://images.unsplash.com/photo-1590895340509-793cb98788c9?q=80&w=256&h=256&&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+    <h4 class="font-semibold text-slate-900">Alex Reed</h4>
+    <svg fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="size-4 group-has-[a]:block hidden">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+    </svg>
+    <p class="col-start-2 text-sm">A multidisciplinary designer, working at the intersection of art and technology.<br/><a href="#" class="text-blue-500 underline">alex-reed.com</a> </p>
+  </div>
+  <div class="group grid grid-cols-[32px_1fr_auto] items-center pb-6 gap-x-4 px-4 py-4">
+    <img class="size-[32px] rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=256&h=256&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+    <h4 class="font-semibold text-slate-900">Taylor Bailey</h4>
+    <svg fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="size-4 group-has-[a]:block hidden">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+    </svg>
+    <p class="col-start-2 text-sm">Pushing pixels. Slinging divs.</p>
+  </div>
+</div>
+```
+
+```html
+<div class="**group** ...">
+  <img src="..." />
+  <h4>Spencer Sharp</h4>
+  <svg class="hidden **group-has-[a]:block** ...">
+    <!-- ... -->
+  </svg>
+  <p>Product Designer at <a href="...">planeteria.tech</a></p>
+</div>
+```
+
+#### Styling based on the descendants of a peer <small>(peer-has-{'{modifier}'})</small>
+
+If you need to style an element based on the descendants of a sibling element, you can mark the sibling with the `peer` class and use the `peer-has-*` modifier to style the target element.
+
+```html {{ example: { p: 'none' } }}
+<div class="max-w-md mx-auto bg-white shadow py-6 px-4">
+  <fieldset class="space-y-3">
+    <legend class="text-base font-semibold text-slate-900 dark:text-slate-200">Today</legend>
+    <div class="grid grid-cols-[1fr_24px] items-center gap-6">
+      <label class="peer grid grid-cols-[auto_1fr] items-center gap-3 rounded-md px-2 hover:bg-slate-100">
+        <input type="checkbox" class="peer size-3.5 appearance-none rounded-sm border border-slate-300 accent-pink-500 dark:accent-pink-600 checked:appearance-auto" checked />
+        <span class="select-none text-slate-700 peer-checked:text-slate-400 peer-checked:line-through">Create a to do list</span>
+      </label>
+      <div class="size-[26px] rounded-md p-1 hover:bg-red-50 hover:text-red-500 peer-has-[:checked]:hidden">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </div>
+    </div>
+    <div class="grid grid-cols-[1fr_24px] items-center gap-6">
+      <label class="peer grid grid-cols-[auto_1fr] items-center gap-3 rounded-md px-2 hover:bg-slate-100">
+        <input type="checkbox" class="peer size-3.5 appearance-none rounded-sm border border-slate-300 accent-pink-500 dark:accent-pink-600 checked:appearance-auto" />
+        <span class="select-none text-slate-700 peer-checked:text-slate-400 peer-checked:line-through">Check off first item</span>
+      </label>
+      <div class="size-[26px] rounded-md p-1 hover:bg-red-50 hover:text-red-500 peer-has-[:checked]:hidden">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </div>
+    </div>
+    <div class="grid grid-cols-[1fr_24px] items-center gap-6">
+      <label class="peer grid grid-cols-[auto_1fr] items-center gap-3 rounded-md px-2 hover:bg-slate-100">
+        <input type="checkbox" class="peer size-3.5 appearance-none rounded-sm border border-slate-300 accent-pink-500 dark:accent-pink-600 checked:appearance-auto"  />
+        <span class="select-none text-slate-700 peer-checked:text-slate-400 peer-checked:line-through">Investigate race condition</span>
+      </label>
+      <div class="size-[26px] rounded-md p-1 hover:bg-red-50 hover:text-red-500 block peer-has-[:checked]:hidden">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </div>
+    </div>
+  </fieldset>
+</div>
+```
+
+```html
+<fieldset>
+  <legend>Today</legend>
+
+  <div>
+    <label class="**peer** ...">
+      <input type="checkbox" name="todo[1]" checked />
+      Create a to do list
+    </label>
+    <svg class="**peer-has-[:checked]:hidden** ...">
+      <!-- ... -->
+    </svg>
+  </div>
+
+  <!-- ... -->
+</fieldset>
+```
 ---
 
 ## Pseudo-elements
@@ -901,7 +1112,7 @@ Use utilities with no modifier to target light mode, and use the `dark` modifier
     <div class="bg-white rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
       <div>
         <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
-          <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
           </svg>
         </span>
@@ -917,7 +1128,7 @@ Use utilities with no modifier to target light mode, and use the `dark` modifier
     <div class="bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
       <div>
         <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
-          <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
           </svg>
         </span>
@@ -935,7 +1146,7 @@ Use utilities with no modifier to target light mode, and use the `dark` modifier
 <div class="bg-white **dark:bg-slate-900** rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
   <div>
     <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
-      <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><!-- ... --></svg>
+      <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><!-- ... --></svg>
     </span>
   </div>
   <h3 class="text-slate-900 **dark:text-white** mt-5 text-base font-medium tracking-tight">Writes Upside-Down</h3>
@@ -956,7 +1167,7 @@ Use the `motion-reduce` modifier to conditionally add styles when the user has r
 ```html {{ example: { hint: 'Try emulating &#96;prefers-reduced-motion: reduce&#96; in your developer tools to hide the spinner' } }}
 <div class="flex items-center justify-center">
   <button type="button" class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500" disabled>
-    <svg class="motion-reduce:hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <svg class="motion-reduce:hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
       <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
       <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
     </svg>
@@ -999,7 +1210,7 @@ Use the `contrast-more` modifier to conditionally add styles when the user has r
       <label for="contrast-example" class="block text-sm font-medium text-slate-700">Social Security Number</label>
       <div class="mt-1">
         <input type="text" name="contrast-example" id="contrast-example" class="px-3 py-2 bg-white border shadow-sm border-slate-200 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 contrast-more:border-slate-400 contrast-more:placeholder-slate-500"  placeholder="000-00-0000" />
-        <p class="mt-2 text-sm text-slate-600 opacity-10 contrast-more:opacity-100">We need this to steal your identity.</p>
+        <p class="mt-2 text-sm text-slate-600 opacity-10 contrast-more:opacity-100 ">We need this to steal your identity.</p>
       </div>
     </div>
   </form>
@@ -1019,6 +1230,79 @@ Use the `contrast-more` modifier to conditionally add styles when the user has r
 ```
 
 Tailwind also includes a `contrast-less` modifier you can use to conditionally add styles when the user has requested less contrast.
+
+### Forced colors mode
+
+The `forced-colors` media query indicates if the user is using a forced colors mode. These modes override your site's colors with a user defined palette for text, backgrounds, links and buttons.
+
+Use the `forced-colors` modifier to conditionally add styles when the user has enabled a forced color mode:
+
+```html {{ example: { p: 'none', hint: 'Try emulating &#96;forced-colors: active&#96; in your developer tools to see the changes' } }}
+<div class="max-w-sm mx-auto bg-white shadow pt-6 pb-4 px-6">
+  <form>
+    <legend> Choose a theme: </legend>
+    <div class="grid grid-flow-col mt-4 ">
+      <label for="theme-1" class="text-sm font-medium text-slate-700">
+        <div class="relative h-16 w-16 rounded-xl forced-colors:border-0 bg-transparent border border-transparent text-white hover:bg-slate-50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-50 grid items-center justify-center">
+          <input type="radio" name="themes" id="theme-1" class="forced-colors:appearance-auto appearance-none" checked />
+          <p class="forced-colors:block hidden">
+            Cyan
+          </p>
+          <div class="absolute left-3 top-3 h-6 w-6 rounded-full bg-cyan-200 forced-colors:hidden"></div>
+          <div class="absolute bottom-3 right-3 h-6 w-6 rounded-full bg-cyan-500 ring-2 ring-current forced-colors:hidden"></div>
+        </div>
+      </label>
+      <label for="theme-2" class="text-sm font-medium text-slate-700">
+        <div class="relative h-16 w-16 rounded-xl forced-colors:border-0 bg-transparent border border-transparent text-white hover:bg-slate-50 has-[:checked]:border-blue-500 has-[:checked]:bg-blue-50 has-[:checked]:text-blue-50 grid items-center justify-center">
+          <input type="radio" name="themes" id="theme-2" class="forced-colors:appearance-auto appearance-none" />
+          <p class="forced-colors:block hidden">
+            Blue
+          </p>
+          <div class="absolute left-3 top-3 h-6 w-6 rounded-full bg-blue-200 forced-colors:hidden"></div>
+          <div class="absolute bottom-3 right-3 h-6 w-6 rounded-full bg-blue-500 ring-2 ring-current forced-colors:hidden"></div>
+        </div>
+      </label>
+      <label for="theme-3" class="text-sm font-medium text-slate-700">
+        <div class="relative h-16 w-16 rounded-xl forced-colors:border-0 border bg-transparent border-transparent text-white hover:bg-slate-50 has-[:checked]:border-indigo-500 has-[:checked]:bg-indigo-50 has-[:checked]:text-indigo-50 grid items-center justify-center">
+          <input type="radio" name="themes" id="theme-3" class="forced-colors:appearance-auto appearance-none" />
+          <p class="forced-colors:block hidden">
+            Indigo
+          </p>
+          <div class="absolute left-3 top-3 h-6 w-6 rounded-full bg-indigo-200  forced-colors:hidden"></div>
+          <div class="absolute bottom-3 right-3 h-6 w-6 rounded-full bg-indigo-500 ring-2 ring-current forced-colors:hidden"></div>
+        </div>
+      </label>
+      <label for="theme-4" class="text-sm font-medium text-slate-700">
+        <div class="relative h-16 w-16 rounded-xl forced-colors:border-0 border bg-transparent border-transparent text-white hover:bg-slate-50 has-[:checked]:border-purple-500 has-[:checked]:bg-purple-50 has-[:checked]:text-purple-50 grid items-center justify-center">
+          <input type="radio" name="themes" id="theme-4" class="forced-colors:appearance-auto appearance-none" />
+          <p class="forced-colors:block hidden">
+            Purple
+          </p>
+          <div class="absolute left-3 top-3 h-6 w-6 rounded-full bg-purple-200 forced-colors:hidden"></div>
+          <div class="absolute bottom-3 right-3 h-6 w-6 rounded-full bg-purple-500 ring-2 ring-current forced-colors:hidden"></div>
+        </div>
+      </label>
+    </div>
+  </form>
+</div>
+```
+
+```html
+<form>
+  <legend> Choose a theme: </legend>
+  <label>
+    <input type="radio" class="**forced-colors:appearance-auto** appearance-none" />
+    <p class="**forced-colors:block** hidden">
+      Cyan
+    </p>
+    <div class="**forced-colors:hidden** h-6 w-6 rounded-full bg-cyan-200 ..."></div>
+    <div class="**forced-colors:hidden** h-6 w-6 rounded-full bg-cyan-500 ..."></div>
+  </label>
+  <!-- ... -->
+</form>
+```
+
+Tailwind also includes a [forced color adjust](/docs/forced-color-adjust) utilities to opt in and out of forced colors.
 
 ### Viewport orientation
 
@@ -1151,7 +1435,7 @@ If you need to use a one-off `aria` modifier that doesn’t make sense to includ
         <th class="group border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left" aria-sort="ascending">
           <span class="flex gap-2 items-center w-full justify-between">
             Invoice #
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-5 h-5 fill-slate-500 group-aria-[sort=ascending]:rotate-0 group-aria-[sort=descending]:rotate-180">
+            <svg viewBox="0 0 20 20" class="w-5 h-5 fill-slate-500 group-aria-[sort=ascending]:rotate-0 group-aria-[sort=descending]:rotate-180">
               <path fill-rule="evenodd" d="M10 5a.75.75 0 01.75.75v6.638l1.96-2.158a.75.75 0 111.08 1.04l-3.25 3.5a.75.75 0 01-1.08 0l-3.25-3.5a.75.75 0 111.08-1.04l1.96 2.158V5.75A.75.75 0 0110 5z" clip-rule="evenodd" />
             </svg>
           </span>
@@ -1598,6 +1882,8 @@ A quick reference table of every single modifier included in Tailwind by default
 | <a href="#active" className="whitespace-nowrap">active</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:active</code> |
 | <a href="#visited" className="whitespace-nowrap">visited</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:visited</code> |
 | <a href="#target" className="whitespace-nowrap">target</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:target</code> |
+| <a href="#styling-direct-children" className="whitespace-nowrap">*</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span> > *</code> |
+| <a href="#styling-based-on-descendants" className="whitespace-nowrap">has</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:has</code> |
 | <a href="#first" className="whitespace-nowrap">first</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:first-child</code> |
 | <a href="#last" className="whitespace-nowrap">last</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:last-child</code> |
 | <a href="#only" className="whitespace-nowrap">only</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:only-child</code> |

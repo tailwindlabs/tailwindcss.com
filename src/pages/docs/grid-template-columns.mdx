@@ -38,6 +38,36 @@ Use the `grid-cols-{n}` utilities to create grids with _n_ equally sized columns
 </div>
 ```
 
+### Subgrid
+
+Use the `grid-cols-subgrid` utility to adopt the column tracks defined by the item's parent.
+
+```html {{ example: true }}
+<div class="grid grid-cols-4 gap-4 rounded-lg text-center font-mono text-sm font-bold leading-6 text-white">
+  <div class="rounded-lg dark:bg-indigo-900 bg-indigo-300 p-4 shadow-lg">01</div>
+  <div class="rounded-lg dark:bg-indigo-900 bg-indigo-300 p-4 shadow-lg">02</div>
+  <div class="rounded-lg dark:bg-indigo-900 bg-indigo-300 p-4 shadow-lg">03</div>
+  <div class="rounded-lg dark:bg-indigo-900 bg-indigo-300 p-4 shadow-lg">04</div>
+  <div class="rounded-lg dark:bg-indigo-900 bg-indigo-300 p-4 shadow-lg">05</div>
+  <div class="col-span-3 grid grid-cols-subgrid gap-4">
+    <div class="rounded-lg bg-stripes-pink p-4"></div>
+    <div class="rounded-lg bg-pink-500 p-4 shadow-lg">06</div>
+    <div class="rounded-lg bg-stripes-pink p-4"></div>
+  </div>
+</div>
+```
+
+```html
+<div class="grid grid-cols-4 gap-4">
+  <div>01</div>
+  <!-- ... -->
+  <div>05</div>
+  <div class="grid **grid-cols-subgrid** gap-4 col-span-3">
+    <div class="col-start-2">06</div>
+  </div>
+</div>
+```
+
 ---
 
 ## <Heading ignore>Applying conditionally</Heading>

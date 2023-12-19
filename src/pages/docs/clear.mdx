@@ -34,9 +34,11 @@ Use `clear-left` to position an element below any preceding left-floated element
 ```
 
 ```html
-<img class="float-left ..." src="path/to/image.jpg">
-<img class="float-right ..." src="path/to/image.jpg">
-<p class="**clear-left** ...">Maybe we can live without libraries...</p>
+<article>
+  <img class="float-left ..." src="path/to/image.jpg">
+  <img class="float-right ..." src="path/to/image.jpg">
+  <p class="**clear-left** ...">Maybe we can live without libraries...</p>
+</article>
 ```
 
 ### Clearing right-floated elements
@@ -62,9 +64,11 @@ Use `clear-right` to position an element below any preceding right-floated eleme
 ```
 
 ```html
-<img class="float-left ..." src="path/to/image.jpg">
-<img class="float-right ..." src="path/to/image.jpg">
-<p class="**clear-right** ...">Maybe we can live without libraries...</p>
+<article>
+  <img class="float-left ..." src="path/to/image.jpg">
+  <img class="float-right ..." src="path/to/image.jpg">
+  <p class="**clear-right** ...">Maybe we can live without libraries...</p>
+</article>
 ```
 
 ### Clearing all floated elements
@@ -90,9 +94,11 @@ Use `clear-both` to position an element below all preceding floated elements.
 ```
 
 ```html
-<img class="float-left ..." src="path/to/image.jpg">
-<img class="float-right ..." src="path/to/image.jpg">
-<p class="**clear-both** ...">Maybe we can live without libraries...</p>
+<article>
+  <img class="float-left ..." src="path/to/image.jpg">
+  <img class="float-right ..." src="path/to/image.jpg">
+  <p class="**clear-both** ...">Maybe we can live without libraries...</p>
+</article>
 ```
 
 ### Disabling applied clears
@@ -118,11 +124,43 @@ Use `clear-none` to reset any clears that are applied to an element. This is the
 ```
 
 ```html
-<img class="float-left ..." src="path/to/image.jpg">
-<img class="float-right ..." src="path/to/image.jpg">
-<p class="**clear-none** ...">Maybe we can live without libraries...</p>
+<article>
+  <img class="float-left ..." src="path/to/image.jpg">
+  <img class="float-right ..." src="path/to/image.jpg">
+  <p class="**clear-none** ...">Maybe we can live without libraries...</p>
+</article>
 ```
 
+### Using logical properties
+
+Use the `clear-start` or `clear-end` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right side based on the text direction.
+
+
+```html {{ example: { resizable: true, p: 'none' } }}
+<div dir="rtl" class="mx-4 bg-white shadow-xl p-8 text-slate-700 dark:bg-slate-800 dark:text-slate-400">
+  <div class="float-start mb-4 me-6 overflow-hidden rounded-xl">
+    <div class="aspect-w-4 aspect-h-5 sm:aspect-w-16 sm:aspect-h-9 relative w-28 sm:w-64">
+      <img class="object-cover" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&q=80" />
+      <div class="absolute inset-0 rounded-xl ring-1 ring-inset ring-black/10"></div>
+    </div>
+  </div>
+  <div class="float-end ms-4 overflow-hidden rounded-xl">
+    <div class="aspect-w-4 aspect-h-5 sm:aspect-w-16 sm:aspect-h-9 relative w-20 sm:w-44">
+      <img class="object-cover" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&q=80" />
+      <div class="absolute inset-0 rounded-xl ring-1 ring-inset ring-black/10"></div>
+    </div>
+  </div>
+  <p class="clear-end text-justify">ربما يمكننا العيش بدون مكتبات، أشخاص مثلي ومثلك. ربما. بالتأكيد، نحن أكبر من أن نغير العالم، ولكن ماذا عن ذلك الطفل الذي يجلس ويفتح كتابًا الآن في أحد فروع المكتبة المحلية ويجد رسومات للتبول والبول على القطة في القبعة والإخوة الصينيون الخمسة؟ ألا يستحق الأفضل؟ ينظر. إذا كنت تعتقد أن الأمر يتعلق بالغرامات المتأخرة والكتب المفقودة، فمن الأفضل أن تفكر مرة أخرى. يتعلق الأمر بحق ذلك الطفل في قراءة كتاب دون أن يتشوه عقله! أو: ربما يثيرك هذا يا سينفيلد؛ ربما هذه هي الطريقة التي تحصل بها على ركلاتك. أنت ورفاقك الطيبين.</p>
+</div>
+```
+
+```html
+<article dir="**rtl**">
+  <img class="float-start ..." src="path/to/image.jpg">
+  <img class="float-end ..." src="path/to/image.jpg">
+  <p class="**clear-end** ...">...ربما يمكننا العيش بدون مكتبات،</p>
+</article>
+```
 ---
 
 ## <Heading ignore>Applying conditionally</Heading>

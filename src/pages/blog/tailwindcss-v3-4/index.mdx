@@ -1,0 +1,434 @@
+import { adamwathan } from '@/authors'
+import card from './card.jpg'
+import { DynamicViewportExample } from '@/components/DynamicViewportHeights'
+
+
+export const meta = {
+  title: "Tailwind CSS v3.4: Dynamic viewport units, :has() support, balanced headlines, subgrid, and more",
+  description: `There’s nothing like building a major new product for finding all the features you wish you had in your own tools, so we capitalized on that inspiration and turned it into this — Tailwind CSS v3.4.`,
+  date: '2023-12-19T17:45:00.000Z',
+  authors: [adamwathan],
+  image: card,
+}
+
+{/*excerpt*/}
+
+There's nothing like building [a major new product](https://twitter.com/steveschoger/status/1732143245696639167) for finding all the features you wish you had in your own tools, so we capitalized on some of that inspiration and turned it into this — Tailwind CSS v3.4.
+
+{/*/excerpt*/}
+
+![Tailwind CSS v3.3](./card.jpg)
+
+There's nothing like building [a major new product](https://twitter.com/steveschoger/status/1732143245696639167) for finding all the features you wish you had in your own tools, so we capitalized on some of that inspiration and turned it into this — Tailwind CSS v3.4.
+
+As always the improvements range from things you've been angry about for years, to supporting CSS features you've never even heard of and probably can't even use at work.
+
+- [**Dynamic viewport units:**](#dynamic-viewport-units) Full-height elements that actually work on mobile.
+- [**New `:has()` variant**:](#new-has-variant) Style parent elements based on their children.
+- [**Style children with the `*` variant**:](#style-children-with-the-variant) We'll probably regret giving you this one.
+- [**New `size-*` utilities**:](#new-size-utilities) Set width and height at the same time, finally.
+- [**Balanced headlines with `text-wrap` utilities**:](#balanced-headlines-with-text-wrap-utilities) No more max-width tweaking or responsive line breaks.
+- [**Subgrid support**:](#subgrid-support) That grid feature you struggle to understand, finally in Tailwind CSS.
+- [**Extended min-width, max-width, and min-height scales**:](#xtended-min-width-max-width-and-min-height-scales) Now `min-w-12` is a real class.
+- [**Extended opacity scale**:](#extended-opacity-scale) For those moments when neither 60% or 70% were quite right.
+- [**Extended `grid-rows-*` scale**:](#extended-grid-rows-scale) Might as well make it match the column scale.
+- [**New `forced-colors` variant**:](#new-forced-colors-variant) Easily fine-tune your site for forced colors mode.
+- [**New `forced-color-adjust` utilities**:](#new-forced-color-adjust-utilities) For even more forced colors fine-tuning.
+
+All the good stuff is in that list, but check out the [release notes](https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.4.0) for a couple more details that weren't exciting enough to earn a spot in this post.
+
+Upgrade your projects by installing the latest version of `tailwindcss` from npm:
+
+```bash
+$ npm install tailwindcss@latest
+```
+
+Or try out all of the new features on [Tailwind Play](https://play.tailwindcss.com), right in your browser.
+
+---
+
+## Dynamic viewport units
+
+When the `vh` unit was added to browsers we all got so excited — finally a way to build full-height application layouts and stuff without drilling `height: 100%` through 17 layers of DOM! But mobile devices and their damn disappearing menu bars spoiled all the fun, effectively making the `vh` unit just a cruel reminder of a future that could've been so great.
+
+Well we've got a new future now — `dvh`, `lvh`, and `svh` are designed to accommodate that disappearing browser chrome and Tailwind CSS v3.4 supports them out of the box:
+
+<DynamicViewportExample unit="dvh" colorStyles="dark:bg-pink-500 bg-pink-500 border border-pink-400" containerBackground="bg-stripes-pink" />
+
+```html
+<div class="**h-dvh**">
+  <!-- ... -->
+</div>
+```
+
+We've added the following new classes by default:
+
+| Class       | CSS                  |
+| ----------- | -------------------- |
+| `h-svh`     | `height: 100svh`     |
+| `h-lvh`     | `height: 100lvh`     |
+| `h-dvh`     | `height: 100dvh`     |
+| `min-h-svh` | `min-height: 100svh` |
+| `min-h-lvh` | `min-height: 100lvh` |
+| `min-h-dvh` | `min-height: 100dvh` |
+| `max-h-svh` | `max-height: 100svh` |
+| `max-h-lvh` | `max-height: 100lvh` |
+| `max-h-dvh` | `max-height: 100dvh` |
+
+If you need other values, you can always use arbitrary values too like `min-h-[75dvh]`.
+
+Browser support is [pretty great](https://caniuse.com/viewport-unit-variants) for these nowadays, so unless you need to support Safari 14 you can start using these right away.
+
+---
+
+## New `:has()` variant
+
+The [`:has()` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:has) is the most powerful thing that's been added to CSS since flexbox. For the first time ever, you can style an element based on its _children_, not just based on its parents. It even makes it possible to style based on subsequent siblings.
+
+Here's an example where the parent gets a colored ring if the radio button inside of it is checked:
+
+```html {{ example: { p: 'none' } }}
+<div class="max-w-md mx-auto bg-white shadow py-6 px-4">
+  <fieldset>
+    <legend class="text-base font-semibold text-slate-900 dark:text-slate-200">Payment method</legend>
+    <div class="mt-4 space-y-2">
+      <label for="apple" class="text-slate-700 has-[:checked]:ring-indigo-500 has-[:checked]:text-indigo-900 has-[:checked]:bg-indigo-50 grid grid-cols-[24px_1fr_auto] items-center gap-6 rounded-lg p-4 ring-2 ring-transparent hover:bg-slate-100">
+        <svg class="w-8" fill="currentColor" viewBox="0 0 24 13">
+          <path d="M3.96299 1.735C3.22833 1.73504 2.50814 1.9393 1.88285 2.32497C1.25756 2.71063 0.751781 3.26252 0.42199 3.919C0.144511 4.47115 0 5.08054 0 5.6985C0 6.31645 0.144511 6.92584 0.42199 7.478C0.751781 8.13447 1.25756 8.68636 1.88285 9.07202C2.50814 9.45769 3.22833 9.66195 3.96299 9.662C5.03299 9.662 5.93299 9.31 6.58999 8.705C7.33799 8.015 7.76999 6.995 7.76999 5.789C7.76976 5.51882 7.74634 5.24916 7.69999 4.983H3.96399V6.509H6.10399C6.06043 6.75276 5.96798 6.98519 5.83221 7.19228C5.69644 7.39937 5.52016 7.57684 5.31399 7.714C4.95799 7.955 4.49999 8.093 3.96399 8.093C2.92999 8.093 2.05299 7.396 1.73899 6.457C1.57315 5.96493 1.57315 5.43207 1.73899 4.94C2.05299 4 2.92999 3.304 3.96399 3.304C4.52899 3.29475 5.07496 3.50811 5.48399 3.898L6.61599 2.768C5.89873 2.09384 4.94728 1.72362 3.96299 1.735ZM10.464 2.285V9.185H11.35V6.39H12.815C13.418 6.39 13.925 6.194 14.337 5.802C14.5421 5.61815 14.705 5.39214 14.8146 5.13945C14.9242 4.88676 14.9779 4.61337 14.972 4.338C14.9762 4.06405 14.9216 3.79238 14.8121 3.54125C14.7026 3.29011 14.5406 3.06533 14.337 2.882C14.1354 2.68674 13.897 2.53337 13.6358 2.43073C13.3746 2.32809 13.0956 2.27822 12.815 2.284L10.464 2.285ZM12.891 3.135C13.0456 3.13769 13.1981 3.17139 13.3395 3.23408C13.4808 3.29678 13.6082 3.3872 13.714 3.5C13.8267 3.60959 13.9162 3.74065 13.9774 3.88544C14.0385 4.03024 14.07 4.18582 14.07 4.343C14.07 4.50017 14.0385 4.65576 13.9774 4.80055C13.9162 4.94534 13.8267 5.07641 13.714 5.186C13.6007 5.30328 13.4642 5.39562 13.3132 5.45709C13.1622 5.51857 13 5.54783 12.837 5.543H11.35V3.135H12.837C12.855 3.13458 12.873 3.13458 12.891 3.135ZM17.015 4.31C16.173 4.31 15.538 4.618 15.108 5.235L15.889 5.726C16.177 5.309 16.569 5.1 17.064 5.1C17.3798 5.09612 17.6855 5.21145 17.92 5.423C18.0354 5.51846 18.1282 5.63844 18.1915 5.77423C18.2548 5.91001 18.2871 6.05818 18.286 6.208V6.41C17.946 6.217 17.512 6.121 16.986 6.121C16.369 6.121 15.876 6.266 15.507 6.555C15.137 6.843 14.953 7.232 14.953 7.72C14.949 7.9396 14.994 8.15734 15.0848 8.35733C15.1757 8.55732 15.31 8.73451 15.478 8.876C15.828 9.184 16.263 9.339 16.783 9.339C17.393 9.339 17.881 9.069 18.248 8.529H18.286V9.184H19.134V6.275C19.134 5.665 18.944 5.185 18.566 4.835C18.186 4.485 17.67 4.31 17.015 4.31ZM19.278 4.464L21.224 8.886L20.126 11.266H21.041L24 4.463H23.035L21.667 7.854H21.647L20.241 4.464H19.278ZM17.132 6.832C17.626 6.832 18.012 6.942 18.288 7.162C18.288 7.534 18.141 7.858 17.848 8.135C17.5835 8.39951 17.225 8.54839 16.851 8.549C16.6011 8.55376 16.3573 8.47178 16.161 8.317C16.0697 8.25093 15.9954 8.16402 15.9445 8.06349C15.8935 7.96295 15.8673 7.85171 15.868 7.739C15.868 7.482 15.988 7.269 16.231 7.092C16.471 6.919 16.772 6.832 17.132 6.832Z" />
+        </svg>
+        Google Pay
+        <input name="payment_method" id="apple" value="google" type="radio" class="accent-indigo-500" checked />
+      </label>
+      <label for="google" class="text-slate-700 has-[:checked]:ring-indigo-500 has-[:checked]:text-indigo-900 has-[:checked]:bg-indigo-50 grid grid-cols-[24px_1fr_auto] items-center gap-6 rounded-lg p-4 ring-2 ring-transparent hover:bg-slate-100">
+        <svg class="w-8 mt-1 fill-current" fill="currentColor" viewBox="0 0 24 13">
+          <path d="M4.38526 1.86704C4.10401 2.19606 3.65392 2.45565 3.20387 2.41854C3.14762 1.97367 3.36793 1.50091 3.62579 1.20892C3.90704 0.870635 4.39932 0.62962 4.79781 0.611084C4.84468 1.07453 4.66182 1.52871 4.38526 1.86704ZM4.79312 2.50663C4.14146 2.46956 3.5836 2.87272 3.27418 2.87272C2.96012 2.87272 2.48659 2.52517 1.97092 2.53443C1.30056 2.5437 0.677025 2.91906 0.33479 3.51694C-0.368428 4.71265 0.151978 6.48308 0.831712 7.45632C1.16457 7.9383 1.56306 8.46662 2.0881 8.44809C2.58507 8.42955 2.78195 8.12834 3.38204 8.12834C3.98677 8.12834 4.16026 8.44809 4.68531 8.43882C5.2291 8.42955 5.57134 7.95688 5.9042 7.47485C6.28388 6.92799 6.43862 6.39499 6.44799 6.36718C6.43862 6.35791 5.3979 5.96402 5.38853 4.77753C5.37915 3.78576 6.20893 3.31304 6.24643 3.28524C5.77759 2.59931 5.04629 2.52517 4.79312 2.50663ZM8.55765 1.16258V8.38789H9.69212V5.91768H11.2626C12.6971 5.91768 13.7051 4.94445 13.7051 3.53552C13.7051 2.12664 12.7159 1.16262 11.3001 1.16262H8.5576L8.55765 1.16258ZM9.69212 2.10806H11.0001C11.9846 2.10806 12.5471 2.62711 12.5471 3.54011C12.5471 4.4531 11.9846 4.97684 10.9954 4.97684H9.69212V2.10806ZM15.7772 8.44345C16.4898 8.44345 17.1508 8.08664 17.4508 7.52119H17.4743V8.38785H18.5244V4.79143C18.5244 3.74868 17.6806 3.07666 16.3819 3.07666C15.1771 3.07666 14.2864 3.75795 14.2536 4.69412H15.2756C15.36 4.24921 15.7771 3.95722 16.3491 3.95722C17.043 3.95722 17.4321 4.27701 17.4321 4.86562V5.26415L16.0163 5.34756C14.6989 5.42634 13.9864 5.95934 13.9864 6.88629C13.9864 7.82245 14.7224 8.44345 15.7772 8.44345ZM16.0819 7.58607C15.4772 7.58607 15.0927 7.29876 15.0927 6.85844C15.0927 6.4043 15.4631 6.14012 16.171 6.09841L17.4321 6.01963V6.42743C17.4321 7.10408 16.8508 7.58607 16.0819 7.58607H16.0819ZM19.9261 10.3529C21.0325 10.3529 21.5529 9.93584 22.0076 8.67057L24 3.14617H22.8467L21.5107 7.41456H21.4872L20.1511 3.14617H18.9651L20.8871 8.40638L20.784 8.72618C20.6106 9.2684 20.3293 9.47698 19.8277 9.47698C19.7386 9.47698 19.5652 9.46771 19.4948 9.45844V10.3251C19.5604 10.3436 19.8417 10.3529 19.9261 10.3529Z" />
+        </svg>
+        Apple Pay
+        <input name="payment_method" id="google" value="apple" type="radio" class="accent-indigo-500" />
+      </label>
+      <label for="credit-card" class="text-slate-700 has-[:checked]:ring-indigo-500 has-[:checked]:text-indigo-900 has-[:checked]:bg-indigo-50 grid grid-cols-[24px_1fr_auto] items-center gap-6 rounded-lg p-4 ring-2 ring-transparent hover:bg-slate-100">
+        <svg class="w-8" viewBox="0 0 24 13" fill="none">
+          <rect stroke="currentColor" x="0.5" y="0.5" width="23" height="11" rx="1.5" />
+          <path fill="currentColor" d="M16.539 3.18591C16.0742 3.01652 15.5828 2.93152 15.088 2.93491C13.488 2.93491 12.358 3.74091 12.35 4.89791C12.34 5.74791 13.153 6.22691 13.768 6.51091C14.399 6.80291 14.61 6.98691 14.608 7.24791C14.604 7.64491 14.104 7.82491 13.639 7.82491C13 7.82491 12.651 7.73591 12.114 7.51291L11.915 7.41991L11.688 8.75191C12.077 8.91391 12.778 9.05291 13.502 9.06491C15.203 9.06491 16.315 8.26391 16.328 7.03291C16.342 6.35391 15.902 5.84091 14.976 5.41691C14.413 5.14191 14.064 4.95791 14.064 4.67891C14.064 4.43191 14.363 4.16791 14.988 4.16791C15.404 4.15785 15.8174 4.23589 16.201 4.39691L16.351 4.46391L16.578 3.17691L16.539 3.18591ZM20.691 3.04291H19.441C19.052 3.04291 18.759 3.14991 18.589 3.53591L16.185 8.98191H17.886L18.226 8.08891L20.302 8.09091C20.351 8.29991 20.501 8.98191 20.501 8.98191H22.001L20.691 3.04291ZM10.049 2.99291H11.67L10.656 8.93491H9.03705L10.049 2.99091V2.99291ZM5.93405 6.26791L6.10205 7.09291L7.68605 3.04291H9.40305L6.85205 8.97391H5.13905L3.73905 3.95191C3.71637 3.8691 3.66312 3.79798 3.59005 3.75291C3.08545 3.49225 2.55079 3.29444 1.99805 3.16391L2.02005 3.03891H4.62905C4.98305 3.05291 5.26805 3.16391 5.36305 3.54191L5.93305 6.27091L5.93405 6.26791ZM18.691 6.87391L19.337 5.21191C19.329 5.22991 19.47 4.86891 19.552 4.64591L19.663 5.15891L20.038 6.87291H18.69L18.691 6.87391Z"  />
+        </svg>
+        Credit Card
+        <input name="payment_method" id="credit-card" value="credit-card" type="radio" class="accent-indigo-500" />
+      </label>
+    </div>
+  </fieldset>
+</div>
+```
+
+```html
+<label class="**has-[:checked]:ring-indigo-500 has-[:checked]:text-indigo-900 has-[:checked]:bg-indigo-50** ..">
+  <svg fill="currentColor">
+    <!-- ... -->
+  </svg>
+  Google Pay
+  <input type="radio" class="accent-indigo-500 ..." />
+</label>
+```
+
+I feel like I've found a new use-case for `:has()` every week while working on this new UI kit we've been building for the last few  months, and it's replaced a crazy amount of JavaScript in our code.
+
+For example, our text inputs are pretty complicated design-wise and require a little wrapper element to build. Without `:has()`, we had no way of styling the wrapper based on things like the `:disabled` state of the input, but now we can:
+
+```jsx {{ filename: 'input.jsx', style: 'framed', color: 'sky' }}
+export function Input({ ... }) {
+  return (
+    <span className="has-[:disabled]:opacity-50 ...">
+      <input ... />
+    </span>
+  )
+}
+```
+
+This one is pretty bleeding edge but as of literally today it's now supported in the latest version of all major browsers. Give it a few weeks for any Firefox users to install today's update and we should be able to go wild with it.
+
+---
+
+## Style children with the `*` variant
+
+Here's one people have wanted for literally ever — a way to style children from the parent using utility classes.
+
+We've added a new `*` variant that targets direct children, letting you do stuff like this:
+
+```html {{ example: { p: 'none' } }}
+<div class="max-w-md mx-auto bg-white shadow p-6 dark:bg-slate-800">
+  <h2 class="text-base font-semibold text-slate-900 dark:text-slate-200">Categories</h2>
+  <div class="flex flex-wrap gap-2 pt-4 text-sm text-sky-600 *:rounded-full *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5 dark:text-sky-300 dark:*:border-sky-500/15 dark:*:bg-sky-500/10">
+    <div>Sales</div>
+    <div>Marketing</div>
+    <div>SEO</div>
+    <div>Analytics</div>
+    <div>Design</div>
+    <div>Strategy</div>
+    <div>Security</div>
+    <div>Growth</div>
+    <div>Mobile</div>
+    <div>UX/UI</div>
+  </div>
+</div>
+```
+
+```html
+<div>
+  <h2>Categories:<h2>
+  <ul class="***:rounded-full *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5 dark:text-sky-300 dark:*:border-sky-500/15 dark:*:bg-sky-500/10** ...">
+    <li>Sales</li>
+    <li>Marketing</li>
+    <li>SEO</li>
+    <!-- ... -->
+  </ul>
+</div>
+```
+
+Generally I'd recommend just styling the children directly, but this can be useful when you don't control those elements or need to make a conditional tweak because of the context the element is used in.
+
+It can be composed with other variants too, for instance `hover:*:underline` will style any child when the child is hovered.
+
+Here's a cool way we're using that to conditionally add layout styles to different child elements in the new UI kit we're working on:
+
+```jsx {{ filename: 'JSX', style: 'framed', color: 'pink' }}
+function Field({ children }) {
+  return (
+    <div className="data-[slot=description]:*:mt-4 ...">
+      {children}
+    </div>
+  )
+}
+
+function Description({ children }) {
+  return (
+    <p data-slot="description" ...>{children}</p>
+  )
+}
+
+function Example() {
+  return (
+    <Field>
+      <Label>First name</Label>
+      <Input />
+      <Description>Please tell me you know your own name.</Description>
+    </Field>
+  )
+}
+```
+
+See that crazy `data-[slot=description]:*:mt-4` class? It first targets all direct children (that's the `*:` part), then filters them down to just items with a `data-slot="description"` attribute using `data-[slot=description]`.
+
+This makes it easy to target only specific children, without having to drop all the way down to a raw arbitrary variant.
+
+Looking forward to seeing all the horrible stuff everyone does to make me regret adding this feature.
+
+---
+
+## New `size-*` utilities
+
+You're sick of typing `h-5 w-5` every time you need to size an avatar, you know it and I know it.
+
+In Tailwind CSS v3.4 we've finally added a new `size-*` utility that sets width and height at the same time:
+
+```html {{ example: true }}
+<div class="flex gap-8 justify-center items-end">
+  <img class="inline-block size-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+  <img class="inline-block size-12 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+  <img class="inline-block size-14 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+</div>
+```
+
+```diff-html {{ filename: 'HTML' }}
+  <div>
+-   <img class="h-10 w-10" ...>
+-   <img class="h-12 w-12" ...>
+-   <img class="h-14 w-14" ...>
++   <img class="**size-10**" ...>
++   <img class="**size-12**" ...>
++   <img class="**size-14**" ...>
+  </div>
+```
+
+We've wanted to add this forever but have always been hung up on the exact name — `size-*` felt like so much to type compared to `w-*` or `h-*` and `s-*` felt way too cryptic.
+
+After using it for a few weeks though I can say decisively that even with the longer name, it's way better than separate width and height utilities. Super convenient, especially if you're combining it with variants or using a complex arbitrary value.
+
+---
+
+## Balanced headlines with `text-wrap` utilities
+
+How much time have you spent fiddling with `max-width` or inserting responsive line breaks to try and make those little section headings wrap nicely on your landing pages? Well now you can spend zero time on it, because the browser can do it for you with `text-wrap: balance`:
+
+```html {{ example: { p: 'none' } }}
+<div class="px-4 sm:px-0">
+  <div class="grid gap-4 mx-auto max-w-sm bg-white shadow-xl p-8 text-slate-700 dark:bg-slate-800 dark:text-slate-400">
+    <h3 class="text-balance text-xl dark:text-white font-semibold text-slate-900">Beloved Manhattan soup stand closes<h3>
+    <p class="text-sm/6">New Yorkers are facing the winter chill with less warmth this year as the city's most revered soup stand unexpectedly shutters, following a series of events that have left the community puzzled.</p>
+  </div>
+</div>
+```
+
+```html
+<article>
+  <h3 class="**text-balance** ...">Beloved Manhattan soup stand closes<h3>
+  <p>New Yorkers are facing the winter chill...</p>
+</article>
+```
+
+We've also added `text-pretty` which tries to avoid orphaned words at the end of paragraphs using `text-wrap: pretty`:
+
+```html {{ example: { p: 'none' } }}
+<div class="px-4 sm:px-0">
+  <div class="grid gap-4 mx-auto max-w-sm bg-white shadow-xl p-8 text-slate-700 dark:bg-slate-800 dark:text-slate-400 text-pretty">
+    <h3 class="text-xl dark:text-white font-semibold text-slate-900">Beloved Manhattan soup stand closes<h3>
+    <p class="text-sm/6">New Yorkers are facing the winter chill with less warmth this year as the city's most revered soup stand unexpectedly shutters, following a series of events that have left the community puzzled.</p>
+  </div>
+</div>
+```
+
+```html
+<article class="**text-pretty** ...">
+  <h3>Beloved Manhattan soup stand closes<h3>
+  <p>New Yorkers are facing the winter chill...</p>
+</article>
+```
+
+The nice thing about these features is that even if someone visits your site with an older browser, they'll just fallback to the regular wrapping behavior so it's totally safe to start using these today.
+
+---
+
+## Subgrid support
+
+Subgrid is a fairly recent CSS feature that lets an element sort of inherit the grid columns or rows from its parent, make it possible to place its child elements in the parent grid.
+
+```html {{ filename: 'HTML', style: 'framed', color: 'pink' }}
+<div class="grid grid-cols-4 gap-4">
+  <!-- ... -->
+  <div class="grid **grid-cols-subgrid** gap-4 col-span-3">
+      <div class="col-start-2">06</div>
+  </div>
+  <!-- ... -->
+</div>
+```
+
+We're using subgrid in the new UI kit we're working on for example in [dropdown menus](https://twitter.com/adamwathan/status/1717576154008240615), so that if any item has an icon, all of the other items are indented to keep the text aligned:
+
+```html  {{ filename: 'HTML', style: 'framed', color: 'indigo' }}
+<div role="menu" class="grid grid-cols-[auto_1fr]">
+  <a href="#" class="**grid-cols-subgrid** col-span-2">
+    <svg class="mr-2">...</svg>
+    <span class="col-start-2">Account</span>
+  </a>
+  <a href="#" class="**grid-cols-subgrid** col-span-2">
+    <svg class="mr-2">...</svg>
+    <span class="col-start-2">Settings</span>
+  </a>
+  <a href="#" class="**grid-cols-subgrid** col-span-2">
+    <span class="col-start-2">Sign out</span>
+  </a>
+</div>
+```
+
+When none of the items have an icon, the first column shrinks to 0px and the text is aligned all the way to left.
+
+Check out the [MDN documentation on subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid) for a full primer — it's a bit of a tricky feature to wrap your head around at first, but once it clicks it's a game-changer.
+
+---
+
+## Extended min-width, max-width, and min-height scales
+
+We've finally extended the `min-width`, `max-width`, and `min-height` scales to include the full spacing scale, so classes like `min-w-12` are actually a real thing now:
+
+```html {{ filename: 'HTML', style: 'framed', color: 'fuchsia' }}
+<div class="**min-w-12**">
+  <!-- ... -->
+</div>
+```
+
+We should've just done this for v3.0 but never really got around to it — I'm sorry and you're welcome.
+
+---
+
+## Extended opacity scale
+
+We've also extended the opacity scale to include every step of 5 out of the box:
+
+```html {{ filename: 'HTML', style: 'framed', color: 'sky' }}
+<div class="**opacity-35**">
+  <!-- ... -->
+</div>
+```
+
+Hopefully that means a few less arbitrary values in your markup. I'm coming for you next 2.5%.
+
+---
+
+## Extended `grid-rows-*` scale
+
+We've also bumped the baked-in number of grid rows from 6 to 12 because why not:
+
+```html {{ filename: 'HTML', style: 'framed', color: 'purple' }}
+<div class="**grid grid-rows-9**">
+  <!-- ... -->
+</div>
+```
+
+Maybe we'll get even crazier and bump it to 16 in the next release.
+
+---
+
+## New `forced-colors` variant
+
+Ever heard of [forced colors mode](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors)? Your site probably looks pretty bad in it.
+
+Well now you can't blame us at least, because Tailwind CSS v3.4 includes a `forced-colors` variant for adjusting styles for forced colors mode:
+
+```html {{ filename: 'HTML', style: 'framed', color: 'pink' }}
+<form>
+  <input type="checkbox" class="appearance-none **forced-colors:appearance-auto** ...">
+</form>
+```
+
+It's really useful for fine-tuning totally custom controls, especially combined with arbitrary values and a working knowledge of [CSS system colors](https://developer.mozilla.org/en-US/docs/Web/CSS/system-color).
+
+---
+
+## New `forced-color-adjust` utilities
+
+We've also added new `forced-color-adjust-auto` and `forces-color-adjust-none` utilities to control how forced colors mode affects your design:
+
+```html {{ filename: 'HTML', style: 'framed', color: 'sky' }}
+<fieldset>
+  <legend>Choose a color</legend>
+  <div class="**forced-color-adjust-none** ...">
+    <label>
+      <input class="sr-only" type="radio" name="color-choice" value="white" />
+      <span class="sr-only">White</span>
+      <span class="size-6 rounded-full bg-white"></span>
+    </label>
+    <label>
+      <input class="sr-only" type="radio" name="color-choice" value="gray" />
+      <span class="sr-only">Gray</span>
+      <span class="size-6 rounded-full bg-gray-300"></span>
+    </label>
+    <!-- ... -->
+  </div>
+</fieldset>
+```
+
+These should be used pretty sparingly, but they can be useful when it's critical that something is rendered in a specific color no matter what, like choosing the color of something someone is buying in an online store.
+
+To learn more about all this forced colors stuff, I recommend reading ["Forced colors explained: A practical guide"](https://polypane.app/blog/forced-colors-explained-a-practical-guide/) on the Polypane blog — by far the most useful post I've found on this topic.
+
+---
+
+If you've been paying close attention, you might be wondering about [Oxide](https://youtu.be/CLkxRnRQtDE?t=2146), the engine improvements we previewed at [Tailwind Connect](https://tailwindcss.com/blog/2023-07-18-tailwind-connect-2023-recap) this summer.
+
+We'd originally slated those improvements for v3.4, but we have a few things still to iron out and so many of these other improvements had been piling up that we felt it made sense to get it all out the door instead of holding it back. The Oxide stuff is still coming, and will be the headlining improvement for the next Tailwind CSS release in the new year.
+
+In the mean time, dig in to Tailwind CSS v3.4 by updating to the latest version with npm:
+
+```bash
+$ npm install tailwindcss@latest
+```
+
+With `:has()` and the new `*` variant, your HTML is about get more out of control than ever.

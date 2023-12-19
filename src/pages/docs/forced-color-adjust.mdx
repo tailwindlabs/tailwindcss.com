@@ -1,0 +1,118 @@
+---
+title: "Forced Color Adjust"
+description: "Utilities for opting in and out of forced colors."
+---
+
+import utilities from 'utilities?plugin=forcedColorAdjust'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
+export const classes = { utilities }
+
+## Basic usage
+
+### Opting out of forced colors
+
+Use `forced-color-adjust-none` to opt an element out the colors enforced by [forced colors mode](/docs/hover-focus-and-other-states#forced-colors-mode). This is useful in situations where enforcing a limited color palette will degrade usability.
+
+```html {{ example: { hint: 'Try emulating &#96;forced-colors: active&#96; in your developer tools to see the changes' }}}
+<div class="mx-auto max-w-sm overflow-clip rounded-lg bg-white shadow">
+  <div class="aspect-h-3 aspect-w-3 overflow-hidden">
+    <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-02.jpg" alt="Two each of gray, white, and black shirts laying flat." class="h-full w-full object-cover object-center" />
+  </div>
+  <div class="grid grid-cols-[1fr_auto] items-center gap-4 p-4">
+    <div>
+      <h3 class="font-medium text-gray-900">Basic Tee</h3>
+      <h3 class="text-sm font-medium text-gray-900">$35</h3>
+    </div>
+    <fieldset>
+      <legend class="sr-only">Choose a color</legend>
+      <div class="forced-color-adjust-none grid grid-flow-col items-center gap-3">
+        <label class="has-[:checked]:ring-gray-400 has-[:checked]:ring-1 has-[:checked]:ring-offset-1 relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-0 focus:outline-none">
+          <input type="radio" name="color-choice" value="White" class="sr-only" aria-labelledby="color-choice-0-label" />
+          <span id="color-choice-0-label" class="sr-only">White</span>
+          <span aria-hidden="true" class="size-6 rounded-full border border-black border-opacity-10 bg-white"></span>
+        </label>
+        <label class="has-[:checked]:ring-gray-400 has-[:checked]:ring-1 has-[:checked]:ring-offset-1 relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-0 focus:outline-none">
+          <input type="radio" checked name="color-choice" value="Gray" class="sr-only" />
+          <span id="color-choice-1-label" class="sr-only">Gray</span>
+          <span aria-hidden="true" class="size-6 rounded-full border border-black border-opacity-10 bg-gray-200"></span>
+        </label>
+        <label class="has-[:checked]:ring-gray-900 has-[:checked]:ring-1 has-[:checked]:ring-offset-1 relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-0 focus:outline-none">
+          <input type="radio" name="color-choice" value="Black" class="sr-only" aria-labelledby="color-choice-2-label" />
+          <span id="color-choice-2-label" class="sr-only">Black</span>
+          <span aria-hidden="true" class="size-6 rounded-full border border-black border-opacity-10 bg-gray-900"></span>
+        </label>
+      </div>
+    </fieldset>
+  </div>
+</div>
+```
+
+```html
+<form>
+  <img src="..." />
+  <div>
+    <h3>Basic Tee</h3>
+    <h3>$35</h3>
+    <fieldset>
+      <legend class="sr-only">Choose a color</legend>
+      <div class="**forced-color-adjust-none** ...">
+        <label >
+          <input class="sr-only" type="radio" name="color-choice" value="White" />
+          <span class="sr-only">White</span>
+          <span class="size-6 rounded-full border border-black border-opacity-10 bg-white"></span>
+        </label>
+        <!-- ... -->
+      </div>
+    </fieldset>
+</form>
+```
+
+You can also use the [`forced-colors` modifier](/docs/hover-focus-and-other-states#forced-colors-mode) to conditionally add styles when the user has enabled a forced color mode.
+
+### Restoring forced colors
+
+Use `forced-color-adjust-auto` to undo `forced-color-adjust-none`, making an element adhere to colors enforced by forced colors mode.
+
+This can be useful if you use a different control on a larger screen size for example:
+
+```html
+<form>
+  <fieldset class="forced-color-adjust-none lg:**forced-color-adjust-auto** ...">
+    <legend>Choose a color:</legend>
+    <select class="hidden lg:block">
+      <option value="White">White</option>
+      <option value="Gray">Gray</option>
+      <option value="Black">Black</option>
+    </select>
+    <div class="lg:hidden">
+      <label>
+        <input class="sr-only" type="radio" name="color-choice" value="White" />
+        <!-- ... -->
+      </label>
+      <!-- ... -->
+    </div>
+  </fieldset>
+</form>
+```
+
+---
+
+## <Heading ignore>Applying conditionally</Heading>
+
+### <Heading ignore>Hover, focus, and other states</Heading>
+
+<HoverFocusAndOtherStates featuredClass="forced-color-adjust-none" variant="focus">
+
+```html
+<a href="#content" class="forced-color-adjust-none **focus:forced-color-adjust-auto**">
+  Skip to content
+</a>
+```
+
+</HoverFocusAndOtherStates>
+
+### <Heading ignore>Breakpoints and media queries</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="forced-color-adjust-none" featuredClass="forced-color-adjust-auto" />
