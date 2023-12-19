@@ -14,15 +14,10 @@ export const classes = { utilities }
 
 ### Setting the minimum height
 
-Set the minimum height of an element using `min-h-{height}` or `min-h-{number}` utilities.
+Set the minimum height of an element using `min-h-*` utilities.
 
 ```html {{ example: true }}
-<div class="flex justify-center items-end space-x-4 font-mono font-bold text-xs text-center text-white whitespace-nowrap">
-  <div class="w-8 bg-blue-500 rounded-lg shadow-lg min-h-96 relative">
-    <div class="absolute w-8 bottom-6">
-      <div class="-rotate-90">min-h-96</div>
-    </div>
-  </div>
+<div class="flex justify-center items-end gap-3 sm:gap-4 font-mono font-bold text-xs text-center text-white whitespace-nowrap h-96">
   <div class="w-8 bg-blue-500 rounded-lg shadow-lg min-h-80 relative">
     <div class="absolute w-8 bottom-6">
       <div class="-rotate-90">min-h-80</div>
@@ -62,14 +57,15 @@ Set the minimum height of an element using `min-h-{height}` or `min-h-{number}` 
 ```
 
 ```html
-<div class="**min-h-96** ...">min-h-96</div>
-<div class="**min-h-80** ...">min-h-80</div>
-<div class="**min-h-64** ...">min-h-64</div>
-<div class="**min-h-48** ...">min-h-48</div>
-<div class="**min-h-40** ...">min-h-40</div>
-<div class="**min-h-32** ...">min-h-32</div>
-<div class="**min-h-24** ...">min-h-24</div>
-<div class="**min-h-full** ...">min-h-full</div>
+<div class="**h-96** ...">
+  <div class="**min-h-80** ...">min-h-80</div>
+  <div class="**min-h-64** ...">min-h-64</div>
+  <div class="**min-h-48** ...">min-h-48</div>
+  <div class="**min-h-40** ...">min-h-40</div>
+  <div class="**min-h-32** ...">min-h-32</div>
+  <div class="**min-h-24** ...">min-h-24</div>
+  <div class="**min-h-full** ...">min-h-full</div>
+</div>
 ```
 
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Size"
-description: "Utilities for setting the width and height of an element simultaneously."
+description: "Utilities for setting the width and height of an element at the same time."
 ---
 
 import utilities from 'utilities?plugin=size'
@@ -18,7 +18,7 @@ export const classes = {
 
 ### Fixed sizes
 
-Use `size-{number}` or `size-px` to set an element to a fixed width and height simultaneously.
+Use `size-{number}` or `size-px` to set an element to a fixed width and height at the same time.
 
 ```html {{ example: true }}
 <div class="grid grid-flow-col justify-center gap-4 font-mono font-bold text-xs text-center text-white">
@@ -44,14 +44,14 @@ Use `size-full` to set an element's width and height to be 100% of the parent co
 
 ```html {{ example: true }}
 <div class="space-y-4 font-mono font-bold text-xs text-white">
-  <div class="flex space-x-4 h-56 bg-stripes-purple p-2">
-    <div class="grid items-center justify-center size-full px-4 py-2 bg-violet-500 rounded-lg shadow-lg text-center">size-full</div>
+  <div class="h-56 bg-stripes-purple p-2">
+    <div class="size-full flex items-center justify-center px-4 py-2 bg-violet-500 rounded-lg shadow-lg">size-full</div>
   </div>
 </div>
 ```
 
 ```html
-<div class="flex h-56 p-2 ...">
+<div class="h-56 p-2 ...">
   <div class="**size-full** ...">size-full</div>
 </div>
 ```

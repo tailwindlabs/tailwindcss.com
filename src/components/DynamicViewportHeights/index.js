@@ -76,7 +76,7 @@ export function DynamicViewportExample({
             />
           </svg>
           <p className="text-slate-700 text-sm font-medium dark:text-slate-200">
-            Scroll the viewport to hide/show the browser UI
+            Scroll up and down in the viewport to hide/show the browser UI
           </p>
         </div>
       </div>

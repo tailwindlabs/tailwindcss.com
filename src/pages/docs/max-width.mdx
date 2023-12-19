@@ -18,7 +18,49 @@ export const classes = {
 
 ### Setting the maximum width
 
-Set the maximum width of an element using the `max-w-{size}` utilities.
+Set the maximum width of an element using the `max-w-*` utilities.
+
+```html {{ example: { resizable: true }, }}
+<div class="grid gap-4 font-mono font-bold text-xs text-center text-white align-start">
+  <div class="grid bg-stripes-blue w-full rounded-lg">
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg max-w-96">max-w-96</div>
+  </div>
+  <div class="grid bg-stripes-blue w-full rounded-lg">
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg max-w-80">max-w-80</div>
+  </div>
+  <div class="grid bg-stripes-blue w-full rounded-lg">
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg max-w-64">max-w-64</div>
+  </div>
+  <div class="grid bg-stripes-blue w-full rounded-lg">
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg max-w-48">max-w-48</div>
+  </div>
+  <div class="grid bg-stripes-blue w-full rounded-lg">
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg max-w-40">max-w-40</div>
+  </div>
+  <div class="grid bg-stripes-blue w-full rounded-lg">
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg max-w-32">max-w-32</div>
+  </div>
+  <div class="grid bg-stripes-blue w-full rounded-lg">
+    <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg max-w-24">max-w-24</div>
+  </div>
+</div>
+```
+
+```html
+<div>
+  <div class="w-full **max-w-96** ...">max-w-96</div>
+  <div class="w-full **max-w-80** ...">max-w-80</div>
+  <div class="w-full **max-w-64** ...">max-w-64</div>
+  <div class="w-full **max-w-48** ...">max-w-48</div>
+  <div class="w-full **max-w-40** ...">max-w-40</div>
+  <div class="w-full **max-w-32** ...">max-w-32</div>
+  <div class="w-full **max-w-24** ...">max-w-24</div>
+</div>
+```
+
+### Sizing large elements
+
+Above `24rem`, the `max-w-*` utilities use a named scale instead of a numeric scale to make the values easier to guess.
 
 ```html {{ example: { resizable: true } }}
 <div class="overflow-hidden relative max-w-md mx-auto bg-white shadow-lg ring-1 ring-black/5 rounded-xl flex items-center gap-6 dark:bg-slate-800 dark:highlight-white/5">
@@ -33,48 +75,6 @@ Set the maximum width of an element using the `max-w-{size}` utilities.
 ```html
 <div class="**max-w-md** ...">
   <!-- ... -->
-</div>
-```
-
-### Fixed maximum widths
-
-Use `max-w-{number}` to set an element to a fixed maximum width based on the default spacing scale.
-
-```html {{ example: { resizable: true }, }}
-<div class="grid gap-4 font-mono font-bold text-xs text-center text-white align-start  ">
-    <div class="grid bg-stripes-blue w-full rounded-lg">
-        <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg max-w-96 hidden sm:block">max-w-96</div>
-    </div>
-    <div class="grid bg-stripes-blue w-full rounded-lg">
-      <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg max-w-80 hidden sm:block">max-w-80</div>
-    </div>
-    <div class="grid bg-stripes-blue w-full rounded-lg">
-      <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg max-w-64 hidden sm:block">max-w-64</div>
-    </div>
-    <div class="grid bg-stripes-blue w-full rounded-lg">
-      <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg max-w-48">max-w-48</div>
-    </div>
-    <div class="grid bg-stripes-blue w-full rounded-lg">
-      <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg max-w-40">max-w-40</div>
-    </div>
-    <div class="grid bg-stripes-blue w-full rounded-lg">
-      <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg max-w-32">max-w-32</div>
-    </div>
-    <div class="grid bg-stripes-blue w-full rounded-lg">
-      <div class="px-4 py-2 bg-blue-500 rounded-lg shadow-lg max-w-24">max-w-24</div>
-    </div>
-</div>
-```
-
-```html
-<div>
-  <div class="w-full **max-w-96** ...">max-w-96</div>
-  <div class="w-full **max-w-80** ...">max-w-80</div>
-  <div class="w-full **max-w-64** ...">max-w-64</div>
-  <div class="w-full **max-w-48** ...">max-w-48</div>
-  <div class="w-full **max-w-40** ...">max-w-40</div>
-  <div class="w-full **max-w-32** ...">max-w-32</div>
-  <div class="w-full **max-w-24** ...">max-w-24</div>
 </div>
 ```
 
@@ -146,6 +146,7 @@ The `max-w-screen-{breakpoint}` classes can be used to give an element a max-wid
 ## Using custom values
 
 ### Customizing your theme
+
 By default, Tailwind's maximum width scale is a combination of the [default spacing scale](/docs/customizing-spacing#default-spacing-scale) as well as some additional values specific to widths.
 
 You can customize your spacing scale by editing `theme.spacing` or `theme.extend.spacing` in your `tailwind.config.js` file.

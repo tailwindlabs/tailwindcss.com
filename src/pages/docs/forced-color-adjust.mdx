@@ -1,10 +1,9 @@
 ---
 title: "Forced Color Adjust"
-description: "Utilities for adjusting the appearance of forced color modes"
+description: "Utilities for opting in and out of forced colors."
 ---
 
 import utilities from 'utilities?plugin=forcedColorAdjust'
-import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
@@ -12,9 +11,9 @@ export const classes = { utilities }
 
 ## Basic usage
 
-### Opting out of forced color modes
+### Opting out of forced colors
 
-Use `forced-color-adjust-none` to opt an element out of the user defined color palette enforced by [forced colors mode](/docs/examples/hover-focus-and-other-states#forced-colors-mode).
+Use `forced-color-adjust-none` to opt an element out the colors enforced by [forced colors mode](/docs/hover-focus-and-other-states#forced-colors-mode). This is useful in situations where enforcing a limited color palette will degrade usability.
 
 ```html {{ example: { hint: 'Try emulating &#96;forced-colors: active&#96; in your developer tools to see the changes' }}}
 <div class="mx-auto max-w-sm overflow-clip rounded-lg bg-white shadow">
@@ -70,12 +69,11 @@ Use `forced-color-adjust-none` to opt an element out of the user defined color p
 </form>
 ```
 
-This utility is useful in situations where enforcing a limited color palette will seriously degrade usability.
+You can also use the [`forced-colors` modifier](/docs/hover-focus-and-other-states#forced-colors-mode) to conditionally add styles when the user has enabled a forced color mode.
 
+### Restoring forced colors
 
-### Reverting to user preferences
-
-Use `forced-color-adjust-auto` to undo `forced-color-adjust-none`, making an element adhere to the user defined color palette enforced by forced colors mode.
+Use `forced-color-adjust-auto` to undo `forced-color-adjust-none`, making an element adhere to colors enforced by forced colors mode.
 
 This can be useful if you use a different control on a larger screen size for example:
 
