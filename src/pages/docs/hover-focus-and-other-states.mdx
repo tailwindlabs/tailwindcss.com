@@ -624,7 +624,7 @@ While it's generally preferable to put utility classes directly on child element
 
 ```html
 <div>
-  <h2>Categories:<h2>
+  <h2>Categories<h2>
   <ul class="***:rounded-full *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5 dark:text-sky-300 dark:*:border-sky-500/15 dark:*:bg-sky-500/10** ...">
     <li>Sales</li>
     <li>Marketing</li>
@@ -694,6 +694,7 @@ Use the `has-*` modifier to style an element based on the state or content of it
   <input type="radio" class="checked:border-indigo-500 ..." />
 </label>
 ```
+
 You can use `has-*` with a pseudo-class, like `has-[:focus]`, to style an element based on the state of its descendants. You can also use element selectors, like `has-[img]` or `has-[a]`, to style an element based on the content of its descendants.
 
 #### Styling based on the descendants of a group <small>(group-has-{'{modifier}'})</small>
