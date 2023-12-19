@@ -166,9 +166,9 @@ export function DynamicViewportExample({
                     'text-slate-50 font-mono font-bold py-4 w-full h-full gap-5 rounded-md grid grid-rows-[1fr_auto_1fr] items-center content-center self-center justify-items-center  overflow-hidden'
                   )}
                 >
-                  {/* <div class="grid grid-rows-[1fr] h-full items-start overflow-y-hidden">
+                  {/* <div className="grid grid-rows-[1fr] h-full items-start overflow-y-hidden">
                     <svg
-                      class="w-[12px] text-pink-300"
+                      className="w-[12px] text-pink-300"
                       viewBox="0 0 9 162"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -182,15 +182,15 @@ export function DynamicViewportExample({
                       />
                     </svg>
                   </div> */}
-                  <div class="grid grid-rows-[1px_1fr] h-full justify-items-center">
-                    <div class="bg-white/60 w-[12px] h-full"></div>
-                    <div class="bg-white/40 w-[1.5px] h-full"></div>
+                  <div className="grid grid-rows-[1px_1fr] h-full justify-items-center">
+                    <div className="bg-white/60 w-[12px] h-full"></div>
+                    <div className="bg-white/40 w-[1.5px] h-full"></div>
                   </div>
                   <p>h-{unit}</p>
 
-                  {/* <div class="grid grid-rows-[1fr] h-full items-end overflow-y-hidden">
+                  {/* <div className="grid grid-rows-[1fr] h-full items-end overflow-y-hidden">
                     <svg
-                      class="w-[12px] text-pink-300"
+                      className="w-[12px] text-pink-300"
                       viewBox="0 0 10 162"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -204,9 +204,9 @@ export function DynamicViewportExample({
                       />
                     </svg>
                   </div> */}
-                  <div class="grid grid-rows-[1fr_1px] h-full justify-items-center">
-                    <div class="bg-white/40 w-[1.5px] h-full"></div>
-                    <div class="bg-white/60 w-[12px] h-full"></div>
+                  <div className="grid grid-rows-[1fr_1px] h-full justify-items-center">
+                    <div className="bg-white/40 w-[1.5px] h-full"></div>
+                    <div className="bg-white/60 w-[12px] h-full"></div>
                   </div>
                 </div>
               </motion.div>
