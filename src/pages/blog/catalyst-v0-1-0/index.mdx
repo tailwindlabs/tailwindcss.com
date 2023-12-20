@@ -1,5 +1,6 @@
 import { adamwathan } from '@/authors'
 import card from './card.png'
+import video from './catalyst-switch.mp4'
 
 
 export const meta = {
@@ -19,7 +20,7 @@ Today's the day — we just released Catalyst v0.1.0, our first fully-componenti
 
 **Today's the day** — we just hit the deploy button on [Catalyst v0.1.0](https://tailwindui.com/templates/catalyst), just in time for your holiday hacking sessions.
 
-![Overview of components included in Catalyst v0.1.0](./banner.png)
+![Overview of components included in Catalyst v0.1.0](./catalyst-ui-kit.png)
 
 **Catalyst is our first fully-componentized, batteries-included application UI kit** — real React components with thoughtfully designed APIs that build on each other to create a real component architecture, the same way we'd do it in a real application.
 
@@ -53,29 +54,32 @@ Getting the visual style right on a project like this is hard. We went into it w
 
 It took a lot of work and there were a lot of trade-offs to balance, but I'm really in love with where we ended up:
 
-_Some sort of image showcasing the visual style_
+![](./catalyst-states.png)
 
 **To be competitive**, we invested in lots of details like subtle backdrop blurs on dropdown menus, perfecting the way shadows and borders blend with each other on form controls, and thoughtful use of animation in things like dialogs and toggle switches.
 
-_Some image showing the stuff I mentioned above_
+![](./catalyst-shadows.png)
 
 **To be timeless**, we tried to strike the right balance between flat and skeuomorphic design, with just enough depth cues that our components will look great even if the trends change a bit in either direction.
 
-_Something showing off button design probably_
+![](./catalyst-buttons.png)
 
 We also took inspiration from the browser, and used unopinionated blue focus rings to avoid picking a treatment that might soon look out of fashion.
 
-_Something showing off focus rings_
-
 **To be productive**, we worked carefully to make sure there was still plenty of whitespace, but that the UI was still dense enough to fit plenty of information on the screen.
 
-_Something showing tables probably_
+![](./catalyst-table.png)
 
 We also limited our use of transitions and animations only to places where it felt important, and even then tried to keep them fast so it never feels like you're waiting on the UI.
 
+<div className="my-8 relative rounded-2xl overflow-hidden">
+  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 pointer-events-none"></div>
+  <video src={video} autoPlay playsInline loop muted className="block m-0"/>
+</div>
+
 **Catalyst also ships with full dark mode support**, and anything you build with Catalyst components automatically adapts between light and dark modes.
 
-_Something showing dark mode_
+![](./catalyst-dark-mode.png)
 
 It's not obvious, but there are a ton of little details we had to change to make things look their best in dark mode, like adjusting shadows, changing outer rings to inner rings to mimic the change in lighting, and more.
 
@@ -88,7 +92,7 @@ We spent a _lot_ of time working on the component APIs, trying very hard to make
 
 It's common for UI libraries to use APIs like this:
 
-```jsx
+```jsx {{ filename: 'JSX', style: 'framed', color: 'pink' }}
 function Example() {
   return (
     <TextField
@@ -106,7 +110,7 @@ Ultimately that led us to APIs that closely mirrored HTML, where it's rare that 
 
 Creating a text field with Catalyst looks like this for example:
 
-```jsx
+```jsx {{ filename: 'JSX', style: 'framed', color: 'indigo' }}
 import { Description, Field, Label } from '@/components/fieldset'
 import { Input } from '@/components/input'
 
@@ -124,7 +128,7 @@ function Example() {
 By keeping things composable like this, it makes it really easy to do things like constrain the width of the input, without constraining the width of any of the other elements:
 
 
-```diff-jsx
+```diff-jsx {{ filename: 'JSX', style: 'framed', color: 'fuchsia' }}
   import { Description, Field, Label } from '@/components/fieldset'
   import { Input } from '@/components/input'
 
@@ -142,7 +146,7 @@ By keeping things composable like this, it makes it really easy to do things lik
 
 It also makes it easy to move the description _below_ the input, instead of above:
 
-```diff-jsx
+```diff-jsx {{ filename: 'JSX', style: 'framed', color: 'sky' }}
   import { Description, Field, Label } from '@/components/fieldset'
   import { Input } from '@/components/input'
 
