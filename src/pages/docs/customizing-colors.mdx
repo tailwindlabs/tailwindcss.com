@@ -416,3 +416,19 @@ When defining your colors this way, make sure that the format of your CSS variab
   }
 }
 ```
+
+### Working with HEX variables
+
+It is also possible to work with hexadecimal color values, but is important to convert them to a supported color space function.
+
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  theme: {
+    colors: {
+      // For --color-primary: #ff73b3
+      primary: 'rgb(from var(--color-primary) r g b / <alpha-value>)',
+    }
+  }
+}
+```
