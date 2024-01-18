@@ -1,8 +1,13 @@
-<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M20 23.8624H16.6408L15.0496 27.8336H12.0984H12.0848L20 10.0856V10.0992V7.08L7.33838 11.5952L9.26958 28.3368L20 34.28V23.8624Z" fill="#ffffff"/>
-  <path d="M17.688 21.4144H20V15.852L17.688 21.4144Z" fill="#ffffff"/>
-  <g opacity="0.9">
-    <path opacity="0.9" d="M20 23.8624H23.3592L24.9504 27.8336H27.9016H27.9152L20 10.0856V10.0992V7.08L32.6616 11.5952L30.7304 28.3368L20 34.28V23.8624Z" fill="#ffffff"/>
-    <path opacity="0.9" d="M22.312 21.4144H20V15.852L22.312 21.4144Z" fill="#ffffff"/>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="40" height="40" viewBox="0 0 960 960" style="enable-background:new 0 0 960 960;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style>
+<g>
+	<polygon class="st0" points="562.6,109.8 804.1,629.5 829.2,233.1 	"/>
+	<polygon class="st0" points="624.9,655.9 334.3,655.9 297.2,745.8 479.6,849.8 662,745.8 	"/>
+	<polygon class="st0" points="384.1,539.3 575.2,539.3 479.6,307 	"/>
+	<polygon class="st0" points="396.6,109.8 130,233.1 155.1,629.5 	"/>
+</g>
 </svg>
