@@ -22,7 +22,7 @@ export const classes = {
 
 ### Truncate
 
-Use `truncate` to truncate overflowing text with an ellipsis (<code>…</code>) if needed, ensuring content stays on a single line.
+Use `truncate` to prevent text from wrapping and truncate overflowing text with an ellipsis (<code>…</code>) if needed.
 
 ```html {{ example: { p: 'none' } }}
 <div class="px-4 sm:px-0">
@@ -40,7 +40,7 @@ Use `truncate` to truncate overflowing text with an ellipsis (<code>…</code>) 
 
 ### Ellipsis
 
-Use `text-ellipsis` to append an ellipsis (<code>…</code>) to overflowing text without enforcing single-line limitation, allowing text wrapping.
+Use `text-ellipsis` to truncate overflowing text with an ellipsis (<code>…</code>) if needed.
 
 ```html {{ example: { p: 'none' } }}
 <div class="px-4 sm:px-0">
