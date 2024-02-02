@@ -123,7 +123,13 @@ module.exports = {
 }
 ```
 
-Tailwind will automatically wrap your custom dark mode selector with the `:where()` pseudo class to ensure consistency between the `media` and `selector` strategies.
+Tailwind will automatically wrap your custom dark mode selector with the `:where()` pseudo-class to make sure the specificity is the same as it would be when using the `media` strategy:
+
+```css
+.dark\:underline:where([data-mode="dark"], [data-mode="dark"] *){
+  text-decoration-line: underline
+}
+```
 
 ### Supporting system preference and manual selection
 
@@ -163,7 +169,7 @@ module.exports = {
 }
 ```
 
-When using this strategy Tailwind will not modify the provided selector in any way, so be mindful of it's specificity and consider using the `:where()` pseudo class to ensure it has the same specificity as other utilities.
+When using this strategy Tailwind will not modify the provided selector in any way, so be mindful of it's specificity and consider using the `:where()` pseudo-class to ensure it has the same specificity as other utilities.
 
 ### Using multiple selectors
 
