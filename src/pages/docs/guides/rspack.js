@@ -29,13 +29,13 @@ let tabs = [
         body: () => (
           <p>
             Install <code>tailwindcss</code> and its peer dependencies, then generate your{' '}
-            <code>tailwind.config.js</code> and <code>postcss.config.js</code> files.
+            <code>tailwind.config.js</code> file.
           </p>
         ),
         code: {
           name: 'Terminal',
           lang: 'terminal',
-          code: 'npm install -D tailwindcss postcss autoprefixer postcss-loader\nnpx tailwindcss init -p',
+          code: 'npm install -D tailwindcss postcss autoprefixer postcss-loader\nnpx tailwindcss init',
         },
       },
       {
@@ -166,13 +166,13 @@ let tabs = [
         body: () => (
           <p>
             Install <code>tailwindcss</code> and its peer dependencies, then generate your{' '}
-            <code>tailwind.config.js</code> and <code>postcss.config.js</code> files.
+            <code>tailwind.config.js</code> file.
           </p>
         ),
         code: {
           name: 'Terminal',
           lang: 'terminal',
-          code: 'npm install -D tailwindcss postcss autoprefixer postcss-loader\nnpx tailwindcss init -p',
+          code: 'npm install -D tailwindcss postcss autoprefixer postcss-loader\nnpx tailwindcss init',
         },
       },
       {
