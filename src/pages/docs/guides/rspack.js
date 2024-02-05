@@ -15,7 +15,10 @@ let tabs = [
           <p>
             Start by creating a new Rspack project if you don’t have one set up already. The most
             common approach is to use{' '}
-            <a href="https://www.rspack.dev/guide/quick-start.html#using-the-rspack-cli">Rspack CLI</a>.
+            <a href="https://www.rspack.dev/guide/quick-start.html#using-the-rspack-cli">
+              Rspack CLI
+            </a>
+            .
           </p>
         ),
         code: {
@@ -42,8 +45,8 @@ let tabs = [
         title: 'Configure rspack.config.js',
         body: () => (
           <p>
-            Configure <code>postcss-loader</code> in <code>rspack.config.js</code>,
-          and add <code>tailwindcss</code> to <code>postcssOptions.plugins</code>.
+            Configure <code>postcss-loader</code> in <code>rspack.config.js</code>, and add{' '}
+            <code>tailwindcss</code> to <code>postcssOptions.plugins</code>.
           </p>
         ),
         code: {
@@ -51,28 +54,27 @@ let tabs = [
           lang: 'js',
           code: `  // https://www.rspack.dev/guide/language-support.html#tailwind-css
   module.exports = {
+    // ...
     module: {
       rules: [
->        {
->          test: /\\.css$/,
->          use: [
->            {
->              loader: 'postcss-loader',
->              options: {
->                postcssOptions: {
->                  plugins: {
->                    tailwindcss: {},
->                    autoprefixer: {},
->                  },
->                },
->              },
->            },
->          ],
->          type: 'css',
->        },
-      ],
-    },
-  }`,
+>       {
+>         test: /\\.css$/,
+>         use: [
+>           {
+>             loader: 'postcss-loader',
+>             options: {
+>               postcssOptions: {
+>                 plugins: {
+>                   tailwindcss: {},
+>                   autoprefixer: {},
+>                 },
+>               },
+>             },
+>           },
+>         ],
+>         type: 'css',
+>       },
+    // ...`,
         },
       },
       {
@@ -152,7 +154,10 @@ let tabs = [
           <p>
             Start by creating a new Rspack project if you don’t have one set up already. The most
             common approach is to use{' '}
-            <a href="https://www.rspack.dev/guide/quick-start.html#using-the-rspack-cli">Rspack CLI</a>.
+            <a href="https://www.rspack.dev/guide/quick-start.html#using-the-rspack-cli">
+              Rspack CLI
+            </a>
+            .
           </p>
         ),
         code: {
@@ -179,8 +184,8 @@ let tabs = [
         title: 'Configure rspack.config.js',
         body: () => (
           <p>
-            Configure <code>postcss-loader</code> in <code>rspack.config.js</code>,
-          and add <code>tailwindcss</code> to <code>postcssOptions.plugins</code>.
+            Configure <code>postcss-loader</code> in <code>rspack.config.js</code>, and add{' '}
+            <code>tailwindcss</code> to <code>postcssOptions.plugins</code>.
           </p>
         ),
         code: {
@@ -188,28 +193,27 @@ let tabs = [
           lang: 'js',
           code: `  // https://www.rspack.dev/guide/language-support.html#tailwind-css
   module.exports = {
+    // ...
     module: {
       rules: [
->        {
->          test: /\\.css$/,
->          use: [
->            {
->              loader: 'postcss-loader',
->              options: {
->                postcssOptions: {
->                  plugins: {
->                    tailwindcss: {},
->                    autoprefixer: {},
->                  },
->                },
->              },
->            },
->          ],
->          type: 'css',
->        },
-      ],
-    },
-  }`,
+>       {
+>         test: /\\.css$/,
+>         use: [
+>           {
+>             loader: 'postcss-loader',
+>             options: {
+>               postcssOptions: {
+>                 plugins: {
+>                   tailwindcss: {},
+>                   autoprefixer: {},
+>                 },
+>               },
+>             },
+>           },
+>         ],
+>         type: 'css',
+>       },
+    // ...`,
         },
       },
       {
