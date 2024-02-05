@@ -2,11 +2,11 @@ import { DocumentationLayout } from '@/layouts/DocumentationLayout'
 import { InstallationLayout } from '@/layouts/InstallationLayout'
 import Link from 'next/link'
 
-import { ReactComponent as AstroLogo } from '@/img/guides/astro.svg'
-import { ReactComponent as AstroLogoWhite } from '@/img/guides/astro-white.svg'
 import { ReactComponent as AdonisLogo } from '@/img/guides/adonis.svg'
 import { ReactComponent as AngularLogo } from '@/img/guides/angular.svg'
 import { ReactComponent as AngularLogoWhite } from '@/img/guides/angular-white.svg'
+import { ReactComponent as AstroLogo } from '@/img/guides/astro.svg'
+import { ReactComponent as AstroLogoWhite } from '@/img/guides/astro-white.svg'
 import { ReactComponent as CraLogo } from '@/img/guides/cra.svg'
 import { ReactComponent as EmberLogo } from '@/img/guides/ember.svg'
 import { ReactComponent as GatsbyLogo } from '@/img/guides/gatsby.svg'
@@ -22,12 +22,12 @@ import { ReactComponent as RailsLogo } from '@/img/guides/rails.svg'
 import { ReactComponent as RailsLogoWhite } from '@/img/guides/rails-white.svg'
 import { ReactComponent as RemixLogo } from '@/img/guides/remix.svg'
 import { ReactComponent as RemixLogoWhite } from '@/img/guides/remix-white.svg'
+import { ReactComponent as RspackLogo } from '@/img/guides/rspack.svg'
 import { ReactComponent as SolidJSLogo } from '@/img/guides/solidjs.svg'
 import { ReactComponent as SvelteLogo } from '@/img/guides/svelte.svg'
 import { ReactComponent as SymfonyLogo } from '@/img/guides/symfony.svg'
 import { ReactComponent as SymfonyLogoWhite } from '@/img/guides/symfony-white.svg'
 import { ReactComponent as ViteLogo } from '@/img/guides/vite.svg'
-import { ReactComponent as RspackLogo } from '@/img/guides/rspack.svg'
 
 export default function FrameworkGuides() {
   return (
@@ -167,7 +167,7 @@ export default function FrameworkGuides() {
             slug: 'rspack',
             description: 'A fast rust-based web bundler.',
             logo: RspackLogo,
-          }
+          },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">
             <div className="peer group ml-6 flex-auto">
