@@ -51,7 +51,7 @@ let steps = [
     title: 'Enable PostCSS support',
     body: () => (
       <p>
-        In your <code>webpack.config.js</code> file, enable PostCSS Loader. See{' '}
+        In your <code>webpack.config.js</code> file, enable the PostCSS Loader. See{' '}
         <a href="https://symfony.com/doc/current/frontend/encore/postcss.html">the documentation</a>{' '}
         for more information.
       </p>
