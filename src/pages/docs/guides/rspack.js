@@ -32,47 +32,37 @@ let tabs = [
         body: () => (
           <p>
             Install <code>tailwindcss</code> and its peer dependencies, then generate your{' '}
-            <code>tailwind.config.js</code> file.
+            <code>tailwind.config.js</code> and <code>postcss.config.js</code> files.
           </p>
         ),
         code: {
           name: 'Terminal',
           lang: 'terminal',
-          code: 'npm install -D tailwindcss postcss autoprefixer postcss-loader\nnpx tailwindcss init',
+          code: 'npm install -D tailwindcss postcss postcss-loader autoprefixer\nnpx tailwindcss init -p',
         },
       },
       {
-        title: 'Configure rspack.config.js',
+        title: 'Enable PostCSS support',
         body: () => (
           <p>
-            Configure <code>postcss-loader</code> in <code>rspack.config.js</code>, and add{' '}
-            <code>tailwindcss</code> to <code>postcssOptions.plugins</code>.
+            In your <code>rspack.config.js</code> file, enable the PostCSS loader. See{' '}
+            <a href="https://www.rspack.dev/guide/language-support.html#tailwind-css">
+              the documentation
+            </a>{' '}
+            for more information.
           </p>
         ),
         code: {
           name: 'rspack.config.js',
           lang: 'js',
-          code: `  // https://www.rspack.dev/guide/language-support.html#tailwind-css
-  module.exports = {
+          code: `  module.exports = {
     // ...
     module: {
       rules: [
 >       {
 >         test: /\\.css$/,
->         use: [
->           {
->             loader: 'postcss-loader',
->             options: {
->               postcssOptions: {
->                 plugins: {
->                   tailwindcss: {},
->                   autoprefixer: {},
->                 },
->               },
->             },
->           },
->         ],
->         type: 'css',
+>         use: ["postcss-loader"],
+>         type: "css",
 >       },
     // ...`,
         },
@@ -171,47 +161,37 @@ let tabs = [
         body: () => (
           <p>
             Install <code>tailwindcss</code> and its peer dependencies, then generate your{' '}
-            <code>tailwind.config.js</code> file.
+            <code>tailwind.config.js</code> and <code>postcss.config.js</code> files.
           </p>
         ),
         code: {
           name: 'Terminal',
           lang: 'terminal',
-          code: 'npm install -D tailwindcss postcss autoprefixer postcss-loader\nnpx tailwindcss init',
+          code: 'npm install -D tailwindcss postcss postcss-loader autoprefixer\nnpx tailwindcss init -p',
         },
       },
       {
-        title: 'Configure rspack.config.js',
+        title: 'Enable PostCSS support',
         body: () => (
           <p>
-            Configure <code>postcss-loader</code> in <code>rspack.config.js</code>, and add{' '}
-            <code>tailwindcss</code> to <code>postcssOptions.plugins</code>.
+            In your <code>rspack.config.js</code> file, enable the PostCSS loader. See{' '}
+            <a href="https://www.rspack.dev/guide/language-support.html#tailwind-css">
+              the documentation
+            </a>{' '}
+            for more information.
           </p>
         ),
         code: {
           name: 'rspack.config.js',
           lang: 'js',
-          code: `  // https://www.rspack.dev/guide/language-support.html#tailwind-css
-  module.exports = {
+          code: `  module.exports = {
     // ...
     module: {
       rules: [
 >       {
 >         test: /\\.css$/,
->         use: [
->           {
->             loader: 'postcss-loader',
->             options: {
->               postcssOptions: {
->                 plugins: {
->                   tailwindcss: {},
->                   autoprefixer: {},
->                 },
->               },
->             },
->           },
->         ],
->         type: 'css',
+>         use: ["postcss-loader"],
+>         type: "css",
 >       },
     // ...`,
         },
