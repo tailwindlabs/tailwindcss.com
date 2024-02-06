@@ -165,7 +165,7 @@ export default function FrameworkGuides() {
           {
             name: 'Rspack',
             slug: 'rspack',
-            description: 'A fast rust-based web bundler.',
+            description: 'A fast Rust-based web bundler.',
             logo: RspackLogo,
           },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
