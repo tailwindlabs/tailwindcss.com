@@ -3,6 +3,7 @@ import { InstallationLayout } from '@/layouts/InstallationLayout'
 import Link from 'next/link'
 
 import { ReactComponent as AdonisLogo } from '@/img/guides/adonis.svg'
+import { ReactComponent as AdonisLogoWhite } from '@/img/guides/adonis-white.svg'
 import { ReactComponent as AngularLogo } from '@/img/guides/angular.svg'
 import { ReactComponent as AngularLogoWhite } from '@/img/guides/angular-white.svg'
 import { ReactComponent as AstroLogo } from '@/img/guides/astro.svg'
@@ -142,6 +143,7 @@ export default function FrameworkGuides() {
             slug: 'adonisjs',
             description: 'A fully featured web framework for Node.js.',
             logo: AdonisLogo,
+            logoDark: AdonisLogoWhite,
           },
           {
             name: 'Ember.js',
