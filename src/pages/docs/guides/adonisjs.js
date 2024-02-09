@@ -7,23 +7,23 @@ let steps = [
     title: 'Create your project',
     body: () => (
       <p>
-        Start by{' '}
-        <a href="https://docs.adonisjs.com/guides/installation">creating a new AdonisJS project</a>{' '}
-        if you don’t have one set up already. Choose <code>web</code> for the starter kit.
+        Start by creating a new AdonisJS project if you don’t have one set up already. The most
+        common approach is to use{' '}
+        <a href="https://docs.adonisjs.com/guides/installation">Create Adonisjs</a>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm init adonisjs@latest my-project\ncd my-project',
+      code: 'npm init adonisjs@latest my-project -- --kit=web\ncd my-project',
     },
   },
   {
     title: 'Install Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the init
-        command to generate both <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+        Install <code>tailwindcss</code> and its peer dependencies, then generate your{' '}
+        <code>tailwind.config.js</code> and <code>postcss.config.js</code> files.
       </p>
     ),
     code: {
@@ -45,7 +45,8 @@ let steps = [
       code: `  /** @type {import('tailwindcss').Config} */
   export default {
 >   content: [
->     "./resources/**/*.{edge,js,ts,jsx,tsx,vue}",
+>     "./resources/**/*.edge",
+>     "./resources/**/*.{js,ts,jsx,tsx,vue}",
 >   ],
     theme: {
       extend: {},
@@ -97,7 +98,8 @@ let steps = [
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite(['resources/css/app.css'])
+>   @vite(['resources/css/app.css'])
+    @vite(['resources/js/app.js'])
   </head>
   <body>
 >   <h1 class="text-3xl font-bold underline">
