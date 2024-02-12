@@ -16,7 +16,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm init adonis-ts-app@latest my-project\ncd my-project',
+      code: 'npm init adonisjs@latest hello-world',
     },
   },
   {
@@ -31,36 +31,10 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss postcss-loader autoprefixer\nnpx tailwindcss init -p',
+      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init -p',
     },
   },
   {
-    title: 'Enable PostCSS support',
-    body: () => (
-      <p>
-        In your <code>webpack.config.js</code> file, enable the PostCSS loader. See the{' '}
-        <a href="https://symfony.com/doc/current/frontend/encore/postcss.html">
-          Webpack Encore documentation
-        </a>{' '}
-        for more information.
-      </p>
-    ),
-    code: {
-      name: 'webpack.config.js',
-      lang: 'js',
-      code: `  /*
-  |--------------------------------------------------------------------------
-  | CSS loaders
-  |--------------------------------------------------------------------------
-  |
-  | Uncomment one of the following line of code to enable support for
-  | PostCSS or CSS.
-  |
-  */
-> Encore.enablePostCssLoader();
-  // Encore.configureCssLoader(() => {})`,
-    },
-  },
   {
     title: 'Configure your template paths',
     body: () => (
@@ -126,7 +100,7 @@ let steps = [
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @entryPointStyles('app')
+    @vite(['resources/js/app.js'])
   </head>
   <body>
 >   <h1 class="text-3xl font-bold underline">
@@ -166,7 +140,7 @@ export function getStaticProps() {
 
 UsingAdonis.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Adonis',
+    title: 'Install Tailwind CSS with AdonisJS',
     section: 'Installation',
   },
   Layout: DocumentationLayout,
