@@ -9,7 +9,7 @@ let steps = [
       <p>
         Start by creating a new AdonisJS project if you don’t have one set up already. The most
         common approach is to use{' '}
-        <a href="https://docs.adonisjs.com/guides/installation">Create Adonisjs</a>.
+        <a href="https://docs.adonisjs.com/guides/installation">Create AdonisJS</a>.
       </p>
     ),
     code: {
