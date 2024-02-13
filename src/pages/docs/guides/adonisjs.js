@@ -7,58 +7,29 @@ let steps = [
     title: 'Create your project',
     body: () => (
       <p>
-        Start by{' '}
-        <a href="https://docs.adonisjs.com/guides/installation">creating a new AdonisJS project</a>{' '}
-        if you don’t have one set up already. Choose <code>web</code> for the project structure and{' '}
-        <code>y</code> when asked to include Webpack Encore.
+        Start by creating a new AdonisJS project if you don’t have one set up already. The most
+        common approach is to use{' '}
+        <a href="https://docs.adonisjs.com/guides/installation">Create AdonisJS</a>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm init adonis-ts-app@latest my-project\ncd my-project',
+      code: 'npm init adonisjs@latest my-project -- --kit=web\ncd my-project',
     },
   },
   {
     title: 'Install Tailwind CSS',
     body: () => (
       <p>
-        Using npm, install <code>tailwindcss</code> and its peer dependencies, as well as{' '}
-        <code>postcss-loader</code>, and then run the init command to generate both{' '}
-        <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+        Install <code>tailwindcss</code> and its peer dependencies, then generate your{' '}
+        <code>tailwind.config.js</code> and <code>postcss.config.js</code> files.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss postcss-loader autoprefixer\nnpx tailwindcss init -p',
-    },
-  },
-  {
-    title: 'Enable PostCSS support',
-    body: () => (
-      <p>
-        In your <code>webpack.config.js</code> file, enable the PostCSS loader. See the{' '}
-        <a href="https://symfony.com/doc/current/frontend/encore/postcss.html">
-          Webpack Encore documentation
-        </a>{' '}
-        for more information.
-      </p>
-    ),
-    code: {
-      name: 'webpack.config.js',
-      lang: 'js',
-      code: `  /*
-  |--------------------------------------------------------------------------
-  | CSS loaders
-  |--------------------------------------------------------------------------
-  |
-  | Uncomment one of the following line of code to enable support for
-  | PostCSS or CSS.
-  |
-  */
-> Encore.enablePostCssLoader();
-  // Encore.configureCssLoader(() => {})`,
+      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init -p',
     },
   },
   {
@@ -72,9 +43,10 @@ let steps = [
       name: 'tailwind.config.js',
       lang: 'js',
       code: `  /** @type {import('tailwindcss').Config} */
-  module.exports = {
+  export default {
 >   content: [
->     "./resources/**/*.{edge,js,ts,jsx,tsx,vue}",
+>     "./resources/**/*.edge",
+>     "./resources/**/*.{js,ts,jsx,tsx,vue}",
 >   ],
     theme: {
       extend: {},
@@ -119,14 +91,15 @@ let steps = [
       </p>
     ),
     code: {
-      name: 'welcome.edge',
+      name: 'home.edge',
       lang: 'html',
       code: `  <!doctype html>
   <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @entryPointStyles('app')
+>   @vite(['resources/css/app.css'])
+    @vite(['resources/js/app.js'])
   </head>
   <body>
 >   <h1 class="text-3xl font-bold underline">
