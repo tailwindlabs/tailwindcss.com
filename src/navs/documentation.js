@@ -230,7 +230,10 @@ export const documentationNav = {
   SVG: [pages['fill'], pages['stroke'], pages['stroke-width']],
   Accessibility: [pages['screen-readers'], pages['forced-color-adjust']],
   'Official Plugins': [
-    pages['typography-plugin'],
+    {
+      title: 'Typography',
+      href: 'https://github.com/tailwindlabs/tailwindcss-typography',
+    },
     {
       title: 'Forms',
       href: 'https://github.com/tailwindlabs/tailwindcss-forms',
