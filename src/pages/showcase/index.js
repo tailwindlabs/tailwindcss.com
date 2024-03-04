@@ -107,7 +107,6 @@ function Site({ site, priority = false }) {
               muted
               playsInline
               className="absolute inset-0 w-full h-full [mask-image:radial-gradient(white,black)] hidden dark:block"
-              onTimeUpdate={onTimeUpdate}
               onEnded={onEnded}
             >
               <source src={site.dark.video} type={site.dark.videoType ?? 'video/mp4'} />
