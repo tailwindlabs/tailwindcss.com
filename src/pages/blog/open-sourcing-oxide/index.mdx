@@ -19,20 +19,18 @@ Last summer at Tailwind Connect [I shared a preview of Oxide](https://www.youtub
 
 ![Tailwind CSS v3.3](./card.jpg)
 
-Last summer at Tailwind Connect [I shared a preview of Oxide](https://www.youtube.com/watch?v=CLkxRnRQtDE&t=2146s) — a new high-performance engine for Tailwind CSS that we've been working on, designed to simplify the developer experience and take advantage of how the web platform has evolved since Tailwind was first released.
+Last summer at Tailwind Connect [I shared a preview of Oxide](https://www.youtube.com/watch?v=CLkxRnRQtDE&t=2146s) — a new high-performance engine for Tailwind CSS that we've been working on, designed to simplify the developer experience and take advantage of how the web platform has evolved in recent years.
 
-It's still early and we've got a lot of work to do, but today we're [open-sourcing our progress](https://github.com/tailwindlabs/tailwindcss/tree/next) so you can start experimenting with it and help us get to a stable release later this year.
+The new engine was originally going to ship as a v3.x release, but even though we're committed to backwards compatibility, this feels so clearly like a new generation of the framework that it deserves to be v4.0.
 
-- **Automatic content detection** — Commodi ut ut beatae ipsum laborum. Quam animi est laborum quia iste est quod. Recusandae et aut aut dolorem maiores dolorum ratione fuga similique. Aperiam est quos. Non qui repellat aut vel doloremque facere eum.
-- **Built-in `@import` support** — Tempora qui voluptatibus repellendus possimus. Culpa accusantium repellat eius quia eos eos. Corporis ullam accusantium. Possimus amet consequatur. Dolor quasi aperiam quisquam.
-
+It's still early and we've got [a lot of work to do](#roadmap-to-v4-0), but today we're [open-sourcing our progress](https://github.com/tailwindlabs/tailwindcss/tree/next) and tagging [v4.0.0-alpha.1](https://www.npmjs.com/package/tailwindcss/v/4.0.0-alpha.1) so you can start experimenting with it and help us get to a stable release later this year.
 
 ## A new engine, built for speed
 
 - Originally started with just Rust stuff for template scanning
 - Ground-up rewrite
 - No PostCSS, we wrote our own parser, designed our own data structures
-- Post-processing handled by Lightning CSS
+- Smaller
 - Compound variants?
 - Simplified `@apply`?
 - Automatic content detection (including Vite plugin)
@@ -43,21 +41,122 @@ It's still early and we've got a lot of work to do, but today we're [open-sourci
 - Built-in `@import` handling
 - Built-in vendor prefixing
 - Built-in nesting
+- Post-processing handled by Lightning CSS
 - Syntax transforms
 - Don't think about it as a plugin, think of it as your CSS processor
 
-## Modern CSS something
+## Designed for the modern web
 
 - Native cascade layers
 - `@property` for animatable gradients
 - color-mix for opacity modifiers
 - Container queries to core
 
-## Rethinking the developer experience
+## Rethinking the configuration experience
 
-- `@import "tailwindcss"`
-- CSS-based configuration
-- CSS variables for theme values
+A major goal of Tailwind CSS v4.0 is making the framework feel CSS-native, and less like a JavaScript library.
+
+Once you've installed it, you add it your project with a regular CSS `@import` statement:
+
+```css {{ filename: 'main.css', style: 'framed', color: 'sky' }}
+@import "tailwindcss";
+
+
+```
+
+And instead of setting up all of your customizations in a JavaScript configuration file, you just use CSS variables:
+
+```css {{ filename: 'main.css', style: 'framed', color: 'purple' }}
+@import "tailwindcss";
+
+@theme {
+  --font-family-display: "Satoshi", "sans-serif";
+
+  --breakpoint-3xl: 1920px;
+
+  --colors-neon-pink: oklch(71.7% 0.25 360);
+  --colors-neon-lime: oklch(91.5% 0.258 129);
+  --colors-neon-cyan: oklch(91.3% 0.139 195.8);
+}
+```
+
+The special `@theme` directive tells Tailwind to make new utilities and variants available based on those variables, letting you use classes like `3xl:text-neon-lime` in your markup:
+
+```html {{ filename: 'index.html', style: 'framed', color: 'pink' }}
+<div class="max-w-lg **3xl:max-w-xl**">
+  <h1 class="**font-display** text-4xl">
+    Data to <span class="**text-neon-cyan**">enrich</span> your online business
+  </h1>
+</div>
+```
+
+Adding new CSS variables behaves like `extend` did in earlier versions of the framework, but you can override a whole set of variables by clearing the namespace with syntax like `--colors-*: initial` before defining all of your custom values:
+
+```css {{ filename: 'main.css', style: 'framed', color: 'fuchsia' }}
+@import "tailwindcss";
+
+@theme {
+  --colors-*: initial;
+
+  --color-gray-50: #f8fafc;
+  --color-gray-100: #f1f5f9;
+  --color-gray-200: #e2e8f0;
+  /* ... */
+  --color-green-800: #3f6212;
+  --color-green-900: #365314;
+  --color-green-950: #1a2e05;
+}
+```
+
+We're still fine-tuning some of the naming conventions, but you can [explore the default theme on GitHub](https://github.com/tailwindlabs/tailwindcss/blob/next/packages/tailwindcss/theme.css) to see what's available to customize.
+
+If you don't want to explicitly clear the default theme and would rather start from scratch, you can import `"tailwindcss/preflight"` and `"tailwindcss/utilities"` directly to skip importing the default theme:
+
+```diff-css {{ filename: 'main.css', style: 'framed', color: 'indigo' }}
+- @import "tailwindcss";
++ @import "tailwindcss/preflight" layer(base);
++ @import "tailwindcss/utilities" layer(utilities);
+
+  @theme {
+-   --colors-*: initial;
+    --color-gray-50: #f8fafc;
+    --color-gray-100: #f1f5f9;
+    --color-gray-200: #e2e8f0;
+    /* ... */
+    --color-green-800: #3f6212;
+    --color-green-900: #365314;
+    --color-green-950: #1a2e05;
+  }
+```
+
+We also make all of your theme values available as native CSS variables in your custom CSS:
+
+```css {{ filename: 'dist/main.css', style: 'framed', color: 'sky' }}
+:root {
+  --color-gray-50: #f8fafc;
+  --color-gray-100: #f1f5f9;
+  --color-gray-200: #e2e8f0;
+  /* ... */
+  --color-green-800: #3f6212;
+  --color-green-900: #365314;
+  --color-green-950: #1a2e05;
+}
+```
+
+This makes it easy to reference any of your theme values in arbitrary values without needing the `theme()` function:
+
+```html {{ filename: 'index.html', style: 'framed', color: 'pink' }}
+<div class="**p-[calc(var(--spacing-6)-1px)]**">
+  <!-- ... -->
+</div>
+```
+
+It also makes it possible to user your theme values when working with UI libraries like Framer Motion, without having to use the `resolveConfig()` function:
+
+```jsx {{ filename: 'JSX', style: 'framed', color: 'fuchsia' }}
+<motion.li animate={{ background-color: "var(--color-blue-500)" }} />
+
+```
 
 
 ---
@@ -83,6 +182,7 @@ This new engine is a ground-up rewrite, and up until now we've been focused enti
 - **Safelists and blocklists**
 - **Support for `important` configuration**
 - **Support for the `theme()` function**
+- **Standalone CLI**
 
 On top of that, we've got some more new stuff we're excited to explore:
 

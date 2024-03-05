@@ -99,20 +99,25 @@ module.exports = {
             },
             ul: {
               listStyleType: 'none',
-              paddingLeft: 0,
+              paddingLeft: '1em',
             },
             'ul > li': {
               position: 'relative',
-              paddingLeft: '1.75em',
+              // paddingLeft: '0',
+              paddingLeft: '0.5em',
+              listStyleType: 'disc',
             },
-            'ul > li::before': {
-              content: '""',
-              width: '0.75em',
-              height: '0.125em',
-              position: 'absolute',
-              top: 'calc(0.875em - 0.0625em)',
-              left: 0,
-              borderRadius: '999px',
+            // 'ul > li::before': {
+            //   content: '""',
+            //   width: '0.75em',
+            //   height: '0.125em',
+            //   position: 'absolute',
+            //   top: 'calc(0.875em - 0.0625em)',
+            //   left: 0,
+            //   borderRadius: '999px',
+            //   backgroundColor: theme('colors.slate.300'),
+            // },
+            'ul > li::marker': {
               backgroundColor: theme('colors.slate.300'),
             },
             a: {
@@ -148,7 +153,7 @@ module.exports = {
               margin: '0 1px',
             },
             code: {
-              fontWeight: theme('fontWeight.medium'),
+              fontWeight: 550,
               fontVariantLigatures: 'none',
             },
             'strong code': {
