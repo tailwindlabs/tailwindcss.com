@@ -1,0 +1,104 @@
+import { adamwathan } from '@/authors'
+import card from './card.jpg'
+import { DynamicViewportExample } from '@/components/DynamicViewportHeights'
+
+
+export const meta = {
+  title: "Open-sourcing our progress on Tailwind CSS v4.0",
+  description: `Today we’re open-sourcing our progress on our new Oxide engine, so you can start experimenting with it and help us get to a stable release later this year.`,
+  date: '2024-03-19:00:00.000Z',
+  authors: [adamwathan],
+  image: card,
+}
+
+{/*excerpt*/}
+
+Last summer at Tailwind Connect [I shared a preview of Oxide](https://www.youtube.com/watch?v=CLkxRnRQtDE&t=2146s) — a new high-performance engine for Tailwind CSS that we've been working on, designed to simplify the developer experience and take advantage of how the web platform has evolved since Tailwind was first released.
+
+{/*/excerpt*/}
+
+![Tailwind CSS v3.3](./card.jpg)
+
+Last summer at Tailwind Connect [I shared a preview of Oxide](https://www.youtube.com/watch?v=CLkxRnRQtDE&t=2146s) — a new high-performance engine for Tailwind CSS that we've been working on, designed to simplify the developer experience and take advantage of how the web platform has evolved since Tailwind was first released.
+
+It's still early and we've got a lot of work to do, but today we're [open-sourcing our progress](https://github.com/tailwindlabs/tailwindcss/tree/next) so you can start experimenting with it and help us get to a stable release later this year.
+
+- **Automatic content detection** — Commodi ut ut beatae ipsum laborum. Quam animi est laborum quia iste est quod. Recusandae et aut aut dolorem maiores dolorum ratione fuga similique. Aperiam est quos. Non qui repellat aut vel doloremque facere eum.
+- **Built-in `@import` support** — Tempora qui voluptatibus repellendus possimus. Culpa accusantium repellat eius quia eos eos. Corporis ullam accusantium. Possimus amet consequatur. Dolor quasi aperiam quisquam.
+
+
+## A new engine, built for speed
+
+- Originally started with just Rust stuff for template scanning
+- Ground-up rewrite
+- No PostCSS, we wrote our own parser, designed our own data structures
+- Post-processing handled by Lightning CSS
+- Compound variants?
+- Simplified `@apply`?
+- Automatic content detection (including Vite plugin)
+- First-party Vite plugin
+
+## Unified toolchain
+
+- Built-in `@import` handling
+- Built-in vendor prefixing
+- Built-in nesting
+- Syntax transforms
+- Don't think about it as a plugin, think of it as your CSS processor
+
+## Modern CSS something
+
+- Native cascade layers
+- `@property` for animatable gradients
+- color-mix for opacity modifiers
+- Container queries to core
+
+## Rethinking the developer experience
+
+- `@import "tailwindcss"`
+- CSS-based configuration
+- CSS variables for theme values
+
+
+---
+
+## What's changed
+
+- Removed `text-opacity-*`, etc.
+
+
+---
+
+## Roadmap to v4.0
+
+This new engine is a ground-up rewrite, and up until now we've been focused entirely on this reimagined developer experience that uses an all-new approach to configuration.
+
+**We put an enormous amount of value in backwards compatibility**, and that's where the bulk of the work lies before we can tag a stable v4.0 release later this year.
+
+- **Support for JavaScript configuration files**
+- **Explicit content path configuration**
+- **Support for other dark modes**
+- **Plugins and custom utilities**
+- **Prefix support**
+- **Safelists and blocklists**
+- **Support for `important` configuration**
+- **Support for the `theme()` function**
+
+On top of that, we've got some more new stuff we're excited to explore:
+
+- **Wide-gamut color palette**
+- **`@starting-style` support**
+- **Anchor positioning**
+
+
+---
+
+## Try it out
+
+- Install PostCSS plugin, Vite, or CLI
+- Use the prerelease channel of the VS Code extension
+- Update the prettier plugin
+
+```bash
+$ npm install tailwindcss@oxide @tailwindcss/postcss@oxide
+```

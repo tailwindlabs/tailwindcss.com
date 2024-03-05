@@ -151,6 +151,9 @@ module.exports = {
               fontWeight: theme('fontWeight.medium'),
               fontVariantLigatures: 'none',
             },
+            'strong code': {
+              fontWeight: 650,
+            },
             pre: {
               color: theme('colors.slate.50'),
               borderRadius: theme('borderRadius.xl'),
