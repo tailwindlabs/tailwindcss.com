@@ -25,34 +25,71 @@ The new engine was originally going to ship as a v3.x release, but even though w
 
 It's still early and we've got [a lot of work to do](#roadmap-to-v4-0), but today we're [open-sourcing our progress](https://github.com/tailwindlabs/tailwindcss/tree/next) and tagging [v4.0.0-alpha.1](https://www.npmjs.com/package/tailwindcss/v/4.0.0-alpha.1) so you can start experimenting with it and help us get to a stable release later this year.
 
+I'll try keep it brief to save some of the excitement for the stable release, but if you like to play with very early and experimental stuff, there should be plenty of information here to get you going.
+
 ## A new engine, built for speed
 
-- Originally started with just Rust stuff for template scanning
-- Ground-up rewrite
-- No PostCSS, we wrote our own parser, designed our own data structures
-- Smaller
-- Compound variants?
-- Simplified `@apply`?
-- Automatic content detection (including Vite plugin)
-- First-party Vite plugin
+The new engine is a ground-up rewrite, using everything we know about the framework now to better model the problem space, making things faster with a lot less code.
+
+- **Up to 10x faster** — we can do a full build of the Tailwind CSS website in 105ms instead of 960ms, or our Catalyst UI kit in 55ms instead of 341ms.
+- **Smaller footprint** — the new engine is over 35% smaller installed, even with the heavier native packages we ship like the parts we've rewritten in Rust and Lightning CSS.
+- **Rust where it counts** — we've migrated some of the most expensive and parallelizable parts of the framework to Rust, while keeping the core of the framework in TypeScript for extensibility.
+- **One dependency** — the only thing the new engine depends on is Lightning CSS.
+- **Custom parser** — we wrote our own CSS parser and designed our own data structures tailored to our needs, making parsing over 2x as fast for us as it was with PostCSS.
+
 
 ## Unified toolchain
 
-- Built-in `@import` handling
-- Built-in vendor prefixing
-- Built-in nesting
-- Post-processing handled by Lightning CSS
-- Syntax transforms
-- Don't think about it as a plugin, think of it as your CSS processor
+Tailwind CSS v4 isn't just a plugin anymore — it's an all-in-one tool for processing your CSS. We've integrated [Lightning CSS](https://lightningcss.dev/) directly into the framework so you don't have to configure anything about your CSS pipeline.
+
+- **Built-in `@import` handling** — no need to setup and configure a tool like `postcss-import`.
+- **Built-in vendor prefixing** — you don't have to add `autoprefixer` to your projects anymore.
+- **Built-in nesting support** — no plugins needed to flatten nested CSS, it works out of the box.
+- **Syntax transforms** — modern CSS features like `oklch()` colors and media query ranges are transpiled to syntax with better browser support.
+
+We're still shipping a PostCSS plugin, but we're also exploring first-party bundler plugins, and we're shipping an official Vite plugin with this first alpha release that you can try out today.
 
 ## Designed for the modern web
 
-- Native cascade layers
-- `@property` for animatable gradients
-- color-mix for opacity modifiers
-- Container queries to core
+We're looking into the future with Tailwind CSS v4 and trying to build a framework that's going to feel cutting edge for years to come.
 
-## Rethinking the configuration experience
+- **Native cascade layers** — we're using real `@layer` rules now, which solves a ton of specificity problems we've wrestled with in the past.
+- **Explicitly defined custom properties** — we use `@property` to define our internal custom properties with proper types and constraints, making it possible to do things like transition background gradients.
+- **Using `color-mix` for opacity modifiers** — making it easier than ever to use our opacity modifier syntax when using CSS variables for colors, or even adjusting the opacity of `currentColor`.
+- **Container queries in core** — we've added support for container queries directly to core, with new `@min-*` and `@max-*` variants to support container query ranges.
+
+We're also working on refreshing our color palette with wide gamut colors, and introducing support for other modern CSS features like `@starting-style`, anchor positioning, and more.
+
+## Composable variants
+
+The new architecture makes it possible to compose together variants that act on other selectors, like `group-*`, `peer-*`, `has-*`, and a new `not-*` variant we're introducing for v4.
+
+In earlier releases, variants like `group-has-*` were explicitly defined in the framework, but now `group-*` can compose with the existing `has-*` variant, which can compose with other variants like `focus`:
+
+```diff-html {{ filename: 'index.html', style: 'framed', color: 'pink' }}
+  <div class="group">
+-   <div class="group-has-[&:focus]:opacity-100">
++   <div class="group-has-focus:opacity-100">
+      <!-- ... -->
+    </div>
+  </div>
+```
+
+There's no limits to this composability, and you can even write stuff like `group-not-has-peer-not-data-active:underline` if for some horrible reason that's what you need to do.
+
+## Zero-configuration content detection
+
+You'll notice that at least in these early alpha releases, it's not even possible to configure your `content` paths. For most projects, you're never going to need to do this ever again — Tailwind just finds your template files for you.
+
+We do this using one of two ways depending on how you've integrated Tailwind into your project:
+
+- **Using the PostCSS plugin or the CLI**, Tailwind will crawl your entire project looking for template files, using a bunch of heuristics we've built in to keep things fast, like not crawling directories that are in your `.gitignore` file, and ignoring binary file formats.
+
+- **Using the Vite plugin**, we rely on the module graph. This is amazing because we know exactly what files you're actually using, so it's maximally performant, and with no false positives or negatives. We're hoping to expand this approach outside of the Vite ecosystem with other bundler plugins in the future.
+
+We'll introduce a way to configure content paths explicitly in the future for sure, but we're curious to see how well this automatic approach works for everyone — it's working awesome in our own projects.
+
+## CSS-first configuration
 
 A major goal of Tailwind CSS v4.0 is making the framework feel CSS-native, and less like a JavaScript library.
 
@@ -146,7 +183,7 @@ We also make all of your theme values available as native CSS variables in your 
 This makes it easy to reference any of your theme values in arbitrary values without needing the `theme()` function:
 
 ```html {{ filename: 'index.html', style: 'framed', color: 'pink' }}
-<div class="**p-[calc(var(--spacing-6)-1px)]**">
+<div class="p-[calc(var(--spacing-6)-1px)]">
   <!-- ... -->
 </div>
 ```
@@ -154,8 +191,17 @@ This makes it easy to reference any of your theme values in arbitrary values wit
 It also makes it possible to user your theme values when working with UI libraries like Framer Motion, without having to use the `resolveConfig()` function:
 
 ```jsx {{ filename: 'JSX', style: 'framed', color: 'fuchsia' }}
-<motion.li animate={{ background-color: "var(--color-blue-500)" }} />
+import { motion } from "framer-motion"
 
+export const MyComponent = () => (
+  <motion.div
+    initial={{ y: 'var(--spacing-8)' }}
+    animate={{ y: 0 }}
+    exit={{ y: 'var(--spacing-8)' }}
+  >
+    {children}
+  </motion.div>
+)
 ```
 
 
