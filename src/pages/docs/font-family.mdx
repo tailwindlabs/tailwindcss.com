@@ -106,6 +106,24 @@ Note that **Tailwind does not automatically escape font names** for you. If you'
 }
 ```
 
+Like any other web project, make sure to include the necessary `@font-face` or `@import` rules in your CSS for any custom fonts you're using so that those fonts are loaded by the browser for your site:
+
+```css {{ filename: 'app.css' }}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/fonts/Roboto.woff2) format('woff2');
+  }
+}
+```
+
 Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
 
 #### Providing default font settings
