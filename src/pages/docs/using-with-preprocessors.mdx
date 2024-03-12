@@ -125,7 +125,7 @@ The `postcss-import` plugin is smart enough to look for files in the `node_modul
 
 ### Nesting
 
-To add support for nested declarations, we recommend our bundled `tailwindcss/nesting` plugin, which is a PostCSS plugin that wraps [postcss-nested](https://github.com/postcss/postcss-nested) or [postcss-nesting](https://github.com/jonathantneal/postcss-nesting) and acts as a compatibility layer to make sure your nesting plugin of choice properly understands Tailwind's custom syntax.
+To add support for nested declarations, we recommend our bundled `tailwindcss/nesting` plugin, which is a PostCSS plugin that wraps [postcss-nested](https://github.com/postcss/postcss-nested) or [postcss-nesting](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nesting) and acts as a compatibility layer to make sure your nesting plugin of choice properly understands Tailwind's custom syntax.
 
 It's included directly in the `tailwindcss` package itself, so to use it all you need to do is add it to your PostCSS configuration, somewhere before Tailwind:
 
@@ -143,7 +143,7 @@ module.exports = {
 
 By default, it uses the [postcss-nested](https://github.com/postcss/postcss-nested) plugin under the hood, which uses a Sass-like syntax and is the plugin that powers nesting support in the [Tailwind CSS plugin API](/docs/plugins#css-in-js-syntax).
 
-If you'd rather use [postcss-nesting](https://github.com/jonathantneal/postcss-nesting) (which is based on the work-in-progress [CSS Nesting](https://drafts.csswg.org/css-nesting-1/) specification), first install the plugin:
+If you'd rather use [postcss-nesting](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nesting) (which is based on the standard [CSS Nesting](https://drafts.csswg.org/css-nesting-1/) specification), first install the plugin:
 
 ```shell
 npm install -D postcss-nesting
