@@ -3,7 +3,7 @@ import card from './card.png'
 
 
 export const meta = {
-  title: "We're hiring an Engineering Lead at Tailwind Labs",
+  title: "Staff Software Engineer",
   description: `We just released the first development preview of Catalyst, our new fully-componentized, batteries-included application UI kit for React.`,
   date: '2024-01-22:00:00.000Z',
   authors: [adamwathan],
@@ -17,121 +17,115 @@ We're hiring a Lead Engineer to help us design and develop new features and prod
 
 {/*/excerpt*/}
 
+We're hiring a Staff Software Engineer to work on [Tailwind CSS](https://tailwindcss.com), [Headless UI](https://headlessui.com/), and our supporting ecosystem of tools like the [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) extension for VS Code.
 
-At Tailwind Labs, we build things that empower developers to create interfaces that inspire them and are a joy to work on. We're hiring an Engineering Lead to help us design and develop new features and products, elevate and evolve our brand, and invent new ways to help developers build interfaces they can be proud of.
+This is a fully remote position with a salary of $275,000 USD, open to candidates in the Eastern (UTC-5) to Central European (UTC+1) timezones. We're accepting applications until Monday April 1st at 9:00pm ET.
 
-
-This is a fully remote position with a salary of $275,000 – $325,000 USD, and is open to candidates in the Eastern (UTC-5) to Central European (UTC+1) timezones.
+---
 
 ## What you'll do
 
-Omnis et illo et quis praesentium debitis et in suscipit. Dolor quasi nisi. Consequatur aut minus id culpa est unde quo quibusdam. Provident dicta qui voluptate. Et cum sit. Eos quisquam dignissimos in tempore aliquam illum culpa.
+We're a small multidisciplinary team and you'd have a wide variety of responsibilities, including:
 
-While leadership experience is crucial for this role, it's important to understand that we're a very small team and management is nowhere close to being a full-time job here. You'll spend the vast majority of your time in your favorite editor, doing real engineering work alongside the rest of the team. The right person for this job cares deeply about helping others grow, but has no interest in trading in their vimrc file just yet.
-
-- **Build new features for Tailwind CSS, Headless UI, and our supporting ecosystem.**
-- **Contribute to open-source projects in our ecosystem.** Like Lightning CSS, Next.js, Vite, and more.
-- **Foster a culture of craftsmanship**
-- **Manage issues and contributions to our open-source projects**
-- **Manage project priorities and strategically adjust scope**
-
-You'd work on projects like:
-
-- **Develop Tailwind CSS bundler plugins** for tools like Vite that detect classes using the module graph instead of scanning the filesystem.
-- **Build a fast globbing library in Rust** optimized for our needs in Tailwind CSS, and write an educational blog post about how it works.
-- **Design a set of IDE integration APIs for Tailwind CSS** that expose useful information like completions, lint warnings, class sorting order, and more.
-- **Build a backwards compatibility layer for Tailwind CSS v4.0** to simplify migrating from previous versions, without polluting the new architecture.
-- **Campaign for simplified Tailwind CSS integration in popular frameworks and bundlers**, by writing up specific implementation proposals for the maintainers, and creating pull requests that demonstate how the integrations would work.
-- Something about Headless UI here
-
-## Who you are
-
-- **You hold people to a high standard, and inspire them to do their best work.** You're candid and direct with feedback, and know how to help people see the value in pushing for that extra level of quality.
-- **You care about the details.** It's important to you that every variable name is just right, code comments are free of grammatical errors, and tests are named consistently. Our code is public, and it reflects on us as much as anything else we do.
-- **You miss when software used to be fast.**
-- **You're energized by unfamiliar territory.**
-
-## Our technology stack
-
-- Node
-- TypeScript
-- Rust
-- React
-- Next.js
-- MDX
+- **Building and documenting new features** for projects like Tailwind CSS and Headless UI.
+- **Contributing improvements to upstream projects** like Lightning CSS, Next.js, and Vite.
+- **Maintaining CI workflows and automations** for running tests and building releases.
+- **Managing issues and contributions** from the community to our open-source repositories.
+- **Defining and upholding engineering standards** with a focus on code quality, performance, and documentation, to make sure we're always shipping work we can be proud of.
+- **Managing project priorities and adjusting scope** to meet project deadlines without sacrifing on top-level goals.
 
 
+Here are some real examples of projects you would have worked on in the last few months:
 
-### Responsibilities
+- **Create a [Rust library](https://github.com/tailwindlabs/tailwindcss/blob/0ee3508179966a767b7802a7262bb9d4ce2221da/oxide/crates/core/src/lib.rs) for extracting utility class names** — a tool that can scan an entire directory of template files as fast as possible and extract potential class names in parallel.
+- **Add support for [composing variants](https://tailwindcss.com/blog/tailwindcss-v4-alpha#composable-variants) in Tailwind CSS** — make it possible to author classes like `group-has-peer-focus:underline` without an explicit `group-has-peer-focus` variant.
+- **Write a [fast CSS parser](https://github.com/tailwindlabs/tailwindcss/blob/0ee3508179966a767b7802a7262bb9d4ce2221da/packages/tailwindcss/src/css-parser.ts) in TypeScript** — to parse only the exact amount of detail needed by Tailwind's internals, looking for domain-specific shortcuts to make it significantly faster than existing libraries for our needs.
+- **Fix an issue with [scroll-locking](https://github.com/tailwindlabs/headlessui/pull/2891) in Headless UI** — to make sure scrollable elements in dialogs can still be scrolled on iOS.
+- **Set up [GitHub Actions workflows](https://github.com/tailwindlabs/tailwindcss/blob/0ee3508179966a767b7802a7262bb9d4ce2221da/.github/workflows/release-oxide.yml) for compiling our Rust libraries** — configure our release pipeline to properly build and distribute our native packages for each supported platform.
+- **Campaign for [new APIs](https://github.com/vitejs/vite/pull/16135) we need in Vite** — prepare a compelling argument for improvements we need to support Tailwind CSS and collaborate with the Vite core team to prototype a solution.
+- **Fix an issue with [loading plugins]( https://github.com/tailwindlabs/tailwindcss/pull/12506) in the Tailwind CSS standalone CLI** — where built-in plugins like `@tailwindcss/typography` would fail to load when writing your config file in ESM or TS.
+- **Support [virtualized lists](https://github.com/tailwindlabs/headlessui/pull/2779) in Headless UI comboboxes** — make it possible to render lists with thousands of items with no performance issues or loss in UI fidelity.
+- **Build an embedded search implementation for our [documentation templates](https://protocol.tailwindui.com/)** — so customers don't need to rely on a specific hosted search solution like Algolia.
+- **Optimize [incremental build performance](https://github.com/tailwindlabs/tailwindcss/pull/13168) in Tailwind CSS v4.0** — find ways to make rebuilds as fast as possible, not stopping until you see the microsecond symbol in your terminal.
 
-- Build new features for Tailwind CSS, Headless UI, and supporting tooling
-- Contribute improvements to important upstream tools like Lightning CSS, Next.js, and Vite
-- Maintain and improve our CI workflows and release automation
-- Write and maintain documentation for new features
-- Manage project priorities and strategically adjust scope to meet deadlines
-- Define and uphold engineering standards and foster a culture of craftsmanship
-- Identify and advocate for important engineering projects
-- Manage issues and contributions to our open-source repositories
-- Document important engineering processes
+After you start, you'd work on upcoming projects like:
 
-{/* - Triage and prioritize incoming issues from our userbase */}
-{/* - Serve as a coach and mentor for other engineers on the team */}
+- **Develop a Tailwind CSS bundler plugin for Next.js** — to generate your CSS using the module graph instead of scanning the file system, working with our contacts at Vercel to get it right.
+- **Create a JavaScript library for running Tailwind CSS v4.0 in the browser** — an updated version of our [Play CDN](https://tailwindcss.com/docs/installation/play-cdn) library that uses our new engine under the hood, with a focus on making it as small as possible.
+- **Design a set of IDE integration APIs for Tailwind CSS** — first-class, stable, documented APIs that editor teams like JetBrains can rely on to add things like completions, lint warnings, class sorting, and more to their tools.
+- **Design, build, and document a Tooltip component for Headless UI** — making sure it's fully accessible, with a flexible but delightful API.
+- **Build a backwards compatibility layer for Tailwind CSS v4.0** — re-introduce support for JavaScript configuration files, explore codemod tooling, and make sure existing community plugins are as compatible as possible with the new engine.
+- **Campaign for simplified Tailwind CSS integration in popular frameworks and bundlers** — by writing up specific implementation proposals, and creating pull requests that demonstate how the integrations would work.
 
-
-### Projects you'd work on
-
-- Develop Tailwind CSS bundler plugins that detect classes using the module graph instead of scanning the filesystem
-- Build a fast globbing library in Rust optimized for our needs in Tailwind CSS and write an educational blog post about how it works
-- Design and implement a set of stable APIs in Tailwind CSS that expose useful information to IDE integration developers, like completions, lint warnings, class sorting order, and more
-- Build an unobtrusive backwards compatibility layer for Tailwind CSS v4 to simplify migrating from previous versions
-- Campaign for simplified Tailwind CSS integration in popular frameworks and bundlers via specific implementation proposals and pull requests
-
-### Our technology stack
-
-- Node
-- TypeScript
-- Rust
-- React
-- Next.js
-- MDX
+---
 
 ## Who you are
 
-Omnis et illo et quis praesentium debitis et in suscipit. Dolor quasi nisi. Consequatur aut minus id culpa est unde quo quibusdam. Provident dicta qui voluptate. Et cum sit. Eos quisquam dignissimos in tempore aliquam illum culpa.
+We're looking for
 
-### Skills and qualifications
+- **You hold people to a high standard, and inspire them to do their best work.** You're candid and direct with feedback, and motivate your teammates to raise their own bar.
+- **You're fanatical about polish** — almost to a fault. It's important to you that every variable name is just right, code comments are free of grammatical errors, and tests are named consistently.
+- **You miss when software used to be fast**, and  you love writing code that shows what these crazy machines we use today are actually capable of.
+- **You're energized by unfamiliar territory.** You enjoy the challenge of digging in to a codebase you've never seen before to try and troubleshoot a complex problem.
+- **You're a good writer.** Whether it's a project status update, documentation, a pull request description, or a response to a GitHub issue, you think about the reader and care about communicating clearly.
+- **You're good at breaking down projects.**
+- **You like to pair on problems.**
+- **You love great design.**
+{/* - **You've built a lot of stuff with Tailwind CSS.** */}
+{/* - **You've got low-level React expertise.** */}
 
-- Experience building and leading teams
-- You inspire and motivate others to do their best work
-- Strong written communication skills
-- Strong organization skills
-- Fanatical about polish
-- Sense of humor
-- Highly collaborative, energized by working with others
-- Performance-minded
+---
 
 ## Why work with us
 
-Omnis et illo et quis praesentium debitis et in suscipit. Dolor quasi nisi. Consequatur aut minus id culpa est unde quo quibusdam. Provident dicta qui voluptate. Et cum sit. Eos quisquam dignissimos in tempore aliquam illum culpa.
+- **We ship** — we don't do 18-month projects that are irrelevant before they're even finished. We design projects we can deliver in two months or less so we never have to wait too long before we can make fresh decisions about priorities.
+- **Our work has impact** — Tailwind CSS is installed almost 9 million times every week by millions of developers around the world, and used by the world's biggest companies to build the world's best websites. When you work here, you get to tell people "I make the thing they use to build the ChatGPT interface."
+- **We're small, on purpose** — we have the resources to hire a lot more people, but we don't want to build a big, complicated company. We're a tight-knit team where you'd work directly with the founders every single day.
+- **We're fully remote** — work from wherever you want. We collaborate in real-time every day over Tuple and in Figma, but we all work from the comfort of our own homes.
+- **We're independent and profitable** — we don't have investors or a board to justify our decisions to, and aren't burning through cash trying to make the business work. Landing the next big customer or closing the next round isn't a stress anybody has to deal with here.
+- **We care about doing great work** — as a profitable company, we can afford to go the extra mile and take our time to be proud of the things we ship. You don't need permission to write tests here.
+- **We're not trying to make it big** — we say no to great opportunities if there's any chance it would make our days less fun. We care about making enough money to keep doing what we enjoy, not doing whatever it takes to make as much money as possible.
+- **We don't take ourselves too seriously** — we believe in doing great work, but we also recognize that we're building a CSS framework, not making breakthrough medical discoveries. We hide jokes in our documentation, we don't run our writing through a corporate PR filter, and we're not too cool to smile in our headshots.
 
-- We spend our time getting stuff done, not in meetings
-- **Our work has impact** — Tailwind CSS is installed over 7 million times every week by millions of developers around the world, and used by the world's biggest companies to build the world's best websites. When you work here, you get to tell people things like "I work on the thing they use to build the ChatGPT website".
-- **We're small, on purpose** — we have the resources to build a much bigger team, but we prefer the agility we get from staying small. We hire truly excellent people, and take pride in being able to punch well above our weight.
-- **We ship** — we don't do 18-month projects that are irrelevant before they're even finished. Using [Shape Up](https://basecamp.com/shapeup) principles, we design projects we can deliver in eight weeks so we never have to wait too long before we can make fresh decisions about priorities.
-- **We're fully remote** — because the best person for the job probably doesn't live in our hometown, and because being able to meet your kid at the bus stop every afternoon or simply be home for the repair guy is worth a lot.
-- **We're independent and profitable** — we aren't beholden to investors or a board, and aren't burning through cash trying to make the business work. Landing the next big customer or closing the next round isn't a stress anybody has to deal with here.
-- **We're highly collaborative** — we have no standing meetings, but we spend a lot of time screensharing and pairing on problems together. We strongly believe that two people working on one problem is more effective and leads to higher quality work than two people working separately.
-- **We do it for the craft** — as a profitable company, we can afford to go the extra mile and take our time to be proud of the things we ship. We spend a lot of time on stuff that wouldn't make any sense to someone who only cared about merely solving the problem.
-- **We're a calm company** — we work 8-hour days and 40-hour weeks, and we say no to great opportunities and ideas that might make this a more hectic place to work. We've had emergencies sure, but you could count them all on one hand.
-- **We don't take ourselves too seriously** — we believe in doing great work, but we also recognize that we're building a CSS framework, not making breakthrough medical discoveries. We hide jokes in our documentation, we don't run our blog posts through a corporate PR filter, and we smile and look at the camera in our headshots.
+---
 
-### Pay and benefits
+## Pay and benefits
 
-- Illum autem officia sunt temporibus tenetur quibusdam id.
-- Qui laboriosam adipisci.
-- Ut et repellendus veritatis quam aut in et harum.
-- Aut quibusdam laboriosam praesentium.
-- Adipisci et corrupti minima deserunt debitis tenetur.
+The compensation for this position is **$275,000 USD per year**, no matter where you're based.
 
+- **Work remotely** — work from wherever you're most productive, no commuting to an office.
+- **30 days vacation** — six weeks of paid time off for you to use throughout the year.
+- **Equipment budget** — $7500 when you start to spend on anything you need to do your best work.
+- **Annual team retreats** — fun-focused trips where we get together in person to recharge and build better relationships.
+- **Winter break** — we always shut down for at least a week at the end of the year to spend the holidays with our families, on top of our regular paid time off.
+
+ We're a very small distributed team, so we work together as independent contractors. That means we cannot offer certain benefits like health insurance or a retirement savings plan
+
+ You should only apply for this position if you are comfortable with being self-employed in your local jurisdiction.
+
+---
 
 ## How to apply
+
+To apply, write something specifically for this position that tells us why you're a great fit for the role and what you can bring to Tailwind Labs.
+
+Examples of things we're interested in learning about you include:
+
+- **What you're excited about**, and the work you'd be most looking forward to in this role.
+- **Interesting projects you've worked on**, especially things that are relevant to the work we do here.
+- **Open-source contributions**, whether it's your own project, a pull request you're proud of, or  a well-written bug report you filed.
+- **Previous experience**, especially any leadership responsibilities you've held in other roles.
+- **Technical writing**, like blog posts you've published or documentation you've worked on.
+
+This role is open to candidates in the Eastern (UTC-5) to Central European (UTC+1) timezones, and we're accepting applications until Monday April 1st at 9:00pm ET.
+
+We'll spend a couple of weeks reviewing applications, and we'll let you know whether we'd like to invite you to the interview process by mid-April.
+
+Here's what the process looks like:
+
+- **Introduction call** — a short call where we'll ask you some questions to get to know you better, and answer any questions you have about the role.
+- **Take-home project** — next, we invite about ten people to complete a small technical project. Expect to spend about half a day on this, and we'll pay you $500 for this time.
+- **In-depth interview** — after the take-home project, we do a longer interview with the top candidates where we'll ask you questions about the project and your experience in previous roles.
+- **Pair programming session** — the final step is a one-hour pair programming session with another engineer on our team, where you'll work on something unfamiliar to both of you to get a better sense of what it would be like to really work together.
+
+We'll make an offer in May, with an aim to start working together in late May/early June.
