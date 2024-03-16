@@ -64,10 +64,14 @@ module.exports = {
               letterSpacing: '-0.025em',
             },
             h2: {
-              marginBottom: `${16 / 24}em`,
+              fontSize: '1.25em',
+              fontWeight: '600',
+              marginBottom: `1.25em`,
             },
             h3: {
+              fontSize: '1.125em',
               marginTop: '2.4em',
+              marginBottom: '1em',
               lineHeight: '1.4',
             },
             h4: {
@@ -100,12 +104,16 @@ module.exports = {
             ul: {
               listStyleType: 'none',
               paddingLeft: '1em',
+              marginTop: '1em',
+              marginBottom: '2em',
             },
             'ul > li': {
               position: 'relative',
               // paddingLeft: '0',
               paddingLeft: '0.5em',
               listStyleType: 'disc',
+              marginTop: '0.75em',
+              marginBottom: '0.75em',
             },
             // 'ul > li::before': {
             //   content: '""',
