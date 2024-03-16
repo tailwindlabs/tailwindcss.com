@@ -75,8 +75,10 @@ module.exports = {
               lineHeight: '1.4',
             },
             h4: {
-              marginTop: '2em',
-              fontSize: '1.125em',
+              marginTop: '2.5em',
+              marginBottom: '0.75em',
+              fontSize: '1em',
+              fontWeight: '600',
             },
             'h2 small, h3 small, h4 small': {
               fontFamily: theme('fontFamily.mono').join(', '),
