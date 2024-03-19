@@ -180,9 +180,9 @@ export function JobPostingLayout({ children, meta }) {
             <p className="text-sm font-semibold leading-6 text-sky-500 dark:text-sky-400">
               We’re hiring
             </p>
-            <p className="mt-2 text-[length:clamp(1rem,7vw,3.5rem)] font-semibold leading-none tracking-tighter text-black dark:text-white xl:text-6xl/none">
+            <h1 className="mt-2 text-[length:clamp(1rem,7vw,3.5rem)] font-semibold leading-none tracking-tighter text-black dark:text-white xl:text-6xl/none">
               {meta.title}
-            </p>
+            </h1>
             <div className="mt-4 flex gap-8 text-sm/7 sm:mt-8">
               <div className="flex items-center gap-2">
                 <LocationIcon />
