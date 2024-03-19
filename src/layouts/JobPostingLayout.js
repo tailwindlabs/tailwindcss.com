@@ -7,7 +7,7 @@ import { mdxComponents } from '@/utils/mdxComponents'
 import { MDXProvider } from '@mdx-js/react'
 import Link from 'next/link'
 
-function Beams() {
+function BackgroundBeams() {
   return (
     <div className="pointer-events-none absolute inset-x-0 top-0 flex justify-center overflow-hidden">
       <div className="flex w-[108rem] flex-none justify-end">
@@ -170,7 +170,7 @@ function BottomGlow() {
 export function JobPostingLayout({ children, meta }) {
   return (
     <>
-      <Beams />
+      <BackgroundBeams />
       <Header />
       <div className="mx-auto max-w-4xl overflow-hidden sm:overflow-visible sm:px-8 xl:max-w-8xl xl:px-8">
         <div className="mt-12 grid grid-cols-1 items-start border-slate-950/10 dark:border-white/10 sm:mt-16 sm:border-t xl:grid-cols-[34rem_minmax(0,1fr)]">
