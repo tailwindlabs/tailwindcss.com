@@ -129,6 +129,44 @@ function CashIcon() {
   )
 }
 
+function LineExtensions({ body }) {
+  let base = 'absolute from-slate-950/10 to-transparent dark:from-white/10'
+
+  return body ? (
+    <>
+      <span className={`${base} -right-px top-[-33px] h-8 w-px bg-gradient-to-t max-xl:hidden`} />
+      <span className={`${base} -top-px right-[-33px] h-px w-8 bg-gradient-to-r`} />
+      <span className={`${base} -bottom-px right-[-33px] h-px w-8 bg-gradient-to-r`} />
+      <span className={`${base} -bottom-px left-[-33px] h-px w-8 bg-gradient-to-l`} />
+      <span className={`${base} -left-px bottom-[-33px] h-8 w-px bg-gradient-to-b`} />
+      <span className={`${base} -right-px bottom-[-33px] h-8 w-px bg-gradient-to-b`} />
+    </>
+  ) : (
+    <>
+      <span className={`${base} -left-px top-[-33px] h-8 w-px bg-gradient-to-t`} />
+      <span className={`${base} -right-px top-[-33px] h-8 w-px bg-gradient-to-t`} />
+      <span className={`${base} -left-px bottom-[-33px] h-8 w-px bg-gradient-to-b max-xl:hidden`} />
+      <span className={`${base} -top-px left-[-33px] h-px w-8 bg-gradient-to-l`} />
+      <span className={`${base} -top-px right-[-33px] h-px w-8 bg-gradient-to-r xl:hidden`} />
+      <span className={`${base} -bottom-px left-[-33px] h-px w-8 bg-gradient-to-l`} />
+      <span
+        className={`${base} -bottom-px right-[-33px] h-px w-8 bg-gradient-to-r max-xl:hidden`}
+      />
+    </>
+  )
+}
+
+function BottomGlow() {
+  return (
+    <div className="absolute inset-x-0 -bottom-2 flex h-2 justify-center overflow-hidden">
+      <div className="-mt-px flex h-[2px] w-full max-w-sm">
+        <div className="w-full flex-none blur-sm [background-image:linear-gradient(90deg,rgba(56,189,248,0)_0%,#0EA5E9_32.29%,rgba(236,72,153,0.3)_67.19%,rgba(236,72,153,0)_100%)]" />
+        <div className="-ml-[100%] w-full flex-none blur-[1px] [background-image:linear-gradient(90deg,rgba(56,189,248,0)_0%,#0EA5E9_32.29%,rgba(236,72,153,0.3)_67.19%,rgba(236,72,153,0)_100%)]" />
+      </div>
+    </div>
+  )
+}
+
 export function JobPostingLayout({ children, meta }) {
   return (
     <>
@@ -137,26 +175,15 @@ export function JobPostingLayout({ children, meta }) {
       <div className="mx-auto max-w-4xl overflow-hidden sm:overflow-visible sm:px-8 xl:max-w-8xl xl:px-8">
         <div className="mt-12 grid grid-cols-1 items-start border-slate-950/10 dark:border-white/10 sm:mt-16 sm:border-t xl:grid-cols-[34rem_minmax(0,1fr)]">
           <div className="relative top-0 border-b border-slate-950/10 px-8 pb-12 pt-8 dark:border-white/10 sm:border-x sm:px-12 sm:py-16 xl:sticky xl:border-r-0">
-            <span className="absolute -left-px top-[-33px] h-8 w-px bg-gradient-to-t from-slate-950/10 to-transparent dark:from-white/10" />
-            <span className="absolute -right-px top-[-33px] h-8 w-px bg-gradient-to-t from-slate-950/10 to-transparent dark:from-white/10" />
-            <span className="absolute -left-px bottom-[-33px] h-8 w-px bg-gradient-to-b from-slate-950/10 to-transparent dark:from-white/10 max-xl:hidden" />
-            <span className="absolute -top-px left-[-33px] h-px w-8 bg-gradient-to-l from-slate-950/10 to-transparent dark:from-white/10" />
-            <span className="absolute -top-px right-[-33px] h-px w-8 bg-gradient-to-r from-slate-950/10 to-transparent dark:from-white/10 xl:hidden" />
-            <span className="absolute -bottom-px left-[-33px] h-px w-8 bg-gradient-to-l from-slate-950/10 to-transparent dark:from-white/10" />
-            <span className="absolute -bottom-px right-[-33px] h-px w-8 bg-gradient-to-r from-slate-950/10 to-transparent dark:from-white/10 max-xl:hidden" />
-            <div className="absolute inset-x-0 -bottom-2 flex h-2 justify-center overflow-hidden">
-              <div className="-mt-px flex h-[2px] w-full max-w-sm">
-                <div className="w-full flex-none blur-sm [background-image:linear-gradient(90deg,rgba(56,189,248,0)_0%,#0EA5E9_32.29%,rgba(236,72,153,0.3)_67.19%,rgba(236,72,153,0)_100%)]" />
-                <div className="-ml-[100%] w-full flex-none blur-[1px] [background-image:linear-gradient(90deg,rgba(56,189,248,0)_0%,#0EA5E9_32.29%,rgba(236,72,153,0.3)_67.19%,rgba(236,72,153,0)_100%)]" />
-              </div>
-            </div>
+            <LineExtensions />
+            <BottomGlow />
             <p className="text-sm font-semibold leading-6 text-sky-500 dark:text-sky-400">
               We’re hiring
             </p>
             <p className="mt-2 text-[length:clamp(1rem,7vw,3.5rem)] font-semibold leading-none tracking-tighter text-black dark:text-white xl:text-6xl/none">
               {meta.title}
             </p>
-            <div className="mt-4 sm:mt-8 flex gap-8 text-sm/7">
+            <div className="mt-4 flex gap-8 text-sm/7 sm:mt-8">
               <div className="flex items-center gap-2">
                 <LocationIcon />
                 <p className="text-slate-700 dark:text-slate-400">
@@ -176,12 +203,7 @@ export function JobPostingLayout({ children, meta }) {
             </p>
           </div>
           <div className="relative border-slate-950/10 px-8 pb-16 pt-12 dark:border-white/10 sm:mb-24 sm:border-x sm:border-b sm:px-12 sm:pt-16">
-            <span className="absolute -right-px top-[-33px] h-8 w-px bg-gradient-to-t from-slate-950/10 to-transparent dark:from-white/10 max-xl:hidden" />
-            <span className="absolute -top-px right-[-33px] h-px w-8 bg-gradient-to-r from-slate-950/10 to-transparent dark:from-white/10" />
-            <span className="absolute -bottom-px right-[-33px] h-px w-8 bg-gradient-to-r from-slate-950/10 to-transparent dark:from-white/10" />
-            <span className="absolute -bottom-px left-[-33px] h-px w-8 bg-gradient-to-l from-slate-950/10 to-transparent dark:from-white/10" />
-            <span className="absolute -left-px bottom-[-33px] h-8 w-px bg-gradient-to-b from-slate-950/10 to-transparent dark:from-white/10" />
-            <span className="absolute -right-px bottom-[-33px] h-8 w-px bg-gradient-to-b from-slate-950/10 to-transparent dark:from-white/10" />
+            <LineExtensions body />
             <div className="prose prose-slate leading-7 dark:prose-dark">
               <MDXProvider components={mdxComponents}>{children}</MDXProvider>
             </div>
