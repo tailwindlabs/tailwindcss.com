@@ -199,7 +199,10 @@ export function JobPostingLayout({ children, meta }) {
               <ApplyButton url={meta.applyUrl} />
             </p>
             <p className="mt-7 text-sm/7 text-slate-500">
-              Closes on {formatDate(meta.dateCloses, '{MMMM} {Do} at {h}:{mm}{a} ET')}
+              Closes on{' '}
+              <time dateTime={meta.dateCloses}>
+                {formatDate(meta.dateCloses, '{MMMM} {Do} at {h}:{mm}{a} ET')}
+              </time>
             </p>
           </div>
           <div className="relative border-slate-950/10 px-8 pb-16 pt-12 dark:border-white/10 sm:mb-24 sm:border-x sm:border-b sm:px-12 sm:pt-16">
