@@ -39,9 +39,9 @@ export function Heading({
         className={clsx('group relative border-none', hidden ? 'sr-only' : 'lg:-ml-2 lg:pl-2')}
         href={`#${id}`}
       >
-        <div className="absolute -ml-8 hidden items-center border-0 opacity-0 group-hover:opacity-100 group-focus:opacity-100 lg:flex">
+        <span className="absolute -ml-8 hidden items-center border-0 opacity-0 group-hover:opacity-100 group-focus:opacity-100 lg:flex">
           &#8203;
-          <div
+          <span
             className={clsx(
               'flex h-6 w-6 items-center justify-center rounded-md text-slate-400 shadow-sm ring-1 ring-slate-900/5 hover:text-slate-700 hover:shadow hover:ring-slate-900/10',
               'dark:bg-slate-800 dark:text-slate-400 dark:shadow-none dark:ring-0 dark:hover:bg-slate-700 dark:hover:text-slate-200'
@@ -55,8 +55,8 @@ export function Heading({
                 strokeLinecap="round"
               />
             </svg>
-          </div>
-        </div>
+          </span>
+        </span>
         {children}
       </a>
     </Component>
