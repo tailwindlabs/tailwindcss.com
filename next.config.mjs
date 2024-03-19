@@ -39,6 +39,7 @@ const fallbackLayouts = {
 const fallbackDefaultExports = {
   'src/pages/{docs,components}/**/*': ['@/layouts/ContentsLayout', 'ContentsLayout'],
   'src/pages/blog/**/*': ['@/layouts/BlogPostLayout', 'BlogPostLayout'],
+  'src/pages/careers/**/*': ['@/layouts/JobPostingLayout', 'JobPostingLayout'],
   'src/pages/showcase/**/*': ['@/layouts/ShowcaseLayout', 'ShowcaseLayout'],
 }
 

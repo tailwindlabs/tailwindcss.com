@@ -4,7 +4,7 @@
   font-display: block;
   font-style: normal;
   font-named-instance: 'Regular';
-  src: url('../fonts/Inter-roman-latin.var.woff2') format('woff2');
+  src: url('../fonts/InterVariable.woff2') format('woff2');
 }
 
 @font-face {
@@ -13,7 +13,7 @@
   font-display: block;
   font-style: italic;
   font-named-instance: 'Italic';
-  src: url('../fonts/Inter-italic-latin.var.woff2') format('woff2');
+  src: url('../fonts/InterVariable-Italic.woff2') format('woff2');
 }
 
 @font-face {

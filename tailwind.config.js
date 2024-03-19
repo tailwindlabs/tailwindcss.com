@@ -60,6 +60,10 @@ module.exports = {
               marginTop: '3em',
               marginBottom: '3em',
             },
+            '.lead': {
+              fontSize: '1.125em',
+              lineHeight: 'calc(32 / 18)',
+            },
             'h1, h2, h3': {
               letterSpacing: '-0.025em',
             },
@@ -127,9 +131,7 @@ module.exports = {
             //   borderRadius: '999px',
             //   backgroundColor: theme('colors.slate.300'),
             // },
-            'ul > li::marker': {
-              backgroundColor: theme('colors.slate.300'),
-            },
+            '--tw-prose-bullets': theme('colors.slate.300'),
             a: {
               fontWeight: theme('fontWeight.semibold'),
               textDecoration: 'none',
@@ -221,6 +223,7 @@ module.exports = {
         dark: {
           css: {
             color: theme('colors.slate.400'),
+            '--tw-prose-lead': theme('colors.slate.400'),
             'h2, h3, h4, thead th': {
               color: theme('colors.slate.200'),
             },
@@ -242,6 +245,7 @@ module.exports = {
             pre: {
               boxShadow: 'inset 0 0 0 1px rgb(255 255 255 / 0.1)',
             },
+            '--tw-prose-bullets': theme('colors.slate.500'),
             a: {
               color: theme('colors.white'),
               borderBottomColor: theme('colors.sky.400'),
