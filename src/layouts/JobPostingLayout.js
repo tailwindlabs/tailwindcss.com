@@ -183,18 +183,20 @@ export function JobPostingLayout({ children, meta }) {
             <h1 className="mt-2 text-[length:clamp(1rem,7vw,3.5rem)] font-semibold leading-none tracking-tighter text-black dark:text-white xl:text-6xl/none">
               {meta.title}
             </h1>
-            <div className="mt-4 flex gap-8 text-sm/7 sm:mt-8">
+            <dl className="mt-4 flex gap-8 text-sm/7 sm:mt-8">
               <div className="flex items-center gap-2">
                 <LocationIcon />
-                <p className="text-slate-700 dark:text-slate-400">
+                <dt className="sr-only">Location</dt>
+                <dd className="text-slate-700 dark:text-slate-400">
                   Remote <span className="text-slate-500">(ET – CET)</span>
-                </p>
+                </dd>
               </div>
               <div className="flex items-center gap-2">
                 <CashIcon />
-                <p className="text-slate-700 dark:text-slate-400">{meta.salary}</p>
+                <dt className="sr-only">salary</dt>
+                <dd className="text-slate-700 dark:text-slate-400">{meta.salary}</dd>
               </div>
-            </div>
+            </dl>
             <p className="mt-7">
               <ApplyButton url={meta.applyUrl} />
             </p>
