@@ -156,7 +156,7 @@ export function JobPostingLayout({ children, meta }) {
             <p className="mt-2 text-[length:clamp(1rem,7vw,3.5rem)] font-semibold leading-none tracking-tighter text-black dark:text-white xl:text-6xl/none">
               {meta.title}
             </p>
-            <div className="mt-8 flex gap-8 text-sm/7">
+            <div className="mt-4 sm:mt-8 flex gap-8 text-sm/7">
               <div className="flex items-center gap-2">
                 <LocationIcon />
                 <p className="text-slate-700 dark:text-slate-400">
