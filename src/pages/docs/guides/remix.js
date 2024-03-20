@@ -22,13 +22,13 @@ let steps = [
     body: () => (
       <p>
         Install <code>tailwindcss</code> via npm, and then run the init command to generate a{' '}
-        <code>tailwind.config.ts</code> file.
+        <code>tailwind.config.ts</code> and <code>postcss.config.js</code> file.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss\nnpx tailwindcss init --ts',
+      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init --ts -p',
     },
   },
   {
@@ -77,7 +77,7 @@ let steps = [
     code: {
       name: 'root.tsx',
       lang: 'tsx',
-      code: `import stylesheet from "~/tailwind.css";
+      code: `import stylesheet from "~/tailwind.css?url";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
