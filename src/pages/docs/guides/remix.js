@@ -77,7 +77,8 @@ let steps = [
     code: {
       name: 'root.tsx',
       lang: 'tsx',
-      code: `import stylesheet from "~/tailwind.css?url";
+      code: `import type { LinksFunction } from "@remix-run/node";
+import stylesheet from "~/tailwind.css?url";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -101,7 +102,7 @@ export const links: LinksFunction = () => [
     title: 'Start using Tailwind in your project',
     body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
     code: {
-      name: 'index.tsx',
+      name: '_index.tsx',
       lang: 'tsx',
       code: `  export default function Index() {
     return (
