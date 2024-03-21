@@ -198,7 +198,7 @@ export function JobPostingLayout({ children, meta }) {
               </div>
             </dl>
             <p className="mt-7">
-              <ApplyButton url={meta.applyUrl} />
+              <ApplyButton url="#how-to-apply" />
             </p>
             <p className="mt-7 text-sm/7 text-slate-500">
               Closes on{' '}
@@ -209,7 +209,7 @@ export function JobPostingLayout({ children, meta }) {
           </div>
           <div className="relative border-slate-950/10 px-8 pb-16 pt-12 dark:border-white/10 sm:mb-24 sm:border-x sm:border-b sm:px-12 sm:pt-16">
             <LineExtensions body />
-            <div className="prose prose-slate leading-7 dark:prose-dark">
+            <div className="prose prose-slate leading-7 dark:prose-dark [--scroll-mt:2rem]">
               <MDXProvider components={mdxComponents}>{children}</MDXProvider>
             </div>
             <div className="mt-12">
