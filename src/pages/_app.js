@@ -35,9 +35,9 @@ export default function App({ Component, pageProps, router }) {
     function handleRouteChange() {
       setNavIsOpen(false)
     }
-    Router.events.on('routeChangeComplete', handleRouteChange)
+    Router.events.on('routeChangeStart', handleRouteChange)
     return () => {
-      Router.events.off('routeChangeComplete', handleRouteChange)
+      Router.events.off('routeChangeStart', handleRouteChange)
     }
   }, [navIsOpen])
 
