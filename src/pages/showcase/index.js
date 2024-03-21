@@ -26,13 +26,7 @@ function Site({ site, priority = false }) {
     videoContainerRef.current.style.opacity = 0
     videoContainerRef.current.style.transition = `opacity ${durationSeconds}s linear`
   }
-
-  function onTimeUpdate() {
-    if (state.current === 'playing') {
-      showVideo()
-    }
-  }
-
+  
   function onEnded() {
     state.current = 'looping'
     hideVideo()
@@ -57,12 +51,8 @@ function Site({ site, priority = false }) {
         }
       }}
       onMouseLeave={() => {
-        if (state.current === 'playing') {
-          state.current = 'leaving'
-          hideVideo()
-        } else if (state.current === 'looping') {
-          state.current = 'leaving'
-        }
+         state.current = 'leaving'
+         hideVideo()
       }}
     >
       <div className="aspect-[672/494] relative rounded-md transform overflow-hidden shadow-[0_2px_8px_rgba(15,23,42,0.08)] bg-slate-200 dark:bg-slate-700">
@@ -93,6 +83,7 @@ function Site({ site, priority = false }) {
               state.current = 'playing'
               getVideo().currentTime = 0
               getVideo().play()
+              showVideo()
             }
           }}
         >
@@ -105,7 +96,6 @@ function Site({ site, priority = false }) {
               'absolute inset-0 w-full h-full [mask-image:radial-gradient(white,black)]',
               site.dark && 'dark:hidden'
             )}
-            onTimeUpdate={onTimeUpdate}
             onEnded={onEnded}
           >
             <source src={site.video} type={site.videoType ?? 'video/mp4'} />
@@ -117,7 +107,6 @@ function Site({ site, priority = false }) {
               muted
               playsInline
               className="absolute inset-0 w-full h-full [mask-image:radial-gradient(white,black)] hidden dark:block"
-              onTimeUpdate={onTimeUpdate}
               onEnded={onEnded}
             >
               <source src={site.dark.video} type={site.dark.videoType ?? 'video/mp4'} />
