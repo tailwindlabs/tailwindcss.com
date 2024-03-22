@@ -46,7 +46,7 @@ Use the `border`, `border-0`, `border-2`, `border-4`, or `border-8` utilities to
 
 ### Individual sides
 
-Use the `border-{side}`, `border-{side}-0`, `border-{side}-2`, `border-{side}-4`, or `border-{side}-8` utilities to set the border width for one side of an element.
+Use the `border-*`, `border-*-0`, `border-*-2`, `border-*-4`, or `border-*-8` utilities to set the border width for one side of an element.
 
 ```html {{ example: true }}
 <div class="flex flex-col sm:flex-row items-center justify-around gap-4 text-white text-sm text-center font-bold leading-6">
@@ -78,7 +78,7 @@ Use the `border-{side}`, `border-{side}-0`, `border-{side}-2`, `border-{side}-4`
 
 ### Horizontal and vertical sides
 
-Use the `border-{x|y}-{width}` utilities to set the border width on two sides of an element at the same time.
+Use the `border-x-*` and `border-y-*` utilities to set the border width on two sides of an element at the same time.
 
 ```html {{ example: true }}
 <div class="flex flex-col sm:flex-row items-center justify-around gap-4 text-white text-sm text-center font-bold leading-6">
@@ -100,7 +100,7 @@ Use the `border-{x|y}-{width}` utilities to set the border width on two sides of
 
 ### Between elements
 
-You can also add borders between child elements using the `divide-{x/y}-{width}` and `divide-{color}` utilities.
+You can also add borders between child elements using the `divide-x-*` and `divide-y-*` width utilities along with the `divide-*` color utilities.
 
 ```html {{ example: { p: 'none' } }}
 <div class="flex flex-col divide-y divide-slate-200 dark:divide-slate-700 font-mono text-white text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto">
@@ -204,4 +204,4 @@ Learn more about customizing the default theme in the [theme customization](/doc
 
 ### Arbitrary values
 
-<ArbitraryValues property="border-{side}-{width}" featuredClass="border-t-[3px]" />
+<ArbitraryValues property="border-width" featuredClass="border-t-[3px]" />

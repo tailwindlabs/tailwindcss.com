@@ -14,7 +14,7 @@ export const classes = { utilities }
 
 ### Ordering flex and grid items
 
-Use `order-{order}` to render flex and grid items in a different order than they appear in the DOM.
+Use the `order-*` utilities to render flex and grid items in a different order than they appear in the DOM.
 
 ```html {{ example: true }}
 <div class="flex justify-between font-mono text-white text-sm font-bold leading-6">
@@ -60,7 +60,7 @@ To use a negative order value, prefix the class name with a dash to convert it t
 
 ### Customizing your theme
 
-By default, Tailwind provides utilities for `order-first`, `order-last`, `order-none`, and an `order-{number}` utility for the numbers 1 through 12. You can customize these values by editing `theme.order` or `theme.extend.order` in your `tailwind.config.js` file.
+By default, Tailwind provides utilities for `order-first`, `order-last`, `order-none`, and numbered utilities from 1 through 12. You can customize these values by editing `theme.order` or `theme.extend.order` in your `tailwind.config.js` file.
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {

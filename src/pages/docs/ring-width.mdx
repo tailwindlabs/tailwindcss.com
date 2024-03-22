@@ -42,7 +42,7 @@ export const classes = {
 
 ### Adding a ring
 
-Use the `ring-{width}` utilities to apply solid box-shadow of a specific thickness to an element. Rings are a semi-transparent blue color by default, similar to the default focus ring style in many systems.
+Use the `ring-*` utilities to apply solid box-shadow of a specific thickness to an element. Rings are a semi-transparent blue color by default, similar to the default focus ring style in many systems.
 
 ```html {{ example: true }}
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-white text-center font-bold leading-6">
@@ -67,13 +67,13 @@ Use the `ring-{width}` utilities to apply solid box-shadow of a specific thickne
 <button class="... ring-offset-2 **ring-4**">Button C</button>
 ```
 
-Ring utilities compose gracefully with regular `shadow-{size}` utilities and can be combined on the same element.
+Ring utilities compose gracefully with regular `shadow-*` utilities and can be combined on the same element.
 
 You can also control the color, opacity, and offset of rings using the [ringColor](/docs/ring-color), [ringOpacity](/docs/ring-opacity), and [ringOffsetWidth](/docs/ring-offset-width) utilities.
 
 ### Focus rings
 
-The ring width utilities make it easy to use custom focus rings by adding `focus:` to the beginning of any `ring-{width}` utility.
+The ring width utilities make it easy to use custom focus rings by adding `focus:` to the beginning of any `ring-*` utility.
 
 ```html {{ example: { hint: 'Focus this button to see the ring appear' } }}
 <div class="flex justify-center max-w-md mx-auto gap-4 text-white text-sm text-center font-bold leading-6">

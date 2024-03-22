@@ -14,7 +14,7 @@ export const classes = { utilities }
 
 ### Setting the font size
 
-Control the font size of an element using the `text-{size}` utilities.
+Use the `text-*` utilities to control the font size of an element.
 
 ```html {{ example: true }}
 <div class="flex flex-col gap-8">
@@ -138,7 +138,7 @@ Learn more about customizing the default theme in the [theme customization](/doc
 
 #### Providing a default line-height
 
-Tailwind's default theme configures a sensible default `line-height` for each `text-{size}` utility. You can configure your own default line heights when using custom font sizes by defining each size using a tuple of the form `[fontSize, lineHeight]` in your `tailwind.config.js` file.
+Tailwind's default theme configures a sensible default `line-height` for each `font-size` utility. You can configure your own default line heights when using custom font sizes by defining each size using a tuple of the form `[fontSize, lineHeight]` in your `tailwind.config.js` file.
 
 ```js {{ filename: 'tailwind.config.js' }}
 /** @type {import('tailwindcss').Config} */

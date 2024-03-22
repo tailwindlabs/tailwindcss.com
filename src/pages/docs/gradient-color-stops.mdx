@@ -42,7 +42,7 @@ export const classes = {
 
 ### Starting color
 
-Set the starting color of a gradient using the `from-{color}` utilities.
+Use the `from-*` utilities to set the starting color of a gradient.
 
 ```html {{ example: true }}
 <div class="mx-5">
@@ -64,7 +64,7 @@ Set the starting color of a gradient using the `from-{color}` utilities.
 
 ### Ending color
 
-Set the ending color of a gradient using the `to-{color}` utilities.
+Use the `to-*` utilities to set the ending color of a gradient.
 
 ```html {{ example: true }}
 <div class="mx-5">
@@ -90,11 +90,11 @@ Set the ending color of a gradient using the `to-{color}` utilities.
 <div class="bg-gradient-to-r from-cyan-500 **to-blue-500** ..."></div>
 ```
 
-Gradients to **do not** fade in from transparent by default. To fade in from transparent, reverse the gradient direction and use a `from-{color}` utility.
+Gradients to **do not** fade in from transparent by default. To fade in from transparent, reverse the gradient direction and use a `from-*` utility.
 
 ### Middle color
 
-Add a middle color to a gradient using the `via-{color}` utilities.
+Use the `via-*` utilities to add a middle color to a gradient.
 
 ```html {{ example: true }}
 <div class="mx-5">
@@ -126,11 +126,11 @@ Add a middle color to a gradient using the `via-{color}` utilities.
 <div class="bg-gradient-to-r from-indigo-500 **via-purple-500** to-pink-500 ..."></div>
 ```
 
-Gradients with a `from-{color}` and `via-{color}` will fade out to transparent by default if no `to-{color}` is present.
+Gradients with a `from-*` and `via-*` will fade out to transparent by default if no `to-*` is present.
 
 ### Specifying stop positions
 
-For more control over the gradient color stop positions, combine the `from-{position}`, `via-{position}` and `to-{position}` utilities with the gradient color utilities.
+For more control over the gradient color stop positions, combine the gradient color utilities with gradient position utilities like `from-10%`, `via-30%` and `to-90%`.
 
 ```html {{ example: true }}
 <div class="mx-5">

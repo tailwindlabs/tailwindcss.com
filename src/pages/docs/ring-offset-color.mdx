@@ -21,7 +21,7 @@ export const classes = {
 
 ### Setting the ring offset color
 
-Use the `ring-offset-{color}` utilities to change the color of a ring offset. Usually this is done to try and match the offset to the parent background color, since true box-shadow offsets aren't actually possible in CSS.
+Use the `ring-offset-*` utilities to change the color of a ring offset. Usually this is done to try and match the offset to the parent background color, since true box-shadow offsets aren't actually possible in CSS.
 
 ```html {{ example: true }}
 <div class="grid place-content-center text-white text-sm text-center font-bold leading-6">
@@ -77,4 +77,4 @@ You can use any value defined in your [opacity scale](/docs/opacity), or use arb
 
 ### Arbitrary values
 
-<ArbitraryValues property="ring-offset-{color}" featuredClass="ring-offset-[#50d71e]" />
+<ArbitraryValues property={<>ring offset color</>} featuredClass="ring-offset-[#50d71e]" />
