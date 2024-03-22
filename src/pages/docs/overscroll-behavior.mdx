@@ -13,7 +13,7 @@ export const classes = { utilities }
 
 ### Preventing parent overscrolling
 
-Use `overscroll-contain` to prevent scrolling in the target area from triggering scrolling in the parent element, but preserve "bounce" effects when scrolling past the end of the container in operating systems that support it.
+Use the `overscroll-contain` utility to prevent scrolling in the target area from triggering scrolling in the parent element, but preserve "bounce" effects when scrolling past the end of the container in operating systems that support it.
 
 ```html {{ example: { p: 'none' } }}
 <div class="mx-4 overscroll-contain overflow-auto h-48 bg-white dark:bg-slate-800 shadow-xl p-8 space-y-4 text-slate-700 dark:text-slate-400 text-sm sm:text-base leading-6 sm:leading-7">
@@ -29,7 +29,7 @@ Use `overscroll-contain` to prevent scrolling in the target area from triggering
 
 ### Preventing overscroll bouncing
 
-Use `overscroll-none` to prevent scrolling in the target area from triggering scrolling in the parent element, and also prevent "bounce" effects when scrolling past the end of the container.
+Use the `overscroll-none` utility to prevent scrolling in the target area from triggering scrolling in the parent element, and also prevent "bounce" effects when scrolling past the end of the container.
 
 ```html {{ example: { p: 'none' } }}
 <div class="mx-4 overscroll-none overflow-auto h-48 bg-white dark:bg-slate-800 shadow-xl p-8 space-y-4 text-slate-700 dark:text-slate-400 text-sm sm:text-base leading-6 sm:leading-7">
@@ -45,7 +45,7 @@ Use `overscroll-none` to prevent scrolling in the target area from triggering sc
 
 ### Using the default overscroll behavior
 
-Use `overscroll-auto` to make it possible for the user to continue scrolling a parent scroll area when they reach the boundary of the primary scroll area.
+Use the `overscroll-auto` utility to make it possible for the user to continue scrolling a parent scroll area when they reach the boundary of the primary scroll area.
 
 ```html {{ example: { p: 'none' } }}
 <div class="mx-4 overscroll-auto overflow-auto h-48 bg-white dark:bg-slate-800 shadow-xl p-8 space-y-4 text-slate-700 dark:text-slate-400 text-sm sm:text-base leading-6 sm:leading-7">
