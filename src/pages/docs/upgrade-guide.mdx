@@ -178,7 +178,7 @@ While there's no harm in leaving them in your HTML, they can safely be removed â
 
 ### New opacity modifier syntax
 
-The new engine introduces [a new syntax](/docs/background-color#changing-the-opacity) for changing the opacity of color utilities that we recommend migrating to from utilities like `bg-opacity-{value}`:
+The new engine introduces [a new syntax](/docs/background-color#changing-the-opacity) for changing the opacity of color utilities that we recommend migrating to from utilities like `bg-opacity-*`:
 
 ```diff-html
 - <div class="bg-black bg-opacity-25">
@@ -404,7 +404,7 @@ Learn more in the [ordering stacked modifiers](/docs/hover-focus-and-other-state
 
 ### Fill and stroke use color palette
 
-The `fill-{color}` and `stroke-{color}` utilities mirror your `theme.colors` key by default now. This isn't a breaking change if you haven't customized your color palette, but if you have, the `fill-current` and `stroke-current` classes may not work if you don't have `current` included in your own custom color palette.
+The `fill-*` and `stroke-*` utilities mirror your `theme.colors` key by default now. This isn't a breaking change if you haven't customized your color palette, but if you have, the `fill-current` and `stroke-current` classes may not work if you don't have `current` included in your own custom color palette.
 
 Add `current` to your custom color palette to resolve this:
 

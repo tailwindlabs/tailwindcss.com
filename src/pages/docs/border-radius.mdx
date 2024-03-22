@@ -82,7 +82,7 @@ This is most commonly used to remove a border radius that was applied at a small
 
 ### Rounding sides separately
 
-Use `rounded-{t|r|b|l}{-size?}` to only round one side of an element.
+Use the `rounded-t-*`, `rounded-r-*`, `rounded-b-*`, and `rounded-l-*` utilities to only round one side of an element.
 
 ```html {{ example: true }}
 <div class="flex flex-col sm:flex-row items-center justify-around gap-4 text-white text-sm text-center font-bold leading-6">
@@ -114,7 +114,7 @@ Use `rounded-{t|r|b|l}{-size?}` to only round one side of an element.
 
 ### Rounding corners separately
 
-Use `rounded-{tl|tr|br|bl}{-size?}` to only round one corner an element.
+Use `rounded-tl-*`, `rounded-tr-*`, `rounded-br-*`, and `rounded-bl-*` utilities to only round one corner of an element.
 
 ```html {{ example: true }}
 <div class="flex flex-col sm:flex-row items-center justify-around gap-4 text-white text-sm text-center font-bold leading-6">
@@ -146,7 +146,7 @@ Use `rounded-{tl|tr|br|bl}{-size?}` to only round one corner an element.
 
 ### <Heading ignore>Using logical properties</Heading>
 
-Use the `rounded-{s|e|ss|se|es|ee}{-size?}` utilities to set the border radius using [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to the appropriate corners based on the text direction.
+Use the `rounded-s-*`, `rounded-e-*`, `rounded-ss-*`, `rounded-se-*`, `rounded-es-*`, and `rounded-ee-*` utilities to set the border radius using [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to the appropriate corners based on the text direction.
 
 ```html {{ example: true }}
 <div class="grid grid-cols-2 gap-x-4 place-items-center">

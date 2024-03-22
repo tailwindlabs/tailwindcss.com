@@ -9,25 +9,19 @@ export function ArbitraryValues({
   element = 'div',
   children,
 }) {
-  const nameOrProperty = name ? (
-    name
-  ) : (
-    <>
-      <code>{property}</code> value
-    </>
-  )
-
   return (
     <>
       {hasTheme ? (
         <p>
-          If you need to use a one-off {nameOrProperty} that doesn’t make sense to include in your
-          theme, use square brackets to generate a property on the fly using any arbitrary value.
+          If you need to use a one-off {name ?? <code>{property}</code>} value that doesn’t make
+          sense to include in your theme, use square brackets to generate a property on the fly
+          using any arbitrary value.
         </p>
       ) : (
         <p>
-          If you need to use a one-off {nameOrProperty} that isn't included in Tailwind by default,
-          use square brackets to generate a property on the fly using any arbitrary value.
+          If you need to use a one-off {name ?? <code>{property}</code>} value that isn't included
+          in Tailwind by default, use square brackets to generate a property on the fly using any
+          arbitrary value.
         </p>
       )}
       {children || (

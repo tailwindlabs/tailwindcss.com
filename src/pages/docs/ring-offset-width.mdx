@@ -20,7 +20,7 @@ export const classes = {
 
 ### Setting the ring offset width
 
-Use the `ring-offset-{width}` utilities to simulate an offset by adding solid white box-shadow and increasing the thickness of the accompanying outline ring to accommodate the offset.
+Use utilities like `ring-offset-2` and `ring-offset-4` to simulate an offset by adding solid white box-shadow and increasing the thickness of the accompanying outline ring to accommodate the offset.
 
 ```html {{ example: true }}
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-white text-sm text-center font-bold leading-6">
@@ -47,7 +47,7 @@ Use the `ring-offset-{width}` utilities to simulate an offset by adding solid wh
 
 ### Changing the offset color
 
-You can't actually offset a box-shadow in CSS, so we have to fake it using a solid color shadow that matches the parent background color. We use white by default, but if you are adding a ring offset over a different background color, you should use the `ring-offset-{color}` utilities to match the parent background color:
+You can't actually offset a box-shadow in CSS, so we have to fake it using a solid color shadow that matches the parent background color. We use white by default, but if you are adding a ring offset over a different background color, use the ring offset color utilities, like `ring-offset-slate-50`, to match the parent background color:
 
 ```html {{ example: true }}
 <div class="grid place-content-center text-white text-sm text-center font-bold leading-6">

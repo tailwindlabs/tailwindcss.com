@@ -18,7 +18,7 @@ export const classes = {
 
 ### Spanning columns
 
-Use the `col-span-{n}` utilities to make an element span _n_ columns.
+Use the `col-span-*` utilities to make an element span _n_ columns.
 
 ```html {{ example: true }}
 <div class="grid grid-cols-3 gap-4 font-mono text-white text-sm text-center font-bold leading-6">
@@ -46,7 +46,7 @@ Use the `col-span-{n}` utilities to make an element span _n_ columns.
 
 ### Starting and ending lines
 
-Use the `col-start-{n}` and `col-end-{n}` utilities to make an element start or end at the _nth_ grid line. These can also be combined with the `col-span-{n}` utilities to span a specific number of columns.
+Use the `col-start-*` and `col-end-*` utilities to make an element start or end at the _nth_ grid line. These can also be combined with the `col-span-*` utilities to span a specific number of columns.
 
 Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-column grid would start at line 1 and end at line 7.
 
@@ -92,7 +92,7 @@ Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-colum
 
 By default, Tailwind includes grid-column utilities for working with grids with up to 12 columns. You change, add, or remove these by customizing the `gridColumn`, `gridColumnStart`, and `gridColumnEnd` sections of your Tailwind theme config.
 
-For creating more `col-{value}` utilities that control the `grid-column` shorthand property directly, customize the `gridColumn` section of your Tailwind theme config:
+To add new `col-*` utilities, customize the `gridColumn` section of your Tailwind theme config:
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
@@ -106,9 +106,9 @@ For creating more `col-{value}` utilities that control the `grid-column` shortha
   }
 ```
 
-We use this internally for our `col-span-{n}` utilities. Note that since this configures the `grid-column` shorthand property directly, we include the word `span` directly in the value name, it's _not_ baked into the class name automatically. That means you are free to add entries that do whatever you want here — they don't just have to be `span` utilities.
+We use this internally for our `col-span-*` utilities. Note that since this configures the `grid-column` shorthand property directly, we include the word `span` directly in the value name, it's _not_ baked into the class name automatically. That means you are free to add entries that do whatever you want here — they don't just have to be `span` utilities.
 
-To add new `col-start-{n}` utilities, use the `gridColumnStart` section of your Tailwind theme config:
+To add new `col-start-*` utilities, customize the `gridColumnStart` section of your Tailwind theme config:
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
@@ -126,7 +126,7 @@ To add new `col-start-{n}` utilities, use the `gridColumnStart` section of your 
   }
 ```
 
-To add new `col-end-{n}` utilities, use the `gridColumnEnd` section of your Tailwind theme config:
+To add new `col-end-*` utilities, customize the `gridColumnEnd` section of your Tailwind theme config:
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
@@ -148,4 +148,4 @@ Learn more about customizing the default theme in the [theme customization](/doc
 
 ### Arbitrary values
 
-<ArbitraryValues property="grid-column/grid-column-start/grid-column-end" featuredClass="col-[16_/_span_16]" />
+<ArbitraryValues name="grid column" featuredClass="col-[16_/_span_16]" />

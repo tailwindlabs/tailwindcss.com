@@ -13,7 +13,7 @@ export const classes = { utilities }
 
 ### Statically positioning elements
 
-Use `static` to position an element according to the normal flow of the document.
+Use the `static` utility to position an element according to the normal flow of the document.
 
 Any [offsets](/docs/top-right-bottom-left) will be ignored and the element will not act as a position reference for absolutely positioned children.
 
@@ -41,7 +41,7 @@ Any [offsets](/docs/top-right-bottom-left) will be ignored and the element will 
 
 ### Relatively positioning elements
 
-Use `relative` to position an element according to the normal flow of the document.
+Use the `relative` utility to position an element according to the normal flow of the document.
 
 Any [offsets](/docs/top-right-bottom-left) are calculated relative to the element's normal position and the element *will* act as a position reference for absolutely positioned children.
 
@@ -69,7 +69,7 @@ Any [offsets](/docs/top-right-bottom-left) are calculated relative to the elemen
 
 ### Absolutely positioning elements
 
-Use `absolute` to position an element *outside* of the normal flow of the document, causing neighboring elements to act as if the element doesn't exist.
+Use the `absolute` utility to position an element *outside* of the normal flow of the document, causing neighboring elements to act as if the element doesn't exist.
 
 Any [offsets](/docs/top-right-bottom-left) are calculated relative to the nearest parent that has a position other than `static`, and the element *will* act as a position reference for other absolutely positioned children.
 
@@ -129,7 +129,7 @@ Any [offsets](/docs/top-right-bottom-left) are calculated relative to the neares
 
 ### Fixed positioning elements
 
-Use `fixed` to position an element relative to the browser window.
+Use the `fixed` utility to position an element relative to the browser window.
 
 Any [offsets](/docs/top-right-bottom-left) are calculated relative to the viewport and the element *will* act as a position reference for absolutely positioned children.
 
@@ -186,7 +186,7 @@ Any [offsets](/docs/top-right-bottom-left) are calculated relative to the viewpo
 
 ### Sticky positioning elements
 
-Use `sticky` to position an element as `relative` until it crosses a specified threshold, then treat it as `fixed` until its parent is off screen.
+Use the `sticky` utility to position an element as `relative` until it crosses a specified threshold, then treat it as `fixed` until its parent is off screen.
 
 Any [offsets](/docs/top-right-bottom-left) are calculated relative to the element's normal position and the element *will* act as a position reference for absolutely positioned children.
 
