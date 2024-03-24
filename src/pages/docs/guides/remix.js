@@ -71,7 +71,7 @@ let steps = [
     body: () => (
       <p>
         Import the newly-created <code>./app/tailwind.css</code> file in your{' '}
-        <code>./app/root.jsx</code> file.
+        <code>./app/root.tsx</code> file.
       </p>
     ),
     code: {
