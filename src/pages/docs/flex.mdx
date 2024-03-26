@@ -26,7 +26,7 @@ Use `flex-initial` to allow a flex item to shrink but not grow, taking into acco
 
 ```html
 <div class="flex">
-  <div class="flex-none w-14 h-14">
+  <div class="flex-none w-14 ...">
     01
   </div>
   <div class="**flex-initial** w-64 ...">
@@ -52,7 +52,7 @@ Use `flex-1` to allow a flex item to grow and shrink as needed, ignoring its ini
 
 ```html
 <div class="flex">
-  <div class="flex-none ...">
+  <div class="flex-none w-14 ...">
     01
   </div>
   <div class="**flex-1** w-64 ...">
@@ -78,7 +78,7 @@ Use `flex-auto` to allow a flex item to grow and shrink, taking into account its
 
 ```html
 <div class="flex ...">
-  <div class="flex-none ...">
+  <div class="flex-none w-14 ...">
     01
   </div>
   <div class="**flex-auto** w-64 ...">
@@ -97,12 +97,12 @@ Use `flex-none` to prevent a flex item from growing or shrinking:
 ```html {{ example: { resizable: true } }}
 <div class="flex gap-4 text-white text-sm font-bold font-mono leading-6 bg-stripes-indigo rounded-lg">
   <div class="flex-none last:pr-8 sm:last:pr-0">
-    <div class="p-4 w-14 h-14 rounded-lg flex items-center justify-center bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">
+    <div class="p-4 w-14 h-14 rounded-lg flex items-center justify-center bg-indigo-500">
       01
     </div>
   </div>
   <div class="flex-none last:pr-8 sm:last:pr-0">
-    <div class="p-4 w-72 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">
+    <div class="p-4 w-32 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">
       02
     </div>
   </div>
@@ -116,10 +116,10 @@ Use `flex-none` to prevent a flex item from growing or shrinking:
 
 ```html
 <div class="flex ...">
-  <div class="flex-none w-14 h-14 ...">
+  <div class="**flex-none** w-14 ...">
     01
   </div>
-  <div class="**flex-none** ...">
+  <div class="**flex-none** w-32 ...">
     02
   </div>
   <div class="flex-1 ...">
