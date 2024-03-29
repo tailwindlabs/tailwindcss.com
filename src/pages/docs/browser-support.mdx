@@ -38,10 +38,10 @@ Then add it to the very end of your plugin list in your PostCSS configuration:
 
 ```js
 module.exports = {
-  plugins: [
-    require('tailwindcss'),
-    require('autoprefixer'),
-  ]
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  }
 }
 ```
 
