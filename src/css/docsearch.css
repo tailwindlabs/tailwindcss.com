@@ -446,6 +446,8 @@
 .DocSearch-Hit-action [title='Remove this search from favorites'] {
   width: 1.5rem;
   height: 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .DocSearch-Hit-action [title='Save this search'] svg,
