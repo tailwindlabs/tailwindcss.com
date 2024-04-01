@@ -1,29 +1,6 @@
-export const DateTimeFormats = {
-  short: {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  },
-  medium: {
-    month: 'long',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-    year: 'numeric'
-  },
-  BLOG_POST: {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-  }
-}
-
-export function formatDate(dateString, options = DateTimeFormats.simple) {
+export function formatDate(dateString, options) {
   const date = new Date(dateString);
-  const defaultTimeZoneOptions = options.hour
+  const defaultTimeZoneOptions = options?.hour
     ? {
       timeZoneName: 'shortGeneric',
       timeZone: 'America/New_York',
