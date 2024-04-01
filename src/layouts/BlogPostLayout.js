@@ -11,8 +11,6 @@ const dateFormat = {
   month: 'long',
   day: 'numeric',
   year: 'numeric',
-  hour: 'numeric',
-  minute: 'numeric',
 }
 
 export function BlogPostLayout({ children, meta }) {
