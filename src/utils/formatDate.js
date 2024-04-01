@@ -1,7 +1,14 @@
-import tinytime from 'tinytime'
+export function formatDate(dateString, options) {
+  const date = new Date(dateString);
+  const defaultTimeZoneOptions = options?.hour
+    ? {
+      timeZoneName: 'shortGeneric',
+      timeZone: 'America/New_York',
+    }
+    : {};
 
-export function formatDate(date, format) {
-  return tinytime(format)
-    .render(typeof date === 'string' ? new Date(date) : date)
-    .replace('Febuary', 'February')
+  return new Intl.DateTimeFormat("en-US", {
+    ...defaultTimeZoneOptions,
+    ...options,
+  }).format(date);
 }
