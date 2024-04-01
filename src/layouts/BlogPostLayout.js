@@ -6,6 +6,15 @@ import { MDXProvider } from '@mdx-js/react'
 import clsx from 'clsx'
 import Link from 'next/link'
 
+const dateFormat = {
+  weekday: 'long',
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+}
+
 export function BlogPostLayout({ children, meta }) {
   return (
     <div className="overflow-hidden">
@@ -50,7 +59,7 @@ export function BlogPostLayout({ children, meta }) {
                     className={clsx('absolute top-0 inset-x-0 text-slate-700 dark:text-slate-400')}
                   >
                     <time dateTime={meta.date}>
-                      {formatDate(meta.date, '{dddd}, {MMMM} {DD}, {YYYY}')}
+                      {formatDate(meta.date, dateFormat)}
                     </time>
                   </dd>
                 </dl>

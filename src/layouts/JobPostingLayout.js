@@ -7,6 +7,14 @@ import { mdxComponents } from '@/utils/mdxComponents'
 import { MDXProvider } from '@mdx-js/react'
 import Link from 'next/link'
 
+const dateFormat = {
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  year: 'numeric'
+}
+
 function BackgroundBeams() {
   return (
     <div className="pointer-events-none absolute inset-x-0 top-0 flex justify-center overflow-hidden">
@@ -203,7 +211,7 @@ export function JobPostingLayout({ children, meta }) {
             <p className="mt-7 text-sm/7 text-slate-500">
               Closes on{' '}
               <time dateTime={meta.dateCloses}>
-                {formatDate(meta.dateCloses, '{MMMM} {Do} at {h}:{mm}{a} ET')}
+                {formatDate(meta.dateCloses, dateFormat)}
               </time>
             </p>
           </div>
