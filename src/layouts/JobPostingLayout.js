@@ -12,7 +12,7 @@ const dateFormat = {
   day: 'numeric',
   hour: 'numeric',
   minute: 'numeric',
-  year: 'numeric'
+  year: 'numeric',
 }
 
 function BackgroundBeams() {
@@ -93,14 +93,14 @@ function Header() {
   )
 }
 
-function ApplyButton({ url }) {
+function ApplyButton() {
   return (
-    <a
-      className="rounded-full bg-slate-950 px-3 py-2.5 text-sm/7 font-semibold text-white hover:bg-slate-800 dark:bg-white dark:text-slate-950"
-      href={url}
+    <button
+      className="cursor-not-allowed rounded-full bg-slate-950 px-3 py-2.5 text-sm/7 font-semibold text-white dark:bg-white dark:text-slate-950 opacity-50"
+      disabled
     >
       Apply for this job
-    </a>
+    </button>
   )
 }
 
@@ -206,13 +206,11 @@ export function JobPostingLayout({ children, meta }) {
               </div>
             </dl>
             <p className="mt-7">
-              <ApplyButton url="#how-to-apply" />
+              <ApplyButton />
             </p>
             <p className="mt-7 text-sm/7 text-slate-500">
-              Closes on{' '}
-              <time dateTime={meta.dateCloses}>
-                {formatDate(meta.dateCloses, dateFormat)}
-              </time>
+              Closed on{' '}
+              <time dateTime={meta.dateCloses}>{formatDate(meta.dateCloses, dateFormat)}</time>
             </p>
           </div>
           <div className="relative border-slate-950/10 px-8 pb-16 pt-12 dark:border-white/10 sm:mb-24 sm:border-x sm:border-b sm:px-12 sm:pt-16">
@@ -221,7 +219,7 @@ export function JobPostingLayout({ children, meta }) {
               <MDXProvider components={mdxComponents}>{children}</MDXProvider>
             </div>
             <div className="mt-12">
-              <ApplyButton url={meta.applyUrl} />
+              <ApplyButton />
             </div>
           </div>
         </div>
