@@ -488,7 +488,7 @@ module.exports = {
       matchVariant(
         'nth',
         (value) => {
-          return `&:nth-child(${value})`;
+          return `&>*:nth-child(${value})`;
         },
         {
           values: {
