@@ -5,7 +5,6 @@ import { useIsomorphicLayoutEffect } from '@/hooks/useIsomorphicLayoutEffect'
 import clsx from 'clsx'
 import { SearchButton } from '@/components/Search'
 import { Dialog } from '@headlessui/react'
-import { useCallback, useEffect, useState } from 'react'
 
 export const SidebarContext = createContext()
 
@@ -518,42 +517,11 @@ export function SidebarLayout({
   fallbackHref,
   layoutProps: { allowOverflow = true } = {},
 }) {
-  /** @type {import('react').MutableRefObject<HTMLElement | null>} */
-  const pageWrapper = useRef(null)
-  const [wrapperOffset, setWrapperOffset] = useState('0px')
-
-  const updateWrapperOffset = useCallback(
-    (records) => {
-      let paddingLeft = document.documentElement.style.getPropertyValue('padding-right') || '0px'
-
-      if (wrapperOffset !== paddingLeft) {
-        setWrapperOffset(paddingLeft)
-      }
-    },
-    [wrapperOffset]
-  )
-
-  useEffect(() => {
-    let observer = new MutationObserver(updateWrapperOffset)
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      childList: false,
-      subtree: false,
-    })
-
-    return () => observer.disconnect()
-  }, [updateWrapperOffset])
-
   return (
     <SidebarContext.Provider value={{ nav, navIsOpen, setNavIsOpen }}>
       <Wrapper allowOverflow={allowOverflow}>
-        <div
-          className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8"
-          ref={pageWrapper}
-          style={{ '--wrapper-offset': wrapperOffset }}
-        >
-          <div className="hidden lg:block fixed z-20 inset-0 top-[3.8125rem] left-[max(0px,calc(calc(50%-45rem)-calc(var(--wrapper-offset)/2)))] right-auto w-[19rem] pb-10 pl-8 pr-6 overflow-y-auto">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8">
+          <div className="hidden lg:block fixed z-20 inset-0 top-[3.8125rem] left-[max(0px,calc(50%-45rem))] right-auto w-[19rem] pb-10 pl-8 pr-6 overflow-y-auto">
             <Nav nav={nav} fallbackHref={fallbackHref}>
               {sidebar}
             </Nav>
