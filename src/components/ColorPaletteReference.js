@@ -79,6 +79,7 @@ function ColorPalette({ name, value }) {
         </div>
       </div>
       <Transition
+        as="div"
         className="absolute bottom-full left-1/2 mb-3.5 pb-1 -translate-x-1/2"
         show={state === 'copied'}
         enter="transform ease-out duration-200 transition origin-bottom"
