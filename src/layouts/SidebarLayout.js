@@ -530,7 +530,6 @@ export function SidebarLayout({
         </div>
       </Wrapper>
       <Dialog
-        as="div"
         open={navIsOpen}
         onClose={() => setNavIsOpen(false)}
         className="fixed z-50 inset-0 overflow-y-auto lg:hidden"
