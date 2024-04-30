@@ -55,10 +55,7 @@ export default function Demo() {
             leaveTo="opacity-0"
             afterLeave={() => setQuery('')}
           >
-            <Combobox.Options
-              as="ul"
-              className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
-            >
+            <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
               {filteredPeople.length === 0 && query !== '' ? (
                 <div className="cursor-default select-none relative py-2 px-3 text-gray-500">
                   Nothing found.
@@ -66,7 +63,6 @@ export default function Demo() {
               ) : (
                 filteredPeople.map((person) => (
                   <Combobox.Option
-                    as="li"
                     key={person.id}
                     className={({ active }) =>
                       `relative cursor-default select-none py-2 pl-3 pr-9 ${
