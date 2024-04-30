@@ -15,7 +15,10 @@ export default class Document extends NextDocument {
 
   render() {
     return (
-      <Html lang="en" className="dark [--scroll-mt:9.875rem] lg:[--scroll-mt:6.3125rem]">
+      <Html
+        lang="en"
+        className="dark [--scroll-mt:9.875rem] lg:[--scroll-mt:6.3125rem] [scrollbar-gutter:stable]"
+      >
         <Head>
           <link rel="apple-touch-icon" sizes="180x180" href={v('/favicons/apple-touch-icon.png')} />
           <link rel="icon" type="image/png" sizes="32x32" href={v('/favicons/favicon-32x32.png')} />

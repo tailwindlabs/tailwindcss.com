@@ -76,12 +76,7 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
           />
         </svg>
       </button>
-      <Dialog
-        as="div"
-        className={clsx('fixed z-50 inset-0', display)}
-        open={isOpen}
-        onClose={setIsOpen}
-      >
+      <Dialog open={isOpen} onClose={setIsOpen} className={clsx('fixed z-50 inset-0', display)}>
         <Dialog.Overlay className="fixed inset-0 bg-black/20 backdrop-blur-sm dark:bg-slate-900/80" />
         <div className="fixed top-4 right-4 w-full max-w-xs bg-white rounded-lg shadow-lg p-6 text-base font-semibold text-slate-900 dark:bg-slate-800 dark:text-slate-400 dark:highlight-white/5">
           <button
