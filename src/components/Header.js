@@ -3,7 +3,7 @@ import { VersionSwitcher } from '@/components/VersionSwitcher'
 import { SearchButton } from '@/components/Search'
 import Router from 'next/router'
 import { Logo } from '@/components/Logo'
-import { Dialog } from '@headlessui/react'
+import { Dialog, DialogPanel } from '@headlessui/react'
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { ThemeSelect, ThemeToggle } from './ThemeToggle'
@@ -77,8 +77,8 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
         </svg>
       </button>
       <Dialog open={isOpen} onClose={setIsOpen} className={clsx('fixed z-50 inset-0', display)}>
-        <Dialog.Overlay className="fixed inset-0 bg-black/20 backdrop-blur-sm dark:bg-slate-900/80" />
-        <div className="fixed top-4 right-4 w-full max-w-xs bg-white rounded-lg shadow-lg p-6 text-base font-semibold text-slate-900 dark:bg-slate-800 dark:text-slate-400 dark:highlight-white/5">
+        <div className="fixed inset-0 bg-black/20 backdrop-blur-sm dark:bg-slate-900/80" />
+        <DialogPanel className="fixed top-4 right-4 w-full max-w-xs bg-white rounded-lg shadow-lg p-6 text-base font-semibold text-slate-900 dark:bg-slate-800 dark:text-slate-400 dark:highlight-white/5">
           <button
             type="button"
             className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
@@ -109,7 +109,7 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
           <div className="mt-6 pt-6 border-t border-slate-200 dark:border-slate-200/10">
             <ThemeSelect />
           </div>
-        </div>
+        </DialogPanel>
       </Dialog>
     </div>
   )
