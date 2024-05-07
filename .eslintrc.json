@@ -1,0 +1,11 @@
+{
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "@next/next/no-img-element": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react/display-name": "off",
+    "react/no-children-prop": "off",
+    "react/no-unescaped-entities": "off"
+  },
+  "ignorePatterns": ["src/components/CustomizePluginColors/snippet.js", "src/samples/angular/*.js"]
+}

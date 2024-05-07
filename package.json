@@ -14,7 +14,7 @@
   "dependencies": {
     "@badrap/bar-of-progress": "^0.1.1",
     "@docsearch/react": "^3.3.3",
-    "@headlessui/react": "^0.0.0-insiders.4acf9e2",
+    "@headlessui/react": "^0.0.0-insiders.1a440e1",
     "@heroicons/react": "^2.1.1",
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
@@ -67,16 +67,8 @@
     "zustand": "^4.0.0-rc.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "2.x",
-    "@typescript-eslint/parser": "2.x",
-    "babel-eslint": "10.x",
-    "eslint": "6.x",
-    "eslint-config-react-app": "^5.2.1",
-    "eslint-plugin-flowtype": "4.x",
-    "eslint-plugin-import": "2.x",
-    "eslint-plugin-jsx-a11y": "6.x",
-    "eslint-plugin-react": "7.x",
-    "eslint-plugin-react-hooks": "2.x",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^13.5.6",
     "glyphhanger": "^5.0.0",
     "prettier": "^2.5.0"
   }
