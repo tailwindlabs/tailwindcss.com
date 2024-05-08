@@ -196,7 +196,7 @@ export function ThemeToggle({ panelClassName = 'mt-4' }) {
         {settings.map(({ value, label, icon: Icon }) => (
           <Listbox.Option key={value} value={value} as={Fragment}>
             {({ active, selected }) => (
-              <li
+              <div
                 className={clsx(
                   'py-1 px-2 flex items-center cursor-pointer',
                   selected && 'text-sky-500',
@@ -205,7 +205,7 @@ export function ThemeToggle({ panelClassName = 'mt-4' }) {
               >
                 <Icon selected={selected} className="w-6 h-6 mr-2" />
                 {label}
-              </li>
+              </div>
             )}
           </Listbox.Option>
         ))}

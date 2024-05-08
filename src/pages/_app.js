@@ -56,7 +56,7 @@ export default function App({ Component, pageProps, router }) {
     ? `https://tailwindcss.com${image.default?.src ?? image.src ?? image}`
     : `https://tailwindcss.com/api/og?path=${router.pathname}`
 
-  if (router.pathname.startsWith('/examples/')) {
+  if (router.pathname.includes('/examples/')) {
     return <Component {...pageProps} />
   }
 

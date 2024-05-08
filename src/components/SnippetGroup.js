@@ -111,7 +111,7 @@ export function SnippetGroup({ children, style = 'plain', actions, ...props }) {
 
   return (
     <Wrapper {...props}>
-      <Tab.Group as="div" onChange={setSelectedIndex}>
+      <Tab.Group onChange={setSelectedIndex}>
         <div className="flex">
           <Tab.List className="flex text-slate-400 text-xs leading-6 overflow-hidden rounded-tl-xl pt-2">
             {children.map((child, tabIndex) => (

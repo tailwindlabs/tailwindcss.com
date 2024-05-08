@@ -4,7 +4,7 @@ import { createContext, forwardRef, useRef } from 'react'
 import { useIsomorphicLayoutEffect } from '@/hooks/useIsomorphicLayoutEffect'
 import clsx from 'clsx'
 import { SearchButton } from '@/components/Search'
-import { Dialog } from '@headlessui/react'
+import { Dialog, DialogPanel } from '@headlessui/react'
 
 export const SidebarContext = createContext()
 
@@ -28,7 +28,7 @@ const NavItem = forwardRef(({ href, children, isActive, isPublished, fallbackHre
 })
 
 /**
- * Find the nearst scrollable ancestor (or self if scrollable)
+ * Find the nearest scrollable ancestor (or self if scrollable)
  *
  * Code adapted and simplified from the smoothscroll polyfill
  *
@@ -530,13 +530,12 @@ export function SidebarLayout({
         </div>
       </Wrapper>
       <Dialog
-        as="div"
         open={navIsOpen}
         onClose={() => setNavIsOpen(false)}
         className="fixed z-50 inset-0 overflow-y-auto lg:hidden"
       >
-        <Dialog.Overlay className="fixed inset-0 bg-black/20 backdrop-blur-sm dark:bg-slate-900/80" />
-        <div className="relative bg-white w-80 max-w-[calc(100%-3rem)] p-6 dark:bg-slate-800">
+        <div className="fixed inset-0 bg-black/20 backdrop-blur-sm dark:bg-slate-900/80" />
+        <DialogPanel className="relative bg-white w-80 max-w-[calc(100%-3rem)] p-6 dark:bg-slate-800">
           <button
             type="button"
             onClick={() => setNavIsOpen(false)}
@@ -556,7 +555,7 @@ export function SidebarLayout({
           <Nav nav={nav} fallbackHref={fallbackHref} mobile={true}>
             {sidebar}
           </Nav>
-        </div>
+        </DialogPanel>
       </Dialog>
     </SidebarContext.Provider>
   )
