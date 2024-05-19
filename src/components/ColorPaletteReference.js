@@ -2,22 +2,88 @@ import { useEffect, useState } from 'react'
 import colorPalette from 'tailwindcss/colors'
 import { kebabToTitleCase } from '@/utils/kebabToTitleCase'
 import dlv from 'dlv'
-import { Transition } from '@headlessui/react'
+import {
+  Transition,
+  Listbox,
+  ListboxButton,
+  ListboxOptions,
+  ListboxOption,
+} from '@headlessui/react'
+
+import * as colorConvert from 'color-convert'
+
+const colorTypes = ['HEX', 'RGB', 'HSL']
 
 export function ColorPaletteReference({ colors }) {
+  const [selectedColorType, setSelectedColorType] = useState('HEX')
+
   return (
     <div className="grid grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] gap-x-2 gap-y-8 sm:grid-cols-1">
-      {colors.map((color, i) => {
-        let title = Array.isArray(color) ? color[0] : kebabToTitleCase(color)
-        let value = Array.isArray(color) ? color[1] : color
+      <Listbox
+        value={selectedColorType}
+        onChange={setSelectedColorType}
+        as="div"
+        className="relative ml-auto"
+      >
+        <ListboxButton className="text-xs leading-5 font-semibold bg-slate-400/10 rounded-full py-1 px-3 flex items-center space-x-2 hover:bg-slate-400/20 dark:highlight-white/5">
+          {selectedColorType}
+          <svg width="6" height="3" className="ml-2 overflow-visible" aria-hidden="true">
+            <path
+              d="M0 0L3 3L6 0"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
+        </ListboxButton>
+        <ListboxOptions
+          anchor="bottom end"
+          className="absolute z-50 top-full mt-1 py-2 w-24 rounded-lg bg-white shadow ring-1 ring-slate-900/5 text-sm leading-6 font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:highlight-white/5"
+        >
+          {colorTypes.map((type) => (
+            <ListboxOption
+              key={type}
+              value={type}
+              className="w-full text-left block px-3 py-1 data-[selected]:bg-slate-50 data-[focus]:bg-slate-50 data-[selected]:text-slate-900 data-[focus]:text-slate-900 data-[selected]:dark:bg-slate-600/30 data-[focus]:dark:bg-slate-600/30 data-[selected]:dark:text-white data-[focus]:dark:text-white"
+              as="button"
+            >
+              {type}
+            </ListboxOption>
+          ))}
+        </ListboxOptions>
+      </Listbox>
 
-        let palette =
-          typeof value === 'string'
-            ? [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map((variant) => ({
-                name: variant,
-                value: dlv(colorPalette, [value, variant]),
-              }))
-            : Object.keys(value).map((name) => ({ name, value: value[name] }))
+      {colors.map((color, i) => {
+        let title = kebabToTitleCase(color)
+        let value = color
+
+        let palette = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map((variant) => {
+          let colorValue
+
+          switch (selectedColorType) {
+            case 'HEX':
+              colorValue = dlv(colorPalette, [value, variant])
+              break
+
+            case 'RGB':
+              colorValue = colorConvert.hex.rgb(dlv(colorPalette, [value, variant])).join(' ')
+              break
+
+            case 'HSL':
+              colorValue = colorConvert.hex.hsl(dlv(colorPalette, [value, variant])).join(' ')
+              break
+
+            default:
+              colorValue = dlv(colorPalette, [value, variant])
+              break
+          }
+
+          return {
+            name: variant,
+            value: colorValue,
+          }
+        })
 
         return (
           <div key={title} className="2xl:contents">
@@ -110,3 +176,5 @@ function ColorPalette({ name, value }) {
     </div>
   )
 }
+
+function ColorTypeSelector({}) {}
