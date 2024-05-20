@@ -100,6 +100,35 @@ When using a CSS variable as an arbitrary value, wrapping your variable in `var(
 </div>
 ```
 
+CSS variables as an arbitrary value are particularly useful when you need to use dynamic values (e.g. user provided data or dynamically calculated values) in your utilities:
+
+```html
+<div class="bg-[--user-color]" style="--user-color: {{ user.profile.color }}">
+  <!-- ... -->
+</div>
+```
+
+<details className="-mt-0 mb-6 rounded-xl border px-6 py-3 prose prose-slate open:pb-5 dark:prose-dark dark:border-slate-800">
+  <summary className="font-medium cursor-default select-none text-slate-900 dark:text-slate-200">Why do I need to use CSS variables for dynamic values?</summary>
+
+This is a necessity due to how Tailwind's internal process generates CSS. Tailwind scans your project files as a static text file, and looks for tokens that it can identify as Tailwind utilities. If your template file (or React component, Vue component, etc.) has this:
+
+```html
+<div class="bg-[{{ user.profile.color }}]">
+```
+
+... Tailwind evaluates this as three separate tokens; `bg-[{{`, `user.profile.color`, and `}}]`. None of these are valid Tailwind utilities. You might think removing the whitespace would fix this, but even `bg-[{{user.profile.color}}]` token is not a valid Tailwind utility. Even if Tailwind attempts its best to work with it, this token will generate the following final CSS:
+
+```css
+.bg-\[\{\{user\.profile\.color\}\}\] {
+  background-color: {{user.profile.color}};
+}
+```
+
+That will *not* produce the result you want to see in your application.
+</details>
+
+
 ### Arbitrary properties
 
 If you ever need to use a CSS property that Tailwind doesn't include a utility for out of the box, you can also use square bracket notation to write completely arbitrary CSS:
