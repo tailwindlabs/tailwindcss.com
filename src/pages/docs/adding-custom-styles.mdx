@@ -117,7 +117,13 @@ This is a necessity due to how Tailwind's internal process generates CSS. Tailwi
 <div class="bg-[{{ user.profile.color }}]">
 ```
 
-... Tailwind evaluates this as three separate tokens; `bg-[{{`, `user.profile.color`, and `}}]`. None of these are valid Tailwind utilities. You might think removing the whitespace would fix this, but even `bg-[{{user.profile.color}}]` token is not a valid Tailwind utility. Even if Tailwind attempts its best to work with it, this token will generate the following final CSS:
+Tailwind evaluates the code above as three separate tokens:
+
+- `bg-[{{`
+- `user.profile.color`,
+- `}}]`
+
+None of these are valid Tailwind utilities. You might think removing the whitespace would fix this, but `bg-[{{user.profile.color}}]` is also not a valid Tailwind utility. Even if Tailwind attempts its best to work with it, this token will generate the following final CSS:
 
 ```css
 .bg-\[\{\{user\.profile\.color\}\}\] {
