@@ -13,7 +13,11 @@ const dateFormat = {
   year: 'numeric',
 }
 
-export function BlogPostLayout({ children, meta }) {
+export function BlogPostLayout({ children, meta, bare = false }) {
+  if (bare) {
+    return children
+  }
+
   return (
     <div className="overflow-hidden">
       <div className="max-w-8xl mx-auto">
@@ -56,9 +60,7 @@ export function BlogPostLayout({ children, meta }) {
                   <dd
                     className={clsx('absolute top-0 inset-x-0 text-slate-700 dark:text-slate-400')}
                   >
-                    <time dateTime={meta.date}>
-                      {formatDate(meta.date, dateFormat)}
-                    </time>
+                    <time dateTime={meta.date}>{formatDate(meta.date, dateFormat)}</time>
                   </dd>
                 </dl>
               </div>
