@@ -1,5 +1,6 @@
 import { adamwathan } from '@/authors'
 import card from './card.jpg'
+import { WhitespaceDemo, DuplicationDemo } from './Demos.jsx'
 
 export const meta = {
   title: 'Automatically clean up whitespace and duplicate class names',
@@ -27,10 +28,7 @@ When you're copying around class names or deleting a class name from the middle 
 
 Now our Prettier plugin will handle this for you automatically, so you don't need to clean it up yourself.
 
-<div className="relative rounded-2xl overflow-hidden">
-  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 pointer-events-none"></div>
-  <video src="https://assets.tailwindcss.com/blog%2F2024-05-30-prettier-plugin-collapse-whitespace%2Fremove-whitespace-3.mp4" autoPlay playsInline loop muted className="block m-0 min-w-[550px]" />
-</div>
+<WhitespaceDemo />
 
 ---
 
@@ -38,11 +36,7 @@ Now our Prettier plugin will handle this for you automatically, so you don't nee
 
 Our [VS Code extension](https://tailwindcss.com/docs/editor-setup#intelli-sense-for-vs-code) has warned you about duplicate class names for a long time, but now our Prettier plugin can remove those duplicate classes for you automatically.
 
-<div className="relative rounded-2xl overflow-hidden">
-  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 pointer-events-none"></div>
-  <video src="https://assets.tailwindcss.com/blog%2F2024-05-30-prettier-plugin-collapse-whitespace%2Fprettier-remove-duplicates.mp4" autoPlay playsInline loop muted className="block m-0 min-w-[550px]" />
-</div>
-
+<DuplicationDemo />
 
 ---
 
