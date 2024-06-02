@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import { DocSearchModal } from '@docsearch/react'
 import clsx from 'clsx'
 import { useActionKey } from '@/hooks/useActionKey'
+import { startViewTransition } from '@/utils/startViewTransition'
 
 const INDEX_NAME = 'tailwindcss'
 const API_KEY = '5fc87cef58bb80203d2207578309fab6'
@@ -27,17 +28,23 @@ export function SearchProvider({ children }) {
   const [initialQuery, setInitialQuery] = useState(null)
 
   const onOpen = useCallback(() => {
-    setIsOpen(true)
+    startViewTransition(() => {
+      setIsOpen(true)
+    })
   }, [setIsOpen])
 
   const onClose = useCallback(() => {
-    setIsOpen(false)
+    startViewTransition(() => {
+      setIsOpen(false)
+    })
   }, [setIsOpen])
 
   const onInput = useCallback(
     (e) => {
-      setIsOpen(true)
-      setInitialQuery(e.key)
+      startViewTransition(() => {
+        setIsOpen(true)
+        setInitialQuery(e.key)
+      })
     },
     [setIsOpen, setInitialQuery]
   )
@@ -197,10 +204,9 @@ function Hit({ hit, children }) {
   )
 }
 
-export function SearchButton({ children, ...props }) {
+export function SearchButton({ children, className = '', ...props }) {
   let searchButtonRef = useRef()
-  let actionKey = useActionKey()
-  let { onOpen, onInput } = useContext(SearchContext)
+  let { onOpen, onInput, isOpen } = useContext(SearchContext)
 
   useEffect(() => {
     function onKeyDown(event) {
@@ -217,9 +223,73 @@ export function SearchButton({ children, ...props }) {
   }, [onInput, searchButtonRef])
 
   return (
-    <button type="button" ref={searchButtonRef} onClick={onOpen} {...props}>
-      {typeof children === 'function' ? children({ actionKey }) : children}
+    <button
+      type="button"
+      className={clsx(
+        className,
+        'relative',
+        isOpen && 'supports-view-transitions:motion-safe:invisible'
+      )}
+      ref={searchButtonRef}
+      onClick={onOpen}
+      style={{ viewTransitionName: isOpen ? null : 'search-box' }}
+      {...props}
+    >
+      {children}
+      {/* Position these fake "from" elements for easier view transitions: */}
+      <div
+        className="absolute inset-x-0 w-full h-0 top-full left-0"
+        style={{ viewTransitionName: isOpen ? null : 'search-results' }}
+      ></div>
+      <div
+        className="absolute inset-x-0 w-full h-0 bottom-0 left-0"
+        style={{ viewTransitionName: isOpen ? null : 'search-footer' }}
+      ></div>
     </button>
+  )
+}
+
+export function SearchIcon(props) {
+  let { isOpen } = useContext(SearchContext)
+
+  return (
+    // We need a wrapping div because view transitions don't seem to work well with <svg>:
+    <div {...props} style={{ viewTransitionName: isOpen ? null : 'search-icon' }}>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="aspect-square h-full"
+        aria-hidden="true"
+      >
+        <path d="m19 19-3.5-3.5" />
+        <circle cx="11" cy="11" r="6" />
+      </svg>
+    </div>
+  )
+}
+
+export function SearchShortcut({ as: Component = 'kbd', children, ...props }) {
+  let actionKey = useActionKey()
+  let { isOpen } = useContext(SearchContext)
+
+  return (
+    <Component {...props} style={{ viewTransitionName: isOpen ? null : 'search-shortcut' }}>
+      {typeof children === 'function' ? children({ actionKey }) : children}
+    </Component>
+  )
+}
+
+export function SearchInput({ children, ...props }) {
+  let { isOpen } = useContext(SearchContext)
+
+  return (
+    <span {...props} style={{ viewTransitionName: isOpen ? null : 'search-input' }}>
+      {children}
+    </span>
   )
 }
 

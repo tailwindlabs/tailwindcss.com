@@ -16,3 +16,11 @@ body {
 abbr[title] {
   text-decoration: none;
 }
+
+/* Global defaults for view transitions, used in DocSearch */
+::view-transition-group(*),
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 250ms; /* existing transitions within DocSearch used 250ms, so default to that */
+  animation-timing-function: theme('transitionTimingFunction.DEFAULT');
+}

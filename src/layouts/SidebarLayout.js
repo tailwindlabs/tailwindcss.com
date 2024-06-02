@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { createContext, forwardRef, useRef } from 'react'
 import { useIsomorphicLayoutEffect } from '@/hooks/useIsomorphicLayoutEffect'
 import clsx from 'clsx'
-import { SearchButton } from '@/components/Search'
+import { SearchButton, SearchIcon, SearchInput, SearchShortcut } from '@/components/Search'
 import { Dialog, DialogPanel } from '@headlessui/react'
 
 export const SidebarContext = createContext()
@@ -99,41 +99,18 @@ function Nav({ nav, children, fallbackHref, mobile = false }) {
       <div className="sticky top-0 -ml-0.5 pointer-events-none">
         {!mobile && <div className="h-10 bg-white dark:bg-slate-900" />}
         <div className="bg-white dark:bg-slate-900 relative pointer-events-auto">
-          <SearchButton className="hidden w-full lg:flex items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 dark:bg-slate-800 dark:highlight-white/5 dark:hover:bg-slate-700">
-            {({ actionKey }) => (
-              <>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="none"
-                  aria-hidden="true"
-                  className="mr-3 flex-none"
-                >
-                  <path
-                    d="m19 19-3.5-3.5"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <circle
-                    cx="11"
-                    cy="11"
-                    r="6"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Quick search...
-                {actionKey && (
-                  <span className="ml-auto pl-3 flex-none text-xs font-semibold">
-                    {actionKey[0]}K
-                  </span>
-                )}
-              </>
-            )}
+          <SearchButton className="hidden w-full text-left lg:flex lg:gap-x-3 items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 dark:bg-slate-800 dark:highlight-white/5 dark:hover:bg-slate-700">
+            <SearchIcon className="size-6 flex-none" />
+            <SearchInput className="flex-auto">Quick search...</SearchInput>
+            <SearchShortcut as="span" className="flex-none text-xs font-semibold">
+              {({ actionKey }) =>
+                actionKey && (
+                  <>
+                    <abbr title={actionKey[1]}>{actionKey[0]}</abbr>K
+                  </>
+                )
+              }
+            </SearchShortcut>
           </SearchButton>
         </div>
         {!mobile && <div className="h-8 bg-gradient-to-b from-white dark:from-slate-900" />}

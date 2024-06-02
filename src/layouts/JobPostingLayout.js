@@ -1,6 +1,6 @@
 import { NavItems, NavPopover } from '@/components/Header'
 import { Logo } from '@/components/Logo'
-import { SearchButton } from '@/components/Search'
+import { SearchButton, SearchIcon, SearchInput, SearchShortcut } from '@/components/Search'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { formatDate } from '@/utils/formatDate'
 import { mdxComponents } from '@/utils/mdxComponents'
@@ -52,20 +52,17 @@ function Header() {
         </Link>
         <div className="flex items-center">
           <SearchButton className="-my-1 flex h-8 w-8 items-center justify-center text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 lg:hidden">
-            <span className="sr-only">Search</span>
-            <svg
-              width="24"
-              height="24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="m19 19-3.5-3.5" />
-              <circle cx="11" cy="11" r="6" />
-            </svg>
+            <SearchIcon className="h-6" />
+            <SearchInput className="sr-only left-full top-1/2">Search</SearchInput>
+            <SearchShortcut className="sr-only left-full top-1/2">
+              {({ actionKey }) =>
+                actionKey && (
+                  <>
+                    <abbr title={actionKey[1]}>{actionKey[0]}</abbr> K
+                  </>
+                )
+              }
+            </SearchShortcut>
           </SearchButton>
           <NavPopover className="-my-1 ml-2" display="lg:hidden" />
           <div className="hidden items-center lg:flex">

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { VersionSwitcher } from '@/components/VersionSwitcher'
-import { SearchButton } from '@/components/Search'
+import { SearchButton, SearchIcon, SearchInput, SearchShortcut } from '@/components/Search'
 import Router from 'next/router'
 import { Logo } from '@/components/Logo'
 import { Dialog, DialogPanel } from '@headlessui/react'
@@ -245,20 +245,17 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
                 </div>
               </div>
               <SearchButton className="ml-auto text-slate-500 w-8 h-8 -my-1 flex items-center justify-center hover:text-slate-600 lg:hidden dark:text-slate-400 dark:hover:text-slate-300">
-                <span className="sr-only">Search</span>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="m19 19-3.5-3.5" />
-                  <circle cx="11" cy="11" r="6" />
-                </svg>
+                <SearchIcon className="h-6" />
+                <SearchInput className="sr-only left-full top-1/2">Search</SearchInput>
+                <SearchShortcut className="sr-only left-full top-1/2">
+                  {({ actionKey }) =>
+                    actionKey && (
+                      <>
+                        <abbr title={actionKey[1]}>{actionKey[0]}</abbr> K
+                      </>
+                    )
+                  }
+                </SearchShortcut>
               </SearchButton>
               <NavPopover className="ml-2 -my-1" display="lg:hidden" />
             </div>
