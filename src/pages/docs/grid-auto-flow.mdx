@@ -13,7 +13,31 @@ export const classes = { utilities }
 
 ### Controlling grid element placement
 
-Use the `grid-flow-*` utilities to control how the auto-placement algorithm works for a grid layout.
+By default elements in a grid are placed in rows, in the order they appear, and positioned at the latest row and column that has been created. However, this can leave holes in a grid even when a later element fits. You may use the `grid-flow-*` utilities to control how this auto-placement algorithm works for a given grid layout.
+
+For example, the following grid using `grid-flow-row` has a hole in the top right corner because item 2 was too wide and had to be placed on the second row causing item 3 to be placed on the second row as well:
+
+```html {{ example: true }}
+<div class="grid grid-cols-3 grid-rows-3 grid-flow-row gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-purple rounded-lg">
+  <div class="p-4 col-span-2 rounded-lg bg-purple-300 dark:bg-purple-800 dark:text-purple-400">01</div>
+  <div class="p-4 col-span-2 rounded-lg bg-purple-300 dark:bg-purple-800 dark:text-purple-400">02</div>
+  <div class="p-4 rounded-lg shadow-lg bg-purple-500">03</div>
+  <div class="p-4 rounded-lg bg-purple-300 dark:bg-purple-800 dark:text-purple-400">04</div>
+  <div class="p-4 rounded-lg bg-purple-300 dark:bg-purple-800 dark:text-purple-400">05</div>
+</div>
+```
+
+```html
+<div class="grid **grid-flow-row** grid-cols-3 grid-rows-3 ...">
+  <div class="col-span-2">01</div>
+  <div class="col-span-2">02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+</div>
+```
+
+You can instruct the grid to place items in a more compact layout which will attempt to fill in earlier holes in the grid with later elements when possible. For example, the following grid has no hole in the top right corner because item 3 was small enough to fit. You can achieve this behavior by using `grid-flow-row-dense`:
 
 ```html {{ example: true }}
 <div class="grid grid-cols-3 grid-rows-3 grid-flow-row-dense gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-purple rounded-lg">
@@ -29,6 +53,50 @@ Use the `grid-flow-*` utilities to control how the auto-placement algorithm work
 <div class="grid **grid-flow-row-dense** grid-cols-3 grid-rows-3 ...">
   <div class="col-span-2">01</div>
   <div class="col-span-2">02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+</div>
+```
+
+When laying out items columns rather than rows you can use `grid-flow-col` and `grid-flow-col-dense` which work in the same way as their row counterparts. Notice the hole in the bottom right corner of the following grid:
+
+```html {{ example: true }}
+<div class="grid grid-cols-3 grid-rows-3 grid-flow-col gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-pink rounded-lg">
+  <div class="p-4 row-span-2 rounded-lg bg-pink-300 dark:bg-pink-800 dark:text-pink-400">01</div>
+  <div class="p-4 row-span-2 rounded-lg bg-pink-300 dark:bg-pink-800 dark:text-pink-400">02</div>
+  <div class="p-4 rounded-lg shadow-lg bg-pink-500">03</div>
+  <div class="p-4 rounded-lg bg-pink-300 dark:bg-pink-800 dark:text-pink-400">04</div>
+  <div class="p-4 rounded-lg bg-pink-300 dark:bg-pink-800 dark:text-pink-400">05</div>
+</div>
+```
+
+```html
+<div class="grid **grid-flow-col** grid-cols-3 grid-rows-3 ...">
+  <div class="row-span-2">01</div>
+  <div class="row-span-2">02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+</div>
+```
+
+To fill in the hole in the bottom right corner you can use `grid-flow-col-dense`:
+
+```html {{ example: true }}
+<div class="grid grid-cols-3 grid-rows-3 grid-flow-col-dense gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-pink rounded-lg">
+  <div class="p-4 row-span-2 rounded-lg bg-pink-300 dark:bg-pink-800 dark:text-pink-400">01</div>
+  <div class="p-4 row-span-2 rounded-lg bg-pink-300 dark:bg-pink-800 dark:text-pink-400">02</div>
+  <div class="p-4 rounded-lg shadow-lg bg-pink-500">03</div>
+  <div class="p-4 rounded-lg bg-pink-300 dark:bg-pink-800 dark:text-pink-400">04</div>
+  <div class="p-4 rounded-lg bg-pink-300 dark:bg-pink-800 dark:text-pink-400">05</div>
+</div>
+```
+
+```html
+<div class="grid **grid-flow-col-dense** grid-cols-3 grid-rows-3 ...">
+  <div class="row-span-2">01</div>
+  <div class="row-span-2">02</div>
   <div>03</div>
   <div>04</div>
   <div>05</div>
