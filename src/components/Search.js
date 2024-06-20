@@ -27,17 +27,23 @@ export function SearchProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false)
   const [initialQuery, setInitialQuery] = useState(null)
 
-  const onOpen = useCallback(() => {
-    startViewTransition(() => {
-      setIsOpen(true)
-    })
-  }, [setIsOpen])
+  const onOpen = useCallback(
+    (keyboardActivated = false) => {
+      startViewTransition(() => {
+        setIsOpen(true)
+      }, keyboardActivated)
+    },
+    [setIsOpen]
+  )
 
-  const onClose = useCallback(() => {
-    startViewTransition(() => {
-      setIsOpen(false)
-    })
-  }, [setIsOpen])
+  const onClose = useCallback(
+    (keyboardActivated = false) => {
+      startViewTransition(() => {
+        setIsOpen(false)
+      }, keyboardActivated)
+    },
+    [setIsOpen]
+  )
 
   const onInput = useCallback(
     (e) => {
@@ -120,7 +126,7 @@ export function SearchProvider({ children }) {
                 ],
               }}
               placeholder="Search documentation"
-              onClose={onClose}
+              onClose={() => void onClose()}
               indexName={INDEX_NAME}
               apiKey={API_KEY}
               appId={APP_ID}
@@ -231,7 +237,7 @@ export function SearchButton({ children, className = '', ...props }) {
         isOpen && 'supports-view-transitions:motion-safe:invisible'
       )}
       ref={searchButtonRef}
-      onClick={onOpen}
+      onClick={() => void onOpen()}
       style={{ viewTransitionName: isOpen ? null : 'search-box' }}
       {...props}
     >
@@ -300,7 +306,7 @@ function useDocSearchKeyboardEvents({ isOpen, onOpen, onClose }) {
         // We check that no other DocSearch modal is showing before opening
         // another one.
         if (!document.body.classList.contains('DocSearch--active')) {
-          onOpen()
+          onOpen(true)
         }
       }
 
@@ -312,7 +318,7 @@ function useDocSearchKeyboardEvents({ isOpen, onOpen, onClose }) {
         event.preventDefault()
 
         if (isOpen) {
-          onClose()
+          onClose(true)
         } else if (!document.body.classList.contains('DocSearch--active')) {
           open()
         }

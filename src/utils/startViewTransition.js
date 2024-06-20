@@ -7,8 +7,8 @@ const motionSafe =
     ? window.matchMedia('(prefers-reduced-motion: no-preference)')
     : undefined
 
-export function startViewTransition(cb) {
-  if (motionSafe?.matches && typeof document?.startViewTransition === 'function') {
+export function startViewTransition(cb, disabled = false) {
+  if (!disabled && motionSafe?.matches && typeof document?.startViewTransition === 'function') {
     document.startViewTransition(() => {
       flushSync(cb)
     })
