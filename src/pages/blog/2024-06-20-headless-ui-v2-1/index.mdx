@@ -1,9 +1,9 @@
+import { TipGood, TipBad, TipCompat, TipInfo } from '@/components/Tip'
 import { adamwathan, reinink } from '@/authors'
 import card from './card.jpg'
-import { WhitespaceDemo, DuplicationDemo } from '@/components/PrettierPluginWhitespaceDemos.js'
 
 export const meta = {
-  title: 'Headless UI v2.1: New transition API and sibling dialogs',
+  title: 'Headless UI v2.1: Simplified transition API and improved multi-dialog support',
   description: '',
   date: '2024-06-20T16:30:00.000Z',
   authors: [adamwathan, reinink],
@@ -12,46 +12,22 @@ export const meta = {
 
 {/*excerpt*/}
 
-We just released Headless UI v2.1 for React, which adds a new data-attribute based transition API and support for sibling dialogs.
+We just released Headless UI v2.1 for React, which dramatically simplifies our transition APIs and adds support for rendering multiple dialogs as siblings.
 
 {/*/excerpt*/}
 
-![Catalyst application layout preview](./card.jpg)
+![Headless UI v2.1](./card.jpg)
 
-We just released Headless UI v2.1 for React, which adds a new data-attribute based transition API and support for sibling dialogs.
+We just released Headless UI v2.1 for React, which dramatically simplifies our transition APIs and adds support for rendering multiple dialogs as siblings.
 
 ---
 
-## New transition API
+## Simplified transition API
 
-One great addition to Headless UI v2.0 was the new `data-*` state attributes, which provide information about the state of a given component. These data attributes combine really well with Tailwind's [data attribute modifier](/docs/hover-focus-and-other-states#data-attributes), as you can conditionally apply styles based on their presence.
-
-For example, you can add a light blue background to a `MenuItem` when it's focused:
-
-```jsx {{ style: 'framed', color: 'pink' }}
-<MenuItem>
-  <a href="/settings" className="data-[focus]:bg-blue-100">Settings</a>
-</MenuItem>
-```
-
-By comparison, here's how you previously had to conditionally apply this style:
-
-```jsx {{ style: 'framed', color: 'indigo' }}
-<MenuItem>
-  {({ focus }) => (
-    <a href="/settings" className={focus && 'bg-blue-100'}>Settings</a>
-  )}
-</MenuItem>
-```
-
-Using data attributes is much simpler, as you no longer need the render prop or the conditional logic in the `className` prop. Plus, if you're using server components (RSC), the render prop approach does not work as functions can't be serialized by React.
-
-We love using data attributes so much that we thought, "What if we could do the same for the transition API?"
-
-Well, we did it, and it's beautiful:
+We've made transitions way easier in v2.1 by adding a new `transition` prop to all of the built-in components you might want to transition, and adding data attributes for each transition stage so you can add transition styles by just throwing some classes on the target element:
 
 ```jsx {{ style: 'framed', color: 'fuchsia' }}
-  import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+  import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
 
   function Example() {
     return (
@@ -59,90 +35,97 @@ Well, we did it, and it's beautiful:
         <MenuButton>My account</MenuButton>
         <MenuItems
 >         transition
->         className="transition duration-200 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
+>         className={`
+>           transition ease-out
+>           data-[closed]:scale-95 data-[closed]:opacity-0
+>           data-[enter]:duration-200 data-[leave]:duration-300
+>         `}
         >
-          {/* Menu items... */}
+          {/* Menu items… */}
         </MenuItems>
       </Menu>
     )
   }
 ```
 
-Previously, you had to do this:
+There are four data attributes you can use to target the different stages of your transitions:
 
-```jsx {{ style: 'framed', color: 'indigo' }}
-  import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
+- `data-closed`: The styles the element should transition from when entering and to when leaving.
+- `data-enter`: Styles to apply while the element is entering, like a duration or easing curve.
+- `data-leave`: Styles to apply while the element is leaving, like a duration or easing curve.
+- `data-transition`: Styles to apply while the element is entering or leaving, useful for sharing values between both stages.
+
+You can even stack these attributes to use different `closed` styles for entering and leaving. For example this dialog slides in from the left, but slides out to the right:
+
+```jsx {{ style: 'framed', color: 'purple' }}
+  import { Dialog Transition } from '@headlessui/react'
+  import { useState } from 'react'
 
   function Example() {
+    let [isOpen, setIsOpen] = useState(false)
+
     return (
-      <Menu>
-        <MenuButton>My account</MenuButton>
->       <Transition
->         enter="duration-200 ease-out"
->         enterFrom="scale-95 opacity-0"
->         enterTo="scale-100 opacity-100"
->         leave="duration-300 ease-out"
->         leaveFrom="scale-100 opacity-100"
->         leaveTo="scale-95 opacity-0"
->       >
->         <MenuItems anchor="bottom" className="origin-top transition">
-            {/* Menu items... */}
-          </MenuItems>
->       </Transition>
-      </Menu>
+      <>
+        <button onClick={() => setIsOpen(true)}>Open dialog</button>
+        <Dialog
+          open={isOpen}
+          onClose={() => setIsOpen(false)}
+>         transition
+>         className={`
+>           transition ease-out duration-300
+>           data-[closed]:opacity-0
+>           data-[closed]:data-[enter]:-translate-x-8
+>           data-[closed]:data-[leave]:translate-x-8
+>         `}
+        >
+          {/* Dialog content… */}
+        </Dialog>
+      </>
     )
   }
 ```
 
-Just a smidge less verbose.
+And for transitioning regular HTML elements or other components, you can still use the `<Transition>` component but with the new data attribute APIs:
 
-Headless UI v2.1 introduces four new transition data attributes that can be used to style the element at different stages of the transition:
+```jsx {{ style: 'framed', color: 'sky' }}
+  import { Transition } from '@headlessui/react'
+  import { useState } from 'react'
 
-- `data-closed`: Present right before transitioning in, or when transitioning out.
-- `data-enter`: Present when the element is transitioning in.
-- `data-leave`: Present when the element is transitioning out.
-- `data-transition`: Present when the element is transitioning in or out.
+  function Example() {
+    const [isShowing, setIsShowing] = useState(false)
 
-In many cases, all you need is the `data-closed` attribute, but the others are available for more complex situations, like when you want different enter and leave transitions.
+    return (
+      <>
+        <button onClick={() => setIsShowing((isShowing) => !isShowing)}>Toggle</button>
+>       <Transition show={isShowing}>
+>         <div className="transition duration-300 data-[closed]:opacity-0">
+>           I will fade in and out
+>         </div>
+>       </Transition>
+      </>
+    )
+  }
+```
 
-To learn more see the updated [transition documentation](https://headlessui.com/react/transition).
+We've already updated all of Tailwind UI to use this new transition API and the code is a lot simpler and lighter. Take a look at the [Modal Dialog](https://tailwindui.com/components/application-ui/overlays/modal-dialogs), [Dropdown](https://tailwindui.com/components/application-ui/elements/dropdowns), [Slide-over](https://tailwindui.com/components/application-ui/overlays/slide-overs), [Flyout Menu](https://tailwindui.com/components/marketing/elements/flyout-menus), or [Select Menu](https://tailwindui.com/components/application-ui/forms/select-menus) components for more examples.
 
-We've already gone ahead an updated all of Tailwind UI to use this new transition API. Here's a few categories specifically that include transitions:
+All of the existing APIs continue to work for backwards compatibility, but this new approach is what we're going to recommend going forward.
 
-- [Modal Dialog components](https://tailwindui.com/components/application-ui/overlays/modal-dialogs)
-- [Dropdown components](https://tailwindui.com/components/application-ui/elements/dropdowns)
-- [Slide-over components](https://tailwindui.com/components/application-ui/overlays/slide-overs)
-- [Flyout Menu components](https://tailwindui.com/components/marketing/elements/flyout-menus)
-- [Select Menu components](https://tailwindui.com/components/application-ui/forms/select-menus)
+Check out the updated [`Transition` component documentation](https://headlessui.com/react/transition) to learn more.
 
 ---
 
-## Sibling dialog support
+## Rendering multiple dialogs as siblings
 
-We heard you, and with Headless UI v2.1 you can now *finally* have multiple sibling dialogs open at the same time.
+In Headless UI v2.1 you can finally render multiple dialogs at the same time without nesting one inside the other.
 
-Previously, this was only possible by nesting the dialogs within each other:
+This can be really helpful when two unrelated parts of your application need to show a dialog at the same time — for example maybe you already have some sort of confirmation dialog open but another part of your app detects that you've lost network connectivity or your session has timed-out and needs to throw up a new dialog on top.
 
-```jsx
-<DeleteAccountDialog>
-  <ConfirmPasswordDialog />
-</DeleteAccountDialog>
-```
-
-But now they can be siblings, rendered from anywhere in your app:
-
-```jsx
-<DeleteAccountDialog />
-<ConfirmPasswordDialog />
-```
-
-Whatever `Dialog` is opened last is considered to be the top-most dialog, and pressing escape or clicking outside of a dialog will only close the top-most one, regardless of where it was rendered.
-
-What can I say except, "You're welcome"?
+We keep track of the order in which each dialog is opened, and whichever one was opened last is the one that will close when you press escape or click outside the dialog.
 
 ---
 
-To start using these improvements in your projects, just install the latest version:
+To start using this stuff today, just install the latest version of Headless UI:
 
 ```sh
 $ npm i @headlessui/react@latest
