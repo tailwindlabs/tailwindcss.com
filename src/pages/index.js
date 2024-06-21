@@ -112,7 +112,7 @@ function Header() {
               Get started
             </NextLink>
             {/* We only need to hide this from sm-md if there will be a view transition, which needs it to be unique (and not clash with the search in the header) */}
-            <SearchButton className="hidden sm:flex supports-view-transitions:motion-safe:sm:hidden supports-view-transitions:motion-safe:md:flex bg-white dark:highlight-white/5 dark:bg-slate-800 dark:hover:bg-slate-700 shadow-sm items-center w-72 text-left gap-x-3 px-4 h-12 rounded-lg ring-1 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 text-slate-400 dark:ring-0 dark:text-slate-300">
+            <SearchButton className="hidden sm:flex supports-view-transitions:motion-safe:sm:hidden supports-view-transitions:motion-safe:md:flex bg-white dark:highlight-white/5 dark:bg-slate-800 dark:hover:bg-slate-700 dark:focus:bg-slate-800 shadow-sm items-center w-72 text-left gap-x-3 px-4 h-12 rounded-lg ring-1 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 text-slate-400 dark:ring-0 dark:text-slate-300">
               <SearchIcon className="flex-none h-6 text-slate-300 dark:text-slate-400" />
               <SearchInput className="flex-auto">Quick search...</SearchInput>
               <SearchShortcut className="font-sans font-semibold dark:text-slate-500">
