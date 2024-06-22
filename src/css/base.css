@@ -19,7 +19,7 @@ abbr[title] {
 
 /* Sensible defaults for view transitions groups, which transform */
 ::view-transition-group(*) {
-  animation-timing-function: theme('transitionTimingFunction.spring[250/425]');
+  animation-timing-function: theme('transitionTimingFunction[spring-250/425]');
   animation-duration: 425ms; /* make sure this matches the preferred duration of the spring */
 }
 
