@@ -26,6 +26,6 @@ abbr[title] {
 /* Sensible defaults for the crossfading parts of a view transition */
 ::view-transition-old(*),
 ::view-transition-new(*) {
-  animation-duration: 250ms; /* match the perceptual duration of the default spring */
+  animation-duration: 265ms; /* match the perceptual duration of the default spring */
   animation-timing-function: ease;
 }
