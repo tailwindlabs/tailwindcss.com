@@ -19,13 +19,13 @@ abbr[title] {
 
 /* Sensible defaults for view transitions groups, which transform */
 ::view-transition-group(*) {
-  animation-timing-function: theme('transitionTimingFunction.spring[265/500]');
-  animation-duration: 500ms; /* make sure this matches the preferred duration of the spring */
+  animation-timing-function: theme('transitionTimingFunction.spring[250/425]');
+  animation-duration: 425ms; /* make sure this matches the preferred duration of the spring */
 }
 
 /* Sensible defaults for the crossfading parts of a view transition */
 ::view-transition-old(*),
 ::view-transition-new(*) {
-  animation-duration: 265ms; /* match the perceptual duration of the default spring */
+  animation-duration: 250ms; /* match the perceptual duration of the default spring */
   animation-timing-function: ease;
 }
