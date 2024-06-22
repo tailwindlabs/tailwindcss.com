@@ -99,7 +99,7 @@ function Nav({ nav, children, fallbackHref, mobile = false }) {
       <div className="sticky top-0 -ml-0.5 pointer-events-none">
         {!mobile && <div className="h-10 bg-white dark:bg-slate-900" />}
         <div className="bg-white dark:bg-slate-900 relative pointer-events-auto">
-          <SearchButton className="hidden w-full text-left lg:flex lg:gap-x-3 items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 dark:bg-slate-800 dark:highlight-white/5 dark:hover:bg-slate-700">
+          <SearchButton className="hidden w-full text-left lg:flex lg:gap-x-3 items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 bg-white dark:bg-slate-800 dark:highlight-white/5 dark:hover:bg-slate-700">
             <SearchIcon className="size-6 flex-none" />
             <SearchInput className="flex-auto">Quick search...</SearchInput>
             <SearchShortcut as="span" className="flex-none text-xs font-semibold">
