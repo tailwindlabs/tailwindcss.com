@@ -17,18 +17,15 @@ abbr[title] {
   text-decoration: none;
 }
 
-/* Global defaults for view transitions, used in DocSearch */
-::view-transition-group(*),
-::view-transition-old(*),
-::view-transition-new(*) {
+/* Sensible defaults for view transitions groups, which transform */
+::view-transition-group(*) {
   animation-timing-function: theme('transitionTimingFunction.spring.500');
   animation-duration: 500ms; /* make sure this matches the preferred duration of the spring */
 }
 
-/* Sensible defaults for the more static parts of a view transition */
-::view-transition-group(root),
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: theme('transitionDuration.300');
+/* Sensible defaults for the crossfading parts of a view transition */
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 250ms; /* match the perceptual duration of the default spring */
   animation-timing-function: ease;
 }
