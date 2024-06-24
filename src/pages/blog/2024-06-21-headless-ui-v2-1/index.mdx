@@ -27,7 +27,7 @@ We just released Headless UI v2.1 for React, which dramatically simplifies our t
 We've made transitions way easier in v2.1 by adding a new `transition` prop to all of the built-in components you might want to transition, and adding data attributes for each transition stage so you can add transition styles by just throwing some classes on the target element:
 
 ```jsx {{ style: 'framed', color: 'fuchsia' }}
-  import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
+  import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 
   function Example() {
     return (
@@ -58,7 +58,7 @@ There are four data attributes you can use to target the different stages of you
 You can even stack these attributes to use different `closed` styles for entering and leaving. For example this dialog slides in from the left, but slides out to the right:
 
 ```jsx {{ style: 'framed', color: 'purple' }}
-  import { Dialog Transition } from '@headlessui/react'
+  import { Dialog } from '@headlessui/react'
   import { useState } from 'react'
 
   function Example() {
