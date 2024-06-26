@@ -7,6 +7,7 @@ const descriptions = {
   container: 'Configuration for the `container` plugin',
   inset: 'Values for the `top`, `right`, `bottom`, and `left` properties',
   keyframes: 'Keyframe values used in the `animation` plugin',
+  textColor: 'Values for the `color` property',
   ...Object.fromEntries(
     [
       'placeholderColor',
