@@ -28,19 +28,19 @@ export function SearchProvider({ children }) {
   const [initialQuery, setInitialQuery] = useState(null)
 
   const onOpen = useCallback(
-    (keyboardActivated = false) => {
+    (disableTransition = false) => {
       startViewTransition(() => {
         setIsOpen(true)
-      }, keyboardActivated)
+      }, disableTransition)
     },
     [setIsOpen]
   )
 
   const onClose = useCallback(
-    (keyboardActivated = false) => {
+    (disableTransition = false) => {
       startViewTransition(() => {
         setIsOpen(false)
-      }, keyboardActivated)
+      }, disableTransition)
     },
     [setIsOpen]
   )
@@ -91,110 +91,112 @@ export function SearchProvider({ children }) {
         }}
       >
         {children}
+        {isOpen &&
+          createPortal(
+            <div
+              onClick={(event) => {
+                let link = event.target.closest('a')
+                if (!link) return
+                if (isExternalURL(link.href) && link.target !== '_blank') {
+                  event.preventDefault()
+                  window.open(link.href, '_blank')
+                }
+              }}
+            >
+              <DocSearchModal
+                initialQuery={initialQuery}
+                initialScrollY={window.scrollY}
+                searchParameters={{
+                  facetFilters: 'version:v3',
+                  distinct: 1,
+                  attributesToRetrieve: [
+                    'hierarchy.lvl0',
+                    'hierarchy.lvl1',
+                    'hierarchy.lvl2',
+                    'hierarchy.lvl3',
+                    'hierarchy.lvl4',
+                    'hierarchy.lvl5',
+                    'hierarchy.lvl6',
+                    'content',
+                    'type',
+                    'url',
+                    'product',
+                    'product_category',
+                  ],
+                }}
+                placeholder="Search documentation"
+                onClose={() => void onClose()}
+                indexName={INDEX_NAME}
+                apiKey={API_KEY}
+                appId={APP_ID}
+                navigator={{
+                  navigate({ itemUrl }) {
+                    onClose(true)
+                    if (isExternalURL(itemUrl)) {
+                      window.open(itemUrl, '_blank')
+                    } else {
+                      router.push(itemUrl)
+                    }
+                  },
+                }}
+                hitComponent={Hit}
+                transformItems={(items) => {
+                  return items.map((item, index) => {
+                    // We transform the absolute URL into a relative URL to
+                    // leverage Next's preloading.
+                    const a = document.createElement('a')
+                    a.href = item.url
+
+                    const hash = a.hash === '#content-wrapper' || a.hash === '#header' ? '' : a.hash
+
+                    if (item.hierarchy?.lvl0) {
+                      item.hierarchy.lvl0 = item.hierarchy.lvl0.replace(/&amp;/g, '&')
+                    }
+
+                    if (item._highlightResult?.hierarchy?.lvl0?.value) {
+                      item._highlightResult.hierarchy.lvl0.value =
+                        item._highlightResult.hierarchy.lvl0.value.replace(/&amp;/g, '&')
+                    }
+
+                    let isTailwindUI = isTailwindUIURL(item.url)
+
+                    return {
+                      ...item,
+                      hierarchy: {
+                        ...item.hierarchy,
+                        ...(isTailwindUI
+                          ? { lvl1: `${item.product} / ${item.product_category}` }
+                          : {}),
+                      },
+                      url: isTailwindUI ? item.url.split('#')[0] : `${a.pathname}${hash}`,
+                      __is_result: () => true,
+                      __is_parent: () => item.type === 'lvl1' && items.length > 1 && index === 0,
+                      __is_child: () =>
+                        item.type !== 'lvl1' &&
+                        items.length > 1 &&
+                        items[0].type === 'lvl1' &&
+                        index !== 0,
+                      __is_first: () => index === 1,
+                      __is_last: () => index === items.length - 1 && index !== 0,
+                      __is_tailwindui: () => isTailwindUI,
+                    }
+                  })
+                }}
+              />
+            </div>,
+            document.body
+          )}
       </SearchContext.Provider>
-      {isOpen &&
-        createPortal(
-          <div
-            onClick={(event) => {
-              let link = event.target.closest('a')
-              if (!link) return
-              if (isExternalURL(link.href) && link.target !== '_blank') {
-                event.preventDefault()
-                window.open(link.href, '_blank')
-              }
-            }}
-          >
-            <DocSearchModal
-              initialQuery={initialQuery}
-              initialScrollY={window.scrollY}
-              searchParameters={{
-                facetFilters: 'version:v3',
-                distinct: 1,
-                attributesToRetrieve: [
-                  'hierarchy.lvl0',
-                  'hierarchy.lvl1',
-                  'hierarchy.lvl2',
-                  'hierarchy.lvl3',
-                  'hierarchy.lvl4',
-                  'hierarchy.lvl5',
-                  'hierarchy.lvl6',
-                  'content',
-                  'type',
-                  'url',
-                  'product',
-                  'product_category',
-                ],
-              }}
-              placeholder="Search documentation"
-              onClose={() => void onClose()}
-              indexName={INDEX_NAME}
-              apiKey={API_KEY}
-              appId={APP_ID}
-              navigator={{
-                navigate({ itemUrl }) {
-                  setIsOpen(false)
-                  if (isExternalURL(itemUrl)) {
-                    window.open(itemUrl, '_blank')
-                  } else {
-                    router.push(itemUrl)
-                  }
-                },
-              }}
-              hitComponent={Hit}
-              transformItems={(items) => {
-                return items.map((item, index) => {
-                  // We transform the absolute URL into a relative URL to
-                  // leverage Next's preloading.
-                  const a = document.createElement('a')
-                  a.href = item.url
-
-                  const hash = a.hash === '#content-wrapper' || a.hash === '#header' ? '' : a.hash
-
-                  if (item.hierarchy?.lvl0) {
-                    item.hierarchy.lvl0 = item.hierarchy.lvl0.replace(/&amp;/g, '&')
-                  }
-
-                  if (item._highlightResult?.hierarchy?.lvl0?.value) {
-                    item._highlightResult.hierarchy.lvl0.value =
-                      item._highlightResult.hierarchy.lvl0.value.replace(/&amp;/g, '&')
-                  }
-
-                  let isTailwindUI = isTailwindUIURL(item.url)
-
-                  return {
-                    ...item,
-                    hierarchy: {
-                      ...item.hierarchy,
-                      ...(isTailwindUI
-                        ? { lvl1: `${item.product} / ${item.product_category}` }
-                        : {}),
-                    },
-                    url: isTailwindUI ? item.url.split('#')[0] : `${a.pathname}${hash}`,
-                    __is_result: () => true,
-                    __is_parent: () => item.type === 'lvl1' && items.length > 1 && index === 0,
-                    __is_child: () =>
-                      item.type !== 'lvl1' &&
-                      items.length > 1 &&
-                      items[0].type === 'lvl1' &&
-                      index !== 0,
-                    __is_first: () => index === 1,
-                    __is_last: () => index === items.length - 1 && index !== 0,
-                    __is_tailwindui: () => isTailwindUI,
-                  }
-                })
-              }}
-            />
-          </div>,
-          document.body
-        )}
     </>
   )
 }
 
 function Hit({ hit, children }) {
+  let { onClose } = useContext(SearchContext)
   return (
     <Link
       href={hit.url}
+      onClick={() => void onClose(true)}
       target={hit.__is_tailwindui?.() ? '_blank' : undefined}
       className={clsx({
         'DocSearch-Hit--Result': hit.__is_result?.(),
