@@ -207,6 +207,14 @@ Gradients fade out to transparent by default, without requiring you to add `to-t
 </button>
 ```
 
+Note that conditionally setting the `from-*` color resets the entire gradient, so if you want to keep the same `to-*` color you need to specify it again for that condition.
+
+```html
+<div class="from-teal-400 to-blue-500 **hover:from-purple-500 hover:to-blue-500** ...">
+  <!-- ... -->
+</div>
+```
+
 </HoverFocusAndOtherStates>
 
 ### <Heading ignore>Breakpoints and media queries</Heading>
