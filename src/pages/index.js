@@ -10,7 +10,7 @@ import { Customization } from '@/components/home/Customization'
 import { ModernFeatures } from '@/components/home/ModernFeatures'
 import { EditorTools } from '@/components/home/EditorTools'
 import { ReadyMadeComponents } from '@/components/home/ReadyMadeComponents'
-import { SearchButton } from '@/components/Search'
+import { SearchButton, SearchIcon, SearchInput, SearchShortcut } from '@/components/Search'
 import { Hero } from '@/components/home/Hero'
 import { Logo } from '@/components/Logo'
 import { Footer } from '@/components/home/Footer'
@@ -43,21 +43,24 @@ function Header() {
         <div className="relative pt-6 lg:pt-8 flex items-center justify-between text-slate-700 font-semibold text-sm leading-6 dark:text-slate-200">
           <Logo className="w-auto h-5" />
           <div className="flex items-center">
-            <SearchButton className="text-slate-500 hover:text-slate-600 w-8 h-8 -my-1 flex items-center justify-center md:hidden dark:hover:text-slate-300">
-              <span className="sr-only">Search</span>
-              <svg
-                width="24"
-                height="24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="m19 19-3.5-3.5" />
-                <circle cx="11" cy="11" r="6" />
-              </svg>
+            <SearchButton className="text-slate-500 relative hover:text-slate-600 w-8 h-8 -my-1 flex items-center justify-center md:hidden dark:hover:text-slate-300">
+              <SearchIcon className="h-6" />
+              <SearchInput className="sr-only left-full top-1/2">Search</SearchInput>
+              <SearchShortcut className="sr-only left-full top-1/2">
+                {({ actionKey }) =>
+                  actionKey && (
+                    <>
+                      <abbr
+                        title={actionKey[1]}
+                        className="no-underline text-slate-300 dark:text-slate-500"
+                      >
+                        {actionKey[0]}
+                      </abbr>{' '}
+                      K
+                    </>
+                  )
+                }
+              </SearchShortcut>
             </SearchButton>
             <NavPopover className="-my-1 ml-2 -mr-1" display="md:hidden" />
             <div className="hidden md:flex items-center">
@@ -108,26 +111,14 @@ function Header() {
             >
               Get started
             </NextLink>
-            <SearchButton className="hidden sm:flex items-center w-72 text-left space-x-3 px-4 h-12 bg-white ring-1 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 shadow-sm rounded-lg text-slate-400 dark:bg-slate-800 dark:ring-0 dark:text-slate-300 dark:highlight-white/5 dark:hover:bg-slate-700">
-              {({ actionKey }) => (
-                <>
-                  <svg
-                    width="24"
-                    height="24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="flex-none text-slate-300 dark:text-slate-400"
-                    aria-hidden="true"
-                  >
-                    <path d="m19 19-3.5-3.5" />
-                    <circle cx="11" cy="11" r="6" />
-                  </svg>
-                  <span className="flex-auto">Quick search...</span>
-                  {actionKey && (
-                    <kbd className="font-sans font-semibold dark:text-slate-500">
+            {/* We only need to hide this from sm-md if there will be a view transition, which needs it to be unique (and not clash with the search in the header) */}
+            <SearchButton className="hidden sm:flex supports-view-transitions:motion-safe:sm:hidden supports-view-transitions:motion-safe:md:flex bg-white dark:highlight-white/5 dark:bg-slate-800 dark:hover:bg-slate-700 shadow-sm items-center w-72 text-left gap-x-3 px-4 h-12 rounded-lg ring-1 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 text-slate-400 dark:ring-0 dark:text-slate-300">
+              <SearchIcon className="flex-none h-6 text-slate-300 dark:text-slate-400" />
+              <SearchInput className="flex-auto">Quick search...</SearchInput>
+              <SearchShortcut className="font-sans font-semibold dark:text-slate-500">
+                {({ actionKey }) =>
+                  actionKey && (
+                    <>
                       <abbr
                         title={actionKey[1]}
                         className="no-underline text-slate-300 dark:text-slate-500"
@@ -135,10 +126,10 @@ function Header() {
                         {actionKey[0]}
                       </abbr>{' '}
                       K
-                    </kbd>
-                  )}
-                </>
-              )}
+                    </>
+                  )
+                }
+              </SearchShortcut>
             </SearchButton>
           </div>
         </div>
