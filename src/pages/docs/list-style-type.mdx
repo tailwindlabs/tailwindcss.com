@@ -14,7 +14,7 @@ export const classes = { utilities }
 
 ### Setting the list style type
 
-To create bulleted or numeric lists, use the `list-disc` and `list-decimal` utilities.
+To create bulleted or numeric lists, use the `list-disc` and `list-decimal` utilities. `list-disc` or `list-decimal` is required for list style type to show any effect.
 
 ```html {{ example: true }}
 <div class="flex flex-col gap-8">
@@ -46,17 +46,17 @@ To create bulleted or numeric lists, use the `list-disc` and `list-decimal` util
 ```
 
 ```html
-<ul class="**list-disc**">
+<ul class="**list-inside** **list-disc**">
   <li>Now this is a story all about how, my life got flipped-turned upside down</li>
   <!-- ... -->
 </ul>
 
-<ol class="**list-decimal**">
+<ol class="**list-inside** **list-decimal**">
   <li>Now this is a story all about how, my life got flipped-turned upside down</li>
   <!-- ... -->
 </ol>
 
-<ul class="**list-none**">
+<ul class="**list-inside** **list-none**">
   <li>Now this is a story all about how, my life got flipped-turned upside down</li>
   <!-- ... -->
 </ul>
@@ -68,11 +68,11 @@ To create bulleted or numeric lists, use the `list-disc` and `list-decimal` util
 
 ### <Heading ignore>Hover, focus, and other states</Heading>
 
-<HoverFocusAndOtherStates defaultClass="list-none" featuredClass="list-disc" element="ul" />
+<HoverFocusAndOtherStates defaultClass="list-none list-inside" featuredClass="list-disc" element="ul" />
 
 ### <Heading ignore>Breakpoints and media queries</Heading>
 
-<BreakpointsAndMediaQueries defaultClass="list-none" featuredClass="list-disc" element="ul" />
+<BreakpointsAndMediaQueries defaultClass="list-none list-inside" featuredClass="list-disc" element="ul" />
 
 ---
 
@@ -100,4 +100,4 @@ Learn more about customizing the default theme in the [theme customization](/doc
 
 ### Arbitrary values
 
-<ArbitraryValues property="list-style-type" featuredClass="list-[upper-roman]" element="ul" />
+<ArbitraryValues property="list-style-type" defaultClass="list-inside" featuredClass="list-[upper-roman]" element="ul" />
