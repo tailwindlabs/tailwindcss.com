@@ -24,7 +24,16 @@ let tabs = [
         code: {
           name: 'Terminal',
           lang: 'terminal',
-          code: 'npx nuxi init my-project\ncd my-project',
+          frameworks: [
+            {
+              name: 'npm',
+              code: 'npm run dev',
+            },
+            {
+              name: 'bun',
+              code: 'bun run dev',
+            },
+          ],
         },
       },
       {
@@ -38,7 +47,16 @@ let tabs = [
         code: {
           name: 'Terminal',
           lang: 'terminal',
-          code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init',
+          frameworks: [
+            {
+              name: 'npm',
+              code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init',
+            },
+            {
+              name: 'bun',
+              code: 'bun install -D tailwindcss postcss autoprefixer\nbunx tailwindcss init',
+            },
+          ],
         },
       },
       {
@@ -177,7 +195,16 @@ let tabs = [
         code: {
           name: 'Terminal',
           lang: 'terminal',
-          code: 'npx nuxi init my-project\ncd my-project',
+          frameworks: [
+            {
+              name: 'npm',
+              code: 'npx nuxi init my-project\ncd my-project',
+            },
+            {
+              name: 'bun',
+              code: 'bunx nuxi init my-project\ncd my-project',
+            },
+          ],
         },
       },
       {
@@ -247,9 +274,28 @@ export default function UsingNuxtJs({ code }) {
 export function getStaticProps() {
   let { highlightedCodeSnippets } = require('@/components/Guides/Snippets.js')
 
+  const serializableSteps = (steps) => {
+    return steps.map(step => ({
+      ...step,
+      // Convert the body function to a string representation
+      body: step.body.toString(),
+      code: step.code
+    }))
+  }
+
   return {
     props: {
-      code: tabs.map((tab) => highlightedCodeSnippets(tab.steps)),
+      code: tabs.map((tab) => {
+        const highlightedSteps = highlightedCodeSnippets(serializableSteps(tab.steps))
+        return {
+          ...tab,
+          steps: tab.steps.map((step, index) => ({
+            ...step,
+            body: step.body.toString(), // Convert function to string
+            code: highlightedSteps[index]
+          }))
+        }
+      }),
     },
   }
 }

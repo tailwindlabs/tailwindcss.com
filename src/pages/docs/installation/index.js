@@ -58,7 +58,16 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npx tailwindcss -i ./src/input.css -o ./src/output.css --watch',
+      frameworks: [
+        {
+          name: 'npm',
+          code: 'npx tailwindcss -i ./src/input.css -o ./src/output.css --watch',
+        },
+        {
+          name: 'bun',
+          code: 'bunx tailwindcss -i ./src/input.css -o ./src/output.css --watch',
+        },
+      ],
     },
   },
   {

@@ -1,53 +1,93 @@
 import clsx from 'clsx'
 import { useEffect, useState } from 'react'
 import redent from 'redent'
+import { useFramework } from '@/components/Guides/FrameworkContext';
+import { FrameworkProvider } from '@/components/Guides/FrameworkContext';
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { Field, Select, Transition } from '@headlessui/react'
 import { SnippetGroup } from '@/components/SnippetGroup'
 import { Editor } from '@/components/Editor'
-import { Transition } from '@headlessui/react'
 
 export function Steps({ intro, steps, code, level = 2 }) {
   let StepHeading = `h${level}`
 
   return (
-    <>
-      <div className="hidden sm:block absolute -z-10 top-0 left-[15%] pt-[40%] 2xl:left-[40%] 2xl:pt-[8%] dark:hidden">
-        <img
-          src={require('@/img/beams/installation.jpg').default.src}
-          alt=""
-          className="w-[52.6875rem] max-w-none"
-          decoding="async"
-        />
-      </div>
-      {intro && (
-        <div className="relative z-10 max-w-3xl mb-16 prose prose-slate dark:prose-dark">
-          {intro()}
+    <FrameworkProvider initialFramework="npm">
+      <>
+        <div className="hidden sm:block absolute -z-10 top-0 left-[15%] pt-[40%] 2xl:left-[40%] 2xl:pt-[8%] dark:hidden">
+          <img
+            src={require('@/img/beams/installation.jpg').default.src}
+            alt=""
+            className="w-[52.6875rem] max-w-none"
+            decoding="async"
+          />
         </div>
-      )}
-      <ol className="relative space-y-2 mb-16" style={{ counterReset: 'step' }}>
-        {steps.map((step, index) => (
-          <li
-            key={step.title}
-            className={clsx(
-              'relative pl-10 xl:grid grid-cols-5 gap-16 before:content-[counter(step)] before:absolute before:left-0 before:flex before:items-center before:justify-center before:w-[calc(1.375rem+1px)] before:h-[calc(1.375rem+1px)] before:text-[0.625rem] before:font-bold before:text-slate-700 before:rounded-md before:shadow-sm before:ring-1 before:ring-slate-900/5 dark:before:bg-slate-700 dark:before:text-slate-200 dark:before:ring-0 dark:before:shadow-none dark:before:highlight-white/5',
-              index !== steps.length - 1 &&
+        {intro && (
+          <div className="relative z-10 max-w-3xl mb-16 prose prose-slate dark:prose-dark">
+            {intro()}
+          </div>
+        )}
+        <ol className="relative space-y-2 mb-16" style={{ counterReset: 'step' }}>
+          {steps.map((step, index) => (
+            <li
+              key={step.title}
+              className={clsx(
+                'relative pl-10 xl:grid grid-cols-5 gap-16 before:content-[counter(step)] before:absolute before:left-0 before:flex before:items-center before:justify-center before:w-[calc(1.375rem+1px)] before:h-[calc(1.375rem+1px)] before:text-[0.625rem] before:font-bold before:text-slate-700 before:rounded-md before:shadow-sm before:ring-1 before:ring-slate-900/5 dark:before:bg-slate-700 dark:before:text-slate-200 dark:before:ring-0 dark:before:shadow-none dark:before:highlight-white/5',
+                index !== steps.length - 1 &&
                 'pb-8 after:absolute after:top-[calc(1.875rem+1px)] after:bottom-0 after:left-[0.6875rem] after:w-px after:bg-slate-200 dark:after:bg-slate-200/5'
-            )}
-            style={{ counterIncrement: 'step' }}
-          >
-            <div className="mb-6 col-span-2 xl:mb-0">
-              <StepHeading className="text-sm leading-6 text-slate-900 font-semibold mb-2 dark:text-slate-200">
-                {step.title}
-              </StepHeading>
-              <div className="prose prose-slate prose-sm dark:prose-dark">
-                <step.body />
+              )}
+              style={{ counterIncrement: 'step' }}
+            >
+              <div className="mb-6 col-span-2 xl:mb-0">
+                <StepHeading className="text-sm leading-6 text-slate-900 font-semibold mb-2 dark:text-slate-200">
+                  {step.title}
+                </StepHeading>
+                <div className="prose prose-slate prose-sm dark:prose-dark">
+                  <step.body />
+                </div>
               </div>
-            </div>
-            {step.code && <Snippet code={step.code} highlightedCode={code[index]} />}
-          </li>
-        ))}
-      </ol>
-    </>
+              {Array.isArray(code) ? (
+                <Snippet code={code[index]} />
+              ) : (
+                <Snippet code={code.steps[index].code} highlightedCode={code.steps[index].code.frameworks[0].code} />
+              )}
+            </li>
+          ))}
+        </ol>
+      </>
+    </FrameworkProvider>
   )
+}
+
+export default function CodeLanguageButton({ frameworks, selected, setSelected }) {
+  return (
+    <div className="w-full max-w-md z-50 pl-4">
+      <Field>
+        <div className="relative">
+          <Select
+            value={selected}
+            onChange={(event) => setSelected(event.target.value)}
+            className={clsx(
+              'block w-full appearance-none rounded-md border border-white/10 bg-white/20 py-0.5 px-1.5 pr-5 text-xs text-slate-200',
+              'focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500',
+              'hover:cursor-pointer hover:border-white/40',
+              '*:text-black'
+            )}
+          >
+            {frameworks.map((framework) => (
+              <option key={framework} value={framework}>
+                {framework}
+              </option>
+            ))}
+          </Select>
+          <ChevronDownIcon
+            className="pointer-events-none absolute top-[1px] right-0.5 h-5 w-5 fill-gray-400"
+            aria-hidden="true"
+          />
+        </div>
+      </Field>
+    </div>
+  );
 }
 
 function CopyButton({ code }) {
@@ -151,32 +191,64 @@ function Code({ code, lang, pad }) {
 }
 
 function Snippet({ code, highlightedCode }) {
-  if (Array.isArray(code)) {
-    return (
-      <div className="col-span-3">
-        <SnippetGroup
-          actions={({ selectedIndex }) => <CopyButton code={code[selectedIndex].code} />}
-        >
-          {code.map(({ name, lang }, index) => (
-            <Editor key={name} filename={name}>
-              <Code code={highlightedCode[index]} lang={lang} />
-            </Editor>
-          ))}
-        </SnippetGroup>
-      </div>
-    )
-  }
+  const { selectedFramework: contextFramework, setSelectedFramework } = useFramework();
+  const [currentFramework, setCurrentFramework] = useState(contextFramework);
+
+  useEffect(() => {
+    setCurrentFramework(contextFramework);
+  }, [contextFramework]);
+
+  // No longer neded. I think the code can probably be optimized, in terms of identifying if there's any framework available.
+  // if (Array.isArray(code)) {
+  //   return (
+  //     <div className="col-span-3">
+  //       <SnippetGroup
+  //         actions={({ selectedIndex }) => <CopyButton code={code[selectedIndex].code} />}
+  //       >
+  //         {code.map(({ name, lang }, index) => (
+  //           <Editor key={name} filename={name}>
+  //             <Code code={highlightedCode[index]} lang={lang} />
+  //           </Editor>
+  //         ))}
+  //       </SnippetGroup>
+  //     </div>
+  //   );
+  // }
+
+  const frameworks = code.frameworks || [{ name: 'default', code: code.code }];
+  const hasMultipleFrameworks = frameworks.length > 1;
+
+  const getDisplayedCode = () => {
+    const framework = frameworks.find(fw => fw.name === currentFramework) || frameworks[0];
+    return framework.code;
+  };
+
+  const handleFrameworkChange = (framework) => {
+    setCurrentFramework(framework);
+    setSelectedFramework(framework);
+  };
 
   return (
     <div className="relative z-10 -ml-10 col-span-3 bg-slate-800 rounded-xl shadow-lg xl:ml-0 dark:shadow-none dark:ring-1 dark:ring-inset dark:ring-white/10">
       <TabBar name={code.name}>
-        <CopyButton code={code.code} />
+        <CopyButton code={getDisplayedCode()} />
+        {hasMultipleFrameworks && (
+          <CodeLanguageButton
+            frameworks={frameworks.map(fw => fw.name)}
+            selected={currentFramework}
+            setSelected={handleFrameworkChange}
+          />
+        )}
       </TabBar>
       <div className="relative">
-        <Code code={highlightedCode} lang={code.lang} pad={true} />
+        <Code
+          code={getDisplayedCode()}
+          lang={code.lang}
+          pad={true}
+        />
       </div>
     </div>
-  )
+  );
 }
 
 function TabBar({ name, children }) {
