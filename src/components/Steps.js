@@ -69,7 +69,6 @@ export default function CodeLanguageButton({ frameworks, selected, setSelected }
             onChange={(event) => setSelected(event.target.value)}
             className={clsx(
               'block w-full appearance-none rounded-md border border-white/10 bg-white/20 py-0.5 px-1.5 pr-5 text-xs text-slate-200',
-              'focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500',
               'hover:cursor-pointer hover:border-white/40',
               '*:text-black'
             )}
