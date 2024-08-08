@@ -4,10 +4,11 @@ import 'focus-visible'
 import { useState, useEffect, Fragment } from 'react'
 import { Header } from '@/components/Header'
 import { Description, OgDescription, OgTitle, Title } from '@/components/Meta'
-import Router from 'next/router'
+import Router, { useRouter } from 'next/router'
 import ProgressBar from '@badrap/bar-of-progress'
 import Head from 'next/head'
 import { SearchProvider } from '@/components/Search'
+import * as Fathom from 'fathom-client'
 
 const progress = new ProgressBar({
   size: 2,
@@ -27,7 +28,30 @@ Router.events.on('routeChangeStart', () => progress.start())
 Router.events.on('routeChangeComplete', () => progress.finish())
 Router.events.on('routeChangeError', () => progress.finish())
 
+function useFathom(code, options) {
+  const router = useRouter()
+
+  useEffect(() => {
+    Fathom.load(code, options)
+
+    function onRouteChangeComplete() {
+      Fathom.trackPageview()
+    }
+    // Record a pageview when route changes
+    router.events.on('routeChangeComplete', onRouteChangeComplete)
+
+    // Unassign event listener
+    return () => {
+      router.events.off('routeChangeComplete', onRouteChangeComplete)
+    }
+  }, [])
+}
+
 export default function App({ Component, pageProps, router }) {
+  useFathom('PMFMDJGK', {
+    includedDomains: ['tailwindcss.com'],
+  })
+
   let [navIsOpen, setNavIsOpen] = useState(false)
 
   useEffect(() => {

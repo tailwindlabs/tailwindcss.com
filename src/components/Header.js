@@ -11,10 +11,10 @@ import { ThemeSelect, ThemeToggle } from './ThemeToggle'
 function Featured() {
   return (
     <a
-      href="/blog/tailwindcss-v3-4"
+      href="https://tailwindcss.com/blog/2024-05-24-catalyst-application-layouts"
       className="ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-sky-400/20"
     >
-      <strong className="font-semibold">Tailwind CSS v3.4</strong>
+      <strong className="font-semibold">Introducing Catalyst</strong>
       <svg
         width="2"
         height="2"
@@ -24,7 +24,7 @@ function Featured() {
       >
         <circle cx="1" cy="1" r="1" />
       </svg>
-      <span className="ml-2">Dynamic viewport units, :has(), subgrid, and more</span>
+      <span className="ml-2">A modern application UI kit for React</span>
       <svg
         width="3"
         height="6"

@@ -1,0 +1,49 @@
+import { adamwathan } from '@/authors'
+import card from './card.jpg'
+import { WhitespaceDemo, DuplicationDemo } from '@/components/PrettierPluginWhitespaceDemos.js'
+
+export const meta = {
+  title: 'Automatically clean up whitespace and duplicate class names',
+  description: 'We just released a new version of prettier-plugin-tailwindcss which adds support for removing unnecessary whitespace and duplicate classes when sorting.',
+  date: '2024-05-31T16:30:00.000Z',
+  authors: [adamwathan],
+  image: card,
+}
+
+{/*excerpt*/}
+
+We just released a new version of `prettier-plugin-tailwindcss` which adds support for removing unnecessary whitespace and duplicate classes when sorting.
+
+{/*/excerpt*/}
+
+![Catalyst application layout preview](./card.jpg)
+
+We just released a new version of `prettier-plugin-tailwindcss` which adds support for removing unnecessary whitespace and duplicate classes when sorting.
+
+---
+
+## Cleaning up unnecessary whitespace
+
+When you're copying around class names or deleting a class name from the middle of a list, it's easy to end up with some extra whitespace that needs to be cleaned up.
+
+Now our Prettier plugin will handle this for you automatically, so you don't need to clean it up yourself.
+
+<WhitespaceDemo />
+
+---
+
+## Removing duplicate classes
+
+Our [VS Code extension](https://tailwindcss.com/docs/editor-setup#intelli-sense-for-vs-code) has warned you about duplicate class names for a long time, but now our Prettier plugin can remove those duplicate classes for you automatically.
+
+<DuplicationDemo />
+
+---
+
+To start playing with these improvements in your own projects, just install the latest version:
+
+```sh
+$ npm i prettier-plugin-tailwindcss@latest
+```
+
+If you run into any issues, let us know on [GitHub](https://github.com/tailwindlabs/prettier-plugin-tailwindcss/)!

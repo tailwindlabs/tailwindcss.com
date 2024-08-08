@@ -10,6 +10,19 @@ import { TipGood, TipBad } from '@/components/Tip'
 
 Every utility class in Tailwind can be applied conditionally at different breakpoints, which makes it a piece of cake to build complex responsive interfaces without ever leaving your HTML.
 
+First, make sure you've added the [viewport meta tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag) to the `<head>` of your document:
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+
+Then to add a utility but only have it take effect at a certain breakpoint, all you need to do is prefix the utility with the breakpoint name, followed by the `:` character:
+
+```html
+<!-- Width of 16 by default, 32 on medium screens, and 48 on large screens -->
+<img class="w-16 **md:w-32** **lg:w-48**" src="...">
+```
+
 There are five breakpoints by default, inspired by common device resolutions:
 
 | Breakpoint prefix | Minimum width | CSS |
@@ -20,16 +33,9 @@ There are five breakpoints by default, inspired by common device resolutions:
 | `xl` | 1280px | `@media (min-width: 1280px) { ... }` |
 | `2xl` | 1536px | `@media (min-width: 1536px) { ... }` |
 
-To add a utility but only have it take effect at a certain breakpoint, all you need to do is prefix the utility with the breakpoint name, followed by the `:` character:
-
-```html
-<!-- Width of 16 by default, 32 on medium screens, and 48 on large screens -->
-<img class="w-16 **md:w-32** **lg:w-48**" src="...">
-```
-
 This works for **every utility class in the framework**, which means you can change literally anything at a given breakpoint — even things like letter spacing or cursor styles.
 
-Here's a simple example of a marketing page component that uses a stacked layout on small screens, and a side-by-side layout on larger screens *(resize your browser to see it in action)*:
+Here's a simple example of a marketing page component that uses a stacked layout on small screens, and a side-by-side layout on larger screens:
 
 ```html {{ example: { resizable: true, p: 'none' } }}
 <iframe class="w-full h-[496px] pointer-events-none" src="/examples/responsive-design-demo"></iframe>

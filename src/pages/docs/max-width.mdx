@@ -8,6 +8,7 @@ import { numbersFirst } from '@/utils/sortClasses'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { TipGood, TipBad, TipCompat, TipInfo } from '@/components/Tip'
 
 export const classes = {
   utilities,
@@ -147,9 +148,9 @@ The `max-w-screen-*` classes can be used to give an element a max-width matching
 
 ### Customizing your theme
 
-By default, Tailwind's maximum width scale is a combination of the [default spacing scale](/docs/customizing-spacing#default-spacing-scale) as well as some additional values specific to widths.
+By default, Tailwind's maximum width scale is a combination of the [default spacing scale](/docs/customizing-spacing#default-spacing-scale) as well as an additional set of named sizes for [large elements](##sizing-large-elements) exclusive to the `max-w-*` utilities.
 
-You can customize your spacing scale by editing `theme.spacing` or `theme.extend.spacing` in your `tailwind.config.js` file.
+You can customize values in the global spacing scale by editing `theme.spacing` or `theme.extend.spacing` in your `tailwind.config.js` file.
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
@@ -163,14 +164,44 @@ You can customize your spacing scale by editing `theme.spacing` or `theme.extend
   }
 ```
 
-To customize `max-width` separately, use the `theme.maxWidth` section of your `tailwind.config.js` file.
+To customize values for just the `max-w-*` utilities, use the `theme.maxWidth` section of your `tailwind.config.js` file.
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {
 +       maxWidth: {
-+         '128': '32rem',
++         '8xl': '96rem',
++       }
+      }
+    }
+  }
+```
+
+Note that values defined in `theme.maxWidth` take precedence over values defined in `theme.spacing`, so adding a custom value to `theme.spacing` that matches one of the default named sizes (like `lg` or `xl`) will not affect the corresponding `max-w-*` utility.
+
+<TipBad>Don't override named sizes under `theme.spacing`</TipBad>
+
+```diff-js {{ filename: 'tailwind.config.js' }}
+  module.exports = {
+    theme: {
+      extend: {
++       spacing: {
++         'lg': '30rem',
++       }
+      }
+    }
+  }
+```
+
+<TipGood>Use `theme.maxWidth` to override named sizes</TipGood>
+
+```diff-js {{ filename: 'tailwind.config.js' }}
+  module.exports = {
+    theme: {
+      extend: {
++       maxWidth: {
++         'lg': '30rem',
 +       }
       }
     }
