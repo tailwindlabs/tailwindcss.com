@@ -15,7 +15,7 @@ let tabs = [
           <p>
             Start by creating a new Rspack project if you don’t have one set up already. The most
             common approach is to use{' '}
-            <a href="https://www.rspack.dev/guide/quick-start.html#using-the-rspack-cli">
+            <a href="https://rspack.dev/guide/start/quick-start#using-the-rspack-cli">
               Rspack CLI
             </a>
             .
@@ -46,7 +46,7 @@ let tabs = [
         body: () => (
           <p>
             In your <code>rspack.config.js</code> file, enable the PostCSS loader. See{' '}
-            <a href="https://www.rspack.dev/guide/language-support.html#tailwind-css">
+            <a href="https://rspack.dev/guide/tech/css#tailwind-css">
               the documentation
             </a>{' '}
             for more information.
@@ -144,7 +144,7 @@ let tabs = [
           <p>
             Start by creating a new Rspack project if you don’t have one set up already. The most
             common approach is to use{' '}
-            <a href="https://www.rspack.dev/guide/quick-start.html#using-the-rspack-cli">
+            <a href="https://rspack.dev/guide/start/quick-start#using-the-rspack-cli">
               Rspack CLI
             </a>
             .
@@ -175,7 +175,7 @@ let tabs = [
         body: () => (
           <p>
             In your <code>rspack.config.js</code> file, enable the PostCSS loader. See{' '}
-            <a href="https://www.rspack.dev/guide/language-support.html#tailwind-css">
+            <a href="https://rspack.dev/guide/tech/css#tailwind-css">
               the documentation
             </a>{' '}
             for more information.
