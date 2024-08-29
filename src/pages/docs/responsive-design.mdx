@@ -114,18 +114,6 @@ Tailwind generates a corresponding `max-*` modifier for each breakpoint, so out 
 | `max-xl` | `@media not all and (min-width: 1280px) { ... }` |
 | `max-2xl` | `@media not all and (min-width: 1536px) { ... }` |
 
-### Targeting a single breakpoint
-
-To target a single breakpoint, target the range for that breakpoint by stacking a responsive modifier like `md` with the `max-*` modifier for the next breakpoint:
-
-```html
-<div class="md:max-lg:flex">
-  <!-- ... -->
-</div>
-```
-
-Read about [targeting breakpoint ranges](#targeting-a-breakpoint-range) to learn more.
-
 ---
 
 ## Using custom breakpoints
