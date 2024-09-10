@@ -19,62 +19,49 @@ We just wrapped up work on a stunning new Sanity powered SaaS template called [R
 
 [![Learn about the Radiant template](./template.png)](https://tailwindui.com/templates/radiant)
 
-It’s built with Next.js, Sanity and, of course, Tailwind CSS. This is the first time we’ve used a third party Content Management System in a template.
+It’s built with Next.js, Framer Motion and Tailwind CSS, with a blog powered by Sanity.
 
-The trickiest part of designing a SaaS template like this, is coming up with interactive elements that people can apply to their own product without too much effort. They need to be generalizable without being super generic.
+It's been a while since we built a SaaS marketing template like this, and in that time we've learned a lot about what makes a template like this useful and easy to work with. We've tried to incorporate all of that into Radiant.
 
-The best way to do this is to come up with a product idea first. A few months back when we were doing a lot of hiring, Steve did some designs for a hiring platform that had this kanban style interface. That idea morphed into a CRM because it’s easier to poke fun at sales people than people trying to get a job. From there we came up with some core graphical elements that a product like this might have. Things like a map with pins, a logo cluster, a keyboard and a scrolling integrations timeline. We put a lot of effort into making these elements reusable and easy to customize.
+Of course, landing pages have moved on a lot in that time too and having some interactive animations is basically table stakes these days. We tried to keep things tasteful and not go overboard, and we made sure that all the interactive elements are easy to customize and re-purpose for your own product.
 
-Check out the live preview as always for the full experience — there are tons of cool details in this one that you have to see in the browser to really appreciate.
+Check out the [live preview](https://radiant.tailwindui.com) as always for the full experience — there are tons of cool details in this one that you have to see in the browser to really appreciate.
 
 ---
 
 ## Tastefully interactive
 
-Having some interactive animations is basically table stakes for a SaaS landing page these days but we really tried to keep things tasteful and not go overboard.
+It's super easy to overdo it with animations on a landing page like this, making everything fly in from the side when it comes into view, but it can make the browsing experience overwhelming. 
+
+We tried to make sure that all the animations were fairly subtle and only triggered by user interaction. In most cases, we went for animations that loop because they're somehow less distracting than animations that only play once.
 
 <div className="relative rounded-2xl overflow-hidden">
   <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 pointer-events-none"></div>
   <video src="/tastefully_animated.mp4" autoPlay playsInline loop muted className="block m-0" />
 </div>
 
-We used Framer Motion to animate the bento cards on hover but it can be a bit annoying to pass a hover state down to each child element. We ended up leveraging Framer's variant propagation to make this work - a hover event triggers a variant change in the parent that propagates down to the children because they share the same variant keys.
+We used Framer Motion for almost all of the animations, which is a great library for a template like this. It's declarative, making it easy to create our own APIs for complex animations that other people can customize without much effort.
 
-```jsx
-  export function BentoCard({
-    graphic,
-    ...
-  }: {
-    graphic: React.ReactNode
-    ...
-  }) {
+It does have some drawbacks to work around though. For example, when you have a bunch of elements animating independently it can be a bit annoying to pass a hover state down to each child element. We ended up leveraging Framer's variant propagation to make this work - a hover event triggers a variant change in the parent that propagates down to the children because they share the same variant keys. 
+
+
+```jsx {{ filename: 'bento-card.tsx', style: 'framed', color: 'pink' }}
+  export function BentoCard() {
     return (
     <motion.div
-        initial="idle"
-        whileHover="active"
+>       initial="idle"
+>       whileHover="active"
 >       variants={{ idle: {}, active: {} }}
         data-dark={dark ? 'true' : undefined}
       >
-        <div className="relative h-80 shrink-0">
-          {graphic}
-        </div>
-        <div className="relative p-10">
-          <Subheading as="h3" dark={dark}>
-            {eyebrow}
-          </Subheading>
-          <p className="mt-1 text-2xl/8 font-medium tracking-tight text-gray-950 group-data-[dark]:text-white">
-            {title}
-          </p>
-          <p className="mt-2 max-w-[600px] text-sm/6 text-gray-600 group-data-[dark]:text-gray-400">
-            {description}
-          </p>
-        </div>
-      </motion.div>
+        /*...*/
+    </motion.div>
     )
   }
 ```
+There is no difference between the variants in the parent so it doesn't actually change but the children still get signal to change variants on hover, even if they are deeply nested.
 
-```jsx {{ filename: 'map.tsx' }}
+```jsx {{ filename: 'map.tsx', style: 'framed', color: 'fuchsia' }}
   function Marker({
     src,
     top,
@@ -96,7 +83,7 @@ We used Framer Motion to animate the bento cards on hover but it can be a bit an
         style={{ '--offset': `${offset}px`, top } as React.CSSProperties}
         className="absolute left-[calc(50%+var(--offset))] size-[38px] drop-shadow-[0_3px_1px_rgba(0,0,0,.15)]"
       >
-      ...
+      /*...*/
       </motion.div>
     )
   }
@@ -104,197 +91,173 @@ We used Framer Motion to animate the bento cards on hover but it can be a bit an
   /* ... */
 ```
 
-There is no difference between the variants in the parent so they don't actually change but the children still get the hover event, even if they are deeply nested. It's a bit of a hack but it's a nice way to pass the hover event down without the need for another hook.
+The logo timeline animation is a bit different, because we wanted the logos to stay in their new position when the hover ends, rather than return to their original position. This doesn't play very well with Framer's declarative approach, so we went with a more imperative CSS driven approach.
 
 <div className="relative rounded-2xl overflow-hidden">
   <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 pointer-events-none"></div>
   <video src="/logo-timeline.mp4" autoPlay playsInline loop muted className="block m-0" />
 </div>
 
-The logo timeline animation is a bit different, because we wanted the logos to stay in their new position when the hover ends, rather than return to their original position. You could use Framer to do this but we ended up using a CSS only approach that's a bit more ergonomic.
-
 It exploits the fact that you can set a negative `animation-delay` value to offset the start position of the element. That way all the logos share the same animation keyframes but they can start at different positions and have different durations.
 
-```css {{ filename: 'tailwind.css' }}
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+```jsx {{ filename: 'logo-timeline.tsx', style: 'framed', color: 'purple' }}
+    function Logo({
+      label,
+      src,
+      className,
+    }: {
+      label: string
+      src: string
+      className: string
+    }) {
+      return (
+        <div
+          className={clsx(
+            'absolute top-1/2 grid -translate-x-1/2 -translate-y-1/2 grid-cols-[1rem,1fr] items-center gap-2 whitespace-nowrap px-3 py-1',
+            'rounded-full bg-gradient-to-t from-gray-800 from-50% to-gray-700 ring-1 ring-inset ring-white/10',
+>            '[--move-x-from:-25%] [--move-x-to:150%] [animation-iteration-count:infinite] [animation-name:move-x] [animation-play-state:paused] [animation-timing-function:linear] group-hover:[animation-play-state:running]',
+            className,
+          )}
+        >
+          <img className="size-4" src={src} alt="" />
+          <span className="text-sm/6 font-medium text-white">{label}</span>
+        </div>
+      )
+    }
 
-@keyframes move-x {
-  0% {
-    left: var(--move-x-from);
-  }
-  100% {
-    left: var(--move-x-to);
-  }
-}
+    export function LogoTimeline() {
+      return (
+        /*...*/
+        <Row>
+          <Logo
+            label="Loom"
+            src="./logo-timeline/loom.svg"
+>           className="[animation-delay:-26s] [animation-duration:30s]"
+          />
+          <Logo
+            label="Gmail"
+            src="./logo-timeline/gmail.svg"
+>           className="[animation-delay:-8s] [animation-duration:30s]"
+          />
+        </Row>
+        /*...*/
 ```
-
-```jsx {{ filename: 'logo-timeline.tsx' }}
-function Logo({
-  label,
-  src,
-  className,
-}: {
-  label: string
-  src: string
-  className: string
-}) {
-  return (
-    <div
-      className={clsx(
-        'absolute top-1/2 grid -translate-x-1/2 -translate-y-1/2 grid-cols-[1rem,1fr] items-center gap-2 whitespace-nowrap px-3 py-1',
-        'rounded-full bg-gradient-to-t from-gray-800 from-50% to-gray-700 ring-1 ring-inset ring-white/10',
-        '[--move-x-from:-25%] [--move-x-to:150%] [animation-iteration-count:infinite] [animation-name:move-x] [animation-play-state:paused] [animation-timing-function:linear] group-hover:[animation-play-state:running]',
-        className,
-      )}
-    >
-      <img className="size-4" src={src} alt="" />
-      <span className="text-sm/6 font-medium text-white">{label}</span>
-    </div>
-  )
-}
-
-export function LogoTimeline() {
-  return (
-    ...
-    <Row>
-      <Logo
-        label="Loom"
-        src="./logo-timeline/loom.svg"
-        className="[animation-delay:-26s] [animation-duration:30s]"
-      />
-      <Logo
-        label="Gmail"
-        src="./logo-timeline/gmail.svg"
-        className="[animation-delay:-8s] [animation-duration:30s]"
-      />
-    </Row>
-    ...
-```
+This approach means we don't need to track the play state in JavaScript, we can just use a `group-hover:[animation-play-state:running]` class to start the animation when the parent is hovered.
 
 
 ---
 
 ## Deliberately reusable
 
-There's nothing worse than buying a template and realizing that it's so specific to the example content that you can't actually use it for your own project. We spent a lot of time making sure these interactive graphics were easy to re-purpose.
+{/* The trickiest part of designing a SaaS template like this, is coming up with interactive elements that people can apply to their own product without too much effort. They need to be generalizable without being super generic.
 
-The logo cluster, for example, has a simple API that lets you pass in your own logos and tweak the hover animation to match.
+The best way to do this is to come up with a product idea first. A few months back when we were doing a lot of hiring, Steve did some designs for a hiring platform that had this kanban style interface. That idea morphed into a CRM because it’s easier to poke fun at sales people than people trying to get a job. From there we came up with some core graphical elements that a product like this might have. Things like a map with pins, a logo cluster, a keyboard and a scrolling integrations timeline. We put a lot of effort into making these elements reusable and easy to customize. */}
 
-```jsx
-export function LogoCluster() {
-  return (
-    <div className="relative h-full overflow-hidden" aria-hidden="true">
-      <Circles />
-      <div className="absolute left-1/2 h-full w-[26rem] -translate-x-1/2">
-        <MainLogo />
-        <Logo
-          src="./logo-cluster/career-builder.svg"
-          left={360}
-          top={144}
-          hover={{ x: 6, y: 1, rotate: 5, delay: 0.38 }}
-        />
-        <Logo
-          src="./logo-cluster/dribbble.svg"
-          left={285}
-          top={20}
-          hover={{ x: 4, y: -5, rotate: 6, delay: 0.3 }}
-        />
-        ...
-      </div>
-    </div>
-  )
-}
+The trickiest part of designing a SaaS template like this, is coming up with interactive elements that people can apply to their own product without too much effort. There's nothing worse than buying a template and realizing that it's so specific to the example content that you can't actually use it for your own project. 
 
-```
-
-The keyboard shortcuts section is another good example. We wanted to make it easy to add your own shortcuts, so we built the whole thing in code. Adding your own shortcuts is as simple as passing an array of key names to the Keyboard component and because each key is a component, you can easily add custom keys or change the layout.
-
-
-```jsx
-<div className="flex size-full pl-10 pt-10">
-  <Keyboard highlighted={['LeftCommand', 'LeftShift', 'D']} />
+<div className="relative rounded-2xl overflow-hidden">
+  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 pointer-events-none"></div>
+  <video src="/dark-bento.mp4" autoPlay playsInline loop muted className="block m-0" />
 </div>
+
+We came up with some core graphical elements that most SaaS products might have. A map with pins, a logo cluster, a keyboard etc., things that could be applied to a bunch of different features. Because we wanted them to be easy to repurpose for your own product, we built a lot of them in code and designed nice APIs for them.
+
+The logo cluster, for example, has a simple API that lets you pass in your own logos, tweak their position and hover animation to match.
+
+```jsx
+<Logo
+  src="./logo-cluster/dribbble.svg"
+  left={285}
+  top={20}
+  hover={{ x: 4, y: -5, rotate: 6, delay: 0.3 }}
+/>
 ```
+
+The keyboard shortcuts section is another good example. Adding your own shortcuts is as simple as passing an array of key names to the Keyboard component and because each key is a component, you can easily add custom keys or change the layout.
+
+
+```jsx 
+<Keyboard highlighted={['F', 'M', 'L']} />
+```
+It turns out it's actually quite a lot of work to build a keyboard in code, but at least now you'll never have to find out for yourself.
+
+<div className="relative rounded-2xl overflow-hidden">
+  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 pointer-events-none"></div>
+  <video src="/keyboard.mp4" autoPlay playsInline loop muted className="block m-0" />
+</div>
+
+To prove how reusable these elements are, we built a second landing page using the same components but with a completely different look and feel, this time re-imagined with the [SavvyCal](https://savvycal.com/) brand:
+
+![Radiant as SavvyCal](./savvycal-radiant.png)
+
 
 ---
 
-## Powerful Sanity integration
+## Sanity blog integration
 
 The Radiant blog is powered by Sanity, the first time we've used a third party CMS in a template. It comes with a bunch of advantages over just using markdown files, like the ability to collaborate on drafts, and a more structured content model.
+
+What's even better is that non-developers are able to manage the blog directly from the Sanity Studio control panel, without having to write any code or push a deployment. Sanity Studio also exists as a route in your app meaning you don't need go to the Sanity website to edit your blog content.
+
+![Sanity Studio](./sanity-studio.png)
 
 With Sanity you get the benefits of a CMS but with the same flexibility that you would get with MDX. You define components for different types of blocks, marks, and lists by passing them into the `PortableText` component. It makes it super easy to define typography styles and render custom components, like the separator we we're using here.
 
 ```jsx
-export default async function BlogPost({
-  params,
-}: {
-  params: { slug: string }
-}) {
-  let post = (await getPost(params.slug)) || notFound()
-
-  return (
-    <main className="overflow-hidden">
-      ...
-      {post.body && (
-        <PortableText
-          value={post.body}
-          components={{
-            block: {
-              normal: ({ children }) => (
-                <p className="mb-10 mt-10 text-base/8 first:mt-0 last:mb-0">
-                  {children}
-                </p>
-              ),
-              h2: ({ children }) => (
-                <h2 className="mb-10 mt-12 text-2xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0">
-                  {children}
-                </h2>
-              ),
-              h3: ({ children }) => (
-                <h3 className="mb-10 mt-12 text-xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0">
-                  {children}
-                </h3>
-              ),
-              blockquote: ({ children }) => (
-                <blockquote className="mb-10 mt-10 border-l-2 border-l-gray-300 pl-6 text-base/8 text-gray-950 first:mt-0 last:mb-0">
-                  {children}
-                </blockquote>
-              ),
-            },
-            types: {
-              image: ({ value }) => (
-                <img
-                  className="w-full rounded-2xl"
-                  src={image(value).width(2000).url()}
-                  alt={value.alt || ''}
-                />
-              ),
-              separator: ({ value }) => {
-                switch (value.style) {
-                  case 'line':
-                    return (
-                      <hr className="my-8 border-t border-gray-200" />
-                    )
-                  case 'space':
-                    return <div className="my-8" />
-                  default:
-                    return null
-                }
-              },
-            },
-            ...
-          }}
+/*...*/
+<PortableText
+  value={post.body}
+  components={{
+    block: {
+      normal: ({ children }) => (
+        <p className="mb-10 mt-10 text-base/8 first:mt-0 last:mb-0">
+          {children}
+        </p>
+      ),
+      h2: ({ children }) => (
+        <h2 className="mb-10 mt-12 text-2xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0">
+          {children}
+        </h2>
+      ),
+      h3: ({ children }) => (
+        <h3 className="mb-10 mt-12 text-xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0">
+          {children}
+        </h3>
+      ),
+      blockquote: ({ children }) => (
+        <blockquote className="mb-10 mt-10 border-l-2 border-l-gray-300 pl-6 text-base/8 text-gray-950 first:mt-0 last:mb-0">
+          {children}
+        </blockquote>
+      ),
+    },
+    types: {
+      image: ({ value }) => (
+        <img
+          className="w-full rounded-2xl"
+          src={image(value).width(2000).url()}
+          alt={value.alt || ''}
         />
-      )}
-      ...
-    </main>
-  )
-}
+      ),
+      separator: ({ value }) => {
+        switch (value.style) {
+          case 'line':
+            return (
+              <hr className="my-8 border-t border-gray-200" />
+            )
+          case 'space':
+            return <div className="my-8" />
+          default:
+            return null
+        }
+      },
+    },
+    /*...*/
+  }}
+/>
+
 ```
 
-Another thing that Sanity makes much easier is handling images. Controlling the size, quality, and format of the images is as simple as passing a few parameters to the image builder.
+Another thing that Sanity makes much easier is hosting and handling images. You don't need to worry about image storage and controlling the size, quality, and format of the images is as simple as passing a few parameters to the image builder.
 
 ```jsx
 <div>
@@ -318,7 +281,14 @@ Another thing that Sanity makes much easier is handling images. Controlling the 
 </div>
 ```
 
-We've set the template up with some seed data so you can see how it all works without having to write your own posts - but it's easy to swap out the data with your own and get started with your own blog.
+It's also easy to add custom fields to your models. For example, we added a featured boolean field to the blog post schema so you can have it show up in a special section on the blog.
+
+![Radiant Blog](./blog.png)
+
+What's nice is that Sanity's type generation tooling automatically generates TypeScript types for you, so you get type safety for both your content and any query you make with their [GROQ](https://www.sanity.io/docs/groq) query language.
+
+
+Sanity is a paid product, but they have a pretty generous free tier which is perfect for a personal blog. We've set the template up with some seed data so you can see how it all works without having to write your own posts. Go ahead and give it a try.
 
 ---
 
