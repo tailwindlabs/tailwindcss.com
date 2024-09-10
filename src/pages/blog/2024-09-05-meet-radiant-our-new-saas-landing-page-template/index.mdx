@@ -31,7 +31,7 @@ Check out the [live preview](https://radiant.tailwindui.com) as always for the f
 
 ## Tastefully interactive
 
-It's super easy to overdo it with animations on a landing page like this, making everything fly in from the side when it comes into view, but it can make the browsing experience overwhelming. 
+It's super easy to overdo animations on a site like this. We've all seen sites where you can't even scroll a few pixels without a bunch of different elements animating in to place.
 
 We tried to make sure that all the animations were fairly subtle and only triggered by user interaction. In most cases, we went for animations that loop because they're somehow less distracting than animations that only play once.
 
@@ -42,7 +42,7 @@ We tried to make sure that all the animations were fairly subtle and only trigge
 
 We used Framer Motion for almost all of the animations, which is a great library for a template like this. It's declarative, making it easy to create our own APIs for complex animations that other people can customize without much effort.
 
-It does have some drawbacks to work around though. For example, when you have a bunch of elements animating independently it can be a bit annoying to pass a hover state down to each child element. We ended up leveraging Framer's variant propagation to make this work - a hover event triggers a variant change in the parent that propagates down to the children because they share the same variant keys. 
+It does have some drawbacks to work around though. For example, when you have multiple elements animating independently it's annoying to pass a hover state down to each child. We ended up leveraging Framer's variant propagation to make this work - a hover event triggers a variant change in the parent that propagates down to the children because they share the same variant keys. 
 
 
 ```jsx {{ filename: 'bento-card.tsx', style: 'framed', color: 'pink' }}
@@ -59,7 +59,7 @@ It does have some drawbacks to work around though. For example, when you have a 
     )
   }
 ```
-There is no difference between the variants in the parent so it doesn't actually change but the children still get signal to change variants on hover, even if they are deeply nested.
+There is no difference between the variants in the parent so it doesn't actually change but the children still get a signal to change variants on hover, even if they are deeply nested.
 
 ```jsx {{ filename: 'map.tsx', style: 'framed', color: 'fuchsia' }}
   function Marker({
@@ -148,10 +148,6 @@ This approach means we don't need to track the play state in JavaScript, we can 
 ---
 
 ## Deliberately reusable
-
-{/* The trickiest part of designing a SaaS template like this, is coming up with interactive elements that people can apply to their own product without too much effort. They need to be generalizable without being super generic.
-
-The best way to do this is to come up with a product idea first. A few months back when we were doing a lot of hiring, Steve did some designs for a hiring platform that had this kanban style interface. That idea morphed into a CRM because it’s easier to poke fun at sales people than people trying to get a job. From there we came up with some core graphical elements that a product like this might have. Things like a map with pins, a logo cluster, a keyboard and a scrolling integrations timeline. We put a lot of effort into making these elements reusable and easy to customize. */}
 
 The trickiest part of designing a SaaS template like this, is coming up with interactive elements that people can apply to their own product without too much effort. There's nothing worse than buying a template and realizing that it's so specific to the example content that you can't actually use it for your own project. 
 
