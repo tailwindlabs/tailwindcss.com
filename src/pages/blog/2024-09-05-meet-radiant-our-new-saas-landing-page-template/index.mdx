@@ -37,10 +37,10 @@ We tried to make sure that all the animations were fairly subtle and only trigge
 
 <div className="relative rounded-2xl overflow-hidden">
   <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 pointer-events-none"></div>
-  <video src="/tastefully_animated.mp4" autoPlay playsInline loop muted className="block m-0" />
+  <video src="/scheduling-animation.mp4" autoPlay playsInline loop muted className="block m-0" />
 </div>
 
-We used Framer Motion for almost all of the animations, which is a great library for a template like this. It's declarative, making it easy to create our own APIs for complex animations that other people can customize without much effort.
+We used [Framer Motion](https://www.framer.com/motion/) for almost all of the animations, which is a great library for a template like this. It's declarative, making it easy to create our own APIs for complex animations that other people can customize without much effort.
 
 It does have some drawbacks to work around though. For example, when you have multiple elements animating independently it's annoying to pass a hover state down to each child. We ended up leveraging Framer's variant propagation to make this work - a hover event triggers a variant change in the parent that propagates down to the children because they share the same variant keys. 
 
@@ -48,12 +48,12 @@ It does have some drawbacks to work around though. For example, when you have mu
 ```jsx {{ filename: 'bento-card.tsx', style: 'framed', color: 'pink' }}
   export function BentoCard() {
     return (
-    <motion.div
+>    <motion.div
 >       initial="idle"
 >       whileHover="active"
 >       variants={{ idle: {}, active: {} }}
-        data-dark={dark ? 'true' : undefined}
-      >
+>        data-dark={dark ? 'true' : undefined}
+>      >
         /*...*/
     </motion.div>
     )
@@ -91,7 +91,7 @@ There is no difference between the variants in the parent so it doesn't actually
   /* ... */
 ```
 
-The logo timeline animation is a bit different, because we wanted the logos to stay in their new position when the hover ends, rather than return to their original position. This doesn't play very well with Framer's declarative approach, so we went with a more imperative CSS driven approach.
+The logo timeline animation is a bit different, because we wanted the logos to pause in their current position when the hover ends, rather than return to their original position. This doesn't play very well with Framer's approach of specifying start and end states, and so it was actually easier to build this in CSS. We did this using the `animation` APIs along with a custom `@keyframes` rule.
 
 <div className="relative rounded-2xl overflow-hidden">
   <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 pointer-events-none"></div>
@@ -113,13 +113,13 @@ It exploits the fact that you can set a negative `animation-delay` value to offs
       return (
         <div
           className={clsx(
-            'absolute top-1/2 grid -translate-x-1/2 -translate-y-1/2 grid-cols-[1rem,1fr] items-center gap-2 whitespace-nowrap px-3 py-1',
-            'rounded-full bg-gradient-to-t from-gray-800 from-50% to-gray-700 ring-1 ring-inset ring-white/10',
->            '[--move-x-from:-25%] [--move-x-to:150%] [animation-iteration-count:infinite] [animation-name:move-x] [animation-play-state:paused] [animation-timing-function:linear] group-hover:[animation-play-state:running]',
             className,
+            'absolute top-2 grid grid-cols-[1rem,1fr] items-center gap-2 whitespace-nowrap px-3 py-1',
+            'rounded-full bg-gradient-to-t from-gray-800 from-50% to-gray-700 ring-1 ring-inset ring-white/10',
+>            '[--move-x-from:-100%] [--move-x-to:calc(100%+100cqw)] [animation-iteration-count:infinite] [animation-name:move-x] [animation-play-state:paused] [animation-timing-function:linear] group-hover:[animation-play-state:running]',
           )}
         >
-          <img className="size-4" src={src} alt="" />
+          <img alt="" src={src} className="size-4" />
           <span className="text-sm/6 font-medium text-white">{label}</span>
         </div>
       )
@@ -144,6 +144,8 @@ It exploits the fact that you can set a negative `animation-delay` value to offs
 ```
 This approach means we don't need to track the play state in JavaScript, we can just use a `group-hover:[animation-play-state:running]` class to start the animation when the parent is hovered.
 
+As you've maybe noticed, we're using a bunch of arbitrary properties for individual `animation` properties in this component, since these utilities don't exist in Tailwind today. This is what's great about building these templates — it helps us find blind spots in Tailwind CSS. Who knows, maybe we'll see these utilities added for v4.0!
+
 
 ---
 
@@ -153,10 +155,10 @@ The trickiest part of designing a SaaS template like this, is coming up with int
 
 <div className="relative rounded-2xl overflow-hidden">
   <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 pointer-events-none"></div>
-  <video src="/dark-bento.mp4" autoPlay playsInline loop muted className="block m-0" />
+  <video src="/tastefully_animated.mp4" autoPlay playsInline loop muted className="block m-0" />
 </div>
 
-We came up with some core graphical elements that most SaaS products might have. A map with pins, a logo cluster, a keyboard etc., things that could be applied to a bunch of different features. Because we wanted them to be easy to repurpose for your own product, we built a lot of them in code and designed nice APIs for them.
+We came up with some core graphical elements that most SaaS products might have. A map with pins, a logo cluster, a keyboard, etc. Things that could be applied to a bunch of different features. Because we wanted them to be easy to repurpose for your own product, we built a lot of them in code and designed nice APIs for them.
 
 The logo cluster, for example, has a simple API that lets you pass in your own logos, tweak their position and hover animation to match.
 
@@ -182,7 +184,7 @@ It turns out it's actually quite a lot of work to build a keyboard in code, but 
   <video src="/keyboard.mp4" autoPlay playsInline loop muted className="block m-0" />
 </div>
 
-To prove how reusable these elements are, we built a second landing page using the same components but with a completely different look and feel, this time re-imagined with the [SavvyCal](https://savvycal.com/) brand:
+To prove how reusable these elements are, we built a second landing page using the same components but with a slightly different look and feel, this time re-imagined with the [SavvyCal](https://savvycal.com/) brand:
 
 ![Radiant as SavvyCal](./savvycal-radiant.png)
 
@@ -191,103 +193,106 @@ To prove how reusable these elements are, we built a second landing page using t
 
 ## Sanity blog integration
 
-The Radiant blog is powered by Sanity, the first time we've used a third party CMS in a template. It comes with a bunch of advantages over just using markdown files, like the ability to collaborate on drafts, and a more structured content model.
+The Radiant blog is powered by [Sanity](https://www.sanity.io/), the first time we've used a third party CMS in a template. It comes with a bunch of advantages over just using markdown files, like the ability to collaborate on drafts, and a more structured content model.
 
-What's even better is that non-developers are able to manage the blog directly from the Sanity Studio control panel, without having to write any code or push a deployment. Sanity Studio also exists as a route in your app meaning you don't need go to the Sanity website to edit your blog content.
+What's even better is that non-developers are able to manage the blog directly from the Sanity Studio control panel, without having to write any code or push a deployment. Sanity Studio exists as a route in your app meaning you don't need go to the Sanity website to edit your blog content.
 
 ![Sanity Studio](./sanity-studio.png)
 
 With Sanity you get the benefits of a CMS but with the same flexibility that you would get with MDX. You define components for different types of blocks, marks, and lists by passing them into the `PortableText` component. It makes it super easy to define typography styles and render custom components, like the separator we we're using here.
 
-```jsx
-/*...*/
-<PortableText
-  value={post.body}
-  components={{
-    block: {
-      normal: ({ children }) => (
-        <p className="mb-10 mt-10 text-base/8 first:mt-0 last:mb-0">
-          {children}
-        </p>
-      ),
-      h2: ({ children }) => (
-        <h2 className="mb-10 mt-12 text-2xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0">
-          {children}
-        </h2>
-      ),
-      h3: ({ children }) => (
-        <h3 className="mb-10 mt-12 text-xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0">
-          {children}
-        </h3>
-      ),
-      blockquote: ({ children }) => (
-        <blockquote className="mb-10 mt-10 border-l-2 border-l-gray-300 pl-6 text-base/8 text-gray-950 first:mt-0 last:mb-0">
-          {children}
-        </blockquote>
-      ),
-    },
-    types: {
-      image: ({ value }) => (
-        <img
-          className="w-full rounded-2xl"
-          src={image(value).width(2000).url()}
-          alt={value.alt || ''}
-        />
-      ),
-      separator: ({ value }) => {
-        switch (value.style) {
-          case 'line':
-            return (
-              <hr className="my-8 border-t border-gray-200" />
-            )
-          case 'space':
-            return <div className="my-8" />
-          default:
-            return null
-        }
-      },
-    },
-    /*...*/
-  }}
-/>
+```jsx {{style: 'framed', color: 'fuchsia'}}
+    <PortableText
+      value={post.body}
+      components={{
+        block: {
+          normal: ({ children }) => (
+            <p className="mb-10 mt-10 text-base/8 first:mt-0 last:mb-0">
+              {children}
+            </p>
+          ),
+          h2: ({ children }) => (
+            <h2 className="mb-10 mt-12 text-2xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0">
+              {children}
+            </h2>
+          ),
+          h3: ({ children }) => (
+            <h3 className="mb-10 mt-12 text-xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0">
+              {children}
+            </h3>
+          ),
+          blockquote: ({ children }) => (
+            <blockquote className="mb-10 mt-10 border-l-2 border-l-gray-300 pl-6 text-base/8 text-gray-950 first:mt-0 last:mb-0">
+              {children}
+            </blockquote>
+          ),
+        },
+        types: {
+          image: ({ value }) => (
+            <img
+              className="w-full rounded-2xl"
+              src={image(value).width(2000).url()}
+              alt={value.alt || ''}
+            />
+          ),
+>          separator: ({ value }) => {
+>            switch (value.style) {
+>              case 'line':
+>                return (
+>                  <hr className="my-8 border-t border-gray-200" />
+>                )
+>              case 'space':
+>                return <div className="my-8" />
+>              default:
+>                return null
+>            }
+          },
+        },
+        /*...*/
+      }}
+    />
 
 ```
 
 Another thing that Sanity makes much easier is hosting and handling images. You don't need to worry about image storage and controlling the size, quality, and format of the images is as simple as passing a few parameters to the image builder.
 
-```jsx
-<div>
-  <div className="text-sm/5 max-sm:text-gray-700 sm:font-medium">
-    {dayjs(post.publishedAt).format('dddd, MMMM D, YYYY')}
-  </div>
-  {post.author && (
-    <div className="mt-2.5 flex items-center gap-3">
-      {post.author.image && (
-        <img
-          className="aspect-square size-6 rounded-full object-cover"
-          src={image(post.author.image).width(64).height(64).url()}
-          alt=""
-        />
-      )}
-      <div className="text-sm/5 text-gray-700">
-        {post.author.name}
+```jsx {{ style: 'framed', color: 'purple' }}
+    <div>
+      <div className="text-sm/5 max-sm:text-gray-700 sm:font-medium">
+        {dayjs(post.publishedAt).format('dddd, MMMM D, YYYY')}
       </div>
+      {post.author && (
+        <div className="mt-2.5 flex items-center gap-3">
+          {post.author.image && (
+            <img
+              className="aspect-square size-6 rounded-full object-cover"
+>             src={image(post.author.image).width(64).height(64).url()}
+              alt=""
+            />
+          )}
+          <div className="text-sm/5 text-gray-700">
+            {post.author.name}
+          </div>
+        </div>
+      )}
     </div>
-  )}
-</div>
 ```
 
-It's also easy to add custom fields to your models. For example, we added a featured boolean field to the blog post schema so you can have it show up in a special section on the blog.
+They also have this handy hot spot feature that lets you define a focal point for an image, so that when the image is cropped, it crops around the focal point. This is super useful for images that have a subject that you want to keep in frame.
+
+![Sanity image hot spot tool](./sanity-hotspot.png)
+
+It's also easy to add custom fields to your models. For example, we added a `featured` boolean field to the blog post schema so you can have these blog posts show up in a special section on the blog.
 
 ![Radiant Blog](./blog.png)
 
-What's nice is that Sanity's type generation tooling automatically generates TypeScript types for you, so you get type safety for both your content and any query you make with their [GROQ](https://www.sanity.io/docs/groq) query language.
+What's nice is that Sanity's type generation tooling automatically generates TypeScript types for you, so you get type safety for both your content and any queries you make with their [GROQ](https://www.sanity.io/docs/groq) query language.
 
 
 Sanity is a paid product, but they have a pretty generous free tier which is perfect for a personal blog. We've set the template up with some seed data so you can see how it all works without having to write your own posts. Go ahead and give it a try.
 
 ---
 
-And that's [Radiant](https://tailwindui.com/templates/studio)! Have a look under the hood, kick the tires, and let us know what you think.
+And that's [Radiant](https://tailwindui.com/templates/radiant)! Have a look under the hood, kick the tires, and let us know what you think.
 
 Like all of our templates, it's included with a one-time purchase [Tailwind UI all-access](https://tailwindui.com/all-access) license, which is the best way to support our work on Tailwind CSS and make it possible for us to keep building awesome stuff for years to come.
