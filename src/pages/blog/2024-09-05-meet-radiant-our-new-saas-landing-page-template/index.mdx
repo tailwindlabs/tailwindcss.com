@@ -42,7 +42,7 @@ We tried to make sure that all the animations were fairly subtle and only trigge
 
 We used [Framer Motion](https://www.framer.com/motion/) for almost all of the animations, which is a great library for a template like this. It's declarative, making it easy to create our own APIs for complex animations that other people can customize without much effort.
 
-It does have some drawbacks to work around though. For example, when you have multiple elements animating independently it's annoying to pass a hover state down to each child. We ended up leveraging Framer's variant propagation to make this work - a hover event triggers a variant change in the parent that propagates down to the children because they share the same variant keys.
+It does have some drawbacks to work around though. For example, when you have multiple elements animating independently it's annoying to pass a hover state down to each child. We ended up leveraging Framer's variant propagation to make this work — a hover event triggers a variant change in the parent that propagates down to the children because they share the same variant keys.
 
 
 ```jsx {{ filename: 'bento-card.tsx', style: 'framed', color: 'pink' }}
