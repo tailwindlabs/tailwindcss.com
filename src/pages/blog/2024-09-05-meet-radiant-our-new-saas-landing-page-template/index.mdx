@@ -155,7 +155,7 @@ The trickiest part of designing a SaaS template like this, is coming up with int
 
 <div className="relative rounded-2xl overflow-hidden">
   <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 pointer-events-none"></div>
-  <video src="/tastefully_animated.mp4" autoPlay playsInline loop muted className="block m-0" />
+  <video src="/light-bento.mp4" autoPlay playsInline loop muted className="block m-0" />
 </div>
 
 We came up with some core graphical elements that most SaaS products might have. A map with pins, a logo cluster, a keyboard, etc. Things that could be applied to a bunch of different features. Because we wanted them to be easy to repurpose for your own product, we built a lot of them in code and designed nice APIs for them.
@@ -184,7 +184,7 @@ It turns out it's actually quite a lot of work to build a keyboard in code, but 
   <video src="/keyboard.mp4" autoPlay playsInline loop muted className="block m-0" />
 </div>
 
-To prove how reusable these elements are, we built a second landing page using the same components but with a slightly different look and feel, this time re-imagined with the [SavvyCal](https://savvycal.com/) brand:
+Of course, we also left spots for you to drop in screenshots of your own product. To prove how easy it is to customize, here's what this section looks like with the content from our friends at [SavvyCal](https://savvycal.com/).
 
 ![Radiant as SavvyCal](./savvycal-radiant.png)
 
@@ -248,34 +248,30 @@ With Sanity you get the benefits of a CMS but with the same flexibility that you
 >            }
           },
         },
-        /*...*/
       }}
     />
-
 ```
 
 Another thing that Sanity makes much easier is hosting and handling images. You don't need to worry about image storage and controlling the size, quality, and format of the images is as simple as passing a few parameters to the image builder.
 
 ```jsx {{ style: 'framed', color: 'purple' }}
-    <div>
-      <div className="text-sm/5 max-sm:text-gray-700 sm:font-medium">
-        {dayjs(post.publishedAt).format('dddd, MMMM D, YYYY')}
-      </div>
-      {post.author && (
-        <div className="mt-2.5 flex items-center gap-3">
-          {post.author.image && (
-            <img
-              className="aspect-square size-6 rounded-full object-cover"
->             src={image(post.author.image).width(64).height(64).url()}
-              alt=""
-            />
-          )}
-          <div className="text-sm/5 text-gray-700">
-            {post.author.name}
-          </div>
-        </div>
-      )}
+    <div className="text-sm/5 max-sm:text-gray-700 sm:font-medium">
+      {dayjs(post.publishedAt).format('dddd, MMMM D, YYYY')}
     </div>
+    {post.author && (
+      <div className="mt-2.5 flex items-center gap-3">
+        {post.author.image && (
+>          <img
+>           className="aspect-square size-6 rounded-full object-cover"
+>           src={image(post.author.image).width(64).height(64).url()}
+>           alt=""
+>          />
+        )}
+        <div className="text-sm/5 text-gray-700">
+          {post.author.name}
+        </div>
+      </div>
+    )}
 ```
 
 They also have this handy hot spot feature that lets you define a focal point for an image, so that when the image is cropped, it crops around the focal point. This is super useful for images that have a subject that you want to keep in frame.
