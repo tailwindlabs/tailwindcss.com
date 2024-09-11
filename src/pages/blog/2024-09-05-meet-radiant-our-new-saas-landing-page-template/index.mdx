@@ -42,7 +42,7 @@ We tried to make sure that all the animations were fairly subtle and only trigge
 
 We used [Framer Motion](https://www.framer.com/motion/) for almost all of the animations, which is a great library for a template like this. It's declarative, making it easy to create our own APIs for complex animations that other people can customize without much effort.
 
-It does have some drawbacks to work around though. For example, when you have multiple elements animating independently it's annoying to pass a hover state down to each child. We ended up leveraging Framer's variant propagation to make this work - a hover event triggers a variant change in the parent that propagates down to the children because they share the same variant keys. 
+It does have some drawbacks to work around though. For example, when you have multiple elements animating independently it's annoying to pass a hover state down to each child. We ended up leveraging Framer's variant propagation to make this work - a hover event triggers a variant change in the parent that propagates down to the children because they share the same variant keys.
 
 
 ```jsx {{ filename: 'bento-card.tsx', style: 'framed', color: 'pink' }}
@@ -101,57 +101,57 @@ The logo timeline animation is a bit different, because we wanted the logos to p
 It exploits the fact that you can set a negative `animation-delay` value to offset the start position of the element. That way all the logos share the same animation keyframes but they can start at different positions and have different durations.
 
 ```jsx {{ filename: 'logo-timeline.tsx', style: 'framed', color: 'purple' }}
-    function Logo({
-      label,
-      src,
-      className,
-    }: {
-      label: string
-      src: string
-      className: string
-    }) {
-      return (
-        <div
-          className={clsx(
-            className,
-            'absolute top-2 grid grid-cols-[1rem,1fr] items-center gap-2 whitespace-nowrap px-3 py-1',
-            'rounded-full bg-gradient-to-t from-gray-800 from-50% to-gray-700 ring-1 ring-inset ring-white/10',
+  function Logo({
+    label,
+    src,
+    className,
+  }: {
+    label: string
+    src: string
+    className: string
+  }) {
+    return (
+      <div
+        className={clsx(
+          className,
+          'absolute top-2 grid grid-cols-[1rem,1fr] items-center gap-2 whitespace-nowrap px-3 py-1',
+          'rounded-full bg-gradient-to-t from-gray-800 from-50% to-gray-700 ring-1 ring-inset ring-white/10',
 >            '[--move-x-from:-100%] [--move-x-to:calc(100%+100cqw)] [animation-iteration-count:infinite] [animation-name:move-x] [animation-play-state:paused] [animation-timing-function:linear] group-hover:[animation-play-state:running]',
-          )}
-        >
-          <img alt="" src={src} className="size-4" />
-          <span className="text-sm/6 font-medium text-white">{label}</span>
-        </div>
-      )
-    }
+        )}
+      >
+        <img alt="" src={src} className="size-4" />
+        <span className="text-sm/6 font-medium text-white">{label}</span>
+      </div>
+    )
+  }
 
-    export function LogoTimeline() {
-      return (
-        /*...*/
-        <Row>
-          <Logo
-            label="Loom"
-            src="./logo-timeline/loom.svg"
+  export function LogoTimeline() {
+    return (
+      /*...*/
+      <Row>
+        <Logo
+          label="Loom"
+          src="./logo-timeline/loom.svg"
 >           className="[animation-delay:-26s] [animation-duration:30s]"
-          />
-          <Logo
-            label="Gmail"
-            src="./logo-timeline/gmail.svg"
+        />
+        <Logo
+          label="Gmail"
+          src="./logo-timeline/gmail.svg"
 >           className="[animation-delay:-8s] [animation-duration:30s]"
-          />
-        </Row>
-        /*...*/
+        />
+      </Row>
+      /*...*/
 ```
+
 This approach means we don't need to track the play state in JavaScript, we can just use a `group-hover:[animation-play-state:running]` class to start the animation when the parent is hovered.
 
 As you've maybe noticed, we're using a bunch of arbitrary properties for individual `animation` properties in this component, since these utilities don't exist in Tailwind today. This is what's great about building these templates — it helps us find blind spots in Tailwind CSS. Who knows, maybe we'll see these utilities added for v4.0!
-
 
 ---
 
 ## Deliberately reusable
 
-The trickiest part of designing a SaaS template like this, is coming up with interactive elements that people can apply to their own product without too much effort. There's nothing worse than buying a template and realizing that it's so specific to the example content that you can't actually use it for your own project. 
+The trickiest part of designing a SaaS template like this, is coming up with interactive elements that people can apply to their own product without too much effort. There's nothing worse than buying a template and realizing that it's so specific to the example content that you can't actually use it for your own project.
 
 <div className="relative rounded-2xl overflow-hidden">
   <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 pointer-events-none"></div>
@@ -174,9 +174,10 @@ The logo cluster, for example, has a simple API that lets you pass in your own l
 The keyboard shortcuts section is another good example. Adding your own shortcuts is as simple as passing an array of key names to the Keyboard component and because each key is a component, you can easily add custom keys or change the layout.
 
 
-```jsx 
+```jsx
 <Keyboard highlighted={['F', 'M', 'L']} />
 ```
+
 It turns out it's actually quite a lot of work to build a keyboard in code, but at least now you'll never have to find out for yourself.
 
 <div className="relative rounded-2xl overflow-hidden">
@@ -187,7 +188,6 @@ It turns out it's actually quite a lot of work to build a keyboard in code, but 
 Of course, we also left spots for you to drop in screenshots of your own product. To prove how easy it is to customize, here's what this section looks like with the content from our friends at [SavvyCal](https://savvycal.com/).
 
 ![Radiant as SavvyCal](./savvycal-radiant.png)
-
 
 ---
 
@@ -202,76 +202,76 @@ What's even better is that non-developers are able to manage the blog directly f
 With Sanity you get the benefits of a CMS but with the same flexibility that you would get with MDX. You define components for different types of blocks, marks, and lists by passing them into the `PortableText` component. It makes it super easy to define typography styles and render custom components, like the separator we we're using here.
 
 ```jsx {{style: 'framed', color: 'fuchsia'}}
-    <PortableText
-      value={post.body}
-      components={{
-        block: {
-          normal: ({ children }) => (
-            <p className="mb-10 mt-10 text-base/8 first:mt-0 last:mb-0">
-              {children}
-            </p>
-          ),
-          h2: ({ children }) => (
-            <h2 className="mb-10 mt-12 text-2xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0">
-              {children}
-            </h2>
-          ),
-          h3: ({ children }) => (
-            <h3 className="mb-10 mt-12 text-xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0">
-              {children}
-            </h3>
-          ),
-          blockquote: ({ children }) => (
-            <blockquote className="mb-10 mt-10 border-l-2 border-l-gray-300 pl-6 text-base/8 text-gray-950 first:mt-0 last:mb-0">
-              {children}
-            </blockquote>
-          ),
+  <PortableText
+    value={post.body}
+    components={{
+      block: {
+        normal: ({ children }) => (
+          <p className="mb-10 mt-10 text-base/8 first:mt-0 last:mb-0">
+            {children}
+          </p>
+        ),
+        h2: ({ children }) => (
+          <h2 className="mb-10 mt-12 text-2xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0">
+            {children}
+          </h2>
+        ),
+        h3: ({ children }) => (
+          <h3 className="mb-10 mt-12 text-xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0">
+            {children}
+          </h3>
+        ),
+        blockquote: ({ children }) => (
+          <blockquote className="mb-10 mt-10 border-l-2 border-l-gray-300 pl-6 text-base/8 text-gray-950 first:mt-0 last:mb-0">
+            {children}
+          </blockquote>
+        ),
+      },
+      types: {
+        image: ({ value }) => (
+          <img
+            className="w-full rounded-2xl"
+            src={image(value).width(2000).url()}
+            alt={value.alt || ''}
+          />
+        ),
+>       separator: ({ value }) => {
+>         switch (value.style) {
+>           case 'line':
+>             return (
+>               <hr className="my-8 border-t border-gray-200" />
+>             )
+>           case 'space':
+>             return <div className="my-8" />
+>           default:
+>             return null
+>         }
         },
-        types: {
-          image: ({ value }) => (
-            <img
-              className="w-full rounded-2xl"
-              src={image(value).width(2000).url()}
-              alt={value.alt || ''}
-            />
-          ),
->          separator: ({ value }) => {
->            switch (value.style) {
->              case 'line':
->                return (
->                  <hr className="my-8 border-t border-gray-200" />
->                )
->              case 'space':
->                return <div className="my-8" />
->              default:
->                return null
->            }
-          },
-        },
-      }}
-    />
+      },
+    }}
+  />
 ```
 
 Another thing that Sanity makes much easier is hosting and handling images. You don't need to worry about image storage and controlling the size, quality, and format of the images is as simple as passing a few parameters to the image builder.
 
 ```jsx {{ style: 'framed', color: 'purple' }}
-    <div className="text-sm/5 max-sm:text-gray-700 sm:font-medium">
-      {dayjs(post.publishedAt).format('dddd, MMMM D, YYYY')}
-    </div>
-    {post.author && (
-      <div className="mt-2.5 flex items-center gap-3">
-        {post.author.image && (
+  <div className="text-sm/5 max-sm:text-gray-700 sm:font-medium">
+    {dayjs(post.publishedAt).format('dddd, MMMM D, YYYY')}
+  </div>
+  {post.author && (
+    <div className="mt-2.5 flex items-center gap-3">
+      {post.author.image && (
 >          <img
 >           className="aspect-square size-6 rounded-full object-cover"
 >           src={image(post.author.image).width(64).height(64).url()}
 >           alt=""
 >          />
-        )}
-        <div className="text-sm/5 text-gray-700">
-          {post.author.name}
-        </div>
+      )}
+      <div className="text-sm/5 text-gray-700">
+        {post.author.name}
       </div>
-    )}
+    </div>
+  )}
 ```
 
 It's also easy to add custom fields to your models. For example, we added a `featured` boolean field to the blog post schema so you can have these blog posts show up in a special section on the blog.
