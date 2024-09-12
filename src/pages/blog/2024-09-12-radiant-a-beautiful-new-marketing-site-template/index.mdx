@@ -45,14 +45,14 @@ It does have some drawbacks to work around though. For example, when you have mu
 ```jsx {{ filename: 'bento-card.tsx', style: 'framed', color: 'pink' }}
   export function BentoCard() {
     return (
->    <motion.div
+>     <motion.div
 >       initial="idle"
 >       whileHover="active"
 >       variants={{ idle: {}, active: {} }}
->        data-dark={dark ? 'true' : undefined}
->      >
+>       data-dark={dark ? 'true' : undefined}
+>     >
         /* ... */
-    </motion.div>
+      </motion.div>
     )
   }
 ```
@@ -81,7 +81,7 @@ There is no difference between the variants in the parent so it doesn't actually
         style={{ '--offset': `${offset}px`, top } as React.CSSProperties}
         className="absolute left-[calc(50%+var(--offset))] size-[38px] drop-shadow-[0_3px_1px_rgba(0,0,0,.15)]"
       >
-      /* ... */
+        /* ... */
       </motion.div>
     )
   }
@@ -125,20 +125,20 @@ It exploits the fact that you can set a negative `animation-delay` value to offs
 
   export function LogoTimeline() {
     return (
-      /*...*/
+      /* ... */
       <Row>
         <Logo
           label="Loom"
           src="./logo-timeline/loom.svg"
->           className="[animation-delay:-26s] [animation-duration:30s]"
+>         className="[animation-delay:-26s] [animation-duration:30s]"
         />
         <Logo
           label="Gmail"
           src="./logo-timeline/gmail.svg"
->           className="[animation-delay:-8s] [animation-duration:30s]"
+>         className="[animation-delay:-8s] [animation-duration:30s]"
         />
       </Row>
-      /*...*/
+      /* ... */
 ```
 
 This approach means we don't need to track the play state in JavaScript, we can just use a `group-hover:[animation-play-state:running]` class to start the animation when the parent is hovered.
