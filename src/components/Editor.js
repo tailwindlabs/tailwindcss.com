@@ -49,7 +49,7 @@ export function Editor({ filename, scroll = false, style = 'plain', color, child
 
   if (style === 'framed') {
     return (
-      <Frame className="mt-5 mb-8 first:mt-0 last:mb-0" color={color}>
+      <Frame className="mt-8 mb-8 first:mt-0 last:mb-0" color={color}>
         <EditorPane {...passthrough} filename={filename} code={code} children={children} />
       </Frame>
     )
