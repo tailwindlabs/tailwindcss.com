@@ -42,7 +42,6 @@ We used [Framer Motion](https://www.framer.com/motion/) for almost all of the an
 
 It does have some drawbacks to work around though. For example, when you have multiple elements animating independently it's annoying to pass a hover state down to each child. We ended up leveraging Framer's variant propagation to make this work — a hover event triggers a variant change in the parent that propagates down to the children because they share the same variant keys.
 
-
 ```jsx {{ filename: 'bento-card.tsx', style: 'framed', color: 'pink' }}
   export function BentoCard() {
     return (
@@ -171,7 +170,6 @@ The logo cluster, for example, has a simple API that lets you pass in your own l
 ```
 
 The keyboard shortcuts section is another good example. Adding your own shortcuts is as simple as passing an array of key names to the Keyboard component and because each key is a component, you can easily add custom keys or change the layout.
-
 
 ```jsx
 <Keyboard highlighted={['F', 'M', 'L']} />
