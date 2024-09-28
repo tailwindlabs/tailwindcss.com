@@ -11,7 +11,7 @@
 }
 
 .DocSearch-VisuallyHiddenForAccessibility {
-  @apply hidden;
+  @apply sr-only;
 }
 
 .DocSearch-LoadingIndicator {
