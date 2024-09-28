@@ -13,7 +13,7 @@
   ],
   "dependencies": {
     "@badrap/bar-of-progress": "^0.1.1",
-    "@docsearch/react": "^3.3.3",
+    "@docsearch/react": "^3.6.2",
     "@headlessui/react": "^2.0.3",
     "@heroicons/react": "^2.1.1",
     "@mdx-js/loader": "^2.3.0",

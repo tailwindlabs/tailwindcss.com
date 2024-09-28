@@ -10,6 +10,10 @@
   @apply hidden;
 }
 
+.DocSearch-VisuallyHiddenForAccessibility {
+  @apply hidden;
+}
+
 .DocSearch-LoadingIndicator {
   display: none;
   width: 1.5rem;
