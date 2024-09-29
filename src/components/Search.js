@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import { DocSearchModal } from '@docsearch/react'
 import clsx from 'clsx'
 import { useActionKey } from '@/hooks/useActionKey'
+import { startViewTransition } from '@/utils/startViewTransition'
 
 const INDEX_NAME = 'tailwindcss'
 const API_KEY = '5fc87cef58bb80203d2207578309fab6'
@@ -26,18 +27,30 @@ export function SearchProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false)
   const [initialQuery, setInitialQuery] = useState(null)
 
-  const onOpen = useCallback(() => {
-    setIsOpen(true)
-  }, [setIsOpen])
+  const onOpen = useCallback(
+    (disableTransition = false) => {
+      startViewTransition(() => {
+        setIsOpen(true)
+      }, disableTransition)
+    },
+    [setIsOpen]
+  )
 
-  const onClose = useCallback(() => {
-    setIsOpen(false)
-  }, [setIsOpen])
+  const onClose = useCallback(
+    (disableTransition = false) => {
+      startViewTransition(() => {
+        setIsOpen(false)
+      }, disableTransition)
+    },
+    [setIsOpen]
+  )
 
   const onInput = useCallback(
     (e) => {
-      setIsOpen(true)
-      setInitialQuery(e.key)
+      startViewTransition(() => {
+        setIsOpen(true)
+        setInitialQuery(e.key)
+      })
     },
     [setIsOpen, setInitialQuery]
   )
@@ -78,110 +91,112 @@ export function SearchProvider({ children }) {
         }}
       >
         {children}
+        {isOpen &&
+          createPortal(
+            <div
+              onClick={(event) => {
+                let link = event.target.closest('a')
+                if (!link) return
+                if (isExternalURL(link.href) && link.target !== '_blank') {
+                  event.preventDefault()
+                  window.open(link.href, '_blank')
+                }
+              }}
+            >
+              <DocSearchModal
+                initialQuery={initialQuery}
+                initialScrollY={window.scrollY}
+                searchParameters={{
+                  facetFilters: 'version:v3',
+                  distinct: 1,
+                  attributesToRetrieve: [
+                    'hierarchy.lvl0',
+                    'hierarchy.lvl1',
+                    'hierarchy.lvl2',
+                    'hierarchy.lvl3',
+                    'hierarchy.lvl4',
+                    'hierarchy.lvl5',
+                    'hierarchy.lvl6',
+                    'content',
+                    'type',
+                    'url',
+                    'product',
+                    'product_category',
+                  ],
+                }}
+                placeholder="Search documentation"
+                onClose={() => void onClose()}
+                indexName={INDEX_NAME}
+                apiKey={API_KEY}
+                appId={APP_ID}
+                navigator={{
+                  navigate({ itemUrl }) {
+                    onClose(true)
+                    if (isExternalURL(itemUrl)) {
+                      window.open(itemUrl, '_blank')
+                    } else {
+                      router.push(itemUrl)
+                    }
+                  },
+                }}
+                hitComponent={Hit}
+                transformItems={(items) => {
+                  return items.map((item, index) => {
+                    // We transform the absolute URL into a relative URL to
+                    // leverage Next's preloading.
+                    const a = document.createElement('a')
+                    a.href = item.url
+
+                    const hash = a.hash === '#content-wrapper' || a.hash === '#header' ? '' : a.hash
+
+                    if (item.hierarchy?.lvl0) {
+                      item.hierarchy.lvl0 = item.hierarchy.lvl0.replace(/&amp;/g, '&')
+                    }
+
+                    if (item._highlightResult?.hierarchy?.lvl0?.value) {
+                      item._highlightResult.hierarchy.lvl0.value =
+                        item._highlightResult.hierarchy.lvl0.value.replace(/&amp;/g, '&')
+                    }
+
+                    let isTailwindUI = isTailwindUIURL(item.url)
+
+                    return {
+                      ...item,
+                      hierarchy: {
+                        ...item.hierarchy,
+                        ...(isTailwindUI
+                          ? { lvl1: `${item.product} / ${item.product_category}` }
+                          : {}),
+                      },
+                      url: isTailwindUI ? item.url.split('#')[0] : `${a.pathname}${hash}`,
+                      __is_result: () => true,
+                      __is_parent: () => item.type === 'lvl1' && items.length > 1 && index === 0,
+                      __is_child: () =>
+                        item.type !== 'lvl1' &&
+                        items.length > 1 &&
+                        items[0].type === 'lvl1' &&
+                        index !== 0,
+                      __is_first: () => index === 1,
+                      __is_last: () => index === items.length - 1 && index !== 0,
+                      __is_tailwindui: () => isTailwindUI,
+                    }
+                  })
+                }}
+              />
+            </div>,
+            document.body
+          )}
       </SearchContext.Provider>
-      {isOpen &&
-        createPortal(
-          <div
-            onClick={(event) => {
-              let link = event.target.closest('a')
-              if (!link) return
-              if (isExternalURL(link.href) && link.target !== '_blank') {
-                event.preventDefault()
-                window.open(link.href, '_blank')
-              }
-            }}
-          >
-            <DocSearchModal
-              initialQuery={initialQuery}
-              initialScrollY={window.scrollY}
-              searchParameters={{
-                facetFilters: 'version:v3',
-                distinct: 1,
-                attributesToRetrieve: [
-                  'hierarchy.lvl0',
-                  'hierarchy.lvl1',
-                  'hierarchy.lvl2',
-                  'hierarchy.lvl3',
-                  'hierarchy.lvl4',
-                  'hierarchy.lvl5',
-                  'hierarchy.lvl6',
-                  'content',
-                  'type',
-                  'url',
-                  'product',
-                  'product_category',
-                ],
-              }}
-              placeholder="Search documentation"
-              onClose={onClose}
-              indexName={INDEX_NAME}
-              apiKey={API_KEY}
-              appId={APP_ID}
-              navigator={{
-                navigate({ itemUrl }) {
-                  setIsOpen(false)
-                  if (isExternalURL(itemUrl)) {
-                    window.open(itemUrl, '_blank')
-                  } else {
-                    router.push(itemUrl)
-                  }
-                },
-              }}
-              hitComponent={Hit}
-              transformItems={(items) => {
-                return items.map((item, index) => {
-                  // We transform the absolute URL into a relative URL to
-                  // leverage Next's preloading.
-                  const a = document.createElement('a')
-                  a.href = item.url
-
-                  const hash = a.hash === '#content-wrapper' || a.hash === '#header' ? '' : a.hash
-
-                  if (item.hierarchy?.lvl0) {
-                    item.hierarchy.lvl0 = item.hierarchy.lvl0.replace(/&amp;/g, '&')
-                  }
-
-                  if (item._highlightResult?.hierarchy?.lvl0?.value) {
-                    item._highlightResult.hierarchy.lvl0.value =
-                      item._highlightResult.hierarchy.lvl0.value.replace(/&amp;/g, '&')
-                  }
-
-                  let isTailwindUI = isTailwindUIURL(item.url)
-
-                  return {
-                    ...item,
-                    hierarchy: {
-                      ...item.hierarchy,
-                      ...(isTailwindUI
-                        ? { lvl1: `${item.product} / ${item.product_category}` }
-                        : {}),
-                    },
-                    url: isTailwindUI ? item.url.split('#')[0] : `${a.pathname}${hash}`,
-                    __is_result: () => true,
-                    __is_parent: () => item.type === 'lvl1' && items.length > 1 && index === 0,
-                    __is_child: () =>
-                      item.type !== 'lvl1' &&
-                      items.length > 1 &&
-                      items[0].type === 'lvl1' &&
-                      index !== 0,
-                    __is_first: () => index === 1,
-                    __is_last: () => index === items.length - 1 && index !== 0,
-                    __is_tailwindui: () => isTailwindUI,
-                  }
-                })
-              }}
-            />
-          </div>,
-          document.body
-        )}
     </>
   )
 }
 
 function Hit({ hit, children }) {
+  let { onClose } = useContext(SearchContext)
   return (
     <Link
       href={hit.url}
+      onClick={() => void onClose(true)}
       target={hit.__is_tailwindui?.() ? '_blank' : undefined}
       className={clsx({
         'DocSearch-Hit--Result': hit.__is_result?.(),
@@ -197,10 +212,9 @@ function Hit({ hit, children }) {
   )
 }
 
-export function SearchButton({ children, ...props }) {
+export function SearchButton({ children, className = '', ...props }) {
   let searchButtonRef = useRef()
-  let actionKey = useActionKey()
-  let { onOpen, onInput } = useContext(SearchContext)
+  let { onOpen, onInput, isOpen } = useContext(SearchContext)
 
   useEffect(() => {
     function onKeyDown(event) {
@@ -217,9 +231,73 @@ export function SearchButton({ children, ...props }) {
   }, [onInput, searchButtonRef])
 
   return (
-    <button type="button" ref={searchButtonRef} onClick={onOpen} {...props}>
-      {typeof children === 'function' ? children({ actionKey }) : children}
+    <button
+      type="button"
+      className={clsx(
+        className,
+        'relative',
+        isOpen && 'supports-view-transitions:motion-safe:invisible'
+      )}
+      ref={searchButtonRef}
+      onClick={() => void onOpen()}
+      style={{ viewTransitionName: isOpen ? null : 'search-box' }}
+      {...props}
+    >
+      {children}
+      {/* Position these fake "from" elements for easier view transitions: */}
+      <div
+        className="absolute inset-x-0 w-full h-0 top-full left-0"
+        style={{ viewTransitionName: isOpen ? null : 'search-results' }}
+      ></div>
+      <div
+        className="absolute inset-x-0 w-full h-0 bottom-0 left-0"
+        style={{ viewTransitionName: isOpen ? null : 'search-footer' }}
+      ></div>
     </button>
+  )
+}
+
+export function SearchIcon(props) {
+  let { isOpen } = useContext(SearchContext)
+
+  return (
+    // We need a wrapping div because view transitions don't seem to work well with <svg>:
+    <div {...props} style={{ viewTransitionName: isOpen ? null : 'search-icon' }}>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="aspect-square h-full"
+        aria-hidden="true"
+      >
+        <path d="m19 19-3.5-3.5" />
+        <circle cx="11" cy="11" r="6" />
+      </svg>
+    </div>
+  )
+}
+
+export function SearchShortcut({ as: Component = 'kbd', children, ...props }) {
+  let actionKey = useActionKey()
+  let { isOpen } = useContext(SearchContext)
+
+  return (
+    <Component {...props} style={{ viewTransitionName: isOpen ? null : 'search-shortcut' }}>
+      {typeof children === 'function' ? children({ actionKey }) : children}
+    </Component>
+  )
+}
+
+export function SearchInput({ children, ...props }) {
+  let { isOpen } = useContext(SearchContext)
+
+  return (
+    <span {...props} style={{ viewTransitionName: isOpen ? null : 'search-input' }}>
+      {children}
+    </span>
   )
 }
 
@@ -230,7 +308,7 @@ function useDocSearchKeyboardEvents({ isOpen, onOpen, onClose }) {
         // We check that no other DocSearch modal is showing before opening
         // another one.
         if (!document.body.classList.contains('DocSearch--active')) {
-          onOpen()
+          onOpen(true)
         }
       }
 
@@ -242,7 +320,7 @@ function useDocSearchKeyboardEvents({ isOpen, onOpen, onClose }) {
         event.preventDefault()
 
         if (isOpen) {
-          onClose()
+          onClose(true)
         } else if (!document.body.classList.contains('DocSearch--active')) {
           open()
         }
