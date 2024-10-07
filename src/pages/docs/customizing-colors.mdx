@@ -339,25 +339,9 @@ Again, we recommend sticking to the default naming convention for most projects,
 
 ## Using CSS variables
 
-If you'd like to define your colors as CSS variables, you'll need to define those variables as just the color _channels_ if you want them to work with the [opacity modifier syntax](/docs/text-color#changing-the-opacity):
+If you'd like to define your colors as CSS variables and need to support opacity modifiers the simplest way to do that is to use `color-mix()` in your Tailwind config.
 
-<TipGood>Define your CSS variables as channels with no color space function</TipGood>
-
-```css {{ filename: 'main.css' }}
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-
-  @layer base {
-    :root {
->     --color-primary: 255 115 179;
->     --color-secondary: 111 114 185;
-      /* ... */
-    }
-  }
-```
-
-<TipBad>Don't include the color space function or opacity modifiers won't work</TipBad>
+First, define your colors any way you'd like.
 
 ```css {{ filename: 'main.css' }}
   @tailwind base;
@@ -366,53 +350,42 @@ If you'd like to define your colors as CSS variables, you'll need to define thos
 
   @layer base {
     :root {
->     --color-primary: rgb(255 115 179);
->     --color-secondary: rgb(111 114 185);
+>     --color-primary: rgb(232, 81, 148);
+>     --color-secondary: cornflowerblue;
+>     --color-tertiary: #000;
       /* ... */
     }
   }
 ```
 
-Then define your colors in your configuration file, being sure to include the color space you're using and a default alpha value for color spaces like `rgba` where the alpha channel is required:
+Then, when defining your colors, use `color-mix()` with  `<alpha-value>` to mix `transparent` with the value of the custom property.
+```js {{ filename: 'tailwind.config.js' }}
+  /** @type {import('tailwindcss').Config} */
+  module.exports = {
+    theme: {
+      colors: {
+>       primary: 'color-mix(in srgb, var(--color-primary) calc(100% * <alpha-value>), transparent)',
+>       secondary: 'color-mix(in srgb, var(--color-secondary) calc(100% * <alpha-value>), transparent)',
+>       tertiary: 'color-mix(in srgb, var(--color-tertiary) calc(100% * <alpha-value>), transparent)',
+      }
+    }
+  }
+```
+
+You can reduce the noise by using a function to return a value for each color.
 
 ```js {{ filename: 'tailwind.config.js' }}
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  theme: {
-    colors: {
-      // Using modern `rgb`
-      primary: 'rgb(var(--color-primary))',
-      secondary: 'rgb(var(--color-secondary))',
+>  const mixCustomPropertyWithTransparent = name =>
+>    `color-mix(in srgb, var(--${name}) calc(100% * <alpha-value>), transparent)`
 
-      // Using modern `hsl`
-      primary: 'hsl(var(--color-primary))',
-      secondary: 'hsl(var(--color-secondary))',
-
-      // Using legacy `rgba`
-      primary: 'rgba(var(--color-primary), 1)',
-      secondary: 'rgba(var(--color-secondary), 1)',
+  /** @type {import('tailwindcss').Config} */
+  module.exports = {
+    theme: {
+      colors: {
+>       primary: mixCustomPropertyWithTransparent('color-primary'),
+>       secondary: mixCustomPropertyWithTransparent('color-secondary'),
+>       tertiary: mixCustomPropertyWithTransparent('color-tertiary'),
+      }
     }
   }
-}
-```
-
-When defining your colors this way, make sure that the format of your CSS variables is correct for the color function you are using. You'll want to use spaces if using the modern [space-separated syntax](https://css-tricks.com/the-expanding-gamut-of-color-on-the-web/#aa-a-tale-of-new-syntaxes), and commas if using legacy functions like `rgba` or `hsla`:
-
-```css {{ filename: 'main.css' }}
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  :root {
-    /* For rgb(255 115 179 / 1) */
-    --color-primary: 255 115 179;
-
-    /* For hsl(333deg 100% 73% / 1) */
-    --color-primary: 333deg 100% 73%;
-
-    /* For rgba(255, 115, 179, 1) */
-    --color-primary: 255, 115, 179;
-  }
-}
 ```
