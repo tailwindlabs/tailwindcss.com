@@ -373,7 +373,7 @@ If you'd like to define your colors as CSS variables, you'll need to define thos
   }
 ```
 
-Then define your colors in your configuration file, being sure to include the color space you're using, and the special `<alpha-value>` placeholder that Tailwind will use to inject the alpha value when using an opacity modifier:
+Then define your colors in your configuration file, being sure to include the color space you're using and a default alpha value for color spaces like `rgba` where the alpha channel is required:
 
 ```js {{ filename: 'tailwind.config.js' }}
 /** @type {import('tailwindcss').Config} */
@@ -381,16 +381,16 @@ module.exports = {
   theme: {
     colors: {
       // Using modern `rgb`
-      primary: 'rgb(var(--color-primary) / <alpha-value>)',
-      secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
+      primary: 'rgb(var(--color-primary))',
+      secondary: 'rgb(var(--color-secondary))',
 
       // Using modern `hsl`
-      primary: 'hsl(var(--color-primary) / <alpha-value>)',
-      secondary: 'hsl(var(--color-secondary) / <alpha-value>)',
+      primary: 'hsl(var(--color-primary))',
+      secondary: 'hsl(var(--color-secondary))',
 
       // Using legacy `rgba`
-      primary: 'rgba(var(--color-primary), <alpha-value>)',
-      secondary: 'rgba(var(--color-secondary), <alpha-value>)',
+      primary: 'rgba(var(--color-primary), 1)',
+      secondary: 'rgba(var(--color-secondary), 1)',
     }
   }
 }
@@ -405,13 +405,13 @@ When defining your colors this way, make sure that the format of your CSS variab
 
 @layer base {
   :root {
-    /* For rgb(255 115 179 / <alpha-value>) */
+    /* For rgb(255 115 179 / 1) */
     --color-primary: 255 115 179;
 
-    /* For hsl(198deg 93% 60% / <alpha-value>) */
-    --color-primary: 198deg 93% 60%;
+    /* For hsl(333deg 100% 73% / 1) */
+    --color-primary: 333deg 100% 73%;
 
-    /* For rgba(255, 115, 179, <alpha-value>) */
+    /* For rgba(255, 115, 179, 1) */
     --color-primary: 255, 115, 179;
   }
 }
