@@ -83,6 +83,8 @@ Any custom CSS added to a layer will only be included in the final build if that
 
 Wrapping any custom CSS with `@layer` also makes it possible to use modifiers with those rules, like `hover:` and `focus:` or responsive modifiers like `md:` and `lg:`.
 
+Note that the native `@layer` CSS at-rule will not be output.
+
 ### @apply
 
 Use `@apply` to inline any existing utility classes into your own custom CSS.
