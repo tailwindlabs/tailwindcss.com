@@ -44,7 +44,6 @@ module.exports = {
   plugins: {
     'postcss-import': {},
     tailwindcss: {},
-    autoprefixer: {},
   }
 }
 ```
@@ -136,7 +135,6 @@ module.exports = {
     'postcss-import': {},
     'tailwindcss/nesting': {},
     tailwindcss: {},
-    autoprefixer: {},
   }
 }
 ```
@@ -158,7 +156,6 @@ module.exports = {
     'postcss-import': {},
     'tailwindcss/nesting': 'postcss-nesting',
     tailwindcss: {},
-    autoprefixer: {},
   }
 }
 ```
@@ -227,6 +224,7 @@ Then add it to the very end of your plugin list in your PostCSS configuration:
 ```js
 module.exports = {
   plugins: {
+    'postcss-import': {},
     tailwindcss: {},
     autoprefixer: {},
   }
