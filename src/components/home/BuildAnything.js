@@ -22,7 +22,7 @@ const code = {
   </div>
   <form class="flex-auto p-6">
     <div class="flex flex-wrap">
-      <h1 class="flex-auto text-lg font-semibold text-slate-900">Utility Jacket</h1>
+      <h1 class="flex-auto text-lg font-semibold text-slate-900">Classic Utility Jacket</h1>
       <div class="text-lg font-semibold text-slate-500">$110.00</div>
       <div class="w-full flex-none text-sm font-medium text-slate-700 mt-2">In stock</div>
     </div>
@@ -222,7 +222,7 @@ const classes = {
 }
 
 const content = {
-  Simple: ['/classic-utility-jacket.jpg', 'Utility Jacket', '$110.00'],
+  Simple: ['/classic-utility-jacket.jpg', 'Classic Utility Jacket', '$110.00'],
   Playful: ['/kids-jumpsuit.jpg', 'Kids Jumpsuit', '$39.00'],
   Elegant: ['/dogtooth-style-jacket.jpg', 'DogTooth Style Jacket', '$350.00'],
   Brutalist: ['/retro-shoe.jpg', 'Retro Shoe', '$89.00'],
