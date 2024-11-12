@@ -8,7 +8,7 @@ let steps = [
     body: () => (
       <p>
         Start by creating a new Angular project if you don’t have one set up already. The most
-        common approach is to use <a href="https://angular.io/cli">Angular CLI</a>.
+        common approach is to use <a href="https://angular.dev/tools/cli">Angular CLI</a>.
       </p>
     ),
     code: {
