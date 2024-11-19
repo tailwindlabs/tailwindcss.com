@@ -54,7 +54,7 @@ $ npm install tailwindcss@next @tailwindcss/postcss@next
 
 Next, add our PostCSS plugin to your `postcss.config.js` file:
 
-```ts {{ filename: 'postcss.config.mjs' }}
+```js {{ filename: 'postcss.config.mjs' }}
   export default {
     plugins: {
 >     '@tailwindcss/postcss': {},
@@ -121,17 +121,171 @@ It's also a good idea to go over all of the [breaking changes](#breaking-changes
 
 ### CSS-first configuration
 
-- CSS-first configuration
+One of the biggest changes in Tailwind CSS v4.0 is the shift from configuring your project in JavaScript to configuring it in CSS.
+
+Instead of a `tailwind.config.js` file, you can configure all of your customizations directly in the CSS file where you import Tailwind, giving you one less file to worry about in your project:
+
+```css  {{ filename: 'app.css', style: 'framed', color: 'sky' }}
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Satoshi", "sans-serif";
+
+  --breakpoint-3xl: 1920px;
+
+  --color-avocado-100: oklch(0.99 0 0);
+  --color-avocado-200: oklch(0.98 0.04 113.22);
+  --color-avocado-300: oklch(0.94 0.11 115.03);
+  --color-avocado-400: oklch(0.92 0.19 114.08);
+  --color-avocado-500: oklch(0.84 0.18 117.33);
+  --color-avocado-600: oklch(0.53 0.12 118.34);
+
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ... */
+}
+```
+
+The new CSS-first configuration lets you do just about everything you could do in your `tailwind.config.js` file, including configuring your design tokens, setting up content sources, defining custom utilities and variants, installing plugins, and more.
+
+To learn more about how it all works, read the [CSS configuration in-depth](#css-configuration-in-depth) documentation.
 
 ### CSS theme variables
 
+Tailwind CSS v4.0 takes all of your design tokens and makes them available as CSS variables by default, so you can reference any value you need at run-time using just CSS.
+
+Using the example `@theme` from earlier, all of these values will be added to your CSS to as regular custom properties:
+
+```css {{ filename: 'app.css', style: 'framed', color: 'indigo' }}
+:root {
+  --font-display: "Satoshi", "sans-serif";
+
+  --breakpoint-3xl: 1920px;
+
+  --color-avocado-100: oklch(0.99 0 0);
+  --color-avocado-200: oklch(0.98 0.04 113.22);
+  --color-avocado-300: oklch(0.94 0.11 115.03);
+  --color-avocado-400: oklch(0.92 0.19 114.08);
+  --color-avocado-500: oklch(0.84 0.18 117.33);
+  --color-avocado-600: oklch(0.53 0.12 118.34);
+
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ... */
+}
+```
+
+This makes it easy to reuse these values as inline styles or pass them to libraries like [Motion](https://motion.dev/docs/react-animation#css-variables) to animate them.
+
 ### Native CSS cascade layers
+
+We're using real [CSS cascade layers](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer) in v4.0, which make it easier than ever to control the precedence of styles and how they interact with each other.
+
+```css {{ filename: 'dist.css', style: 'framed', color: 'purple', scroll: true }}
+@layer theme, base, components, utilities;
+
+@layer theme {
+  :root {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+      'Courier New', monospace;
+
+    /* ... */
+  }
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+
+  /* ... */
+}
+
+@layer utilities {
+  .pointer-events-none {
+    pointer-events: none;
+  }
+  .visibility-hidden {
+    visibility: hidden;
+  }
+
+  /* ... */
+
+  .focus\:outline:focus {
+    outline-width: 1px;
+  }
+
+  @media (width >= 40rem) {
+    @media (hover: hover) {
+      .sm\:hover\:opacity-100:hover {
+        opacity: 100%;
+      }
+    }
+  }
+}
+```
+
+We've had layers as a concept in Tailwind for years, but native cascade layers can do things that we couldn't easily replicate at build-time, like isolating styles within a layer even if they have a higher specificity than styles in another layer. Less code for us to maintain too!
 
 ### Automatic source detection
 
+You know how you always had to configure that annoying `content` array in Tailwind CSS v3? In v4.0, we came up with a bunch of heuristics for detecting all of that stuff automatically so you don't have to configure it at all.
+
+For example, we automatically ignore anything in your `.gitignore` file to avoid scanning dependencies or generated files that aren't under version control:
+
+```bash {{ filename: '.gitignore', style: 'framed', color: 'fuchsia' }}
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# caches
+/.next/
+
+# production
+/build
+```
+
+We also automatically ignore all binary extensions like images, videos, .zip files, and more.
+
+And if you ever need to explicitly add a source that's excluded by default, you can always add it with the `@source` directive, right in your CSS file:
+
+```css {{ filename: 'app.css', style: 'framed', color: 'pink' }}
+  @import "tailwindcss";
+> @source "../node_modules/@my-company/ui-lib";
+```
+
+The `@source` directive uses the same heuristics under the hood, so it will exclude binary file types for example as well, without you having to specify all of the extensions to scan explicitly.
+
 ### Built-in import support
 
-- Built-in `@import` support
+Before v4.0, if you wanted to inline other CSS files using `@import` you'd have to configure another plugin like `postcss-import` to handle it for you.
+
+Now we handle this out of the box, so you don't need to include another plugin:
+
+```diff-js {{ filename: 'postcss.config.mjs', style: 'framed', color: 'sky' }}
+  export default {
+    plugins: {
+-     'postcss-import': {},
+      '@tailwindcss/postcss': {},
+    },
+  };
+```
+
+Our import system is purpose-built for Tailwind CSS, so we've also been able to make it even faster by tightly integrating it with our engine.
 
 ### Built-in CSS transpilation
 
