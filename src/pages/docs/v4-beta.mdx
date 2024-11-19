@@ -1,30 +1,123 @@
 ---
-title: Tailwind CSS v4.0-beta
-description: Using responsive utility variants to build adaptive user interfaces.
+section: Prerelease Documentation
+title: Tailwind CSS v4.0 Beta
+description: Preview what's coming in the next version of Tailwind CSS.
 ---
 
 import { Heading } from '@/components/Heading'
 import { TipGood, TipBad } from '@/components/Tip'
 
+{/*
 - Introduction, has a graphic or code sample
 - Link to blog post
 - Summarize improvements
 - Talk about upgrade + link to upgrade section
 - Mention breaking changes, link to those
+*/}
 
 ## Getting started
 
 ### Installing with Vite
 
+If you're using Vite or a Vite-powered framework like SvelteKit or Remix, install Tailwind along with our new dedicated Vite plugin:
+
+```bash {{ filename: 'Terminal' }}
+$ npm install tailwindcss@next @tailwindcss/vite@next
+```
+
+Next, add our Vite plugin to your `vite.config.ts` file:
+
+```ts {{ filename: 'vite.config.ts' }}
+  import { defineConfig } from 'vite';
+> import tailwindcss from '@tailwindcss/vite';
+
+  export default defineConfig({
+    plugins: [
+>     tailwindcss()
+    ],
+  });
+```
+
+Finally, import Tailwind into your main CSS file:
+
+```css  {{ filename: 'src/index.css' }}
+> @import "tailwindcss";
+```
+
 ### Installing with PostCSS
+
+If your project uses PostCSS or you're using a framework like Next.js that supports PostCSS plugins, install Tailwind along with our new dedicated PostCSS plugin:
+
+```bash {{ filename: 'Terminal' }}
+$ npm install tailwindcss@next @tailwindcss/postcss@next
+```
+
+Next, add our PostCSS plugin to your `postcss.config.js` file:
+
+```ts {{ filename: 'postcss.config.mjs' }}
+  export default {
+    plugins: {
+>     '@tailwindcss/postcss': {},
+    },
+  };
+```
+
+Finally, import Tailwind into your main CSS file:
+
+```css  {{ filename: 'app.css' }}
+> @import "tailwindcss";
+```
 
 ### Installing the CLI
 
+If you want to use our dedicated CLI tool, install Tailwind along with our new dedicated CLI package:
+
+```bash {{ filename: 'Terminal' }}
+$ npm install tailwindcss@next @tailwindcss/cli@next
+```
+
+Next, import Tailwind into your main CSS file:
+
+```css  {{ filename: 'app.css' }}
+> @import "tailwindcss";
+```
+
+Then compile your CSS using the CLI tool:
+```bash {{ filename: 'Terminal' }}
+$ npx @tailwindcss/cli -i input.css -o output.css
+```
+
+You can also download [standalone builds](https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.0.0-beta-1) of the new CLI tool from GitHub for projects that don't otherwise depend on the Node.js ecosystem.
+
 ### Upgrading from v3
+
+If you'd like to try upgrading a project from v3 to the v4 beta releases, you can use our upgrade tool to do the vast majority of the heavy lifting for you:
+
+```bash {{ filename: 'Terminal' }}
+$ npx @tailwindcss/upgrade@next
+```
+
+For most projects, the upgrade tool will automate the entire migration process including:
+
+- **Updating dependencies** like Tailwind itself, adding the new PostCSS plugin, updating our Prettier plugin if you have it installed, and removing dependencies that are no longer needed like `postcss-import` and `autoprefixer`.
+- **Replacing `@tailwind` directives with `@import "tailwindcss"`** to modernize your project.
+- **Migrating your config file to CSS** if possible, or updating your CSS to import your config file with `@config`.
+- **Replacing deprecated utility classes** with their v4 equivalents, like renaming `outline-none` to `outline-hidden`.
+- **Updating your variant order** so that order-sensitive variants in your utilities are sorted from left to right instead of right to left.
+- **Replacing `theme(…)` with `var(…)`** where possible, taking advantage of the CSS variables generated in v4.0 by default.
+- **Migrating to the new variable shorthand syntax**, updating utilities like `bg-[--my-color]` to `bg-(--my-color)`.
+- **Adding compatibility base styles for Preflight changes**, so your project looks the same after upgrading.
+- **Updating custom utilities to use `@utility`** instead of just custom classes in the `utilities` layer.
+- **Updating existing imports to use layers** to make sure your custom styles behave as expected with Tailwind's layered styles.
+
+**We recommend running the upgrade tool in a new branch**, then carefully reviewing the diff and testing your project in the browser to make sure all of the changes look correct. You may need to tweak a few things by hand in complex projects, but the tool will save you a ton of time either way.
+
+It's also a good idea to go over all of the [breaking changes](#breaking-changes) in v4.0 and get a good understanding of what's changed, in case there are other things you need to update in your project that the upgrade tool doesn't catch.
+
 
 ---
 
-## What's new in v4
+## What's new in v4.0
 
 ### CSS-first configuration
 
@@ -155,3 +248,7 @@ import { TipGood, TipBad } from '@/components/Tip'
 ### Hover styles ignored on mobile
 
 ### Core plugins cannot be disabled
+
+### Using a JavaScript config file
+
+- Not autodetected, need to use `@config`
