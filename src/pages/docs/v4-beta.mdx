@@ -572,6 +572,56 @@ This means you can remove tools like `autoprefixer` and `postcss-preset-env` fro
 
 In v4.0, Tailwind CSS is the only thing you need to set up to handle your entire CSS pipeline — no other tooling required.
 
+### Simplified theme configuration
+
+In v4.0, we've really slimmed down the amount of theme configuration you need to do, especially for things that aren't really design tokens.
+
+Utilities like `grid-cols-12`, `z-40`, and `opacity-70` are no longer based on your theme — they just work. Whether you need a 5 column grid or a 73 column grid, you don't need to configure anything to make it happen.
+
+```html
+<div class="grid **grid-cols-73**">
+  <div>1</div>
+  <!-- ... -->
+  <div>73</div>
+</div>
+```
+
+We've applied the same simplifications to variants like `data-*` as well — you don't need to configure these at all anymore or use arbitrary values for simple boolean attributes:
+
+```diff-html
+- <div class="opacity-50 **data-[selected]:opacity-100**" data-selected>
++ <div class="opacity-50 **data-selected:opacity-100**" data-selected>
+    <!-- ... -->
+  </div>
+```
+
+These changes mean you touch your theme configuration way less frequently, and it stays focused on the design tokens that matter, like your typography, color palette, and breakpoints.
+
+### Dynamic spacing scale
+
+We've simplified the way spacing utilities like `px-*`, `mt-*`, `w-*`, `h-*`, and more work by deriving them all from a single spacing scale value, defined as `0.25rem` in the default theme:
+
+```css
+@theme {
+  --spacing: 0.25rem;
+}
+```
+
+When you define your spacing scale this way, every multiple of `0.25rem` is available in your spacing scale. This means utilities like `mt-21` will work with no extra configuration, unlike in v3 where you had to choose between `mt-20` and `mt-24` or drop down to using an arbitrary value.
+
+And if you want more constraints, you can always disable the `--spacing` variable and provide your own explicit scale:
+
+```css
+@theme {
+  --spacing: initial
+  --spacing-1: 0.25rem
+  --spacing-2: 0.5rem
+  --spacing-4: 1rem
+  --spacing-8: 2rem
+  --spacing-12: 3rem
+}
+```
+
 ### Modernized P3 color palette
 
 We've upgraded the entire default color palette from `rgb` to `oklch`, taking advantage of the wider gamut to make the colors more vivid in places where we were previously limited by the sRGB color space.
