@@ -714,7 +714,7 @@ We've finally added APIs for doing 3D transforms, like `rotate-x-*`, `rotate-y-*
       </div>
       <h3 class="mt-3 text-lg/6 font-semibold text-white">
           <span class="absolute inset-0"></span>
-          Boost your conversion rate 
+          Boost your conversion rate
       </h3>
     </article>
   </div>
@@ -730,7 +730,7 @@ We've finally added APIs for doing 3D transforms, like `rotate-x-*`, `rotate-y-*
 Use the `transform-3d` utility to enable 3D transforms by setting the right `transform-style`
 
 
-#### Rotate 
+#### Rotate
 Use the `rotate-x-*`, `rotate-y-*` and `rotate-z-*` utilities to rotate elements in 3D space.
 
 
@@ -780,7 +780,7 @@ Use the `scale-z-*` utilities to scale elements on the z-axis.
     'scale-z-125': {'--tw-scale-z': '125%'},
     'scale-z-150': {'--tw-scale-z': '150%'},
     'scale-z-200': {'--tw-scale-z': '200%'},
-   
+
   }}/>
 
 #### Translate
@@ -1239,7 +1239,7 @@ Since we've dramatically [simplified theme configuration](#simplified-theme-conf
 | `--tracking-*`     | Letter spacing utilities like `tracking-tight`                                         |
 | `--leading-*`      | Line height utilities like `leading-relaxed`                                           |
 | `--breakpoint-*`   | Breakpoint variants like `md:*` and `lg:*`                                             |
-| `--container-*`    | Container query variants like `@sm:*` and `@lg:*`\nmax-width utilities like `max-w-lg` |
+| `--container-*`    | Container query variants like `@sm:*` and `@lg:*` and max-width utilities like `max-w-lg` |
 | `--radius-*`       | Border radius utilities like `rounded-md`                                              |
 | `--shadow-*`       | Box shadow utilities like `shadow-lg`                                                  |
 | `--inset-shadow-*` | Inset box shadow utilities like `inset-shadow-sm`                                      |
@@ -1251,11 +1251,12 @@ If you need more fine-grained control, most utilities can also be configured und
 
 ### Configuring dark mode
 
-By default, the `dark` variant in Tailwind CSS v4.0 uses the `prefers-color-scheme` media query. If you want to use a selector-based strategy in your project for dark mode, override the `dark` variant with the selector you want to use:
+By default, the `dark` variant in Tailwind CSS v4.0 uses the `prefers-color-scheme` media query.
+
+If you want to use a selector-based strategy in your project for dark mode, override the `dark` variant with the selector you want to use:
 
 ```css
   @import "tailwindcss";
-
 > @variant dark (&:where(.dark, .dark *));
 ```
 
@@ -1320,15 +1321,140 @@ If you need to disable Tailwind's base styles, you can import the pieces of Tail
 
 ### Using a prefix
 
+To prefix your utilities and theme variables to avoid conflicts with existing CSS, use the `prefix(…)` function when importing Tailwind:
+
+```css
+@import "tailwindcss" prefix(tw);
+```
+
+Prefixes work a little differently than in v3 — now they look like variants and are always at the beginning of the class name:
+
+```html
+<div class="**tw:flex** **tw:bg-red-500** **tw:hover:bg-red-600**">
+  <!-- ... -->
+</div>
+```
+
+When using a prefix, you should still configure your theme variables as if you aren't using a prefix:
+
+```css {{ filename: "app.css" }}
+@import "tailwindcss" prefix(tw);
+
+@theme {
+  --font-display: "Satoshi", "sans-serif";
+
+  --breakpoint-3xl: 1920px;
+
+  --color-avocado-100: oklch(0.99 0 0);
+  --color-avocado-200: oklch(0.98 0.04 113.22);
+  --color-avocado-300: oklch(0.94 0.11 115.03);
+
+  /* ... */
+}
+```
+
+The generated CSS variables _will_ include a prefix though to avoid conflicts with any existing variables in your project:
+
+```css {{ filename: "dist.css" }}
+:root {
+  --tw-font-display: "Satoshi", "sans-serif";
+
+  --tw-breakpoint-3xl: 1920px;
+
+  --tw-color-avocado-100: oklch(0.99 0 0);
+  --tw-color-avocado-200: oklch(0.98 0.04 113.22);
+  --tw-color-avocado-300: oklch(0.94 0.11 115.03);
+
+  /* ... */
+}
+```
+
 ### Adding custom utilities
+
+To add a custom utility in v4.0, use the new `@utility` directive:
+
+```css
+@import "tailwindcss";
+
+@utility tab-4 {
+  tab-size: 4;
+}
+```
+
+Custom utilities are automatically inserted into the `utilities` layer along with all of the built-in utilities in the framework.
 
 ### Adding custom variants
 
+To add a custom variant in v4.0, use the new `@variant` directive:
+
+```css
+@import "tailwindcss";
+
+@variant pointer-coarse (@media (pointer: coarse));
+@variant theme-midnight (&:where([data-theme="midnight"] *));
+```
+
+This lets you write utilities like `pointer-coarse:size-48` and `theme-midnight:bg-slate-900`.
+
 ### Using plugins
+
+To load a plugin in v4.0, use the the new `@plugin` directive:
+
+```css
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+```
+
+The `@plugin` directive takes either a package name or a local path.
 
 ### Using legacy configuration files
 
+To use an existing JS configuration file in v4.0, load it with the `@config` directive:
+
+```css
+@import "tailwindcss";
+
+@config "../../tailwind.config.js";
+```
+
+Note that not every feature of the JS config is supported in v4.0. Options like `corePlugins`, `important`, and `separator` will likely not be supported at all in the stable v4.0 release, and options like `safelist` may return but with differences in behavior.
+
 ### Using \`@apply\` in Vue/Svelte
+
+If you want to use `@apply` in the `<style>` block of a Vue or Svelte component, you will need to import your theme configuration to make those values available in that context.
+
+To do this without duplicating the CSS variables in your CSS output, use `theme(reference)` when importing your theme:
+
+```html
+  <template>
+    <h1>Hello world!</h1>
+  </template>
+
+  <style>
+>   @import "../../my-theme.css" theme(reference);
+
+    h1 {
+      @apply font-bold text-2xl text-red-500;
+    }
+  </style>
+```
+
+If you're just using the default theme, you can import `"tailwindcss/theme"` directly:
+
+```html
+  <template>
+    <h1>Hello world!</h1>
+  </template>
+
+  <style>
+>   @import "tailwindcss/theme" theme(reference);
+
+    h1 {
+      @apply font-bold text-2xl text-red-500;
+    }
+  </style>
+```
 
 ---
 
@@ -1369,6 +1495,8 @@ If you need to disable Tailwind's base styles, you can import the pieces of Tail
 ### Hover styles ignored on mobile
 
 ### Core plugins cannot be disabled
+
+### Using the \`theme()\` function
 
 ### Using a JavaScript config file
 
