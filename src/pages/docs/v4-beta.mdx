@@ -1251,11 +1251,72 @@ If you need more fine-grained control, most utilities can also be configured und
 
 ### Configuring dark mode
 
+By default, the `dark` variant in Tailwind CSS v4.0 uses the `prefers-color-scheme` media query. If you want to use a selector-based strategy in your project for dark mode, override the `dark` variant with the selector you want to use:
+
+```css
+  @import "tailwindcss";
+
+> @variant dark (&:where(.dark, .dark *));
+```
+
+### Configuring source detection
+
+If the automatic source detection in Tailwind CSS v4.0 is too broad and including files you don't want it to include (maybe you're working in a large monorepo for example), you can use the `source(…)` function when importing Tailwind to specify the base path for automatic source detection:
+
+```css
+@import "tailwindcss" source("../src");
+```
+
+This path should be relative to the CSS file where it's used.
+
 ### Adding content sources
+
+If you need to add additional content sources that aren't being picked up by default (like something that is in your `.gitignore` file), add it using `@source`:
+
+
+```css
+  @import "tailwindcss";
+> @source "../node_modules/@my-company/ui-lib/src/components";
+```
+
+For situations like this, it can also be helpful to export a CSS file from your library and move the `@source` directive there instead so you can just import the CSS file:
+
+```css {{ filename: '/node_modules/@my-company/ui-lib/index.css' }}
+@source "./src/components";
+```
+
+```css {{ filename: 'app.css' }}
+@import "tailwindcss";
+@import "@my-company/ui-lib";
+```
+
+The `@source` directive can also be useful when you're using the Vite plugin but need to include content sources that aren't naturally part of the module graph, like PHP templates in a Laravel project:
+
+```css
+  @import "tailwindcss";
+> @source "../../resources/views";
+> @source "../../app";
+```
 
 ### Disabling source detection
 
+If you need disable automatic source detection for any reason, use `source(none)` when importing Tailwind:
+
+```css
+@import "tailwindcss" source(none);
+```
+
+With source detection disabled, you can then just use `@source` to configure all of your content sources explicitly.
+
 ### Disabling Preflight
+
+If you need to disable Tailwind's base styles, you can import the pieces of Tailwind that you need separately:
+
+```css
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
+```
 
 ### Using a prefix
 
