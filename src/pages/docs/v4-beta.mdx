@@ -1076,7 +1076,71 @@ To override an entire namespace, unset the namespace using syntax like `--font-*
 
 Now the default `font-sans`, `font-serif`, and `font-mono` utilities won't exist in your project and `font-display` will be the only available font family utility.
 
+You can also unset the entire default theme using `--*: initial` if you want to start completely from scratch:
+
+```css
+  @import "tailwindcss";
+
+  @theme {
+>   --*: initial;
+  }
+```
+
+This will remove all of the default design tokens, including all of the default fonts, the typography scale, the color palette, and more.
+
+#### Configuring default line heights for font-size utilities
+
+To set the default line height, font weight, or letter spacing for a custom font size, add a supporting variable using double-dashes like `--text-big--line-height`:
+
+```css
+  @theme {
+    --text-big: 16rem;
+>   --text-big--line-height: 18rem;
+>   --text-big--font-weight: 550;
+>   --text-big--letter-spacing: -0.025em;
+  }
+```
+
+#### Configuring animations and keyframes
+
+By default, Tailwind CSS v4.0 preserves any custom `@keyframes` rules you add to your CSS, even if you don't use the corresponding animation utilities in your project.
+
+To make sure unused `@keyframes` rules are removed, configure them under `@theme` instead of at the root of your CSS:
+
+```css
+@theme {
+  --animate-marquee: marquee 3s linear infinite;
+
+  @keyframes marquee {
+    to {
+      transform: translateY(-50%);
+    }
+  }
+}
+```
+
 #### Namespace reference
+
+Since we've dramatically [simplified theme configuration](#simplified-theme-configuration) in Tailwind CSS v4.0, you'll only generally work with these namespaces:
+
+| Namespace          | Utilities                                                                              |
+| ------------------ | -------------------------------------------------------------------------------------- |
+| `--color-*`        | Color utilities like `bg-white`, `text-black`, or `fill-blue-500`                      |
+| `--font-*`         | Font family utilities like `font-sans`                                                 |
+| `--text-*`         | Font size utilities like `text-sm`                                                     |
+| `--font-weight-*`  | Font weight utilities like `font-bold`                                                 |
+| `--tracking-*`     | Letter spacing utilities like `tracking-tight`                                         |
+| `--leading-*`      | Line height utilities like `leading-relaxed`                                           |
+| `--breakpoint-*`   | Breakpoint variants like `md:*` and `lg:*`                                             |
+| `--container-*`    | Container query variants like `@sm:*` and `@lg:*`\nmax-width utilities like `max-w-lg` |
+| `--radius-*`       | Border radius utilities like `rounded-md`                                              |
+| `--shadow-*`       | Box shadow utilities like `shadow-lg`                                                  |
+| `--inset-shadow-*` | Inset box shadow utilities like `inset-shadow-sm`                                      |
+| `--drop-shadow-*`  | Drop shadow utilities like `drop-shadow-xl`                                            |
+| `--ease-*`         | Transition timing function utilities like `ease-out`                                   |
+| `--animate-*`      | Animation utilities like `animate-spin`                                                |
+
+If you need more fine-grained control, most utilities can also be configured under a namespace that matches the CSS property name. For example custom `background-image` utilities like `bg-grid-pattern` can be configured using `--background-image-grid-pattern: url(…)`.
 
 ### Configuring dark mode
 
