@@ -995,12 +995,12 @@ You know the `*` variant we shipped a while ago for targeting direct children?
 In v4.0 we've added a new `**` variant for targeting all descendants — most useful in my opinion if you combine it with another variant for narrowing the thing you're selecting:
 
 ```html
-<div class="**:img:rounded-full">
-  <div>
-    <img src="…" />
+  <div class="**:img:rounded-full">
+    <div>
+>     <img src="…" /> <!-- This element will be round -->
+    </div>
+    <p>…</p>
   </div>
-  <p>…</p>
-</div>
 ```
 
 Fun fact — the syntax is inspired by globs, for better or for worse.
@@ -1010,6 +1010,73 @@ Fun fact — the syntax is inspired by globs, for better or for worse.
 ## CSS configuration in-depth
 
 ### Customizing your theme
+
+To customize your theme in Tailwind CSS v4.0, use the new `@theme` directive directly in your CSS:
+
+```css
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Satoshi", "sans-serif";
+
+  --breakpoint-3xl: 1920px;
+
+  --color-avocado-100: oklch(0.99 0 0);
+  --color-avocado-200: oklch(0.98 0.04 113.22);
+  --color-avocado-300: oklch(0.94 0.11 115.03);
+  --color-avocado-400: oklch(0.92 0.19 114.08);
+  --color-avocado-500: oklch(0.84 0.18 117.33);
+  --color-avocado-600: oklch(0.53 0.12 118.34);
+
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ... */
+}
+```
+
+Each CSS variable you define here tells Tailwind to make new utilities and variants available based on those values, letting you use classes like `font-display`, `3xl:max-w-xl`, `text-avocado-400`, and `hover:ease-fluid` in your markup:
+
+```html
+<div class="max-w-lg **3xl:max-w-xl**">
+  <h1 class="**font-display** text-4xl">
+    Data to <span class="**text-avocado-400**">enrich</span> your online business
+  </h1>
+</div>
+```
+
+Each set of variables is part of a namespace that links them to the corresponding utilities, for example the font size utilities reference the `--font-*` namespace, all of the color utilities reference the `--color-*` namespace, and the transition-timing-function utilities reference the `--ease-*` namespace.
+
+For a full list, see the [theme namespace reference](#namespace-reference).
+
+#### Overriding the default theme
+
+By default, adding new CSS variables behaves like `extend` in Tailwind CSS v3:
+
+```css
+@import "tailwindcss";
+
+@theme {
+  /* These values are added in addition to the defaults */
+  --font-display: "Satoshi", "sans-serif";
+  --breakpoint-3xl: 1920px;
+}
+```
+
+To override an entire namespace, unset the namespace using syntax like `--font-*: initial`:
+
+```css
+  @import "tailwindcss";
+
+  @theme {
+>   --font-*: initial;
+    --font-display: "Satoshi", "sans-serif";
+  }
+```
+
+Now the default `font-sans`, `font-serif`, and `font-mono` utilities won't exist in your project and `font-display` will be the only available font family utility.
+
+#### Namespace reference
 
 ### Configuring dark mode
 
@@ -1028,6 +1095,8 @@ Fun fact — the syntax is inspired by globs, for better or for worse.
 ### Using plugins
 
 ### Using legacy configuration files
+
+### Using \`@apply\` in Vue/Svelte
 
 ---
 
