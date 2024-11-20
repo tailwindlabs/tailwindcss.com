@@ -1743,14 +1743,81 @@ You likely have very few of these if any — the direct child variant (`*`) and 
 
 ### CSS variables in arbitrary values
 
+In v3 you were able to use CSS variables as arbitrary values without `var(…)`, but recent updates to CSS mean that this can often be ambiguous, so we've changed the syntax for this in v4.0 to use parentheses instead of square brackets.
+
+To update your project for this change, replace usage of the old variable shorthand syntax with the new variable shorthand syntax:
+
+```diff-html
+- <div class="**bg-[--brand-color]**">
++ <div class="**bg-(--brand-color)**">
+    <!-- ... -->
+  </div>
+```
+
 ### Referencing theme values in JS
+
+In v3 we exported a `resolveConfig` function that you could use to turn your JS config into a flat object that you could use in your other JavaScript.
+
+We've removed this in v4 in hopes that people can use the CSS variables we generate directly instead, which is much simpler and will significantly reduce your bundle size.
 
 ### Hover styles ignored on mobile
 
+In v4.0 we've updated the `hover` variant to only apply when the primary input device supports hover:
+
+```css
+@media (hover: hover) {
+  .hover\:underline:hover {
+    text-decoration: underline;
+  }
+}
+```
+
+This can create problems if you've built your site in a way that depends on touch devices triggering hover on tap. If this is an issue for you, you can override the `hover` variant with your own variant that uses the old implementation:
+
+```css
+@import "tailwindcss";
+
+@variant hover (&:hover);
+```
+
+Generally though I'd recommend treating hover functionality as an enhancement, and not depending on it for your site to work since touch devices don't truly have the ability to hover.
+
 ### Core plugins cannot be disabled
+
+In v3 there was a `corePlugins` option you could use to completely disable certain utilities in the framework. This is no longer supported in v4.0, but we're planning to explore different ideas for solving the same type of problems that feature was often used to solve in later beta releases.
 
 ### Using the \`theme()\` function
 
+Since Tailwind CSS v4.0 includes CSS variables for all of your theme values, we recommend using those variables instead of the `theme()` function whenever possible:
+
+
+```diff-css
+  @import "tailwindcss";
+
+  .my-class {
+-   background-color: theme(colors.red.500);
++   background-color: var(--colors-red-500);
+  }
+```
+
+For cases where you still need to use the `theme()` function (like in media queries where CSS variables aren't supported), you should use the CSS variable name instead of the old dot notation:
+
+```diff-css
+  @import "tailwindcss";
+
+- @media (width >= theme(screens.xl)) {
+- @media (width >= theme(--breakpoint-xl)) {
+    /* ... */
+  }
+```
+
 ### Using a JavaScript config file
 
-- Not autodetected, need to use `@config`
+JavaScript config files are still supported for backward compatibility, but they are no longer detected automatically in v4.0.
+
+If you still need to use a JavaScript config file, make sure to load it explicitly using `@config`:
+
+```css
+@import "tailwindcss";
+@config "../../tailwind.config.js";
+```
