@@ -898,15 +898,39 @@ The new `starting` variant adds support for the new CSS `@starting-style` featur
 </div>
 ```
 
-### \`:not()\` variant
+### \`not-*\` variant
+
+The new `not-*` variant adds support for the `:not(…)` pseudo-class, letting you style things when certain conditions are not true.
+
+For example, only adding hover styles to a button when the button is not focused:
+
+```html
+<button class="bg-indigo-600 **hover:not-focus:bg-indigo-700**">
+  <!-- ... -->
+</button>
+```
+
+You can also combine the `not-*` variant with media query variants like `forced-colors` to only style an element when forced colors mode is not active:
+
+```html
+<input type="radio" class="**not-forced-colors:appearance-none**" />
+```
+
+It works with `supports-*` variants too, so you can style an element based on the lack of browser support for a specific CSS feature:
+
+```html
+<div class="**not-supports-[display:grid]:flex**">
+  <!-- ... -->
+</div>
+```
 
 ### \`inert\` variant
 
 ### \`nth-*\` variants
 
-### \`:popover-open\` support
-
 ### \`in-*\` variant
+
+### \`:popover-open\` support
 
 ### Descendant variant
 
