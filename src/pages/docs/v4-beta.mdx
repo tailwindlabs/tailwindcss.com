@@ -926,23 +926,84 @@ It works with `supports-*` variants too, so you can style an element based on th
 
 ### \`inert\` variant
 
+The new `inert` variant lets you style elements marked with the `inert` attribute:
+
+```html
+<main **inert** class="**inert:opacity-50** **inert:blur**">
+  <!-- ... -->
+</main>
+```
+
+This is useful for adding visual cues that make it clear that an element isn't interactive.
+
 ### \`nth-*\` variants
+
+We've added four new variants for the `:nth-child(…)`, `:nth-last-child(…)`, `:nth-of-type(…)`, and `:nth-last-of-type(…)` pseudo-classes:
+
+```html
+<div class="**nth-3:underline**">…</div>
+<div class="**nth-last-5:underline**">…</div>
+<div class="**nth-of-type-4:underline**">…</div>
+<div class="**nth-last-of-type-6:underline**">…</div>
+```
+
+You can pass any number you want to these by default, and use arbitrary values for more complex expressions like `nth-[2n+1_of_li]`.
 
 ### \`in-*\` variant
 
+You know our `group-*` variants like `group-focus`? The new `in-*` variant is just like that except you don't need to add `group` to the parent element:
+
+```diff-html
+- <div tabindex="0" class="group">
+-   <div class="opacity-50 group-focus:opacity-100">
++ <div tabindex="0">
++   <div class="opacity-50 in-focus:opacity-100">
+      <!-- ... -->
+    </div>
+  </div>
+```
+
+You'll still want the `group-*` stuff a lot of the time when you need fine control, but this will save you some characters the rest of the time.
+
 ### \`:popover-open\` support
+
+We've updated our existing `open` variant to target the `:popover-open` pseudo-class as well as the `[open]` attribute:
+
+```html
+<div>
+  <button popovertarget="my-popover">Open Popover</button>
+  <div popover id="my-popover" class="opacity-0 **open:opacity-100** ...">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+I'm sure I'm eventually going to regret not making it a separate `popover-open` variant but I thought _really_ hard about it and couldn't think of any situations where an element would use both `[open]` and `:popover-open` and have different styles for each condition. Someone is going to update the spec and screw me on this one down the road though for sure.
 
 ### Descendant variant
 
-- Simplified theme configuration
-  - Bare values in variants (`data-potato` instead of `data-[potato]`)
-  - Infinite spacing scale, grid columns/rows, opacities, z-index, scale transforms
-  - Bare aspect-ratio values
-- CSS variables for your theme
-- Can override variants
-- Heuristic-driven sorting so custom utilities sort more intuitively with built-in utilities
-- Individual transforms
+You know the `*` variant we shipped a while ago for targeting direct children?
 
+```html
+<ul class="*:p-4">
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+</ul>
+```
+
+In v4.0 we've added a new `**` variant for targeting all descendants — most useful in my opinion if you combine it with another variant for narrowing the thing you're selecting:
+
+```html
+<div class="**:img:rounded-full">
+  <div>
+    <img src="…" />
+  </div>
+  <p>…</p>
+</div>
+```
+
+Fun fact — the syntax is inspired by globs, for better or for worse.
 
 ---
 
