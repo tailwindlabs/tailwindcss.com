@@ -415,7 +415,7 @@ Learn more about how these modifiers work in the [Hover, Focus, and Other States
 
 ### Removing unused custom CSS
 
-Any custom styles you add to the `base`, `components`, or `utilities` layers will only be included in your compiled CSS if those styles are actually used in your HTML.
+Any custom class you add to the `components` or `utilities` layers will only be included in your compiled CSS if those class names are actually used in your HTML. Style rules without class names will always be included.
 
 ```css {{ filename: 'main.css' }}
 @tailwind base;
