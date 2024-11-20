@@ -265,8 +265,8 @@ export function ColorPalette() {
     {
       Object.entries(colors).map(([color, values]) =>
         <div className="grid grid-cols-1 gap-2" key={color}>
-          {Object.values(values).map(value =>
-            <div className="aspect-square rounded" style={{backgroundColor:value}}/>
+          {Object.values(values).map((value, i) =>
+            <div className="aspect-square rounded" key={i} style={{backgroundColor:value}}/>
           )}
         </div>
       )
@@ -707,7 +707,7 @@ We've finally added APIs for doing 3D transforms, like `rotate-x-*`, `rotate-y-*
       <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm/6 text-gray-300">
         <time dateTime="2020-03-16" class="mr-8">Mar 16, 2020</time>
         <div class="-ml-4 flex items-center gap-x-4">
-          <svg view-box="0 0 2 2" class="-ml-0.5 size-0.5 flex-none fill-white/50"><circle r={1} cx={1} cy={1} /></svg>
+          <svg view-box="0 0 2 2" class="-ml-0.5 size-0.5 flex-none fill-white/50"><circle r="1" cx="1" cy="1" /></svg>
           <div class="flex gap-x-2.5">
             <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-6 flex-none rounded-full bg-white/10" />
             Michael Foster
@@ -953,69 +953,69 @@ We've added utilities for the new `field-sizing` property that lets you create a
 
 ```html {{example: true}}
 <div class="py-8 grid">
-<form action="#" class="relative w-full max-w-xl justify-self-center bg-white">
-  <div class="overflow-hidden rounded-lg border border-gray-300 shadow-sm focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500 p-4 pb-0">
-    <label for="title" class="sr-only">Title</label>
-    <input value='Replace all uniforms with cotton' type="text" name="title" id="title" class="block w-full border-0 pt-2.5 text-lg font-medium placeholder:text-gray-400 focus:ring-0" placeholder="Title">
-    <label for="description" class="sr-only">Description</label>
-    <textarea  rows="2" name="description" id="description" class="block w-full resize-none border-0 py-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6 [field-sizing:content]" placeholder="Write a description..."></textarea>
-    <div aria-hidden="true">
-      <div class="py-2">
-        <div class="h-9"></div>
-      </div>
-      <div class="h-px"></div>
-      <div class="py-2">
-        <div class="py-px">
+  <form action="#" class="relative w-full max-w-xl justify-self-center bg-white">
+    <div class="overflow-hidden rounded-lg border border-gray-300 shadow-sm focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500 p-4 pb-0">
+      <label for="title" class="sr-only">Title</label>
+      <input value='Replace all uniforms with cotton' type="text" name="title" id="title" class="block w-full border-0 pt-2.5 text-lg font-medium placeholder:text-gray-400 focus:ring-0" placeholder="Title">
+      <label for="description" class="sr-only">Description</label>
+      <textarea  rows="2" name="description" id="description" class="block w-full resize-none border-0 py-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6 [field-sizing:content]" placeholder="Write a description..."></textarea>
+      <div aria-hidden="true">
+        <div class="py-2">
           <div class="h-9"></div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="absolute inset-x-px bottom-0">
-    <div class="flex flex-nowrap justify-end space-x-2 px-2 py-2 sm:px-3">
-      <div class="shrink-0">
-        <label id="listbox-label" class="sr-only">Assign</label>
-        <div class="relative">
-          <button type="button" class="relative inline-flex items-center whitespace-nowrap rounded-full bg-gray-50 px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 sm:px-3" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
-            <svg class="size-5 shrink-0 text-gray-300 sm:-ml-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-5.5-2.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM10 12a5.99 5.99 0 0 0-4.793 2.39A6.483 6.483 0 0 0 10 16.5a6.483 6.483 0 0 0 4.793-2.11A5.99 5.99 0 0 0 10 12Z" clip-rule="evenodd" /></svg>
-            <img src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-5 shrink-0 rounded-full">
-            <span class="hidden truncate sm:ml-2 sm:block">Assign</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="shrink-0">
-        <label id="listbox-label" class="sr-only">Add a label</label>
-        <div class="relative">
-          <button type="button" class="relative inline-flex items-center whitespace-nowrap rounded-full bg-gray-50 px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 sm:px-3" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
-            <svg class="size-5 shrink-0 text-gray-300 sm:-ml-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M4.5 2A2.5 2.5 0 0 0 2 4.5v3.879a2.5 2.5 0 0 0 .732 1.767l7.5 7.5a2.5 2.5 0 0 0 3.536 0l3.878-3.878a2.5 2.5 0 0 0 0-3.536l-7.5-7.5A2.5 2.5 0 0 0 8.38 2H4.5ZM5 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd" /></svg>
-            <span class="hidden truncate sm:ml-2 sm:block">Label</span>
-          </button>
-        </div>
-      </div>
-      <div class="shrink-0">
-        <label id="listbox-label" class="sr-only">Add a due date</label>
-        <div class="relative">
-          <button type="button" class="relative inline-flex items-center whitespace-nowrap rounded-full bg-gray-50 px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 sm:px-3" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
-            <svg class="size-5 shrink-0 text-gray-300 sm:-ml-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M5.75 2a.75.75 0 0 1 .75.75V4h7V2.75a.75.75 0 0 1 1.5 0V4h.25A2.75 2.75 0 0 1 18 6.75v8.5A2.75 2.75 0 0 1 15.25 18H4.75A2.75 2.75 0 0 1 2 15.25v-8.5A2.75 2.75 0 0 1 4.75 4H5V2.75A.75.75 0 0 1 5.75 2Zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75Z" clip-rule="evenodd" /></svg>
-            <span class="hidden truncate sm:ml-2 sm:block">Due date</span>
-          </button>
+        <div class="h-px"></div>
+        <div class="py-2">
+          <div class="py-px">
+            <div class="h-9"></div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="flex items-center justify-between space-x-3 border-t border-gray-200 px-2 py-2 sm:px-3">
-      <div class="flex">
-        <button type="button" class="group -my-2 -ml-2 inline-flex items-center rounded-full px-3 py-2 text-left text-gray-400">
-          <svg class="-ml-1 mr-2 size-5 group-hover:text-gray-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M15.621 4.379a3 3 0 0 0-4.242 0l-7 7a3 3 0 0 0 4.241 4.243h.001l.497-.5a.75.75 0 0 1 1.064 1.057l-.498.501-.002.002a4.5 4.5 0 0 1-6.364-6.364l7-7a4.5 4.5 0 0 1 6.368 6.36l-3.455 3.553A2.625 2.625 0 1 1 9.52 9.52l3.45-3.451a.75.75 0 1 1 1.061 1.06l-3.45 3.451a1.125 1.125 0 0 0 1.587 1.595l3.454-3.553a3 3 0 0 0 0-4.242Z" clip-rule="evenodd" /></svg>
-          <span class="text-sm italic text-gray-500 group-hover:text-gray-600">Attach a file</span>
-        </button>
+    <div class="absolute inset-x-px bottom-0">
+      <div class="flex flex-nowrap justify-end space-x-2 px-2 py-2 sm:px-3">
+        <div class="shrink-0">
+          <label id="listbox-label" class="sr-only">Assign</label>
+          <div class="relative">
+            <button type="button" class="relative inline-flex items-center whitespace-nowrap rounded-full bg-gray-50 px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 sm:px-3" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
+              <svg class="size-5 shrink-0 text-gray-300 sm:-ml-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-5.5-2.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM10 12a5.99 5.99 0 0 0-4.793 2.39A6.483 6.483 0 0 0 10 16.5a6.483 6.483 0 0 0 4.793-2.11A5.99 5.99 0 0 0 10 12Z" clip-rule="evenodd" /></svg>
+              <img src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-5 shrink-0 rounded-full">
+              <span class="hidden truncate sm:ml-2 sm:block">Assign</span>
+            </button>
+          </div>
+        </div>
+        <div class="shrink-0">
+          <label id="listbox-label" class="sr-only">Add a label</label>
+          <div class="relative">
+            <button type="button" class="relative inline-flex items-center whitespace-nowrap rounded-full bg-gray-50 px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 sm:px-3" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
+              <svg class="size-5 shrink-0 text-gray-300 sm:-ml-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M4.5 2A2.5 2.5 0 0 0 2 4.5v3.879a2.5 2.5 0 0 0 .732 1.767l7.5 7.5a2.5 2.5 0 0 0 3.536 0l3.878-3.878a2.5 2.5 0 0 0 0-3.536l-7.5-7.5A2.5 2.5 0 0 0 8.38 2H4.5ZM5 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd" /></svg>
+              <span class="hidden truncate sm:ml-2 sm:block">Label</span>
+            </button>
+          </div>
+        </div>
+        <div class="shrink-0">
+          <label id="listbox-label" class="sr-only">Add a due date</label>
+          <div class="relative">
+            <button type="button" class="relative inline-flex items-center whitespace-nowrap rounded-full bg-gray-50 px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 sm:px-3" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
+              <svg class="size-5 shrink-0 text-gray-300 sm:-ml-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M5.75 2a.75.75 0 0 1 .75.75V4h7V2.75a.75.75 0 0 1 1.5 0V4h.25A2.75 2.75 0 0 1 18 6.75v8.5A2.75 2.75 0 0 1 15.25 18H4.75A2.75 2.75 0 0 1 2 15.25v-8.5A2.75 2.75 0 0 1 4.75 4H5V2.75A.75.75 0 0 1 5.75 2Zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75Z" clip-rule="evenodd" /></svg>
+              <span class="hidden truncate sm:ml-2 sm:block">Due date</span>
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="shrink-0">
-        <button type="submit" class="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create</button>
+      <div class="flex items-center justify-between space-x-3 border-t border-gray-200 px-2 py-2 sm:px-3">
+        <div class="flex">
+          <button type="button" class="group -my-2 -ml-2 inline-flex items-center rounded-full px-3 py-2 text-left text-gray-400">
+            <svg class="-ml-1 mr-2 size-5 group-hover:text-gray-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M15.621 4.379a3 3 0 0 0-4.242 0l-7 7a3 3 0 0 0 4.241 4.243h.001l.497-.5a.75.75 0 0 1 1.064 1.057l-.498.501-.002.002a4.5 4.5 0 0 1-6.364-6.364l7-7a4.5 4.5 0 0 1 6.368 6.36l-3.455 3.553A2.625 2.625 0 1 1 9.52 9.52l3.45-3.451a.75.75 0 1 1 1.061 1.06l-3.45 3.451a1.125 1.125 0 0 0 1.587 1.595l3.454-3.553a3 3 0 0 0 0-4.242Z" clip-rule="evenodd" /></svg>
+            <span class="text-sm italic text-gray-500 group-hover:text-gray-600">Attach a file</span>
+          </button>
+        </div>
+        <div class="shrink-0">
+          <button type="submit" class="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create</button>
+        </div>
       </div>
     </div>
-  </div>
-</form>
+  </form>
+</div>
 ```
 
 ```html
