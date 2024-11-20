@@ -652,7 +652,7 @@ Thanks to the new CSS [`color-mix(…)` function](https://developer.mozilla.org/
 
 Now when you go to use a utility like `bg-primary/50`, it just works — no cryptic workarounds necessary:
 
-```html  {{ filename: 'HTML', style: 'framed', color: 'fuchsia' }}
+```html  {{ filename: 'HTML' }}
 <div class="bg-primary/50">
   <!-- ... -->
 </div>
@@ -672,7 +672,7 @@ We've brought container query support into core for v4.0, so you don't need the 
 
 We've also added support for max-width container queries using the new `@max-*` variant:
 
-```html  {{ filename: 'HTML', style: 'framed', color: 'sky' }}
+```html  {{ filename: 'HTML' }}
 <div class="@container">
   <div class="grid grid-cols-3 @max-md:grid-cols-1">
     <!-- ... -->
@@ -682,7 +682,7 @@ We've also added support for max-width container queries using the new `@max-*` 
 
 Like our regular breakpoint variants, you can also stack `@min-*` and `@max-*` variants to define container query ranges:
 
-```html  {{ filename: 'HTML', style: 'framed', color: 'indigo' }}
+```html  {{ filename: 'HTML' }}
 <div class="@container">
   <div class="flex @min-md:@max-xl:hidden">
     <!-- ... -->
@@ -847,7 +847,7 @@ Use utilities like `perspective-near`, `perspective-normal`, and `perspective-di
 Then use the `backface-visible` and `backface-hidden` utilities to control an element's backface visibility:
 
 ```html
-<div class="transform-3d rotate-x-45 rotate-y-90 backface-visible">
+<div class="transform-3d rotate-x-45 rotate-y-90 **backface-visible**">
   <!-- ... -->
 </div>
 ```
@@ -909,11 +909,26 @@ These new utilities work alongside the existing `from-*`, `via-*`, and `to-*` ut
 
 We've added dedicated `inset-shadow-*` and `inset-ring-*` utilities in v4.0 that can be composed with the existing `shadow-*` and `ring-*` utilities, giving you four layers of shadows you can stack to create the effects you need for your projects.
 
+```html {{example: true}}
+<div class="relative flex justify-around p-12">
+  <div class="inset-shadow-lg grid h-16 w-40 grid-flow-col grid-cols-[auto_auto] items-center justify-center gap-2 rounded-xl bg-blue-600 to-10% text-2xl text-blue-50 ring shadow-md ring-black/10 [box-shadow:oklch(1_5.96046e-8_none_/_0.2)_0px_2px_4px_0px_inset,_oklch(1_5.96046e-8_none_/_0.2)_0px_0px_0px_1px_inset,_rgba(0,_0,_0,_0)_0px_0px_0px_0px,_oklch(0_0_none_/_0.1)_0px_0px_0px_1px,_oklch(0_0_none_/_0.2)_0px_10px_15px_-3px,_oklch(0_0_none_/_0.2)_0px_4px_6px_-4px]">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>
+    <p>Send</p>
+  </div>
+  <div class="absolute bottom-[50%] translate-y-[70%] left-1/2 size-40 translate-x-[30%] overflow-hidden rounded-full border-2 shadow-lg border-black/20">
+    <div class="inset-shadow-lg inset-shadow-white/10 absolute right-[190%] bottom-[80%] grid h-16 w-40 scale-[400%] grid-flow-col grid-cols-[auto_auto] items-center justify-center gap-2 rounded-2xl bg-blue-600 text-2xl text-blue-100 ring shadow-md ring-black/10 [box-shadow:oklch(1_5.96046e-8_none_/_0.4)_0px_2px_4px_0px_inset,_oklch(1_5.96046e-8_none_/_0.2)_0px_0px_0px_1px_inset,_rgba(0,_0,_0,_0)_0px_0px_0px_0px,_oklch(0_0_none_/_0.1)_0px_0px_0px_1px,_oklch(0_0_none_/_0.2)_0px_10px_15px_-3px,_oklch(0_0_none_/_0.2)_0px_4px_6px_-4px]
+]">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>
+      <p>Send</p>
+    </div>
+  </div>
+</div>
+```
 
 {/* https://x.com/adamwathan/status/1760787811605549159/photo/1 */}
 
 ```html
-<div class="shadow-md ring inset-shadow-xs inset-ring">
+<div class="... **inset-shadow-sm inset-shadow-white/20 inset-ring ring shadow-md ring-black/10 inset-ring-white/20**">
   <!-- ... -->
 </div>
 ```
