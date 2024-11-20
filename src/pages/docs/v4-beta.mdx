@@ -1117,9 +1117,9 @@ You know the `*` variant we shipped a while ago for targeting direct children?
 In v4.0 we've added a new `**` variant for targeting all descendants — most useful in my opinion if you combine it with another variant for narrowing the thing you're selecting:
 
 ```html
-  <div class="**:img:rounded-full">
+  <div class="**:data-avatar:rounded-full">
     <div>
->     <img src="…" /> <!-- This element will be round -->
+>     <img src="…" data-avatar /> <!-- This element will be round -->
     </div>
     <p>…</p>
   </div>
