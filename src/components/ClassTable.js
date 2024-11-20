@@ -49,6 +49,7 @@ export const ClassTable = memo(
     transformValue,
     custom,
     scroll,
+    showHeading = true,
   }) => {
     utilities = Object.fromEntries(Object.entries(utilities).filter(filterRules))
     let classes = Object.keys(utilities)
@@ -69,10 +70,12 @@ export const ClassTable = memo(
     }, [isCollapsed])
 
     return (
-      <div ref={ref} className="mt-10 relative">
-        <Heading level={2} id="class-reference" className="relative scroll-mt-[var(--scroll-mt)]">
-          <span className="sr-only">Quick reference</span>
-        </Heading>
+      <div ref={ref} className={clsx('relative', showHeading && 'mt-10')}>
+        {showHeading && (
+          <Heading level={2} id="class-reference" className="relative scroll-mt-[var(--scroll-mt)]">
+            <span className="sr-only">Quick reference</span>
+          </Heading>
+        )}
         <div className="overflow-x-auto flex -mx-4 sm:-mx-6 md:mx-0">
           <div
             id="class-table"
