@@ -424,7 +424,7 @@ Tailwind CSS v4.0 takes all of your design tokens and makes them available as CS
 
 Using the example `@theme` from earlier, all of these values will be added to your CSS to as regular custom properties:
 
-```css {{ filename: 'app.css', style: 'framed', color: 'indigo' }}
+```css {{ filename: 'dist.css', style: 'framed', color: 'indigo' }}
 :root {
   --font-display: "Satoshi", "sans-serif";
 
@@ -734,7 +734,7 @@ Using polar color spaces like OKLCH or HSL can lead to much more vivid gradients
 We've added new `bg-conic-*` and `bg-radial-*` utilities for creating conic and radial gradients:
 
 ```html {{ example: true }}
-<div class="flex justify-center gap-64 p-8">
+<div class="flex justify-around p-8">
   <div class="bg-[conic-gradient(in_hsl_longer_hue,theme(colors.red.600),theme(colors.red.600))]  size-24 rounded-full"></div>
   <div class="bg-[radial-gradient(at_25%_25%,white,theme(colors.zinc.900)_75%)] size-24 rounded-full"></div>
 </div>
@@ -748,17 +748,105 @@ We've added new `bg-conic-*` and `bg-radial-*` utilities for creating conic and 
 These new utilities work alongside the existing `from-*`, `via-*`, and `to-*` utilities to let you create conic and radial gradients the same way you create linear gradients, and include modifiers for setting the color interpolation method and arbitrary value support for controlling details like the gradient position.
 
 
-### Inset rings and shadows
+### Inset shadows and rings
+
+We've added dedicated `inset-shadow-*` and `inset-ring-*` utilities in v4.0 that can be composed with the existing `shadow-*` and `ring-*` utilities, giving you four layers of shadows you can stack to create the effects you need for your projects.
+
+
+{/* https://x.com/adamwathan/status/1760787811605549159/photo/1 */}
+
+```html
+<div class="shadow-md ring inset-shadow-xs inset-ring">
+  <!-- ... -->
+</div>
+```
+
+The `inset-ring-*` utilities support any width value just like the `ring-*` utilities, and the `inset-shadow-*` utilities ship with `2xs`, `xs`, and `sm` sizes out of the box. We may add more down the road but those ones feel the most useful right now.
+
+```css
+@theme {
+  --inset-shadow-2xs: inset 0 1px rgb(0 0 0 / 0.05);
+  --inset-shadow-xs: inset 0 1px 1px rgb(0 0 0 / 0.05);
+  --inset-shadow-sm: inset 0 2px 4px rgb(0 0 0 / 0.05);
+}
+```
+
+Just like the regular `shadow-*` and `ring-*` utilities, these both support colors as well using classes like `inset-shadow-black/25` and `inset-ring-white/50`.
 
 ### \`field-sizing\` utilities
 
+We've added utilities for the new `field-sizing` property that lets you create auto-resizing textareas with just CSS:
+
+```html
+<textarea class="field-sizing-content"></textarea>
+```
+
+Use `field-sizing-content` to make the control resize to fit its contents, or `field-sizing-fixed` to give the control a fixed size.
+
 ### \`color-scheme\` utilities
+
+Ever been annoyed that your app was showing light scrollbars in dark mode? You want these new `color-scheme` utilities — here are all the new classes:
+
+```html
+<div class="scheme-normal">…</div>
+<div class="scheme-dark">…</div>
+<div class="scheme-light">…</div>
+<div class="scheme-light-dark">…</div>
+<div class="scheme-only-dark">…</div>
+<div class="scheme-only-light">…</div>
+```
+
+Throw `scheme-light dark:scheme-dark` on your `html` or `body` element and your scrollbars will always look good, no matter which dark mode strategy you use.
 
 ### \`font-stretch\` utilities
 
+We've added utilities for the new-ish `font-stretch` property, which helps you style variable fonts that support different widths:
+
+```html
+<div class="font-stretch-normal">...</div>
+<div class="font-stretch-ultra-condensed">...</div>
+<div class="font-stretch-extra-condensed">...</div>
+<div class="font-stretch-condensed">...</div>
+<div class="font-stretch-semi-condensed">...</div>
+<div class="font-stretch-semi-expanded">...</div>
+<div class="font-stretch-expanded">...</div>
+<div class="font-stretch-extra-expanded">...</div>
+<div class="font-stretch-ultra-expanded">...</div>
+<div class="font-stretch-75%">...</div>
+```
+
+Looks like the name of this is changing to `font-width` at some point but no browsers actually support it yet, looking forward to dealing with that.
+
 ### Composable variants
 
+In the new v4.0 engine, certain variants can be chained with other variants, letting you use simple named APIs for things that needed complex arbitrary variants in v3:
+
+```diff-html
+  <div class="group">
+-   <div class="group-has-[&[data-potato]]:opacity-100">
++   <div class="group-has-data-potato:opacity-100">
+      <!-- ... -->
+    </div>
+    <div data-potato>
+      <!-- ... -->
+    </div>
+  </div>
+```
+
+This works with any variant where it makes sense, including `group-*`, `peer-*`, `has-*`, and the new `not-*` and `in-*` variants. You can chain as many of them as you want, so even totally useless classes like `group-not-has-peer-not-data-active:underline` will generate real CSS.
+
 ### \`@starting-style\` variant
+
+The new `starting` variant adds support for the new CSS `@starting-style` feature, making it possible to transition element properties when an element is first displayed:
+
+```html
+<div>
+  <button popovertarget="my-popover">Open Popover</button>
+  <div popover id="my-popover" class="opacity-0 transition-all duration-500 [transition-behavior:allow-discrete] open:opacity-100 starting:open:opacity-0">
+    <!-- ... -->
+  </div>
+</div>
+```
 
 ### \`:not()\` variant
 
