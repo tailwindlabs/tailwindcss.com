@@ -699,8 +699,8 @@ Browser support for container queries is [really great](https://caniuse.com/css-
 We've finally added APIs for doing 3D transforms, like `rotate-x-*`, `rotate-y-*`, `scale-z-*`, `translate-z-*`, and tons more.
 
 ```html {{ example: true }}
-  <div class="grid justify-center">
-    <article class="transition-all relative isolate z-10 flex h-[500px] w-96 [transform-style:_preserve-3d] [transform:rotateX(51deg)_rotateZ(43deg)] flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pt-80 pb-8 shadow-xl duration-500 [perspective:800px] [perspective-origin:top_left] hover:-translate-y-4 hover:[transform:rotateX(49deg)__rotateZ(38deg)] hover:shadow-2xl">
+  <div class="grid">
+    <article class="transition-all relative isolate z-10 flex w-full max-w-80 justify-self-center [transform-style:_preserve-3d] [transform:rotateX(51deg)_rotateZ(43deg)] flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pt-80 pb-8 shadow-xl duration-500 [perspective:800px] [perspective-origin:top_left] hover:-translate-y-4 hover:[transform:rotateX(49deg)__rotateZ(38deg)] hover:shadow-2xl">
       <img src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80" alt="" class="absolute inset-0 -z-10 size-full object-cover" />
       <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
       <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-gray-900/10 ring-inset"></div>
@@ -724,7 +724,7 @@ We've finally added APIs for doing 3D transforms, like `rotate-x-*`, `rotate-y-*
 
 
 ```html
-<article class="relative isolate z-10 flex w-96 **transform-3d rotate-x-51 rotate-z-43 perspective-distant perspective-origin-top-left** flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pt-80 pb-8 shadow-xl transition-all duration-500 **hover:-translate-y-4 hover:rotate-x-49 hover:rotate-z-38** hover:shadow-2xl">
+<article class="relative isolate z-10 flex w-full max-w-80 **transform-3d rotate-x-51 rotate-z-43 perspective-distant perspective-origin-top-left** flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pt-80 pb-8 shadow-xl transition-all duration-500 **hover:-translate-y-4 hover:rotate-x-49 hover:rotate-z-38** hover:shadow-2xl">
   <!-- ... -->
 </article>
 ```
@@ -917,8 +917,8 @@ We've added dedicated `inset-shadow-*` and `inset-ring-*` utilities in v4.0 that
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>
     <p>Send</p>
   </div>
-  <div class="absolute bottom-[50%] translate-y-[70%] left-1/2 size-40 translate-x-[30%] overflow-hidden rounded-full border-2 shadow-lg border-black/20">
-    <div class="inset-shadow-lg inset-shadow-white/10 absolute right-[190%] bottom-[80%] grid h-16 w-40 scale-[400%] grid-flow-col grid-cols-[auto_auto] items-center justify-center gap-2 rounded-2xl bg-blue-600 text-2xl text-blue-100 ring shadow-md ring-black/10 [box-shadow:oklch(1_5.96046e-8_none_/_0.4)_0px_2px_4px_0px_inset,_oklch(1_5.96046e-8_none_/_0.2)_0px_0px_0px_1px_inset,_rgba(0,_0,_0,_0)_0px_0px_0px_0px,_oklch(0_0_none_/_0.1)_0px_0px_0px_1px,_oklch(0_0_none_/_0.2)_0px_10px_15px_-3px,_oklch(0_0_none_/_0.2)_0px_4px_6px_-4px]
+  <div class="absolute bottom-[50%] translate-y-[70%] left-1/2 size-40 overflow-hidden rounded-full border-2 shadow-lg border-black/20">
+    <div class="absolute right-[190%] bottom-[80%] grid h-16 w-40 scale-[400%] grid-flow-col grid-cols-[auto_auto] items-center justify-center gap-2 rounded-2xl bg-blue-600 text-2xl text-blue-100 ring shadow-md ring-black/10 [box-shadow:oklch(1_5.96046e-8_none_/_0.4)_0px_2px_4px_0px_inset,_oklch(1_5.96046e-8_none_/_0.2)_0px_0px_0px_1px_inset,_rgba(0,_0,_0,_0)_0px_0px_0px_0px,_oklch(0_0_none_/_0.1)_0px_0px_0px_1px,_oklch(0_0_none_/_0.2)_0px_10px_15px_-3px,_oklch(0_0_none_/_0.2)_0px_4px_6px_-4px]
 ]">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>
       <p>Send</p>
@@ -951,7 +951,7 @@ Just like the regular `shadow-*` and `ring-*` utilities, these both support colo
 
 We've added utilities for the new `field-sizing` property that lets you create auto-resizing textareas with just CSS:
 
-```html {{example: true}}
+```html {{example: {hint: 'Type in the textarea to see the effect'}}}
 <div class="py-8 grid">
   <form action="#" class="relative w-full max-w-xl justify-self-center">
     <div class="overflow-hidden rounded-lg border bg-white border-gray-300 shadow-sm focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500 p-4 pb-0">
@@ -1416,6 +1416,74 @@ Since we've dramatically [simplified theme configuration](#simplified-theme-conf
 | `--drop-shadow-*`  | Drop shadow utilities like `drop-shadow-xl`                                            |
 | `--ease-*`         | Transition timing function utilities like `ease-out`                                   |
 | `--animate-*`      | Animation utilities like `animate-spin`                                                |
+
+<table>
+  <thead>
+    <tr>
+      <th>Namespace</th>
+      <th>Utilities</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td className='whitespace-nowrap'><code>--color-*</code></td>
+      <td>Color utilities like <code>bg-white</code>, <code>text-black</code>, or <code>fill-blue-500</code></td>
+    </tr>
+    <tr>
+      <td className='whitespace-nowrap'><code>--font-*</code></td>
+      <td>Font family utilities like <code>font-sans</code></td>
+    </tr>
+    <tr>
+      <td className='whitespace-nowrap'><code>--text-*</code></td>
+      <td>Font size utilities like <code>text-sm</code></td>
+    </tr>
+    <tr>
+      <td className='whitespace-nowrap'><code>--font-weight-*</code></td>
+      <td>Font weight utilities like <code>font-bold</code></td>
+    </tr>
+    <tr>
+      <td className='whitespace-nowrap'><code>--tracking-*</code></td>
+      <td>Letter spacing utilities like <code>tracking-tight</code></td>
+    </tr>
+    <tr>
+      <td className='whitespace-nowrap'><code>--leading-*</code></td>
+      <td>Line height utilities like <code>leading-relaxed</code></td>
+    </tr>
+    <tr>
+      <td className='whitespace-nowrap'><code>--breakpoint-* </code></td>
+      <td>Breakpoint variants like <code>md:* </code> and <code>lg:*</code></td>
+    </tr>
+    <tr>
+      <td className='whitespace-nowrap'><code>--container-* </code></td>
+      <td>Container query variants like <code>@sm:* </code> and <code>@lg:*</code> and max-width utilities like <code>max-w-lg</code></td>
+    </tr>
+    <tr>
+      <td className='whitespace-nowrap'><code>--radius-*</code></td>
+      <td>Border radius utilities like <code>rounded-md</code></td>
+    </tr>
+    <tr>
+      <td className='whitespace-nowrap'><code>--shadow-*</code></td>
+      <td>Box shadow utilities like <code>shadow-lg</code></td>
+    </tr>
+    <tr>
+      <td className='whitespace-nowrap'><code>--inset-shadow-*</code></td>
+      <td>Inset box shadow utilities like <code>inset-shadow-sm</code></td>
+    </tr>
+    <tr>
+      <td className='whitespace-nowrap'><code>--drop-shadow-*</code></td>
+      <td>Drop shadow utilities like <code>drop-shadow-xl</code></td>
+    </tr>
+    <tr>
+      <td className='whitespace-nowrap'><code>--ease-*</code></td>
+      <td>Transition timing function utilities like <code>ease-out</code></td>
+    </tr>
+    <tr>
+      <td className='whitespace-nowrap'><code>--animate-*</code></td>
+      <td>Animation utilities like <code>animate-spin</code></td>
+    </tr>
+  </tbody>
+</table>
+
 
 If you need more fine-grained control, most utilities can also be configured under a namespace that matches the CSS property name. For example custom `background-image` utilities like `bg-grid-pattern` can be configured using `--background-image-grid-pattern: url(…)`.
 
