@@ -386,11 +386,11 @@ When benchmarking it on our own projects, we've found full rebuilds to be over 3
 
 Here are the median build times we saw when we benchmarked Tailwind CSS v4.0 against [Catalyst](https://tailwindui.com/templates/catalyst):
 
-|     | v3.4 | v4.0 Beta |
-| --- | --- | --- |
-| Full build |  378ms | 100ms |
-| Incremental rebuild with new CSS |  44ms | 5ms |
-| Incremental rebuild with no new CSS |  35ms | 192µs |
+|     | v3.4 | v4.0 Beta | Improvement |
+| --- | ---: | ---: | ---: |
+| Full build |  378ms | 100ms | 3.78x |
+| Incremental rebuild with new CSS |  44ms | 5ms | 8.8x |
+| Incremental rebuild with no new CSS |  35ms | 192µs | 182x |
 
 The most impressive improvement is on incremental builds that don't actually need to compile any new CSS — these builds are over 100x faster and complete in _microseconds_. And the longer you work on a project, the more of these builds you run into because you're just using classes you've already used before, like `flex`, `col-span-2`, or `font-bold`.
 
@@ -995,14 +995,16 @@ Use `field-sizing-content` to make the control resize to fit its contents, or `f
 
 Ever been annoyed that your app was showing light scrollbars in dark mode? You want these new `color-scheme` utilities — here are all the new classes:
 
-<ClassTable showHeading={false} utilities={{
-  'scheme-normal': {'color-scheme': 'normal'},
-  'scheme-dark': {'color-scheme': 'dark'},
-  'scheme-light': {'color-scheme': 'light'},
-  'scheme-light-dark': {'color-scheme': 'light dark'},
-  'scheme-only-dark': {'color-scheme': 'only dark'},
-  'scheme-only-light': {'color-scheme': 'only light'},
-}}/>
+<div className="not-prose">
+  <ClassTable showHeading={false} utilities={{
+    'scheme-normal': {'color-scheme': 'normal'},
+    'scheme-dark': {'color-scheme': 'dark'},
+    'scheme-light': {'color-scheme': 'light'},
+    'scheme-light-dark': {'color-scheme': 'light dark'},
+    'scheme-only-dark': {'color-scheme': 'only dark'},
+    'scheme-only-light': {'color-scheme': 'only light'},
+  }}/>
+</div>
 
 Throw `scheme-light dark:scheme-dark` on your `html` or `body` element and your scrollbars will always look good, no matter which dark mode strategy you use.
 
@@ -1047,28 +1049,30 @@ We've added utilities for the new-ish `font-stretch` property, which helps you s
 
 Looks like the name of this is changing to `font-width` at some point but no browsers actually support it yet, looking forward to dealing with that.
 
-<ClassTable showHeading={false} utilities={{
-  'font-stretch-normal': {'font-stretch': 'normal'},
-  'font-stretch-ultra-condensed': {'font-stretch': 'ultra-condensed'},
-  'font-stretch-extra-condensed': {'font-stretch': 'extra-condensed'},
-  'font-stretch-condensed': {'font-stretch': 'condensed'},
-  'font-stretch-semi-condensed': {'font-stretch': 'semi-condensed'},
-  'font-stretch-semi-expanded': {'font-stretch': 'semi-expanded'},
-  'font-stretch-expanded': {'font-stretch': 'expanded'},
-  'font-stretch-extra-expanded': {'font-stretch': 'extra-expanded'},
-  'font-stretch-ultra-expanded': {'font-stretch': 'ultra-expanded'},
-  'font-stretch-0%': {'font-stretch': '0%'},
-  'font-stretch-50%': {'font-stretch': '50%'},
-  'font-stretch-75%': {'font-stretch': '75%'},
-  'font-stretch-90%': {'font-stretch': '90%'},
-  'font-stretch-95%': {'font-stretch': '95%'},
-  'font-stretch-100%': {'font-stretch': '100%'},
-  'font-stretch-105%': {'font-stretch': '105%'},
-  'font-stretch-110%': {'font-stretch': '110%'},
-  'font-stretch-125%': {'font-stretch': '125%'},
-  'font-stretch-150%': {'font-stretch': '150%'},
-  'font-stretch-200%': {'font-stretch': '200%'},
-}}/>
+<div className="not-prose">
+  <ClassTable showHeading={false} utilities={{
+    'font-stretch-normal': {'font-stretch': 'normal'},
+    'font-stretch-ultra-condensed': {'font-stretch': 'ultra-condensed'},
+    'font-stretch-extra-condensed': {'font-stretch': 'extra-condensed'},
+    'font-stretch-condensed': {'font-stretch': 'condensed'},
+    'font-stretch-semi-condensed': {'font-stretch': 'semi-condensed'},
+    'font-stretch-semi-expanded': {'font-stretch': 'semi-expanded'},
+    'font-stretch-expanded': {'font-stretch': 'expanded'},
+    'font-stretch-extra-expanded': {'font-stretch': 'extra-expanded'},
+    'font-stretch-ultra-expanded': {'font-stretch': 'ultra-expanded'},
+    'font-stretch-0%': {'font-stretch': '0%'},
+    'font-stretch-50%': {'font-stretch': '50%'},
+    'font-stretch-75%': {'font-stretch': '75%'},
+    'font-stretch-90%': {'font-stretch': '90%'},
+    'font-stretch-95%': {'font-stretch': '95%'},
+    'font-stretch-100%': {'font-stretch': '100%'},
+    'font-stretch-105%': {'font-stretch': '105%'},
+    'font-stretch-110%': {'font-stretch': '110%'},
+    'font-stretch-125%': {'font-stretch': '125%'},
+    'font-stretch-150%': {'font-stretch': '150%'},
+    'font-stretch-200%': {'font-stretch': '200%'},
+  }}/>
+</div>
 
 
 ### Composable variants
@@ -1165,7 +1169,7 @@ You know our `group-*` variants like `group-focus`? The new `in-*` variant is ju
 - <div tabindex="0" class="group">
 -   <div class="opacity-50 group-focus:opacity-100">
 + <div tabindex="0">
-+   <div class="opacity-50 in-focus:opacity-100">
++   <div class="opacity-50 **in-focus:opacity-100**">
       <!-- ... -->
     </div>
   </div>
@@ -1203,7 +1207,7 @@ You know the `*` variant we shipped a while ago for targeting direct children?
 In v4.0 we've added a new `**` variant for targeting all descendants — most useful in my opinion if you combine it with another variant for narrowing the thing you're selecting:
 
 ```html
-  <div class="**:data-avatar:rounded-full">
+> <div class="**:data-avatar:rounded-full">
     <div>
 >     <img src="…" data-avatar /> <!-- This element will be round -->
     </div>
@@ -1711,7 +1715,7 @@ We've removed any utilities that were deprecated in v3 and have been undocumente
 | <code className="whitespace-nowrap">placeholder-opacity-*</code> | Use opacity modifiers like `placeholder-black/50` |
 | <code className="whitespace-nowrap">flex-shrink-*</code> | `shrink-*` |
 | <code className="whitespace-nowrap">flex-grow-*</code> | `grow-*` |
-| <code className="whitespace-nowrap">overflow-ellipses</code> | `text-ellipsis` |
+| <code className="whitespace-nowrap">overflow-ellipsis</code> | `text-ellipsis` |
 | <code className="whitespace-nowrap">decoration-slice</code> | `box-decoration-slice` |
 | <code className="whitespace-nowrap">decoration-clone</code> | `box-decoration-clone` |
 
