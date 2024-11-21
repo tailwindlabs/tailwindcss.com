@@ -1577,8 +1577,8 @@ If you need to disable Tailwind's base styles, you can import the pieces of Tail
 
 ```css
 @layer theme, base, components, utilities;
-@import "tailwindcss/theme";
-@import "tailwindcss/utilities";
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities);
 ```
 
 ### Using a prefix
