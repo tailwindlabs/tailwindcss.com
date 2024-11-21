@@ -11,7 +11,7 @@ export default function StartingStyleDemo() {
       <div
         popover="auto"
         id="my-popover"
-        className="opacity-0 [transition-behavior:allow-discrete] duration-500 [&:is([open],:popover-open)]:opacity-100 [@starting-style]:[&:is([open],:popover-open)]:opacity-0 relative transform overflow-hidden rounded-lg bg-white dark:bg-slate-800 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:w-full sm:max-w-lg sm:p-6"
+        className="opacity-0 [transition-behavior:allow-discrete] duration-500 [&:is([open],:popover-open)]:opacity-100 [@starting-style]:[&:is([open],:popover-open)]:opacity-0 relative transform overflow-hidden rounded-lg bg-white dark:bg-slate-800 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:w-full sm:max-w-96 sm:p-6"
       >
         <div>
           <div class="mx-auto flex size-12 items-center justify-center rounded-full bg-indigo-50 dark:bg-indigo-600/10">

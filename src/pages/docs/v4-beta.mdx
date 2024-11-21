@@ -959,45 +959,39 @@ Use `field-sizing-content` to make the control resize to fit its contents, or `f
 
 ### \`color-scheme\` utilities
 
-```html {{example: true}}
-<div class="py-4 pb-64 grid [color-scheme:dark] dark:[color-scheme:light]">
-  <div class="relative w-full max-w-96 justify-self-center">
-    <label for="combobox" class="block text-sm/6 font-medium text-gray-900">Assigned to</label>
-    <div class="relative mt-2">
-      <input value="Leslie Alexander" id="combobox" type="text" class="w-full rounded-md border-0 bg-slate-800 dark:bg-white py-1.5 pl-3 pr-12 text-white dark:text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" role="combobox" aria-controls="options" aria-expanded="false">
-      <button type="button" class="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
-        <svg class="size-5 text-gray-200 dark:text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"> <path fill-rule="evenodd" d="M10.53 3.47a.75.75 0 0 0-1.06 0L6.22 6.72a.75.75 0 0 0 1.06 1.06L10 5.06l2.72 2.72a.75.75 0 1 0 1.06-1.06l-3.25-3.25Zm-4.31 9.81 3.25 3.25a.75.75 0 0 0 1.06 0l3.25-3.25a.75.75 0 1 0-1.06-1.06L10 14.94l-2.72-2.72a.75.75 0 0 0-1.06 1.06Z" clip-rule="evenodd" /></svg>
-      </button>
-      <ul class="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-slate-800 dark:bg-white py-1 text-base shadow-lg ring-1 ring-white/5 dark:ring-black/5 focus:outline-none sm:text-sm" id="options" role="listbox">
-        <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-white dark:text-gray-900" id="option-1" role="option" tabindex="-1">
-          <span class="block truncate">Michael Foster</span>
-        </li>
-        <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-white dark:text-gray-900" id="option-1" role="option" tabindex="-1">
-          <span class="block truncate">Dries Vincent</span>
-        </li>
-        <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-white dark:text-gray-900" id="option-0" role="option" tabindex="-1">
-          <span class="block truncate">Leslie Alexander</span>
-          <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-400 dark:text-indigo-600">
-            <svg class="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>
-          </span>
-        </li>
-        <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-white dark:text-gray-900" id="option-1" role="option" tabindex="-1">
-          <span class="block truncate">Lindsay Walton</span>
-        </li>
-        <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-white dark:text-gray-900" id="option-1" role="option" tabindex="-1">
-          <span class="block truncate">Courtney Henry</span>
-        </li>
-        <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-white dark:text-gray-900" id="option-1" role="option" tabindex="-1">
-          <span class="block truncate">Tom Cook</span>
-        </li>
-        <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-white dark:text-gray-900" id="option-1" role="option" tabindex="-1">
-          <span class="block truncate">Whitney Francis</span>
-        </li>
-      </ul>
+```html {{example: { p: 'none' } }}
+<div class="grid grid-cols-1 sm:grid-cols-2 [color-scheme:light]">
+  <div class="p-8 pt-7">
+    <p class="mb-2 text-sm font-medium text-slate-500">Light mode</p>
+    <div class="bg-white rounded-lg px-6 py-8 max-h-56 ring-1 ring-slate-900/5 shadow-xl overflow-y-scroll">
+      <h3 class="text-base font-medium text-slate-900 tracking-tight">It's a Mammal</h3>
+      <p class="mt-2 text-sm text-slate-500">
+        Right now there are six-hundred Titleists that I got from the driving range in the trunk of my car. Why don't we drive out to Rock-a-Way… and hit `em into the ocean! Now picture this. we find a nice sweet spot between the dunes, we take out our drivers, we tee up and, that ball goes sailing up into the sky holds there for a moment and then.. gulp!
+      </p>
+    </div>
+  </div>
+  <div class="bg-slate-900 p-8 pt-7 [color-scheme:dark]">
+    <p class="mb-2 text-sm font-medium text-slate-400">Dark mode</p>
+    <div class="bg-slate-800 rounded-lg px-6 py-8 max-h-56 ring-1 ring-slate-900/5 shadow-xl overflow-y-scroll">
+      <h3 class="text-base font-medium text-white tracking-tight">It's a Mammal</h3>
+      <p class="mt-2 text-sm text-slate-200">
+       Right now there are six-hundred Titleists that I got from the driving range in the trunk of my car. Why don't we drive out to Rock-a-Way… and hit `em into the ocean! Now picture this. we find a nice sweet spot between the dunes, we take out our drivers, we tee up and, that ball goes sailing up into the sky holds there for a moment and then.. gulp!
+      </p>
     </div>
   </div>
 </div>
 ```
+```html
+<div class="grid grid-cols-2">
+  <div class="bg-white overflow-y-scroll **scheme-light**">
+     ...
+  </div>
+  <div class="bg-slate-800 overflow-y-scroll **scheme-dark**">
+     ...
+  </div>
+</div>
+```
+
 
 Ever been annoyed that your app was showing light scrollbars in dark mode? You want these new `color-scheme` utilities — here are all the new classes:
 
