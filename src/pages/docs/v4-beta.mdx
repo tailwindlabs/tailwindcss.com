@@ -389,6 +389,8 @@ It's also a good idea to go over all of the [breaking changes](#breaking-changes
 
 ## What's new in v4.0
 
+### New high-performance engine
+
 ### CSS-first configuration
 
 One of the biggest changes in Tailwind CSS v4.0 is the shift from configuring your project in JavaScript to configuring it in CSS.
@@ -452,6 +454,8 @@ This makes it easy to reuse these values as inline styles or pass them to librar
 ### Native CSS cascade layers
 
 We're using real [CSS cascade layers](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer) in v4.0, which make it easier than ever to control the precedence of styles and how they interact with each other.
+
+Here's what the output looks like when you build your CSS with v4.0:
 
 ```css {{ filename: 'dist.css', style: 'framed', color: 'purple', scroll: true }}
 @layer theme, base, components, utilities;
@@ -544,7 +548,7 @@ The `@source` directive uses the same heuristics under the hood, so it will excl
 
 Before v4.0, if you wanted to inline other CSS files using `@import` you'd have to configure another plugin like `postcss-import` to handle it for you.
 
-Now we handle this out of the box, so you don't need to include another plugin:
+Now we handle this out of the box, so you don't need any other tools:
 
 ```diff-js {{ filename: 'postcss.config.mjs', style: 'framed', color: 'sky' }}
   export default {
@@ -654,7 +658,7 @@ Thanks to the new CSS [`color-mix(…)` function](https://developer.mozilla.org/
 
 Now when you go to use a utility like `bg-primary/50`, it just works — no cryptic workarounds necessary:
 
-```html  {{ filename: 'HTML' }}
+```html
 <div class="bg-primary/50">
   <!-- ... -->
 </div>
@@ -674,7 +678,7 @@ We've brought container query support into core for v4.0, so you don't need the 
 
 We've also added support for max-width container queries using the new `@max-*` variant:
 
-```html  {{ filename: 'HTML' }}
+```html
 <div class="@container">
   <div class="grid grid-cols-3 @max-md:grid-cols-1">
     <!-- ... -->
@@ -684,7 +688,7 @@ We've also added support for max-width container queries using the new `@max-*` 
 
 Like our regular breakpoint variants, you can also stack `@min-*` and `@max-*` variants to define container query ranges:
 
-```html  {{ filename: 'HTML' }}
+```html
 <div class="@container">
   <div class="flex @min-md:@max-xl:hidden">
     <!-- ... -->
@@ -735,129 +739,102 @@ Use the `transform-3d` utility to enable 3D transforms by setting the right `tra
 
 
 #### Rotate
-Use the `rotate-x-*`, `rotate-y-*` and `rotate-z-*` utilities to rotate elements in 3D space.
+
+Use the `rotate-x-*`, `rotate-y-*`, and `rotate-z-*` utilities to rotate elements in 3D space.
+
+All of these utilities support any numeric value automatically out of the box, but here are a few examples for reference:
 
 
-<ClassTable showHeading={false} utilities={{
-   'rotate-x-0': {'--tw-rotate-x': 'rotateX(0deg)'},
-  'rotate-x-1': {'--tw-rotate-x': 'rotateX(1deg)'},
-  'rotate-x-2': {'--tw-rotate-x': 'rotateX(2deg)'},
-  'rotate-x-3': {'--tw-rotate-x': 'rotateX(3deg)'},
-  'rotate-x-6': {'--tw-rotate-x': 'rotateX(6deg)'},
-  'rotate-x-12': {'--tw-rotate-x': 'rotateX(12deg)'},
-  'rotate-x-45': {'--tw-rotate-x': 'rotateX(45deg)'},
-  'rotate-x-90': {'--tw-rotate-x': 'rotateX(90deg)'},
-  'rotate-x-180': {'--tw-rotate-x': 'rotateX(180deg)'},
-  'rotate-y-0': {'--tw-rotate-y': 'rotateY(0deg)'},
-  'rotate-y-1': {'--tw-rotate-y': 'rotateY(1deg)'},
-  'rotate-y-2': {'--tw-rotate-y': 'rotateY(2deg)'},
-  'rotate-y-3': {'--tw-rotate-y': 'rotateY(3deg)'},
-  'rotate-y-6': {'--tw-rotate-y': 'rotateY(6deg)'},
-  'rotate-y-12': {'--tw-rotate-y': 'rotateY(12deg)'},
-  'rotate-y-45': {'--tw-rotate-y': 'rotateY(45deg)'},
-  'rotate-y-90': {'--tw-rotate-y': 'rotateY(90deg)'},
-  'rotate-y-180': {'--tw-rotate-y': 'rotateY(180deg)'},
-  'rotate-z-0': {'--tw-rotate-z': 'rotateZ(0deg)'},
-  'rotate-z-1': {'--tw-rotate-z': 'rotateZ(1deg)'},
-  'rotate-z-2': {'--tw-rotate-z': 'rotateZ(2deg)'},
-  'rotate-z-3': {'--tw-rotate-z': 'rotateZ(3deg)'},
-  'rotate-z-6': {'--tw-rotate-z': 'rotateZ(6deg)'},
-  'rotate-z-12': {'--tw-rotate-z': 'rotateZ(12deg)'},
-  'rotate-z-45': {'--tw-rotate-z': 'rotateZ(45deg)'},
-  'rotate-z-90': {'--tw-rotate-z': 'rotateZ(90deg)'},
-  'rotate-z-180': {'--tw-rotate-z': 'rotateZ(180deg)'},
-}}/>
+<div className="not-prose">
+  <ClassTable showHeading={false} utilities={{
+    'rotate-x-0': {transform: `rotateX(0deg) var(--tw-rotate-y) var(--tw-rotate-z)`},
+    'rotate-x-3': {transform: `rotateX(3deg)  var(--tw-rotate-y) var(--tw-rotate-z)`},
+    'rotate-x-45': {transform: `rotateX(45deg) var(--tw-rotate-y) var(--tw-rotate-z)`},
+    'rotate-x-180': {transform: `rotateX(180deg) var(--tw-rotate-y) var(--tw-rotate-z)`},
+    'rotate-y-0': {transform: `var(--tw-rotate-x) rotateY(0deg) var(--tw-rotate-z)`},
+    'rotate-y-3': {transform: `var(--tw-rotate-x) rotateY(3deg) var(--tw-rotate-z)`},
+    'rotate-y-45': {transform: `var(--tw-rotate-x) rotateY(45deg) var(--tw-rotate-z)`},
+    'rotate-y-180': {transform: `var(--tw-rotate-x) rotateY(180deg) var(--tw-rotate-z)`},
+    'rotate-z-0': {transform: `var(--tw-rotate-x) var(--tw-rotate-y) rotateZ(0deg)`},
+    'rotate-z-3': {transform: `var(--tw-rotate-x) var(--tw-rotate-y) rotateZ(3deg)`},
+    'rotate-z-45': {transform: `var(--tw-rotate-x) var(--tw-rotate-y) rotateZ(45deg)`},
+    'rotate-z-180': {transform: `var(--tw-rotate-x) var(--tw-rotate-y) rotateZ(180deg)`},
+  }}/>
+</div>
+
 
 #### Scale
 
-Use the `scale-z-*` utilities to scale elements on the z-axis.
+Use the new `scale-z-*` utilities to scale elements on the z-axis.
 
-<ClassTable showHeading={false} utilities={{
-    'scale-z-0': {'--tw-scale-z': '0%'},
-    'scale-z-50': {'--tw-scale-z': '50%'},
-    'scale-z-75': {'--tw-scale-z': '75%'},
-    'scale-z-90': {'--tw-scale-z': '90%'},
-    'scale-z-95': {'--tw-scale-z': '95%'},
-    'scale-z-100': {'--tw-scale-z': '100%'},
-    'scale-z-105': {'--tw-scale-z': '105%'},
-    'scale-z-110': {'--tw-scale-z': '110%'},
-    'scale-z-125': {'--tw-scale-z': '125%'},
-    'scale-z-150': {'--tw-scale-z': '150%'},
-    'scale-z-200': {'--tw-scale-z': '200%'},
+You can use any numeric value you want automatically out of the box, but here are a few examples for reference:
 
+<div className="not-prose">
+  <ClassTable showHeading={false} utilities={{
+    'scale-z-0': {scale: `var(--tw-scale-x) var(--tw-scale-y) 0%`},
+    'scale-z-50': {scale: `var(--tw-scale-x) var(--tw-scale-y) 50%`},
+    'scale-z-75': {scale: `var(--tw-scale-x) var(--tw-scale-y) 75%`},
+    'scale-z-100': {scale: `var(--tw-scale-x) var(--tw-scale-y) 100%`},
+    'scale-z-125': {scale: `var(--tw-scale-x) var(--tw-scale-y) 125%`},
+    'scale-z-150': {scale: `var(--tw-scale-x) var(--tw-scale-y) 150%`},
+    'scale-z-200': {scale: `var(--tw-scale-x) var(--tw-scale-y) 200%`},
   }}/>
+</div>
 
 #### Translate
-Use `translate-z-*` to move elements closer or further away:
 
-<ClassTable showHeading={false} utilities={{
-    'translate-z-0': {'--tw-translate-z': 'calc(var(--spacing) * 0)'},
-    'translate-z-0.5': {'--tw-translate-z': 'calc(var(--spacing) * 0.5)'},
-    'translate-z-1': {'--tw-translate-z': 'calc(var(--spacing) * 1)'},
-    'translate-z-1.5': {'--tw-translate-z': 'calc(var(--spacing) * 1.5)'},
-    'translate-z-2': {'--tw-translate-z': 'calc(var(--spacing) * 2)'},
-    'translate-z-2.5': {'--tw-translate-z': 'calc(var(--spacing) * 2.5)'},
-    'translate-z-3': {'--tw-translate-z': 'calc(var(--spacing) * 3)'},
-    'translate-z-3.5': {'--tw-translate-z': 'calc(var(--spacing) * 3.5)'},
-    'translate-z-4': {'--tw-translate-z': 'calc(var(--spacing) * 4)'},
-    'translate-z-5': {'--tw-translate-z': 'calc(var(--spacing) * 5)'},
-    'translate-z-6': {'--tw-translate-z': 'calc(var(--spacing) * 6)'},
-    'translate-z-7': {'--tw-translate-z': 'calc(var(--spacing) * 7)'},
-    'translate-z-8': {'--tw-translate-z': 'calc(var(--spacing) * 8)'},
-    'translate-z-9': {'--tw-translate-z': 'calc(var(--spacing) * 9)'},
-    'translate-z-10': {'--tw-translate-z': 'calc(var(--spacing) * 10)'},
-    'translate-z-11': {'--tw-translate-z': 'calc(var(--spacing) * 11)'},
-    'translate-z-12': {'--tw-translate-z': 'calc(var(--spacing) * 12)'},
-    'translate-z-14': {'--tw-translate-z': 'calc(var(--spacing) * 14)'},
-    'translate-z-16': {'--tw-translate-z': 'calc(var(--spacing) * 16)'},
-    'translate-z-20': {'--tw-translate-z': 'calc(var(--spacing) * 20)'},
-    'translate-z-24': {'--tw-translate-z': 'calc(var(--spacing) * 24)'},
-    'translate-z-28': {'--tw-translate-z': 'calc(var(--spacing) * 28)'},
-    'translate-z-32': {'--tw-translate-z': 'calc(var(--spacing) * 32)'},
-    'translate-z-36': {'--tw-translate-z': 'calc(var(--spacing) * 36)'},
-    'translate-z-40': {'--tw-translate-z': 'calc(var(--spacing) * 40)'},
-    'translate-z-44': {'--tw-translate-z': 'calc(var(--spacing) * 44)'},
-    'translate-z-48': {'--tw-translate-z': 'calc(var(--spacing) * 48)'},
-    'translate-z-52': {'--tw-translate-z': 'calc(var(--spacing) * 52)'},
-    'translate-z-56': {'--tw-translate-z': 'calc(var(--spacing) * 56)'},
-    'translate-z-60': {'--tw-translate-z': 'calc(var(--spacing) * 60)'},
-    'translate-z-64': {'--tw-translate-z': 'calc(var(--spacing) * 64)'},
-    'translate-z-72': {'--tw-translate-z': 'calc(var(--spacing) * 72)'},
-    'translate-z-80': {'--tw-translate-z': 'calc(var(--spacing) * 80)'},
-    'translate-z-96': {'--tw-translate-z': 'calc(var(--spacing) * 96)'},
-    'translate-z-px': {'--tw-translate-z': '1px'},
+Use the new `translate-z-*` utilities to move elements closer or further away:
+
+This utility uses your spacing scale by default and supports all of those values out of the box, but here are a few examples for reference:
+
+<div className="not-prose">
+  <ClassTable showHeading={false} utilities={{
+    'translate-z-0': {translate: `var(--tw-translate-x) var(--tw-translate-y) calc(var(--spacing) * 0`},
+    'translate-z-0': {translate: `var(--tw-translate-x) var(--tw-translate-y) calc(var(--spacing) * 0`},
+    'translate-z-0.5': {translate: `var(--tw-translate-x) var(--tw-translate-y) calc(var(--spacing) * 0.5`},
+    'translate-z-1': {translate: `var(--tw-translate-x) var(--tw-translate-y) calc(var(--spacing) * 1`},
+    'translate-z-2': {translate: `var(--tw-translate-x) var(--tw-translate-y) calc(var(--spacing) * 2`},
+    'translate-z-4': {translate: `var(--tw-translate-x) var(--tw-translate-y) calc(var(--spacing) * 4`},
+    'translate-z-px': {translate: `var(--tw-translate-x) var(--tw-translate-y) 1px`},
   }}/>
+</div>
 
 #### Perspective
+
 Use utilities like `perspective-near`, `perspective-normal`, and `perspective-distant` along with the new `perspective-origin-*` utilities to control the perspective used for 3D transforms:
 
-<ClassTable showHeading={false} utilities={{
-  'perspective-dramatic': {'perspective': '100px'},
-  'perspective-near': {'perspective': '300px'},
-  'perspective-normal': {'perspective': '500px'},
-  'perspective-midrange': {'perspective': '800px'},
-  'perspective-distant': {'perspective': '1200px'},
-  'perspective-origin-bottom': {'perspective-origin': 'bottom'},
-  'perspective-origin-bottom-left': {'perspective-origin': 'bottom-left'},
-  'perspective-origin-bottom-right': {'perspective-origin': 'bottom-right'},
-  'perspective-origin-center': {'perspective-origin': 'center'},
-  'perspective-origin-left': {'perspective-origin': 'left'},
-  'perspective-origin-right': {'perspective-origin': 'right'},
-  'perspective-origin-top': {'perspective-origin': 'top'},
-  'perspective-origin-top-right': {'perspective-origin': 'top-right'},
-  'perspective-origin-top-left': {'perspective-origin': 'top-left'},
-}}/>
-
-Then use the `backface-visible` and `backface-hidden` utilities to control an element's backface visibility:
-
-```html
-<div class="transform-3d rotate-x-45 rotate-y-90 **backface-visible**">
-  <!-- ... -->
+<div className="not-prose">
+  <ClassTable showHeading={false} utilities={{
+    'perspective-dramatic': {'perspective': `100px`},
+    'perspective-near': {'perspective': `300px`},
+    'perspective-normal': {'perspective': `500px`},
+    'perspective-midrange': {'perspective': `800px`},
+    'perspective-distant': {'perspective': `1200px`},
+    'perspective-[760px]': {'perspective': `760px`},
+    'perspective-origin-bottom': {'perspective-origin': `bottom`},
+    'perspective-origin-bottom-left': {'perspective-origin': `bottom-left`},
+    'perspective-origin-bottom-right': {'perspective-origin': `bottom-right`},
+    'perspective-origin-center': {'perspective-origin': `center`},
+    'perspective-origin-left': {'perspective-origin': `left`},
+    'perspective-origin-right': {'perspective-origin': `right`},
+    'perspective-origin-top': {'perspective-origin': `top`},
+    'perspective-origin-top-right': {'perspective-origin': `top-right`},
+    'perspective-origin-top-left': {'perspective-origin': `top-left`},
+  }}/>
 </div>
-```
 
+The `perspective-*` utilities can all be customized using the `--perspective-*` namespace in your theme.
 
+#### Backface visibility
 
+Use the new `backface-visible` and `backface-hidden` utilities to control whether the back of an element is visible when transformed in 3D space.
+
+<div className="not-prose">
+  <ClassTable showHeading={false} utilities={{
+    'backface-visible': {'backface-visibility': `visible`},
+    'backface-hidden': {'backface-visibility': `hidden`},
+  }}/>
+</div>
 
 ### Linear gradient angles
 
@@ -867,6 +844,10 @@ Linear gradients now support angles as values, so you can use utilities like `bg
 <div class="grid place-items-center">
   <div class="size-48 rounded-lg bg-[linear-gradient(45deg,theme(colors.indigo.500),theme(colors.purple.500),theme(colors.pink.500))]"></div>
 </div>
+```
+
+```html
+<div class="**bg-linear-45** from-indigo-500 via-purple-500 to-pink-500"></div>
 ```
 
 You may notice we've renamed `bg-gradient-*` to `bg-linear-*` too — you'll see why shortly!
@@ -884,8 +865,8 @@ We've added the ability to control the color interpolation mode for gradients us
 ```
 
 ```html
-  <div class="bg-linear-to-r/srgb from-indigo-500 to-teal-400"></div>
-  <div class="bg-linear-to-r/oklch from-indigo-500 to-teal-400"></div>
+  <div class="**bg-linear-to-r/srgb** from-indigo-500 to-teal-400"></div>
+  <div class="**bg-linear-to-r/oklch** from-indigo-500 to-teal-400"></div>
 ```
 
 Using polar color spaces like OKLCH or HSL can lead to much more vivid gradients when the `from-*` and `to-*` colors are far apart on the color wheel. We're using OKLCH by default in v4.0 but you can always interpolate using a different color space by adding one of these modifiers.
@@ -914,16 +895,16 @@ These new utilities work alongside the existing `from-*`, `via-*`, and `to-*` ut
 We've added dedicated `inset-shadow-*` and `inset-ring-*` utilities in v4.0 that can be composed with the existing `shadow-*` and `ring-*` utilities, giving you four layers of shadows you can stack to create the effects you need for your projects.
 
 ```html {{example: true}}
-<div class="relative flex justify-around p-12">
-  <div class="inset-shadow-lg grid h-16 w-40 grid-flow-col grid-cols-[auto_auto] items-center justify-center gap-2 rounded-xl bg-blue-600 to-10% text-2xl text-blue-50 ring shadow-md ring-black/10 [box-shadow:oklch(1_5.96046e-8_none_/_0.2)_0px_2px_4px_0px_inset,_oklch(1_5.96046e-8_none_/_0.2)_0px_0px_0px_1px_inset,_rgba(0,_0,_0,_0)_0px_0px_0px_0px,_oklch(0_0_none_/_0.1)_0px_0px_0px_1px,_oklch(0_0_none_/_0.2)_0px_10px_15px_-3px,_oklch(0_0_none_/_0.2)_0px_4px_6px_-4px]">
+<div class="relative flex justify-around p-12 pb-16">
+  <div class="relative inset-shadow-lg grid h-16 w-40 grid-flow-col grid-cols-[auto_auto] items-center justify-center gap-2 rounded-xl bg-blue-600 to-10% text-2xl text-blue-50 ring shadow-md ring-black/10 [box-shadow:oklch(1_5.96046e-8_none_/_0.2)_0px_2px_4px_0px_inset,_rgb(255_255_255_/_15%)_0px_0px_0px_1px_inset,_rgba(0,_0,_0,_0)_0px_0px_0px_0px,_theme(colors.blue.600)_0px_0px_0px_1px,_oklch(0_0_none_/_0.2)_0px_10px_15px_-3px,_oklch(0_0_none_/_0.2)_0px_4px_6px_-4px]">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>
     <p>Send</p>
-  </div>
-  <div class="absolute bottom-[50%] translate-y-[70%] left-[56%] size-40 overflow-hidden rounded-full border-2 shadow-lg border-black/20">
-    <div class="absolute right-[190%] bottom-[80%] grid h-16 w-40 scale-[400%] grid-flow-col grid-cols-[auto_auto] items-center justify-center gap-2 rounded-2xl bg-blue-600 text-2xl text-blue-100 ring shadow-md ring-black/10 [box-shadow:oklch(1_5.96046e-8_none_/_0.4)_0px_2px_4px_0px_inset,_oklch(1_5.96046e-8_none_/_0.2)_0px_0px_0px_1px_inset,_rgba(0,_0,_0,_0)_0px_0px_0px_0px,_oklch(0_0_none_/_0.1)_0px_0px_0px_1px,_oklch(0_0_none_/_0.2)_0px_10px_15px_-3px,_oklch(0_0_none_/_0.2)_0px_4px_6px_-4px]
-]">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>
-      <p>Send</p>
+    <div class="absolute bottom-0 translate-y-[50%] left-1/2 size-40 overflow-hidden rounded-full border-2 shadow-lg border-black/20">
+      <div class="absolute right-[190%] bottom-[80%] grid h-16 w-40 scale-[400%] grid-flow-col grid-cols-[auto_auto] items-center justify-center gap-2 rounded-2xl bg-blue-600 text-2xl text-blue-100 ring shadow-md ring-black/10 [box-shadow:oklch(1_5.96046e-8_none_/_0.4)_0px_2px_4px_0px_inset,_rgb(255_255_255_/_15%)_0px_0px_0px_1px_inset,_rgba(0,_0,_0,_0)_0px_0px_0px_0px,__theme(colors.blue.600)_0px_0px_0px_1px,_oklch(0_0_none_/_0.2)_0px_10px_15px_-3px,_oklch(0_0_none_/_0.2)_0px_4px_6px_-4px]
+  ]">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>
+        <p>Send</p>
+      </div>
     </div>
   </div>
 </div>
@@ -932,9 +913,9 @@ We've added dedicated `inset-shadow-*` and `inset-ring-*` utilities in v4.0 that
 {/* https://x.com/adamwathan/status/1760787811605549159/photo/1 */}
 
 ```html
-<div class="... **inset-shadow-sm inset-shadow-white/20 inset-ring ring shadow-md ring-black/10 inset-ring-white/20**">
+<button class="**shadow-md inset-shadow-sm inset-shadow-white/20 ring ring-blue-600 inset-ring inset-ring-white/15** ...">
   <!-- ... -->
-</div>
+</button>
 ```
 
 The `inset-ring-*` utilities support any width value just like the `ring-*` utilities, and the `inset-shadow-*` utilities ship with `2xs`, `xs`, and `sm` sizes out of the box. We may add more down the road but those ones feel the most useful right now.
@@ -954,19 +935,21 @@ Just like the regular `shadow-*` and `ring-*` utilities, these both support colo
 We've added utilities for the new `field-sizing` property that lets you create auto-resizing textareas with just CSS:
 
 ```html {{example: {hint: 'Type in the textarea to see the effect'}}}
-<div class="py-8 grid">
-    <div class="relative w-full max-w-96 justify-self-center">
-      <label for="comment" class="block text-sm/6 font-medium text-gray-900">Add your comment</label>
-      <div class="mt-2">
-        <textarea rows="2" placeholder="Write something..." name="comment" id="comment" class="block w-full resize-none min-h-16 rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 [field-sizing:content]"></textarea>
-      </div>
+<div class="py-4 grid">
+  <div class="relative w-full max-w-96 justify-self-center">
+    <label for="comment" class="block text-sm/6 font-medium text-gray-900">Add your comment</label>
+    <div class="mt-2">
+      <textarea placeholder="Write something..." name="comment" id="comment" class="block w-full resize-none rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 [field-sizing:content]"></textarea>
+    </div>
   </div>
 </div>
 ```
 
 ```html
-<label for="comment" class="block text-sm/6 font-medium text-gray-900">Add your comment</label>
-<textarea name="comment" id="comment" class="...**field-sizing-content**"></textarea>
+<label class="block">
+  <span class="block text-sm/6 font-medium text-gray-900">Add your comment</span>
+  <textarea class="**field-sizing-content** ..."></textarea>
+</label>
 ```
 
 Use `field-sizing-content` to make the control resize to fit its contents, or `field-sizing-fixed` to give the control a fixed size.
@@ -1741,17 +1724,17 @@ We've removed any utilities that were deprecated in v3 and have been undocumente
 
 | Deprecated | Replacement |
 | --- | --- |
-| `bg-opacity-*` | Use opacity modifiers like `bg-black/50` |
-| `text-opacity-*` | Use opacity modifiers like `text-black/50` |
-| `border-opacity-*` | Use opacity modifiers like `border-black/50` |
-| `divide-opacity-*` | Use opacity modifiers like `divide-black/50` |
-| `ring-opacity-*` | Use opacity modifiers like `ring-black/50` |
-| `placeholder-opacity-*` | Use opacity modifiers like `placeholder-black/50` |
-| `flex-shrink-*` | `shrink-*` |
-| `flex-grow-*` | `grow-*` |
-| `overflow-ellipses` | `text-ellipsis` |
-| `decoration-slice` | `box-decoration-slice` |
-| `decoration-clone` | `box-decoration-clone` |
+| <code className="whitespace-nowrap">bg-opacity-*</code> | Use opacity modifiers like `bg-black/50` |
+| <code className="whitespace-nowrap">text-opacity-*</code> | Use opacity modifiers like `text-black/50` |
+| <code className="whitespace-nowrap">border-opacity-*</code> | Use opacity modifiers like `border-black/50` |
+| <code className="whitespace-nowrap">divide-opacity-*</code> | Use opacity modifiers like `divide-black/50` |
+| <code className="whitespace-nowrap">ring-opacity-*</code> | Use opacity modifiers like `ring-black/50` |
+| <code className="whitespace-nowrap">placeholder-opacity-*</code> | Use opacity modifiers like `placeholder-black/50` |
+| <code className="whitespace-nowrap">flex-shrink-*</code> | `shrink-*` |
+| <code className="whitespace-nowrap">flex-grow-*</code> | `grow-*` |
+| <code className="whitespace-nowrap">overflow-ellipses</code> | `text-ellipsis` |
+| <code className="whitespace-nowrap">decoration-slice</code> | `box-decoration-slice` |
+| <code className="whitespace-nowrap">decoration-clone</code> | `box-decoration-clone` |
 
 ### Normalized form element styles
 
@@ -1774,6 +1757,7 @@ The easiest way to update an existing project to account for these changes is to
     padding: 0;
     color: inherit;
     background-color: transparent;
+    color: inherit;
   }
 }
 ```
