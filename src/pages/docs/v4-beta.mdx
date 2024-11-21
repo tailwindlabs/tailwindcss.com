@@ -954,11 +954,13 @@ We've added utilities for the new `field-sizing` property that lets you create a
 ```html {{example: {hint: 'Type in the textarea to see the effect'}}}
 <div class="py-8 grid">
   <form action="#" class="relative w-full max-w-xl justify-self-center">
-    <div class="overflow-hidden rounded-lg border bg-white border-gray-300 shadow-sm focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500 p-4 pb-0">
+    <div class="overflow-hidden rounded-lg border bg-white border-gray-300 shadow-sm p-4 pb-0">
       <label for="title" class="sr-only">Title</label>
-      <input value='Replace all uniforms with cotton' type="text" name="title" id="title" class="bg-white block w-full border-0 pt-2.5 text-lg font-medium placeholder:text-gray-400 focus:ring-0" placeholder="Title">
+      <input value='Replace all uniforms with cotton' type="text" name="title" id="title" class="bg-white block w-full border-0 pt-2.5 text-lg font-medium placeholder:text-gray-400 focus:bg-gray-100 focus:ring-0" placeholder="Title">
       <label for="description" class="sr-only">Description</label>
-      <textarea  rows="2" name="description" id="description" class="bg-white block w-full resize-none border-0 py-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6 [field-sizing:content]" placeholder="Write a description..."></textarea>
+      <textarea rows="2" name="description" id="description" class="bg-white block w-full resize-none border-0 py-0 text-gray-700 placeholder:text-gray-400 focus:ring-0 focus:bg-gray-50 sm:text-sm/6 [field-sizing:content]" placeholder="Write a description...">
+- Must be high-grade cotton
+- Special attention to breathability</textarea>
       <div aria-hidden="true">
         <div class="py-2">
           <div class="h-9"></div>
