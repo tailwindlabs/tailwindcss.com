@@ -6,7 +6,7 @@ description: Preview what's coming in the next version of Tailwind CSS.
 
 import { Heading } from '@/components/Heading'
 import { TipGood, TipBad } from '@/components/Tip'
-import {ClassTable} from '@/components/ClassTable'
+import { ClassTable } from '@/components/ClassTable'
 
 export function ColorPalette() {
   const colors = {
@@ -266,12 +266,12 @@ export function ColorPalette() {
       Object.entries(colors).map(([color, values]) =>
         <div className="grid grid-cols-1 gap-2" key={color}>
           {Object.values(values).map((value, i) =>
-            <div className="aspect-square rounded" key={i} style={{backgroundColor:value}}/>
+            <div className="aspect-square rounded" key={i} style={{ backgroundColor: value }} />
           )}
         </div>
       )
     }
-    </div>
+  </div>
 }
 
 
@@ -699,8 +699,8 @@ Browser support for container queries is [really great](https://caniuse.com/css-
 We've finally added APIs for doing 3D transforms, like `rotate-x-*`, `rotate-y-*`, `scale-z-*`, `translate-z-*`, and tons more.
 
 ```html {{ example: true }}
-  <div class="grid">
-    <article class="transition-all relative isolate z-10 flex w-full max-w-80 justify-self-center [transform-style:_preserve-3d] [transform:rotateX(51deg)_rotateZ(43deg)] flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pt-80 pb-8 shadow-xl duration-500 [perspective:800px] [perspective-origin:top_left] hover:-translate-y-4 hover:[transform:rotateX(49deg)__rotateZ(38deg)] hover:shadow-2xl">
+  <div class="grid [perspective:1200px]">
+    <article class="transition-all relative isolate z-10 flex w-full max-w-80 justify-self-center [transform-style:_preserve-3d] [transform:rotateX(51deg)_rotateZ(43deg)] flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pt-80 pb-8 shadow-xl duration-500 hover:-translate-y-4 hover:[transform:rotateX(49deg)__rotateZ(38deg)] hover:shadow-2xl">
       <img src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80" alt="" class="absolute inset-0 -z-10 size-full object-cover" />
       <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
       <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-gray-900/10 ring-inset"></div>
@@ -724,9 +724,11 @@ We've finally added APIs for doing 3D transforms, like `rotate-x-*`, `rotate-y-*
 
 
 ```html
-<article class="relative isolate z-10 flex w-full max-w-80 **transform-3d rotate-x-51 rotate-z-43 perspective-distant perspective-origin-top-left** flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pt-80 pb-8 shadow-xl transition-all duration-500 **hover:-translate-y-4 hover:rotate-x-49 hover:rotate-z-38** hover:shadow-2xl">
-  <!-- ... -->
-</article>
+<div class="**perspective-distant**">
+  <article class="... **transform-3d rotate-x-51 rotate-z-43** shadow-xl transition-all duration-500 **hover:-translate-y-4 hover:rotate-x-49 hover:rotate-z-38** hover:shadow-2xl">
+    <!-- ... -->
+  </article>
+</div>
 ```
 
 Use the `transform-3d` utility to enable 3D transforms by setting the right `transform-style`
@@ -917,7 +919,7 @@ We've added dedicated `inset-shadow-*` and `inset-ring-*` utilities in v4.0 that
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>
     <p>Send</p>
   </div>
-  <div class="absolute bottom-[50%] translate-y-[70%] left-1/2 size-40 overflow-hidden rounded-full border-2 shadow-lg border-black/20">
+  <div class="absolute bottom-[50%] translate-y-[70%] left-[56%] size-40 overflow-hidden rounded-full border-2 shadow-lg border-black/20">
     <div class="absolute right-[190%] bottom-[80%] grid h-16 w-40 scale-[400%] grid-flow-col grid-cols-[auto_auto] items-center justify-center gap-2 rounded-2xl bg-blue-600 text-2xl text-blue-100 ring shadow-md ring-black/10 [box-shadow:oklch(1_5.96046e-8_none_/_0.4)_0px_2px_4px_0px_inset,_oklch(1_5.96046e-8_none_/_0.2)_0px_0px_0px_1px_inset,_rgba(0,_0,_0,_0)_0px_0px_0px_0px,_oklch(0_0_none_/_0.1)_0px_0px_0px_1px,_oklch(0_0_none_/_0.2)_0px_10px_15px_-3px,_oklch(0_0_none_/_0.2)_0px_4px_6px_-4px]
 ]">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>
@@ -953,75 +955,18 @@ We've added utilities for the new `field-sizing` property that lets you create a
 
 ```html {{example: {hint: 'Type in the textarea to see the effect'}}}
 <div class="py-8 grid">
-  <form action="#" class="relative w-full max-w-xl justify-self-center">
-    <div class="overflow-hidden rounded-lg border bg-white border-gray-300 shadow-sm p-4 pb-0">
-      <label for="title" class="sr-only">Title</label>
-      <input value='Replace all uniforms with cotton' type="text" name="title" id="title" class="bg-white block w-full border-0 pt-2.5 text-lg font-medium placeholder:text-gray-400 focus:bg-gray-100 focus:ring-0" placeholder="Title">
-      <label for="description" class="sr-only">Description</label>
-      <textarea rows="2" name="description" id="description" class="bg-white block w-full resize-none border-0 py-0 text-gray-700 placeholder:text-gray-400 focus:ring-0 focus:bg-gray-50 sm:text-sm/6 [field-sizing:content]" placeholder="Write a description...">
-- Must be high-grade cotton
-- Special attention to breathability</textarea>
-      <div aria-hidden="true">
-        <div class="py-2">
-          <div class="h-9"></div>
-        </div>
-        <div class="h-px"></div>
-        <div class="py-2">
-          <div class="py-px">
-            <div class="h-9"></div>
-          </div>
-        </div>
+    <div class="relative w-full max-w-96 justify-self-center">
+      <label for="comment" class="block text-sm/6 font-medium text-gray-900">Add your comment</label>
+      <div class="mt-2">
+        <textarea rows="2" placeholder="Write something..." name="comment" id="comment" class="block w-full resize-none min-h-16 rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 [field-sizing:content]"></textarea>
       </div>
-    </div>
-    <div class="absolute inset-x-px bottom-0">
-      <div class="flex flex-nowrap justify-end space-x-2 px-2 py-2 sm:px-3">
-        <div class="shrink-0">
-          <label id="listbox-label" class="sr-only">Assign</label>
-          <div class="relative">
-            <button type="button" class="relative inline-flex items-center whitespace-nowrap rounded-full bg-gray-50 px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 sm:px-3" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
-              <svg class="size-5 shrink-0 text-gray-300 sm:-ml-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-5.5-2.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM10 12a5.99 5.99 0 0 0-4.793 2.39A6.483 6.483 0 0 0 10 16.5a6.483 6.483 0 0 0 4.793-2.11A5.99 5.99 0 0 0 10 12Z" clip-rule="evenodd" /></svg>
-              <img src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-5 shrink-0 rounded-full">
-              <span class="hidden truncate sm:ml-2 sm:block">Assign</span>
-            </button>
-          </div>
-        </div>
-        <div class="shrink-0">
-          <label id="listbox-label" class="sr-only">Add a label</label>
-          <div class="relative">
-            <button type="button" class="relative inline-flex items-center whitespace-nowrap rounded-full bg-gray-50 px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 sm:px-3" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
-              <svg class="size-5 shrink-0 text-gray-300 sm:-ml-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M4.5 2A2.5 2.5 0 0 0 2 4.5v3.879a2.5 2.5 0 0 0 .732 1.767l7.5 7.5a2.5 2.5 0 0 0 3.536 0l3.878-3.878a2.5 2.5 0 0 0 0-3.536l-7.5-7.5A2.5 2.5 0 0 0 8.38 2H4.5ZM5 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd" /></svg>
-              <span class="hidden truncate sm:ml-2 sm:block">Label</span>
-            </button>
-          </div>
-        </div>
-        <div class="shrink-0">
-          <label id="listbox-label" class="sr-only">Add a due date</label>
-          <div class="relative">
-            <button type="button" class="relative inline-flex items-center whitespace-nowrap rounded-full bg-gray-50 px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 sm:px-3" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
-              <svg class="size-5 shrink-0 text-gray-300 sm:-ml-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M5.75 2a.75.75 0 0 1 .75.75V4h7V2.75a.75.75 0 0 1 1.5 0V4h.25A2.75 2.75 0 0 1 18 6.75v8.5A2.75 2.75 0 0 1 15.25 18H4.75A2.75 2.75 0 0 1 2 15.25v-8.5A2.75 2.75 0 0 1 4.75 4H5V2.75A.75.75 0 0 1 5.75 2Zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75Z" clip-rule="evenodd" /></svg>
-              <span class="hidden truncate sm:ml-2 sm:block">Due date</span>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="flex items-center justify-between space-x-3 border-t border-gray-200 px-2 py-2 sm:px-3">
-        <div class="flex">
-          <button type="button" class="group -my-2 -ml-2 inline-flex items-center rounded-full px-3 py-2 text-left text-gray-400">
-            <svg class="-ml-1 mr-2 size-5 group-hover:text-gray-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M15.621 4.379a3 3 0 0 0-4.242 0l-7 7a3 3 0 0 0 4.241 4.243h.001l.497-.5a.75.75 0 0 1 1.064 1.057l-.498.501-.002.002a4.5 4.5 0 0 1-6.364-6.364l7-7a4.5 4.5 0 0 1 6.368 6.36l-3.455 3.553A2.625 2.625 0 1 1 9.52 9.52l3.45-3.451a.75.75 0 1 1 1.061 1.06l-3.45 3.451a1.125 1.125 0 0 0 1.587 1.595l3.454-3.553a3 3 0 0 0 0-4.242Z" clip-rule="evenodd" /></svg>
-            <span class="text-sm italic text-gray-500 group-hover:text-gray-600">Attach a file</span>
-          </button>
-        </div>
-        <div class="shrink-0">
-          <button type="submit" class="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create</button>
-        </div>
-      </div>
-    </div>
-  </form>
+  </div>
 </div>
 ```
 
 ```html
-<textarea class="field-sizing-content"></textarea>
+<label for="comment" class="block text-sm/6 font-medium text-gray-900">Add your comment</label>
+<textarea name="comment" id="comment" class="...**field-sizing-content**"></textarea>
 ```
 
 Use `field-sizing-content` to make the control resize to fit its contents, or `field-sizing-fixed` to give the control a fixed size.
