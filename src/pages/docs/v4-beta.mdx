@@ -367,18 +367,7 @@ If you'd like to try upgrading a project from v3 to the v4 beta releases, you ca
 $ npx @tailwindcss/upgrade@next
 ```
 
-For most projects, the upgrade tool will automate the entire migration process including:
-
-- **Updating dependencies** like Tailwind itself, adding the new PostCSS plugin, updating our Prettier plugin if you have it installed, and removing dependencies that are no longer needed like `postcss-import` and `autoprefixer`.
-- **Replacing `@tailwind` directives with `@import "tailwindcss"`** to modernize your project.
-- **Migrating your config file to CSS** if possible, or updating your CSS to import your config file with `@config`.
-- **Replacing deprecated utility classes** with their v4 equivalents, like renaming `outline-none` to `outline-hidden`.
-- **Updating your variant order** so that order-sensitive variants in your utilities are sorted from left to right instead of right to left.
-- **Replacing `theme(…)` with `var(…)`** where possible, taking advantage of the CSS variables generated in v4.0 by default.
-- **Migrating to the new variable shorthand syntax**, updating utilities like `bg-[--my-color]` to `bg-(--my-color)`.
-- **Adding compatibility base styles for Preflight changes**, so your project looks the same after upgrading.
-- **Updating custom utilities to use `@utility`** instead of just custom classes in the `utilities` layer.
-- **Updating existing imports to use layers** to make sure your custom styles behave as expected with Tailwind's layered styles.
+For most projects, the upgrade tool will automate the entire migration process including updating your dependencies, migrating your configuration file to CSS, and handling any changes to your template files.
 
 **We recommend running the upgrade tool in a new branch**, then carefully reviewing the diff and testing your project in the browser to make sure all of the changes look correct. You may need to tweak a few things by hand in complex projects, but the tool will save you a ton of time either way.
 
@@ -390,6 +379,20 @@ It's also a good idea to go over all of the [breaking changes](#breaking-changes
 ## What's new in v4.0
 
 ### New high-performance engine
+
+Tailwind CSS v4.0 is a ground-up rewrite of the framework, taking everything we've learned about the architecture over the years and optimizing it to be as fast as possible.
+
+When benchmarking it on our own projects, we've found full rebuilds to be over 3.5x faster, and incremental builds to be over 8x faster.
+
+Here are the median build times we saw when we benchmarked Tailwind CSS v4.0 against [Catalyst](https://tailwindui.com/templates/catalyst):
+
+|     | v3.4 | v4.0 Beta |
+| --- | --- | --- |
+| Full build |  378ms | 100ms |
+| Incremental rebuild with new CSS |  44ms | 5ms |
+| Incremental rebuild with no new CSS |  35ms | 192µs |
+
+The most impressive improvement is on incremental builds that don't actually need to compile any new CSS — these builds are over 100x faster and complete in _microseconds_. And the longer you work on a project, the more of these builds you run into because you're just using classes you've already used before, like `flex`, `col-span-2`, or `font-bold`.
 
 ### CSS-first configuration
 
