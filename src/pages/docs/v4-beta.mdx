@@ -953,12 +953,12 @@ We've added utilities for the new `field-sizing` property that lets you create a
 
 ```html {{example: true}}
 <div class="py-8 grid">
-  <form action="#" class="relative w-full max-w-xl justify-self-center bg-white">
-    <div class="overflow-hidden rounded-lg border border-gray-300 shadow-sm focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500 p-4 pb-0">
+  <form action="#" class="relative w-full max-w-xl justify-self-center">
+    <div class="overflow-hidden rounded-lg border bg-white border-gray-300 shadow-sm focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500 p-4 pb-0">
       <label for="title" class="sr-only">Title</label>
-      <input value='Replace all uniforms with cotton' type="text" name="title" id="title" class="block w-full border-0 pt-2.5 text-lg font-medium placeholder:text-gray-400 focus:ring-0" placeholder="Title">
+      <input value='Replace all uniforms with cotton' type="text" name="title" id="title" class="bg-white block w-full border-0 pt-2.5 text-lg font-medium placeholder:text-gray-400 focus:ring-0" placeholder="Title">
       <label for="description" class="sr-only">Description</label>
-      <textarea  rows="2" name="description" id="description" class="block w-full resize-none border-0 py-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6 [field-sizing:content]" placeholder="Write a description..."></textarea>
+      <textarea  rows="2" name="description" id="description" class="bg-white block w-full resize-none border-0 py-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6 [field-sizing:content]" placeholder="Write a description..."></textarea>
       <div aria-hidden="true">
         <div class="py-2">
           <div class="h-9"></div>
@@ -1026,16 +1026,56 @@ Use `field-sizing-content` to make the control resize to fit its contents, or `f
 
 ### \`color-scheme\` utilities
 
+```html {{example: true}}
+<div class="py-4 pb-64 grid [color-scheme:dark] dark:[color-scheme:light]">
+  <div class="relative w-full max-w-96 justify-self-center">
+    <label for="combobox" class="block text-sm/6 font-medium text-gray-900">Assigned to</label>
+    <div class="relative mt-2">
+      <input value="Leslie Alexander" id="combobox" type="text" class="w-full rounded-md border-0 bg-slate-800 dark:bg-white py-1.5 pl-3 pr-12 text-white dark:text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" role="combobox" aria-controls="options" aria-expanded="false">
+      <button type="button" class="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
+        <svg class="size-5 text-gray-200 dark:text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"> <path fill-rule="evenodd" d="M10.53 3.47a.75.75 0 0 0-1.06 0L6.22 6.72a.75.75 0 0 0 1.06 1.06L10 5.06l2.72 2.72a.75.75 0 1 0 1.06-1.06l-3.25-3.25Zm-4.31 9.81 3.25 3.25a.75.75 0 0 0 1.06 0l3.25-3.25a.75.75 0 1 0-1.06-1.06L10 14.94l-2.72-2.72a.75.75 0 0 0-1.06 1.06Z" clip-rule="evenodd" /></svg>
+      </button>
+      <ul class="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-slate-800 dark:bg-white py-1 text-base shadow-lg ring-1 ring-white/5 dark:ring-black/5 focus:outline-none sm:text-sm" id="options" role="listbox">
+        <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-white dark:text-gray-900" id="option-1" role="option" tabindex="-1">
+          <span class="block truncate">Michael Foster</span>
+        </li>
+        <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-white dark:text-gray-900" id="option-1" role="option" tabindex="-1">
+          <span class="block truncate">Dries Vincent</span>
+        </li>
+        <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-white dark:text-gray-900" id="option-0" role="option" tabindex="-1">
+          <span class="block truncate">Leslie Alexander</span>
+          <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-400 dark:text-indigo-600">
+            <svg class="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>
+          </span>
+        </li>
+        <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-white dark:text-gray-900" id="option-1" role="option" tabindex="-1">
+          <span class="block truncate">Lindsay Walton</span>
+        </li>
+        <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-white dark:text-gray-900" id="option-1" role="option" tabindex="-1">
+          <span class="block truncate">Courtney Henry</span>
+        </li>
+        <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-white dark:text-gray-900" id="option-1" role="option" tabindex="-1">
+          <span class="block truncate">Tom Cook</span>
+        </li>
+        <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-white dark:text-gray-900" id="option-1" role="option" tabindex="-1">
+          <span class="block truncate">Whitney Francis</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+```
+
 Ever been annoyed that your app was showing light scrollbars in dark mode? You want these new `color-scheme` utilities — here are all the new classes:
 
-```html
-<div class="scheme-normal">…</div>
-<div class="scheme-dark">…</div>
-<div class="scheme-light">…</div>
-<div class="scheme-light-dark">…</div>
-<div class="scheme-only-dark">…</div>
-<div class="scheme-only-light">…</div>
-```
+<ClassTable showHeading={false} utilities={{
+  'scheme-normal': {'color-scheme': 'normal'},
+  'scheme-dark': {'color-scheme': 'dark'},
+  'scheme-light': {'color-scheme': 'light'},
+  'scheme-light-dark': {'color-scheme': 'light dark'},
+  'scheme-only-dark': {'color-scheme': 'only dark'},
+  'scheme-only-light': {'color-scheme': 'only light'},
+}}/>
 
 Throw `scheme-light dark:scheme-dark` on your `html` or `body` element and your scrollbars will always look good, no matter which dark mode strategy you use.
 
@@ -1043,18 +1083,28 @@ Throw `scheme-light dark:scheme-dark` on your `html` or `body` element and your 
 
 We've added utilities for the new-ish `font-stretch` property, which helps you style variable fonts that support different widths:
 
-```html
-<div class="font-stretch-normal">...</div>
-<div class="font-stretch-ultra-condensed">...</div>
-<div class="font-stretch-extra-condensed">...</div>
-<div class="font-stretch-condensed">...</div>
-<div class="font-stretch-semi-condensed">...</div>
-<div class="font-stretch-semi-expanded">...</div>
-<div class="font-stretch-expanded">...</div>
-<div class="font-stretch-extra-expanded">...</div>
-<div class="font-stretch-ultra-expanded">...</div>
-<div class="font-stretch-75%">...</div>
-```
+<ClassTable showHeading={false} utilities={{
+  'font-stretch-normal': {'font-stretch': 'normal'},
+  'font-stretch-ultra-condensed': {'font-stretch': 'ultra-condensed'},
+  'font-stretch-extra-condensed': {'font-stretch': 'extra-condensed'},
+  'font-stretch-condensed': {'font-stretch': 'condensed'},
+  'font-stretch-semi-condensed': {'font-stretch': 'semi-condensed'},
+  'font-stretch-semi-expanded': {'font-stretch': 'semi-expanded'},
+  'font-stretch-expanded': {'font-stretch': 'expanded'},
+  'font-stretch-extra-expanded': {'font-stretch': 'extra-expanded'},
+  'font-stretch-ultra-expanded': {'font-stretch': 'ultra-expanded'},
+  'font-stretch-0%': {'font-stretch': '0%'},
+  'font-stretch-50%': {'font-stretch': '50%'},
+  'font-stretch-75%': {'font-stretch': '75%'},
+  'font-stretch-90%': {'font-stretch': '90%'},
+  'font-stretch-95%': {'font-stretch': '95%'},
+  'font-stretch-100%': {'font-stretch': '100%'},
+  'font-stretch-105%': {'font-stretch': '105%'},
+  'font-stretch-110%': {'font-stretch': '110%'},
+  'font-stretch-125%': {'font-stretch': '125%'},
+  'font-stretch-150%': {'font-stretch': '150%'},
+  'font-stretch-200%': {'font-stretch': '200%'},
+}}/>
 
 Looks like the name of this is changing to `font-width` at some point but no browsers actually support it yet, looking forward to dealing with that.
 
