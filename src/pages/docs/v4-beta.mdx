@@ -1083,6 +1083,43 @@ Throw `scheme-light dark:scheme-dark` on your `html` or `body` element and your 
 
 We've added utilities for the new-ish `font-stretch` property, which helps you style variable fonts that support different widths:
 
+```html {{ example: true }}
+<div class="flex flex-col gap-8">
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-stretch-extra-condensed</span>
+    <p class="text-xl font-medium [font-stretch:extra-condensed] font-[system-ui] text-slate-900 dark:text-slate-200">
+      The quick brown fox jumps over the lazy dog.
+    </p>
+  </div>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-stretch-condensed</span>
+    <p class="text-xl font-medium [font-stretch:condensed] font-[system-ui] text-slate-900 dark:text-slate-200">
+      The quick brown fox jumps over the lazy dog.
+    </p>
+  </div>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-stretch-extra-regular</span>
+    <p class="text-xl font-medium [font-stretch:normal] font-[system-ui] text-slate-900 dark:text-slate-200">
+      The quick brown fox jumps over the lazy dog.
+    </p>
+  </div>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-stretch-expanded</span>
+    <p class="text-xl font-medium [font-stretch:expanded] font-[system-ui] text-slate-900 dark:text-slate-200">
+      The quick brown fox jumps over the lazy dog.
+    </p>
+  </div>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-stretch-extra-condensed</span>
+    <p class="text-xl font-medium [font-stretch:extra-expanded] font-[system-ui] text-slate-900 dark:text-slate-200">
+      The quick brown fox jumps over the lazy dog.
+    </p>
+  </div>
+</div>
+```
+
+Looks like the name of this is changing to `font-width` at some point but no browsers actually support it yet, looking forward to dealing with that.
+
 <ClassTable showHeading={false} utilities={{
   'font-stretch-normal': {'font-stretch': 'normal'},
   'font-stretch-ultra-condensed': {'font-stretch': 'ultra-condensed'},
@@ -1106,7 +1143,6 @@ We've added utilities for the new-ish `font-stretch` property, which helps you s
   'font-stretch-200%': {'font-stretch': '200%'},
 }}/>
 
-Looks like the name of this is changing to `font-width` at some point but no browsers actually support it yet, looking forward to dealing with that.
 
 ### Composable variants
 
