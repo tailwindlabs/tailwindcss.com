@@ -1720,33 +1720,6 @@ We've removed any utilities that were deprecated in v3 and have been undocumente
 | <code className="whitespace-nowrap">decoration-slice</code> | `box-decoration-slice` |
 | <code className="whitespace-nowrap">decoration-clone</code> | `box-decoration-clone` |
 
-### Normalized form element styles
-
-We've updated the default styles in Preflight for form elements to look more like form elements. They aren't _designed_ by any means, and are meant to look like user-agent styles but be a bit easier to customize.
-
-We're making this change because we hated that inputs in v3 were totally invisible by default, which felt opinionated and surprising, and made them inaccessible out of the box until you customized them.
-
-The easiest way to update an existing project to account for these changes is to reset these styles in your own CSS:
-
-```css
-@import "tailwindcss";
-
-@layer base {
-  input,
-  textarea,
-  select,
-  button {
-    border: 0px solid;
-    border-radius: 0;
-    padding: 0;
-    color: inherit;
-    background-color: transparent;
-  }
-}
-```
-
-This is a pretty significant change to our base styles, but we're optimistic that once everyone gets used to it that it'll feel like a much better default.
-
 ### Configuring the \`container\` utility
 
 In v3, the `container` utility had several configuration options like `center` and `padding` that no longer exist in v4.0. To customize the `container` utility in v4.0, extend it with `@utility`:
