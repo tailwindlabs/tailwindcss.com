@@ -1336,24 +1336,6 @@ To make sure unused `@keyframes` rules are removed, configure them under `@theme
 
 Since we've dramatically [simplified theme configuration](#simplified-theme-configuration) in Tailwind CSS v4.0, you'll only generally work with these namespaces:
 
-{/* | Namespace          | Utilities                                                                              |
-| ------------------ | -------------------------------------------------------------------------------------- |
-| `--color-*`        | Color utilities like `bg-white`, `text-black`, or `fill-blue-500`                      |
-| `--font-*`         | Font family utilities like `font-sans`                                                 |
-| `--spacing-*`      | Spacing utilities like `mt-2`, `p-4`                                                   |
-| `--text-*`         | Font size utilities like `text-sm`                                                     |
-| `--font-weight-*`  | Font weight utilities like `font-bold`                                                 |
-| `--tracking-*`     | Letter spacing utilities like `tracking-tight`                                         |
-| `--leading-*`      | Line height utilities like `leading-relaxed`                                           |
-| `--breakpoint-*`   | Breakpoint variants like `md:*` and `lg:*`                                             |
-| `--container-*`    | Container query variants like `@sm:*` and `@lg:*` and max-width utilities like `max-w-lg` |
-| `--radius-*`       | Border radius utilities like `rounded-md`                                              |
-| `--shadow-*`       | Box shadow utilities like `shadow-lg`                                                  |
-| `--inset-shadow-*` | Inset box shadow utilities like `inset-shadow-sm`                                      |
-| `--drop-shadow-*`  | Drop shadow utilities like `drop-shadow-xl`                                            |
-| `--ease-*`         | Transition timing function utilities like `ease-out`                                   |
-| `--animate-*`      | Animation utilities like `animate-spin`                                                | */}
-
 <table>
   <thead>
     <tr>
@@ -1369,10 +1351,6 @@ Since we've dramatically [simplified theme configuration](#simplified-theme-conf
     <tr>
       <td className='whitespace-nowrap'>`--font-*`</td>
       <td>Font family utilities like <code>font-sans</code></td>
-    </tr>
-    <tr>
-      <td className='whitespace-nowrap'>`--spacing-*`</td>
-      <td>Spacing utilities like <code>mt-2</code> or <code>p-4</code></td>
     </tr>
     <tr>
       <td className='whitespace-nowrap'>`--text-*`</td>
@@ -1391,12 +1369,16 @@ Since we've dramatically [simplified theme configuration](#simplified-theme-conf
       <td>Line height utilities like <code>leading-relaxed</code></td>
     </tr>
     <tr>
+      <td className='whitespace-nowrap'>`--spacing-*`</td>
+      <td>Spacing and sizing utilities like <code>pt-5</code>, <code>mr-2</code>, and <code>h-8</code></td>
+    </tr>
+    <tr>
       <td className='whitespace-nowrap'>`--breakpoint-*`</td>
       <td>Breakpoint variants like <code>md:* </code> and <code>lg:*</code></td>
     </tr>
     <tr>
       <td className='whitespace-nowrap'>`--container-*`</td>
-      <td>Container query variants like <code>@sm:* </code> and <code>@lg:*</code> and max-width utilities like <code>max-w-lg</code></td>
+      <td>Container query variants like <code>@md:\*</code> and width utilities like <code>w-sm</code> and <code>max-w-lg</code></td>
     </tr>
     <tr>
       <td className='whitespace-nowrap'>`--radius-*`</td>
