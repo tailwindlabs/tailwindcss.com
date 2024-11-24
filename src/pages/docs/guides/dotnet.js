@@ -122,7 +122,12 @@ let steps = [
 
 <!-- When building the project, run the tailwind CLI -->
 <Target Name="Tailwind" DependsOnTargets="Download Tailwind" BeforeTargets="Build">
-  <Exec Command="$(ProjectDir)/bin/$(TailwindReleaseName) -i Styles/main.css -o wwwroot/main.build.css --minify"/>
+  <PropertyGroup>
+    <TailwindBuildCommand>$(ProjectDir)/bin/$(TailwindReleaseName) -i Styles/main.css -o wwwroot/main.build.css</TailwindBuildCommand>
+  </PropertyGroup>
+
+  <Exec Command="$(TailwindBuildCommand)" Condition="'$(Configuration)' == 'Debug'" />
+  <Exec Command="$(TailwindBuildCommand) --minify" Condition="'$(Configuration)' == 'Release'" />
 </Target>
       `,
     },
