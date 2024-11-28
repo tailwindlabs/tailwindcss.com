@@ -369,6 +369,8 @@ $ npx @tailwindcss/upgrade@next
 
 For most projects, the upgrade tool will automate the entire migration process including updating your dependencies, migrating your configuration file to CSS, and handling any changes to your template files.
 
+The upgrade tool requires Node.js 20 or higher, so ensure your environment is updated before running it to avoid compatibility issues.
+
 **We recommend running the upgrade tool in a new branch**, then carefully reviewing the diff and testing your project in the browser to make sure all of the changes look correct. You may need to tweak a few things by hand in complex projects, but the tool will save you a ton of time either way.
 
 It's also a good idea to go over all of the [breaking changes](#changes-from-v3) in v4.0 and get a good understanding of what's changed, in case there are other things you need to update in your project that the upgrade tool doesn't catch.
