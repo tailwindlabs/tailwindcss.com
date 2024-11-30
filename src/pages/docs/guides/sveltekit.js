@@ -107,9 +107,10 @@ let steps = [
       lang: 'html',
       code: `<script>
   import "../app.css";
+  let { children } = $props();
 </script>
 
-<slot />`,
+{@render children()}`,
     },
   },
   {
