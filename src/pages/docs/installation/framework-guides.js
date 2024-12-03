@@ -29,6 +29,7 @@ import { ReactComponent as SvelteLogo } from '@/img/guides/svelte.svg'
 import { ReactComponent as SymfonyLogo } from '@/img/guides/symfony.svg'
 import { ReactComponent as SymfonyLogoWhite } from '@/img/guides/symfony-white.svg'
 import { ReactComponent as ViteLogo } from '@/img/guides/vite.svg'
+import { ReactComponent as DotnetLogo } from '@/img/guides/dotnet.svg'
 
 export default function FrameworkGuides() {
   return (
@@ -84,6 +85,12 @@ export default function FrameworkGuides() {
             slug: 'sveltekit',
             description: 'The fastest way to build apps of all sizes with Svelte.js.',
             logo: SvelteLogo,
+          },
+          {
+            name: '.NET',
+            slug: 'dotnet',
+            description: 'The free, open-source, cross-platform framework for building modern apps and powerful cloud services.',
+            logo: DotnetLogo
           },
           {
             name: 'Angular',
