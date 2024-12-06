@@ -1952,7 +1952,7 @@ For cases where you still need to use the `theme()` function (like in media quer
   @import "tailwindcss";
 
 - @media (width >= theme(screens.xl)) {
-+ @media (width >= theme(--breakpoint-xl)) {
++ @media (width >= var(--breakpoint-xl)) {
     /* ... */
   }
 ```
