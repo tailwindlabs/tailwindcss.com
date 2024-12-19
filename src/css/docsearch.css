@@ -2,6 +2,43 @@
   @apply overflow-hidden !important;
 }
 
+/* Speed up exit view transitions */
+
+:root:has(body:not(.DocSearch--active))::view-transition-group(*) {
+  /* https://linear-easing-generator.netlify.app/?codeType=js&code=const+%5Bduration%2C+func%5D+%3D+createSpring%28%7B%0A++mass%3A+1%2C%0A++stiffness%3A+986.9604%2C%0A++damping%3A+62.83185%2C%0A++velocity%3A+0%2C%0A%7D%29%3B%0A%0A%2F*%0A++Export+your+easing+function+as+a+global.%0A++The+name+you+use+here+will+appear+in+the+output.%0A++The+easing+function+must+take+a+number+as+input%2C%0A++where+0+is+the+start%2C+and+1+is+the+end.%0A++It+must+return+the+%27eased%27+value.%0A*%2F%0Aself.spring+%3D+func%3B%0A%2F*%0A++Some+easings+have+an+ideal+duration%2C+like+this+one.%0A++You+can+export+it+to+the+global%2C+in+milliseconds%2C%0A++and+it+will+be+used+in+the+output.%0A++This+is+optional.%0A*%2F%0Aself.duration+%3D+duration%3B%0A%0Afunction+createSpring%28%7B+mass%2C+stiffness%2C+damping%2C+velocity+%7D%29+%7B%0A++const+w0+%3D+Math.sqrt%28stiffness+%2F+mass%29%3B%0A++const+zeta+%3D+damping+%2F+%282+*+Math.sqrt%28stiffness+*+mass%29%29%3B%0A++const+wd+%3D+zeta+%3C+1+%3F+w0+*+Math.sqrt%281+-+zeta+*+zeta%29+%3A+0%3B%0A++const+b+%3D+zeta+%3C+1+%3F+%28zeta+*+w0+%2B+-velocity%29+%2F+wd+%3A+-velocity+%2B+w0%3B%0A%0A++function+solver%28t%29+%7B%0A++++if+%28zeta+%3C+1%29+%7B%0A++++++t+%3D%0A++++++++Math.exp%28-t+*+zeta+*+w0%29+*%0A++++++++%281+*+Math.cos%28wd+*+t%29+%2B+b+*+Math.sin%28wd+*+t%29%29%3B%0A++++%7D+else+%7B%0A++++++t+%3D+%281+%2B+b+*+t%29+*+Math.exp%28-t+*+w0%29%3B%0A++++%7D%0A%0A++++return+1+-+t%3B%0A++%7D%0A%0A++const+duration+%3D+%28%28%29+%3D%3E+%7B%0A++++const+step+%3D+1+%2F+50%3B%0A++++let+time+%3D+0%3B%0A%0A++++while+%28true%29+%7B%0A++++++if+%28Math.abs%281+-+solver%28time%29%29+%3C+0.001%29+%7B%0A++++++++const+restStart+%3D+time%3B%0A++++++++let+restSteps+%3D+1%3B%0A++++++++while+%28true%29+%7B%0A++++++++++time+%2B%3D+step%3B%0A++++++++++if+%28Math.abs%281+-+solver%28time%29%29+%3E%3D+0.001%29+break%3B%0A++++++++++restSteps%2B%2B%3B%0A++++++++++if+%28restSteps+%3D%3D%3D+16%29+return+restStart%3B%0A++++++++%7D%0A++++++%7D%0A++++++time+%2B%3D+step%3B%0A++++%7D%0A++%7D%29%28%29%3B%0A%0A++return+%5Bduration+*+1000%2C+%28t%29+%3D%3E+solver%28duration+*+t%29%5D%3B%0A%7D&simplify=0.0017&round=3 */
+  /* Perceptual duration: 200ms */
+  /* prettier-ignore */
+  animation-timing-function: linear(
+    0, 0.005, 0.02 2.3%, 0.081 5%, 0.464 16.6%, 0.558, 0.639, 0.71, 0.77,
+    0.821 33.3%, 0.864 37.1%, 0.902 41.5%, 0.932 46.4%, 0.956 51.9%, 0.973 58.1%,
+    0.985 65.2%, 0.992 73.8%, 0.997 84.7%, 0.999
+  );
+  animation-duration: 300ms;
+}
+
+/* Merging these with a comma cause the site to not compile for some reason: */
+:root:has(body:not(.DocSearch--active))::view-transition-old(*) {
+  animation-duration: 200ms;
+}
+:root:has(body:not(.DocSearch--active))::view-transition-new(*) {
+  animation-duration: 200ms;
+}
+
+/* Slow down transition from sidebar on xl+ */
+@media screen(xl) {
+  :root:has(.lg\:Sidebar)::view-transition-group(*) {
+    /* https://linear-easing-generator.netlify.app/?codeType=js&code=const+%5Bduration%2C+func%5D+%3D+createSpring%28%7B%0A++mass%3A+1%2C%0A++stiffness%3A+541.54208%2C%0A++damping%3A+46.5428%2C%0A++velocity%3A+0%2C%0A%7D%29%3B%0A%0A%2F*%0A++Export+your+easing+function+as+a+global.%0A++The+name+you+use+here+will+appear+in+the+output.%0A++The+easing+function+must+take+a+number+as+input%2C%0A++where+0+is+the+start%2C+and+1+is+the+end.%0A++It+must+return+the+%27eased%27+value.%0A*%2F%0Aself.spring+%3D+func%3B%0A%2F*%0A++Some+easings+have+an+ideal+duration%2C+like+this+one.%0A++You+can+export+it+to+the+global%2C+in+milliseconds%2C%0A++and+it+will+be+used+in+the+output.%0A++This+is+optional.%0A*%2F%0Aself.duration+%3D+duration%3B%0A%0Afunction+createSpring%28%7B+mass%2C+stiffness%2C+damping%2C+velocity+%7D%29+%7B%0A++const+w0+%3D+Math.sqrt%28stiffness+%2F+mass%29%3B%0A++const+zeta+%3D+damping+%2F+%282+*+Math.sqrt%28stiffness+*+mass%29%29%3B%0A++const+wd+%3D+zeta+%3C+1+%3F+w0+*+Math.sqrt%281+-+zeta+*+zeta%29+%3A+0%3B%0A++const+b+%3D+zeta+%3C+1+%3F+%28zeta+*+w0+%2B+-velocity%29+%2F+wd+%3A+-velocity+%2B+w0%3B%0A%0A++function+solver%28t%29+%7B%0A++++if+%28zeta+%3C+1%29+%7B%0A++++++t+%3D%0A++++++++Math.exp%28-t+*+zeta+*+w0%29+*%0A++++++++%281+*+Math.cos%28wd+*+t%29+%2B+b+*+Math.sin%28wd+*+t%29%29%3B%0A++++%7D+else+%7B%0A++++++t+%3D+%281+%2B+b+*+t%29+*+Math.exp%28-t+*+w0%29%3B%0A++++%7D%0A%0A++++return+1+-+t%3B%0A++%7D%0A%0A++const+duration+%3D+%28%28%29+%3D%3E+%7B%0A++++const+step+%3D+1+%2F+50%3B%0A++++let+time+%3D+0%3B%0A%0A++++while+%28true%29+%7B%0A++++++if+%28Math.abs%281+-+solver%28time%29%29+%3C+0.001%29+%7B%0A++++++++const+restStart+%3D+time%3B%0A++++++++let+restSteps+%3D+1%3B%0A++++++++while+%28true%29+%7B%0A++++++++++time+%2B%3D+step%3B%0A++++++++++if+%28Math.abs%281+-+solver%28time%29%29+%3E%3D+0.001%29+break%3B%0A++++++++++restSteps%2B%2B%3B%0A++++++++++if+%28restSteps+%3D%3D%3D+16%29+return+restStart%3B%0A++++++++%7D%0A++++++%7D%0A++++++time+%2B%3D+step%3B%0A++++%7D%0A++%7D%29%28%29%3B%0A%0A++return+%5Bduration+*+1000%2C+%28t%29+%3D%3E+solver%28duration+*+t%29%5D%3B%0A%7D&simplify=0.0017&round=3 */
+    /* Perceptual duration: 270ms */
+    /* prettier-ignore */
+    animation-timing-function: linear(
+      0, 0.005, 0.02 2.3%, 0.082, 0.16 7.7%, 0.462 16.9%, 0.557, 0.637, 0.707,
+      0.767, 0.818 33.7%, 0.861 37.5%, 0.899 42%, 0.93 46.9%, 0.954 52.4%,
+      0.972 58.7%, 0.984 65.7%, 0.992 74.3%, 0.997 85%, 0.999
+    );
+    animation-duration: 400ms;
+  }
+}
+
 .DocSearch-Container {
   @apply w-screen h-screen fixed z-[200] top-0 left-0 cursor-auto flex flex-col bg-black/20 backdrop-blur-sm p-4 sm:p-6 md:p-[10vh] lg:p-[12vh] dark:bg-slate-900/80;
 }
@@ -34,13 +71,21 @@
   flex-direction: column;
   min-height: 0;
   border-radius: theme('borderRadius.lg');
+  /* Note the difficulty animating between different border radii atm: https://github.com/WICG/view-transitions/blob/main/explainer.md#more-granular-style-capture */
   box-shadow: theme('boxShadow.lg');
   background: white;
+  view-transition-name: search-box;
 
   .dark & {
     background: theme('colors.slate.800');
     box-shadow: inset 0 1px 0 0 rgb(255 255 255 / 0.05);
   }
+}
+
+/* https://jakearchibald.com/2024/view-transitions-handling-aspect-ratio-changes/#intentional-aspect-ratio-changes */
+::view-transition-old(search-box),
+::view-transition-new(search-box) {
+  height: 100%;
 }
 
 .DocSearch-SearchBar {
@@ -58,7 +103,19 @@
 }
 
 .DocSearch-Dropdown {
+  view-transition-name: search-results;
   @apply flex-auto overflow-auto;
+}
+
+/* https://jakearchibald.com/2024/view-transitions-handling-aspect-ratio-changes/#handling-shape-and-size-changes */
+::view-transition-group(search-results) {
+  overflow: clip;
+}
+
+::view-transition-old(search-results),
+::view-transition-new(search-results) {
+  width: 100%;
+  height: auto;
 }
 
 .DocSearch-Hit--Result {
@@ -96,6 +153,7 @@
 .DocSearch-MagnifierLabel {
   @apply flex-none w-6 h-6 bg-contain;
   background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath vector-effect='non-scaling-stroke' d='m19 19-3.5-3.5' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle vector-effect='non-scaling-stroke' cx='11' cy='11' r='6' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  view-transition-name: search-icon;
 
   .dark & {
     background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath vector-effect='non-scaling-stroke' d='m19 19-3.5-3.5' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle vector-effect='non-scaling-stroke' cx='11' cy='11' r='6' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -120,8 +178,21 @@
   margin-right: 1rem;
   flex: auto;
   min-width: 0;
+  view-transition-name: search-input;
 
   @apply dark:text-slate-200;
+}
+
+/* https://jakearchibald.com/2024/view-transitions-handling-aspect-ratio-changes/#intentional-aspect-ratio-changes */
+::view-transition-old(search-input),
+::view-transition-new(search-input) {
+  /* Break aspect ratio at an element level */
+  height: 100%;
+  /* But maintain it within the image itself */
+  object-fit: none;
+  object-position: left;
+  /* And hide parts of the image that go out of bounds */
+  overflow-x: clip;
 }
 
 @screen sm {
@@ -159,10 +230,18 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: 57.1428571429% auto;
+  view-transition-name: search-shortcut;
 
   .dark & {
     background-image: url("data:image/svg+xml,%3Csvg width='16' height='7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M.506 6h3.931V4.986H1.736v-1.39h2.488V2.583H1.736V1.196h2.69V.182H.506V6ZM8.56 1.855h1.18C9.721.818 8.87.102 7.574.102c-1.276 0-2.21.705-2.205 1.762-.003.858.602 1.35 1.585 1.585l.634.159c.633.153.986.335.988.727-.002.426-.406.716-1.03.716-.64 0-1.1-.295-1.14-.878h-1.19c.03 1.259.931 1.91 2.343 1.91 1.42 0 2.256-.68 2.259-1.745-.003-.969-.733-1.483-1.744-1.71l-.523-.125c-.506-.117-.93-.304-.92-.722 0-.375.332-.65.934-.65.588 0 .949.267.994.724ZM15.78 2.219C15.618.875 14.6.102 13.254.102c-1.537 0-2.71 1.086-2.71 2.989 0 1.898 1.153 2.989 2.71 2.989 1.492 0 2.392-.992 2.526-2.063l-1.244-.006c-.117.623-.606.98-1.262.98-.883 0-1.483-.656-1.483-1.9 0-1.21.591-1.9 1.492-1.9.673 0 1.159.389 1.253 1.028h1.244Z' fill='%2394a3b8'/%3E%3C/svg%3E");
   }
+}
+
+::view-transition-old(search-shortcut),
+::view-transition-new(search-shortcut) {
+  height: 100%;
+  object-fit: scale-down;
+  object-position: center;
 }
 
 .DocSearch-Reset svg {
@@ -365,7 +444,19 @@
 }
 
 .DocSearch-Footer {
+  view-transition-name: search-footer;
   @apply flex-none flex justify-end border-t border-slate-100 py-4 px-6 dark:border-slate-200/5;
+}
+
+/* https://jakearchibald.com/2024/view-transitions-handling-aspect-ratio-changes/#handling-shape-and-size-changes */
+::view-transition-group(search-footer) {
+  overflow: clip;
+}
+
+::view-transition-old(search-footer),
+::view-transition-new(search-footer) {
+  width: 100%;
+  height: auto;
 }
 
 .DocSearch-Commands {

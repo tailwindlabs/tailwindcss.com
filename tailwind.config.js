@@ -296,6 +296,9 @@ module.exports = {
           )}"><polygon points="5.5,0 2.5,3 1.1,3 4.1,0"/><polygon points="4,0 6,2 6,0.6 5.4,0"/><polygon points="0,2 1,3 2.4,3 0,0.6"/></svg>`
         )}")`,
       }),
+      supports: {
+        'view-transitions': 'view-transition-name: none',
+      },
     },
   },
   plugins: [
