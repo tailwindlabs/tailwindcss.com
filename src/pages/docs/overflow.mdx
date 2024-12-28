@@ -440,6 +440,41 @@ Use the `overflow-scroll` utility to add scrollbars to an element. Unlike `overf
 <div class="**overflow-scroll** ..."></div>
 ```
 
+### Clipping overflow horizontal
+Use `overflow-x-clip` to prevent content from overflowing horizontally. Unlike `overflow-hidden`, which conceals overflow in every direction, and `overflow-visible`, that displays all overflow.
+
+```html {{ example: true }}
+<div class="overflow-x-clip relative max-w-sm mx-auto bg-white shadow-lg ring-1 ring-black/5 rounded-xl flex items-center gap-6 dark:bg-slate-800 dark:highlight-white/5">
+  <img class="absolute -left-6 w-24 h-24 rounded-full shadow-lg" src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+  <div class="flex flex-col py-5 pl-24">
+    <strong class="text-slate-900 text-sm font-medium dark:text-slate-200">Andrew Alfred</strong>
+    <span class="text-slate-500 text-sm font-medium dark:text-slate-400">Technical advisor</span>
+  </div>
+</div>
+```
+
+```html
+<div class="**overflow-x-clip** ..."></div>
+```
+
+
+### Clipping overflow vertical
+Use `overflow-y-clip` to prevent content from overflowing vertically. Unlike `overflow-hidden`, which conceals overflow in every direction, and `overflow-visible`, that displays all overflow.
+
+```html {{ example: true }}
+<div class="overflow-y-clip relative max-w-sm mx-auto bg-white shadow-lg ring-1 ring-black/5 rounded-xl flex items-center gap-6 dark:bg-slate-800 dark:highlight-white/5">
+  <img class="absolute -left-6 w-24 h-24 rounded-full shadow-lg" src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+  <div class="flex flex-col py-5 pl-24">
+    <strong class="text-slate-900 text-sm font-medium dark:text-slate-200">Andrew Alfred</strong>
+    <span class="text-slate-500 text-sm font-medium dark:text-slate-400">Technical advisor</span>
+  </div>
+</div>
+```
+
+```html
+<div class="**overflow-y-clip** ..."></div>
+```
+
 ---
 
 ## <Heading ignore>Applying conditionally</Heading>
