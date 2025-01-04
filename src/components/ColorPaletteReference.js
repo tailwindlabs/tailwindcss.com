@@ -81,8 +81,8 @@ function ColorPalette({ name, value }) {
       <Transition
         show={state === 'copied'}
         enter="transform ease-out duration-200 transition origin-bottom"
-        enterFrom="scale-95 translate-y-0.5 opacity-0"
-        enterTo="scale-100 translate-y-0 opacity-100"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
         leave="transition ease-in duration-100"
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
