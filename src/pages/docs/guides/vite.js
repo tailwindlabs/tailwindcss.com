@@ -104,6 +104,31 @@ let tabs = [
   }`,
         },
       },
+      {
+        title: 'Configure Vite',
+        body: () => (
+          <p>
+            Update your <code>vite.config.js</code> file to include Tailwind CSS in the PostCSS
+            plugins.
+          </p>
+        ),
+        code: {
+          name: 'vite.config.js',
+          lang: 'js',
+          code: `import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
+import tailwindcss from "tailwindcss"
+
+export default defineConfig({
+  plugins: [react()],
+  css: {
+  postcss: {
+    plugins: [tailwindcss()],
+    },
+  },
+})`,
+        },
+      },
     ],
   },
   {
