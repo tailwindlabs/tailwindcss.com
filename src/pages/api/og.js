@@ -106,7 +106,7 @@ export default async function handler(req, res) {
   let path = req.query.path.replace(/\/+$/, '')
   if (path === '') path = '/'
 
-  let url = `https://tailwindcss.com${path}`
+  let url = `https://v3.tailwindcss.com/${path}`
   let { data, statusCode } = await get(url)
   let body = data.toString()
 

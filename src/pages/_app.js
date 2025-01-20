@@ -77,8 +77,8 @@ export default function App({ Component, pageProps, router }) {
     'Tailwind CSS is a utility-first CSS framework for rapidly building modern websites without ever leaving your HTML.'
   let image = meta.ogImage ?? meta.image
   image = image
-    ? `https://tailwindcss.com${image.default?.src ?? image.src ?? image}`
-    : `https://tailwindcss.com/api/og?path=${router.pathname}`
+    ? `https://v3.tailwindcss.com/${image.default?.src ?? image.src ?? image}`
+    : `https://v3.tailwindcss.com//api/og?path=${router.pathname}`
 
   if (router.pathname.includes('/examples/')) {
     return <Component {...pageProps} />
@@ -104,7 +104,7 @@ export default function App({ Component, pageProps, router }) {
         <meta
           key="og:url"
           property="og:url"
-          content={`https://tailwindcss.com${router.pathname}`}
+          content={`https://v3.tailwindcss.com/${router.pathname}`}
         />
         <meta key="og:type" property="og:type" content="article" />
         <meta key="og:image" property="og:image" content={image} />
