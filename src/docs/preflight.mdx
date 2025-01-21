@@ -24,8 +24,6 @@ While most of the styles in Preflight are meant to go unnoticed — they simply 
 
 For a complete reference of all the styles applied by Preflight, [see the stylesheet](https://github.com/tailwindlabs/tailwindcss/blob/next/packages/tailwindcss/preflight.css).
 
----
-
 ## Default margins are removed
 
 Preflight removes all of the default margins from all elements including headings, blockquotes, paragraphs, etc:
@@ -42,8 +40,6 @@ Preflight removes all of the default margins from all elements including heading
 ```
 
 This makes it harder to accidentally rely on margin values applied by the user-agent stylesheet that are not part of your spacing scale.
-
----
 
 ## Border styles are reset globally
 
@@ -73,8 +69,6 @@ When you run into situations like this, you can work around them by overriding t
   }
 }
 ```
-
----
 
 ## Headings are unstyled
 
@@ -141,8 +135,6 @@ Unstyled lists are [not announced as lists by VoiceOver](https://unfetteredthoug
 </ul>
 ```
 
----
-
 ## Images are block-level
 
 Images and other replaced elements (like `svg`, `video`, `canvas`, and others) are `display: block` by default.
@@ -169,8 +161,6 @@ If you ever need to make one of these elements `inline` instead of `block`, simp
 <img class="inline" src="..." alt="..." />
 ```
 
----
-
 ## Images are constrained to the parent width
 
 Images and videos are constrained to the parent width in a way that preserves their intrinsic aspect ratio.
@@ -188,8 +178,6 @@ This prevents them from overflowing their containers and makes them responsive b
 ```html
 <img class="max-w-none" src="..." alt="..." />
 ```
-
----
 
 ## Extending Preflight
 
@@ -216,8 +204,6 @@ If you'd like to add your own base styles on top of Preflight, add them to the `
 ```
 
 Learn more in the [adding base styles documentation](/docs/adding-custom-styles#adding-base-styles).
-
----
 
 ## Disabling Preflight
 
