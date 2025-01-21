@@ -48,10 +48,6 @@ function useFathom(code, options) {
 }
 
 export default function App({ Component, pageProps, router }) {
-  useFathom('PMFMDJGK', {
-    includedDomains: ['tailwindcss.com'],
-  })
-
   let [navIsOpen, setNavIsOpen] = useState(false)
 
   useEffect(() => {
