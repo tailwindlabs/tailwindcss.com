@@ -93,13 +93,9 @@ The reason for this is two-fold:
 
 You can always add default header styles to your project by [adding your own base styles](/docs/adding-custom-styles#adding-base-styles).
 
-If you'd like to selectively introduce sensible default heading styles into article-style parts of a page, we recommend the [@tailwindcss/typography plugin](/docs/typography-plugin/).
-
----
-
 ## Lists are unstyled
 
-Ordered and unordered lists are unstyled by default, with no bullets/numbers.
+Ordered and unordered lists are unstyled by default, with no bullets or numbers:
 
 ```css
 ol,
@@ -121,8 +117,6 @@ If you'd like to style a list, you can do so using the [list-style-type](/docs/l
 
 You can always add default list styles to your project by [adding your own base styles](/docs/adding-custom-styles#adding-base-styles).
 
-If you'd like to selectively introduce default list styles into article-style parts of a page, we recommend the [@tailwindcss/typography plugin](/docs/typography-plugin/).
-
 ### Accessibility considerations
 
 Unstyled lists are [not announced as lists by VoiceOver](https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/). If your content is truly a list but you would like to keep it unstyled, [add a "list" role](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html) to the element:
@@ -137,7 +131,7 @@ Unstyled lists are [not announced as lists by VoiceOver](https://unfetteredthoug
 
 ## Images are block-level
 
-Images and other replaced elements (like `svg`, `video`, `canvas`, and others) are `display: block` by default.
+Images and other replaced elements (like `svg`, `video`, `canvas`, and others) are `display: block` by default:
 
 ```css
 img,
@@ -163,7 +157,7 @@ If you ever need to make one of these elements `inline` instead of `block`, simp
 
 ## Images are constrained to the parent width
 
-Images and videos are constrained to the parent width in a way that preserves their intrinsic aspect ratio.
+Images and videos are constrained to the parent width in a way that preserves their intrinsic aspect ratio:
 
 ```css
 img,
@@ -207,9 +201,11 @@ Learn more in the [adding base styles documentation](/docs/adding-custom-styles#
 
 ## Disabling Preflight
 
-If you'd like to completely disable Preflight — perhaps because you're integrating Tailwind into an existing project or because you'd like to provide your own base styles — all you need to do is set `preflight` to `false` in the `corePlugins` section of your `tailwind.config.js` file:
+If you'd like to completely disable Preflight — perhaps because you're integrating Tailwind into an existing project or because you'd like to provide your own base styles — import the pieces of Tailwind that you need separately:
 
 ```css
+@layer theme, base, components, utilities;
+
 @import "tailwindcss/theme" layer(theme);
-@import "tailwindcss/utilities" layer(theme);
+@import "tailwindcss/utilities" layer(utilities);
 ```
