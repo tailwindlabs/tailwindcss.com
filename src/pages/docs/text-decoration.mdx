@@ -74,3 +74,11 @@ Control how text is decorated with the `underline`, `no-underline`, and `line-th
 ### <Heading ignore>Breakpoints and media queries</Heading>
 
 <BreakpointsAndMediaQueries defaultClass="no-underline" featuredClass="underline" element="p" />
+
+
+
+## <Heading ignore>Accessibility</Heading>
+
+`line-through` produces a visual change that is not compatible with all screen readers. Consider adding additional HTML to make it meaningful for all users.
+
+Suggestion: use [`del`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del) and [`ins`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins), or [`s`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s), following the additional accessibility suggestions provided by MDN.
