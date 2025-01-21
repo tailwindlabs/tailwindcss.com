@@ -1,0 +1,349 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { CustomizingYourThemeColors, ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+
+export const title = "background-image";
+export const description = "Utilities for controlling an element's background image.";
+
+<svg className="hidden">
+  <symbol id="gradient-color-stop" viewBox="0 0 32 34">
+    <path d="M1 4a4 4 0 0 1 4-4h22a4 4 0 0 1 4 4v19.6a4 4 0 0 1-2.118 3.53L16 34 3.118 27.13A4 4 0 0 1 1 23.6V4Z" />
+    <path
+      fill="none"
+      stroke="#000"
+      strokeOpacity=".05"
+      d="M5 .5h22A3.5 3.5 0 0 1 30.5 4v19.6a3.5 3.5 0 0 1-1.853 3.088L16 33.433 3.353 26.688A3.5 3.5 0 0 1 1.5 23.6V4A3.5 3.5 0 0 1 5 .5Z"
+    />
+  </symbol>
+</svg>
+
+<ApiTable
+  rows={[
+    ["bg-[<value>]", "background-image: <value>;"],
+    ["bg-(<custom-property>)", "background-image: var(<custom-property>);"],
+    ["bg-none", "background-image: none;"],
+    ["bg-linear-to-t", "background-image: linear-gradient(to top, var(--tw-gradient-stops));"],
+    ["bg-linear-to-tr", "background-image: linear-gradient(to top right, var(--tw-gradient-stops));"],
+    ["bg-linear-to-r", "background-image: linear-gradient(to right, var(--tw-gradient-stops));"],
+    ["bg-linear-to-br", "background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));"],
+    ["bg-linear-to-b", "background-image: linear-gradient(to bottom, var(--tw-gradient-stops));"],
+    ["bg-linear-to-bl", "background-image: linear-gradient(to bottom left, var(--tw-gradient-stops));"],
+    ["bg-linear-to-l", "background-image: linear-gradient(to left, var(--tw-gradient-stops));"],
+    ["bg-linear-to-tl", "background-image: linear-gradient(to top left, var(--tw-gradient-stops));"],
+    ["bg-linear-<angle>", "background-image: linear-gradient(<angle> in oklab, var(--tw-gradient-stops));"],
+    ["-bg-linear-<angle>", "background-image: linear-gradient(-<angle> in oklab, var(--tw-gradient-stops));"],
+    [
+      "bg-linear(<custom-property>)",
+      "background-image: linear-gradient(var(--tw-gradient-stops, var(<custom-property>)));",
+    ],
+    ["bg-linear-[<value>]", "background-image: linear-gradient(var(--tw-gradient-stops, <value>));"],
+    ["bg-radial", "background-image: radial-gradient(in oklab, var(--tw-gradient-stops));"],
+    [
+      "bg-radial-(<custom-property>)",
+      "background-image: radial-gradient(var(--tw-gradient-stops,  var(<custom-property>)));",
+    ],
+    ["bg-radial-[<value>]", "background-image: radial-gradient(var(--tw-gradient-stops, <value>));"],
+    ["bg-conic-<angle>", "background-image: conic-gradient(from <angle> in oklab, var(--tw-gradient-stops));"],
+    ["-bg-conic-<angle>", "background-image: conic-gradient(from -<angle> in oklab, var(--tw-gradient-stops));"],
+    ["bg-conic-(<custom-property>)", "background-image: var(<custom-property>);"],
+    ["bg-conic-[<value>]", "background-image: <image>;"],
+    ["from-<color>", "--tw-gradient-from: <color>;"],
+    ["from-<percentage>", "--tw-gradient-from-position: <percentage>;"],
+    ["from-(<custom-property>)", "--tw-gradient-from: var(<custom-property>);"],
+    ["from-[<value>]", "--tw-gradient-from: <value>;"],
+    ["via-<color>", "--tw-gradient-via: <color>;"],
+    ["via-<percentage>", "--tw-gradient-via-position: <percentage>;"],
+    ["via-(<custom-property>)", "--tw-gradient-via: var(<custom-property>);"],
+    ["via-[<value>]", "--tw-gradient-via: <value>;"],
+    ["to-<color>", "--tw-gradient-to: <color>;"],
+    ["to-<percentage>", "--tw-gradient-to-position: <percentage>;"],
+    ["to-(<custom-property>)", "--tw-gradient-to: var(<custom-property>);"],
+    ["to-[<value>]", "--tw-gradient-to: <value>;"],
+  ]}
+/>
+
+## Examples
+
+### Basic example
+
+Use the `bg-[<value>]` syntax to set the background image of an element:
+
+<Figure>
+
+<Example>
+  {
+    <div className="relative mx-auto flex h-48 w-96 items-center justify-center overflow-hidden rounded-lg sm:w-96">
+      <div className="h-full w-full bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] bg-cover bg-center bg-no-repeat"></div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:bg-[url(/img/mountains.jpg)]] -->
+<div class="bg-[url(/img/mountains.jpg)] ..."></div>
+```
+
+</Figure>
+
+### Adding a linear gradient
+
+Use utilities like `bg-linear-to-r` and `bg-linear-<angle>` with the [color stop utilities](#setting-gradient-color-stops) to add a linear gradient to an element:
+
+<Figure>
+
+<Example>
+  {
+    <div className="space-y-4">
+      <div className="h-14 rounded-lg bg-linear-to-r from-cyan-500 to-blue-500"></div>
+      <div className="h-14 rounded-lg bg-linear-to-t from-sky-500 to-indigo-500"></div>
+      <div className="h-14 rounded-lg bg-linear-to-bl from-violet-500 to-fuchsia-500"></div>
+      <div className="h-14 rounded-lg bg-linear-65 from-purple-500 to-pink-500"></div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:bg-linear-to-r,bg-linear-to-t,bg-linear-to-bl,bg-linear-65] -->
+<div class="h-14 bg-linear-to-r from-cyan-500 to-blue-500"></div>
+<div class="h-14 bg-linear-to-t from-sky-500 to-indigo-500"></div>
+<div class="h-14 bg-linear-to-bl from-violet-500 to-fuchsia-500"></div>
+<div class="h-14 bg-linear-65 from-purple-500 to-pink-500"></div>
+```
+
+</Figure>
+
+### Adding a radial gradient
+
+Use the `bg-radial` and `bg-radial-[<position>]` utilities with the [color stop utilities](#setting-gradient-color-stops) to add a radial gradient to an element:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="flex justify-around p-8 sm:p-12">
+      <div className="size-18 rounded-full bg-radial from-pink-400 from-40% to-fuchsia-700 sm:size-24"></div>
+      <div className="size-18 rounded-full bg-radial-[at_50%_75%] from-sky-200 via-blue-400 to-indigo-900 to-90% sm:size-24"></div>
+      <div className="size-18 rounded-full bg-radial-[at_25%_25%] from-white to-zinc-900 to-75% sm:size-24"></div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:bg-radial-[at_50%_75%],bg-radial-[at_25%_25%],bg-radial] -->
+<div class="size-18 rounded-full bg-radial from-pink-400 from-40% to-fuchsia-700"></div>
+<div class="size-18 rounded-full bg-radial-[at_50%_75%] from-sky-200 via-blue-400 to-indigo-900 to-90%"></div>
+<div class="size-18 rounded-full bg-radial-[at_25%_25%] from-white to-zinc-900 to-75%"></div>
+```
+
+</Figure>
+
+### Adding a conic gradient
+
+Use the `bg-conic` and `bg-conic-<angle>` utilities with the [color stop utilities](#setting-gradient-color-stops) to add a conic gradient to an element:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="flex justify-around p-8 sm:p-12">
+      <div className="size-18 rounded-full bg-conic from-blue-600 to-sky-400 to-50% sm:size-24"></div>
+      <div className="size-18 rounded-full bg-conic-180 from-indigo-600 via-indigo-50 to-indigo-600 sm:size-24"></div>
+      <div className="size-18 rounded-full bg-conic/decreasing from-violet-700 via-lime-300 to-violet-700 sm:size-24"></div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:bg-conic-180,bg-conic/decreasing,bg-conic] -->
+<div class="size-24 rounded-full bg-conic from-blue-600 to-sky-400 to-50%"></div>
+<div class="size-24 rounded-full bg-conic-180 from-indigo-600 via-indigo-50 to-indigo-600"></div>
+<div class="size-24 rounded-full bg-conic/decreasing from-violet-700 via-lime-300 to-violet-700"></div>
+```
+
+</Figure>
+
+### Setting gradient color stops
+
+Use utilities like `from-indigo-500`, `via-purple-500`, and `to-pink-500` to set the colors of the gradient stops:
+
+<Figure>
+
+<Example>
+  {
+    <div className="mx-5">
+      <div className="relative h-[3.625rem]">
+        <div className="absolute top-0 left-px -ml-4 flex h-12 flex-col items-center">
+          <svg viewBox="0 0 32 34" className="w-8 flex-none fill-indigo-500 drop-shadow">
+            <use href="#gradient-color-stop" />
+          </svg>
+          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+        </div>
+        <div className="absolute top-0 left-1/2 -ml-4 flex h-12 flex-col items-center">
+          <svg viewBox="0 0 32 34" className="w-8 flex-none fill-purple-500 drop-shadow">
+            <use href="#gradient-color-stop" />
+          </svg>
+          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+        </div>
+        <div className="absolute top-0 right-px -mr-4 flex h-12 flex-col items-center">
+          <svg viewBox="0 0 32 34" className="w-8 flex-none fill-pink-500 drop-shadow">
+            <use href="#gradient-color-stop" />
+          </svg>
+          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+        </div>
+      </div>
+      <div className="h-10 rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:from-indigo-500,via-purple-500,to-pink-500] -->
+<div class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ..."></div>
+```
+
+</Figure>
+
+### Setting gradient stop positions
+
+Use utilities like `from-10%`, `via-30%`, and `to-90%` to set more precise positions for the gradient color stops:
+
+<Figure>
+
+<Example>
+  {
+    <div className="mx-5">
+      <div className="relative h-[3.625rem]">
+        <div className="absolute top-0 left-[10%] -ml-4 flex h-12 flex-col items-center">
+          <svg viewBox="0 0 32 34" className="w-8 flex-none fill-indigo-500 drop-shadow">
+            <use href="#gradient-color-stop" />
+          </svg>
+          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+          <div className="absolute top-0 left-0 flex h-8 w-full items-center justify-center font-mono text-[0.6875rem] font-semibold tracking-wider text-white">
+            10%
+          </div>
+        </div>
+        <div className="absolute top-0 left-[30%] -ml-4 flex h-12 flex-col items-center">
+          <svg viewBox="0 0 32 34" className="w-8 flex-none fill-sky-500 drop-shadow">
+            <use href="#gradient-color-stop" />
+          </svg>
+          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+          <div className="absolute top-0 left-0 flex h-8 w-full items-center justify-center font-mono text-[0.6875rem] font-semibold tracking-wider text-white">
+            30%
+          </div>
+        </div>
+        <div className="absolute top-0 right-[10%] -mr-4 flex h-12 flex-col items-center">
+          <svg viewBox="0 0 32 34" className="w-8 flex-none fill-emerald-500 drop-shadow">
+            <use href="#gradient-color-stop" />
+          </svg>
+          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+          <div className="absolute top-0 left-0 flex h-8 w-full items-center justify-center font-mono text-[0.6875rem] font-semibold tracking-wider text-white">
+            90%
+          </div>
+        </div>
+      </div>
+      <div className="h-10 rounded-lg bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"></div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:from-10%,via-30%,to-90%] -->
+<div class="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% ..."></div>
+```
+
+</Figure>
+
+### Changing interpolation mode
+
+Use the interpolation modifier to control the interpolation mode of a gradient:
+
+<Figure>
+
+<Example>
+  {
+    <div>
+      <div className="grid grid-cols-1 items-center gap-x-4 gap-y-0 sm:grid-cols-[auto_1fr] sm:gap-y-2">
+        <p className="mt-2 font-mono text-sm font-medium text-gray-500 sm:mt-0 sm:text-right dark:text-gray-400">
+          srgb
+        </p>
+        <div className="mt-1 h-12 rounded-lg bg-linear-to-r/srgb from-indigo-500 to-teal-400"></div>
+        <p className="mt-2 font-mono text-sm font-medium text-gray-500 sm:mt-0 sm:text-right dark:text-gray-400">hsl</p>
+        <div className="mt-1 h-12 rounded-lg bg-linear-to-r/hsl from-indigo-500 to-teal-400"></div>
+        <p className="mt-2 font-mono text-sm font-medium text-gray-500 sm:mt-0 sm:text-right dark:text-gray-400">
+          oklab
+        </p>
+        <div className="mt-1 h-12 rounded-lg bg-linear-to-r/oklab from-indigo-500 to-teal-400"></div>
+        <p className="mt-2 font-mono text-sm font-medium text-gray-500 sm:mt-0 sm:text-right dark:text-gray-400">
+          oklch
+        </p>
+        <div className="mt-1 h-12 rounded-lg bg-linear-to-r/oklch from-indigo-500 to-teal-400"></div>
+        <p className="mt-2 font-mono text-sm font-medium text-gray-500 sm:mt-0 sm:text-right dark:text-gray-400">
+          longer
+        </p>
+        <div className="mt-1 h-12 rounded-lg bg-linear-to-r/longer from-indigo-500 to-teal-400"></div>
+        <p className="mt-2 font-mono text-sm font-medium text-gray-500 sm:mt-0 sm:text-right dark:text-gray-400">
+          shorter
+        </p>
+        <div className="mt-1 h-12 rounded-lg bg-linear-to-r/shorter from-indigo-500 to-teal-400"></div>
+        <p className="mt-2 font-mono text-sm font-medium text-wrap text-gray-500 sm:mt-0 sm:text-right dark:text-gray-400">
+          increasing
+        </p>
+        <div className="mt-1 h-12 rounded-lg bg-linear-to-r/increasing from-indigo-500 to-teal-400"></div>
+        <p className="mt-2 font-mono text-sm font-medium text-gray-500 sm:mt-0 sm:text-right dark:text-gray-400">
+          decreasing
+        </p>
+        <div className="mt-1 h-12 rounded-lg bg-linear-to-r/decreasing from-indigo-500 to-teal-400"></div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code word:/srgb] -->
+<!-- [!code word:/hsl] -->
+<!-- [!code word:/oklab] -->
+<!-- [!code word:/oklch] -->
+<!-- [!code word:/longer] -->
+<!-- [!code word:/shorter] -->
+<!-- [!code word:/increasing] -->
+<!-- [!code word:/decreasing] -->
+<div class="bg-linear-to-r/srgb from-indigo-500 to-teal-400"></div>
+<div class="bg-linear-to-r/hsl from-indigo-500 to-teal-400"></div>
+<div class="bg-linear-to-r/oklab from-indigo-500 to-teal-400"></div>
+<div class="bg-linear-to-r/oklch from-indigo-500 to-teal-400"></div>
+<div class="bg-linear-to-r/longer from-indigo-500 to-teal-400"></div>
+<div class="bg-linear-to-r/shorter from-indigo-500 to-teal-400"></div>
+<div class="bg-linear-to-r/increasing from-indigo-500 to-teal-400"></div>
+<div class="bg-linear-to-r/decreasing from-indigo-500 to-teal-400"></div>
+```
+
+</Figure>
+
+By default gradients are interpolated in the `oklab` color space.
+
+### Removing background images
+
+Use the `bg-none` utility to remove an existing background image from an element:
+
+```html
+<!-- [!code classes:bg-none] -->
+<div class="bg-none"></div>
+```
+
+### Using a custom value
+
+<UsingACustomValue
+  utilities={["bg-linear", "from"]}
+  name="gradient"
+  value="25deg,red_5%,yellow_60%,lime_90%,teal"
+  variable="gradient"
+/>
+
+### Responsive design
+
+<ResponsiveDesign property="background-image" defaultClass="from-purple-400" featuredClass="from-yellow-500" />
+
+## Customizing your theme
+
+<CustomizingYourThemeColors utilities={["from", "via", "to"]} />

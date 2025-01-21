@@ -1,0 +1,48 @@
+import Image from "next/image";
+import Link from "next/link";
+
+import { simonswiss } from "@/app/blog/authors";
+import card from "./card.jpg";
+
+export const meta = {
+  title: `"Tailwind CSS: From Zero to Production" on YouTube`,
+  description: `Today we're excited to release Tailwind CSS: From Zero to Production, a new screencast series that teaches you everything you need to know to go from zero to production with Tailwind CSS v2.0.`,
+  date: "2021-02-16T16:05:00.000Z",
+  authors: [simonswiss],
+  image: card,
+  excerpt: (
+    <>
+      Today we're excited to release{" "}
+      <Link href="https://www.youtube.com/watch?v=elgqxmdVms8&list=PL5f_mz_zU5eXWYDXHUDOLBE0scnuJofO0&index=1">
+        Tailwind CSS: From Zero to Production
+      </Link>
+      , a new screencast series that teaches you everything you need to know to get up and running with Tailwind CSS
+      v2.0 from scratch.
+    </>
+  ),
+};
+
+Today we're excited to release [Tailwind CSS: From Zero to Production](https://www.youtube.com/watch?v=elgqxmdVms8&list=PL5f_mz_zU5eXWYDXHUDOLBE0scnuJofO0&index=1), a new screencast series that teaches you everything you need to know to get up and running with Tailwind CSS v2.0 from scratch.
+
+<iframe
+  src="https://www.youtube.com/embed/elgqxmdVms8"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  className="aspect-video w-full"
+></iframe>
+
+It's an eight-part series totaling 1.5 hours of content, and walks you through everything from the initial setup process, to building out a responsive design with utility classes, to customizing your design system, to optimizing for production with PurgeCSS.
+
+1. <Link href="https://www.youtube.com/watch?v=qYgogv4R8zg">Setting Up Tailwind CSS</Link>
+2. <Link href="https://www.youtube.com/watch?v=UvF56fPGVt4">The Utility-First Workflow</Link>
+3. <Link href="https://www.youtube.com/watch?v=hX1zUdj4Dw4">Responsive Design</Link>
+4. <Link href="https://www.youtube.com/watch?v=5_BPDve5-3M">Hover, Focus and Other States</Link>
+5. <Link href="https://www.youtube.com/watch?v=TrftauE2Vyk">Composing Utilities with @apply</Link>
+6. <Link href="https://www.youtube.com/watch?v=v-mkUxhaFVA">Extracting Reusable Components</Link>
+7. <Link href="https://www.youtube.com/watch?v=0l0Gx8gWPHk">Customizing Your Design System</Link>
+8. <Link href="https://www.youtube.com/watch?v=HZn2LtBT59w">Optimizing for Production</Link>
+
+Watch the series <Link href="https://www.youtube.com/watch?v=elgqxmdVms8&list=PL5f_mz_zU5eXWYDXHUDOLBE0scnuJofO0&index=1">on YouTube</Link> and <Link href="https://github.com/tailwindlabs/tailwindcss-from-zero-to-production">grab the source code</Link> for each lesson on GitHub.
+
+What are you waiting for? <Link href="https://www.youtube.com/watch?v=elgqxmdVms8&list=PL5f_mz_zU5eXWYDXHUDOLBE0scnuJofO0&index=1">Start watching →</Link>

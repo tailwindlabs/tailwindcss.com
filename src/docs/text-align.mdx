@@ -1,0 +1,132 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+
+export const title = "text-align";
+export const description = "Utilities for controlling the alignment of text.";
+
+<ApiTable
+  rows={[
+    ["text-left", "text-align: left;"],
+    ["text-center", "text-align: center;"],
+    ["text-right", "text-align: right;"],
+    ["text-justify", "text-align: justify;"],
+    ["text-start", "text-align: start;"],
+    ["text-end", "text-align: end;"],
+  ]}
+/>
+
+## Examples
+
+### Left aligning text
+
+Use the `text-left` utility to left align the text of an element:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="px-4 sm:px-0">
+      <div className="mx-auto max-w-lg p-8 text-sm/6 text-gray-900 dark:text-gray-200">
+        <p className="text-left">
+          So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made
+          my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the
+          kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+        </p>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:text-left] -->
+<p class="text-left">So I started to walk into the water...</p>
+```
+
+</Figure>
+
+### Right aligning text
+
+Use the `text-right` utility to right align the text of an element:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="px-4 sm:px-0">
+      <div className="mx-auto max-w-lg p-8 text-sm/6 text-gray-900 dark:text-gray-200">
+        <p className="text-right">
+          So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made
+          my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the
+          kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+        </p>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:text-right] -->
+<p class="text-right">So I started to walk into the water...</p>
+```
+
+</Figure>
+
+### Centering text
+
+Use the `text-center` utility to center the text of an element:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="px-4 sm:px-0">
+      <div className="mx-auto max-w-lg p-8 text-sm/6 text-gray-900 dark:text-gray-200">
+        <p className="text-center">
+          So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made
+          my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the
+          kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+        </p>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:text-center] -->
+<p class="text-center">So I started to walk into the water...</p>
+```
+
+</Figure>
+
+### Justifying text
+
+Use the `text-justify` utility to justify the text of an element:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="px-4 sm:px-0">
+      <div className="mx-auto max-w-lg p-8 text-sm/6 text-gray-900 dark:text-gray-200">
+        <p className="text-justify">
+          So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made
+          my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the
+          kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+        </p>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:text-justify] -->
+<p class="text-justify">So I started to walk into the water...</p>
+```
+
+</Figure>
+
+### Responsive design
+
+<ResponsiveDesign element="p" property="text-align" defaultClass="text-left" featuredClass="text-center" />

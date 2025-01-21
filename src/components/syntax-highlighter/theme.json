@@ -1,0 +1,609 @@
+{
+  "name": "tailwindcss-theme",
+  "colors": {
+    "foreground": "var(--color-slate-400)",
+    "descriptionForeground": "var--color-slate-200)",
+    "errorForeground": "var(--color-rose-400)",
+    "selection.background": "color-mix(in oklab, var(--color-blue-200) 64%, transparent)",
+    "focusBorder": "var(--color-sky-500)",
+    "icon.foreground": "var(--color-slate-50)",
+    "widget.shadow": "color-mix(in oklab, var(--color-black) 25%, transparent)",
+    "textLink.foreground": "var(--color-sky-400)",
+    "textLink.activeForeground": "var(--color-sky-300)",
+    "badge.background": "var(--color-slate-400)",
+    "badge.foreground": "var(--color-slate-900)",
+    "progressBar.background": "var(--color-sky-500)",
+    "titleBar.activeBackground": "var(--color-slate-800)",
+    "titleBar.activeForeground": "var(--color-slate-300)",
+    "titleBar.inactiveBackground": "var(--color-slate-800)",
+    "titleBar.inactiveForeground": "var(--color-slate-500)",
+    "titleBar.border": "var(--color-slate-700)",
+    "toolbar.hoverBackground": "color-mix(in oklab, var(--color-slate-200) 10%, transparent)",
+    "toolbar.activeBackground": "color-mix(in oklab, var(--color-slate-300) 20%, transparent)",
+    "debugToolBar.background": "var(--color-slate-700)",
+    "debugIcon.startForeground": "var(--color-emerald-400)",
+    "debugIcon.pauseForeground": "var(--color-blue-400)",
+    "debugIcon.stopForeground": "var(--color-rose-400)",
+    "debugIcon.restartForeground": "var(--color-emerald-400)",
+    "debugIcon.stepOverForeground": "var(--color-violet-400)",
+    "debugIcon.stepIntoForeground": "var(--color-violet-400)",
+    "debugIcon.stepOutForeground": "var(--color-violet-400)",
+    "debugIcon.continueForeground": "var(--color-violet-400)",
+    "debugIcon.stepBackForeground": "var(--color-violet-400)",
+    "debugIcon.breakpointForeground": "var(--color-rose-400)",
+    "debugConsole.infoForeground": "var(--color-blue-400)",
+    "debugConsole.warningForeground": "var(--color-amber-300)",
+    "debugConsole.errorForeground": "var(--color-rose-400)",
+    "activityBar.background": "var(--color-slate-800)",
+    "activityBar.foreground": "var(--color-slate-200)",
+    "activityBar.inactiveForeground": "var(--color-slate-400)",
+    "activityBar.border": "var(--color-slate-700)",
+    "activityBar.activeBorder": "var(--color-sky-500)",
+    "activityBar.activeFocusBorder": "var(--color-sky-500)",
+    "activityBarBadge.background": "var(--color-sky-500)",
+    "activityBarBadge.foreground": "var(--color-white)",
+    "sideBar.background": "var(--color-slate-800)",
+    "sideBar.foreground": "var(--color-slate-300)",
+    "sideBar.border": "var(--color-slate-300)",
+    "sideBarTitle.foreground": "var(--color-slate-500)",
+    "sideBarSectionHeader.background": "var(--color-slate-800)",
+    "sideBarSectionHeader.foreground": "var(--color-slate-400)",
+    "sideBarSectionHeader.border": "var(--color-slate-300)",
+    "banner.background": "var(--color-orange-900)",
+    "banner.foreground": "var(--color-orange-300)",
+    "banner.iconForeground": "var(--color-orange-300)",
+    "statusBar.background": "var(--color-slate-300)",
+    "statusBar.foreground": "var(--color-slate-100)",
+    "statusBar.border": "var(--color-slate-600)",
+    "statusBar.noFolderBackground": "var(--color-slate-300)",
+    "statusBar.noFolderForeground": "var(--color-slate-100)",
+    "statusBar.noFolderBorder": "var(--color-slate-600)",
+    "statusBar.focusBorder": "var(--color-sky-500)",
+    "statusBar.debuggingBackground": "var(--color-orange-800)",
+    "statusBar.debuggingForeground": "var(--color-orange-200)",
+    "statusBar.debuggingBorder": "var(--color-slate-900)",
+    "statusBarItem.prominentBackground": "var(--color-orange-900)",
+    "statusBarItem.prominentForeground": "var(--color-orange-300)",
+    "statusBarItem.remoteBackground": "var(--color-sky-900)",
+    "statusBarItem.remoteForeground": "var(--color-sky-300)",
+    "statusBarItem.hoverBackground": "color-mix(in oklab, var(--color-slate-200) 10%, transparent)",
+    "statusBarItem.activeBackground": "color-mix(in oklab, var(--color-slate-200) 20%, transparent)",
+    "statusBarItem.errorForeground": "var(--color-rose-400)",
+    "statusBarItem.warningForeground": "var(--color-amber-300)",
+    "editorGroup.border": "var(--color-slate-300)",
+    "editorGroupHeader.tabsBorder": "var(--color-slate-300)",
+    "editorGroupHeader.border": "var(--color-slate-300)",
+    "editorGroupHeader.tabsBackground": "var(--color-slate-800)",
+    "editorGroupHeader.noTabsBackground": "var(--color-slate-800)",
+    "tab.activeBackground": "var(--color-slate-800)",
+    "tab.activeForeground": "var(--color-slate-200)",
+    "tab.border": "var(--color-slate-300)",
+    "tab.activeBorder": "var(--color-slate-800)",
+    "tab.activeBorderTop": "var(--color-sky-500)",
+    "tab.inactiveBackground": "var(--color-slate-800)",
+    "tab.inactiveForeground": "var(--color-slate-400)",
+    "tab.hoverBackground": "var(--color-slate-800)",
+    "tab.hoverForeground": "var(--color-slate-300)",
+    "breadcrumb.background": "var(--color-slate-800)",
+    "breadcrumb.foreground": "var(--color-slate-400)",
+    "list.activeSelectionBackground": "var(--color-slate-400)",
+    "list.activeSelectionForeground": "var(--color-slate-900)",
+    "list.activeSelectionIconForeground": "var(--color-slate-900)",
+    "list.focusOutline": "var(--color-slate-400)",
+    "list.highlightForeground": "var(--color-slate-200)",
+    "list.focusHighlightForeground": "var(--color-slate-900)",
+    "list.inactiveSelectionBackground": "color-mix(in oklab, var(--color-slate-300) 50%, transparent)",
+    "list.inactiveSelectionForeground": "var(--color-slate-200)",
+    "list.inactiveSelectionIconForeground": "var(--color-slate-200)",
+    "list.hoverBackground": "color-mix(in oklab, var(--color-slate-600) 50%, transparent)",
+    "list.hoverForeground": "var(--color-slate-200)",
+    "list.errorForeground": "var(--color-rose-400)",
+    "list.warningForeground": "var(--color-amber-300)",
+    "tree.indentGuidesStroke": "color-mix(in oklab, var(--color-slate-200) 25%, transparent)",
+    "panel.background": "var(--color-slate-800)",
+    "panel.border": "var(--color-slate-300)",
+    "panelTitle.activeForeground": "var(--color-slate-200)",
+    "panelTitle.inactiveForeground": "var(--color-slate-400)",
+    "panelTitle.activeBorder": "var(--color-sky-500)",
+    "panelInput.border": "var(--color-slate-300)",
+    "panelSection.border": "var(--color-slate-300)",
+    "panelSectionHeader.background": "var(--color-slate-800)",
+    "panelSectionHeader.foreground": "var(--color-slate-400)",
+    "panelSectionHeader.border": "var(--color-slate-300)",
+    "minimap.background": "var(--color-slate-800)",
+    "minimapSlider.background": "color-mix(in oklab, var(--color-slate-200) 15%, transparent)",
+    "minimapSlider.hoverBackground": "color-mix(in oklab, var(--color-slate-200) 20%, transparent)",
+    "minimapSlider.activeBackground": "color-mix(in oklab, var(--color-slate-200) 25%, transparent)",
+    "minimap.errorHighlight": "var(--color-rose-400)",
+    "minimap.warningHighlight": "var(--color-amber-300)",
+    "minimap.selectionHighlight": "var(--color-sky-500)",
+    "minimap.findMatchHighlight": "var(--color-violet-400)",
+    "scrollbar.shadow": "var(--color-slate-800)",
+    "scrollbarSlider.background": "color-mix(in oklab, var(--color-slate-200) 15%, transparent)",
+    "scrollbarSlider.hoverBackground": "color-mix(in oklab, var(--color-slate-200) 20%, transparent)",
+    "scrollbarSlider.activeBackground": "color-mix(in oklab, var(--color-slate-200) 25%, transparent)",
+    "editorOverviewRuler.background": "var(--color-slate-800)",
+    "editorOverviewRuler.border": "var(--color-slate-600)",
+    "editorOverviewRuler.errorForeground": "var(--color-rose-400)",
+    "editorOverviewRuler.warningForeground": "var(--color-amber-300)",
+    "editorOverviewRuler.selectionHighlightForeground": "var(--color-sky-500)",
+    "editorOverviewRuler.findMatchForeground": "var(--color-violet-400)",
+    "editorOverviewRuler.addedForeground": "var(--color-emerald-600)",
+    "editorOverviewRuler.deletedForeground": "var(--color-rose-700)",
+    "editorOverviewRuler.modifiedForeground": "var(--color-blue-500)",
+    "editor.background": "transparent",
+    "editorPane.background": "var(--color-slate-800)",
+    "editor.foreground": "var(--color-slate-50)",
+    "editorLineNumber.foreground": "var(--color-slate-500)",
+    "editorLineNumber.activeForeground": "var(--color-slate-200)",
+    "editorCursor.foreground": "var(--color-slate-50)",
+    "editor.selectionBackground": "color-mix(in oklab, var(--color-slate-200) 25%, transparent)",
+    "editor.inactiveSelectionBackground": "color-mix(in oklab, var(--color-slate-200) 25%, transparent)",
+    "editor.selectionHighlightBackground": "color-mix(in oklab, var(--color-slate-200) 10%, transparent)",
+    "editor.foldBackground": "color-mix(in oklab, var(--color-slate-900) 50%, transparent)",
+    "editor.wordHighlightBackground": "color-mix(in oklab, var(--color-slate-200) 25%, transparent)",
+    "editor.wordHighlightStrongBackground": "color-mix(in oklab, var(--color-slate-200) 25%, transparent)",
+    "editorBracketMatch.border": "color-mix(in oklab, var(--color-slate-500) 0%, transparent)",
+    "editorBracketMatch.background": "color-mix(in oklab, var(--color-slate-200) 25%, transparent)",
+    "editor.findMatchBackground": "color-mix(in oklab, var(--color-violet-500) 50%, transparent)",
+    "editor.findMatchHighlightBackground": "color-mix(in oklab, var(--color-violet-500) 50%, transparent)",
+    "editor.rangeHighlightBackground": "color-mix(in oklab, var(--color-violet-500) 15%, transparent)",
+    "editor.lineHighlightBackground": "color-mix(in oklab, var(--color-slate-300) 50%, transparent)",
+    "editorIndentGuide.background": "color-mix(in oklab, var(--color-slate-200) 10%, transparent)",
+    "editorIndentGuide.activeBackground": "color-mix(in oklab, var(--color-slate-200) 30%, transparent)",
+    "editorError.foreground": "var(--color-rose-400)",
+    "editorError.background": "color-mix(in oklab, var(--color-rose-400) 25%, transparent)",
+    "editorWarning.foreground": "var(--color-amber-300)",
+    "editorWarning.background": "color-mix(in oklab, var(--color-amber-300) 25%, transparent)",
+    "editorInfo.foreground": "var(--color-blue-400)",
+    "editorInfo.background": "color-mix(in oklab, var(--color-blue-400) 40%, transparent)",
+    "editorGutter.addedBackground": "var(--color-emerald-400)",
+    "editorGutter.deletedBackground": "var(--color-rose-400)",
+    "editorGutter.modifiedBackground": "var(--color-blue-400)",
+    "diffEditor.insertedLineBackground": "color-mix(in oklab, var(--color-emerald-400) 25%, transparent)",
+    "diffEditor.insertedTextBackground": "color-mix(in oklab, var(--color-emerald-400) 25%, transparent)",
+    "diffEditor.removedTextBackground": "color-mix(in oklab, var(--color-rose-400) 25%, transparent)",
+    "diffEditor.removedLineBackground": "color-mix(in oklab, var(--color-rose-400) 25%, transparent)",
+    "diffEditorOverview.insertedForeground": "var(--color-emerald-600)",
+    "diffEditorOverview.removedForeground": "var(--color-rose-700)",
+    "editorLightBulb.foreground": "var(--color-amber-300)",
+    "editorLightBulbAutoFix.foreground": "var(--color-blue-400)",
+    "peekViewEditorGutter.background": "var(--color-slate-800)",
+    "peekViewEditor.background": "var(--color-slate-800)",
+    "peekViewResult.background": "var(--color-slate-800)",
+    "peekViewTitle.background": "var(--color-slate-800)",
+    "editorWidget.background": "var(--color-slate-300)",
+    "editorWidget.border": "var(--color-slate-600)",
+    "input.background": "var(--color-slate-300)",
+    "input.border": "var(--color-slate-600)",
+    "input.foreground": "var(--color-slate-50)",
+    "input.placeholderForeground": "var(--color-slate-500)",
+    "inputOption.hoverBackground": "color-mix(in oklab, var(--color-slate-200) 10%, transparent)",
+    "inputOption.activeBackground": "color-mix(in oklab, var(--color-slate-200) 20%, transparent)",
+    "inputOption.activeForeground": "var(--color-slate-200)",
+    "inputOption.activeBorder": "color-mix(in oklab, var(--color-slate-200) 10%, transparent)",
+    "dropdown.background": "var(--color-slate-300)",
+    "dropdown.border": "var(--color-slate-600)",
+    "dropdown.foreground": "var(--color-slate-50)",
+    "dropdown.listBackground": "var(--color-slate-800)",
+    "button.background": "var(--color-sky-500)",
+    "button.hoverBackground": "var(--color-sky-400)",
+    "button.foreground": "var(-color-white)",
+    "button.secondaryBackground": "var(--color-slate-300)",
+    "button.secondaryHoverBackground": "var(--color-slate-600)",
+    "button.secondaryForeground": "var(--color-slate-300)",
+    "checkbox.background": "var(--color-slate-300)",
+    "checkbox.foreground": "var(--color-slate-300)",
+    "checkbox.border": "var(--color-slate-500)",
+    "gitDecoration.addedResourceForeground": "var(--color-emerald-400)",
+    "gitDecoration.deletedResourceForeground": "var(--color-rose-400)",
+    "gitDecoration.renamedResourceForeground": "var(--color-violet-400)",
+    "gitDecoration.modifiedResourceForeground": "var(--color-blue-400)",
+    "gitDecoration.stageModifiedResourceForeground": "var(--color-blue-400)",
+    "gitDecoration.stageDeletedResourceForeground": "var(--color-rose-400)",
+    "gitDecoration.untrackedResourceForeground": "var(--color-emerald-400)",
+    "gitDecoration.ignoredResourceForeground": "var(--color-slate-400)",
+    "gitDecoration.conflictingResourceForeground": "var(--color-amber-300)",
+    "gitDecoration.submoduleResourceForeground": "var(--color-slate-400)",
+    "terminal.background": "var(--color-slate-800)",
+    "terminal.foreground": "var(--color-slate-300)",
+    "terminal.selectionBackground": "color-mix(in oklab, var(--color-slate-200) 15%, transparent)",
+    "terminalCommandDecoration.successBackground": "color-mix(in oklab, var(--color-emerald-400) 25%, transparent)",
+    "terminalCommandDecoration.errorBackground": "color-mix(in oklab, var(--color-rose-400) 25%, transparent)",
+    "terminal.ansiBlack": "var(-color-white)",
+    "terminal.ansiBrightBlack": "var(--color-slate-400)",
+    "terminal.ansiWhite": "var(--color-slate-300)",
+    "terminal.ansiBrightWhite": "var(-color-white)",
+    "terminal.ansiBlue": "var(--color-blue-500)",
+    "terminal.ansiBrightBlue": "var(--color-blue-400)",
+    "terminal.ansiCyan": "var(--color-cyan-400)",
+    "terminal.ansiBrightCyan": "var(--color-cyan-300)",
+    "terminal.ansiGreen": "var(--color-emerald-400)",
+    "terminal.ansiBrightGreen": "var(--color-emerald-300)",
+    "terminal.ansiMagenta": "var(--color-violet-400)",
+    "terminal.ansiBrightMagenta": "var(--color-purple-300)",
+    "terminal.ansiRed": "var(--color-rose-400)",
+    "terminal.ansiBrightRed": "var(--color-rose-400)",
+    "terminal.ansiYellow": "var(--color-amber-300)",
+    "terminal.ansiBrightYellow": "var(--color-amber-300)",
+    "welcomePage.background": "var(--color-slate-800)",
+    "welcomePage.tileBackground": "color-mix(in oklab, var(--color-slate-300) 30%, transparent)",
+    "welcomePage.tileHoverBackground": "color-mix(in oklab, var(--color-slate-300) 50%, transparent)",
+    "walkThrough.embeddedEditorBackground": "color-mix(in oklab, var(--color-slate-300) 30%, transparent)",
+    "textBlockQuote.background": "color-mix(in oklab, var(--color-slate-300) 30%, transparent)",
+    "textBlockQuote.border": "var(--color-sky-500)",
+    "textCodeBlock.background": "color-mix(in oklab, var(--color-slate-300) 30%, transparent)",
+    "textPreformat.foreground": "var(--color-slate-300)"
+  },
+
+  "tokenColors": [
+    {
+      "name": "Comment",
+      "scope": ["comment"],
+      "settings": {
+        "fontStyle": "italic",
+        "foreground": "var(--color-slate-400)"
+      }
+    },
+    {
+      "name": "Punctuation",
+      "scope": ["punctuation"],
+      "settings": {
+        "foreground": "var(--color-slate-400)"
+      }
+    },
+    {
+      "name": "Constant - eg. Number, Boolean, Colors",
+      "scope": ["constant"],
+      "settings": {
+        "foreground": "var(--color-amber-200)"
+      }
+    },
+    {
+      "name": "Entity - eg. Function, Type, Tag, Attribute Name",
+      "scope": ["entity"],
+      "settings": {
+        "foreground": "var(--color-slate-300)"
+      }
+    },
+    {
+      "name": "Entity Name - eg. Function, Type, Tag, Attribute Name",
+      "scope": ["entity.name"],
+      "settings": {
+        "foreground": "var(--color-pink-400)"
+      }
+    },
+    {
+      "name": "Entity Name Function - eg. Function, Type, Tag, Attribute Name",
+      "scope": ["entity.name.function"],
+      "settings": {
+        "foreground": "var(--color-teal-200)"
+      }
+    },
+    {
+      "name": "Keyword - eg. Control (while, for), Operator (or)",
+      "scope": ["keyword"],
+      "settings": {
+        "foreground": "var(--color-violet-300)"
+      }
+    },
+    {
+      "name": "Keyword Assignment - eg. =",
+      "scope": ["keyword.operator.assignment"],
+      "settings": {
+        "foreground": "var(--color-slate-400)"
+      }
+    },
+    {
+      "name": "Storage - eg. Type (class, function, var)",
+      "scope": ["storage"],
+      "settings": {
+        "foreground": "var(--color-slate-300)"
+      }
+    },
+    {
+      "name": "String - eg. Quoted Value, Interpolated Values, Regex",
+      "scope": ["string", "punctuation.definition.string"],
+      "settings": {
+        "foreground": "var(--color-sky-300)"
+      }
+    },
+    {
+      "name": "Support - eg. Key in JSON",
+      "scope": ["support"],
+      "settings": {
+        "foreground": "var(--color-violet-300)"
+      }
+    },
+    {
+      "name": "Variable - eg. Named Import, Variable",
+      "scope": ["variable"],
+      "settings": {
+        "foreground": "var(--color-rose-300)"
+      }
+    },
+    {
+      "name": "Variable Object - eg. Named Import, Variable",
+      "scope": ["variable.other.constant.object"],
+      "settings": {
+        "foreground": "var(--color-rose-300)"
+      }
+    },
+    {
+      "name": "[HTML] - Entity",
+      "scope": ["text.html entity"],
+      "settings": {
+        "foreground": "var(--color-pink-400)"
+      }
+    },
+    {
+      "name": "[HTML] - Attribute Names",
+      "scope": ["text.html entity.other.attribute-name"],
+      "settings": {
+        "foreground": "var(--color-slate-300)"
+      }
+    },
+    {
+      "name": "[HTML] - Attribute Values",
+      "scope": ["text.html string.quoted", "text.html punctuation.definition.string"],
+      "settings": {
+        "foreground": "var(--color-sky-300)"
+      }
+    },
+    {
+      "name": "[HTML] - Punctation",
+      "scope": ["text.html punctuation", "text.html keyword.operator", "text.html meta.tag"],
+      "settings": {
+        "foreground": "var(--color-slate-400)"
+      }
+    },
+    {
+      "name": "[HTML] - Doctype",
+      "scope": ["text.html meta.tag.sgml", "text.html meta.tag.sgml punctuation"],
+      "settings": {
+        "foreground": "color-mix(in oklab, var(--color-blue-300) 75%, transparent)"
+      }
+    },
+    {
+      "name": "[HTML] - Function",
+      "scope": ["text.html entity.name.function"],
+      "settings": {
+        "foreground": "var(--color-teal-200)"
+      }
+    },
+    {
+      "name": "[CSS] - Entity - eg. .class, #id, body, :root",
+      "scope": [
+        "source.css entity",
+        "source.css entity.other.attribute-name.class",
+        "source.css entity.other.attribute-name.id",
+        "source.css entity.other.attribute-name.pseudo-class",
+        "source.css punctuation.definition.entity"
+      ],
+      "settings": {
+        "foreground": "var(--color-pink-400)"
+      }
+    },
+    {
+      "name": "[CSS] - Meta Attribute - eg. [data-attribute]",
+      "scope": [
+        "source.css meta.attribute-selector",
+        "source.css meta.attribute-selector punctuation.definition.string",
+        "source.css entity.other.attribute-name"
+      ],
+      "settings": {
+        "foreground": "var(--color-violet-300)"
+      }
+    },
+    {
+      "name": "[CSS] - @ - eg. @media",
+      "scope": ["source.css keyword.control.at-rule", "source.css punctuation.definition.keyword"],
+      "settings": {
+        "foreground": "var(--color-slate-300)"
+      }
+    },
+    {
+      "name": "[CSS] - Meta Value - eg. value",
+      "scope": [
+        "source.css meta.property-value",
+        "source.css meta.property-value.css punctuation.definition.constant",
+        "source.css meta.property-list meta.at-rule",
+        "source.css variable.parameter"
+      ],
+      "settings": {
+        "foreground": "var(--color-slate-50)"
+      }
+    },
+    {
+      "name": "[CSS] - Constant - eg. 2.55, ease-out",
+      "scope": ["source.css constant", "source.css support.constant"],
+      "settings": {
+        "foreground": "var(--color-slate-50)"
+      }
+    },
+    {
+      "name": "[CSS] - Meta Name - eg. font-family, 'name'",
+      "scope": ["source.css meta.property-name", "source.css support.type.property-name", "source.css string"],
+      "settings": {
+        "foreground": "var(--color-sky-300)"
+      }
+    },
+    {
+      "name": "[CSS] - Function - eg. var(), rgba()",
+      "scope": ["source.css support.function"],
+      "settings": {
+        "foreground": "var(--color-blue-200)"
+      }
+    },
+    {
+      "name": "[CSS] - Keyword - eg. =, and",
+      "scope": ["source.css keyword.control", "source.css keyword.operator"],
+      "settings": {
+        "foreground": "var(--color-slate-300)"
+      }
+    },
+    {
+      "name": "[CSS] - Unit - eg. px, %",
+      "scope": ["source.css keyword.other.unit"],
+      "settings": {
+        "foreground": "var(--color-teal-100)"
+      }
+    },
+    {
+      "name": "[CSS] - Variable - eg. --var",
+      "scope": [
+        "source.css variable",
+        "source.css entity.other.attribute-name.placeholder",
+        "source.css entity.other.attribute-name.placeholder punctuation.definition.entity"
+      ],
+      "settings": {
+        "foreground": "var(--color-teal-200)"
+      }
+    },
+    {
+      "name": "[CSS] - Punctuation - eg. <> , . () []",
+      "scope": [
+        "source.css punctuation.section",
+        "source.css punctuation.separator",
+        "source.css punctuation.terminator",
+        "source.css punctuation.definition.constant",
+        "source.css meta.attribute-selector punctuation.definition",
+        "source.css punctuation.definition.parameters",
+        "source.css punctuation.access",
+        "source.css meta.property-list"
+      ],
+      "settings": {
+        "foreground": "var(--color-slate-300)"
+      }
+    },
+    {
+      "name": "[HTML in JS] - Entity",
+      "scope": [
+        "source.js meta.block entity.name.tag",
+        "source.ts meta.block entity.name.tag",
+        "source.tsx meta.block entity.name.tag"
+      ],
+      "settings": {
+        "foreground": "var(--color-pink-400)"
+      }
+    },
+    {
+      "name": "[HTML in JS] - Attribute Names",
+      "scope": [
+        "source.js meta.block entity.other.attribute-name",
+        "source.ts meta.block entity.other.attribute-name",
+        "source.tsx meta.block entity.other.attribute-name"
+      ],
+      "settings": {
+        "foreground": "var(--color-slate-300)"
+      }
+    },
+    {
+      "name": "[HTML in JS] - Attribute Values",
+      "scope": [
+        "source.js meta.block string.quoted",
+        "source.ts meta.block string.quoted",
+        "source.tsx meta.block string.quoted",
+        "source.js meta.block punctuation.definition.string",
+        "source.ts meta.block punctuation.definition.string",
+        "source.tsx meta.block punctuation.definition.string"
+      ],
+      "settings": {
+        "foreground": "var(--color-sky-300)"
+      }
+    },
+    {
+      "name": "[HTML in JS] - Constant",
+      "scope": [
+        "source.js meta.block meta.jsx.children",
+        "source.ts meta.block meta.jsx.children",
+        "source.tsx meta.block meta.jsx.children"
+      ],
+      "settings": {
+        "foreground": "var(--color-slate-50)"
+      }
+    },
+    {
+      "name": "[HTML in JS] - Expression",
+      "scope": [
+        "source.js meta.block meta.embedded.expression variable.other",
+        "source.ts meta.block meta.embedded.expression variable.other",
+        "source.tsx meta.block meta.embedded.expression variable.other",
+        "source.js meta.block meta.embedded.expression variable.other.readwrite",
+        "source.ts meta.block meta.embedded.expression variable.other.readwrite",
+        "source.tsx meta.block meta.embedded.expression variable.other.readwrite"
+      ],
+      "settings": {
+        "foreground": "var(--color-rose-300)"
+      }
+    },
+    {
+      "name": "[HTML in JS] - Expression Ternary",
+      "scope": [
+        "source.js meta.block keyword.operator.ternary",
+        "source.ts meta.block keyword.operator.ternary",
+        "source.tsx meta.block keyword.operator.ternary"
+      ],
+      "settings": {
+        "foreground": "var(--color-violet-300)"
+      }
+    },
+    {
+      "name": "[JSON] - Support",
+      "scope": ["source.json support"],
+      "settings": {
+        "foreground": "var(--color-slate-200)"
+      }
+    },
+    {
+      "name": "[JSON] - Constant",
+      "scope": ["source.json constant"],
+      "settings": {
+        "foreground": "var(--color-rose-300)"
+      }
+    },
+    {
+      "name": "[JSON] - Constant (Escaped) - eg. '",
+      "scope": ["constant.character.escape"],
+      "settings": {
+        "foreground": "var(--color-slate-300)"
+      }
+    },
+    {
+      "name": "[JS] - Variable",
+      "scope": ["variable.other.property.js"],
+      "settings": {
+        "foreground": "var(--color-slate-300)"
+      }
+    },
+    {
+      "name": "[JS] - Import",
+      "scope": ["meta.import keyword.control.import"],
+      "settings": {
+        "foreground": "var(--color-slate-300)"
+      }
+    },
+    {
+      "name": "[JS] - Import From",
+      "scope": ["meta.import keyword.control.from", "meta.import punctuation"],
+      "settings": {
+        "foreground": "var(--color-slate-300)"
+      }
+    },
+    {
+      "name": "[JS] - Import String - eg. '../location/file",
+      "scope": ["meta.import string", "meta.import string punctuation.definition.string"],
+      "settings": {
+        "foreground": "var(--color-slate-200)"
+      }
+    },
+    {
+      "name": "[JS] - Import Variable - eg. React, Moment",
+      "scope": ["meta.import variable.other.readwrite"],
+      "settings": {
+        "foreground": "var(--color-sky-300)"
+      }
+    }
+  ],
+  "semanticHighlighting": true
+}

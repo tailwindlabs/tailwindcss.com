@@ -1,0 +1,57 @@
+{
+  "name": "v4.tailwindcss.com",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@docsearch/react": "^3.8.2",
+    "@headlessui/react": "0.0.0-insiders.b6f355d1",
+    "@heroicons/react": "^2.2.0",
+    "@next/mdx": "^15.1.3",
+    "@shikijs/transformers": "^1.26.1",
+    "@tailwindcss/postcss": "4.0.0",
+    "@types/mdx": "^2.0.13",
+    "clsx": "^2.1.1",
+    "dedent": "^1.5.3",
+    "fathom-client": "^3.7.2",
+    "feed": "^4.2.2",
+    "framer-motion": "^11.16.0",
+    "next": "15.1.3",
+    "open-graph-scraper-lite": "^2.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "shiki": "^1.26.1",
+    "tailwindcss": "4.0.0"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "@tailwindcss/node": "4.0.0-beta.9",
+    "@types/hast": "^3.0.4",
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.0.3",
+    "@types/react-dom": "^19.0.2",
+    "hast-util-to-jsx-runtime": "^2.3.2",
+    "prettier-plugin-svelte": "^3.3.3",
+    "prettier-plugin-tailwindcss": "0.0.0-insiders.90b0253",
+    "typescript": "^5"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "plugins": [
+      "prettier-plugin-svelte",
+      "prettier-plugin-tailwindcss"
+    ],
+    "tailwindStylesheet": "./src/app/globals.css"
+  },
+  "postcss": {
+    "plugins": {
+      "@tailwindcss/postcss": {}
+    }
+  },
+  "packageManager": "pnpm@9.14.0"
+}

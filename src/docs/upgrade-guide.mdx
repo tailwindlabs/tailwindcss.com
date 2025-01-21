@@ -1,0 +1,571 @@
+export const title = "Upgrade Guide";
+export const description = "Upgrading your Tailwind CSS projects from v3 to v4.";
+
+Tailwind CSS v4.0 is a major overhaul to the framework with automatic content detection, CSS-driven configuration, and more and as such includes a number of breaking changes.
+
+We have an automatic migration tool which should work for most projects but this guide will outline how to upgrade manually should you need to.
+
+---
+
+### Using the upgrade tool
+
+If you'd like to try upgrading a project from v3 to v4.0, you can use our upgrade tool to do the vast majority of the heavy lifting for you:
+
+```sh
+  # [!code filename:Terminal]
+$ npx @tailwindcss/upgrade@next
+```
+
+For most projects, the upgrade tool will automate the entire migration process including updating your dependencies, migrating your configuration file to CSS, and handling any changes to your template files.
+
+The upgrade tool requires Node.js 20 or higher, so ensure your environment is updated before running it.
+
+**We recommend running the upgrade tool in a new branch**, then carefully reviewing the diff and testing your project in the browser to make sure all of the changes look correct. You may need to tweak a few things by hand in complex projects, but the tool will save you a ton of time either way.
+
+It's also a good idea to go over all of the [breaking changes](#changes-from-v3) in v4.0 and get a good understanding of what's changed, in case there are other things you need to update in your project that the upgrade tool doesn't catch.
+
+---
+
+## Upgrading manually
+
+### Using PostCSS
+
+In Tailwind CSS v3, the `tailwindcss` package was a PostCSS plugin, but in v4.0 the PostCSS plugin lives in a dedicated `@tailwindcss/postcss` package.
+
+Tailwind CSS v4.0 also handles CSS imports and vendor prefixing for you, so you can remove `postcss-import` and `autoprefixer` if they are in your project:
+
+```js
+// [!code filename:postcss.config.mjs]
+export default {
+  plugins: {
+    // [!code --:4]
+    "postcss-import": {},
+    tailwindcss: {},
+    autoprefixer: {},
+    // [!code ++:2]
+    "@tailwindcss/postcss": {},
+  },
+};
+```
+
+### Using Vite
+
+If you're using Vite, we recommend migrating from the PostCSS plugin to [our new dedicated Vite plugin](#installing-with-vite):
+
+```ts
+// [!code filename:vite.config.ts]
+import { defineConfig } from "vite";
+// [!code highlight:2]
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+  plugins: [
+    // [!code highlight:2]
+    tailwindcss(),
+  ],
+});
+```
+
+### Using Tailwind CLI
+
+In v4.0, Tailwind CLI lives in a dedicated `@tailwindcss/cli` package. Update any of your build commands to use the new package instead:
+
+```sh
+  # [!code --:2]
+npx tailwindcss -i input.css -o output.css
+  # [!code ++:2]
+npx @tailwindcss/cli -i input.css -o output.css
+```
+
+---
+
+## Changes from v3
+
+### Removed \`@tailwind\` directives
+
+In Tailwind CSS v4.0, you import Tailwind using a regular CSS `@import` statement, not using the `@tailwind` directives you used in v3:
+
+```css
+/* [!code --:4] */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* [!code ++:2] */
+@import "tailwindcss";
+```
+
+### Removed deprecated utilities
+
+We've removed any utilities that were deprecated in v3 and have been undocumented for several years. Here's a list of what's been removed along with the modern alternative:
+
+{
+
+<table>
+  <thead>
+    <tr>
+      <th>Deprecated</th>
+      <th>Replacement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">bg-opacity-*</code>
+      </td>
+      <td>
+        Use opacity modifiers like <code className="whitespace-nowrap">bg-black/50</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">text-opacity-*</code>
+      </td>
+      <td>
+        Use opacity modifiers like <code className="whitespace-nowrap">text-black/50</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">border-opacity-*</code>
+      </td>
+      <td>
+        Use opacity modifiers like <code className="whitespace-nowrap">border-black/50</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">divide-opacity-*</code>
+      </td>
+      <td>
+        Use opacity modifiers like <code className="whitespace-nowrap">divide-black/50</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">ring-opacity-*</code>
+      </td>
+      <td>
+        Use opacity modifiers like <code className="whitespace-nowrap">ring-black/50</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">placeholder-opacity-*</code>
+      </td>
+      <td>
+        Use opacity modifiers like <code className="whitespace-nowrap">placeholder-black/50</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">flex-shrink-*</code>
+      </td>
+      <td>
+        <code className="whitespace-nowrap">shrink-*</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">flex-grow-*</code>
+      </td>
+      <td>
+        <code className="whitespace-nowrap">grow-*</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">overflow-ellipsis</code>
+      </td>
+      <td>
+        <code className="whitespace-nowrap">text-ellipsis</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">decoration-slice</code>
+      </td>
+      <td>
+        <code className="whitespace-nowrap">box-decoration-slice</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">decoration-clone</code>
+      </td>
+      <td>
+        <code className="whitespace-nowrap">box-decoration-clone</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+}
+
+### Configuring the \`container\` utility
+
+In v3, the `container` utility had several configuration options like `center` and `padding` that no longer exist in v4.0. To customize the `container` utility in v4.0, extend it with `@utility`:
+
+```css
+@import "tailwindcss";
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
+```
+
+### Default shadow scale changes
+
+We've shifted things around a bit in the default shadow scales to make sure every shadow utility has a named value.
+
+To do this, we've renamed `shadow` to `shadow-sm`, `shadow-sm` to `shadow-xs`, `drop-shadow` to `drop-shadow-sm`, and `drop-shadow-sm` to `drop-shadow-xs`:
+
+{
+
+<table>
+  <thead>
+    <tr>
+      <th>v3</th>
+      <th>v4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">shadow-sm</code>
+      </td>
+      <td>
+        <code className="whitespace-nowrap">shadow-xs</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">shadow</code>
+      </td>
+      <td>
+        <code className="whitespace-nowrap">shadow-sm</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">drop-shadow-sm</code>
+      </td>
+      <td>
+        <code className="whitespace-nowrap">drop-shadow-xs</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">drop-shadow</code>
+      </td>
+      <td>
+        <code className="whitespace-nowrap">drop-shadow-sm</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+}
+
+The `shadow` and `drop-shadow` utilities will still work for backward compatibility, but `shadow-sm` and `drop-shadow-sm` will look different in your project if you don't replace each instance with `shadow-xs` and `drop-shadow-xs` instead.
+
+### Default blur scale changes
+
+We've shifted things around a bit in the default blur scale to make sure every blur utility has a named value.
+
+To do this, we've renamed `blur` to `blur-sm`, and `blur-sm` to `blur-xs`:
+
+{
+
+<table>
+  <thead>
+    <tr>
+      <th>v3</th>
+      <th>v4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">blur-sm</code>
+      </td>
+      <td>
+        <code className="whitespace-nowrap">blur-xs</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">blur</code>
+      </td>
+      <td>
+        <code className="whitespace-nowrap">blur-sm</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+}
+
+The `blur` utility will still work for backward compatibility, but `blur-sm` will look different in your project if you don't replace each instance with `blur-xs` instead.
+
+### Default radius scale changes
+
+We've shifted things around a bit in the default border radius scale to make sure every border radius utility has a named value.
+
+To do this, we've renamed `rounded` to `rounded-sm`, and `rounded-sm` to `rounded-xs`:
+
+{
+
+<table>
+  <thead>
+    <tr>
+      <th>v3</th>
+      <th>v4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">rounded-sm</code>
+      </td>
+      <td>
+        <code className="whitespace-nowrap">rounded-xs</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">rounded</code>
+      </td>
+      <td>
+        <code className="whitespace-nowrap">rounded-sm</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+}
+
+The `rounded` utility will still work for backward compatibility, but `rounded-sm` will look different in your project if you don't replace each instance with `rounded-xs` instead.
+
+### Default border color change
+
+In v3, borders used your configured `gray-200` color by default. We've updated this in v4 to be just `currentColor`, which matches the default behavior of all browsers.
+
+To update your project for this change, make sure anywhere you're using a border color utility anywhere you're using the `border` utility, or add these lines of CSS to your project to preserve the v3 behavior:
+
+```css
+@import "tailwindcss";
+
+/* [!code highlight:10] */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+```
+
+### Default ring width change
+
+In v3, the `ring` utility added a 3px ring. We've changed this in v4 to be 1px to make it consistent with borders and outlines.
+
+To update your project for this change, replace any usage of `ring` with `ring-3`:
+
+```html
+<!-- [!code classes:ring,ring-3] -->
+<!-- [!code --:2] -->
+<div class="ring ring-blue-500"><!-- ... --></div>
+<!-- [!code ++:2] -->
+<div class="ring-3 ring-blue-500"><!-- ... --></div>
+```
+
+### Default placeholder change
+
+In v3, placeholder text used your configured `gray-400` color by default. We've simplified this in v4 to just use the current text color at 50% opacity.
+
+You probably won't even notice this change (it might even make your project look better), but if you want to preserve the v3 behavior, add this CSS to your project:
+
+```css
+@import "tailwindcss";
+
+/* [!code highlight:7] */
+@layer base {
+  input::placeholder,
+  textarea::placeholder {
+    color: theme(--color-gray-400);
+  }
+}
+```
+
+### \`outline-none\` to \`outline-hidden\`
+
+In v3, the `outline-none` utility was actually a complex class that didn't just set `outline-style: none`:
+
+```css
+/* v3 */
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+```
+
+What it really did was add an invisible 2px outline that would still show up in forced colors mode for accessibility reasons.
+
+We've simplified this in v4.0 and now `outline-none` just sets `outline-style: none` like you'd expect:
+
+```css
+/* v4 */
+.outline-none {
+  outline-style: none;
+}
+```
+
+We've added a new `outline-hidden` utility that does what `outline-none` did in v3, since it's still a very useful feature.
+
+To update your project for this change, replace any use of `outline-none` with `outline-hidden`, unless you really do want `outline-style: none`:
+
+```html
+<!-- [!code classes:focus:outline-none,focus:outline-hidden] -->
+<!-- [!code --:2] -->
+<input class="focus:outline-none" />
+<!-- [!code ++:2] -->
+<input class="focus:outline-hidden" />
+```
+
+### Adding custom utilities
+
+In v3, any custom classes you defined within `@layer utilities` would get picked up by Tailwind as a true utility class and would automatically work with variants like `hover`, `focus`, or `lg`.
+
+In v4.0 we are using native cascade layers and no longer hijacking the `@layer` at-rule, so we've introduced the `@utility` API as a replacement:
+
+```css
+/* [!code --:6] */
+@layer utilities {
+  .tab-4 {
+    tab-size: 4;
+  }
+}
+/* [!code ++:4] */
+@utility tab-4 {
+  tab-size: 4;
+}
+```
+
+Custom utilities must be a single class name in v4.0 and not a complex selector. If your custom utility is more complex than a single class name, use nesting to define the utility:
+
+```css
+@utility scrollbar-hidden {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+```
+
+### Stacking order-sensitive variants
+
+In v3, stacked variants were applied from right to left, but in v4 we've updated them to apply left to right to look more like CSS syntax.
+
+To update your project for this change, reverse the order of any order-sensitive stacked variants in your project:
+
+```html
+<!-- [!code --:2] -->
+<!-- prettier-ignore -->
+<ul class="py-4 first:*:pt-0 last:*:pb-0"><!-- ... --></ul>
+<!-- [!code ++:2] -->
+<ul class="py-4 *:first:pt-0 *:last:pb-0">
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+</ul>
+```
+
+You likely have very few of these if any — the direct child variant (`*`) and any typography plugin variants (`prose-headings`) are the most likely ones you might be using, and even then it's only if you've stacked them with other variants.
+
+### CSS variables in arbitrary values
+
+In v3 you were able to use CSS variables as arbitrary values without `var(…)`, but recent updates to CSS mean that this can often be ambiguous, so we've changed the syntax for this in v4.0 to use parentheses instead of square brackets.
+
+To update your project for this change, replace usage of the old variable shorthand syntax with the new variable shorthand syntax:
+
+```html
+<!-- [!code classes:bg-[--brand-color],bg-(--brand-color)] -->
+<!-- [!code --:2] -->
+<div class="bg-[--brand-color]"><!-- ... --></div>
+<!-- [!code ++:2] -->
+<div class="bg-(--brand-color)"><!-- ... --></div>
+```
+
+### Referencing theme values in JS
+
+In v3 we exported a `resolveConfig` function that you could use to turn your JS config into a flat object that you could use in your other JavaScript.
+
+We've removed this in v4 in hopes that people can use the CSS variables we generate directly instead, which is much simpler and will significantly reduce your bundle size.
+
+### Hover styles ignored on mobile
+
+In v4.0 we've updated the `hover` variant to only apply when the primary input device supports hover:
+
+```css
+@media (hover: hover) {
+  .hover\:underline:hover {
+    text-decoration: underline;
+  }
+}
+```
+
+This can create problems if you've built your site in a way that depends on touch devices triggering hover on tap. If this is an issue for you, you can override the `hover` variant with your own variant that uses the old implementation:
+
+```css
+@import "tailwindcss";
+
+@custom-variant hover (&:hover);
+```
+
+Generally though I'd recommend treating hover functionality as an enhancement, and not depending on it for your site to work since touch devices don't truly have the ability to hover.
+
+### Core plugins cannot be disabled
+
+In v3 there was a `corePlugins` option you could use to completely disable certain utilities in the framework. This is no longer supported in v4.0.
+
+### Using the \`theme()\` function
+
+Since Tailwind CSS v4.0 includes CSS variables for all of your theme values, we recommend using those variables instead of the `theme()` function whenever possible:
+
+```css
+@import "tailwindcss";
+
+.my-class {
+  /* [!code --:2] */
+  background-color: theme(colors.red.500);
+  /* [!code ++:2] */
+  background-color: var(--color-red-500);
+}
+```
+
+For cases where you still need to use the `theme()` function (like in media queries where CSS variables aren't supported), you should use the CSS variable name instead of the old dot notation:
+
+```css
+@import "tailwindcss";
+
+/* [!code --:2] */
+@media (width >= theme(screens.xl)) {
+/* [!code ++:2] */
+@media (width >= theme(--breakpoint-xl)) {
+  /* ... */
+}
+```
+
+### Using a JavaScript config file
+
+JavaScript config files are still supported for backward compatibility, but they are no longer detected automatically in v4.0.
+
+If you still need to use a JavaScript config file, make sure to load it explicitly using `@config`:
+
+```css
+@import "tailwindcss";
+/* [!code ++:2] */
+@config "../../tailwind.config.js";
+```

@@ -1,0 +1,242 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { CustomizingYourSpacingScale, ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { Stripes } from "@/components/stripes.tsx";
+
+export const title = "scroll-padding";
+export const description = "Utilities for controlling an element's scroll offset within a snap container.";
+
+<ApiTable
+  rows={[
+    ["scroll-p", "scroll-padding"],
+    ["scroll-px", "scroll-padding-inline"],
+    ["scroll-py", "scroll-padding-block"],
+    ["scroll-ps", "scroll-padding-inline-start"],
+    ["scroll-pe", "scroll-padding-inline-end"],
+    ["scroll-pt", "scroll-padding-top"],
+    ["scroll-pr", "scroll-padding-right"],
+    ["scroll-pb", "scroll-padding-bottom"],
+    ["scroll-pl", "scroll-padding-left"],
+  ].flatMap(([prefix, property]) => [
+    [`${prefix}-<number>`, `${property}: calc(var(--spacing) * <number>);`],
+    [`-${prefix}-<number>`, `${property}: calc(var(--spacing) * -<number>);`],
+    [`${prefix}-(<custom-property>)`, `${property}: var(<custom-property>);`],
+    [`${prefix}-[<value>]`, `${property}: <value>;`],
+  ])}
+/>
+
+## Examples
+
+### Basic example
+
+Use the `scroll-pt-<number>`, `scroll-pr-<number>`, `scroll-pb-<number>`, and `scroll-pl-<number>` utilities like `scroll-pl-4` and `scroll-pt-6` to set the scroll offset of an element within a snap container:
+
+<Figure hint="Scroll in the grid of images to see the expected behavior">
+
+<Example padding={false}>
+  {
+    <div className="relative">
+      <Stripes border className="absolute top-0 bottom-0 left-0 w-6 rounded-l-lg" />
+      <div className="flex w-full snap-x scroll-pl-6 gap-8 overflow-x-auto py-14">
+        <div className="shrink-0 snap-start first:pl-6 last:pr-[calc(100%-21.5rem)]">
+          <img
+            className="h-40 w-80 shrink-0 rounded-lg bg-white"
+            src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+          />
+        </div>
+        <div className="shrink-0 snap-start first:pl-6 last:pr-[calc(100%-21.5rem)]">
+          <img
+            className="h-40 w-80 shrink-0 rounded-lg bg-white"
+            src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+          />
+        </div>
+        <div className="shrink-0 snap-start first:pl-6 last:pr-[calc(100%-21.5rem)]">
+          <img
+            className="h-40 w-80 shrink-0 rounded-lg bg-white"
+            src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+          />
+        </div>
+        <div className="shrink-0 snap-start first:pl-6 last:pr-[calc(100%-21.5rem)]">
+          <img
+            className="h-40 w-80 shrink-0 rounded-lg bg-white"
+            src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+          />
+        </div>
+        <div className="shrink-0 snap-start first:pl-6 last:pr-[calc(100%-21.5rem)]">
+          <img
+            className="h-40 w-80 shrink-0 rounded-lg bg-white"
+            src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+          />
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:scroll-pl-6] -->
+<div class="snap-x scroll-pl-6 ...">
+  <div class="snap-start ...">
+    <img src="/img/vacation-01.jpg" />
+  </div>
+  <div class="snap-start ...">
+    <img src="/img/vacation-02.jpg" />
+  </div>
+  <div class="snap-start ...">
+    <img src="/img/vacation-03.jpg" />
+  </div>
+  <div class="snap-start ...">
+    <img src="/img/vacation-04.jpg" />
+  </div>
+  <div class="snap-start ...">
+    <img src="/img/vacation-05.jpg" />
+  </div>
+</div>
+```
+
+</Figure>
+
+### Using logical properties
+
+Use the `scroll-ps-<number>` and `scroll-pe-<number>` utilities to set the `scroll-padding-inline-start` and `scroll-padding-inline-end` logical properties, which map to either the left or right side based on the text direction:
+
+<Figure hint="Scroll in the grid of images to see the expected behavior">
+
+<Example padding={false}>
+  {
+    <>
+      <p className="mb-4 pt-8 pl-6 text-sm font-medium">Left-to-right</p>
+      <div className="relative" dir="ltr">
+        <Stripes border className="absolute start-0 top-0 bottom-10 w-6" />
+        <div className="flex w-full snap-x scroll-ps-6 gap-8 overflow-x-auto pb-10">
+          <div className="shrink-0 snap-start first:ps-6 last:pe-[calc(100%-21.5rem)]">
+            <img
+              className="h-40 w-80 shrink-0 rounded-lg bg-white"
+              src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+            />
+          </div>
+          <div className="shrink-0 snap-start first:ps-6 last:pe-[calc(100%-21.5rem)]">
+            <img
+              className="h-40 w-80 shrink-0 rounded-lg bg-white"
+              src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+            />
+          </div>
+          <div className="shrink-0 snap-start first:ps-6 last:pe-[calc(100%-21.5rem)]">
+            <img
+              className="h-40 w-80 shrink-0 rounded-lg bg-white"
+              src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+            />
+          </div>
+          <div className="shrink-0 snap-start first:ps-6 last:pe-[calc(100%-21.5rem)]">
+            <img
+              className="h-40 w-80 shrink-0 rounded-lg bg-white"
+              src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+            />
+          </div>
+          <div className="shrink-0 snap-start first:ps-6 last:pe-[calc(100%-21.5rem)]">
+            <img
+              className="h-40 w-80 shrink-0 rounded-lg bg-white"
+              src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGV8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+            />
+          </div>
+        </div>
+      </div>
+      <p className="mt-4 mb-4 pl-6 text-sm font-medium">Right-to-left</p>
+      <div className="relative" dir="rtl">
+        <Stripes border className="absolute start-0 top-0 bottom-10 w-6" />
+        <div className="flex w-full snap-x scroll-ps-6 gap-8 overflow-x-auto pb-10">
+          <div className="shrink-0 snap-start first:ps-6 last:pe-[calc(100%-21.5rem)]">
+            <img
+              className="h-40 w-80 shrink-0 rounded-lg bg-white"
+              src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGV8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+            />
+          </div>
+          <div className="shrink-0 snap-start first:ps-6 last:pe-[calc(100%-21.5rem)]">
+            <img
+              className="h-40 w-80 shrink-0 rounded-lg bg-white"
+              src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGV8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+            />
+          </div>
+          <div className="shrink-0 snap-start first:ps-6 last:pe-[calc(100%-21.5rem)]">
+            <img
+              className="h-40 w-80 shrink-0 rounded-lg bg-white"
+              src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGV8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+            />
+          </div>
+          <div className="shrink-0 snap-start first:ps-6 last:pe-[calc(100%-21.5rem)]">
+            <img
+              className="h-40 w-80 shrink-0 rounded-lg bg-white"
+              src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGV8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+            />
+          </div>
+          <div className="shrink-0 snap-start first:ps-6 last:pe-[calc(100%-21.5rem)]">
+            <img
+              className="h-40 w-80 shrink-0 rounded-lg bg-white"
+              src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGV8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+            />
+          </div>
+        </div>
+      </div>
+    </>
+  }
+</Example>
+
+```html
+<!-- [!code word:dir="ltr"] -->
+<!-- [!code word:dir="rtl"] -->
+<!-- [!code classes:scroll-ps-6] -->
+<div dir="ltr">
+  <div class="snap-x scroll-ps-6 ...">
+    <!-- ... -->
+  </div>
+</div>
+
+<div dir="rtl">
+  <div class="snap-x scroll-ps-6 ...">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+</Figure>
+
+### Using negative values
+
+To use a negative scroll padding value, prefix the class name with a dash to convert it to a negative value:
+
+```html
+<!-- [!code classes:-scroll-ps-6] -->
+<div class="-scroll-ps-6 snap-x ...">
+  <!-- ... -->
+</div>
+```
+
+### Using a custom value
+
+<UsingACustomValue
+  utilities={["scroll-pl", "scroll-pe"]}
+  value="24rem"
+  name="scroll padding"
+  variable="scroll-padding"
+/>
+
+### Responsive design
+
+<ResponsiveDesign property="scroll-padding" defaultClass="scroll-p-8" featuredClass="scroll-p-0" />
+
+## Customizing your theme
+
+<CustomizingYourSpacingScale
+  utilities={[
+    "scroll-p",
+    "scroll-px",
+    "scroll-py",
+    "scroll-ps",
+    "scroll-pe",
+    "scroll-pt",
+    "scroll-pr",
+    "scroll-pb",
+    "scroll-pl",
+  ]}
+/>

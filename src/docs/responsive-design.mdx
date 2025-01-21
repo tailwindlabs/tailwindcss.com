@@ -1,0 +1,662 @@
+import { TipGood, TipBad } from "@/components/tips";
+import { Iframe } from "@/components/iframe";
+import { Example } from "@/components/example";
+import { Figure } from "@/components/figure";
+
+export const title = "Responsive Design";
+export const description = "Using responsive utility variants to build adaptive user interfaces.";
+
+## Overview
+
+Every utility class in Tailwind can be applied conditionally at different breakpoints, which makes it a piece of cake to build complex responsive interfaces without ever leaving your HTML.
+
+First, make sure you've added the [viewport meta tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag) to the `<head>` of your document:
+
+```html
+<!-- [!code filename:index.html] -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+```
+
+Then to add a utility but only have it take effect at a certain breakpoint, all you need to do is prefix the utility with the breakpoint name, followed by the `:` character:
+
+```html
+<!-- [!code filename:HTML]  -->
+<!-- [!code word:md\:w-32] -->
+<!-- [!code word:lg\:w-48] -->
+<!-- Width of 16 by default, 32 on medium screens, and 48 on large screens -->
+<img class="w-16 md:w-32 lg:w-48" src="..." />
+```
+
+There are five breakpoints by default, inspired by common device resolutions:
+
+{
+
+<table>
+  <thead>
+    <tr>
+      <th>Breakpoint prefix</th>
+      <th>Minimum width</th>
+      <th>CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>sm</code>
+      </td>
+      <td>
+        40rem <em>(640px)</em>
+      </td>
+      <td>
+        <code>@media (width &gt;= 40rem) &#123; ... &#125;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>md</code>
+      </td>
+      <td>
+        48rem <em>(768px)</em>
+      </td>
+      <td>
+        <code>@media (width &gt;= 48rem) &#123; ... &#125;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>lg</code>
+      </td>
+      <td>
+        64rem <em>(1024px)</em>
+      </td>
+      <td>
+        <code>@media (width &gt;= 64rem) &#123; ... &#125;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>xl</code>
+      </td>
+      <td>
+        80rem <em>(1280px)</em>
+      </td>
+      <td>
+        <code>@media (width &gt;= 80rem) &#123; ... &#125;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>2xl</code>
+      </td>
+      <td>
+        96rem <em>(1536px)</em>
+      </td>
+      <td>
+        <code>@media (width &gt;= 96rem) &#123; ... &#125;</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+}
+
+This works for **every utility class in the framework**, which means you can change literally anything at a given breakpoint — even things like letter spacing or cursor styles.
+
+Here's a simple example of a marketing page component that uses a stacked layout on small screens, and a side-by-side layout on larger screens:
+
+<Figure>
+
+<Example resizable padding={false}>
+  {
+    <Iframe className="h-[572px] w-full overflow-x-scroll">
+      <div className="flex h-screen w-screen items-center justify-center p-8">
+        <div className="mx-auto max-w-md overflow-hidden rounded-lg bg-white ring-1 shadow-xl ring-gray-900/5 sm:max-w-2xl">
+          <div className="flex flex-col sm:flex-row">
+            <div className="sm:shrink-0">
+              <img
+                className="h-[200px] w-full object-cover object-bottom sm:w-[193px] sm:object-center"
+                src="https://images.unsplash.com/photo-1637734433731-621aca1c8cb6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=404&q=80"
+                width="202"
+                height="192"
+                alt="Beautiful abstract building in the sun"
+              />
+            </div>
+            <div className="space-y-2 p-6 2xl:p-8">
+              <div className="text-sm leading-6 font-medium text-indigo-600">Company retreats</div>
+              <a href="#" className="block text-base leading-6 font-semibold text-gray-900 hover:underline">
+                Incredible accommodation for your team
+              </a>
+              <p
+                className="text-sm leading-6 text-gray-600"
+                children={`Looking to take your team away on a retreat to enjoy awesome food
+              and take in some sunshine? We have a list of places to do just
+              that.`}
+              ></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Iframe>
+  }
+</Example>
+
+```html
+<!-- [!code word:md\:max-w-2xl] -->
+<div class="mx-auto max-w-md overflow-hidden rounded-xl bg-white shadow-md md:max-w-2xl">
+  <!-- [!code word:md\:flex] -->
+  <div class="md:flex">
+    <!-- [!code word:md\:shrink-0] -->
+    <div class="md:shrink-0">
+      <!-- [!code word:md\:h-full] -->
+      <!-- [!code word:md\:w-48] -->
+      <img
+        class="h-48 w-full object-cover md:h-full md:w-48"
+        src="/img/building.jpg"
+        alt="Modern building architecture"
+      />
+    </div>
+    <div class="p-8">
+      <div class="text-sm font-semibold tracking-wide text-indigo-500 uppercase">Company retreats</div>
+      <a href="#" class="mt-1 block text-lg leading-tight font-medium text-black hover:underline">
+        Incredible accommodation for your team
+      </a>
+      <p class="mt-2 text-gray-500">
+        Looking to take your team away on a retreat to enjoy awesome food and take in some sunshine? We have a list of
+        places to do just that.
+      </p>
+    </div>
+  </div>
+</div>
+```
+
+</Figure>
+
+Here's how the example above works:
+
+- By default, the outer `div` is `display: block`, but by adding the `md:flex` utility, it becomes `display: flex` on medium screens and larger.
+- When the parent is a flex container, we want to make sure the image never shrinks, so we've added `md:shrink-0` to prevent shrinking on medium screens and larger. Technically we could have just used `shrink-0` since it would do nothing on smaller screens, but since it only matters on `md` screens, it's a good idea to make that clear in the class name.
+- On small screens the image is automatically full width by default. On medium screens and up, we've constrained the width to a fixed size and ensured the image is full height using `md:h-full md:w-48`.
+
+We've only used one breakpoint in this example, but you could easily customize this component at other sizes using the `sm`, `lg`, `xl`, or `2xl` responsive prefixes as well.
+
+## Working mobile-first
+
+Tailwind uses a mobile-first breakpoint system, similar to what you might be used to in other frameworks like Bootstrap.
+
+What this means is that unprefixed utilities (like `uppercase`) take effect on all screen sizes, while prefixed utilities (like `md:uppercase`) only take effect at the specified breakpoint _and above_.
+
+### Targeting mobile screens
+
+Where this approach surprises people most often is that to style something for mobile, you need to use the unprefixed version of a utility, not the `sm:` prefixed version. Don't think of `sm:` as meaning "on small screens", think of it as "at the small _breakpoint_".
+
+<TipBad>
+  {
+    <>
+      Don't use <code>sm:</code> to target mobile devices
+    </>
+  }
+</TipBad>
+
+```html
+<!-- [!code filename:HTML]  -->
+<!-- This will only center text on screens 640px and wider, not on small screens -->
+<div class="sm:text-center"></div>
+```
+
+<TipGood>{<>Use unprefixed utilities to target mobile, and override them at larger breakpoints</>}</TipGood>
+
+```html
+<!-- [!code filename:HTML]  -->
+<!-- This will center text on mobile, and left align it on screens 640px and wider -->
+<div class="text-center sm:text-left"></div>
+```
+
+For this reason, it's often a good idea to implement the mobile layout for a design first, then layer on any changes that make sense for `sm` screens, followed by `md` screens, etc.
+
+### Targeting a breakpoint range
+
+By default, styles applied by rules like `md:flex` will apply at that breakpoint and stay applied at larger breakpoints.
+
+If you'd like to apply a utility _only_ when a specific breakpoint range is active, stack a responsive variant like `md` with a `max-*` variant to limit that style to a specific range:
+
+```html
+<!-- [!code filename:HTML]  -->
+<div class="md:max-xl:flex">
+  <!-- ... -->
+</div>
+```
+
+Tailwind generates a corresponding `max-*` variant for each breakpoint, so out of the box the following variants are available:
+
+{
+
+<table>
+  <thead>
+    <tr>
+      <th>Variant</th>
+      <th>Media query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>max-sm</code>
+      </td>
+      <td>
+        <code>@media (width &lt; 40rem) &#123; ... &#125;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>max-md</code>
+      </td>
+      <td>
+        <code>@media (width &lt; 48rem) &#123; ... &#125;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>max-lg</code>
+      </td>
+      <td>
+        <code>@media (width &lt; 64rem) &#123; ... &#125;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>max-xl</code>
+      </td>
+      <td>
+        <code>@media (width &lt; 80rem) &#123; ... &#125;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>max-2xl</code>
+      </td>
+      <td>
+        <code>@media (width &lt; 96rem) &#123; ... &#125;</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+}
+
+### Targeting a single breakpoint
+
+To target a single breakpoint, target the range for that breakpoint by stacking a responsive variant like `md` with the `max-*` variant for the next breakpoint:
+
+```html
+<!-- [!code filename:HTML]  -->
+<div class="md:max-lg:flex">
+  <!-- ... -->
+</div>
+```
+
+Read about [targeting breakpoint ranges](#targeting-a-breakpoint-range) to learn more.
+
+## Using custom breakpoints
+
+### Customizing your theme
+
+Use the `--breakpoint-*` theme variables to customize your breakpoints:
+
+```css
+/* [!code filename:app.css] */
+@import "tailwindcss";
+
+@theme {
+  /* [!code highlight:4] */
+  --breakpoint-xs: 30rem;
+  --breakpoint-2xl: 100rem;
+  --breakpoint-3xl: 120rem;
+}
+```
+
+This updates the `2xl` breakpoint to use `100rem` instead of the default `96rem`, and creates new `xs` and `3xl` breakpoints that can be used in your markup:
+
+```html
+<!-- [!code filename:HTML]  -->
+<!-- [!code word:xs\:grid-cols-2] -->
+<!-- [!code word:3xl\:grid-cols-6] -->
+<!-- prettier-ignore -->
+<div class="grid xs:grid-cols-2 3xl:grid-cols-6">
+  <!-- ... -->
+</div>
+```
+
+Learn more about customizing your theme in the [theme documentation](/docs/theme).
+
+### Removing default breakpoints
+
+To remove a default breakpoint, reset its value to the `initial` keyword:
+
+```css
+/* [!code filename:app.css] */
+@import "tailwindcss";
+
+@theme {
+  /* [!code highlight:2] */
+  --breakpoint-2xl: initial;
+}
+```
+
+You can also reset all of the default breakpoints using `--breakpoint-*: initial`, then define all of your breakpoints from scratch:
+
+```css
+/* [!code filename:app.css] */
+@import "tailwindcss";
+
+@theme {
+  /* [!code highlight:5] */
+  --breakpoint-*: initial;
+  --breakpoint-tablet: 40rem;
+  --breakpoint-laptop: 64rem;
+  --breakpoint-desktop: 80rem;
+}
+```
+
+Learn more removing default theme values in the [theme documentation](/docs/theme).
+
+### Using arbitrary values
+
+If you need to use a one-off breakpoint that doesn’t make sense to include in your theme, use the `min` or `max` variants to generate a custom breakpoint on the fly using any arbitrary value.
+
+```html
+<!-- [!code word:min-\[320px\]\:text-center] -->
+<!-- [!code word:max-\[600px\]\:bg-sky-300] -->
+<div class="max-[600px]:bg-sky-300 min-[320px]:text-center">
+  <!-- ... -->
+</div>
+```
+
+Learn more about arbitrary value support in the [arbitrary values](/docs/adding-custom-styles#using-arbitrary-values) documentation.
+
+## Container queries
+
+### What are container queries?
+
+[Container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries) are a modern CSS feature that let you style something based on the size of a parent element instead of the size of the entire viewport. They let you build components that are a lot more portable and reusable because they can change based on the actual space available for that component.
+
+### Basic example
+
+Use the `@container` class to mark an element as a container, then use variants like `@sm` and `@md` to style child elements based on the size of the container:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code word:@container] -->
+<!-- [!code word:@md\:flex-row] -->
+<div class="@container">
+  <div class="flex flex-col @md:flex-row">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+Just like breakpoint variants, container queries are mobile-first in Tailwind CSS and apply at the target container size and up.
+
+### Max-width container queries
+
+Use variants like `@max-sm` and `@max-md` to apply a style below a specific container size:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code word:@max-md\:flex-col] -->
+<div class="@container">
+  <div class="flex flex-row @max-md:flex-col">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+### Container query ranges
+
+Stack a regular container query variant with a max-width container query variant to target a specific range:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code word:@sm\:@max-md\:flex-col] -->
+<div class="@container">
+  <div class="flex flex-row @sm:@max-md:flex-col">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+### Named containers
+
+For complex designs that use multiple nested containers, you can name containers using `@container/{name}` and target specific containers with variants like `@sm/{name}` and `@md/{name}`:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code word:@container/main] -->
+<!-- [!code word:@sm/main\:flex-col] -->
+<div class="@container/main">
+  <!-- ... -->
+  <div class="flex flex-row @sm/main:flex-col">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+This makes it possible to style something based on the size of a distant container, rather than just the nearest container.
+
+### Using custom container sizes
+
+Use the `--container-*` theme variables to customize your container sizes:
+
+```css
+/* [!code filename:app.css] */
+@import "tailwindcss";
+
+@theme {
+  /* [!code highlight:2] */
+  --container-8xl: 96rem;
+}
+```
+
+This adds a new `8xl` container query variant that can be used in your markup:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code word:@8xl\:flex-row] -->
+<div class="@container">
+  <!-- prettier-ignore -->
+  <div class="flex flex-col @8xl:flex-row">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+Learn more about customizing your theme in the [theme documentation](/docs/theme).
+
+<h3 id="using-arbitrary-container-query-values">
+  <a href="#using-arbitrary-container-query-values">Using arbitrary values</a>
+</h3>
+
+Use variants like `@min-[475px]` and `@max-[960px]` for one-off container query sizes you don't want to add to your theme:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code word:@min-\[475px\]\:flex-row] -->
+<div class="@container">
+  <div class="flex flex-col @min-[475px]:flex-row">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+### Using container query units
+
+Use [container query length units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries#container_query_length_units) like `cqw` as arbitrary values in other utility classes to reference the container size:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code word:w-\[50cqw\] -->
+<div class="@container">
+  <div class="w-[50cqw]">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+### Container size reference
+
+By default, Tailwind includes container sizes ranging from 16rem _(256px)_ to 80rem _(1280px)_:
+
+{
+
+<table>
+  <thead>
+    <tr>
+      <th>Variant</th>
+      <th>Minimum width</th>
+      <th>CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>@3xs</code>
+      </td>
+      <td>
+        16rem <em>(256px)</em>
+      </td>
+      <td>
+        <code>@container (width &gt;= 16rem) &#123; … &#125;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>@2xs</code>
+      </td>
+      <td>
+        18rem <em>(288px)</em>
+      </td>
+      <td>
+        <code>@container (width &gt;= 18rem) &#123; … &#125;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>@xs</code>
+      </td>
+      <td>
+        20rem <em>(320px)</em>
+      </td>
+      <td>
+        <code>@container (width &gt;= 20rem) &#123; … &#125;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>@sm</code>
+      </td>
+      <td>
+        24rem <em>(384px)</em>
+      </td>
+      <td>
+        <code>@container (width &gt;= 24rem) &#123; … &#125;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>@md</code>
+      </td>
+      <td>
+        28rem <em>(448px)</em>
+      </td>
+      <td>
+        <code>@container (width &gt;= 28rem) &#123; … &#125;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>@lg</code>
+      </td>
+      <td>
+        32rem <em>(512px)</em>
+      </td>
+      <td>
+        <code>@container (width &gt;= 32rem) &#123; … &#125;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>@xl</code>
+      </td>
+      <td>
+        36rem <em>(576px)</em>
+      </td>
+      <td>
+        <code>@container (width &gt;= 36rem) &#123; … &#125;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>@2xl</code>
+      </td>
+      <td>
+        42rem <em>(672px)</em>
+      </td>
+      <td>
+        <code>@container (width &gt;= 42rem) &#123; … &#125;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>@3xl</code>
+      </td>
+      <td>
+        48rem <em>(768px)</em>
+      </td>
+      <td>
+        <code>@container (width &gt;= 48rem) &#123; … &#125;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>@4xl</code>
+      </td>
+      <td>
+        56rem <em>(896px)</em>
+      </td>
+      <td>
+        <code>@container (width &gt;= 56rem) &#123; … &#125;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>@5xl</code>
+      </td>
+      <td>
+        64rem <em>(1024px)</em>
+      </td>
+      <td>
+        <code>@container (width &gt;= 64rem) &#123; … &#125;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>@6xl</code>
+      </td>
+      <td>
+        72rem <em>(1152px)</em>
+      </td>
+      <td>
+        <code>@container (width &gt;= 72rem) &#123; … &#125;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>@7xl</code>
+      </td>
+      <td>
+        80rem <em>(1280px)</em>
+      </td>
+      <td>
+        <code>@container (width &gt;= 80rem) &#123; … &#125;</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+}

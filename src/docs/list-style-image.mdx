@@ -1,0 +1,79 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+
+export const title = "list-style-image";
+export const description = "Utilities for controlling the marker images for list items.";
+
+<ApiTable
+  rows={[
+    ["list-image-[<value>]", "list-style-image: <value>;"],
+    ["list-image-(<custom-property>)", "list-style-image: var(<custom-property>);"],
+    ["list-image-none", "list-style-image: none;"],
+  ]}
+/>
+
+## Examples
+
+### Basic example
+
+Use the `list-image-[<value>]` syntax to control the marker image for list items:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="px-4 sm:px-0">
+      <div className="mx-auto max-w-sm p-8 text-gray-700 sm:text-base sm:leading-7 dark:text-gray-400">
+        <ul className="list-image-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxNCAxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSIjMzhiZGY4Ij48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMy42ODUuMTUzYS43NTIuNzUyIDAgMCAxIC4xNDMgMS4wNTJsLTggMTAuNWEuNzUuNzUgMCAwIDEtMS4xMjcuMDc1bC00LjUtNC41YS43NS43NSAwIDAgMSAxLjA2LTEuMDZsMy44OTQgMy44OTMgNy40OC05LjgxN2EuNzUuNzUgMCAwIDEgMS4wNS0uMTQzWiIgLz48L3N2Zz4=')] pl-4 text-gray-900 dark:text-gray-200">
+          <li className="pl-2">5 cups chopped Porcini mushrooms</li>
+          <li className="pl-2">1/2 cup of olive oil</li>
+          <li className="pl-2">3lb of celery</li>
+        </ul>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:list-image-[url(/img/checkmark.png)]] -->
+<ul class="list-image-[url(/img/checkmark.png)]">
+  <li>5 cups chopped Porcini mushrooms</li>
+  <!-- ... -->
+</ul>
+```
+
+</Figure>
+
+### Using a CSS variable
+
+Use the <code>list-image-{'(<custom-property>)'}</code> syntax to control the marker image for list items using a CSS variable:
+
+```html
+<!-- [!code classes:list-image-(--my-list-image)] -->
+<ul class="list-image-(--my-list-image)">
+  <!-- ... -->
+</ul>
+```
+
+This is just a shorthand for <code>list-image-{'[var(<custom-property>)]'}</code> that adds the `var()` function for you automatically.
+
+### Removing a marker image
+
+Use the `list-image-none` utility to remove an existing marker image from list items:
+
+```html
+<!-- [!code classes:list-image-none] -->
+<ul class="list-image-none">
+  <!-- ... -->
+</ul>
+```
+
+### Responsive design
+
+<ResponsiveDesign
+  property="list-style-image"
+  defaultClass="list-image-none"
+  featuredClass="list-image-[url(/img/checkmark.png)]"
+/>

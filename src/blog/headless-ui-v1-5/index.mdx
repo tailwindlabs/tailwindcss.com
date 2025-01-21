@@ -1,0 +1,156 @@
+import { reinink, adamwathan } from "@/app/blog/authors";
+import card from "./card.jpg";
+import banner from "./banner.jpg";
+import commandPalette from "./command-palette.jpg";
+import { Transition, Tab, TabGroup, TabList, TabPanels, TabPanel } from "@headlessui/react";
+import Link from "next/link";
+import Image from "next/image";
+import { CodeExampleGroup, CodeBlock, js, jsx, html } from "@/components/code-example";
+import Demo from "./demo";
+
+export const meta = {
+  title: "Headless UI v1.5: The One With Comboboxes",
+  description: `We just released Headless UI v1.5, which includes a brand new \`Combobox\` component.`,
+  date: "2022-02-24T12:00:00.000Z",
+  authors: [reinink, adamwathan],
+  image: card,
+  excerpt: (
+    <>
+      We just released Headless UI v1.5, which includes a brand new <code>Combobox</code> component. Comboboxes are like
+      select controls but with autocomplete/typeahead functionality.
+    </>
+  ),
+};
+
+We just released Headless UI v1.5, which includes a brand new `Combobox` component. Comboboxes are like select controls but with autocomplete/typeahead functionality, and are a great alternative to a regular select when you're working with large datasets and want to quickly filter for the right option.
+
+<Link href="https://headlessui.dev">
+  <Image alt="Headless UI v1.5" src={banner} />
+</Link>
+
+Like all other Headless UI components, the combobox abstracts away all of the complex accessibility considerations but leaves the styling completely up to you, giving you total control to design exactly the combobox you want without worrying about things like keyboard navigation or screen reader support.
+
+Here's a quick demo if you'd like to see it in action:
+
+<Demo />
+
+We've intentionally designed it so that you have full control over filtering the actual results. You can do basic string comparisons, use a fuzzy search library like <Link href="https://fusejs.io/">Fuse.js</Link>, or even make server-side requests to an API — whatever makes sense for your project.
+
+Here's what it looks like to filter the results using a basic string comparison:
+
+<CodeExampleGroup filenames={['React', 'Vue']}>
+  <CodeBlock
+    example={jsx`
+      import { useState } from 'react'
+      import { Combobox } from '@headlessui/react'
+
+      const people = [
+        'Wade Cooper',
+        'Arlene McCoy',
+        'Devon Webb',
+        'Tom Cook',
+        'Tanya Fox',
+        'Hellen Schmidt',
+      ]
+
+      function MyCombobox() {
+        const [selectedPerson, setSelectedPerson] = useState(people[0])
+        const [query, setQuery] = useState('')
+
+        const filteredPeople =
+          query === ''
+            ? people
+            : people.filter((person) => {
+                return person.toLowerCase().includes(query.toLowerCase())
+              })
+
+        return (
+          <Combobox value={selectedPerson} onChange={setSelectedPerson}>
+            <Combobox.Input onChange={(event) => setQuery(event.target.value)} />
+            <Combobox.Options>
+              {filteredPeople.map((person) => (
+                <Combobox.Option key={person} value={person}>
+                  {person}
+                </Combobox.Option>
+              ))}
+            </Combobox.Options>
+          </Combobox>
+        )
+      }
+    `}
+
+/>
+
+  <CodeBlock
+    example={html`
+      <script setup>
+        import { ref, computed } from 'vue'
+        import { Combobox, ComboboxInput, ComboboxOptions, ComboboxOption } from '@headlessui/vue'
+
+        const people = [
+          'Wade Cooper',
+          'Arlene McCoy',
+          'Devon Webb',
+          'Tom Cook',
+          'Tanya Fox',
+          'Hellen Schmidt',
+        ]
+        const selectedPerson = ref(people[0])
+        const query = ref('')
+
+        const filteredPeople = computed(() =>
+          query.value === ''
+            ? people
+            : people.filter((person) => {
+                return person.toLowerCase().includes(query.value.toLowerCase())
+              })
+        )
+      </script>
+
+      <template>
+        <Combobox v-model="selectedPerson">
+          <ComboboxInput @change="query = $event.target.value" />
+          <ComboboxOptions>
+            <ComboboxOption v-for="person in filteredPeople" :key="person" :value="person">
+              {{ person }}
+            </ComboboxOption>
+          </ComboboxOptions>
+        </Combobox>
+      </template>
+
+`}
+/>
+
+</CodeExampleGroup>
+
+## Command palettes
+
+Comboboxes are not only great as standalone inputs, but they can also be used as a lower-level primitive for building more complex components, such as command palettes.
+
+This is actually what originally motivated us to create the combobox component in the first place — we wanted to add a new command palettes category to Tailwind UI and needed this component to make that happen.
+
+If you happen to have a Tailwind UI license, be sure to browse the new <Link href="https://tailwindui.com/components/application-ui/navigation/command-palettes">Command Palettes</Link> category to see how these turned out. And if you're wondering, we also added a new <Link href="https://tailwindui.com/components/application-ui/forms/comboboxes">Comboboxes</Link> category as well.
+
+<Link href="https://tailwindui.com/components/application-ui/navigation/command-palettes">
+  <Image alt="Command palette from Tailwind UI" src={commandPalette} />
+</Link>
+
+Riding on the excitement of the new command palettes, we also just published a new <Link href="https://www.youtube.com/watch?v=-jix4KyxLuQ">in-depth screencast</Link> on building a command palette from scratch with Tailwind CSS, React and Headless UI.
+
+It covers tons of interesting Tailwind tricks for getting the design and animations just right, and teaches you a ton about how to use the new combobox component and wire it into your app.
+
+{/* Command palettes video */}
+
+## Try it out
+
+If you already have Headless UI installed in your project, be sure to upgrade to v1.5 to get the new `Combobox` component. This is a minor update so there are no breaking changes.
+
+```sh
+# For React
+npm install @headlessui/react
+
+# For Vue
+npm install @headlessui/vue
+```
+
+Be sure to also check out <Link href="https://headlessui.dev">the official website</Link> for the latest documentation.

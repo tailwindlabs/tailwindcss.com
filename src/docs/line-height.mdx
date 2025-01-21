@@ -1,0 +1,147 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { CustomizingYourSpacingScale, ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+
+export const title = "line-height";
+export const description = "Utilities for controlling the leading, or line height, of an element.";
+
+<ApiTable
+  rows={[
+    ["text-<size>/<number>", "font-size: <size>;\nline-height: calc(var(--spacing) * <number>);"],
+    ["text-<size>/(<custom-property>)", "font-size: <size>;\nline-height: var(<custom-property>);"],
+    ["text-<size>/[<value>]", "font-size: <size>;\nline-height: <value>;"],
+    ["leading-none", "line-height: 1;"],
+    ["leading-<number>", "line-height: calc(var(--spacing) * <number>)"],
+    ["leading-(<custom-property>)", "line-height: var(<custom-property>);"],
+    ["leading-[<value>]", "line-height: <value>;"],
+  ]}
+/>
+
+## Examples
+
+### Basic example
+
+Use font size utilities like `text-sm/6` and `text-lg/7` to set the font size and line-height of an element at the same time:
+
+<Figure>
+
+<Example>{
+  <div className="flex flex-col gap-8">
+    <div>
+      <span className="mb-3 font-mono text-sm font-medium text-gray-500 dark:text-gray-400">text-sm/6</span>
+      <p className="text-sm/6 text-gray-900 dark:text-gray-200">
+        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made
+        my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship
+        of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+      </p>
+    </div>
+    <div>
+      <span className="mb-3 font-mono text-sm font-medium text-gray-500 dark:text-gray-400">text-sm/7</span>
+      <p className="text-sm/7 text-gray-900 dark:text-gray-200">
+        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made
+        my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship
+        of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+      </p>
+    </div>
+    <div>
+      <span className="mb-3 font-mono text-sm font-medium text-gray-500 dark:text-gray-400">text-sm/8</span>
+      <p className="text-sm/8 text-gray-900 dark:text-gray-200">
+        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made
+        my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship
+        of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+      </p>
+    </div>
+
+  </div>
+}</Example>
+
+```html
+<!-- [!code classes:text-base/6,text-base/7,text-base/8] -->
+<p class="text-base/6 ...">So I started to walk into the water...</p>
+<p class="text-base/7 ...">So I started to walk into the water...</p>
+<p class="text-base/8 ...">So I started to walk into the water...</p>
+```
+
+</Figure>
+
+Each font size utility also sets a default line height when one isn't provided. You can learn more about these values and how to customize them in the [font-size documentation](/docs/font-size).
+
+### Setting independently
+
+Use `leading-<number>` utilities like `leading-6` and `leading-7` to set the line height of an element independent of the font-size:
+
+<Figure>
+
+<Example>
+  {
+    <div className="flex flex-col gap-8">
+      <div>
+        <span className="mb-3 font-mono text-sm font-medium text-gray-500 dark:text-gray-400">leading-6</span>
+        <p className="leading-6 text-gray-900 dark:text-gray-200">
+          So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made
+          my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the
+          kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+        </p>
+      </div>
+      <div>
+        <span className="mb-3 font-mono text-sm font-medium text-gray-500 dark:text-gray-400">leading-7</span>
+        <p className="leading-7 text-gray-900 dark:text-gray-200">
+          So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made
+          my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the
+          kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+        </p>
+      </div>
+      <div>
+        <span className="mb-3 font-mono text-sm font-medium text-gray-500 dark:text-gray-400">leading-8</span>
+        <p className="leading-8 text-gray-900 dark:text-gray-200">
+          So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made
+          my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the
+          kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+        </p>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:leading-6,leading-7,leading-8] -->
+<p class="text-sm leading-6">So I started to walk into the water...</p>
+<p class="text-sm leading-7">So I started to walk into the water...</p>
+<p class="text-sm leading-8">So I started to walk into the water...</p>
+```
+
+</Figure>
+
+### Removing the leading
+
+Use the `leading-none` utility to set the line height of an element equal to its font size:
+
+<Figure>
+
+<Example>
+  {
+    <p className="mx-auto max-w-2xs text-2xl leading-none text-gray-900 dark:text-gray-200">
+      The quick brown fox jumps over the lazy dog.
+    </p>
+  }
+</Example>
+
+```html
+<!-- [!code classes:leading-none] -->
+<p class="text-2xl leading-none ...">The quick brown fox...</p>
+```
+
+</Figure>
+
+### Using a custom value
+
+<UsingACustomValue element="p" utility="leading" name="line height" variable="line-height" value="1.5" />
+
+### Responsive design
+
+<ResponsiveDesign element="p" property="line-height" defaultClass="leading-5" featuredClass="leading-6" />
+
+## Customizing your theme
+
+<CustomizingYourSpacingScale utility="leading" />

@@ -1,0 +1,72 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
+
+export const title = "outline-offset";
+export const description = "Utilities for controlling the offset of an element's outline.";
+
+<ApiTable
+  rows={[
+    ["outline-offset-<number>", "outline-offset: <number>px;"],
+    ["-outline-offset-<number>", "outline-offset: calc(<number>px * -1);"],
+    ["outline-offset-(length:<custom-property>)", "outline-offset: var(<custom-property>);"],
+    ["outline-offset-[<value>]", "outline-offset: <value>;"],
+  ]}
+/>
+
+## Examples
+
+### Basic example
+
+Use utilities like `outline-offset-2` and `outline-offset-4` to change the offset of an element's outline:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-1 gap-8 text-center text-sm font-bold text-white sm:grid-cols-3 sm:gap-4">
+      <div className="flex shrink-0 flex-col items-center">
+        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+          outline-offset-0
+        </p>
+        <button className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 outline-2 outline-offset-0 outline-sky-500 dark:border-transparent dark:bg-gray-700 dark:text-gray-200">
+          Button A
+        </button>
+      </div>
+      <div className="flex shrink-0 flex-col items-center">
+        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+          outline-offset-2
+        </p>
+        <button className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 outline-2 outline-offset-2 outline-sky-500 dark:border-transparent dark:bg-gray-700 dark:text-gray-200">
+          Button B
+        </button>
+      </div>
+      <div className="flex shrink-0 flex-col items-center">
+        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+          outline-offset-4
+        </p>
+        <button className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 outline-2 outline-offset-4 outline-sky-500 dark:border-transparent dark:bg-gray-700 dark:text-gray-200">
+          Button C
+        </button>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:outline-offset-0,outline-offset-2,outline-offset-4] -->
+<button class="outline-2 outline-offset-0 ...">Button A</button>
+<button class="outline-2 outline-offset-2 ...">Button B</button>
+<button class="outline-2 outline-offset-4 ...">Button C</button>
+```
+
+</Figure>
+
+### Using a custom value
+
+<UsingACustomValue utility="outline-offset" name="outline offset" value="2vw" />
+
+### Responsive design
+
+<ResponsiveDesign property="outline-offset" defaultClass="outline" featuredClass="outline-offset-2" />

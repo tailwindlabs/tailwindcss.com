@@ -1,0 +1,253 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+import { Stripes } from "@/components/stripes.tsx";
+
+export const title = "justify-items";
+export const description = "Utilities for controlling how grid items are aligned along their inline axis.";
+
+<ApiTable
+  rows={[
+    ["justify-items-start", "justify-items: start;"],
+    ["justify-items-end", "justify-items: end;"],
+    ["justify-items-center", "justify-items: center;"],
+    ["justify-items-stretch", "justify-items: stretch;"],
+    ["justify-items-normal", "justify-items: normal;"],
+  ]}
+/>
+
+## Examples
+
+### Start
+
+Use `justify-items-start` to justify grid items against the start of their inline axis:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-3 gap-4 font-mono text-sm leading-6 font-bold text-white">
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-start rounded-lg bg-sky-500">
+          01
+        </div>
+      </div>
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-start rounded-lg bg-sky-500">
+          02
+        </div>
+      </div>
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-start rounded-lg bg-sky-500">
+          03
+        </div>
+      </div>
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-start rounded-lg bg-sky-500">
+          04
+        </div>
+      </div>
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-start rounded-lg bg-sky-500">
+          05
+        </div>
+      </div>
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-start rounded-lg bg-sky-500">
+          06
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:justify-items-start] -->
+<div class="grid justify-items-start ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
+</div>
+```
+
+</Figure>
+
+### End
+
+Use `justify-items-end` to justify grid items against the end of their inline axis:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-3 gap-4 font-mono text-sm leading-6 font-bold text-white">
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-end rounded-lg bg-cyan-500">
+          01
+        </div>
+      </div>
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-end rounded-lg bg-cyan-500">
+          02
+        </div>
+      </div>
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-end rounded-lg bg-cyan-500">
+          03
+        </div>
+      </div>
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-end rounded-lg bg-cyan-500">
+          04
+        </div>
+      </div>
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-end rounded-lg bg-cyan-500">
+          05
+        </div>
+      </div>
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-end rounded-lg bg-cyan-500">
+          06
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:justify-items-end] -->
+<div class="grid justify-items-end ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
+</div>
+```
+
+</Figure>
+
+### Center
+
+Use `justify-items-center` to justify grid items along their inline axis:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-3 gap-4 font-mono text-sm leading-6 font-bold text-white">
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-center rounded-lg bg-fuchsia-500">
+          01
+        </div>
+      </div>
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-center rounded-lg bg-fuchsia-500">
+          02
+        </div>
+      </div>
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-center rounded-lg bg-fuchsia-500">
+          03
+        </div>
+      </div>
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-center rounded-lg bg-fuchsia-500">
+          04
+        </div>
+      </div>
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-center rounded-lg bg-fuchsia-500">
+          05
+        </div>
+      </div>
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-center rounded-lg bg-fuchsia-500">
+          06
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:justify-items-center] -->
+<div class="grid justify-items-center ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
+</div>
+```
+
+</Figure>
+
+### Stretch
+
+Use `justify-items-stretch` to stretch items along their inline axis:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-1">
+      <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+      <div className="col-start-1 row-start-1 grid grid-cols-3 justify-items-stretch gap-4 font-mono text-sm leading-6 font-bold text-white">
+        <div className="flex h-14 items-center justify-center rounded-lg bg-blue-500">01</div>
+        <div className="flex h-14 items-center justify-center rounded-lg bg-blue-500">02</div>
+        <div className="flex h-14 items-center justify-center rounded-lg bg-blue-500">03</div>
+        <div className="flex h-14 items-center justify-center rounded-lg bg-blue-500">04</div>
+        <div className="flex h-14 items-center justify-center rounded-lg bg-blue-500">05</div>
+        <div className="flex h-14 items-center justify-center rounded-lg bg-blue-500">06</div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:justify-items-stretch] -->
+<div class="grid justify-items-stretch ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
+</div>
+```
+
+</Figure>
+
+### Responsive design
+
+<ResponsiveDesign
+  property="justify-items"
+  defaultClass="grid justify-items-start"
+  featuredClass="justify-items-center"
+/>

@@ -1,0 +1,175 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+import { Stripes } from "@/components/stripes.tsx";
+
+export const title = "align-items";
+export const description =
+  "Utilities for controlling how flex and grid items are positioned along a container's cross axis.";
+
+<ApiTable
+  rows={[
+    ["items-start", "align-items: flex-start;"],
+    ["items-end", "align-items: flex-end;"],
+    ["items-center", "align-items: center;"],
+    ["items-baseline", "align-items: baseline;"],
+    ["items-stretch", "align-items: stretch;"],
+  ]}
+/>
+
+## Examples
+
+### Stretch
+
+Use `items-stretch` to stretch items to fill the container's cross axis:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-1">
+      <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+      <div className="col-start-1 row-start-1 flex w-full items-stretch gap-4 rounded-lg text-center font-mono text-sm leading-6 font-bold text-white">
+        <div className="flex flex-1 items-center justify-center rounded-lg bg-cyan-500 py-4">01</div>
+        <div className="flex flex-1 items-center justify-center rounded-lg bg-cyan-500 py-12">02</div>
+        <div className="flex flex-1 items-center justify-center rounded-lg bg-cyan-500 py-8">03</div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:items-stretch] -->
+<div class="flex items-stretch ...">
+  <div class="py-4">01</div>
+  <div class="py-12">02</div>
+  <div class="py-8">03</div>
+</div>
+```
+
+</Figure>
+
+### Start
+
+Use `items-start` to align items to the start of the container's cross axis:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-1">
+      <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+      <div className="col-start-1 row-start-1 flex w-full items-start gap-4 rounded-lg text-center font-mono text-sm leading-6 font-bold text-white">
+        <div className="flex flex-1 items-center justify-center rounded-lg bg-pink-500 py-4">01</div>
+        <div className="flex flex-1 items-center justify-center rounded-lg bg-pink-500 py-12">02</div>
+        <div className="flex flex-1 items-center justify-center rounded-lg bg-pink-500 py-8">03</div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:items-start] -->
+<div class="flex items-start ...">
+  <div class="py-4">01</div>
+  <div class="py-12">02</div>
+  <div class="py-8">03</div>
+</div>
+```
+
+</Figure>
+
+### Center
+
+Use `items-center` to align items along the center of the container's cross axis:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-1">
+      <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+      <div className="col-start-1 row-start-1 flex w-full items-center gap-4 rounded-lg text-center font-mono text-sm leading-6 font-bold text-white">
+        <div className="flex flex-1 items-center justify-center rounded-lg bg-violet-500 py-4">01</div>
+        <div className="flex flex-1 items-center justify-center rounded-lg bg-violet-500 py-12">02</div>
+        <div className="flex flex-1 items-center justify-center rounded-lg bg-violet-500 py-8">03</div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:items-center] -->
+<div class="flex items-center ...">
+  <div class="py-4">01</div>
+  <div class="py-12">02</div>
+  <div class="py-8">03</div>
+</div>
+```
+
+</Figure>
+
+### End
+
+Use `items-end` to align items to the end of the container's cross axis:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-1">
+      <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+      <div className="col-start-1 row-start-1 flex w-full items-end gap-4 rounded-lg text-center font-mono text-sm leading-6 font-bold text-white">
+        <div className="flex flex-1 items-center justify-center rounded-lg bg-sky-500 py-4">01</div>
+        <div className="flex flex-1 items-center justify-center rounded-lg bg-sky-500 py-12">02</div>
+        <div className="flex flex-1 items-center justify-center rounded-lg bg-sky-500 py-8">03</div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:items-end] -->
+<div class="flex items-end ...">
+  <div class="py-4">01</div>
+  <div class="py-12">02</div>
+  <div class="py-8">03</div>
+</div>
+```
+
+</Figure>
+
+### Baseline
+
+Use `items-baseline` to align items along the container's cross axis such that all of their baselines align:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-1">
+      <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+      <div className="col-start-1 row-start-1 flex w-full items-baseline gap-4 rounded-lg text-center font-mono text-sm leading-6 font-bold text-white">
+        <div className="flex flex-1 items-center justify-center rounded-lg bg-blue-500 pt-2 pb-6">01</div>
+        <div className="flex flex-1 items-center justify-center rounded-lg bg-blue-500 pt-8 pb-12">02</div>
+        <div className="flex flex-1 items-center justify-center rounded-lg bg-blue-500 pt-12 pb-4">03</div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:items-baseline] -->
+<div class="flex items-baseline ...">
+  <div class="pt-2 pb-6">01</div>
+  <div class="pt-8 pb-12">02</div>
+  <div class="pt-12 pb-4">03</div>
+</div>
+```
+
+</Figure>
+
+### Responsive design
+
+<ResponsiveDesign property="align-items" defaultClass="flex items-stretch" featuredClass="items-center" />

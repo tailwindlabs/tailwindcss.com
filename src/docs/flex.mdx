@@ -1,0 +1,162 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
+import { Stripes } from "@/components/stripes.tsx";
+
+export const title = "flex";
+export const description = "Utilities for controlling how flex items both grow and shrink.";
+
+<ApiTable
+  rows={[
+    ["flex-<number>", "flex: <number>;"],
+    ["flex-<fraction>", "flex: calc(<fraction> * 100%);"],
+    ["flex-auto", "flex: 1 1 auto;"],
+    ["flex-initial", "flex: 0 1 auto;"],
+    ["flex-none", "flex: none;"],
+  ]}
+/>
+
+## Examples
+
+### Basic example
+
+Use `flex-<number>` utilities like `flex-1` to allow a flex item to grow and shrink as needed, ignoring its initial size:
+
+<Figure>
+
+<Example resizable>
+  {
+    <div className="grid grid-cols-1">
+      <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+      <div className="col-start-1 row-start-1 flex gap-4 rounded-lg font-mono text-sm leading-6 font-bold text-white">
+        <div className="flex h-14 w-14 flex-none items-center justify-center rounded-lg bg-pink-300 p-4 dark:bg-pink-800 dark:text-pink-400">
+          01
+        </div>
+        <div className="flex w-64 flex-1 items-center justify-center rounded-lg bg-pink-500 p-4">02</div>
+        <div className="flex w-32 flex-1 items-center justify-center rounded-lg bg-pink-500 p-4">03</div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code word:flex-1] -->
+<div class="flex">
+  <div class="w-14 flex-none ...">01</div>
+  <div class="w-64 flex-1 ...">02</div>
+  <div class="w-32 flex-1 ...">03</div>
+</div>
+```
+
+</Figure>
+
+### Initial
+
+Use `flex-initial` to allow a flex item to shrink but not grow, taking into account its initial size:
+
+<Figure>
+
+<Example resizable>
+  {
+    <div className="grid grid-cols-1">
+      <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+      <div className="col-start-1 row-start-1 flex gap-4 rounded-lg font-mono text-sm leading-6 font-bold text-white">
+        <div className="flex h-14 w-14 flex-none items-center justify-center rounded-lg bg-blue-300 p-4 dark:bg-blue-800 dark:text-blue-500">
+          01
+        </div>
+        <div className="flex w-24 flex-initial items-center justify-center rounded-lg bg-blue-500 p-4 sm:w-64">02</div>
+        <div className="flex w-14 flex-initial items-center justify-center rounded-lg bg-blue-500 p-4 sm:w-32">03</div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code word:flex-initial] -->
+<div class="flex">
+  <div class="w-14 flex-none ...">01</div>
+  <div class="w-64 flex-initial ...">02</div>
+  <div class="w-32 flex-initial ...">03</div>
+</div>
+```
+
+</Figure>
+
+### Auto
+
+Use `flex-auto` to allow a flex item to grow and shrink, taking into account its initial size:
+
+<Figure>
+
+<Example resizable>
+  {
+    <div className="grid grid-cols-1">
+      <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+      <div className="col-start-1 row-start-1 flex gap-4 rounded-lg font-mono text-sm leading-6 font-bold text-white">
+        <div className="flex h-14 w-14 flex-none items-center justify-center rounded-lg bg-violet-300 p-4 dark:bg-violet-800 dark:text-violet-400">
+          01
+        </div>
+        <div className="flex w-64 flex-auto items-center justify-center rounded-lg bg-violet-500 p-4">02</div>
+        <div className="flex w-32 flex-auto items-center justify-center rounded-lg bg-violet-500 p-4">03</div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code word:flex-auto] -->
+<div class="flex ...">
+  <div class="w-14 flex-none ...">01</div>
+  <div class="w-64 flex-auto ...">02</div>
+  <div class="w-32 flex-auto ...">03</div>
+</div>
+```
+
+</Figure>
+
+### None
+
+Use `flex-none` to prevent a flex item from growing or shrinking:
+
+<Figure>
+
+<Example resizable>
+  {
+    <div className="grid grid-cols-1">
+      <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+      <div className="col-start-1 row-start-1 flex gap-4 rounded-lg font-mono text-sm leading-6 font-bold text-white">
+        <div className="flex-none last:pr-8 sm:last:pr-0">
+          <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-indigo-500 p-4">01</div>
+        </div>
+        <div className="flex-none last:pr-8 sm:last:pr-0">
+          <div className="flex w-32 items-center justify-center rounded-lg bg-indigo-500 p-4">02</div>
+        </div>
+        <div className="flex-1 last:pr-8 sm:last:pr-0">
+          <div className="flex items-center justify-center rounded-lg bg-indigo-300 p-4 dark:bg-indigo-800 dark:text-indigo-400">
+            03
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code word:flex-none] -->
+<div class="flex ...">
+  <div class="w-14 flex-none ...">01</div>
+  <div class="w-32 flex-none ...">02</div>
+  <div class="flex-1 ...">03</div>
+</div>
+```
+
+</Figure>
+
+### Using a custom value
+
+<UsingACustomValue utility="flex" name="flex shorthand property" value="3_1_auto" />
+
+### Responsive design
+
+<ResponsiveDesign property="flex" defaultClass="flex-none" featuredClass="flex-1" />

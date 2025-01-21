@@ -1,0 +1,213 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+import { Stripes } from "@/components/stripes.tsx";
+
+export const title = "justify-self";
+export const description = "Utilities for controlling how an individual grid item is aligned along its inline axis.";
+
+<ApiTable
+  rows={[
+    ["justify-self-auto", "justify-self: auto;"],
+    ["justify-self-start", "justify-self: start;"],
+    ["justify-self-end", "justify-self: end;"],
+    ["justify-self-center", "justify-self: center;"],
+    ["justify-self-stretch", "justify-self: stretch;"],
+  ]}
+/>
+
+## Examples
+
+### Auto
+
+Use `justify-self-auto` to align an item based on the value of the grid's `justify-items` property:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-1">
+      <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+      <div className="col-start-1 row-start-1 grid auto-rows-fr grid-cols-3 justify-items-stretch gap-4 text-center font-mono text-sm leading-6 font-bold text-white">
+        <div className="rounded-lg bg-purple-300 p-4 dark:bg-purple-800 dark:text-purple-400">01</div>
+        <div className="justify-self-auto rounded-lg bg-purple-500 p-4">02</div>
+        <div className="rounded-lg bg-purple-300 p-4 dark:bg-purple-800 dark:text-purple-400">03</div>
+        <div className="rounded-lg bg-purple-300 p-4 dark:bg-purple-800 dark:text-purple-400">04</div>
+        <div className="rounded-lg bg-purple-300 p-4 dark:bg-purple-800 dark:text-purple-400">05</div>
+        <div className="rounded-lg bg-purple-300 p-4 dark:bg-purple-800 dark:text-purple-400">06</div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:justify-self-auto] -->
+<div class="grid justify-items-stretch ...">
+  <!-- ... -->
+  <div class="justify-self-auto ...">02</div>
+  <!-- ... -->
+</div>
+```
+
+</Figure>
+
+### Start
+
+Use `justify-self-start` to align a grid item to the start of its inline axis:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid auto-rows-fr grid-cols-3 justify-items-stretch gap-4 text-center font-mono text-sm leading-6 font-bold text-white">
+      <div className="rounded-lg bg-pink-300 p-4 dark:bg-pink-800 dark:text-pink-400">01</div>
+      <div className="grid grid-cols-1">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 size-14 justify-self-start rounded-lg bg-pink-500 p-4">02</div>
+      </div>
+      <div className="rounded-lg bg-pink-300 p-4 dark:bg-pink-800 dark:text-pink-400">03</div>
+      <div className="rounded-lg bg-pink-300 p-4 dark:bg-pink-800 dark:text-pink-400">04</div>
+      <div className="rounded-lg bg-pink-300 p-4 dark:bg-pink-800 dark:text-pink-400">05</div>
+      <div className="rounded-lg bg-pink-300 p-4 dark:bg-pink-800 dark:text-pink-400">06</div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:justify-self-start] -->
+<div class="grid justify-items-stretch ...">
+  <!-- ... -->
+  <div class="justify-self-start ...">02</div>
+  <!-- ... -->
+</div>
+```
+
+</Figure>
+
+### Center
+
+Use `justify-self-center` to align a grid item along the center of its inline axis:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid auto-rows-fr grid-cols-3 justify-items-stretch gap-4 text-center font-mono text-sm leading-6 font-bold text-white">
+      <div className="rounded-lg bg-indigo-300 p-4 dark:bg-indigo-800 dark:text-indigo-400">01</div>
+      <div className="grid grid-cols-1">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 size-14 justify-self-center rounded-lg bg-indigo-500 p-4">02</div>
+      </div>
+      <div className="rounded-lg bg-indigo-300 p-4 dark:bg-indigo-800 dark:text-indigo-400">03</div>
+      <div className="rounded-lg bg-indigo-300 p-4 dark:bg-indigo-800 dark:text-indigo-400">04</div>
+      <div className="rounded-lg bg-indigo-300 p-4 dark:bg-indigo-800 dark:text-indigo-400">05</div>
+      <div className="rounded-lg bg-indigo-300 p-4 dark:bg-indigo-800 dark:text-indigo-400">06</div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:justify-self-center] -->
+<div class="grid justify-items-stretch ...">
+  <!-- ... -->
+  <div class="justify-self-center ...">02</div>
+  <!-- ... -->
+</div>
+```
+
+</Figure>
+
+### End
+
+Use `justify-self-end` to align a grid item to the end of its inline axis:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid auto-rows-fr grid-cols-3 justify-items-stretch gap-4 text-center font-mono text-sm leading-6 font-bold text-white">
+      <div className="rounded-lg bg-blue-300 p-4 dark:bg-blue-800 dark:text-blue-500">01</div>
+      <div className="grid grid-cols-1">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 size-14 justify-self-end rounded-lg bg-blue-500 p-4">02</div>
+      </div>
+      <div className="rounded-lg bg-blue-300 p-4 dark:bg-blue-800 dark:text-blue-500">03</div>
+      <div className="rounded-lg bg-blue-300 p-4 dark:bg-blue-800 dark:text-blue-500">04</div>
+      <div className="rounded-lg bg-blue-300 p-4 dark:bg-blue-800 dark:text-blue-500">05</div>
+      <div className="rounded-lg bg-blue-300 p-4 dark:bg-blue-800 dark:text-blue-500">06</div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:justify-self-end] -->
+<div class="grid justify-items-stretch ...">
+  <!-- ... -->
+  <div class="justify-self-end ...">02</div>
+  <!-- ... -->
+</div>
+```
+
+</Figure>
+
+### Stretch
+
+Use `justify-self-stretch` to stretch a grid item to fill the grid area on its inline axis:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid auto-rows-fr grid-cols-3 justify-items-stretch gap-4 text-center font-mono text-sm leading-6 font-bold text-white">
+      <div className="grid grid-cols-1">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 size-14 rounded-lg bg-fuchsia-300 p-4 dark:bg-fuchsia-800 dark:text-fuchsia-400">
+          01
+        </div>
+      </div>
+      <div className="bg-stripes-fuchsia grid w-full justify-self-stretch rounded-lg">
+        <div className="justify-self-stretch rounded-lg bg-fuchsia-500 p-4">02</div>
+      </div>
+      <div className="grid grid-cols-1">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 size-14 rounded-lg bg-fuchsia-300 p-4 dark:bg-fuchsia-800 dark:text-fuchsia-400">
+          03
+        </div>
+      </div>
+      <div className="grid grid-cols-1">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 size-14 rounded-lg bg-fuchsia-300 p-4 dark:bg-fuchsia-800 dark:text-fuchsia-400">
+          04
+        </div>
+      </div>
+      <div className="grid grid-cols-1">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 size-14 rounded-lg bg-fuchsia-300 p-4 dark:bg-fuchsia-800 dark:text-fuchsia-400">
+          05
+        </div>
+      </div>
+      <div className="grid grid-cols-1">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 size-14 rounded-lg bg-fuchsia-300 p-4 dark:bg-fuchsia-800 dark:text-fuchsia-400">
+          06
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:justify-self-stretch] -->
+<div class="grid justify-items-start ...">
+  <!-- ... -->
+  <div class="justify-self-stretch ...">02</div>
+  <!-- ... -->
+</div>
+```
+
+</Figure>
+
+### Responsive design
+
+<ResponsiveDesign property="justify-self" defaultClass="justify-self-start" featuredClass="justify-self-end" />

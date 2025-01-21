@@ -1,0 +1,94 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
+
+export const title = "order";
+export const description = "Utilities for controlling the order of flex and grid items.";
+
+<ApiTable
+  rows={[
+    ["order-<number>", "order: <number>;"],
+    ["-order-<number>", "order: calc(<number> * -1);"],
+    ["order-first", "order: calc(-infinity);"],
+    ["order-last", "order: calc(infinity);"],
+    ["order-none", "order: 0;"],
+    ["order-(<custom-property>)", "order: var(<custom-property>);"],
+    ["order-[<value>]", "order: <value>;"],
+  ]}
+/>
+
+## Examples
+
+### Explicity setting a sort order
+
+Use `order-<number>` utilities like `order-1` and `order-3` to render flex and grid items in a different order than they appear in the document:
+
+<Figure>
+
+<Example>
+  {
+    <div className="flex justify-between font-mono text-sm leading-6 font-bold text-white">
+      <div className="order-3 flex h-14 w-14 items-center justify-center rounded-lg bg-sky-500">01</div>
+      <div className="order-1 flex h-14 w-14 items-center justify-center rounded-lg bg-sky-500">02</div>
+      <div className="order-2 flex h-14 w-14 items-center justify-center rounded-lg bg-sky-500">03</div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:order-1,order-2,order-3] -->
+<div class="flex justify-between ...">
+  <div class="order-3 ...">01</div>
+  <div class="order-1 ...">02</div>
+  <div class="order-2 ...">03</div>
+</div>
+```
+
+</Figure>
+
+### Ordering items first or last
+
+Use the `order-first` and `order-last` utilities to render flex and grid items first or last:
+
+<Figure>
+
+<Example>
+  {
+    <div className="flex justify-between font-mono text-sm leading-6 font-bold text-white">
+      <div className="order-last flex h-14 w-14 items-center justify-center rounded-lg bg-fuchsia-500">01</div>
+      <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-fuchsia-500">02</div>
+      <div className="order-first flex h-14 w-14 items-center justify-center rounded-lg bg-fuchsia-500">03</div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:order-first,order-last] -->
+<div class="flex justify-between ...">
+  <div class="order-last ...">01</div>
+  <div class="...">02</div>
+  <div class="order-first ...">03</div>
+</div>
+```
+
+</Figure>
+
+### Using negative values
+
+To use a negative order value, prefix the class name with a dash to convert it to a negative value:
+
+```html
+<!-- [!code classes:-order-1] -->
+<div class="-order-1">
+  <!-- ... -->
+</div>
+```
+
+### Using a custom value
+
+<UsingACustomValue utility="order" value="min(var(--total-items),10)" />
+
+### Responsive design
+
+<ResponsiveDesign property="order" defaultClass="order-first" featuredClass="order-last" />

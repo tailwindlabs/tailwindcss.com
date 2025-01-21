@@ -1,0 +1,92 @@
+@import "tailwindcss";
+@import "./search.css";
+@import "./typography.css" layer(components);
+
+@theme inline {
+  --font-sans: var(--font-inter), system-ui;
+  --font-source: var(--font-source-sans-pro), system-ui;
+  --font-sans--font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  --font-mono: var(--font-plex-mono);
+  --font-mono--font-feature-settings: "ss02", "zero";
+  --font-ubuntu-mono: var(--font-ubuntu-mono);
+}
+
+@theme {
+  --animate-flash-code: flash-code 2s forwards;
+
+  /* This uses --color-sky-500 but it's inlined because of an bug in chrome */
+  @keyframes flash-code {
+    0% {
+      background-color: oklch(0.685 0.169 237.323 / 10%);
+    }
+
+    100% {
+      background-color: oklch(0.685 0.169 237.323 / 0%);
+    }
+  }
+}
+
+:root {
+  color-scheme: light dark;
+}
+.dark {
+  color-scheme: dark;
+}
+.light {
+  color-scheme: light;
+}
+
+@variant dark {
+  &:where(.dark, .dark *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &:where(.system, .system *) {
+      @slot;
+    }
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Line numbers for code examples */
+.with-line-numbers {
+  code {
+    counter-reset: line;
+    position: relative;
+  }
+
+  .line {
+    counter-increment: line;
+    margin-left: --spacing(9);
+
+    @media (width <= theme(--breakpoint-sm)) {
+      margin-left: 0;
+    }
+
+    &::before {
+      position: absolute;
+      left: 0;
+      content: counter(line);
+      width: --spacing(6);
+      text-align: right;
+      user-select: none;
+      display: inline-block;
+      color: color-mix(in oklab, var(--color-slate-50) 40%, transparent);
+      font-family: theme(--font-mono);
+
+      @media (width <= theme(--breakpoint-sm)) {
+        display: none;
+      }
+    }
+  }
+}

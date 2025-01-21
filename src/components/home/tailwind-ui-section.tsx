@@ -1,0 +1,460 @@
+"use client";
+
+import { BentoItem } from "./bento";
+import { motion } from "framer-motion";
+import { TabGroup, TabPanels, TabList, Tab, TabPanel } from "@headlessui/react";
+import CategoryHeader from "./category-header";
+import clsx from "clsx";
+import GridContainer from "../grid-container";
+import LinkButton from "./link-button";
+import React from "react";
+import templatesCol1 from "./templates-col-1.png";
+import templatesCol2 from "./templates-col-2.png";
+import templatesCol3 from "./templates-col-3.png";
+import uiBlocksCol1 from "./ui-blocks-col-1.png";
+import uiBlocksCol2 from "./ui-blocks-col-2.png";
+import uiBlocksCol3 from "./ui-blocks-col-3.png";
+import uiBlocksCol4 from "./ui-blocks-col-4.png";
+import uiKitCol1 from "./ui-kit-col-1.png";
+import uiKitCol2 from "./ui-kit-col-2.png";
+import uiKitCol3 from "./ui-kit-col-3.png";
+
+export default function TailwindUiSection() {
+  return (
+    <div className="relative max-w-full">
+      <div className="invisible h-4 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/10 max-sm:px-4 2xl:visible 2xl:flex dark:text-white/15">
+        text-4xl <span className="inline dark:hidden">text-gray-950</span>
+        <span className="hidden dark:inline">text-white</span> tracking-tighter text-balance
+      </div>
+
+      <GridContainer className="2xl:before:hidden 2xl:after:hidden">
+        <CategoryHeader className="text-pink-600 dark:text-pink-500">Ready-made Components</CategoryHeader>
+      </GridContainer>
+
+      <GridContainer>
+        <h2 className="px-2 text-[2.5rem]/10 font-medium tracking-tighter max-sm:px-4 2xl:mt-0">
+          Move even faster with Tailwind UI
+        </h2>
+      </GridContainer>
+
+      <div className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/10 max-sm:px-4 sm:h-10 dark:text-white/15">
+        text-base <span className="inline dark:hidden">text-gray-950</span>
+        <span className="hidden dark:inline">text-white</span>
+      </div>
+
+      <GridContainer>
+        <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-gray-600 max-sm:px-4 dark:text-gray-400">
+          Tailwind UI is a collection of beautiful, fully responsive UI components, designed and developed by us, the
+          creators of Tailwind CSS. It's got hundreds of ready-to-use examples to choose from, and is guaranteed to help
+          you find the perfect starting point for what you want to build.
+        </p>
+      </GridContainer>
+
+      <GridContainer className="mt-10">
+        <div className="px-2 max-sm:px-4">
+          <LinkButton href="https://tailwindui.com/">Explore Tailwind UI</LinkButton>
+        </div>
+      </GridContainer>
+      <TabGroup>
+        <GridContainer className="mt-16">
+          <div className="mt-16 grid w-full overflow-x-hidden">
+            <TabList className="grid grid-cols-[repeat(3,_minmax(160px,_1fr))] divide-x divide-gray-950/10 overflow-x-auto text-gray-950 dark:divide-white/10 dark:text-white">
+              <TabButton className="data-selected:bg-pink-500/5 data-selected:text-pink-600 dark:data-selected:text-pink-500">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="120"
+                  height="74"
+                  fill="none"
+                  viewBox="0 0 120 72"
+                  className="transition-transform duration-300 group-hover:-translate-y-0.5 group-data-selected:translate-y-0"
+                >
+                  <path
+                    shapeRendering="geometricPrecision"
+                    className="fill-white dark:fill-gray-950"
+                    d="M56.066 6 8.435 33.5C7.478 34.053 7 34.776 7 35.5v3c0 .724.478 1.448 1.435 2L56.066 68c1.913 1.105 5.015 1.105 6.929 0l47.631-27.5c.957-.552 1.435-1.276 1.435-2v-3c0-.724-.479-1.447-1.435-2L62.995 6c-1.914-1.104-5.015-1.104-6.929 0"
+                  ></path>
+                  <path
+                    shapeRendering="geometricPrecision"
+                    stroke="currentColor"
+                    d="M112.09 35.496c-.001-.723-.479-1.447-1.435-2l-47.632-27.5c-1.913-1.104-5.015-1.104-6.928 0l-47.631 27.5c-.957.553-1.435 1.277-1.435 2m105.061 0c0 .724-.479 1.448-1.435 2l-47.632 27.5c-1.913 1.105-5.015 1.105-6.928 0l-47.631-27.5c-.957-.552-1.435-1.276-1.435-2m105.061 0v3c0 .724-.479 1.448-1.435 2l-47.632 27.5c-1.913 1.105-5.015 1.105-6.928 0l-47.631-27.5c-.957-.552-1.435-1.276-1.435-2v-3"
+                  ></path>
+                  <path
+                    shapeRendering="geometricPrecision"
+                    stroke="currentColor"
+                    strokeOpacity="0.3"
+                    d="M11.062 35.996c-.478-.276-.478-.724 0-1l47.632-27.5c.478-.276 1.253-.276 1.732 0l30.31 17.5c.479.277.479.724 0 1l-47.63 27.5c-.479.276-1.255.276-1.733 0zM45.703 55.996c-.478-.276-.478-.724 0-1l47.632-27.5c.478-.276 1.254-.276 1.732 0l12.99 7.5c.479.276.479.724 0 1l-47.631 27.5c-.478.276-1.254.276-1.732 0z"
+                  ></path>
+                  <circle
+                    shapeRendering="geometricPrecision"
+                    cx="1.5"
+                    cy="1.5"
+                    r="1.5"
+                    fill="currentColor"
+                    transform="matrix(.86603 -.5 .86603 .5 16.258 35.496)"
+                  ></circle>
+                  <path
+                    shapeRendering="geometricPrecision"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    d="m22.32 33.496 3.464-2M56.961 13.496l3.465-2M49.168 17.996l4.33-2.5M42.24 21.996l3.463-2"
+                  ></path>
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeOpacity="0.3"
+                    d="m41.373 38.496 23.383-13.5"
+                  ></path>
+                  <path
+                    shapeRendering="geometricPrecision"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    d="m53.498 55.496 6.928-4M69.086 46.496l6.928-4M84.674 37.496l6.929-4"
+                  ></path>
+                  <path
+                    shapeRendering="geometricPrecision"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeOpacity="0.3"
+                    d="m56.096 56.996 9.526-5.5M71.684 47.996l9.526-5.5M87.273 38.996l9.526-5.5M58.693 58.496l8.66-5M74.282 49.496l8.66-5M89.87 40.496l8.66-5M46.57 38.496l18.186-10.5"
+                  ></path>
+                  <rect
+                    shapeRendering="geometricPrecision"
+                    width="28"
+                    height="2"
+                    fill="currentColor"
+                    rx="0.5"
+                    transform="matrix(.86603 -.5 .86603 .5 33.579 34.496)"
+                  ></rect>
+                  <rect
+                    shapeRendering="geometricPrecision"
+                    width="32"
+                    height="2"
+                    fill="currentColor"
+                    rx="0.5"
+                    transform="matrix(.86603 -.5 .86603 .5 35.311 37.496)"
+                  ></rect>
+                  <rect
+                    shapeRendering="geometricPrecision"
+                    width="10"
+                    height="3"
+                    fill="currentColor"
+                    rx="1.5"
+                    transform="matrix(.86603 -.5 .86603 .5 48.301 39.996)"
+                  ></rect>
+                  <rect
+                    shapeRendering="geometricPrecision"
+                    width="10"
+                    height="3"
+                    fill="currentColor"
+                    fillOpacity="0.3"
+                    rx="1.5"
+                    transform="matrix(.86603 -.5 .86603 .5 58.693 33.996)"
+                  ></rect>
+                </svg>
+                <div className="text-center xl:text-left">
+                  <p className="font-mono text-sm font-semibold tracking-widest uppercase">Templates</p>
+                  <p className="mt-2 hidden text-sm text-gray-600 lg:block dark:text-gray-400">
+                    Visually-stunning, easy to customize site templates built with React and Next.js.
+                  </p>
+                </div>
+              </TabButton>
+              <TabButton className="data-selected:bg-indigo-500/5 data-selected:text-indigo-600 dark:data-selected:text-indigo-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="120" height="74" fill="none" viewBox="0 0 120 72">
+                  <path
+                    className="fill-white dark:fill-gray-950"
+                    d="M56.095 7 8.464 34.5c-.957.553-1.435 1.276-1.435 2v3c0 .724.478 1.448 1.435 2L56.095 69c1.913 1.105 5.015 1.105 6.928 0l47.632-27.5c.956-.552 1.435-1.276 1.435-2v-3c-.001-.724-.479-1.447-1.435-2L63.023 7c-1.913-1.104-5.015-1.104-6.928 0"
+                  ></path>
+                  <path
+                    stroke="currentColor"
+                    strokeOpacity="0.4"
+                    d="M112.09 36.5c-.001-.724-.479-1.447-1.435-2L63.023 7c-1.913-1.104-5.015-1.104-6.928 0L8.464 34.5c-.957.553-1.435 1.276-1.435 2m105.061 0c0 .724-.479 1.448-1.435 2L63.023 66c-1.913 1.105-5.015 1.105-6.928 0L8.464 38.5c-.957-.552-1.435-1.276-1.435-2m105.061 0v3c0 .724-.479 1.448-1.435 2L63.023 69c-1.913 1.105-5.015 1.105-6.928 0L8.464 41.5c-.957-.552-1.435-1.276-1.435-2v-3"
+                  ></path>
+
+                  <path
+                    fill="currentColor"
+                    stroke="currentColor"
+                    d="M11.062 37c-.478-.276-.478-.724 0-1L58.694 8.5c.478-.276 1.253-.276 1.732 0l2.598 1.5c.478.276.478.724 0 1L15.392 38.5c-.478.276-1.253.276-1.732 0z"
+                    opacity="0.1"
+                  ></path>
+                  <g fill="currentColor" stroke="currentColor" opacity="0.1">
+                    <path d="M19.723 42c-.479-.276-.479-.724 0-1l47.63-27.5c.48-.276 1.255-.276 1.733 0L89.004 25c.479.276.479.724 0 1l-47.63 27.5c-.48.276-1.255.276-1.733 0z"></path>
+                    <path d="M34.445 31.5c-.479-.276-.479-.724 0-1L49.167 22c.478-.276 1.254-.276 1.732 0l23.383 13.5c.478.276.478.724 0 1L59.559 45c-.478.276-1.253.276-1.732 0z"></path>
+                  </g>
+                  <path
+                    fill="currentColor"
+                    stroke="currentColor"
+                    d="M45.703 57c-.478-.276-.478-.724 0-1l47.632-27.5c.478-.276 1.254-.276 1.732 0l12.99 7.5c.479.276.479.724 0 1L60.426 64.5c-.478.276-1.254.276-1.732 0z"
+                    opacity="0.1"
+                  ></path>
+                  <g className="transition-transform duration-300 group-hover:-translate-y-0.5 group-data-selected:translate-y-0">
+                    <path
+                      className="fill-white dark:fill-gray-950"
+                      stroke="currentColor"
+                      d="M11.062 32c-.478-.276-.478-.724 0-1L58.694 3.5c.478-.276 1.253-.276 1.732 0L63.024 5c.478.276.478.724 0 1L15.392 33.5c-.478.276-1.253.276-1.732 0z"
+                    ></path>
+                    <path
+                      className="fill-white dark:fill-gray-950"
+                      stroke="currentColor"
+                      d="M19.723 37c-.479-.276-.479-.724 0-1l47.63-27.5c.48-.276 1.255-.276 1.733 0L89.004 20c.479.276.479.724 0 1l-47.63 27.5c-.48.276-1.255.276-1.733 0z"
+                    ></path>
+                    <path
+                      stroke="currentColor"
+                      strokeOpacity="0.3"
+                      d="M37.909 44.5c-.478-.276-.478-.724 0-1l9.526-5.5c.479-.276 1.254-.276 1.732 0l1.732 1c.479.276.479.724 0 1l-9.526 5.5c-.478.276-1.254.276-1.732 0z"
+                    ></path>
+                    <path
+                      className="fill-white dark:fill-gray-950"
+                      stroke="currentColor"
+                      d="M34.445 26.5c-.479-.276-.479-.724 0-1L49.167 17c.478-.276 1.254-.276 1.732 0l23.383 13.5c.478.276.478.724 0 1L59.559 40c-.478.276-1.253.276-1.732 0z"
+                    ></path>
+                    <path
+                      stroke="currentColor"
+                      strokeOpacity="0.3"
+                      d="M56.096 36c-.479-.276-.479-.724 0-1l9.526-5.5c.478-.276 1.254-.276 1.732 0l1.732 1c.478.276.478.724 0 1L59.56 37c-.479.276-1.254.276-1.732 0zM70.818 25.5c-.478-.276-.478-.724 0-1l9.526-5.5c.479-.276 1.254-.276 1.733 0l1.732 1c.478.276.478.724 0 1l-9.527 5.5c-.478.276-1.254.276-1.732 0z"
+                    ></path>
+                    <path
+                      className="fill-white dark:fill-gray-950"
+                      stroke="currentColor"
+                      d="M45.703 52c-.478-.276-.478-.724 0-1l47.632-27.5c.478-.276 1.254-.276 1.732 0l12.99 7.5c.479.276.479.724 0 1L60.426 59.5c-.478.276-1.254.276-1.732 0z"
+                    ></path>
+                    <path
+                      stroke="currentColor"
+                      strokeOpacity="0.3"
+                      d="M93.335 34.5c-.478-.276-.478-.724 0-1l6.062-3.5c.478-.276 1.254-.276 1.732 0l1.732 1c.478.276.478.724 0 1l-6.062 3.5c-.478.276-1.254.276-1.732 0zM77.746 43.5c-.478-.276-.478-.724 0-1L89.004 36c.478-.276 1.254-.276 1.732 0l1.732 1c.479.276.479.724 0 1L81.21 44.5c-.478.276-1.254.276-1.732 0z"
+                    ></path>
+                  </g>
+                </svg>
+                <div className="text-center xl:text-left">
+                  <p className="font-mono text-sm font-semibold tracking-widest uppercase">UI Blocks</p>
+                  <p className="mt-2 hidden text-sm text-gray-600 lg:block dark:text-gray-400">
+                    Over 500+ professionally designed, fully responsive, expertly crafted components.
+                  </p>
+                </div>
+              </TabButton>
+              <TabButton className="data-selected:bg-sky-500/5 data-selected:text-sky-600 dark:data-selected:text-sky-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="120" height="74" fill="none" viewBox="0 0 120 72">
+                  <path
+                    className="fill-white dark:fill-gray-950"
+                    d="M56.095 6 8.464 33.5c-.957.553-1.435 1.276-1.435 2v3c0 .724.478 1.448 1.435 2L56.095 68c1.913 1.105 5.015 1.105 6.928 0l47.632-27.5c.956-.552 1.435-1.276 1.435-2v-3c-.001-.724-.479-1.447-1.435-2L63.023 6c-1.913-1.104-5.015-1.104-6.928 0"
+                  ></path>
+                  <g stroke="currentColor" opacity="0.1">
+                    <path
+                      fill="currentColor"
+                      d="M60.425 52.5c-.478-.276-.478-.724 0-1L87.272 36c.478-.276 1.254-.276 1.732 0l1.732 1c.478.276.478.724 0 1L63.89 53.5c-.478.276-1.253.276-1.732 0zM54.363 49c-.956-.552-.956-1.448 0-2l3.464-2c.957-.552 2.508-.552 3.464 0 .957.552.957 1.448 0 2l-3.464 2c-.956.552-2.507.552-3.464 0Z"
+                    ></path>
+                    <path strokeLinecap="round" d="m63.89 43.5 12.124-7"></path>
+                    <path
+                      fill="currentColor"
+                      d="M46.57 44.5c-.48-.276-.48-.724 0-1L73.415 28c.478-.276 1.254-.276 1.732 0l1.732 1c.478.276.478.724 0 1L50.033 45.5c-.478.276-1.254.276-1.732 0z"
+                    ></path>
+                    <path strokeLinecap="round" d="m43.105 42.5 10.392-6"></path>
+                    <path
+                      fill="currentColor"
+                      d="M37.043 39c-.478-.276-.478-.724 0-1L63.89 22.5c.478-.276 1.253-.276 1.732 0l1.732 1c.478.276.478.724 0 1L40.507 40c-.478.276-1.254.276-1.732 0z"
+                    ></path>
+                    <path strokeLinecap="round" d="m33.579 37 10.392-6"></path>
+                  </g>
+                  <path
+                    stroke="currentColor"
+                    strokeOpacity="0.4"
+                    d="M112.09 35.5c-.001-.724-.479-1.447-1.435-2L63.023 6c-1.913-1.104-5.015-1.104-6.928 0L8.464 33.5c-.957.553-1.435 1.276-1.435 2m105.061 0c0 .724-.479 1.448-1.435 2L63.023 65c-1.913 1.105-5.015 1.105-6.928 0L8.464 37.5c-.957-.552-1.435-1.276-1.435-2m105.061 0v3c0 .724-.479 1.448-1.435 2L63.023 68c-1.913 1.105-5.015 1.105-6.928 0L8.464 40.5c-.957-.552-1.435-1.276-1.435-2v-3"
+                  ></path>
+                  <path
+                    stroke="currentColor"
+                    strokeOpacity="0.4"
+                    d="M17.99 40c-.478-.276-.478-.724 0-1l47.632-27.5c.478-.276 1.254-.276 1.732 0L108.057 35c.478.276.478.724 0 1L60.426 63.5c-.479.276-1.254.276-1.732 0z"
+                  ></path>
+                  <path
+                    fill="currentColor"
+                    stroke="currentColor"
+                    d="M11.062 36c-.478-.276-.478-.724 0-1L58.694 7.5c.478-.276 1.253-.276 1.732 0L63.024 9c.478.276.478.724 0 1L15.392 37.5c-.478.276-1.253.276-1.732 0z"
+                    opacity="0.1"
+                  ></path>
+                  <g className="transition-transform duration-300 group-hover:-translate-y-0.5 group-data-selected:translate-y-0">
+                    <path
+                      className="fill-current"
+                      fillOpacity={0.3}
+                      stroke="currentColor"
+                      d="M60.425 47.5c-.478-.276-.478-.724 0-1L87.272 31c.478-.276 1.254-.276 1.732 0l1.732 1c.478.276.478.724 0 1L63.89 48.5c-.478.276-1.253.276-1.732 0zM54.363 44c-.956-.552-.956-1.448 0-2l3.464-2c.957-.552 2.508-.552 3.464 0 .957.552.957 1.448 0 2l-3.464 2c-.956.552-2.507.552-3.464 0Z"
+                    ></path>
+                    <circle
+                      cx="2"
+                      cy="2"
+                      r="2"
+                      className="fill-white dark:fill-gray-950"
+                      stroke="currentColor"
+                      transform="matrix(.86603 -.5 .86603 .5 56.095 41)"
+                    ></circle>
+                    <path stroke="currentColor" strokeLinecap="round" d="m63.89 38.5 12.124-7"></path>
+                    <path
+                      className="fill-white dark:fill-gray-950"
+                      stroke="currentColor"
+                      d="M46.57 39.5c-.48-.276-.48-.724 0-1L73.415 23c.478-.276 1.254-.276 1.732 0l1.732 1c.478.276.478.724 0 1L50.033 40.5c-.478.276-1.254.276-1.732 0z"
+                    ></path>
+                    <path stroke="currentColor" strokeLinecap="round" d="m43.105 37.5 10.392-6"></path>
+                    <path
+                      className="fill-white dark:fill-gray-950"
+                      stroke="currentColor"
+                      d="M37.043 34c-.478-.276-.478-.724 0-1L63.89 17.5c.478-.276 1.253-.276 1.732 0l1.732 1c.478.276.478.724 0 1L40.507 35c-.478.276-1.254.276-1.732 0z"
+                    ></path>
+                    <path stroke="currentColor" strokeLinecap="round" d="m33.579 32 10.392-6"></path>
+                    <path
+                      className="fill-white dark:fill-gray-950"
+                      stroke="currentColor"
+                      d="M11.062 31c-.478-.276-.478-.724 0-1L58.694 2.5c.478-.276 1.253-.276 1.732 0L63.024 4c.478.276.478.724 0 1L15.392 32.5c-.478.276-1.253.276-1.732 0z"
+                    ></path>
+                  </g>
+                </svg>
+                <div className="text-center xl:text-left">
+                  <p className="font-mono text-sm font-semibold tracking-widest uppercase">UI Kit</p>
+                  <p className="mt-2 hidden text-sm text-gray-600 lg:block dark:text-gray-400">
+                    A starter kit for building your own component systems with React and Tailwind CSS.
+                  </p>
+                </div>
+              </TabButton>
+            </TabList>
+          </div>
+        </GridContainer>
+
+        <GridContainer className="mt-4">
+          <TabPanels>
+            <TabPanel className="bg-gray-950/5 p-2 dark:bg-white/10">
+              <BentoItem className="relative isolate h-148 w-full overflow-hidden bg-white/75! p-0!">
+                <div className="absolute -left-[200%] h-150 w-380 md:-left-[150%] lg:-left-[100%] xl:-left-[80%] 2xl:-left-[65%]">
+                  <div className="grid origin-top-left scale-120 rotate-x-55 rotate-y-0 -rotate-z-45 grid-cols-3 transform-3d">
+                    <motion.img
+                      initial={{ translateY: 700 }}
+                      viewport={{ once: true }}
+                      whileInView={{ translateY: 150, transition: { duration: 120 } }}
+                      src={templatesCol1.src}
+                      width={450}
+                      height={2156}
+                      alt=""
+                    />
+                    <motion.img
+                      initial={{ translateY: 50 }}
+                      viewport={{ once: true }}
+                      whileInView={{ translateY: 600, transition: { duration: 120 } }}
+                      src={templatesCol2.src}
+                      width={450}
+                      height={2307}
+                      alt=""
+                    />
+                    <motion.img
+                      initial={{ translateY: 800 }}
+                      viewport={{ once: true }}
+                      whileInView={{ translateY: 250, transition: { duration: 120 } }}
+                      src={templatesCol3.src}
+                      width={450}
+                      height={1843.5}
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </BentoItem>
+            </TabPanel>
+
+            <TabPanel className="bg-gray-950/5 p-2 dark:bg-white/10">
+              <BentoItem className="relative isolate h-148 w-full overflow-hidden bg-white/75! p-0!">
+                <div className="absolute -left-[200%] h-150 w-380 md:-left-[150%] lg:-left-[100%] xl:-left-[80%] 2xl:-left-[65%]">
+                  <div className="grid origin-top-left scale-120 rotate-x-55 rotate-y-0 -rotate-z-45 grid-cols-4 gap-4 transform-3d">
+                    <motion.img
+                      initial={{ translateY: 500 }}
+                      viewport={{ once: true }}
+                      whileInView={{ translateY: 850, transition: { duration: 120 } }}
+                      src={uiBlocksCol2.src}
+                      width={487.5}
+                      height={1587}
+                      alt=""
+                    />
+                    <motion.div
+                      initial={{ translateY: 350 }}
+                      viewport={{ once: true }}
+                      whileInView={{ translateY: 0, transition: { duration: 120 } }}
+                    >
+                      <img src={uiBlocksCol1.src} width={487.5} height={1858} alt="" />
+                      <img src={uiBlocksCol1.src} width={487.5} height={1858} alt="" />
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ translateY: 600 }}
+                      viewport={{ once: true }}
+                      whileInView={{ translateY: 950, transition: { duration: 120 } }}
+                    >
+                      <img src={uiBlocksCol3.src} width={487.5} height={1676.5} alt="" />
+                      <img src={uiBlocksCol3.src} width={487.5} height={1676.5} alt="" />
+                    </motion.div>
+                    <motion.img
+                      initial={{ translateY: 600 }}
+                      viewport={{ once: true }}
+                      whileInView={{ translateY: 250, transition: { duration: 120 } }}
+                      src={uiBlocksCol4.src}
+                      width={487}
+                      height={1747.5}
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </BentoItem>
+            </TabPanel>
+
+            <TabPanel className="bg-gray-950/5 p-2 dark:bg-white/10">
+              <BentoItem className="relative isolate h-148 w-full overflow-hidden bg-white/75! p-0!">
+                <div className="absolute -left-[200%] h-150 w-380 md:-left-[150%] lg:-left-[100%] xl:-left-[80%] 2xl:-left-[65%]">
+                  <div className="flex origin-top-left scale-100 rotate-x-55 rotate-y-0 -rotate-z-45 grid-cols-3 flex-row gap-4 transform-3d">
+                    <motion.img
+                      initial={{ translateY: 700 }}
+                      viewport={{ once: true }}
+                      whileInView={{ translateY: 350, transition: { duration: 120 } }}
+                      src={uiKitCol1.src}
+                      width={399}
+                      height={2019.5}
+                      alt=""
+                    />
+                    <motion.img
+                      initial={{ translateY: 500 }}
+                      viewport={{ once: true }}
+                      whileInView={{ translateY: 850, transition: { duration: 120 } }}
+                      src={uiKitCol2.src}
+                      width={822}
+                      height={2019.5}
+                      alt=""
+                    />
+                    <motion.img
+                      initial={{ translateY: 800 }}
+                      viewport={{ once: true }}
+                      whileInView={{ translateY: 450, transition: { duration: 120 } }}
+                      src={uiKitCol3.src}
+                      width={504}
+                      height={1378.5}
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </BentoItem>
+            </TabPanel>
+          </TabPanels>
+        </GridContainer>
+      </TabGroup>
+    </div>
+  );
+}
+
+export function TabButton(
+  props: React.ComponentProps<typeof Tab> & {
+    children: React.ReactNode;
+    className?: string;
+  },
+) {
+  return (
+    <Tab
+      className={clsx(
+        "group flex items-center gap-4 p-6 text-sm/7 focus:outline-none max-lg:flex-col lg:grid lg:grid-cols-[auto_1fr]",
+        props.className,
+      )}
+      // {...props}
+    >
+      {props.children}
+    </Tab>
+  );
+}

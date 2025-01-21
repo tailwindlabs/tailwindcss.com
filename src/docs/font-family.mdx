@@ -1,0 +1,106 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { CustomizingYourTheme, ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+
+export const title = "font-family";
+export const description = "Utilities for controlling the font family of an element.";
+
+<ApiTable
+  rows={[
+    [
+      "font-sans",
+      "font-family: var(--font-sans); /* ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' */",
+    ],
+    ["font-serif", "font-family: var(--font-serif); /* ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif */"],
+    [
+      "font-mono",
+      "font-family: var(--font-mono); /* ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace */",
+    ],
+    ["font-(<custom-property>)", "font-family: var(<custom-property>);"],
+    ["font-[<value>]", "font-family: <value>;"],
+  ]}
+/>
+
+## Examples
+
+### Basic example
+
+Use utilities like `font-sans` and `font-mono` to set the font family of an element:
+
+<Figure>
+
+<Example>
+  {
+    <div className="flex flex-col gap-8">
+      <div>
+        <span className="mb-3 font-mono text-sm font-medium text-gray-500 dark:text-gray-400">font-sans</span>
+        <p className="font-sans text-lg font-medium text-gray-900 dark:text-gray-200">
+          The quick brown fox jumps over the lazy dog.
+        </p>
+      </div>
+      <div>
+        <span className="mb-3 font-mono text-sm font-medium text-gray-500 dark:text-gray-400">font-serif</span>
+        <p className="font-serif text-lg font-medium text-gray-900 dark:text-gray-200">
+          The quick brown fox jumps over the lazy dog.
+        </p>
+      </div>
+      <div>
+        <span className="mb-3 font-mono text-sm font-medium text-gray-500 dark:text-gray-400">font-mono</span>
+        <p className="font-mono text-lg font-medium text-gray-900 dark:text-gray-200">
+          The quick brown fox jumps over the lazy dog.
+        </p>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:font-sans,font-serif,font-mono] -->
+<p class="font-sans ...">The quick brown fox ...</p>
+<p class="font-serif ...">The quick brown fox ...</p>
+<p class="font-mono ...">The quick brown fox ...</p>
+```
+
+</Figure>
+
+### Using a custom value
+
+<UsingACustomValue utility="font" name="font family" value="Open_Sans" element="p" />
+
+### Responsive design
+
+<ResponsiveDesign property="font-family" defaultClass="font-sans" featuredClass="font-serif" element="p" />
+
+## Customizing your theme
+
+<CustomizingYourTheme
+  utility="font"
+  name="font family"
+  customName="display"
+  customValue='"Oswald", "sans-serif"'
+>
+
+You can also provide default `font-feature-settings` and `font-variation-settings` values for a font family:
+
+```css
+@theme {
+  --font-display: "Oswald", "sans-serif";
+  --font-display--font-feature-settings: "cv02", "cv03", "cv04", "cv11"; /* [!code highlight] */
+  --font-display--font-variation-settings: "opsz" 32; /* [!code highlight] */
+}
+```
+
+If needed, use the [@font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) at-rule to load custom fonts:
+
+```css
+@font-face {
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/Oswald.woff2") format("woff2");
+}
+```
+
+</CustomizingYourTheme>

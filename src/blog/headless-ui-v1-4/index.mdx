@@ -1,0 +1,296 @@
+import Image from "next/image";
+import Link from "next/link";
+import card from "./card.jpg";
+import banner from "./banner.jpg";
+import ecommerceScreenie from "./ecommerce-screenie.jpg";
+import { adamwathan, robinmalfait } from "@/app/blog/authors";
+import { CodeExampleGroup, CodeBlock, js, jsx, html } from "@/components/code-example";
+
+export const meta = {
+  title: "Headless UI v1.4: The One With Tabs",
+  description: `We just released Headless UI v1.4, which includes a brand new \`Tab\` component, and new APIs for manually closing \`Popover\` and \`Disclosure\` components more easily.`,
+  date: "2021-07-29T12:00:00.000Z",
+  authors: [adamwathan, robinmalfait],
+  image: card,
+  excerpt: (
+    <>
+      We just released Headless UI v1.4, which includes a brand new <code>Tab</code> component, and new APIs for
+      manually closing <code>Popover</code> and <code>Disclosure</code> components more easily.
+    </>
+  ),
+};
+
+We just released Headless UI v1.4, which includes a brand new `Tab` component, and new APIs for manually closing `Popover` and `Disclosure` components more easily.
+
+<Link href="https://headlessui.dev">
+  <Image alt="Headless UI v1.4" src={banner} />
+</Link>
+
+## Tabs
+
+Earlier this year we started working on [Tailwind UI Ecommerce](https://tailwindui.com/ecommerce), and we realized pretty quickly we were going to need to support tabs in Headless UI to be able to build the new interfaces we were designing.
+
+<Link href="https://tailwindui.com/ecommerce">
+  <Image alt="Product details interface design from Tailwind UI Ecommerce." src={ecommerceScreenie} />
+</Link>
+
+Here's what we ended up with:
+
+<CodeExampleGroup filenames={['React', 'Vue']}>
+  <CodeBlock
+    example={jsx`
+      import { Tab } from '@headlessui/react'
+
+      function MyTabs() {
+        return (
+          <Tab.Group>
+            <Tab.List>
+              <Tab>Tab 1</Tab>
+              <Tab>Tab 2</Tab>
+              <Tab>Tab 3</Tab>
+            </Tab.List>
+            <Tab.Panels>
+              <Tab.Panel>Content 1</Tab.Panel>
+              <Tab.Panel>Content 2</Tab.Panel>
+              <Tab.Panel>Content 3</Tab.Panel>
+            </Tab.Panels>
+          </Tab.Group>
+        )
+      }
+    `}
+
+/>
+
+  <CodeBlock
+    example={html`
+      <template>
+        <TabGroup>
+          <TabList>
+            <Tab>Tab 1</Tab>
+            <Tab>Tab 2</Tab>
+            <Tab>Tab 3</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel>Content 1</TabPanel>
+            <TabPanel>Content 2</TabPanel>
+            <TabPanel>Content 3</TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </template>
+
+      <script>
+        import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
+
+        export default {
+          components: {
+            TabGroup,
+            TabList,
+            Tab,
+            TabPanels,
+            TabPanel,
+          },
+        }
+      </script>
+    `}
+
+/>
+
+</CodeExampleGroup>
+
+And yep, those are tabs!
+
+Like all Headless UI components, this totally abstracts away stuff like keyboard navigation for you so you can create custom tabs in a completely declarative way, without having to think about any of the tricky accessibility details.
+
+[Check out the documentation](https://headlessui.dev/react/tabs) to learn more.
+
+### Closing Disclosures and Popovers
+
+Up until now, there was no way to close a `Disclosure` without clicking the actual button used to open it. For typical disclosure use cases this isn't a big deal, but it often makes sense to use disclosures for things like mobile navigation, where you want to close it when someone clicks a link _inside_ of it.
+
+Now you can use `Disclosure.Button` or (`DisclosureButton` in Vue) within your disclosure panel to close the panel, making it easy to wrap up things like links or other buttons so the panel doesn't stay open:
+
+<CodeExampleGroup filenames={['React', 'Vue']}>
+  <CodeBlock
+    example={jsx`
+      import { Disclosure } from '@headlessui/react'
+      import MyLink from './MyLink'
+
+      function MyDisclosure() {
+        return (
+          <Disclosure>
+            <Disclosure.Button>Open mobile menu</Disclosure.Button>
+            <Disclosure.Panel>
+              <Disclosure.Button as={MyLink} href="/home">
+                Home
+              </Disclosure.Button>
+              {/* ... */}
+            </Disclosure.Panel>
+          </Disclosure>
+        )
+      }
+    `}
+
+/>
+
+  <CodeBlock
+    example={html`
+      <template>
+        <Disclosure>
+          <DisclosureButton>Open mobile menu</DisclosureButton>
+          <DisclosurePanel>
+            <DisclosureButton :as="MyLink" href="/home">Home</DisclosureButton>
+            <!-- ... -->
+          </DisclosurePanel>
+        </Disclosure>
+      </template>
+
+      <script>
+        import {
+          Disclosure,
+          DisclosureButton,
+          DisclosurePanel,
+        } from '@headlessui/vue'
+        import MyLink from './MyLink'
+
+        export default {
+          components: { Disclosure, DisclosureButton, DisclosurePanel, MyLink },
+        }
+      </script>
+    `}
+
+/>
+
+</CodeExampleGroup>
+
+The same thing works with `Popover` components, too:
+
+<CodeExampleGroup filenames={['React', 'Vue']}>
+  <CodeBlock
+    example={jsx`
+      import { Popover } from '@headlessui/react'
+      import MyLink from './MyLink'
+
+      function MyPopover() {
+        return (
+          <Popover>
+            <Popover.Button>Solutions</Popover.Button>
+            <Popover.Panel>
+              <Popover.Button as={MyLink} href="/insights">
+                Insights
+              </Popover.Button>
+              {/* ... */}
+            </Popover.Panel>
+          </Popover>
+        )
+      }
+    `}
+
+/>
+
+  <CodeBlock
+    example={html`
+      <template>
+        <Popover>
+          <PopoverButton>Solutions</PopoverButton>
+
+          <PopoverPanel>
+            <PopoverButton :as="MyLink" href="/insights">Insights</PopoverButton>
+            <!-- ... -->
+          </PopoverPanel>
+        </Popover>
+      </template>
+
+      <script>
+        import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
+        import MyLink from './MyLink'
+
+        export default {
+          components: { Popover, PopoverButton, PopoverPanel, MyLink },
+        }
+      </script>
+    `}
+
+/>
+
+</CodeExampleGroup>
+
+If you need finer control, we also pass a `close` function via the render prop/scoped slot, so you can imperatively close the panel when you need to:
+
+<CodeExampleGroup filenames={['React', 'Vue']}>
+  <CodeBlock
+    example={jsx`
+      import { Popover } from '@headlessui/react'
+
+      function MyPopover() {
+        return (
+          <Popover>
+            <Popover.Button>Terms</Popover.Button>
+            <Popover.Panel>
+              {({ close }) => (
+                <button
+                  onClick={async () => {
+                    await fetch('/accept-terms', { method: 'POST' })
+                    close()
+                  }}
+                >
+                  Read and accept
+                </button>
+              )}
+            </Popover.Panel>
+          </Popover>
+        )
+      }
+    `}
+
+/>
+
+  <CodeBlock
+    example={html`
+      <template>
+        <Popover>
+          <PopoverButton>Solutions</PopoverButton>
+
+          <PopoverPanel v-slot="{ close }">
+            <button @click="accept(close)">Read and accept</button>
+          </PopoverPanel>
+        </Popover>
+      </template>
+
+      <script>
+        import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
+
+        export default {
+          components: { Popover, PopoverButton, PopoverPanel },
+          setup() {
+            return {
+              accept: async (close) => {
+                await fetch('/accept-terms', { method: 'POST' })
+                close()
+              },
+            }
+          },
+        }
+      </script>
+    `}
+
+/>
+
+</CodeExampleGroup>
+
+For more details, check out the updated [Popover](https://headlessui.dev/react/popover#closing-popovers-manually) and [Disclosure](https://headlessui.dev/react/disclosure#closing-disclosures-manually) documentation.
+
+## Try it out
+
+Headless UI v1.4 is a minor update so there are no breaking changes. To upgrade, just install the latest version via npm:
+
+```sh
+# For React
+npm install @headlessui/react
+
+# For Vue
+npm install @headlessui/vue
+```
+
+Check out [the official website](https://headlessui.dev) for the latest documentation, and check out [Tailwind UI](https://tailwindui.com) if you want to play with tons of styled examples.
+
+Ready to try it out? <Link href="https://headlessui.dev">Visit the Headless UI website →</Link>
