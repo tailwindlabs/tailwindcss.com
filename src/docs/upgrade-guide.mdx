@@ -5,8 +5,6 @@ Tailwind CSS v4.0 is a major overhaul to the framework with automatic content de
 
 We have an automatic migration tool which should work for most projects but this guide will outline how to upgrade manually should you need to.
 
----
-
 ### Using the upgrade tool
 
 If you'd like to try upgrading a project from v3 to v4.0, you can use our upgrade tool to do the vast majority of the heavy lifting for you:
@@ -23,8 +21,6 @@ The upgrade tool requires Node.js 20 or higher, so ensure your environment is up
 **We recommend running the upgrade tool in a new branch**, then carefully reviewing the diff and testing your project in the browser to make sure all of the changes look correct. You may need to tweak a few things by hand in complex projects, but the tool will save you a ton of time either way.
 
 It's also a good idea to go over all of the [breaking changes](#changes-from-v3) in v4.0 and get a good understanding of what's changed, in case there are other things you need to update in your project that the upgrade tool doesn't catch.
-
----
 
 ## Upgrading manually
 
@@ -76,8 +72,6 @@ npx tailwindcss -i input.css -o output.css
   # [!code ++:2]
 npx @tailwindcss/cli -i input.css -o output.css
 ```
-
----
 
 ## Changes from v3
 
