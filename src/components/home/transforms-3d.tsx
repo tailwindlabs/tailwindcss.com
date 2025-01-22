@@ -23,7 +23,7 @@ export function Transforms3d() {
             rotateZ: 15,
           }}
           viewport={{
-            margin: "-400px 0px -400px 0px",
+            margin: "-200px 0px -200px 0px",
           }}
           alt=""
           src={_3dTransformsImg.src}
