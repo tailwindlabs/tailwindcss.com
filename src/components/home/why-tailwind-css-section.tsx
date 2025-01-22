@@ -75,7 +75,7 @@ export default function WhyTailwindCssSection() {
       </GridContainer>
 
       <GridContainer className="mt-16">
-        <div className="grid w-full grid-flow-dense grid-cols-6 gap-2 bg-gray-950/5 p-2 dark:bg-white/10">
+        <div className="grid w-full grid-flow-dense grid-cols-30 gap-2 bg-gray-950/5 p-2 dark:bg-white/10">
           <BentoItem className="col-span-full">
             <BentoHeader>
               <BentoIcon>
@@ -253,7 +253,7 @@ export default function WhyTailwindCssSection() {
             </BentoBody>
           </BentoItem>
 
-          <BentoItem className="col-span-full md:col-span-3">
+          <BentoItem className="col-span-full md:col-span-15">
             <BentoHeader>
               <BentoIcon>
                 <FiltersIcon />
@@ -303,7 +303,7 @@ export default function WhyTailwindCssSection() {
             </BentoBody>
           </BentoItem>
 
-          <BentoItem className="col-span-full md:col-span-3">
+          <BentoItem className="col-span-full md:col-span-15">
             <BentoHeader>
               <BentoIcon>
                 <DarkModeIcon />
@@ -322,7 +322,7 @@ export default function WhyTailwindCssSection() {
             </BentoBody>
           </BentoItem>
 
-          <BentoItem className="col-span-full md:col-span-3 xl:col-span-2">
+          <BentoItem className="col-span-full md:col-span-15 xl:col-span-12">
             <BentoHeader>
               <BentoIcon>
                 <CssVariablesIcon />
@@ -364,7 +364,7 @@ export default function WhyTailwindCssSection() {
             </BentoBody>
           </BentoItem>
 
-          <BentoItem className="col-span-full xl:col-span-4">
+          <BentoItem className="col-span-full xl:col-span-18">
             <BentoHeader>
               <BentoIcon>
                 <P3ColorsIcon />
@@ -482,7 +482,7 @@ export default function WhyTailwindCssSection() {
             </BentoBody>
           </BentoItem>
 
-          <BentoItem className="col-span-full xl:col-span-3">
+          <BentoItem className="col-span-full xl:col-span-15">
             <BentoHeader>
               <BentoIcon>
                 <CssGridIcon />
@@ -532,7 +532,7 @@ export default function WhyTailwindCssSection() {
             </BentoBody>
           </BentoItem>
 
-          <BentoItem className="col-span-full xl:col-span-3">
+          <BentoItem className="col-span-full xl:col-span-15">
             <BentoHeader>
               <BentoIcon>
                 <TransitionsAndAnimationsIcon />
@@ -653,7 +653,7 @@ export default function WhyTailwindCssSection() {
             </div>
           </BentoItem>
 
-          <BentoItem className="col-span-full md:col-span-3 xl:col-span-2">
+          <BentoItem className="col-span-full md:col-span-15 xl:col-span-10">
             <BentoHeader>
               <BentoIcon>
                 <CascadeLayersIcon />
@@ -696,7 +696,7 @@ export default function WhyTailwindCssSection() {
             </BentoBody>
           </BentoItem>
 
-          <BentoItem className="col-span-full md:col-span-3 xl:col-span-2">
+          <BentoItem className="col-span-full md:col-span-15 xl:col-span-10">
             <BentoHeader>
               <BentoIcon>
                 <LogicalPropertiesIcon />
@@ -769,7 +769,7 @@ export default function WhyTailwindCssSection() {
             </BentoBody>
           </BentoItem>
 
-          <BentoItem className="col-span-full md:col-span-3 xl:col-span-2">
+          <BentoItem className="col-span-full md:col-span-15 xl:col-span-10">
             <BentoHeader>
               <BentoIcon>
                 <ContainerQueriesIcon />
@@ -817,7 +817,7 @@ export default function WhyTailwindCssSection() {
             </BentoBody>
           </BentoItem>
 
-          <BentoItem className="col-span-full md:col-span-3">
+          <BentoItem className="col-span-full md:col-span-15">
             <BentoHeader>
               <BentoIcon>
                 <GradientsIcon />
@@ -877,7 +877,7 @@ export default function WhyTailwindCssSection() {
             </BentoBody>
           </BentoItem>
 
-          <BentoItem className="col-span-full md:col-span-3">
+          <BentoItem className="col-span-full md:col-span-15">
             <BentoHeader>
               <BentoIcon>
                 <_3DTransformsIcon />
