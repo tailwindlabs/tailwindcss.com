@@ -19,8 +19,6 @@ export const meta = {
   ),
 };
 
-<Image src={card} alt="Tailwind CSS v4.0-beta" />
-
 export function ColorPalette() {
   const colors = {
     red: {
@@ -262,13 +260,26 @@ return (
 </div>
 ) }
 
+<Image src={card} alt="Tailwind CSS v4.0-beta" />
+
 We're beyond excited to finally announce the first of many stable releases of Tailwind CSS v4.0! With a new engine, CSS-first configuration, a focus on speed, and so much more, this blog post will cover everything you need to know to get started with Tailwind CSS v4.0:
 
-- [Built for performance](#built-for-performance) — full builds in the new engine are up to 5x faster, and incremental builds are over 100x faster — and measured in microseconds.
-- [CSS-first configuration](#css-first-configuration) — a reimagined developer experience where you customize and extend the framework directly in CSS instead of a JavaScript configuration file.
-- [Unified toolchain](#unified-toolchain) — built-in import handling, vendor prefixing, and syntax transforms, with no additional tooling required.
-- [Simplified, modern syntax](#simplified-modern-syntax) — we've extended the Tailwind CSS syntax to
-- [Designed for the modern web](#designed-for-the-modern-web) — built on native cascade layers, wide-gamut colors, and including first-class support for modern CSS features like container queries, `@starting-style`, popovers, and more.
+- [New high-performance engine](#) — where full builds are up to 5x faster, and incremental builds are over 100x faster — and measured in microseconds.
+- [Designed for the modern web](#) — built on cutting-edge CSS features like cascade layers, registered custom properties with `@property`, and `color-mix()`.
+- [Simplified installation](#) — fewer dependencies, zero configuration, and only one line of code in your CSS file.
+- [First-party Vite plugin](#) — tight integration for maximum performance and minimum configuration.
+- [Automatic content detection](#) — all of your template files are discovered automatically, with no configuration required.
+- [Built-in import support](#) — no additional tooling necessary to bundle multiple CSS files.
+- [CSS-first configuration](#) — a reimagined developer experience where you customize and extend the framework directly in CSS instead of a JavaScript configuration file.
+- [CSS theme variables](#) — all of your design tokens exposed as native CSS variables so you can access them anywhere.
+- [Dynamic utility values and variants](#) — stop guessing what values exist in your spacing scale, or extending your configuration for things like basic data attributes.
+- [Modernized P3 color palette](#) — a redesigned, more vivid color palette that takes full advantage of modern display technology.
+- [Container queries](#) — first-class APIs for styling elements based on their container size, no plugins required.
+- [New 3D transform utilities](#) — transform elements in 3D space directly in your HTML.
+- [Expanded gradient APIs](#) — radial and conic gradients, interpolation modes, and more.
+- [@starting-style support](#) — a new variant you can use to create enter and exit transitions, without the need for JavaScript.
+- [not-* variant](#) — style an element only when it doesn't match another variant, custom selector, or media or feature query.
+- [Even more new utilities and variants](#) — support for `color-scheme`, `field-sizing`, complex shadows, `inert`, and more.
 
 ---
 
