@@ -18,8 +18,8 @@ You style things with Tailwind by combining many single-purpose presentational c
 
 <Example>
   {
-    <div className="mx-auto flex max-w-sm items-center gap-x-4 rounded-xl bg-white p-6 ring shadow-lg ring-black/5">
-      <svg className="size-12 shrink-0" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+    <div className="mx-auto flex max-w-sm items-center gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
+      <svg className="size-12 shrink-0" viewBox="0 0 40 40">
         <defs>
           <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a">
             <stop stopColor="#2397B3" offset="0%"></stop>
@@ -48,19 +48,20 @@ You style things with Tailwind by combining many single-purpose presentational c
         </g>
       </svg>
       <div>
-        <div className="text-xl font-medium text-black">ChitChat</div>
-        <p className="text-gray-500">You have a new message!</p>
+        <div className="text-xl font-medium text-black dark:text-white">ChitChat</div>
+        <p className="text-gray-500 dark:text-gray-400">You have a new message!</p>
       </div>
     </div>
   }
 </Example>
 
 ```html
-<div class="mx-auto flex max-w-sm items-center gap-x-4 rounded-xl bg-white p-6 shadow-lg">
+<!-- prettier-ignore -->
+<div class="mx-auto flex max-w-sm items-center gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
   <img class="size-12 shrink-0" src="/img/logo.svg" alt="ChitChat Logo" />
   <div>
-    <div class="text-xl font-medium text-black">ChitChat</div>
-    <p class="text-gray-500">You have a new message!</p>
+    <div class="text-xl font-medium text-black dark:text-white">ChitChat</div>
+    <p class="text-gray-500 dark:text-gray-400">You have a new message!</p>
   </div>
 </div>
 ```
@@ -263,7 +264,7 @@ Styling an element in dark mode is just a matter of adding the `dark:` prefix to
             <span className="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-lg">
               <svg
                 className="h-6 w-6 text-white"
-                xmlns="http://www.w3.org/2000/svg"
+
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -293,7 +294,7 @@ Styling an element in dark mode is just a matter of adding the `dark:` prefix to
             <span className="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-lg">
               <svg
                 className="h-6 w-6 text-white"
-                xmlns="http://www.w3.org/2000/svg"
+
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -317,7 +318,9 @@ Styling an element in dark mode is just a matter of adding the `dark:` prefix to
         </div>
       </div>
     </div>
-  }
+
+}
+
 </Example>
 
 ```html
@@ -328,7 +331,7 @@ Styling an element in dark mode is just a matter of adding the `dark:` prefix to
     <span class="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-lg">
       <svg
         class="h-6 w-6 text-white"
-        xmlns="http://www.w3.org/2000/svg"
+
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
