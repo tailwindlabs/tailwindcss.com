@@ -545,8 +545,8 @@ export default function WhyTailwindCssSection() {
                 </BentoDescription>
               </div>
             </BentoHeader>
-            <div className="grid h-112 grid-cols-2 gap-[inherit]">
-              <BentoBody padding={false}>
+            <div className="grid grid-cols-2 gap-[inherit] sm:h-112">
+              <BentoBody padding={false} className="col-span-2 sm:col-span-1">
                 <div className="flex h-full flex-1 flex-col items-center justify-between p-6">
                   <div className="mt-7 flex w-full flex-1 items-center justify-center">
                     <div className="flex items-center justify-center">
@@ -604,7 +604,7 @@ export default function WhyTailwindCssSection() {
                   <Code>animate-ping</Code>
                 </div>
               </BentoBody>
-              <BentoBody padding={false}>
+              <BentoBody padding={false} className="col-span-2 sm:col-span-1">
                 <div className="flex h-full flex-1 flex-col items-center justify-between p-6">
                   <div className="mt-7 flex w-full flex-1 items-center justify-center">
                     <div className="flex flex-1 items-center justify-center">
@@ -628,7 +628,7 @@ export default function WhyTailwindCssSection() {
                   <Code>animate-pulse</Code>
                 </div>
               </BentoBody>
-              <BentoBody padding={false}>
+              <BentoBody padding={false} className="col-span-1 row-start-2 sm:row-start-auto">
                 <div className="flex h-full flex-1 flex-col items-center justify-between p-6">
                   <div className="mt-7 flex w-full flex-1 items-center justify-center">
                     <div className="flex justify-center">
