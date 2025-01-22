@@ -20,7 +20,7 @@ While most of the styles in Preflight are meant to go unnoticed—they simply ma
 
 For a complete reference of all the styles applied by Preflight, [see the stylesheet](https://github.com/tailwindlabs/tailwindcss/blob/next/packages/tailwindcss/preflight.css).
 
-## Default margins are removed
+### Margins are removed
 
 Preflight removes all of the default margins from all elements including headings, blockquotes, paragraphs, etc:
 
@@ -37,7 +37,7 @@ Preflight removes all of the default margins from all elements including heading
 
 This makes it harder to accidentally rely on margin values applied by the user-agent stylesheet that are not part of your spacing scale.
 
-## Border styles are reset globally
+### Border styles are reset
 
 In order to make it easy to add a border by simply adding the `border` class, Tailwind overrides the default border styles for all elements with the following rules:
 
@@ -66,7 +66,7 @@ When you run into situations like this, you can work around them by overriding t
 }
 ```
 
-## Headings are unstyled
+### Headings are unstyled
 
 All heading elements are completely unstyled by default, and have the same font size and weight as normal text:
 
@@ -89,7 +89,7 @@ The reason for this is two-fold:
 
 You can always add default header styles to your project by [adding your own base styles](/docs/adding-custom-styles#adding-base-styles).
 
-## Lists are unstyled
+### Lists are unstyled
 
 Ordered and unordered lists are unstyled by default, with no bullets or numbers:
 
@@ -113,7 +113,7 @@ If you'd like to style a list, you can do so using the [list-style-type](/docs/l
 
 You can always add default list styles to your project by [adding your own base styles](/docs/adding-custom-styles#adding-base-styles).
 
-### Accessibility considerations
+#### Accessibility considerations
 
 Unstyled lists are [not announced as lists by VoiceOver](https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/). If your content is truly a list but you would like to keep it unstyled, [add a "list" role](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html) to the element:
 
@@ -125,7 +125,7 @@ Unstyled lists are [not announced as lists by VoiceOver](https://unfetteredthoug
 </ul>
 ```
 
-## Images are block-level
+### Images are block-level
 
 Images and other replaced elements (like `svg`, `video`, `canvas`, and others) are `display: block` by default:
 
@@ -151,7 +151,7 @@ If you ever need to make one of these elements `inline` instead of `block`, simp
 <img class="inline" src="..." alt="..." />
 ```
 
-## Images are constrained to the parent width
+### Images are constrained
 
 Images and videos are constrained to the parent width in a way that preserves their intrinsic aspect ratio:
 
