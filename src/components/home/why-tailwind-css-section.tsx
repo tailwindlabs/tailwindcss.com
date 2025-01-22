@@ -731,7 +731,7 @@ export default function WhyTailwindCssSection() {
                           <img
                             alt=""
                             src={user.src}
-                            className="size-12 shrink-0 rounded-full bg-gray-950/5 inset-ring inset-ring-gray-950/10 dark:inset-ring-white/10"
+                            className="size-12 shrink-0 rounded-full bg-gray-950/5 outline -outline-offset-1 outline-gray-950/10 dark:outline-white/10"
                           />
                         </div>
                         <div className="flex flex-col truncate">
@@ -758,7 +758,7 @@ export default function WhyTailwindCssSection() {
                           <img
                             alt=""
                             src={user.src}
-                            className="size-12 shrink-0 rounded-full bg-gray-950/5 inset-ring inset-ring-gray-950/10 dark:inset-ring-white/10"
+                            className="size-12 shrink-0 rounded-full bg-gray-950/5 outline -outline-offset-1 outline-gray-950/10 dark:outline-white/10"
                           />
                         </div>
                       </div>
