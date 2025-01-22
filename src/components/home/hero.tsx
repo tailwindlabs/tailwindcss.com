@@ -184,7 +184,7 @@ const Hero: React.FC = () => {
                           "size-48 shadow-xl
                           <TypeWord
                             isTyping={isTyping}
-                            word=" rounded-xl"
+                            word=" rounded-md"
                             step={1}
                             currentStep={step}
                             onNextStep={nextStep}
@@ -250,7 +250,7 @@ const Hero: React.FC = () => {
                           autostart={shouldAutostartTypingAnimations}
                         />
                         <span style={SYMBOL}>&gt;</span>
-                        <span style={{ color: "var(--color-slate-50)" }}>Killing in the Namespace</span>
+                        <span style={{ color: "var(--color-slate-50)" }}>Class Warfare</span>
                         <span style={SYMBOL}>&lt;/</span>
                         <span style={ELEMENT}>span</span>
                         <span style={SYMBOL}>&gt;</span>
@@ -268,7 +268,7 @@ const Hero: React.FC = () => {
                           autostart={shouldAutostartTypingAnimations}
                         />
                         <span style={SYMBOL}>&gt;</span>
-                        <span style={{ color: "var(--color-slate-50)" }}>Rage Against the Virtual Machine</span>
+                        <span style={{ color: "var(--color-slate-50)" }}>The Anti-Patterns</span>
                         <span style={SYMBOL}>&lt;/</span>
                         <span style={ELEMENT}>span</span>
                         <span style={SYMBOL}>&gt;</span>
@@ -299,7 +299,7 @@ const Hero: React.FC = () => {
                         <span style={SYMBOL}>&lt;</span>
                         <span style={ELEMENT}>span</span>
                         <span style={SYMBOL}>&gt;</span>
-                        <span style={{ color: "var(--color-slate-50)" }}>Self-titled</span>
+                        <span style={{ color: "var(--color-slate-50)" }}>No. 4</span>
                         <span style={SYMBOL}>&lt;/</span>
                         <span style={ELEMENT}>span</span>
                         <span style={SYMBOL}>&gt;</span>
@@ -319,7 +319,7 @@ const Hero: React.FC = () => {
                         <span style={SYMBOL}>&lt;</span>
                         <span style={ELEMENT}>span</span>
                         <span style={SYMBOL}>&gt;</span>
-                        <span style={{ color: "var(--color-slate-50)" }}>1992</span>
+                        <span style={{ color: "var(--color-slate-50)" }}>2025</span>
                         <span style={SYMBOL}>&lt;/</span>
                         <span style={ELEMENT}>span</span>
                         <span style={SYMBOL}>&gt;</span>
@@ -414,7 +414,7 @@ function Example({ step }: { step: number }) {
           transition={TRANSITION}
           className={clsx(
             "size-48 shadow-xl transition-[border-radius] duration-350 dark:outline-1 dark:-outline-offset-1 dark:outline-white/10",
-            step > 1 ? "rounded-xl" : null,
+            step > 1 ? "rounded-md" : null,
           )}
           src={cover.src}
           width={192}
@@ -433,7 +433,7 @@ function Example({ step }: { step: number }) {
               step > 2 ? "text-2xl font-medium" : null,
             )}
           >
-            Killing in the Namespace
+            Class Warfare
           </motion.span>
           <motion.span
             transition={TRANSITION}
@@ -443,7 +443,7 @@ function Example({ step }: { step: number }) {
               step > 3 ? "font-medium text-sky-500!" : null,
             )}
           >
-            Rage Against the Virtual Machine
+            The Anti-Patterns
           </motion.span>
           <motion.span
             layout="position"
@@ -454,13 +454,13 @@ function Example({ step }: { step: number }) {
             )}
           >
             <motion.span layout="position" transition={TRANSITION}>
-              Self-titled
+              No. 4
             </motion.span>
             <motion.span layout="position" transition={TRANSITION}>
               &middot;
             </motion.span>
             <motion.span layout="position" transition={TRANSITION}>
-              1992
+              2025
             </motion.span>
           </motion.span>
         </motion.div>
