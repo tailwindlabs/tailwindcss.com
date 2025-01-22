@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: "pnpm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    allow:
+      - dependency-name: "tailwindcss"
+    labels:
+      - "dependencies"
