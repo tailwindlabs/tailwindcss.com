@@ -39,7 +39,6 @@ export function EditorAnimation({ children, timeline }: { children: React.ReactN
 
   let container = useRef<HTMLDivElement>(null);
   let isInView = useInView(container, {
-    once: true,
     amount: 0.25, // at least 25%
   });
 
@@ -104,6 +103,11 @@ export function EditorAnimation({ children, timeline }: { children: React.ReactN
 
     return () => {
       cancelled = true;
+
+      setState("idle");
+      setModified(false);
+      setClasses([]);
+      setTerminal([]);
     };
   }, [isInView]);
 
