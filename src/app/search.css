@@ -204,8 +204,8 @@
   @apply dark:text-gray-200;
 }
 
-@screen sm {
-  .DocSearch-Input {
+.DocSearch-Input {
+  @variant sm {
     font-size: 0.875rem;
   }
 }
