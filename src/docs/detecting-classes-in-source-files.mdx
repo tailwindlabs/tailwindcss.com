@@ -19,6 +19,7 @@ Tailwind treats all of your source files as plain text, and doesn't attempt to a
 Instead it just looks for any tokens in your file that could be classes based on which characters Tailwind is expecting in class names:
 
 ```jsx
+// [!code filename:JSX]
 // [!code word:bg-blue-500]
 // [!code word:rounded-full]
 // [!code word:text-white]
@@ -89,6 +90,7 @@ If you're using a component library like React or Vue, this means you shouldn't 
 <TipBad>Don't use props to build class names dynamically</TipBad>
 
 ```jsx
+// [!code filename:JSX]
 function Button({ color, children }) {
   return <button className={`bg-${color}-600 hover:bg-${color}-500 ...`}>{children}</button>;
 }
@@ -99,6 +101,7 @@ Instead, map props to complete class names that are statically detectable at bui
 <TipGood>Always map props to static class names</TipGood>
 
 ```jsx
+// [!code filename:JSX]
 function Button({ color, children }) {
   const colorVariants = {
     blue: "bg-blue-600 hover:bg-blue-500",
@@ -112,6 +115,7 @@ function Button({ color, children }) {
 This has the added benefit of letting you map different prop values to different color shades for example:
 
 ```jsx
+// [!code filename:JSX]
 function Button({ color, children }) {
   const colorVariants = {
     blue: "bg-blue-600 hover:bg-blue-500 text-white",

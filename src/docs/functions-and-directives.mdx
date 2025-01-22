@@ -10,6 +10,7 @@ Directives are custom Tailwind-specific [at-rules](https://developer.mozilla.org
 Use the `@import` directive to inline import CSS files, including Tailwind itself:
 
 ```css
+/* [!code filename:CSS] */
 @import "tailwindcss";
 ```
 
@@ -18,6 +19,7 @@ Use the `@import` directive to inline import CSS files, including Tailwind itsel
 Use the `@theme` directive to define your project's custom design tokens, like fonts, colors, and breakpoints:
 
 ```css
+/* [!code filename:CSS] */
 @theme {
   --font-display: "Satoshi", "sans-serif";
 
@@ -44,6 +46,7 @@ Learn more about customizing your theme in the [theme variables documentation](/
 Use the `@source` directive to explicitly specify source files that aren't picked up by Tailwind's automatic content detection:
 
 ```css
+/* [!code filename:CSS] */
 @source "../node_modules/@my-company/ui-lib";
 ```
 
@@ -54,6 +57,7 @@ Learn more about automatic content detection in the [detecting classes in source
 Use the `@utility` directive to add custom utilities to your project that work with variants like `hover`, `focus` and `lg`:
 
 ```css
+/* [!code filename:CSS] */
 @utility tab-4 {
   tab-size: 4;
 }
@@ -66,6 +70,7 @@ Learn more about registering custom utilities in the [adding custom utilities do
 Use the `@variant` directive to apply a Tailwind variant to styles in your CSS:
 
 ```css
+/* [!code filename:CSS] */
 .my-element {
   background: white;
 
@@ -79,6 +84,7 @@ Use the `@variant` directive to apply a Tailwind variant to styles in your CSS:
 If you need to apply multiple variants at the same time, use nesting:
 
 ```css
+/* [!code filename:CSS] */
 @variant dark {
   @variant hover {
     background: black;
@@ -93,6 +99,7 @@ Learn more about variants in the [hover, focus, and other states documentation](
 Use the `@custom-variant` directive to add a custom variant in your project:
 
 ```css
+/* [!code filename:CSS] */
 @custom-variant pointer-coarse (@media (pointer: coarse));
 @custom-variant theme-midnight (&:where([data-theme="midnight"] *));
 ```
@@ -106,6 +113,7 @@ Learn more about adding custom variants in the [adding custom variants documenta
 Use the `@apply` directive to inline any existing utility classes into your own custom CSS:
 
 ```css
+/* [!code filename:CSS] */
 .select2-dropdown {
   /* [!code highlight:2] */
   @apply rounded-b-lg shadow-md;
@@ -131,6 +139,7 @@ If you want to use `@apply` or `@variant` in the `<style>` block of a Vue or Sve
 To do this without duplicating the CSS variables in your CSS output, use the `@reference` directive instead of the `@import` directive when importing your theme:
 
 ```html
+<!-- [!code filename:HTML] -->
 <template>
   <h1>Hello world!</h1>
 </template>
@@ -148,6 +157,7 @@ To do this without duplicating the CSS variables in your CSS output, use the `@r
 If you’re just using the default theme, you can import `tailwindcss/theme` directly:
 
 ```html
+<!-- [!code filename:HTML] -->
 <template>
   <h1>Hello world!</h1>
 </template>
@@ -171,6 +181,7 @@ Tailwind provides the following build-time functions to make working with colors
 Use the `--alpha()` function to generate a color with an opacity applied to it:
 
 ```css
+/* [!code filename:CSS] */
 .my-element {
   /* [!code highlight:2] */
   color: --alpha(var(--color-lime-300) / 50%);
@@ -182,6 +193,7 @@ Use the `--alpha()` function to generate a color with an opacity applied to it:
 Use the `--spacing()` function to generate a spacing value based on your theme:
 
 ```css
+/* [!code filename:CSS] */
 .my-element {
   /* [!code highlight:2] */
   margin: --spacing(4);
@@ -197,6 +209,7 @@ The following directives and functions exist solely for compatibility with Tailw
 Use the `@config` directive to load a legacy JavaScript-based configuration file:
 
 ```css
+/* [!code filename:CSS] */
 @config "../../tailwind.config.js";
 ```
 
@@ -207,6 +220,7 @@ The `corePlugins`, `safelist` and `separator` options from the JavaScript-based 
 Use the `@plugin` directive to load a legacy JavaScript-based plugin:
 
 ```css
+/* [!code filename:CSS] */
 @plugin "@tailwindcss/typography";
 ```
 
@@ -217,6 +231,7 @@ The `@plugin` directive accepts either a package name or a local path.
 Use the `theme()` function to access your Tailwind theme values using dot notation:
 
 ```css
+/* [!code filename:CSS] */
 .my-element {
   /* [!code highlight:2] */
   margin: theme(spacing.12);
