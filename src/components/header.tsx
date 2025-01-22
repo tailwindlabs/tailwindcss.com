@@ -161,7 +161,7 @@ export function Header(props: React.PropsWithChildren) {
           </Link>
         </div>
         <div className="flex items-center gap-4 md:hidden">
-          <IconButton aria-label="Search">
+          <SearchButton aria-label="Search">
             <svg viewBox="0 0 16 16" fill="currentColor" className="size-4">
               <path
                 fillRule="evenodd"
@@ -169,7 +169,7 @@ export function Header(props: React.PropsWithChildren) {
                 clipRule="evenodd"
               />
             </svg>
-          </IconButton>
+          </SearchButton>
 
           <IconButton aria-label="Navigation" onClick={() => setNavIsOpen(!navIsOpen)}>
             <svg viewBox="0 0 16 16" fill="currentColor" className="size-4">

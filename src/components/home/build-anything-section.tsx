@@ -22,7 +22,7 @@ import nasa from "./build-anything-section/nasa.png";
 export default function BuildAnythingSection() {
   return (
     <div className="relative max-w-full">
-      <div className="h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/10 max-sm:px-4 2xl:flex dark:text-white/15">
+      <div className="h-6 max-w-screen items-end px-2 font-mono text-xs/6 whitespace-pre text-black/10 max-sm:px-4 2xl:flex dark:text-white/15">
         text-4xl <span className="inline dark:hidden">text-gray-950</span>
         <span className="hidden dark:inline">text-white</span> tracking-tighter text-balance
       </div>

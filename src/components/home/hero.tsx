@@ -55,7 +55,8 @@ const Hero: React.FC = () => {
         <span className="hidden lg:max-xl:inline">text-6xl </span>
         <span className="hidden xl:inline">text-8xl </span>
         <span className="inline dark:hidden">text-gray-950 </span>
-        <span className="hidden dark:inline">text-white </span>tracking-tighter text-balance
+        <span className="hidden dark:inline">text-white </span>tracking-tighter{" "}
+        <span className="max-sm:hidden">text-balance</span>
       </div>
       <GridContainer>
         <h1 className="px-2 text-4xl tracking-tighter text-balance max-sm:px-4 sm:text-5xl lg:text-6xl xl:text-8xl">
@@ -81,7 +82,7 @@ const Hero: React.FC = () => {
           Get started
         </LinkButton>
       </GridContainer>
-      <GridContainer className="mt-4 px-2 sm:mt-10">
+      <GridContainer className="mt-4 sm:mt-10 sm:px-2">
         <div className="flex gap-4 max-sm:px-4">
           <LinkButton href="docs/installation" className="z-1 max-sm:hidden">
             Get started
@@ -346,7 +347,7 @@ const Hero: React.FC = () => {
               </div>
             </Editor>
           </div>
-          <div className="relative border-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 max-lg:h-40 max-lg:border-t lg:border-l dark:[--pattern-fg:var(--color-white)]/10">
+          <div className="relative border-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 max-lg:h-66 max-lg:border-t lg:border-l dark:[--pattern-fg:var(--color-white)]/10">
             <div className="absolute right-1/2 max-lg:bottom-8 max-md:translate-x-1/2 md:right-16 lg:top-1/2 lg:-translate-y-1/2 2xl:right-1/2 2xl:translate-x-[calc(50%-3rem)]">
               <Example step={step} />
             </div>
