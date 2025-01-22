@@ -1,6 +1,19 @@
-import { NewsletterForm } from "@/components/newsletter-form";
 import GridContainer from "@/components/grid-container";
 import ShowcaseThumbnail from "@/components/showcase-thumbnail";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Showcase",
+  description:
+    "A collection of beautiful websites built with Tailwind CSS, including marketing sites, SaaS applications, ecommerce stores, and more.",
+  openGraph: {
+    type: "article",
+    title: "Showcase - Build anything",
+    description: "A collection of beautiful websites built with Tailwind CSS.",
+    images: "https://v4-test.tailwindcss.com/api/og?path=/showcase",
+    url: "https://v4-test.tailwindcss.com/showcase",
+  },
+};
 
 export default async function Showcase() {
   return (
