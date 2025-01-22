@@ -22,7 +22,6 @@ import colorValues from "@/docs/utils/colors";
 import { css, HighlightedCode, html } from "../code-example";
 import { Editor } from "./editor";
 import filtersImg from "./why-tailwind-css-section/filters.png";
-import _3dTransformsImg from "./why-tailwind-css-section/3d-transforms.jpeg";
 import cssGrid1 from "./why-tailwind-css-section/css-grid-1.png";
 import cssGrid1Mobile from "./why-tailwind-css-section/css-grid-1.mobile.png";
 import cssGrid2 from "./why-tailwind-css-section/css-grid-2.png";
@@ -43,6 +42,8 @@ import avatar7 from "./why-tailwind-css-section/avatar-7.png";
 import { DarkMode } from "./why-tailwind-css-section/dark-mode";
 import { Autoscroll } from "./autoscroll";
 import { Tooltip, TooltipPanel, TooltipTrigger } from "@headlessui/react";
+import { motion } from "framer-motion";
+import { Transforms3d } from "./transforms-3d";
 
 export default function WhyTailwindCssSection() {
   return (
@@ -891,18 +892,7 @@ export default function WhyTailwindCssSection() {
               </div>
             </BentoHeader>
             <BentoBody className="h-112">
-              <div className="grid size-full place-content-center">
-                <div className="group col-start-1 row-start-1 -translate-y-4 transition duration-300 perspective-[1200px] perspective-origin-top hover:translate-y-0">
-                  <img
-                    alt=""
-                    src={_3dTransformsImg.src}
-                    className="size-82 rotate-x-30 -rotate-y-5 rotate-z-15 rounded-2xl shadow-2xl outline outline-gray-950/5 transition duration-300 transform-3d group-hover:rotate-x-0 group-hover:-rotate-y-0 group-hover:rotate-z-0"
-                  />
-                </div>
-                <div className="col-start-1 row-start-1 size-82 rounded-2xl bg-gray-950/5 p-2 inset-ring shadow-inner inset-ring-gray-950/5 dark:bg-white/10 dark:inset-ring-white/10">
-                  <div className="size-full rounded-lg outline outline-gray-950/10 outline-dashed"></div>
-                </div>
-              </div>
+              <Transforms3d />
             </BentoBody>
           </BentoItem>
         </div>
