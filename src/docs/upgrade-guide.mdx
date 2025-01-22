@@ -1,9 +1,11 @@
 export const title = "Upgrade guide";
 export const description = "Upgrading your Tailwind CSS projects from v3 to v4.";
 
-Tailwind CSS v4.0 is a major overhaul to the framework with automatic content detection, CSS-driven configuration, and more and as such includes a number of breaking changes.
+Tailwind CSS v4.0 is a major overhaul of the framework, featuring a new high-performance engine, automatic content detection, CSS-first configuration, and much more.
 
-We have an automatic migration tool which should work for most projects but this guide will outline how to upgrade manually should you need to.
+While we’ve worked really hard to minimize breaking changes, some updates are necessary. This guide outlines all the steps required to upgrade your projects from v3 to v4.
+
+To simplify the process, we’ve developed a migration tool that can automatically handle the bulk of these changes for you in typical projects.
 
 ### Using the upgrade tool
 
@@ -26,7 +28,7 @@ It's also a good idea to go over all of the [breaking changes](#changes-from-v3)
 
 ### Using PostCSS
 
-In Tailwind CSS v3, the `tailwindcss` package was a PostCSS plugin, but in v4.0 the PostCSS plugin lives in a dedicated `@tailwindcss/postcss` package.
+In v3, the `tailwindcss` package was a PostCSS plugin, but in v4.0 the PostCSS plugin lives in a dedicated `@tailwindcss/postcss` package.
 
 Tailwind CSS v4.0 also handles CSS imports and vendor prefixing for you, so you can remove `postcss-import` and `autoprefixer` if they are in your project:
 
@@ -46,7 +48,7 @@ export default {
 
 ### Using Vite
 
-If you're using Vite, we recommend migrating from the PostCSS plugin to [our new dedicated Vite plugin](#installing-with-vite):
+If you're using Vite, we recommend migrating from the PostCSS plugin to our new Vite plugin:
 
 ```ts
 // [!code filename:vite.config.ts]
@@ -67,6 +69,7 @@ export default defineConfig({
 In v4.0, Tailwind CLI lives in a dedicated `@tailwindcss/cli` package. Update any of your build commands to use the new package instead:
 
 ```sh
+/* [!code filename:Terminal] */
   # [!code --:2]
 npx tailwindcss -i input.css -o output.css
   # [!code ++:2]
@@ -75,11 +78,16 @@ npx @tailwindcss/cli -i input.css -o output.css
 
 ## Changes from v3
 
-### Removed \`@tailwind\` directives
+Here's a comprehensive list of all the breaking changes in Tailwind CSS v4.0.
+
+Our [upgrade tool](##using-the-upgrade-tool) will handle most of these changes for you automatically, so we highly recommend using it if you can.
+
+### Removed @tailwind directives
 
 In Tailwind CSS v4.0, you import Tailwind using a regular CSS `@import` statement, not using the `@tailwind` directives you used in v3:
 
 ```css
+/* [!code filename:CSS] */
 /* [!code --:4] */
 @tailwind base;
 @tailwind components;
@@ -195,24 +203,9 @@ We've removed any utilities that were deprecated in v3 and have been undocumente
 
 }
 
-### Configuring the \`container\` utility
+### Renamed utilities
 
-In v3, the `container` utility had several configuration options like `center` and `padding` that no longer exist in v4.0. To customize the `container` utility in v4.0, extend it with `@utility`:
-
-```css
-@import "tailwindcss";
-
-@utility container {
-  margin-inline: auto;
-  padding-inline: 2rem;
-}
-```
-
-### Default shadow scale changes
-
-We've shifted things around a bit in the default shadow scales to make sure every shadow utility has a named value.
-
-To do this, we've renamed `shadow` to `shadow-sm`, `shadow-sm` to `shadow-xs`, `drop-shadow` to `drop-shadow-sm`, and `drop-shadow-sm` to `drop-shadow-xs`:
+We've renamed the following utilities in v4 to make them more consistent and predictable:
 
 {
 
@@ -256,29 +249,6 @@ To do this, we've renamed `shadow` to `shadow-sm`, `shadow-sm` to `shadow-xs`, `
         <code className="whitespace-nowrap">drop-shadow-sm</code>
       </td>
     </tr>
-  </tbody>
-</table>
-
-}
-
-The `shadow` and `drop-shadow` utilities will still work for backward compatibility, but `shadow-sm` and `drop-shadow-sm` will look different in your project if you don't replace each instance with `shadow-xs` and `drop-shadow-xs` instead.
-
-### Default blur scale changes
-
-We've shifted things around a bit in the default blur scale to make sure every blur utility has a named value.
-
-To do this, we've renamed `blur` to `blur-sm`, and `blur-sm` to `blur-xs`:
-
-{
-
-<table>
-  <thead>
-    <tr>
-      <th>v3</th>
-      <th>v4</th>
-    </tr>
-  </thead>
-  <tbody>
     <tr>
       <td>
         <code className="whitespace-nowrap">blur-sm</code>
@@ -295,29 +265,6 @@ To do this, we've renamed `blur` to `blur-sm`, and `blur-sm` to `blur-xs`:
         <code className="whitespace-nowrap">blur-sm</code>
       </td>
     </tr>
-  </tbody>
-</table>
-
-}
-
-The `blur` utility will still work for backward compatibility, but `blur-sm` will look different in your project if you don't replace each instance with `blur-xs` instead.
-
-### Default radius scale changes
-
-We've shifted things around a bit in the default border radius scale to make sure every border radius utility has a named value.
-
-To do this, we've renamed `rounded` to `rounded-sm`, and `rounded-sm` to `rounded-xs`:
-
-{
-
-<table>
-  <thead>
-    <tr>
-      <th>v3</th>
-      <th>v4</th>
-    </tr>
-  </thead>
-  <tbody>
     <tr>
       <td>
         <code className="whitespace-nowrap">rounded-sm</code>
@@ -334,23 +281,98 @@ To do this, we've renamed `rounded` to `rounded-sm`, and `rounded-sm` to `rounde
         <code className="whitespace-nowrap">rounded-sm</code>
       </td>
     </tr>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">outline-none</code>
+      </td>
+      <td>
+        <code className="whitespace-nowrap">outline-hidden</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="whitespace-nowrap">ring</code>
+      </td>
+      <td>
+        <code className="whitespace-nowrap">ring-3</code>
+      </td>
+    </tr>
   </tbody>
 </table>
 
 }
 
-The `rounded` utility will still work for backward compatibility, but `rounded-sm` will look different in your project if you don't replace each instance with `rounded-xs` instead.
+#### Updated shadow, radius, and blur scales
 
-### Default border color change
+We've renamed the default shadow, radius and blur scales to make sure every utility has a named value. The "bare" versions still work for backward compatibility, but the <code><em>{'<utility>'}</em>-sm</code> utilities will look different unless updated to their respective <code><em>{'<utility>'}</em>-xs</code> versions.
+
+To update your project for these changes, replace all the v3 utilities with their v4 versions:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code --:2] -->
+<input class="shadow-sm" />
+<!-- [!code ++:2] -->
+<input class="shadow-xs" />
+
+<!-- [!code --:2] -->
+<input class="shadow" />
+<!-- [!code ++:2] -->
+<input class="shadow-sm" />
+```
+
+#### Renamed outline utility
+
+The `outline-none` utility previously didn't actually set `outline-style: none`, and instead set an invisible outline that would still show up in forced colors mode for accessibility reasons.
+
+To make this more clear we've renamed this utility to `outline-hidden` and added a new `outline-none` utility that actually sets `outline-style: none`.
+
+To update your project for this change, replace any usage of `outline-none` with `outline-hidden`:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code --:2] -->
+<input class="focus:outline-none" />
+<!-- [!code ++:2] -->
+<input class="focus:outline-hidden" />
+```
+
+#### Default ring width change
+
+In v3, the `ring` utility added a `3px` ring. We've changed this in v4 to be `1px` to make it consistent with borders and outlines.
+
+To update your project for this change, replace any usage of `ring` with `ring-3`:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code --:2] -->
+<input class="ring ring-blue-500" />
+<!-- [!code ++:2] -->
+<input class="ring-3 ring-blue-500" />
+```
+
+### Container configuration
+
+In v3, the `container` utility had several configuration options like `center` and `padding` that no longer exist in v4.0.
+
+To customize the `container` utility in v4.0, extend it using the `@utility` directive:
+
+```css
+/* [!code filename:CSS] */
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
+```
+
+### New default border color
 
 In v3, borders used your configured `gray-200` color by default. We've updated this in v4 to be just `currentColor`, which matches the default behavior of all browsers.
 
-To update your project for this change, make sure anywhere you're using a border color utility anywhere you're using the `border` utility, or add these lines of CSS to your project to preserve the v3 behavior:
+To update your project for this change, make sure you're using a border color utility anywhere you're using the `border` utility, or add these lines of CSS to your project to preserve the v3 behavior:
 
 ```css
-@import "tailwindcss";
-
-/* [!code highlight:10] */
+/* [!code filename:CSS] */
 @layer base {
   *,
   ::after,
@@ -362,71 +384,20 @@ To update your project for this change, make sure anywhere you're using a border
 }
 ```
 
-### Default ring width change
-
-In v3, the `ring` utility added a 3px ring. We've changed this in v4 to be 1px to make it consistent with borders and outlines.
-
-To update your project for this change, replace any usage of `ring` with `ring-3`:
-
-```html
-<!-- [!code classes:ring,ring-3] -->
-<!-- [!code --:2] -->
-<div class="ring ring-blue-500"><!-- ... --></div>
-<!-- [!code ++:2] -->
-<div class="ring-3 ring-blue-500"><!-- ... --></div>
-```
-
-### Default placeholder change
+### New default placeholder color
 
 In v3, placeholder text used your configured `gray-400` color by default. We've simplified this in v4 to just use the current text color at 50% opacity.
 
 You probably won't even notice this change (it might even make your project look better), but if you want to preserve the v3 behavior, add this CSS to your project:
 
 ```css
-@import "tailwindcss";
-
-/* [!code highlight:7] */
+/* [!code filename:CSS] */
 @layer base {
   input::placeholder,
   textarea::placeholder {
     color: theme(--color-gray-400);
   }
 }
-```
-
-### \`outline-none\` to \`outline-hidden\`
-
-In v3, the `outline-none` utility was actually a complex class that didn't just set `outline-style: none`:
-
-```css
-/* v3 */
-.outline-none {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-```
-
-What it really did was add an invisible 2px outline that would still show up in forced colors mode for accessibility reasons.
-
-We've simplified this in v4.0 and now `outline-none` just sets `outline-style: none` like you'd expect:
-
-```css
-/* v4 */
-.outline-none {
-  outline-style: none;
-}
-```
-
-We've added a new `outline-hidden` utility that does what `outline-none` did in v3, since it's still a very useful feature.
-
-To update your project for this change, replace any use of `outline-none` with `outline-hidden`, unless you really do want `outline-style: none`:
-
-```html
-<!-- [!code classes:focus:outline-none,focus:outline-hidden] -->
-<!-- [!code --:2] -->
-<input class="focus:outline-none" />
-<!-- [!code ++:2] -->
-<input class="focus:outline-hidden" />
 ```
 
 ### Adding custom utilities
@@ -436,6 +407,7 @@ In v3, any custom classes you defined within `@layer utilities` would get picked
 In v4.0 we are using native cascade layers and no longer hijacking the `@layer` at-rule, so we've introduced the `@utility` API as a replacement:
 
 ```css
+/* [!code filename:CSS] */
 /* [!code --:6] */
 @layer utilities {
   .tab-4 {
@@ -451,6 +423,7 @@ In v4.0 we are using native cascade layers and no longer hijacking the `@layer` 
 Custom utilities must be a single class name in v4.0 and not a complex selector. If your custom utility is more complex than a single class name, use nesting to define the utility:
 
 ```css
+/* [!code filename:CSS] */
 @utility scrollbar-hidden {
   &::-webkit-scrollbar {
     display: none;
@@ -458,13 +431,14 @@ Custom utilities must be a single class name in v4.0 and not a complex selector.
 }
 ```
 
-### Stacking order-sensitive variants
+### Variant stacking order
 
 In v3, stacked variants were applied from right to left, but in v4 we've updated them to apply left to right to look more like CSS syntax.
 
 To update your project for this change, reverse the order of any order-sensitive stacked variants in your project:
 
 ```html
+<!-- [!code filename:HTML] -->
 <!-- [!code --:2] -->
 <!-- prettier-ignore -->
 <ul class="py-4 first:*:pt-0 last:*:pb-0"><!-- ... --></ul>
@@ -478,31 +452,26 @@ To update your project for this change, reverse the order of any order-sensitive
 
 You likely have very few of these if any — the direct child variant (`*`) and any typography plugin variants (`prose-headings`) are the most likely ones you might be using, and even then it's only if you've stacked them with other variants.
 
-### CSS variables in arbitrary values
+### Variables in arbitrary values
 
 In v3 you were able to use CSS variables as arbitrary values without `var(…)`, but recent updates to CSS mean that this can often be ambiguous, so we've changed the syntax for this in v4.0 to use parentheses instead of square brackets.
 
 To update your project for this change, replace usage of the old variable shorthand syntax with the new variable shorthand syntax:
 
 ```html
-<!-- [!code classes:bg-[--brand-color],bg-(--brand-color)] -->
+<!-- [!code filename:HTML] -->
 <!-- [!code --:2] -->
-<div class="bg-[--brand-color]"><!-- ... --></div>
+<div class="bg-[--brand-color]"></div>
 <!-- [!code ++:2] -->
-<div class="bg-(--brand-color)"><!-- ... --></div>
+<div class="bg-(--brand-color)"></div>
 ```
 
-### Referencing theme values in JS
-
-In v3 we exported a `resolveConfig` function that you could use to turn your JS config into a flat object that you could use in your other JavaScript.
-
-We've removed this in v4 in hopes that people can use the CSS variables we generate directly instead, which is much simpler and will significantly reduce your bundle size.
-
-### Hover styles ignored on mobile
+### Hover styles on mobile
 
 In v4.0 we've updated the `hover` variant to only apply when the primary input device supports hover:
 
 ```css
+/* [!code filename:CSS] */
 @media (hover: hover) {
   .hover\:underline:hover {
     text-decoration: underline;
@@ -513,24 +482,22 @@ In v4.0 we've updated the `hover` variant to only apply when the primary input d
 This can create problems if you've built your site in a way that depends on touch devices triggering hover on tap. If this is an issue for you, you can override the `hover` variant with your own variant that uses the old implementation:
 
 ```css
-@import "tailwindcss";
-
+/* [!code filename:CSS] */
 @custom-variant hover (&:hover);
 ```
 
 Generally though I'd recommend treating hover functionality as an enhancement, and not depending on it for your site to work since touch devices don't truly have the ability to hover.
 
-### Core plugins cannot be disabled
+### Disabling core plugins
 
 In v3 there was a `corePlugins` option you could use to completely disable certain utilities in the framework. This is no longer supported in v4.0.
 
-### Using the \`theme()\` function
+### Using the theme() function
 
 Since Tailwind CSS v4.0 includes CSS variables for all of your theme values, we recommend using those variables instead of the `theme()` function whenever possible:
 
 ```css
-@import "tailwindcss";
-
+/* [!code filename:CSS] */
 .my-class {
   /* [!code --:2] */
   background-color: theme(colors.red.500);
@@ -542,12 +509,9 @@ Since Tailwind CSS v4.0 includes CSS variables for all of your theme values, we 
 For cases where you still need to use the `theme()` function (like in media queries where CSS variables aren't supported), you should use the CSS variable name instead of the old dot notation:
 
 ```css
-@import "tailwindcss";
-
-/* [!code --:2] */
-@media (width >= theme(screens.xl)) {
-/* [!code ++:2] */
-@media (width >= theme(--breakpoint-xl)) {
+/* [!code filename:CSS] */
+@media (width >= theme(screens.xl)) { /* [!code --] */
+@media (width >= theme(--breakpoint-xl)) { /* [!code ++] */
   /* ... */
 }
 ```
@@ -559,7 +523,28 @@ JavaScript config files are still supported for backward compatibility, but they
 If you still need to use a JavaScript config file, make sure to load it explicitly using `@config`:
 
 ```css
-@import "tailwindcss";
-/* [!code ++:2] */
+/* [!code filename:CSS] */
 @config "../../tailwind.config.js";
+```
+
+### Theme values in JavaScript
+
+In v3 we exported a `resolveConfig` function that you could use to turn your JS config into a flat object that you could use in your other JavaScript.
+
+We've removed this in v4 in hopes that people can use the CSS variables we generate directly instead, which is much simpler and will significantly reduce your bundle size.
+
+For example, the popular [Motion](https://motion.dev/docs/react-quick-start) library for React lets you animate to and from CSS variable values:
+
+```jsx
+// [!code filename:JSX]
+// [!code word:var(--color-blue-500)]
+<motion.div animate={{ backgroundColor: "var(--color-blue-500)" }} />
+```
+
+If you need access to a resolved CSS variable value in JS, you can use `getComputedStyle` to get the value of a theme variable on the document root:
+
+```js
+// [!code filename:spaghetti.js]
+let styles = getComputedStyle(document.documentElement);
+let shadow = styles.getPropertyValue("--shadow-xl");
 ```
