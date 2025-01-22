@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
   let [isTyping, setIsTyping] = useState(false);
 
   // Very small screens should never try to drag the editor into a wider view.
-  let showResponsiveDemo = "window" in globalThis ? window.matchMedia("(min-width: 40rem)").matches : false;
+  let showResponsiveDemo = "window" in globalThis ? window.matchMedia("(min-width: 48rem)").matches : false;
 
   // We can not rely on starting animations when elements go into view on these
   // screens since the code might overflow and not be visible.
@@ -42,8 +42,8 @@ const Hero: React.FC = () => {
 
   // Widen or shrink screen
   useEffect(() => {
-    if ((step !== 7 && step !== 11 && step !== 12) || !showResponsiveDemo) return;
-    let timeout = setTimeout(() => setStep(step + 1), step === 11 ? 1200 : 800);
+    if ((step !== 6 && step !== 10 && step !== 11) || !showResponsiveDemo) return;
+    let timeout = setTimeout(() => setStep(step + 1), step === 10 ? 1200 : 800);
     return () => clearTimeout(timeout);
   });
 
@@ -110,8 +110,8 @@ const Hero: React.FC = () => {
         </div>
       </GridContainer>
       <GridContainer className="mt-24">
-        <div className="grid grid-cols-1 lg:grid-cols-3">
-          <div className="bg-gray-950/5 p-2 lg:col-span-2 lg:-mx-px dark:bg-white/10">
+        <div className="grid grid-cols-1 xl:grid-cols-3">
+          <div className="bg-gray-950/5 p-2 md:-mx-px xl:col-span-2 dark:bg-white/10">
             <Editor>
               <div
                 className={clsx(
@@ -134,7 +134,7 @@ const Hero: React.FC = () => {
                           <TypeWord
                             isTyping={isTyping}
                             word=" gap-6"
-                            step={6}
+                            step={5}
                             currentStep={step}
                             onNextStep={nextStep}
                             autostart={shouldAutostartTypingAnimations}
@@ -150,7 +150,7 @@ const Hero: React.FC = () => {
                           <TypeWord
                             isTyping={isTyping}
                             word=" md:flex-row"
-                            step={8}
+                            step={7}
                             currentStep={step}
                             onNextStep={nextStep}
                             autostart={shouldAutostartTypingAnimations}
@@ -158,7 +158,7 @@ const Hero: React.FC = () => {
                           <TypeWord
                             isTyping={isTyping}
                             word=" md:gap-8"
-                            step={10}
+                            step={9}
                             currentStep={step}
                             onNextStep={nextStep}
                             autostart={shouldAutostartTypingAnimations}
@@ -180,18 +180,7 @@ const Hero: React.FC = () => {
                         <span style={SYMBOL}> </span>
                         <span style={KEYWORD}>class</span>
                         <span style={SYMBOL}>=</span>
-                        <span style={STRING}>
-                          "size-48 shadow-xl
-                          <TypeWord
-                            isTyping={isTyping}
-                            word=" rounded-xl"
-                            step={1}
-                            currentStep={step}
-                            onNextStep={nextStep}
-                            autostart={shouldAutostartTypingAnimations}
-                          />
-                          "
-                        </span>
+                        <span style={STRING}>"shadow-xl"</span>
                         <span style={SYMBOL}> </span>
                         <span style={KEYWORD}>alt</span>
                         <span style={SYMBOL}>=</span>
@@ -220,7 +209,7 @@ const Hero: React.FC = () => {
                           <TypeWord
                             isTyping={isTyping}
                             word=" items-center"
-                            step={5}
+                            step={4}
                             currentStep={step}
                             onNextStep={nextStep}
                             autostart={shouldAutostartTypingAnimations}
@@ -228,7 +217,7 @@ const Hero: React.FC = () => {
                           <TypeWord
                             isTyping={isTyping}
                             word=" md:items-start"
-                            step={9}
+                            step={8}
                             currentStep={step}
                             onNextStep={nextStep}
                             autostart={shouldAutostartTypingAnimations}
@@ -244,13 +233,13 @@ const Hero: React.FC = () => {
                         <TypeWord
                           isTyping={isTyping}
                           word={` class="text-2xl font-medium"`}
-                          step={2}
+                          step={1}
                           currentStep={step}
                           onNextStep={nextStep}
                           autostart={shouldAutostartTypingAnimations}
                         />
                         <span style={SYMBOL}>&gt;</span>
-                        <span style={{ color: "var(--color-slate-50)" }}>Killing in the Namespace</span>
+                        <span style={{ color: "var(--color-slate-50)" }}>Class Warfare</span>
                         <span style={SYMBOL}>&lt;/</span>
                         <span style={ELEMENT}>span</span>
                         <span style={SYMBOL}>&gt;</span>
@@ -262,13 +251,13 @@ const Hero: React.FC = () => {
                         <TypeWord
                           isTyping={isTyping}
                           word={` class="font-medium text-sky-500"`}
-                          step={3}
+                          step={2}
                           currentStep={step}
                           onNextStep={nextStep}
                           autostart={shouldAutostartTypingAnimations}
                         />
                         <span style={SYMBOL}>&gt;</span>
-                        <span style={{ color: "var(--color-slate-50)" }}>Rage Against the Virtual Machine</span>
+                        <span style={{ color: "var(--color-slate-50)" }}>The Anti-Patterns</span>
                         <span style={SYMBOL}>&lt;/</span>
                         <span style={ELEMENT}>span</span>
                         <span style={SYMBOL}>&gt;</span>
@@ -285,7 +274,7 @@ const Hero: React.FC = () => {
                           <TypeWord
                             isTyping={isTyping}
                             word=" gap-2 font-medium text-gray-600 dark:text-gray-400"
-                            step={4}
+                            step={3}
                             currentStep={step}
                             onNextStep={nextStep}
                             autostart={shouldAutostartTypingAnimations}
@@ -299,7 +288,7 @@ const Hero: React.FC = () => {
                         <span style={SYMBOL}>&lt;</span>
                         <span style={ELEMENT}>span</span>
                         <span style={SYMBOL}>&gt;</span>
-                        <span style={{ color: "var(--color-slate-50)" }}>Self-titled</span>
+                        <span style={{ color: "var(--color-slate-50)" }}>No. 4</span>
                         <span style={SYMBOL}>&lt;/</span>
                         <span style={ELEMENT}>span</span>
                         <span style={SYMBOL}>&gt;</span>
@@ -319,7 +308,7 @@ const Hero: React.FC = () => {
                         <span style={SYMBOL}>&lt;</span>
                         <span style={ELEMENT}>span</span>
                         <span style={SYMBOL}>&gt;</span>
-                        <span style={{ color: "var(--color-slate-50)" }}>1992</span>
+                        <span style={{ color: "var(--color-slate-50)" }}>2025</span>
                         <span style={SYMBOL}>&lt;/</span>
                         <span style={ELEMENT}>span</span>
                         <span style={SYMBOL}>&gt;</span>
@@ -347,8 +336,8 @@ const Hero: React.FC = () => {
               </div>
             </Editor>
           </div>
-          <div className="relative border-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 max-lg:h-66 max-lg:border-t lg:border-l dark:[--pattern-fg:var(--color-white)]/10">
-            <div className="absolute right-1/2 max-lg:bottom-8 max-md:translate-x-1/2 md:right-16 lg:top-1/2 lg:-translate-y-1/2 2xl:right-1/2 2xl:translate-x-[calc(50%-3rem)]">
+          <div className="relative border-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 max-xl:h-50 max-xl:border-t xl:border-l dark:[--pattern-fg:var(--color-white)]/10">
+            <div className="absolute right-1/2 max-xl:bottom-8 max-xl:translate-x-1/2 xl:top-1/2 xl:-translate-y-1/2 xl:translate-x-[calc(50%-6rem)] 2xl:right-1/2">
               <Example step={step} />
             </div>
           </div>
@@ -369,22 +358,22 @@ function Example({ step }: { step: number }) {
       transition={TRANSITION}
       className={clsx(
         "@container rounded-3xl bg-black/5 p-2 outline outline-white/15 backdrop-blur-md dark:bg-white/10",
-        step > 7 && step !== 11 ? "w-[584px]" : "w-[262px] xl:ml-[3rem]",
+        step > 6 && step !== 10 ? "w-[580px]" : "w-[339px] xl:ml-[3rem]",
       )}
     >
       <motion.div
         className={clsx(
           "relative flex w-full flex-col rounded-2xl bg-white outline outline-black/5 dark:bg-gray-950",
           step > 0 ? "p-7" : null,
-          step > 6 ? "gap-6" : null,
-          step > 5 ? "items-center" : null,
-          step > 8 ? "@xs:flex-row" : null,
-          step > 10 ? "@xs:gap-8" : null,
+          step > 5 ? "gap-6" : null,
+          step > 4 ? "items-center" : null,
+          step > 7 ? "@xs:flex-row" : null,
+          step > 9 ? "@xs:gap-8" : null,
         )}
         layout={true}
         transition={TRANSITION}
       >
-        {step === 8 || step === 11 || step === 12 ? (
+        {step === 7 || step === 10 || step === 11 ? (
           <motion.div
             key={step}
             layout={true}
@@ -413,15 +402,14 @@ function Example({ step }: { step: number }) {
           layout="position"
           transition={TRANSITION}
           className={clsx(
-            "size-48 shadow-xl transition-[border-radius] duration-350 dark:outline-1 dark:-outline-offset-1 dark:outline-white/10",
-            step > 1 ? "rounded-xl" : null,
+            "shadow-xl transition-[border-radius] duration-350 dark:outline-1 dark:-outline-offset-1 dark:outline-white/10",
           )}
           src={cover.src}
-          width={192}
+          width={275}
           height={192}
         />
         <motion.div
-          className={clsx("flex flex-col", step > 5 ? "items-center" : null, step > 9 ? "@xs:items-start" : null)}
+          className={clsx("flex flex-col", step > 4 ? "items-center" : null, step > 8 ? "@xs:items-start" : null)}
           layout={true}
           transition={TRANSITION}
         >
@@ -430,37 +418,37 @@ function Example({ step }: { step: number }) {
             transition={TRANSITION}
             className={clsx(
               "text-gray-950 transition-[font-size] duration-350 dark:text-white",
-              step > 2 ? "text-2xl font-medium" : null,
+              step > 1 ? "text-2xl font-medium" : null,
             )}
           >
-            Killing in the Namespace
+            Class Warfare
           </motion.span>
           <motion.span
             transition={TRANSITION}
             layout="position"
             className={clsx(
               "text-gray-950 transition-colors duration-350 dark:text-white",
-              step > 3 ? "font-medium text-sky-500!" : null,
+              step > 2 ? "font-medium text-sky-500!" : null,
             )}
           >
-            Rage Against the Virtual Machine
+            The Anti-Patterns
           </motion.span>
           <motion.span
             layout="position"
             transition={TRANSITION}
             className={clsx(
               "flex text-gray-950 transition-colors duration-350 dark:text-white",
-              step > 4 ? "gap-2 font-medium text-gray-600! dark:text-gray-400!" : null,
+              step > 3 ? "gap-2 font-medium text-gray-600! dark:text-gray-400!" : null,
             )}
           >
             <motion.span layout="position" transition={TRANSITION}>
-              Self-titled
+              No. 4
             </motion.span>
             <motion.span layout="position" transition={TRANSITION}>
               &middot;
             </motion.span>
             <motion.span layout="position" transition={TRANSITION}>
-              1992
+              2025
             </motion.span>
           </motion.span>
         </motion.div>
