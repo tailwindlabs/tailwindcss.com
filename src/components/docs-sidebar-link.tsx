@@ -8,7 +8,7 @@ export function DocsSidebarLink({ title, path, nested = false }: { title: string
 
   return (
     <NavListLink
-      aria-current={pathname === path || pathname.startsWith(`${path}/`) ? "page" : undefined}
+      aria-current={pathname === path || pathname?.startsWith(`${path}/`) ? "page" : undefined}
       href={path}
       nested={nested}
     >
