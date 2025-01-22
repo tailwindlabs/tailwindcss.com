@@ -58,7 +58,7 @@ export default function TailwindUiSection() {
       <TabGroup>
         <GridContainer className="mt-16">
           <div className="mt-16 grid w-full overflow-x-hidden">
-            <TabList className="grid grid-cols-[repeat(3,_minmax(160px,_1fr))] divide-x divide-gray-950/10 overflow-x-auto text-gray-950 dark:divide-white/10 dark:text-white">
+            <TabList className="grid grid-cols-[repeat(3,_minmax(125px,_1fr))] divide-x divide-gray-950/10 overflow-x-auto text-gray-950 dark:divide-white/10 dark:text-white">
               <TabButton className="data-selected:bg-pink-500/5 data-selected:text-pink-600 dark:data-selected:text-pink-500">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -449,7 +449,7 @@ export function TabButton(
   return (
     <Tab
       className={clsx(
-        "group flex items-center gap-4 p-6 text-sm/7 focus:outline-none max-lg:flex-col lg:grid lg:grid-cols-[auto_1fr]",
+        "group flex items-center gap-4 p-4 text-sm/7 focus:outline-none max-lg:flex-col sm:p-6 lg:grid lg:grid-cols-[auto_1fr]",
         props.className,
       )}
       // {...props}
