@@ -6,7 +6,21 @@ interface BreadcrumbProps {
 
 export function Breadcrumb({ section, title }: BreadcrumbProps) {
   return (
-    <ol className="ml-4 flex min-w-0 items-center gap-2 text-sm/6 whitespace-nowrap">
+    // This element is `sticky` to fix an issue around that occurs when doing a
+    // page transition on mobile.
+    //
+    // The way the Next.js router works is that it will find sibling elements
+    // within the parent tree of the element causing the page transition. In our
+    // case, we render the mobile nav as a sibling before these breadcrumbs.
+    //
+    // When a page transition occurs, Next will identify this element as needing
+    // to be inside the viewport instead of the actual content of the page.
+    //
+    // Positioning this element as `sticky` will prevent Next.js from selecting
+    // this element.
+    //
+    // See: https://github.com/vercel/next.js/discussions/45996
+    <ol className="sticky ml-4 flex min-w-0 items-center gap-2 text-sm/6 whitespace-nowrap">
       <li className="flex items-center gap-2">
         <span className="text-gray-500 dark:text-gray-400">{section}</span>
         {CaretRight}
