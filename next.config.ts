@@ -29,6 +29,11 @@ const nextConfig = {
       use: ["@svgr/webpack"],
     });
 
+    // Disable CSS minification
+    config.optimization.minimizer = config.optimization.minimizer.filter((fn: any) => {
+      return !fn.toString().includes("CssMinimizerPlugin");
+    });
+
     return config;
   },
 
