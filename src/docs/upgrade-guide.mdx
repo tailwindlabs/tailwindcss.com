@@ -422,18 +422,7 @@ In v4 we are using native cascade layers and no longer hijacking the `@layer` at
 }
 ```
 
-Custom utilities must be a single class name in v4 and not a complex selector. If your custom utility is more complex than a single class name, use nesting to define the utility:
-
-```css
-/* [!code filename:CSS] */
-@utility scrollbar-hidden {
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-```
-
-For more information see the [adding custom utilities documentation](/docs/adding-custom-styles#adding-custom-utilities).
+Learn more about registering custom utilities in the [adding custom utilities documentation](/docs/adding-custom-styles#adding-custom-utilities).
 
 ### Variant stacking order
 

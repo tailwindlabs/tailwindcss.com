@@ -279,7 +279,7 @@ The `components` layer is also a good place to put custom styles for any third-p
 
 In addition to using the utilities that ship with Tailwind, you can also add your own custom utilities. This can be useful when there's a CSS feature you'd like to use in your project that Tailwind doesn't include utilities for out of the box.
 
-Use the `@utility` directive to add custom utility:
+Use the `@utility` directive to add a custom utility to your project:
 
 ```scss
 @utility content-auto {
@@ -287,7 +287,16 @@ Use the `@utility` directive to add custom utility:
 }
 ```
 
-You can now use this utility in your HTML, and it will also work with variants like `hover`, `focus` and `lg`:
+You can now use this utility in your HTML:
+
+```html
+<!-- [!code classes:content-auto] -->
+<div class="content-auto">
+  <!-- ... -->
+</div>
+```
+
+It will also work with variants like `hover`, `focus` and `lg`:
 
 ```html
 <!-- [!code classes:hover:content-auto] -->
@@ -295,6 +304,10 @@ You can now use this utility in your HTML, and it will also work with variants l
   <!-- ... -->
 </div>
 ```
+
+Custom utilities are automatically inserted into the `utilities` layer along with all of the built-in utilities in the framework.
+
+### Complex utilities
 
 If your custom utility is more complex than a single class name, use nesting to define the utility:
 
@@ -305,8 +318,6 @@ If your custom utility is more complex than a single class name, use nesting to 
   }
 }
 ```
-
-Custom utilities are automatically inserted into the `utilities` layer along with all of the built-in utilities in the framework.
 
 ### Functional utilities
 

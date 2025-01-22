@@ -51,7 +51,7 @@ Learn more about automatic content detection in the [detecting classes in source
 
 <h3 id="utility-directive">@utility</h3>
 
-Use the `@utility` directive to add custom utilities that work with variants like `hover`, `focus` and `lg`:
+Use the `@utility` directive to add custom utilities to your project that work with variants like `hover`, `focus` and `lg`:
 
 ```css
 @utility tab-4 {
@@ -59,17 +59,7 @@ Use the `@utility` directive to add custom utilities that work with variants lik
 }
 ```
 
-Custom utilities must be a single class name and not a complex selector. If your custom utility is more complex than a single class name, use nesting to define the utility:
-
-```css
-@utility scrollbar-hidden {
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-```
-
-Custom utilities are automatically inserted into the `utilities` layer along with all of the built-in utilities in the framework.
+Learn more about registering custom utilities in the [adding custom utilities documentation](/docs/adding-custom-styles#adding-custom-utilities).
 
 <h3 id="variant-directive">@variant</h3>
 
