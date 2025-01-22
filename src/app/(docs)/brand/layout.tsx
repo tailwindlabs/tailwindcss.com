@@ -3,6 +3,19 @@ import * as path from "node:path";
 import BookPromo from "@/components/book-promo";
 import TableOfContents from "@/components/table-of-contents";
 import { generateTableOfContentsFromMarkdown } from "../docs/api";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Brand",
+  description: "Tailwind CSS brand assets and usage guidelines.",
+  openGraph: {
+    type: "article",
+    title: "Brand",
+    description: "Tailwind CSS brand assets and usage guidelines.",
+    images: "https://v4-test.tailwindcss.com/api/og?path=/brand",
+    url: "https://v4-test.tailwindcss.com/brand",
+  },
+};
 
 export default async function DocPage({ children }: { children: React.ReactNode }) {
   let post = (await import("./page.mdx")) as unknown as {
