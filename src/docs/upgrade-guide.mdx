@@ -1,15 +1,13 @@
 export const title = "Upgrade guide";
 export const description = "Upgrading your Tailwind CSS projects from v3 to v4.";
 
-Tailwind CSS v4.0 is a major overhaul of the framework, featuring a new high-performance engine, automatic content detection, CSS-first configuration, and much more.
-
-While we’ve worked really hard to minimize breaking changes, some updates are necessary. This guide outlines all the steps required to upgrade your projects from v3 to v4.
+Tailwind CSS v4.0 is a new major version of the framework, so while we've worked really hard to minimize breaking changes, some updates are necessary. This guide outlines all the steps required to upgrade your projects from v3 to v4.
 
 To simplify the process, we’ve developed a migration tool that can automatically handle the bulk of these changes for you in typical projects.
 
 ### Using the upgrade tool
 
-If you'd like to try upgrading a project from v3 to v4.0, you can use our upgrade tool to do the vast majority of the heavy lifting for you:
+If you'd like to try upgrading a project from v3 to v4, you can use our upgrade tool to do the vast majority of the heavy lifting for you:
 
 ```sh
   # [!code filename:Terminal]
@@ -22,15 +20,15 @@ The upgrade tool requires Node.js 20 or higher, so ensure your environment is up
 
 **We recommend running the upgrade tool in a new branch**, then carefully reviewing the diff and testing your project in the browser to make sure all of the changes look correct. You may need to tweak a few things by hand in complex projects, but the tool will save you a ton of time either way.
 
-It's also a good idea to go over all of the [breaking changes](#changes-from-v3) in v4.0 and get a good understanding of what's changed, in case there are other things you need to update in your project that the upgrade tool doesn't catch.
+It's also a good idea to go over all of the [breaking changes](#changes-from-v3) in v4 and get a good understanding of what's changed, in case there are other things you need to update in your project that the upgrade tool doesn't catch.
 
 ## Upgrading manually
 
 ### Using PostCSS
 
-In v3, the `tailwindcss` package was a PostCSS plugin, but in v4.0 the PostCSS plugin lives in a dedicated `@tailwindcss/postcss` package.
+In v3, the `tailwindcss` package was a PostCSS plugin, but in v4 the PostCSS plugin lives in a dedicated `@tailwindcss/postcss` package.
 
-Tailwind CSS v4.0 also handles CSS imports and vendor prefixing for you, so you can remove `postcss-import` and `autoprefixer` if they are in your project:
+Additionally, in v4 imports and vendor prefixing is now handled for you automatically, so you can remove `postcss-import` and `autoprefixer` if they are in your project:
 
 ```js
 // [!code filename:postcss.config.mjs]
@@ -48,7 +46,7 @@ export default {
 
 ### Using Vite
 
-If you're using Vite, we recommend migrating from the PostCSS plugin to our new Vite plugin:
+If you're using Vite, we recommend migrating from the PostCSS plugin to our new dedicated Vite plugin for improved performance and the best developer experience:
 
 ```ts
 // [!code filename:vite.config.ts]
@@ -66,7 +64,7 @@ export default defineConfig({
 
 ### Using Tailwind CLI
 
-In v4.0, Tailwind CLI lives in a dedicated `@tailwindcss/cli` package. Update any of your build commands to use the new package instead:
+In v4, Tailwind CLI lives in a dedicated `@tailwindcss/cli` package. Update any of your build commands to use the new package instead:
 
 ```sh
 /* [!code filename:Terminal] */
@@ -84,7 +82,7 @@ Our [upgrade tool](##using-the-upgrade-tool) will handle most of these changes f
 
 ### Removed @tailwind directives
 
-In Tailwind CSS v4.0, you import Tailwind using a regular CSS `@import` statement, not using the `@tailwind` directives you used in v3:
+In v4 you import Tailwind using a regular CSS `@import` statement, not using the `@tailwind` directives you used in v3:
 
 ```css
 /* [!code filename:CSS] */
@@ -353,9 +351,9 @@ To update your project for this change, replace any usage of `ring` with `ring-3
 
 ### Container configuration
 
-In v3, the `container` utility had several configuration options like `center` and `padding` that no longer exist in v4.0.
+In v3, the `container` utility had several configuration options like `center` and `padding` that no longer exist in v4.
 
-To customize the `container` utility in v4.0, extend it using the `@utility` directive:
+To customize the `container` utility in v4, extend it using the `@utility` directive:
 
 ```css
 /* [!code filename:CSS] */
@@ -365,7 +363,11 @@ To customize the `container` utility in v4.0, extend it using the `@utility` dir
 }
 ```
 
-### New default border color
+### Preflight changes
+
+We've made a couple small changes to the base styles in Preflight in v4:
+
+#### New default border color
 
 In v3, borders used your configured `gray-200` color by default. We've updated this in v4 to be just `currentColor`, which matches the default behavior of all browsers.
 
@@ -384,7 +386,7 @@ To update your project for this change, make sure you're using a border color ut
 }
 ```
 
-### New default placeholder color
+#### New default placeholder color
 
 In v3, placeholder text used your configured `gray-400` color by default. We've simplified this in v4 to just use the current text color at 50% opacity.
 
@@ -404,7 +406,7 @@ You probably won't even notice this change (it might even make your project look
 
 In v3, any custom classes you defined within `@layer utilities` would get picked up by Tailwind as a true utility class and would automatically work with variants like `hover`, `focus`, or `lg`.
 
-In v4.0 we are using native cascade layers and no longer hijacking the `@layer` at-rule, so we've introduced the `@utility` API as a replacement:
+In v4 we are using native cascade layers and no longer hijacking the `@layer` at-rule, so we've introduced the `@utility` API as a replacement:
 
 ```css
 /* [!code filename:CSS] */
@@ -420,7 +422,7 @@ In v4.0 we are using native cascade layers and no longer hijacking the `@layer` 
 }
 ```
 
-Custom utilities must be a single class name in v4.0 and not a complex selector. If your custom utility is more complex than a single class name, use nesting to define the utility:
+Custom utilities must be a single class name in v4 and not a complex selector. If your custom utility is more complex than a single class name, use nesting to define the utility:
 
 ```css
 /* [!code filename:CSS] */
@@ -430,6 +432,8 @@ Custom utilities must be a single class name in v4.0 and not a complex selector.
   }
 }
 ```
+
+For more information see the [adding custom utilities documentation](/docs/adding-custom-styles#adding-custom-utilities).
 
 ### Variant stacking order
 
@@ -441,7 +445,7 @@ To update your project for this change, reverse the order of any order-sensitive
 <!-- [!code filename:HTML] -->
 <!-- [!code --:2] -->
 <!-- prettier-ignore -->
-<ul class="py-4 first:*:pt-0 last:*:pb-0"><!-- ... --></ul>
+<ul class="py-4 first:*:pt-0 last:*:pb-0">
 <!-- [!code ++:2] -->
 <ul class="py-4 *:first:pt-0 *:last:pb-0">
   <li>One</li>
@@ -450,11 +454,11 @@ To update your project for this change, reverse the order of any order-sensitive
 </ul>
 ```
 
-You likely have very few of these if any — the direct child variant (`*`) and any typography plugin variants (`prose-headings`) are the most likely ones you might be using, and even then it's only if you've stacked them with other variants.
+You likely have very few of these if any—the direct child variant (`*`) and any typography plugin variants (`prose-headings`) are the most likely ones you might be using, and even then it's only if you've stacked them with other variants.
 
 ### Variables in arbitrary values
 
-In v3 you were able to use CSS variables as arbitrary values without `var(…)`, but recent updates to CSS mean that this can often be ambiguous, so we've changed the syntax for this in v4.0 to use parentheses instead of square brackets.
+In v3 you were able to use CSS variables as arbitrary values without `var()`, but recent updates to CSS mean that this can often be ambiguous, so we've changed the syntax for this in v4 to use parentheses instead of square brackets.
 
 To update your project for this change, replace usage of the old variable shorthand syntax with the new variable shorthand syntax:
 
@@ -468,7 +472,7 @@ To update your project for this change, replace usage of the old variable shorth
 
 ### Hover styles on mobile
 
-In v4.0 we've updated the `hover` variant to only apply when the primary input device supports hover:
+In v4 we've updated the `hover` variant to only apply when the primary input device supports hover:
 
 ```css
 /* [!code filename:CSS] */
@@ -486,15 +490,15 @@ This can create problems if you've built your site in a way that depends on touc
 @custom-variant hover (&:hover);
 ```
 
-Generally though I'd recommend treating hover functionality as an enhancement, and not depending on it for your site to work since touch devices don't truly have the ability to hover.
+Generally though we recommend treating hover functionality as an enhancement, and not depending on it for your site to work since touch devices don't truly have the ability to hover.
 
 ### Disabling core plugins
 
-In v3 there was a `corePlugins` option you could use to completely disable certain utilities in the framework. This is no longer supported in v4.0.
+In v3 there was a `corePlugins` option you could use to completely disable certain utilities in the framework. This is no longer supported in v4.
 
 ### Using the theme() function
 
-Since Tailwind CSS v4.0 includes CSS variables for all of your theme values, we recommend using those variables instead of the `theme()` function whenever possible:
+Since v4 includes CSS variables for all of your theme values, we recommend using those variables instead of the `theme()` function whenever possible:
 
 ```css
 /* [!code filename:CSS] */
@@ -518,9 +522,9 @@ For cases where you still need to use the `theme()` function (like in media quer
 
 ### Using a JavaScript config file
 
-JavaScript config files are still supported for backward compatibility, but they are no longer detected automatically in v4.0.
+JavaScript config files are still supported for backward compatibility, but they are no longer detected automatically in v4.
 
-If you still need to use a JavaScript config file, make sure to load it explicitly using `@config`:
+If you still need to use a JavaScript config file, you can load it explicitly using the `@config` directive:
 
 ```css
 /* [!code filename:CSS] */
@@ -529,7 +533,7 @@ If you still need to use a JavaScript config file, make sure to load it explicit
 
 ### Theme values in JavaScript
 
-In v3 we exported a `resolveConfig` function that you could use to turn your JS config into a flat object that you could use in your other JavaScript.
+In v3 we exported a `resolveConfig` function that you could use to turn your JavaScript-based config into a flat object that you could use in your other JavaScript.
 
 We've removed this in v4 in hopes that people can use the CSS variables we generate directly instead, which is much simpler and will significantly reduce your bundle size.
 
