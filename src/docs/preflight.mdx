@@ -8,6 +8,7 @@ Built on top of [modern-normalize](https://github.com/sindresorhus/modern-normal
 When you import `tailwindcss` into your project, Preflight is automatically injected into the `base` layer:
 
 ```css
+/* [!code filename:CSS] */
 @layer theme, base, components, utilities;
 
 @import "./theme.css" layer(theme);
@@ -25,6 +26,7 @@ For a complete reference of all the styles applied by Preflight, [see the styles
 Preflight removes all of the default margins from all elements including headings, blockquotes, paragraphs, etc:
 
 ```css
+/* [!code filename:CSS] */
 *,
 ::after,
 ::before,
@@ -42,6 +44,7 @@ This makes it harder to accidentally rely on margin values applied by the user-a
 In order to make it easy to add a border by simply adding the `border` class, Tailwind overrides the default border styles for all elements with the following rules:
 
 ```css
+/* [!code filename:CSS] */
 *,
 ::after,
 ::before,
@@ -59,6 +62,7 @@ This can cause some unexpected results when integrating certain third-party libr
 When you run into situations like this, you can work around them by overriding the Preflight styles with your own custom CSS:
 
 ```css
+/* [!code filename:CSS] */
 @layer base {
   .google-map * {
     border-style: none;
@@ -71,6 +75,7 @@ When you run into situations like this, you can work around them by overriding t
 All heading elements are completely unstyled by default, and have the same font size and weight as normal text:
 
 ```css
+/* [!code filename:CSS] */
 h1,
 h2,
 h3,
@@ -94,6 +99,7 @@ You can always add default header styles to your project by [adding your own bas
 Ordered and unordered lists are unstyled by default, with no bullets or numbers:
 
 ```css
+/* [!code filename:CSS] */
 ol,
 ul,
 menu {
@@ -104,6 +110,7 @@ menu {
 If you'd like to style a list, you can do so using the [list-style-type](/docs/list-style-type) and [list-style-position](/docs/list-style-position) utilities:
 
 ```html
+<!-- [!code filename:HTML] -->
 <ul class="list-inside list-disc">
   <li>One</li>
   <li>Two</li>
@@ -118,6 +125,7 @@ You can always add default list styles to your project by [adding your own base 
 Unstyled lists are [not announced as lists by VoiceOver](https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/). If your content is truly a list but you would like to keep it unstyled, [add a "list" role](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html) to the element:
 
 ```html
+<!-- [!code filename:HTML] -->
 <ul role="list">
   <li>One</li>
   <li>Two</li>
@@ -130,6 +138,7 @@ Unstyled lists are [not announced as lists by VoiceOver](https://unfetteredthoug
 Images and other replaced elements (like `svg`, `video`, `canvas`, and others) are `display: block` by default:
 
 ```css
+/* [!code filename:CSS] */
 img,
 svg,
 video,
@@ -148,6 +157,7 @@ This helps to avoid unexpected alignment issues that you often run into using th
 If you ever need to make one of these elements `inline` instead of `block`, simply use the `inline` utility:
 
 ```html
+<!-- [!code filename:HTML] -->
 <img class="inline" src="..." alt="..." />
 ```
 
@@ -156,6 +166,7 @@ If you ever need to make one of these elements `inline` instead of `block`, simp
 Images and videos are constrained to the parent width in a way that preserves their intrinsic aspect ratio:
 
 ```css
+/* [!code filename:CSS] */
 img,
 video {
   max-width: 100%;
@@ -166,6 +177,7 @@ video {
 This prevents them from overflowing their containers and makes them responsive by default. If you ever need to override this behavior, use the `max-w-none` utility:
 
 ```html
+<!-- [!code filename:HTML] -->
 <img class="max-w-none" src="..." alt="..." />
 ```
 
@@ -174,8 +186,7 @@ This prevents them from overflowing their containers and makes them responsive b
 If you'd like to add your own base styles on top of Preflight, add them to the `base` CSS layer in your CSS using `@layer base`:
 
 ```css
-@import "tailwindcss";
-
+/* [!code filename:CSS] */
 @layer base {
   h1 {
     font-size: var(--text-2xl);
@@ -202,6 +213,7 @@ If you'd like to completely disable Preflight—perhaps because you're integrati
 By default, this is what `@import "tailwindcss";` injects:
 
 ```css
+/* [!code filename:CSS] */
 @layer theme, base, components, utilities;
 
 @import "./theme.css" layer(theme);
@@ -212,6 +224,7 @@ By default, this is what `@import "tailwindcss";` injects:
 To disable Preflight, simply omit its import while keeping everything else:
 
 ```css
+/* [!code filename:CSS] */
 @layer theme, base, components, utilities;
 
 @import "./theme.css" layer(theme);
