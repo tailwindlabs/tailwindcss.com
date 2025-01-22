@@ -94,12 +94,15 @@ export function ApiTable({ rows }: { rows: [string, string][] }) {
       {isExpandable && (
         <div
           className={clsx(
-            "z-10 flex h-10 justify-center bg-linear-to-t from-white to-white/40 text-gray-950 hover:text-gray-950/70 dark:from-gray-950 dark:to-gray-950/40 dark:text-white dark:hover:text-white/70",
-            isExpanded && "sticky bottom-0 to-white/80",
+            "z-10 flex justify-center bg-linear-to-t from-white to-white/40 text-gray-950 hover:text-gray-950/70 dark:from-gray-950 dark:to-gray-950/40 dark:text-white dark:hover:text-white/70",
+            isExpanded ? "sticky bottom-0 h-12 to-white/80 py-1" : "absolute bottom-0 h-26 w-full translate-y-1/2 py-8",
           )}
         >
-          <button className="w-full" onClick={() => setIsExpanded(!isExpanded)}>
-            {isExpanded ? "Show less" : "Show all"}
+          <button
+            className="rounded-full border border-gray-950 bg-gray-950 px-3 py-1 font-mono text-xs/7 font-medium tracking-widest text-white uppercase dark:border-gray-700 dark:bg-gray-700"
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            {isExpanded ? "Show less" : "Show more"}
           </button>
         </div>
       )}
