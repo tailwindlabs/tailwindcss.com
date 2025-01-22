@@ -14,7 +14,9 @@ export const meta = {
   image: card,
   excerpt: (
     <>
-      We just released Tailwind CSS v4.0 — an all-new version of the framework optimized for performance and flexibility, with a reimagined configuration and customization experience, and taking full advantage of the latest advancements the web platform has to offer.
+      We just released Tailwind CSS v4.0 — an all-new version of the framework optimized for performance and
+      flexibility, with a reimagined configuration and customization experience, and taking full advantage of the latest
+      advancements the web platform has to offer.
     </>
   ),
 };
@@ -280,9 +282,8 @@ Tailwind CSS v4.0 is an all-new version of the framework optimized for performan
 - [New 3D transform utilities](#new-3d-transform-utilities) — transform elements in 3D space directly in your HTML.
 - [Expanded gradient APIs](#expanded-gradient-apis) — radial and conic gradients, interpolation modes, and more.
 - [@starting-style support](#starting-style-support) — a new variant you can use to create enter and exit transitions, without the need for JavaScript.
-- [not-* variant](#not-variant) — style an element only when it doesn't match another variant, custom selector, or media or feature query.
+- [not-\* variant](#not-variant) — style an element only when it doesn't match another variant, custom selector, or media or feature query.
 - [Even more new utilities and variants](#even-more-new-utilities-and-variants) — including support for `color-scheme`, `field-sizing`, complex shadows, `inert`, and more.
-
 
 Start using with Tailwind CSS v4.0 today by [installing it in a new project](/docs/installation/), or playing with it directly in the browser on [Tailwind Play](https://play.tailwindcss.com/).
 
@@ -385,8 +386,8 @@ npm i tailwindcss @tailwindcss/postcss;
 ```js
 // [!code filename:2. Add the PostCSS plugin]
 export default {
-  plugins: ['@tailwindcss/postcss']
-}
+  plugins: ["@tailwindcss/postcss"],
+};
 ```
 
 ```css
@@ -404,27 +405,25 @@ With the improvements we've made to this process for v4.0, Tailwind feels more l
 
 Sure you only go through this once per project, but it adds up when you're starting and abandoning a different side-project every weekend.
 
-
 ## First-party Vite plugin
 
 If you're a Vite user, you can now integrate Tailwind using [`@tailwindcss/vite`](/docs/installation/using-vite) instead of PostCSS:
 
 ```js
 // [!code filename:vite.config.ts]
-import { defineConfig } from 'vite'
+import { defineConfig } from "vite";
 // [!code highlight:2]
-import tailwindcss from '@tailwindcss/vite'
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [
     // [!code highlight:2]
     tailwindcss(),
   ],
-})
+});
 ```
 
 Tailwind CSS v4.0 is incredibly fast when used as a PostCSS plugin, but you'll get even better performance using the Vite plugin.
-
 
 ## Automatic content detection
 
@@ -467,9 +466,9 @@ Now we handle this out of the box, so you don't need any other tools:
 //  [!code filename:postcss.config.js]
 export default {
   plugins: [
-    'postcss-import', // [!code --]
-    '@tailwindcss/postcss',
-  ]
+    "postcss-import", // [!code --]
+    "@tailwindcss/postcss",
+  ],
 };
 ```
 
@@ -544,7 +543,7 @@ This makes it easy to reuse these values as inline styles or pass them to librar
 
 ## Dynamic utility values and variants
 
-We've simplified the way many utilities and variants work in v4.0 by effectively allowing them to accept certain types arbitrary values, *without* the need for any configuration or dropping down to the arbitrary value syntax.
+We've simplified the way many utilities and variants work in v4.0 by effectively allowing them to accept certain types arbitrary values, _without_ the need for any configuration or dropping down to the arbitrary value syntax.
 
 For example, in Tailwind CSS v4.0 you can create grids of any size out of the box:
 
@@ -598,7 +597,7 @@ The upgrade tool we released alongside v4.0 will even simplify most of these uti
 We've upgraded the entire default color palette from `rgb` to `oklch`, taking advantage of the wider gamut to make the colors more vivid in places where we were previously limited by the sRGB color space.
 
 <div className="not-prose my-12">
-  <ColorPalette/>
+  <ColorPalette />
 </div>
 
 We've tried to keep the balance between all the colors the same as it was in v3, so even though we've refreshed things across the board, it shouldn't feel like a breaking change when upgrading your existing projects.
@@ -650,38 +649,51 @@ Learn more in our all-new [container queries](/docs/responsive-design#container-
 ## New 3D transform utilities
 
 We've finally added APIs for doing 3D transforms, like `rotate-x-*`, `rotate-y-*`, `scale-z-*`, `translate-z-*`, and tons more.
+
 <Figure>
+
 <Example>
-{
-  <div className="grid perspective-distant">
-    <article className="transition-all relative isolate z-10 flex w-full max-w-80 justify-self-center transform-3d rotate-x-51 rotate-z-43 flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pt-80 pb-8 shadow-xl duration-500 ">
-      <img src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80" alt="" className="absolute inset-0 -z-10 size-full object-cover" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
-      <div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-gray-900/10 ring-inset"></div>
-      <div className="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm/6 text-gray-300">
-        <time dateTime="2020-03-16" className="mr-8">Mar 16, 2020</time>
-        <div className="-ml-4 flex items-center gap-x-4">
-          <svg view-box="0 0 2 2" className="-ml-0.5 size-0.5 flex-none fill-white/50"><circle r="1" cx="1" cy="1" /></svg>
-          <div className="flex gap-x-2.5">
-            <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" className="size-6 flex-none rounded-full bg-white/10" />
-            Michael Foster
+  {
+    <div className="grid perspective-distant">
+      <article className="relative isolate z-10 flex w-full max-w-80 rotate-x-51 rotate-z-43 flex-col justify-end justify-self-center overflow-hidden rounded-2xl bg-gray-900 px-8 pt-80 pb-8 shadow-xl transition-all duration-500 transform-3d">
+        <img
+          src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80"
+          alt=""
+          className="absolute inset-0 -z-10 size-full object-cover"
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
+        <div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-gray-900/10 ring-inset"></div>
+        <div className="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm/6 text-gray-300">
+          <time dateTime="2020-03-16" className="mr-8">
+            Mar 16, 2020
+          </time>
+          <div className="-ml-4 flex items-center gap-x-4">
+            <svg view-box="0 0 2 2" className="-ml-0.5 size-0.5 flex-none fill-white/50">
+              <circle r="1" cx="1" cy="1" />
+            </svg>
+            <div className="flex gap-x-2.5">
+              <img
+                src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                alt=""
+                className="size-6 flex-none rounded-full bg-white/10"
+              />
+              Michael Foster
+            </div>
           </div>
         </div>
-      </div>
-      <p className="mt-3 text-lg/6 font-semibold text-white">
+        <p className="mt-3 text-lg/6 font-semibold text-white">
           <span className="absolute inset-0"></span>
           Boost your conversion rate
-      </p>
-    </article>
-  </div>
-}
+        </p>
+      </article>
+    </div>
+  }
 </Example>
-
 
 ```html
 <!-- [!code classes:perspective-distant,transform-3d,rotate-x-51,rotate-z-43] -->
 <div class="perspective-distant">
-  <article class="transform-3d rotate-x-51 rotate-z-43 ...">
+  <article class="rotate-x-51 rotate-z-43 transform-3d ...">
     <!-- ... -->
   </article>
 </div>
@@ -704,9 +716,11 @@ Linear gradients now support angles as values, so you can use utilities like `bg
 <Figure>
 
 <Example>
-<div className="grid place-items-center">
-  <div className="size-32 rounded-lg bg-linear-45 from-indigo-500 via-purple-500 to-pink-500"></div>
-</div>
+  {
+    <div className="grid place-items-center">
+      <div className="size-32 rounded-lg bg-linear-45 from-indigo-500 via-purple-500 to-pink-500"></div>
+    </div>
+  }
 </Example>
 
 ```html
@@ -723,11 +737,14 @@ You may notice we've renamed `bg-gradient-*` to `bg-linear-*` too — you'll see
 We've added the ability to control the color interpolation mode for gradients using a modifier, so a class like `bg-linear-to-r/srgb` interpolates using sRGB, and `bg-linear-to-r/oklch` interpolates using OKLCH:
 
 <Figure>
+
 <Example>
-<div className="grid grid-cols-1 gap-4">
-  <div className="h-16 rounded-lg bg-linear-to-r/srgb from-indigo-500 to-teal-400"></div>
-  <div className="h-16 rounded-lg bg-linear-to-r/oklch from-indigo-500 to-teal-400"></div>
-</div>
+  {
+    <div className="grid grid-cols-1 gap-4">
+      <div className="h-16 rounded-lg bg-linear-to-r/srgb from-indigo-500 to-teal-400"></div>
+      <div className="h-16 rounded-lg bg-linear-to-r/oklch from-indigo-500 to-teal-400"></div>
+    </div>
+  }
 </Example>
 
 ```html
@@ -747,16 +764,18 @@ We've added new `bg-conic-*` and `bg-radial-*` utilities for creating conic and 
 <Figure>
 
 <Example>
-<div className="flex justify-around p-8">
-  <div className="bg-conic/[in_hsl_longer_hue] from-red-600 to-red-600 size-24 rounded-full size-24 rounded-full"></div>
-  <div className="bg-radial-[at_25%_25%] from-white to-zinc-900 to-75% size-24 rounded-full"></div>
-</div>
+  {
+    <div className="flex justify-around p-8">
+      <div className="size-24 rounded-full bg-conic/[in_hsl_longer_hue] from-red-600 to-red-600"></div>
+      <div className="size-24 rounded-full bg-radial-[at_25%_25%] from-white to-zinc-900 to-75%"></div>
+    </div>
+  }
 </Example>
 
 ```html
 <!-- [!code classes:bg-conic/[in_hsl_longer_hue],bg-radial-[at_25%_25%]] -->
-<div class="bg-conic/[in_hsl_longer_hue] from-red-600 to-red-600 size-24 rounded-full"></div>
-<div class="bg-radial-[at_25%_25%] from-white to-zinc-900 to-75% size-24 rounded-full"></div>
+<div class="size-24 rounded-full bg-conic/[in_hsl_longer_hue] from-red-600 to-red-600"></div>
+<div class="size-24 rounded-full bg-radial-[at_25%_25%] from-white to-zinc-900 to-75%"></div>
 ```
 
 </Figure>
@@ -784,7 +803,7 @@ The new `starting` variant adds support for the new CSS [`@starting-style`](http
         <div
           popover="auto"
           id="my-popover"
-          className="ring ring-black/5 dark:inset-ring dark:inset-ring-white/5 relative inset-y-0 mx-auto my-auto transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left opacity-0 shadow-xl transition-all transition-discrete duration-500 sm:w-full sm:max-w-96 sm:p-6 dark:bg-gray-800 [&:is([open],:popover-open)]:opacity-100 [@starting-style]:[&:is([open],:popover-open)]:opacity-0"
+          className="relative inset-y-0 mx-auto my-auto transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left opacity-0 ring shadow-xl ring-black/5 transition-all transition-discrete duration-500 sm:w-full sm:max-w-96 sm:p-6 dark:bg-gray-800 dark:inset-ring dark:inset-ring-white/5 [&:is([open],:popover-open)]:opacity-100 [@starting-style]:[&:is([open],:popover-open)]:opacity-0"
         >
           <div>
             <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-indigo-50 dark:bg-indigo-600/10">
@@ -845,7 +864,7 @@ With `@starting-style`, you can finally animate elements as they appear on the p
 
 ---
 
-## not-* variant
+## not-\* variant
 
 We've added a new `not-*` variant which finally adds support for the CSS `:not()` pseudo-class:
 
