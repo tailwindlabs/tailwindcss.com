@@ -91,7 +91,7 @@ export default function WhyTailwindCssSection() {
               </div>
             </BentoHeader>
             <BentoBody className="h-112">
-              <div className="group -mb-8 flex flex-col gap-2">
+              <div className="group flex flex-col gap-2">
                 <div className="flex justify-start not-sm:hidden">
                   <div className="flex w-10 shrink-0 grow-0 gap-2">
                     <div className="h-8 w-px shrink-0 bg-gray-950/20 dark:bg-white/30"></div>
@@ -126,7 +126,7 @@ export default function WhyTailwindCssSection() {
                 </div>
                 <Resizable>
                   <ResizablePanel className="@container max-sm:mr-0!">
-                    <div className="relative grid gap-10 rounded-t-2xl bg-white p-6 ring ring-gray-950/5 @min-[theme(--breakpoint-lg)]:grid-cols-2 @min-[theme(--breakpoint-lg)]:px-20 @min-[theme(--breakpoint-lg)]:py-8 dark:bg-gray-950 dark:ring-white/10">
+                    <div className="relative grid gap-10 rounded-t-2xl bg-white p-6 ring ring-gray-950/5 @min-[theme(--breakpoint-lg)]:grid-cols-2 @min-[theme(--breakpoint-lg)]:px-20 @min-[theme(--breakpoint-lg)]:py-8 @min-[theme(--breakpoint-lg)]:pb-10 dark:bg-gray-950 dark:ring-white/10">
                       <div className="flex flex-1 flex-col">
                         <div className="relative mb-4 overflow-hidden rounded-lg @max-[theme(--breakpoint-xl)]:-mx-4 @max-[theme(--breakpoint-xl)]:-mt-4 @min-[theme(--breakpoint-lg)]:hidden">
                           <div className="grid grid-cols-1 gap-2 @min-[theme(--breakpoint-sm)]:grid-cols-4">
