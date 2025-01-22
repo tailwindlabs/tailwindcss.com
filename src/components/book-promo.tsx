@@ -4,7 +4,7 @@ import bookPromo from "./book-promo.png";
 export default function BookPromo() {
   return (
     <a href="https://www.refactoringui.com/?ref=sidebar" className="group">
-      <div className="mt-7 flex flex-col items-center justify-center">
+      <div className="mt-12 flex flex-col items-center justify-center">
         <div className="relative origin-center -translate-x-3 rotate-6 p-6 duration-500 group-hover:rotate-0">
           <div className="absolute top-4 left-0 h-px w-full bg-[linear-gradient(to_right,_transparent_0%,_var(--gradient-bg)_9.27%,_var(--gradient-bg)_90.7%,_transparent_100%)] [--gradient-bg:var(--color-black)]/15 dark:[--gradient-bg:var(--color-white)]/10"></div>
           <div className="absolute top-0 left-4 h-full w-px bg-[linear-gradient(to_bottom,_transparent_0%,_var(--gradient-bg)_9.27%,_var(--gradient-bg)_90.7%,_transparent_100%)] [--gradient-bg:var(--color-black)]/15 dark:[--gradient-bg:var(--color-white)]/10"></div>
