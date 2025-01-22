@@ -32,7 +32,7 @@ export function TransitionsSection() {
           </path>
         </svg>
         <div className="flex flex-col justify-between pt-1 pb-4">
-          <p className="font-mono text-xs text-gray-700 dark:text-gray-200">
+          <p className="max-te w-fullxt-gray-700 overflow-hidden font-mono text-xs text-nowrap text-clip text-ellipsis dark:text-gray-200">
             transition duration-750 <span className="font-medium text-gray-950 dark:text-white">linear</span>
           </p>
           <div className="@container relative grid grid-cols-[auto_1fr_auto] items-center px-4 sm:px-5">
@@ -68,7 +68,7 @@ export function TransitionsSection() {
           </path>
         </svg>
         <div className="flex flex-col justify-between pt-1 pb-4">
-          <p className="font-mono text-xs text-gray-700 dark:text-gray-200">
+          <p className="max-te w-fullxt-gray-700 overflow-hidden font-mono text-xs text-nowrap text-clip text-ellipsis dark:text-gray-200">
             transition duration-750 <span className="font-medium text-gray-950 dark:text-white">ease-out</span>
           </p>
           <div className="@container relative grid grid-cols-[auto_1fr_auto] items-center px-4 sm:px-5">
@@ -109,7 +109,7 @@ export function TransitionsSection() {
           </path>
         </svg>
         <div className="flex flex-col justify-between pt-1 pb-4">
-          <p className="font-mono text-xs text-gray-700 dark:text-gray-200">
+          <p className="overflow-hidden font-mono text-xs text-nowrap text-clip text-ellipsis text-gray-700 dark:text-gray-200">
             transition duration-750 <span className="font-medium text-gray-950 dark:text-white">ease-in-out</span>
           </p>
           <div className="@container relative grid grid-cols-[auto_1fr_auto] items-center px-4 sm:px-5">
@@ -150,7 +150,7 @@ export function TransitionsSection() {
           </path>
         </svg>
         <div className="flex flex-col justify-between pt-1 pb-4">
-          <p className="font-mono text-xs text-gray-700 dark:text-gray-200">
+          <p className="overflow-hidden font-mono text-xs text-nowrap text-ellipsis text-gray-700 dark:text-gray-200">
             transition duration-750 <span className="font-medium text-gray-950 dark:text-white">ease-in</span>
           </p>
           <div className="@container relative grid grid-cols-[auto_1fr_auto] items-center px-4 sm:px-5">
