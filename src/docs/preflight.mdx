@@ -10,17 +10,13 @@ When you import `tailwindcss` into your project, Preflight is automatically inje
 ```css
 @layer theme, base, components, utilities;
 
-/* prettier-ignore */
-@layer theme { /* ... */}
-/* prettier-ignore */
-@layer base { /* Preflight styles here */ }
-/* prettier-ignore */
-@layer components { /* ... */ }
-/* prettier-ignore */
-@layer utilities { /* ... */ }
+@import "./theme.css" layer(theme);
+/* [!code highlight:2] */
+@import "./preflight.css" layer(base);
+@import "./utilities.css" layer(utilities);
 ```
 
-While most of the styles in Preflight are meant to go unnoticed — they simply make things behave more like you'd expect them to — some are more opinionated and can be surprising when you first encounter them.
+While most of the styles in Preflight are meant to go unnoticed—they simply make things behave more like you'd expect them to—some are more opinionated and can be surprising when you first encounter them.
 
 For a complete reference of all the styles applied by Preflight, [see the stylesheet](https://github.com/tailwindlabs/tailwindcss/blob/next/packages/tailwindcss/preflight.css).
 
@@ -201,11 +197,24 @@ Learn more in the [adding base styles documentation](/docs/adding-custom-styles#
 
 ## Disabling Preflight
 
-If you'd like to completely disable Preflight — perhaps because you're integrating Tailwind into an existing project or because you'd like to provide your own base styles — import the pieces of Tailwind that you need separately:
+If you'd like to completely disable Preflight—perhaps because you're integrating Tailwind into an existing project or you'd prefer to define your own base styles—you can do so by importing only the parts of Tailwind that you need.
+
+By default, this is what `@import "tailwindcss";` injects:
 
 ```css
 @layer theme, base, components, utilities;
 
-@import "tailwindcss/theme" layer(theme);
-@import "tailwindcss/utilities" layer(utilities);
+@import "./theme.css" layer(theme);
+@import "./preflight.css" layer(base);
+@import "./utilities.css" layer(utilities);
+```
+
+To disable Preflight, simply omit its import while keeping everything else:
+
+```css
+@layer theme, base, components, utilities;
+
+@import "./theme.css" layer(theme);
+@import "./preflight.css" layer(base); /* [!code --] */
+@import "./utilities.css" layer(utilities);
 ```
