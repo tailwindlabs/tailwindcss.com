@@ -74,6 +74,7 @@ Tailwind includes variants for just about everything you'll ever need, including
 - [Pseudo-elements](#pseudo-elements), like `::before`, `::after`, `::placeholder`, and `::selection`
 - [Media and feature queries](#media-and-feature-queries), like responsive breakpoints, dark mode, and `prefers-reduced-motion`
 - [Attribute selectors](#attribute-selectors), like `[dir="rtl"]` and `[open]`
+- [Child selectors](#child-selectors), like `& > *` and `& *`
 
 These variants can even be stacked to target more specific situations, for example changing the background color in dark mode, at the medium breakpoint, on hover:
 
@@ -97,8 +98,7 @@ Style elements on hover, focus, and active using the `hover`, `focus`, and `acti
     <div className="grid place-items-center">
       <button
         type="button"
-        className="rounded-full bg-violet-500 px-5 py-2 text-sm leading-5 font-semibold text-white hover:bg-violet-600 focus:outline-2 focus:outline-violet-300 active:bg-violet-700"
-        tabIndex="0"
+        className="rounded-full bg-violet-500 px-5 py-2 text-sm leading-5 font-semibold text-white hover:bg-violet-600 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700"
       >
         Save changes
       </button>
@@ -107,10 +107,9 @@ Style elements on hover, focus, and active using the `hover`, `focus`, and `acti
 </Example>
 
 ```html
-<!-- [!code classes:hover:bg-violet-600] -->
-<!-- [!code classes:active:bg-violet-700] -->
-<!-- [!code classes:focus:outline-2,focus:outline-violet-300] -->
-<button class="bg-violet-500 hover:bg-violet-600 focus:outline-2 focus:outline-violet-300 active:bg-violet-700 ...">
+<!-- [!code classes:hover:bg-violet-600,focus:outline-2,focus:outline-offset-2,focus:outline-violet-500,active:bg-violet-700] -->
+<!-- prettier-ignore -->
+<button class="bg-violet-500 hover:bg-violet-600 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700 ...">
   Save changes
 </button>
 ```
@@ -314,10 +313,18 @@ Use the `nth-*` and `nth-last-*` variants to style children based on their posit
 
 ```html
 <!-- [!code classes:nth-3:underline,nth-last-5:underline,nth-of-type-4:underline,nth-last-of-type-6:underline] -->
-<div class="nth-3:underline">…</div>
-<div class="nth-last-5:underline">…</div>
-<div class="nth-of-type-4:underline">…</div>
-<div class="nth-last-of-type-6:underline">…</div>
+<div class="nth-3:underline">
+  <!-- ... -->
+</div>
+<div class="nth-last-5:underline">
+  <!-- ... -->
+</div>
+<div class="nth-of-type-4:underline">
+  <!-- ... -->
+</div>
+<div class="nth-last-of-type-6:underline">
+  <!-- ... -->
+</div>
 ```
 
 You can pass any number you want to these by default, and use arbitrary values for more complex expressions like `nth-[2n+1_of_li]`.
@@ -2606,7 +2613,7 @@ The `inert` variant lets you style elements marked with the `inert` attribute:
 
 This is useful for adding visual cues that make it clear that sections of content aren't interactive.
 
-## Styling children
+## Child selectors
 
 ### Styling direct children
 
@@ -4305,7 +4312,7 @@ A quick reference table of every single variant included in Tailwind by default.
 
 This is a comprehensive list of examples for all the pseudo-class variants included in Tailwind to complement the [pseudo-classes documentation](/docs/hover-focus-and-other-states#pseudo-classes) at the beginning of this guide.
 
-#### hover <small>(:hover)</small>
+#### :hover
 
 Style an element when the user hovers over it with the mouse cursor using the `hover` variant:
 
@@ -4316,7 +4323,7 @@ Style an element when the user hovers over it with the mouse cursor using the `h
 </div>
 ```
 
-#### focus <small>(:focus)</small>
+#### :focus
 
 Style an element when it has focus using the `focus` variant:
 
@@ -4325,7 +4332,7 @@ Style an element when it has focus using the `focus` variant:
 <input class="border-gray-300 focus:border-blue-400 ..." />
 ```
 
-#### focus-within <small>(:focus-within)</small>
+#### :focus-within
 
 Style an element when it or one of its descendants has focus using the `focus-within` variant:
 
@@ -4336,7 +4343,7 @@ Style an element when it or one of its descendants has focus using the `focus-wi
 </div>
 ```
 
-#### focus-visible <small>(:focus-visible)</small>
+#### :focus-visible
 
 Style an element when it has been focused using the keyboard using the `focus-visible` variant:
 
@@ -4345,7 +4352,7 @@ Style an element when it has been focused using the keyboard using the `focus-vi
 <button class="focus-visible:outline-2 ...">Submit</button>
 ```
 
-#### active <small>(:active)</small>
+#### :active
 
 Style an element when it is being pressed using the `active` variant:
 
@@ -4354,7 +4361,7 @@ Style an element when it is being pressed using the `active` variant:
 <button class="bg-blue-500 active:bg-blue-600 ...">Submit</button>
 ```
 
-#### visited <small>(:visited)</small>
+#### :visited
 
 Style a link when it has already been visited using the `visited` variant:
 
@@ -4363,7 +4370,7 @@ Style a link when it has already been visited using the `visited` variant:
 <a href="https://seinfeldquotes.com" class="text-blue-600 visited:text-purple-600 ..."> Inspiration </a>
 ```
 
-#### target <small>(:target)</small>
+#### :target
 
 Style an element if its ID matches the current URL fragment using the `target` variant:
 
@@ -4374,7 +4381,7 @@ Style an element if its ID matches the current URL fragment using the `target` v
 </div>
 ```
 
-#### first <small>(:first-child)</small>
+#### :first-child
 
 Style an element if it's the first child using the `first` variant:
 
@@ -4389,7 +4396,7 @@ Style an element if it's the first child using the `first` variant:
 </ul>
 ```
 
-#### last <small>(:last-child)</small>
+#### :last-child
 
 Style an element if it's the last child using the `last` variant:
 
@@ -4404,7 +4411,7 @@ Style an element if it's the last child using the `last` variant:
 </ul>
 ```
 
-#### only <small>(:only-child)</small>
+#### :only-child
 
 Style an element if it's the only child using the `only` variant:
 
@@ -4419,7 +4426,7 @@ Style an element if it's the only child using the `only` variant:
 </ul>
 ```
 
-#### odd <small>(:nth-child(odd))</small>
+#### :nth-child(odd)
 
 Style an element if it's an oddly numbered child using the `odd` variant:
 
@@ -4434,7 +4441,7 @@ Style an element if it's an oddly numbered child using the `odd` variant:
 </table>
 ```
 
-#### even <small>(:nth-child(even))</small>
+#### :nth-child(even)
 
 Style an element if it's an evenly numbered child using the `even` variant:
 
@@ -4449,7 +4456,7 @@ Style an element if it's an evenly numbered child using the `even` variant:
 </table>
 ```
 
-#### first-of-type <small>(:first-of-type)</small>
+#### :first-of-type
 
 Style an element if it's the first child of its type using the `first-of-type` variant:
 
@@ -4465,7 +4472,7 @@ Style an element if it's the first child of its type using the `first-of-type` v
 </nav>
 ```
 
-#### last-of-type <small>(:last-of-type)</small>
+#### :last-of-type
 
 Style an element if it's the last child of its type using the `last-of-type` variant:
 
@@ -4482,7 +4489,7 @@ Style an element if it's the last child of its type using the `last-of-type` var
 </nav>
 ```
 
-#### only-of-type <small>(:only-of-type)</small>
+#### :only-of-type
 
 Style an element if it's the only child of its type using the `only-of-type` variant:
 
@@ -4499,7 +4506,7 @@ Style an element if it's the only child of its type using the `only-of-type` var
 </nav>
 ```
 
-#### nth <small>(:nth-child(…))</small>
+#### :nth-child()
 
 Style an element at a specific position using the `nth` variant:
 
@@ -4516,7 +4523,7 @@ Style an element at a specific position using the `nth` variant:
 </nav>
 ```
 
-#### nth-last <small>(:nth-last-child(…))</small>
+#### :nth-last-child()
 
 Style an element at a specific position from the end using the `nth-last` variant:
 
@@ -4533,7 +4540,7 @@ Style an element at a specific position from the end using the `nth-last` varian
 </nav>
 ```
 
-#### nth-of-type <small>(:nth-of-type(…))</small>
+#### :nth-of-type()
 
 Style an element at a specific position, of the same type using the `nth-of-type` variant:
 
@@ -4550,7 +4557,7 @@ Style an element at a specific position, of the same type using the `nth-of-type
 </nav>
 ```
 
-#### nth-last-of-type <small>(:nth-last-of-type(…))</small>
+#### :nth-last-of-type()
 
 Style an element at a specific position from the end, of the same type using the `nth-last-of-type` variant:
 
@@ -4567,7 +4574,7 @@ Style an element at a specific position from the end, of the same type using the
 </nav>
 ```
 
-#### empty <small>(:empty)</small>
+#### :empty
 
 Style an element if it has no content using the `empty` variant:
 
@@ -4580,7 +4587,7 @@ Style an element if it has no content using the `empty` variant:
 </ul>
 ```
 
-#### disabled <small>(:disabled)</small>
+#### :disabled
 
 Style an input when it's disabled using the `disabled` variant:
 
@@ -4589,7 +4596,7 @@ Style an input when it's disabled using the `disabled` variant:
 <input class="disabled:opacity-75 ..." />
 ```
 
-#### enabled <small>(:enabled)</small>
+#### :enabled
 
 Style an input when it's enabled using the `enabled` variant, most helpful when you only want to apply another style when an element is not disabled:
 
@@ -4598,7 +4605,7 @@ Style an input when it's enabled using the `enabled` variant, most helpful when 
 <input class="enabled:hover:border-gray-400 disabled:opacity-75 ..." />
 ```
 
-#### checked <small>(:checked)</small>
+#### :checked
 
 Style a checkbox or radio button when it's checked using the `checked` variant:
 
@@ -4607,7 +4614,7 @@ Style a checkbox or radio button when it's checked using the `checked` variant:
 <input type="checkbox" class="appearance-none checked:bg-blue-500 ..." />
 ```
 
-#### indeterminate <small>(:indeterminate)</small>
+#### :indeterminate
 
 Style a checkbox or radio button in an indeterminate state using the `indeterminate` variant:
 
@@ -4616,7 +4623,7 @@ Style a checkbox or radio button in an indeterminate state using the `indetermin
 <input type="checkbox" class="appearance-none indeterminate:bg-gray-300 ..." />
 ```
 
-#### default <small>(:default)</small>
+#### :default
 
 Style an option, checkbox or radio button that was the default value when the page initially loaded using the `default` variant:
 
@@ -4625,7 +4632,7 @@ Style an option, checkbox or radio button that was the default value when the pa
 <input type="checkbox" class="default:outline-2 ..." />
 ```
 
-#### optional <small>(:optional)</small>
+#### :optional
 
 Style an input when it's optional using the `optional` variant:
 
@@ -4634,7 +4641,7 @@ Style an input when it's optional using the `optional` variant:
 <input class="optional:border-red-500 ..." />
 ```
 
-#### required <small>(:required)</small>
+#### :required
 
 Style an input when it's required using the `required` variant:
 
@@ -4643,7 +4650,7 @@ Style an input when it's required using the `required` variant:
 <input class="required:border-red-500 ..." />
 ```
 
-#### valid <small>(:valid)</small>
+#### :valid
 
 Style an input when it's valid using the `valid` variant:
 
@@ -4652,7 +4659,7 @@ Style an input when it's valid using the `valid` variant:
 <input class="valid:border-green-500 ..." />
 ```
 
-#### invalid <small>(:invalid)</small>
+#### :invalid
 
 Style an input when it's invalid using the `invalid` variant:
 
@@ -4661,7 +4668,7 @@ Style an input when it's invalid using the `invalid` variant:
 <input class="invalid:border-red-500 ..." />
 ```
 
-#### in-range <small>(:in-range)</small>
+#### :in-range
 
 Style an input when its value is within a specified range limit using the `in-range` variant:
 
@@ -4670,7 +4677,7 @@ Style an input when its value is within a specified range limit using the `in-ra
 <input min="1" max="5" class="in-range:border-green-500 ..." />
 ```
 
-#### out-of-range <small>(:out-of-range)</small>
+#### :out-of-range
 
 Style an input when its value is outside of a specified range limit using the `out-of-range` variant:
 
@@ -4679,7 +4686,7 @@ Style an input when its value is outside of a specified range limit using the `o
 <input min="1" max="5" class="out-of-range:border-red-500 ..." />
 ```
 
-#### placeholder-shown <small>(:placeholder-shown)</small>
+#### :placeholder-shown
 
 Style an input when the placeholder is shown using the `placeholder-shown` variant:
 
@@ -4688,7 +4695,7 @@ Style an input when the placeholder is shown using the `placeholder-shown` varia
 <input class="placeholder-shown:border-gray-500 ..." placeholder="you@example.com" />
 ```
 
-#### autofill <small>(:autofill)</small>
+#### :autofill
 
 Style an input when it has been autofilled by the browser using the `autofill` variant:
 
@@ -4697,7 +4704,7 @@ Style an input when it has been autofilled by the browser using the `autofill` v
 <input class="autofill:bg-yellow-200 ..." />
 ```
 
-#### read-only <small>(:read-only)</small>
+#### :read-only
 
 Style an input when it is read-only using the `read-only` variant:
 
