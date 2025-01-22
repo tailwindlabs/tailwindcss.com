@@ -1,5 +1,9 @@
 import { Header } from "@/components/header";
 
+export const metadata = {
+  title: "404 Not Found",
+};
+
 export default function NotFoundPage() {
   return (
     <div className="max-w-screen overflow-x-hidden">
