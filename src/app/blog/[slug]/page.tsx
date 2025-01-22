@@ -85,11 +85,11 @@ export default async function DocPage(props: Props) {
 
         <div className="max-xl:mx-auto max-xl:w-full max-xl:max-w-(--breakpoint-md)">
           <div className="flex flex-col gap-4">
-            {post.meta.authors.map((author, index) => (
+            {post.meta.authors.map((author) => (
               <GridContainer
                 direction="to-left"
                 key={author.twitter}
-                className="flex items-center px-4 py-2 font-medium whitespace-nowrap lg:px-2 lg:before:hidden"
+                className="flex items-center px-4 py-2 font-medium whitespace-nowrap max-xl:before:-left-[100vw]! max-xl:after:-left-[100vw]! xl:px-2 xl:before:hidden"
               >
                 <Author author={author} />
               </GridContainer>
