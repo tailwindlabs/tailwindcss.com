@@ -126,7 +126,7 @@ export default function WhyTailwindCssSection() {
                 </div>
                 <Resizable>
                   <ResizablePanel className="@container max-sm:mr-0!">
-                    <div className="relative grid gap-10 rounded-t-2xl border border-b-0 border-gray-950/5 bg-white p-6 @min-[theme(--breakpoint-lg)]:grid-cols-2 @min-[theme(--breakpoint-lg)]:px-20 @min-[theme(--breakpoint-lg)]:py-8 dark:bg-gray-950">
+                    <div className="relative grid gap-10 rounded-t-2xl bg-white p-6 ring ring-gray-950/5 @min-[theme(--breakpoint-lg)]:grid-cols-2 @min-[theme(--breakpoint-lg)]:px-20 @min-[theme(--breakpoint-lg)]:py-8 dark:bg-gray-950 dark:ring-white/10">
                       <div className="flex flex-1 flex-col">
                         <div className="relative mb-4 overflow-hidden rounded-lg @max-[theme(--breakpoint-xl)]:-mx-4 @max-[theme(--breakpoint-xl)]:-mt-4 @min-[theme(--breakpoint-lg)]:hidden">
                           <div className="grid grid-cols-1 gap-2 @min-[theme(--breakpoint-sm)]:grid-cols-4">
