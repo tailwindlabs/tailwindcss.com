@@ -3,25 +3,24 @@
 import { motion } from "framer-motion";
 import _3dTransformsImg from "./why-tailwind-css-section/3d-transforms.jpeg";
 
+const INITIAL = {
+  rotateX: 0,
+  rotateY: 0,
+  rotateZ: 0,
+};
+
 export function Transforms3d() {
   return (
     <div className="grid size-full place-content-center">
       <div className="-translate-y-4 transition duration-300 perspective-[1200px] perspective-origin-top">
         <motion.img
-          initial={{
-            rotateX: 0,
-            rotateY: 0,
-            rotateZ: 0,
-          }}
+          initial={INITIAL}
+          whileHover={INITIAL}
+          whileTap={INITIAL}
           whileInView={{
             rotateX: 30,
             rotateY: -5,
             rotateZ: 15,
-          }}
-          whileHover={{
-            rotateX: 0,
-            rotateY: 0,
-            rotateZ: 0,
           }}
           viewport={{
             margin: "-400px 0px -400px 0px",
