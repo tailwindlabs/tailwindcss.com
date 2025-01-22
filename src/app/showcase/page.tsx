@@ -10,8 +10,8 @@ export const metadata: Metadata = {
     type: "article",
     title: "Showcase - Build anything",
     description: "A collection of beautiful websites built with Tailwind CSS.",
-    images: "https://v4-test.tailwindcss.com/api/og?path=/showcase",
-    url: "https://v4-test.tailwindcss.com/showcase",
+    images: "https://tailwindcss.com/api/og?path=/showcase",
+    url: "https://tailwindcss.com/showcase",
   },
 };
 

@@ -12,8 +12,8 @@ export const metadata: Metadata = {
     type: "article",
     title: "Brand",
     description: "Tailwind CSS brand assets and usage guidelines.",
-    images: "https://v4-test.tailwindcss.com/api/og?path=/brand",
-    url: "https://v4-test.tailwindcss.com/brand",
+    images: "https://tailwindcss.com/api/og?path=/brand",
+    url: "https://tailwindcss.com/brand",
   },
 };
 

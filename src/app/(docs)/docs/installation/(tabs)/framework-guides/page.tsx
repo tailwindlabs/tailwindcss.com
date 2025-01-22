@@ -11,8 +11,8 @@ export const metadata: Metadata = {
     type: "article",
     title: "Framework guides",
     description: "Our recommended approach to installing Tailwind CSS in popular frameworks.",
-    images: "https://v4-test.tailwindcss.com/api/og?path=/docs/installation/framework-guides",
-    url: "https://v4-test.tailwindcss.com/docs/installation/framework-guides",
+    images: "https://tailwindcss.com/api/og?path=/docs/installation/framework-guides",
+    url: "https://tailwindcss.com/docs/installation/framework-guides",
   },
 };
 

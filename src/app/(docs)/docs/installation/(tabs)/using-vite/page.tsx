@@ -11,8 +11,8 @@ export const metadata: Metadata = {
     type: "article",
     title: "Installing with Vite",
     description: "Integrate Tailwind CSS with frameworks like Laravel, SvelteKit, React Router, and SolidJS.",
-    images: "https://v4-test.tailwindcss.com/api/og?path=/docs/installation/using-vite",
-    url: "https://v4-test.tailwindcss.com/docs/installation/using-vite",
+    images: "https://tailwindcss.com/api/og?path=/docs/installation/using-vite",
+    url: "https://tailwindcss.com/docs/installation/using-vite",
   },
 };
 

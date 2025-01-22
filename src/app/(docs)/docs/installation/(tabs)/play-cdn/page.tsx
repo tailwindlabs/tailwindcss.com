@@ -10,8 +10,8 @@ export const metadata: Metadata = {
     type: "article",
     title: "Play CDN",
     description: "Try Tailwind CSS right in the browser without any build step.",
-    images: "https://v4-test.tailwindcss.com/api/og?path=/docs/installation/play-cdn",
-    url: "https://v4-test.tailwindcss.com/docs/installation/play-cdn",
+    images: "https://tailwindcss.com/api/og?path=/docs/installation/play-cdn",
+    url: "https://tailwindcss.com/docs/installation/play-cdn",
   },
 };
 
