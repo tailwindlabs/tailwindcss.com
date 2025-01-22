@@ -4,6 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { Iframe } from "@/components/iframe.tsx";
 import card from "./card.jpg";
 import Image from "next/image";
+import { CodeExampleStack } from "@/components/code-example";
 
 export const meta = {
   title: "Tailwind CSS v4.0",
@@ -262,30 +263,35 @@ return (
 
 <Image src={card} alt="Tailwind CSS v4.0-beta" />
 
-We're beyond excited to finally announce the first of many stable releases of Tailwind CSS v4.0! With a new engine, CSS-first configuration, a focus on speed, and so much more, this blog post will cover everything you need to know to get started with Tailwind CSS v4.0:
+Holy shit it's actually done — we just tagged Tailwind CSS v4.0.
 
-- [New high-performance engine](#) — where full builds are up to 5x faster, and incremental builds are over 100x faster — and measured in microseconds.
-- [Designed for the modern web](#) — built on cutting-edge CSS features like cascade layers, registered custom properties with `@property`, and `color-mix()`.
-- [Simplified installation](#) — fewer dependencies, zero configuration, and only one line of code in your CSS file.
-- [First-party Vite plugin](#) — tight integration for maximum performance and minimum configuration.
-- [Automatic content detection](#) — all of your template files are discovered automatically, with no configuration required.
-- [Built-in import support](#) — no additional tooling necessary to bundle multiple CSS files.
-- [CSS-first configuration](#) — a reimagined developer experience where you customize and extend the framework directly in CSS instead of a JavaScript configuration file.
-- [CSS theme variables](#) — all of your design tokens exposed as native CSS variables so you can access them anywhere.
-- [Dynamic utility values and variants](#) — stop guessing what values exist in your spacing scale, or extending your configuration for things like basic data attributes.
-- [Modernized P3 color palette](#) — a redesigned, more vivid color palette that takes full advantage of modern display technology.
-- [Container queries](#) — first-class APIs for styling elements based on their container size, no plugins required.
-- [New 3D transform utilities](#) — transform elements in 3D space directly in your HTML.
-- [Expanded gradient APIs](#) — radial and conic gradients, interpolation modes, and more.
-- [@starting-style support](#) — a new variant you can use to create enter and exit transitions, without the need for JavaScript.
-- [not-* variant](#) — style an element only when it doesn't match another variant, custom selector, or media or feature query.
-- [Even more new utilities and variants](#) — support for `color-scheme`, `field-sizing`, complex shadows, `inert`, and more.
+Tailwind CSS v4.0 is an all-new version of the framework optimized for performance and flexibility, with a reimagined configuration and customization experience, and taking full advantage of the latest advancements the web platform has to offer.
+
+- [New high-performance engine](#new-high-performance-engine) — where full builds are up to 5x faster, and incremental builds are over 100x faster — and measured in microseconds.
+- [Designed for the modern web](#designed-for-the-modern-web) — built on cutting-edge CSS features like cascade layers, registered custom properties with `@property`, and `color-mix()`.
+- [Simplified installation](#simplified-installation) — fewer dependencies, zero configuration, and just a single line of code in your CSS file.
+- [First-party Vite plugin](#first-party-vite-plugin) — tight integration for maximum performance and minimum configuration.
+- [Automatic content detection](#automatic-content-detection) — all of your template files are discovered automatically, with no configuration required.
+- [Built-in import support](#built-in-import-support) — no additional tooling necessary to bundle multiple CSS files.
+- [CSS-first configuration](#css-first-configuration) — a reimagined developer experience where you customize and extend the framework directly in CSS instead of a JavaScript configuration file.
+- [CSS theme variables](#css-theme-variables) — all of your design tokens exposed as native CSS variables so you can access them anywhere.
+- [Dynamic utility values and variants](#dynamic-utility-values-and-variants) — stop guessing what values exist in your spacing scale, or extending your configuration for things like basic data attributes.
+- [Modernized P3 color palette](#modernized-p3-color-palette) — a redesigned, more vivid color palette that takes full advantage of modern display technology.
+- [Container queries](#container-queries) — first-class APIs for styling elements based on their container size, no plugins required.
+- [New 3D transform utilities](#new-3d-transform-utilities) — transform elements in 3D space directly in your HTML.
+- [Expanded gradient APIs](#expanded-gradient-apis) — radial and conic gradients, interpolation modes, and more.
+- [@starting-style support](#starting-style-support) — a new variant you can use to create enter and exit transitions, without the need for JavaScript.
+- [not-* variant](#not-variant) — style an element only when it doesn't match another variant, custom selector, or media or feature query.
+- [Even more new utilities and variants](#even-more-new-utilities-and-variants) — including support for `color-scheme`, `field-sizing`, complex shadows, `inert`, and more.
+
+
+Start using with Tailwind CSS v4.0 today by [installing it in a new project](/docs/installation/), or playing with it directly in the browser on [Tailwind Play](https://play.tailwindcss.com/).
+
+For existing projects, we've published a comprehensive [upgrade guide](/docs/upgrade-guide) and built an [automated upgrade tool](/docs/upgrade-guide#using-the-upgrade-tool) to get you on the latest version as quickly and painlessly as possible.
 
 ---
 
-## What's new in v4.0
-
-### Built for performance
+## New high-performance engine
 
 Tailwind CSS v4.0 is a ground-up rewrite of the framework, taking everything we've learned about the architecture over the years and optimizing it to be as fast as possible.
 
@@ -329,13 +335,155 @@ Here are the median build times we saw when we benchmarked Tailwind CSS v4.0 aga
 
 The most impressive improvement is on incremental builds that don't actually need to compile any new CSS — these builds are over 100x faster and complete in _microseconds_. And the longer you work on a project, the more of these builds you run into because you're just using classes you've already used before, like `flex`, `col-span-2`, or `font-bold`.
 
-### CSS-first configuration
+---
+
+## Designed for the modern web
+
+The platform has evolved a lot since we released Tailwind CSS v3.0, and v4.0 takes full advantage of many of these improvements.
+
+```css
+/* [!code filename:CSS] */
+@layer theme, base, components, utilities;
+
+@layer utilities {
+  .mx-6 {
+    margin-inline: calc(var(--spacing) * 6);
+  }
+  .bg-blue-500\/50 {
+    background-color: color-mix(in oklab, var(--color-blue-500) 50%, transparent);
+  }
+}
+
+@property --tw-gradient-from {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0000;
+}
+```
+
+We're leveraging modern CSS features like:
+
+- **Native cascade layers** — giving us more control than ever over how different style rules interact with each other.
+- **Registered custom properties** — making it possible to do things like animate gradients, and significantly improving performance on large pages.
+- **color-mix()** — which lets us adjust the opacity of any color value, including CSS variables and `currentColor`.
+- **Logical properties** — simplifying RTL support and reducing the size of your generated CSS.
+
+Many of these features have even simplified Tailwind internally, reducing the surface area for bugs and making the framework easier for us to maintain.
+
+---
+
+## Simplified installation
+
+We've streamlined the setup process a ton in v4.0, reducing the number of steps and removing a lot of boilerplate.
+
+<CodeExampleStack>
+
+```shell
+# [!code filename:1. Install Tailwind CSS]
+npm i tailwindcss @tailwindcss/postcss;
+```
+
+```js
+// [!code filename:2. Add the PostCSS plugin]
+export default {
+  plugins: ['@tailwindcss/postcss']
+}
+```
+
+```css
+/* [!code filename:3. Import Tailwind in your CSS] */
+@import "tailwindcss";
+```
+
+</CodeExampleStack>
+
+With the improvements we've made to this process for v4.0, Tailwind feels more light-weight than ever:
+
+- **Just one-line of CSS** — no more `@tailwind` directives, just add `@import "tailwindcss"` and start building.
+- **Zero configuration** — you can start using the framework without configuring anything, not even the paths to your template files.
+- **No external plugins required** — we bundle `@import` rules for you out of the box, and use [Lightning CSS](https://lightningcss.dev/) under the hood for vendor prefixing and modern syntax transforms.
+
+Sure you only go through this once per project, but it adds up when you're starting and abandoning a different side-project every weekend.
+
+
+## First-party Vite plugin
+
+If you're a Vite user, you can now integrate Tailwind using [`@tailwindcss/vite`](/docs/installation/using-vite) instead of PostCSS:
+
+```js
+// [!code filename:vite.config.ts]
+import { defineConfig } from 'vite'
+// [!code highlight:2]
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [
+    // [!code highlight:2]
+    tailwindcss(),
+  ],
+})
+```
+
+Tailwind CSS v4.0 is incredibly fast when used as a PostCSS plugin, but you'll get even better performance using the Vite plugin.
+
+
+## Automatic content detection
+
+You know how you always had to configure that annoying `content` array in Tailwind CSS v3? In v4.0, we came up with a bunch of heuristics for detecting all of that stuff automatically so you don’t have to configure it at all.
+
+For example, we automatically ignore anything in your `.gitignore` file to avoid scanning dependencies or generated files that aren’t under version control:
+
+```shell
+# [!code filename:.gitignore]
+/node_modules
+/coverage
+/.next/
+/build
+```
+
+We also automatically ignore all binary extensions like images, videos, .zip files, and more.
+
+And if you ever need to explicitly add a source that's excluded by default, you can always add it with the `@source` directive, right in your CSS file:
+
+```css
+/* [!code filename:CSS] */
+@import "tailwindcss";
+/* [!code highlight:2] */
+@source "../node_modules/@my-company/ui-lib";
+```
+
+The `@source` directive uses the same heuristics under the hood, so it will exclude binary file types for example as well, without you having to specify all of the extensions to scan explicitly.
+
+---
+
+## Built-in import support
+
+Before v4.0, if you wanted to inline other CSS files using `@import` you'd have to configure another plugin like `postcss-import` to handle it for you.
+
+Now we handle this out of the box, so you don't need any other tools:
+
+```js
+//  [!code filename:postcss.config.js]
+export default {
+  plugins: [
+    'postcss-import', // [!code --]
+    '@tailwindcss/postcss',
+  ]
+};
+```
+
+Our import system is purpose-built for Tailwind CSS, so we've also been able to make it even faster by tightly integrating it with our engine.
+
+---
+
+## CSS-first configuration
 
 One of the biggest changes in Tailwind CSS v4.0 is the shift from configuring your project in JavaScript to configuring it in CSS.
 
 Instead of a `tailwind.config.js` file, you can configure all of your customizations directly in the CSS file where you import Tailwind, giving you one less file to worry about in your project:
 
 ```css
+/* [!code filename:CSS] */
 @import "tailwindcss";
 
 @theme {
@@ -357,251 +505,112 @@ Instead of a `tailwind.config.js` file, you can configure all of your customizat
 }
 ```
 
-The new CSS-first configuration lets you do just about everything you could do in your `tailwind.config.js` file, including configuring your design tokens, setting up content sources, defining custom utilities and variants, installing plugins, and more.
+The new CSS-first configuration lets you do just about everything you could do in your `tailwind.config.js` file, including configuring your design tokens, defining custom utilities and variants, and more.
 
-To learn more about how it all works, read the [theme configuration](/docs/theme) documentation.
+To learn more about how it all works, read the new [theme variables](/docs/theme) documentation.
 
-#### Native CSS cascade layers
+---
 
-We're using real [CSS cascade layers](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer) in v4.0, which make it easier than ever to control the precedence of styles and how they interact with each other.
+## CSS theme variables
 
-Here's what the output looks like when you build your CSS with v4.0:
+Tailwind CSS v4.0 takes all of your design tokens and makes them available as CSS variables by default, so you can reference any value you need at run-time using just CSS.
 
-```css
-@layer theme, base, components, utilities;
+Using the example `@theme` from earlier, all of these values will be added to your CSS to as regular custom properties:
 
-@layer theme {
-  :root {
-    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-      "Noto Color Emoji";
-    --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+```css {{ filename: 'dist.css', style: 'framed', color: 'indigo' }}
+:root {
+  --font-display: "Satoshi", "sans-serif";
 
-    /* ... */
-  }
-}
+  --breakpoint-3xl: 1920px;
 
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 0 solid;
-  }
+  --color-avocado-100: oklch(0.99 0 0);
+  --color-avocado-200: oklch(0.98 0.04 113.22);
+  --color-avocado-300: oklch(0.94 0.11 115.03);
+  --color-avocado-400: oklch(0.92 0.19 114.08);
+  --color-avocado-500: oklch(0.84 0.18 117.33);
+  --color-avocado-600: oklch(0.53 0.12 118.34);
+
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
 
   /* ... */
+}
+```
+
+This makes it easy to reuse these values as inline styles or pass them to libraries like [Motion](https://motion.dev/docs/react-animation#css-variables) to animate them.
+
+---
+
+## Dynamic utility values and variants
+
+We've simplified the way many utilities and variants work in v4.0 by effectively allowing them to accept certain types arbitrary values, *without* the need for any configuration or dropping down to the arbitrary value syntax.
+
+For example, in Tailwind CSS v4.0 you can create grids of any size out of the box:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:grid-cols-15] -->
+<div class="grid grid-cols-15">
+  <!-- ... -->
+</div>
+```
+
+You can also target custom boolean data attributes without needing to define them:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:data-current:opacity-100] -->
+<div data-current class="opacity-75 data-current:opacity-100">
+  <!-- ... -->
+</div>
+```
+
+Even spacing utilities like `px-*`, `mt-*`, `w-*`, `h-*`, and more are now dynamically derived from a single spacing scale variable and accept any value out of the box:
+
+```css
+/* [!code filename:Generated CSS] */
+@layer theme {
+  :root {
+    --spacing: 0.25rem;
+  }
 }
 
 @layer utilities {
-  .pointer-events-none {
-    pointer-events: none;
+  .mt-8 {
+    margin-top: calc(var(--spacing) * 17);
   }
-  .visibility-hidden {
-    visibility: hidden;
+  .w-17 {
+    width: calc(var(--spacing) * 17);
   }
-
-  /* ... */
-
-  .focus\:outline:focus {
-    outline-width: 1px;
-  }
-
-  @media (width >= 40rem) {
-    @media (hover: hover) {
-      .sm\:hover\:opacity-100:hover {
-        opacity: 100%;
-      }
-    }
+  .pr-29 {
+    padding-right: calc(var(--spacing) * 29);
   }
 }
 ```
 
-We've had layers as a concept in Tailwind for years, but native cascade layers can do things that we couldn't easily replicate at build-time, like isolating styles within a layer even if they have a higher specificity than styles in another layer. Less code for us to maintain too!
+The upgrade tool we released alongside v4.0 will even simplify most of these utilities for you automatically if it notices you using an arbitrary value that's no longer needed.
 
-#### Automatic source detection
+---
 
-You know how you always had to configure that annoying `content` array in Tailwind CSS v3? In v4.0, we came up with a bunch of heuristics for detecting all of that stuff automatically so you don't have to configure it at all.
-
-For example, we automatically ignore anything in your `.gitignore` file to avoid scanning dependencies or generated files that aren't under version control:
-
-```
-# dependencies
-/node_modules
-
-# testing
-/coverage
-
-# caches
-/.next/
-
-# production
-/build
-```
-
-We also automatically ignore all binary extensions like images, videos, .zip files, and more.
-
-And if you ever need to explicitly add a source that's excluded by default, you can always add it with the `@source` directive, right in your CSS file:
-
-```css
-@import "tailwindcss";
-/* [!code highlight:2] */
-@source "../node_modules/@my-company/ui-lib";
-```
-
-The `@source` directive uses the same heuristics under the hood, so it will exclude binary file types for example as well, without you having to specify all of the extensions to scan explicitly.
-
-Learn more about [automatic source detection](/docs/detecting-classes-in-source-files) in the documentation.
-
-### Unified toolchain
-
-With v4.0, Tailwind CSS core no longer depends on PostCSS to parse and transform the CSS file. Instead, we've build a new unified toolchain with built-in import handling, vendor prefixing, and syntax transforms.
-
-#### A new first-party Vite plugin
-
-We're excited to announce our new, first-party Vite plugin that you can use to configure Tailwind CSS in your Vite project. By completely avoiding PostCSS and relying on the Vite-specific import graph, we're able to make Tailwind CSS on Vite even faster.
-
-```sh
-npm install tailwindcss @tailwindcss/vite
-```
-
-To learn more, check out the documentation to learn [how to get started with Vite](/docs/installation/using-vite).
-
-#### Built-in import support
-
-Before v4.0, if you wanted to inline other CSS files using `@import` you'd have to configure another plugin like `postcss-import` to handle it for you.
-
-Now we handle this out of the box, so you don't need any other tools:
-
-```js
-export default {
-  plugins: {
-    "postcss-import": {}, // [!code --]
-    "@tailwindcss/postcss": {},
-  },
-};
-```
-
-Our import system is purpose-built for Tailwind CSS, so we've also been able to make it even faster by tightly integrating it with our engine.
-
-#### Built-in CSS transpilation
-
-When building for production, Tailwind CSS v4.0 runs your CSS through [Lightning CSS](https://lightningcss.dev/) automatically, which handles things like vendor prefixes, modern feature transpilation, minification, and more.
-
-This means you can remove tools like `autoprefixer` and `postcss-preset-env` from your project as well:
-
-```js
-export default {
-  plugins: {
-    "@tailwindcss/postcss": {},
-    "postcss-preset-env": {}, // [!code --]
-    autoprefixer: {}, // [!code --]
-  },
-};
-```
-
-In v4.0, Tailwind CSS is the only thing you need to set up to handle your entire CSS pipeline — no other tooling required.
-
-#### Simplified, modern syntax
-
-### Simplified theme configuration
-
-In v4.0, we've really slimmed down the amount of theme configuration you need to do, especially for things that aren't really design tokens.
-
-Utilities like `grid-cols-12`, `z-40`, and `opacity-70` are no longer based on your theme — they just work. Whether you need a 5 column grid or a 73 column grid, you don't need to configure anything to make it happen.
-
-```html
-<!-- [!code classes:grid-cols-73] -->
-<div class="grid grid-cols-73">
-  <div>1</div>
-  <!-- ... -->
-  <div>73</div>
-</div>
-```
-
-We've applied the same simplifications to variants like `data-*` as well — you don't need to configure these at all anymore or use arbitrary values for simple boolean attributes:
-
-{/* prettier-ignore */}
-```html
-<!-- [!code classes:data-[selected]:opacity-100,data-selected:opacity-100] -->
-<div class="opacity-50 data-[selected]:opacity-100" data-selected> <!-- [!code --] -->
-<div class="opacity-50 data-selected:opacity-100" data-selected> <!-- [!code ++] -->
-  <!-- ... -->
-</div>
-```
-
-These changes mean you touch your theme configuration way less frequently, and it stays focused on the design tokens that matter, like your typography, color palette, and breakpoints.
-
-### Dynamic spacing scale
-
-We've simplified the way spacing utilities like `px-*`, `mt-*`, `w-*`, `h-*`, and more work by deriving them all from a single spacing scale value, defined as `0.25rem` in the default theme:
-
-```css
-@theme {
-  --spacing: 0.25rem;
-}
-```
-
-When you define your spacing scale this way, every multiple of `0.25rem` is available in your spacing scale. This means utilities like `mt-21` will work with no extra configuration, unlike in v3 where you had to choose between `mt-20` and `mt-24` or drop down to using an arbitrary value.
-
-And if you want more constraints, you can always disable the `--spacing` variable and provide your own explicit scale:
-
-```css
-@theme {
-  --spacing: initial;
-  --spacing-1: 0.25rem;
-  --spacing-2: 0.5rem;
-  --spacing-4: 1rem;
-  --spacing-8: 2rem;
-  --spacing-12: 3rem;
-}
-```
-
-### Designed for the modern web
-
-#### Modernized P3 color palette
+## Modernized P3 color palette
 
 We've upgraded the entire default color palette from `rgb` to `oklch`, taking advantage of the wider gamut to make the colors more vivid in places where we were previously limited by the sRGB color space.
 
-<div>
-  <ColorPalette />
+<div className="not-prose my-12">
+  <ColorPalette/>
 </div>
 
 We've tried to keep the balance between all the colors the same as it was in v3, so even though we've refreshed things across the board, it shouldn't feel like a breaking change when upgrading your existing projects.
 
-### Simplified variable colors
+---
 
-If you were using CSS variables in your color palette in v3, you might remember having to do weird things like define your colors as just a list of numbers without including the `rgb(…)` function, or having to use the `<alpha-value>` placeholder so that opacity modifiers would work.
-
-Thanks to the new CSS [`color-mix(…)` function](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix), none of that is necessary in v4.0 — you just define your colors as variables and all of the opacity modifier features work automatically:
-
-```css {{ filename: 'app.css', style: 'framed', color: 'purple' }}
-@import "tailwindcss";
-
-@theme {
-  --color-primary: var(--color-blue-500);
-  --color-error: var(--color-red-500);
-
-  /* ... */
-}
-```
-
-Now when you go to use a utility like `bg-primary/50`, it just works — no cryptic workarounds necessary:
-
-```html
-<div class="bg-primary/50">
-  <!-- ... -->
-</div>
-```
-
-### Container query support
+## Container queries
 
 We've brought container query support into core for v4.0, so you don't need the `@tailwindcss/container-queries` plugin anymore:
 
-```html {{ filename: 'HTML', style: 'framed', color: 'pink' }}
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:@container,@sm:grid-cols-3,@lg:grid-cols-4] -->
 <div class="@container">
   <div class="grid grid-cols-1 @sm:grid-cols-3 @lg:grid-cols-4">
     <!-- ... -->
@@ -612,6 +621,8 @@ We've brought container query support into core for v4.0, so you don't need the 
 We've also added support for max-width container queries using the new `@max-*` variant:
 
 ```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:@container,@max-md:grid-cols-1] -->
 <div class="@container">
   <div class="grid grid-cols-3 @max-md:grid-cols-1">
     <!-- ... -->
@@ -622,6 +633,8 @@ We've also added support for max-width container queries using the new `@max-*` 
 Like our regular breakpoint variants, you can also stack `@min-*` and `@max-*` variants to define container query ranges:
 
 ```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:@container,@min-md:@max-xl:hidden] -->
 <div class="@container">
   <div class="flex @min-md:@max-xl:hidden">
     <!-- ... -->
@@ -629,58 +642,45 @@ Like our regular breakpoint variants, you can also stack `@min-*` and `@max-*` v
 </div>
 ```
 
-Browser support for container queries is [really great](https://caniuse.com/css-container-queries) now, and I'm excited to make it even easier to start using them in your projects in v4.0.
+Learn more in our all-new [container queries](/docs/responsive-design#container-queries) documentation.
 
-### 3D transforms
+---
+
+## New 3D transform utilities
 
 We've finally added APIs for doing 3D transforms, like `rotate-x-*`, `rotate-y-*`, `scale-z-*`, `translate-z-*`, and tons more.
-
 <Figure>
-
 <Example>
-  {
-    <div className="grid [perspective:1200px]">
-      <article className="relative isolate z-10 flex w-full max-w-80 [transform:rotateX(51deg)_rotateZ(43deg)] flex-col justify-end justify-self-center overflow-hidden rounded-2xl bg-gray-900 px-8 pt-80 pb-8 transition-all duration-500 [transform-style:_preserve-3d] hover:-translate-y-4 hover:[transform:rotateX(49deg)__rotateZ(38deg)] hover:shadow-2xl">
-        <img
-          src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80"
-          alt=""
-          className="absolute inset-0 -z-10 size-full object-cover"
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
-        <div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-gray-900/10 ring-inset"></div>
-        <div className="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm/6 text-gray-300">
-          <time dateTime="2020-03-16" className="mr-8">
-            Mar 16, 2020
-          </time>
-          <div className="-ml-4 flex items-center gap-x-4">
-            <svg view-box="0 0 2 2" className="-ml-0.5 size-0.5 flex-none fill-white/50">
-              <circle r="1" cx="1" cy="1" />
-            </svg>
-            <div className="flex gap-x-2.5">
-              <img
-                src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt=""
-                className="size-6 flex-none rounded-full bg-white/10"
-              />
-              Michael Foster
-            </div>
+{
+  <div className="grid perspective-distant">
+    <article className="transition-all relative isolate z-10 flex w-full max-w-80 justify-self-center transform-3d rotate-x-51 rotate-z-43 flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pt-80 pb-8 shadow-xl duration-500 ">
+      <img src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80" alt="" className="absolute inset-0 -z-10 size-full object-cover" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
+      <div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-gray-900/10 ring-inset"></div>
+      <div className="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm/6 text-gray-300">
+        <time dateTime="2020-03-16" className="mr-8">Mar 16, 2020</time>
+        <div className="-ml-4 flex items-center gap-x-4">
+          <svg view-box="0 0 2 2" className="-ml-0.5 size-0.5 flex-none fill-white/50"><circle r="1" cx="1" cy="1" /></svg>
+          <div className="flex gap-x-2.5">
+            <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" className="size-6 flex-none rounded-full bg-white/10" />
+            Michael Foster
           </div>
         </div>
-        <h3 className="mt-3 text-lg/6 font-semibold text-white">
+      </div>
+      <p className="mt-3 text-lg/6 font-semibold text-white">
           <span className="absolute inset-0"></span>
           Boost your conversion rate
-        </h3>
-      </article>
-    </div>
-  }
+      </p>
+    </article>
+  </div>
+}
 </Example>
 
+
 ```html
-<!-- [!code classes:perspective-distant,transform-3d,rotate-z-43,hover:-translate-y-4,hover:rotate-z-38] -->
+<!-- [!code classes:perspective-distant,transform-3d,rotate-x-51,rotate-z-43] -->
 <div class="perspective-distant">
-  <article
-    class="rotate-x-51 rotate-z-43 transition-all duration-500 transform-3d hover:-translate-y-4 hover:rotate-x-49 hover:rotate-z-38 hover:shadow-2xl ..."
-  >
+  <article class="transform-3d rotate-x-51 rotate-z-43 ...">
     <!-- ... -->
   </article>
 </div>
@@ -688,441 +688,13 @@ We've finally added APIs for doing 3D transforms, like `rotate-x-*`, `rotate-y-*
 
 </Figure>
 
-Use the `transform-3d` utility to enable 3D transforms by setting the right `transform-style`
+Check out the updated[ `transform-style`](/docs/transform-style), [`rotate`](/docs/rotate), [`perspective`](/docs/perspective), and [`perspective-origin`](/docs/perspective-origin) documentation to get started.
 
-#### Rotate
+---
 
-Use the `rotate-x-*`, `rotate-y-*`, and `rotate-z-*` utilities to rotate elements in 3D space.
+## Expanded gradient APIs
 
-All of these utilities support any numeric value automatically out of the box, but here are a few examples for reference:
-
-{
-
-<table>
-  <thead>
-    <tr>
-      <th>Class</th>
-      <th>Properties</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>rotate-x-0</code>
-      </td>
-      <td>
-        <code>transform: rotateX(0deg) var(--tw-rotate-y) var(--tw-rotate-z);</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>rotate-x-3</code>
-      </td>
-      <td>
-        <code>transform: rotateX(3deg) var(--tw-rotate-y) var(--tw-rotate-z);</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>rotate-x-45</code>
-      </td>
-      <td>
-        <code>transform: rotateX(45deg) var(--tw-rotate-y) var(--tw-rotate-z);</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>rotate-x-180</code>
-      </td>
-      <td>
-        <code>transform: rotateX(180deg) var(--tw-rotate-y) var(--tw-rotate-z);</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>rotate-y-0</code>
-      </td>
-      <td>
-        <code>transform: var(--tw-rotate-x) rotateY(0deg) var(--tw-rotate-z);</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>rotate-y-3</code>
-      </td>
-      <td>
-        <code>transform: var(--tw-rotate-x) rotateY(3deg) var(--tw-rotate-z);</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>rotate-y-45</code>
-      </td>
-      <td>
-        <code>transform: var(--tw-rotate-x) rotateY(45deg) var(--tw-rotate-z);</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>rotate-y-180</code>
-      </td>
-      <td>
-        <code>transform: var(--tw-rotate-x) rotateY(180deg) var(--tw-rotate-z);</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>rotate-z-0</code>
-      </td>
-      <td>
-        <code>transform: var(--tw-rotate-x) var(--tw-rotate-y) rotateZ(0deg);</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>rotate-z-3</code>
-      </td>
-      <td>
-        <code>transform: var(--tw-rotate-x) var(--tw-rotate-y) rotateZ(3deg);</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>rotate-z-45</code>
-      </td>
-      <td>
-        <code>transform: var(--tw-rotate-x) var(--tw-rotate-y) rotateZ(45deg);</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>rotate-z-180</code>
-      </td>
-      <td>
-        <code>transform: var(--tw-rotate-x) var(--tw-rotate-y) rotateZ(180deg);</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
-}
-
-#### Scale
-
-Use the new `scale-z-*` utilities to scale elements on the z-axis.
-
-You can use any numeric value you want automatically out of the box, but here are a few examples for reference:
-
-{
-
-<table>
-  <thead>
-    <tr>
-      <th>Class</th>
-      <th>Properties</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>scale-z-0</code>
-      </td>
-      <td>
-        <code>var(--tw-scale-x) var(--tw-scale-y) 0%;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>scale-z-50</code>
-      </td>
-      <td>
-        <code>var(--tw-scale-x) var(--tw-scale-y) 50%;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>scale-z-75</code>
-      </td>
-      <td>
-        <code>var(--tw-scale-x) var(--tw-scale-y) 75%;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>scale-z-100</code>
-      </td>
-      <td>
-        <code>var(--tw-scale-x) var(--tw-scale-y) 100%;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>scale-z-125</code>
-      </td>
-      <td>
-        <code>var(--tw-scale-x) var(--tw-scale-y) 125%;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>scale-z-150</code>
-      </td>
-      <td>
-        <code>var(--tw-scale-x) var(--tw-scale-y) 150%;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>scale-z-200</code>
-      </td>
-      <td>
-        <code>var(--tw-scale-x) var(--tw-scale-y) 200%;</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
-}
-
-#### Translate
-
-Use the new `translate-z-*` utilities to move elements closer or further away:
-
-This utility uses your spacing scale by default and supports all of those values out of the box, but here are a few examples for reference:
-
-{
-
-<table>
-  <thead>
-    <tr>
-      <th>Class</th>
-      <th>Properties</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>translate-z-0</code>
-      </td>
-      <td>
-        <code>var(--tw-translate-x) var(--tw-translate-y) calc(var(--spacing) * 0);</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>translate-z-0.5</code>
-      </td>
-      <td>
-        <code>var(--tw-translate-x) var(--tw-translate-y) calc(var(--spacing) * 0.5);</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>translate-z-1</code>
-      </td>
-      <td>
-        <code>var(--tw-translate-x) var(--tw-translate-y) calc(var(--spacing) * 1);</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>translate-z-2</code>
-      </td>
-      <td>
-        <code>var(--tw-translate-x) var(--tw-translate-y) calc(var(--spacing) * 2);</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>translate-z-4</code>
-      </td>
-      <td>
-        <code>var(--tw-translate-x) var(--tw-translate-y) calc(var(--spacing) * 4);</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>translate-z-px</code>
-      </td>
-      <td>
-        <code>var(--tw-translate-x) var(--tw-translate-y) 1px;</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
-}
-
-#### Perspective
-
-Use utilities like `perspective-near`, `perspective-normal`, and `perspective-distant` along with the new `perspective-origin-*` utilities to control the perspective used for 3D transforms:
-
-{
-
-<table>
-  <thead>
-    <tr>
-      <th>Class</th>
-      <th>Properties</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>perspective-dramatic</code>
-      </td>
-      <td>
-        <code>perspective: 100px;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>perspective-near</code>
-      </td>
-      <td>
-        <code>perspective: 300px;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>perspective-normal</code>
-      </td>
-      <td>
-        <code>perspective: 500px;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>perspective-midrange</code>
-      </td>
-      <td>
-        <code>perspective: 800px;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>perspective-distant</code>
-      </td>
-      <td>
-        <code>perspective: 1200px;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>perspective-[760px]</code>
-      </td>
-      <td>
-        <code>perspective: 760px;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>perspective-origin-bottom</code>
-      </td>
-      <td>
-        <code>perspective-origin: bottom;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>perspective-origin-bottom-left</code>
-      </td>
-      <td>
-        <code>perspective-origin: bottom-left;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>perspective-origin-bottom-right</code>
-      </td>
-      <td>
-        <code>perspective-origin: bottom-right;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>perspective-origin-center</code>
-      </td>
-      <td>
-        <code>perspective-origin: center;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>perspective-origin-left</code>
-      </td>
-      <td>
-        <code>perspective-origin: left;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>perspective-origin-right</code>
-      </td>
-      <td>
-        <code>perspective-origin: right;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>perspective-origin-top</code>
-      </td>
-      <td>
-        <code>perspective-origin: top;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>perspective-origin-top-right</code>
-      </td>
-      <td>
-        <code>perspective-origin: top-right;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>perspective-origin-top-left</code>
-      </td>
-      <td>
-        <code>perspective-origin: top-left;</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
-}
-
-The `perspective-*` utilities can all be customized using the `--perspective-*` namespace in your theme.
-
-#### Backface visibility
-
-Use the new `backface-visible` and `backface-hidden` utilities to control whether the back of an element is visible when transformed in 3D space.
-
-{
-
-<table>
-  <thead>
-    <tr>
-      <th>Class</th>
-      <th>Properties</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>backface-visible</code>
-      </td>
-      <td>
-        <code>backface-visibility: visible;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>backface-hidden</code>
-      </td>
-      <td>
-        <code>backface-visibility: hidden;</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
-}
+We've added a ton of new gradient features in v4.0, so you can pull off even fancier effects without having to write any custom CSS.
 
 ### Linear gradient angles
 
@@ -1131,11 +703,9 @@ Linear gradients now support angles as values, so you can use utilities like `bg
 <Figure>
 
 <Example>
-  {
-    <div className="grid place-items-center">
-      <div className="size-48 rounded-lg bg-[linear-gradient(45deg,theme(colors.indigo.500),theme(colors.purple.500),theme(colors.pink.500))]"></div>
-    </div>
-  }
+<div className="grid place-items-center">
+  <div className="size-32 rounded-lg bg-linear-45 from-indigo-500 via-purple-500 to-pink-500"></div>
+</div>
 </Example>
 
 ```html
@@ -1152,20 +722,17 @@ You may notice we've renamed `bg-gradient-*` to `bg-linear-*` too — you'll see
 We've added the ability to control the color interpolation mode for gradients using a modifier, so a class like `bg-linear-to-r/srgb` interpolates using sRGB, and `bg-linear-to-r/oklch` interpolates using OKLCH:
 
 <Figure>
-
 <Example>
-  {
-    <div className="grid grid-cols-1 gap-4">
-      <div className="h-16 rounded-lg bg-[linear-gradient(in_srgb_to_right,theme(colors.indigo.500),theme(colors.teal.400))]"></div>
-      <div className="h-16 rounded-lg bg-[linear-gradient(in_oklch_to_right,theme(colors.indigo.500),theme(colors.teal.400))]"></div>
-    </div>
-  }
+<div className="grid grid-cols-1 gap-4">
+  <div className="h-16 rounded-lg bg-linear-to-r/srgb from-indigo-500 to-teal-400"></div>
+  <div className="h-16 rounded-lg bg-linear-to-r/oklch from-indigo-500 to-teal-400"></div>
+</div>
 </Example>
 
 ```html
 <!-- [!code classes:bg-linear-to-r/srgb,bg-linear-to-r/oklch] -->
-<div class="bg-linear-to-r/srgb from-indigo-500 to-teal-400"></div>
-<div class="bg-linear-to-r/oklch from-indigo-500 to-teal-400"></div>
+<div class="bg-linear-to-r/srgb from-indigo-500 to-teal-400">...</div>
+<div class="bg-linear-to-r/oklch from-indigo-500 to-teal-400">...</div>
 ```
 
 </Figure>
@@ -1179,492 +746,27 @@ We've added new `bg-conic-*` and `bg-radial-*` utilities for creating conic and 
 <Figure>
 
 <Example>
-  {
-    <div className="flex justify-around p-8">
-      <div className="size-24 rounded-full bg-[conic-gradient(in_hsl_longer_hue,theme(colors.red.600),theme(colors.red.600))]"></div>
-      <div className="size-24 rounded-full bg-[radial-gradient(at_25%_25%,white,theme(colors.zinc.900)_75%)]"></div>
-    </div>
-  }
+<div className="flex justify-around p-8">
+  <div className="bg-conic/[in_hsl_longer_hue] from-red-600 to-red-600 size-24 rounded-full size-24 rounded-full"></div>
+  <div className="bg-radial-[at_25%_25%] from-white to-zinc-900 to-75% size-24 rounded-full"></div>
+</div>
 </Example>
 
 ```html
-<div class="size-24 rounded-full bg-conic/[in_hsl_longer_hue] from-red-600 to-red-600"></div>
-<div class="size-24 rounded-full bg-radial-[at_25%_25%] from-white to-zinc-900 to-75%"></div>
+<!-- [!code classes:bg-conic/[in_hsl_longer_hue],bg-radial-[at_25%_25%]] -->
+<div class="bg-conic/[in_hsl_longer_hue] from-red-600 to-red-600 size-24 rounded-full"></div>
+<div class="bg-radial-[at_25%_25%] from-white to-zinc-900 to-75% size-24 rounded-full"></div>
 ```
 
 </Figure>
 
 These new utilities work alongside the existing `from-*`, `via-*`, and `to-*` utilities to let you create conic and radial gradients the same way you create linear gradients, and include modifiers for setting the color interpolation method and arbitrary value support for controlling details like the gradient position.
 
-### Inset shadows and rings
+---
 
-We've added dedicated `inset-shadow-*` and `inset-ring-*` utilities in v4.0 that can be composed with the existing `shadow-*` and `ring-*` utilities, giving you four layers of shadows you can stack to create the effects you need for your projects.
+## @starting-style support
 
-<Figure>
-
-<Example>
-  {
-    <div className="relative flex justify-around p-12 pb-16">
-      <div className="inset-shadow-lg relative grid h-16 w-40 grid-flow-col grid-cols-[auto_auto] items-center justify-center gap-2 rounded-xl bg-blue-600 to-10% text-2xl text-blue-50 ring [box-shadow:oklch(1_5.96046e-8_none_/_0.2)_0px_2px_4px_0px_inset,_rgb(255_255_255_/_15%)_0px_0px_0px_1px_inset,_rgba(0,_0,_0,_0)_0px_0px_0px_0px,_theme(colors.blue.600)_0px_0px_0px_1px,_oklch(0_0_none_/_0.2)_0px_10px_15px_-3px,_oklch(0_0_none_/_0.2)_0px_4px_6px_-4px] ring-black/10">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="size-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
-          />
-        </svg>
-        <p>Send</p>
-        <div className="absolute bottom-0 left-1/2 size-40 translate-y-[50%] overflow-hidden rounded-full border-2 border-black/20 shadow-lg">
-          <div className="absolute right-[190%] bottom-[80%] grid h-16 w-40 scale-[400%] grid-flow-col grid-cols-[auto_auto] items-center justify-center gap-2 rounded-2xl bg-blue-600 text-2xl text-blue-100 ring [box-shadow:oklch(1_5.96046e-8_none_/_0.4)_0px_2px_4px_0px_inset,_rgb(255_255_255_/_15%)_0px_0px_0px_1px_inset,_rgba(0,_0,_0,_0)_0px_0px_0px_0px,__theme(colors.blue.600)_0px_0px_0px_1px,_oklch(0_0_none_/_0.2)_0px_10px_15px_-3px,_oklch(0_0_none_/_0.2)_0px_4px_6px_-4px] ring-black/10">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="2"
-              stroke="currentColor"
-              className="size-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
-              />
-            </svg>
-            <p>Send</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  }
-</Example>
-
-{/* https://x.com/adamwathan/status/1760787811605549159/photo/1 */}
-
-```html
-<!-- [!code classes:shadow-md,inset-ring-white/15] -->
-<button class="inset-ring inset-shadow-sm ring ring-blue-600 inset-shadow-white/20 inset-ring-white/15 ...">
-  <!-- ... -->
-</button>
-```
-
-</Figure>
-
-The `inset-ring-*` utilities support any width value just like the `ring-*` utilities, and the `inset-shadow-*` utilities ship with `2xs`, `xs`, and `sm` sizes out of the box. We may add more down the road but those ones feel the most useful right now.
-
-```css
-@theme {
-  --inset-shadow-2xs: inset 0 1px rgb(0 0 0 / 0.05);
-  --inset-shadow-xs: inset 0 1px 1px rgb(0 0 0 / 0.05);
-  --inset-shadow-sm: inset 0 2px 4px rgb(0 0 0 / 0.05);
-}
-```
-
-Just like the regular `shadow-*` and `ring-*` utilities, these both support colors as well using classes like `inset-shadow-black/25` and `inset-ring-white/50`.
-
-### \`field-sizing\` utilities
-
-We've added utilities for the new `field-sizing` property that lets you create auto-resizing textareas with just CSS:
-
-<Figure hint="Type in the textarea to see the effect">
-
-<Example>
-  {
-    <div className="grid py-4">
-      <div className="relative w-full max-w-96 justify-self-center">
-        <label htmlFor="comment" className="block text-sm/6 font-medium text-gray-900 dark:text-white">
-          Add your comment
-        </label>
-        <div className="mt-2">
-          <textarea
-            placeholder="Write something..."
-            name="comment"
-            id="comment"
-            className="block [field-sizing:content] w-full resize-none rounded-md border-0 px-2 py-1.5 text-gray-900 ring-1 ring-gray-300 ring-inset focus:outline-none sm:text-sm/6 dark:bg-gray-800 dark:text-gray-100 dark:ring-gray-600"
-          ></textarea>
-        </div>
-      </div>
-    </div>
-  }
-</Example>
-
-```html
-<label class="block">
-  <span class="block text-sm/6 font-medium text-gray-900 dark:text-white">Add your comment</span>
-  <textarea class="**field-sizing-content** ..."></textarea>
-</label>
-```
-
-</Figure>
-
-Use `field-sizing-content` to make the control resize to fit its contents, or `field-sizing-fixed` to give the control a fixed size.
-
-### \`color-scheme\` utilities
-
-Ever been annoyed that your app was showing light scrollbars in dark mode? You want these new `color-scheme` utilities.
-
-<Figure hint="Scroll the content to see the scrollbar themes">
-
-<Example>
-  {
-    <div className="grid grid-cols-1 [color-scheme:light] sm:grid-cols-2">
-      <div className="p-8 pt-7">
-        <p className="mb-2 text-sm font-medium text-gray-500">Light mode</p>
-        <div className="max-h-56 overflow-y-scroll rounded-lg bg-white px-6 py-8 ring-1 ring-slate-900/5">
-          <h3 className="text-base font-medium tracking-tight text-gray-900">It's a Mammal</h3>
-          <p className="mt-2 text-sm text-gray-500">
-            Right now there are six-hundred Titleists that I got from the driving range in the trunk of my car. Why
-            don't we drive out to Rock-a-Way… and hit `em into the ocean! Now picture this. we find a nice sweet spot
-            between the dunes, we take out our drivers, we tee up and, that ball goes sailing up into the sky holds
-            there for a moment and then.. gulp!
-          </p>
-        </div>
-      </div>
-      <div className="bg-gray-900 p-8 pt-7 [color-scheme:dark]">
-        <p className="mb-2 text-sm font-medium text-gray-400">Dark mode</p>
-        <div className="max-h-56 overflow-y-scroll rounded-lg bg-gray-800 px-6 py-8 ring-1 ring-slate-900/5">
-          <h3 className="text-base font-medium tracking-tight text-white">It's a Mammal</h3>
-          <p className="mt-2 text-sm text-gray-200">
-            Right now there are six-hundred Titleists that I got from the driving range in the trunk of my car. Why
-            don't we drive out to Rock-a-Way… and hit `em into the ocean! Now picture this. we find a nice sweet spot
-            between the dunes, we take out our drivers, we tee up and, that ball goes sailing up into the sky holds
-            there for a moment and then.. gulp!
-          </p>
-        </div>
-      </div>
-    </div>
-  }
-</Example>
-
-```html
-<!-- [!code classes:scheme-light,scheme-dark] -->
-<div class="grid grid-cols-2">
-  <div class="overflow-y-scroll bg-white scheme-light">...</div>
-  <div class="overflow-y-scroll bg-gray-800 scheme-dark">...</div>
-</div>
-```
-
-</Figure>
-
-Here's a full list of all the new APIs:
-
-{
-
-<table>
-  <thead>
-    <tr>
-      <th>Class</th>
-      <th>Properties</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>scheme-normal</code>
-      </td>
-      <td>
-        <code>color-scheme: normal;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>scheme-dark</code>
-      </td>
-      <td>
-        <code>color-scheme: dark;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>scheme-light</code>
-      </td>
-      <td>
-        <code>color-scheme: light;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>scheme-light-dark</code>
-      </td>
-      <td>
-        <code>color-scheme: light dark;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>scheme-only-dark</code>
-      </td>
-      <td>
-        <code>color-scheme: only dark;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>scheme-only-light</code>
-      </td>
-      <td>
-        <code>color-scheme: only light;</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
-}
-
-Throw `scheme-light dark:scheme-dark` on your `html` or `body` element and your scrollbars will always look good, no matter which dark mode strategy you use.
-
-### \`font-stretch\` utilities
-
-We've added utilities for the new-ish `font-stretch` property, which helps you style variable fonts that support different widths:
-
-<Example>
-  {
-    <div className="flex flex-col gap-8">
-      <div>
-        <span className="mb-3 font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
-          font-stretch-extra-condensed
-        </span>
-        <p className="font-[system-ui] text-xl font-medium text-gray-900 [font-stretch:extra-condensed] dark:text-gray-200">
-          The quick brown fox jumps over the lazy dog.
-        </p>
-      </div>
-      <div>
-        <span className="mb-3 font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
-          font-stretch-condensed
-        </span>
-        <p className="font-[system-ui] text-xl font-medium text-gray-900 [font-stretch:condensed] dark:text-gray-200">
-          The quick brown fox jumps over the lazy dog.
-        </p>
-      </div>
-      <div>
-        <span className="mb-3 font-mono text-sm font-medium text-gray-500 dark:text-gray-400">font-stretch-normal</span>
-        <p className="font-[system-ui] text-xl font-medium text-gray-900 [font-stretch:normal] dark:text-gray-200">
-          The quick brown fox jumps over the lazy dog.
-        </p>
-      </div>
-      <div>
-        <span className="mb-3 font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
-          font-stretch-expanded
-        </span>
-        <p className="font-[system-ui] text-xl font-medium text-gray-900 [font-stretch:expanded] dark:text-gray-200">
-          The quick brown fox jumps over the lazy dog.
-        </p>
-      </div>
-      <div>
-        <span className="mb-3 font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
-          font-stretch-extra-expanded
-        </span>
-        <p className="font-[system-ui] text-xl font-medium text-gray-900 [font-stretch:extra-expanded] dark:text-gray-200">
-          The quick brown fox jumps over the lazy dog.
-        </p>
-      </div>
-    </div>
-  }
-</Example>
-
-Looks like the name of this is changing to `font-width` at some point but no browsers actually support it yet, looking forward to dealing with that.
-
-{
-
-<table>
-  <thead>
-    <tr>
-      <th>Class</th>
-      <th>Properties</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>font-stretch-normal</code>
-      </td>
-      <td>
-        <code>font-stretch: normal;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>font-stretch-ultra-condensed</code>
-      </td>
-      <td>
-        <code>font-stretch: ultra-condensed;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>font-stretch-extra-condensed</code>
-      </td>
-      <td>
-        <code>font-stretch: extra-condensed;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>font-stretch-condensed</code>
-      </td>
-      <td>
-        <code>font-stretch: condensed;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>font-stretch-semi-condensed</code>
-      </td>
-      <td>
-        <code>font-stretch: semi-condensed;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>font-stretch-semi-expanded</code>
-      </td>
-      <td>
-        <code>font-stretch: semi-expanded;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>font-stretch-expanded</code>
-      </td>
-      <td>
-        <code>font-stretch: expanded;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>font-stretch-extra-expanded</code>
-      </td>
-      <td>
-        <code>font-stretch: extra-expanded;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>font-stretch-ultra-expanded</code>
-      </td>
-      <td>
-        <code>font-stretch: ultra-expanded;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>font-stretch-0%</code>
-      </td>
-      <td>
-        <code>font-stretch: 0%;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>font-stretch-50%</code>
-      </td>
-      <td>
-        <code>font-stretch: 50%;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>font-stretch-75%</code>
-      </td>
-      <td>
-        <code>font-stretch: 75%;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>font-stretch-90%</code>
-      </td>
-      <td>
-        <code>font-stretch: 90%;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>font-stretch-95%</code>
-      </td>
-      <td>
-        <code>font-stretch: 95%;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>font-stretch-100%</code>
-      </td>
-      <td>
-        <code>font-stretch: 100%;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>font-stretch-105%</code>
-      </td>
-      <td>
-        <code>font-stretch: 105%;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>font-stretch-110%</code>
-      </td>
-      <td>
-        <code>font-stretch: 110%;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>font-stretch-125%</code>
-      </td>
-      <td>
-        <code>font-stretch: 125%;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>font-stretch-150%</code>
-      </td>
-      <td>
-        <code>font-stretch: 150%;</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>font-stretch-200%</code>
-      </td>
-      <td>
-        <code>font-stretch: 200%;</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
-}
-
-### Composable variants
-
-In the new v4.0 engine, certain variants can be chained with other variants, letting you use simple named APIs for things that needed complex arbitrary variants in v3:
-
-{/* prettier-ignore */}
-```html
-<div class="group">
-  <div class="group-has-[&[data-potato]]:opacity-100"> <!-- [!code --] -->
-  <div class="group-has-data-potato:opacity-100"> <!-- [!code ++] -->
-    <!-- ... -->
-  </div>
-  <div data-potato>
-    <!-- ... -->
-  </div>
-</div>
-```
-
-This works with any variant where it makes sense, including `group-*`, `peer-*`, `has-*`, and the new `not-*` and `in-*` variants. You can chain as many of them as you want, so even totally useless classes like `group-not-has-peer-not-data-active:underline` will generate real CSS.
-
-### \`@starting-style\` variant
-
-The new `starting` variant adds support for the new CSS `@starting-style` feature, making it possible to transition element properties when an element is first displayed:
+The new `starting` variant adds support for the new CSS [`@starting-style`](https://developer.mozilla.org/en-US/docs/Web/CSS/@starting-style) feature, making it possible to transition element properties when an element is first displayed:
 
 <Figure>
 
@@ -1681,7 +783,7 @@ The new `starting` variant adds support for the new CSS `@starting-style` featur
         <div
           popover="auto"
           id="my-popover"
-          className="relative inset-y-0 mx-auto my-auto transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left opacity-0 shadow-xl transition-all [transition-behavior:allow-discrete] duration-500 sm:w-full sm:max-w-96 sm:p-6 dark:bg-gray-800 [&:is([open],:popover-open)]:opacity-100 [@starting-style]:[&:is([open],:popover-open)]:opacity-0"
+          className="ring ring-black/5 dark:inset-ring dark:inset-ring-white/5 relative inset-y-0 mx-auto my-auto transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left opacity-0 shadow-xl transition-all transition-discrete duration-500 sm:w-full sm:max-w-96 sm:p-6 dark:bg-gray-800 [&:is([open],:popover-open)]:opacity-100 [@starting-style]:[&:is([open],:popover-open)]:opacity-0"
         >
           <div>
             <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-indigo-50 dark:bg-indigo-600/10">
@@ -1727,10 +829,10 @@ The new `starting` variant adds support for the new CSS `@starting-style` featur
 </Example>
 
 ```html
-<!-- [!code classes:starting:open:opacity-0] -->
+<!-- [!code classes:starting:open:opacity-0,transition-discrete] -->
 <div>
   <button popovertarget="my-popover">Check for updates</button>
-  <div popover id="my-popover" class="opacity-0 starting:open:opacity-0 ...">
+  <div popover id="my-popover" class="transition-discrete starting:open:opacity-0 ...">
     <!-- ... -->
   </div>
 </div>
@@ -1738,123 +840,85 @@ The new `starting` variant adds support for the new CSS `@starting-style` featur
 
 </Figure>
 
-### \`not-\*\` variant
+With `@starting-style`, you can finally animate elements as they appear on the page without the need for any JavaScript at all. [Browser support](https://caniuse.com/mdn-css_at-rules_starting-style) probably isn't quite there yet for most teams, but we're getting close!
 
-The new `not-*` variant adds support for the `:not(…)` pseudo-class, letting you style things when certain conditions are not true.
+---
 
-For example, only adding hover styles to a button when the button is not focused:
+## not-* variant
 
-```html
-<!-- [!code classes:hover:not-focus:bg-indigo-700] -->
-<button class="bg-indigo-600 hover:not-focus:bg-indigo-700">
-  <!-- ... -->
-</button>
-```
+We've added a new `not-*` variant which finally adds support for the CSS `:not()` pseudo-class:
 
-You can also combine the `not-*` variant with media query variants like `forced-colors` to only style an element when forced colors mode is not active:
+<CodeExampleStack>
 
 ```html
-<!-- [!code classes:not-forced-colors:appearance-none] -->
-<input type="radio" class="not-forced-colors:appearance-none" />
-```
-
-It works with `supports-*` variants too, so you can style an element based on the lack of browser support for a specific CSS feature:
-
-```html
-<!-- [!code classes:not-supports-[display:grid]:flex] -->
-<div class="not-supports-[display:grid]:flex">
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:not-hover:opacity-75] -->
+<div class="not-hover:opacity-75">
   <!-- ... -->
 </div>
 ```
 
-### \`inert\` variant
+```css
+/* [!code filename:CSS] */
+.not-hover\:opacity-75:not(*:hover) {
+  opacity: 75%;
+}
+@media not (hover: hover) {
+  .not-hover\:opacity-75 {
+    opacity: 75%;
+  }
+}
+```
 
-The new `inert` variant lets you style elements marked with the `inert` attribute:
+</CodeExampleStack>
+
+It does double duty and also lets you negate media queries and `@supports` queries:
+
+<CodeExampleStack>
 
 ```html
-<!-- [!code word:inert] -->
-<!-- [!code classes:inert:opacity-50,inert:blur] -->
-<main inert class="inert:opacity-50 inert:blur">
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:not-supports-hanging-punctation:px-4] -->
+<div class="not-supports-hanging-punctation:px-4">
   <!-- ... -->
-</main>
-```
-
-This is useful for adding visual cues that make it clear that an element isn't interactive.
-
-### \`nth-\*\` variants
-
-We've added four new variants for the `:nth-child(…)`, `:nth-last-child(…)`, `:nth-of-type(…)`, and `:nth-last-of-type(…)` pseudo-classes:
-
-```html
-<!-- [!code classes:nth-3:underline,nth-last-5:underline,nth-of-type-4:underline,nth-last-of-type-6:underline] -->
-<div class="nth-3:underline">…</div>
-<div class="nth-last-5:underline">…</div>
-<div class="nth-of-type-4:underline">…</div>
-<div class="nth-last-of-type-6:underline">…</div>
-```
-
-You can pass any number you want to these by default, and use arbitrary values for more complex expressions like `nth-[2n+1_of_li]`.
-
-### \`in-\*\` variant
-
-You know our `group-*` variants like `group-focus`? The new `in-*` variant is just like that except you don't need to add `group` to the parent element:
-
-{/* prettier-ignore */}
-```html
-<!-- [!code classes:in-focus:opacity-100] -->
-<div tabindex="0" class="group"> <!-- [!code --] -->
-  <div class="opacity-50 group-focus:opacity-100"> <!-- [!code --] -->
-<div tabindex="0"> <!-- [!code ++] -->
-  <div class="in-focus:opacity-100 opacity-50"> <!-- [!code ++] -->
-    <!-- ... -->
-  </div>
 </div>
 ```
 
-You'll still want the `group-*` stuff a lot of the time when you need fine control, but this will save you some characters the rest of the time.
-
-### \`:popover-open\` support
-
-We've updated our existing `open` variant to target the `:popover-open` pseudo-class as well as the `[open]` attribute:
-
-```html
-<div>
-  <button popovertarget="my-popover">Open Popover</button>
-  <div popover id="my-popover" class="**open:opacity-100** opacity-0 ...">
-    <!-- ... -->
-  </div>
-</div>
+```css
+/* [!code filename:CSS] */
+.not-supports-hanging-punctation\:px-4 {
+  @supports not (hanging-punctation: var(--tw)) {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+}
 ```
 
-I'm sure I'm eventually going to regret not making it a separate `popover-open` variant but I thought _really_ hard about it and couldn't think of any situations where an element would use both `[open]` and `:popover-open` and have different styles for each condition. Someone is going to update the spec and screw me on this one down the road though for sure.
+</CodeExampleStack>
 
-### Descendant variant
+Check out the new [`not-*` documentation](/docs/hover-focus-and-other-states#not) to learn more.
 
-You know the `*` variant we shipped a while ago for targeting direct children?
+---
 
-```html
-<!-- [!code classes:*:p-4] -->
-<ul class="*:p-4">
-  <li>One</li>
-  <li>Two</li>
-  <li>Three</li>
-</ul>
-```
+## Even more new utilities and variants
 
-In v4.0 we've added a new `**` variant for targeting all descendants — most useful in my opinion if you combine it with another variant for narrowing the thing you're selecting:
+We've added a ton of other new utilities and variants to v4.0 too, including:
 
-```html
-<!-- [!code highlight:2] -->
-<div class="**:data-avatar:rounded-full">
-  <div>
-    <!-- [!code highlight:2] -->
-    <img src="…" data-avatar />
-    <!-- This element will be round -->
-  </div>
-  <p>…</p>
-</div>
-```
+- **New [`inset-shadow-*`](/docs/box-shadow#adding-an-inset-shadow) and [`inset-ring-*`](/docs/box-shadow#adding-an-inset-ring) utilities** — making it possible to stack up to four layers of box shadows on a single element.
+- **New [`field-sizing`](/docs/field-sizing) utilities** — for auto-resizing textareas without writing a single line of JavaScript.
+- **New [`color-scheme`](/docs/color-scheme) utilities** — so you can finally get rid of those ugly light scrollbars in dark mode.
+- **New [`font-stretch`](/docs/font-stretch) utilities** — for carefully tweaking variable fonts that support different widths.
+- **New [`inert`](/docs/hover-focus-and-other-states#styling-inert-elements) variant** — for styling non-interactive elements marked with the `inert` attribute.
+- **New [`nth-*`](/docs/hover-focus-and-other-states#first-last-odd-and-even) variants** — for doing really clever things you'll eventually regret.
+- **New [`in-*`](/docs/hover-focus-and-other-states#implicit-groups) variant** — which is a lot like `group-*`, but without the need for the `group` class.
+- **Support for [`:popover-open`](/docs/hover-focus-and-other-states#openclosed-state)** — using the existing `open` variant to also target open popovers.
+- **New [descendant variant](/docs/hover-focus-and-other-states#styling-all-descendants)** — for styling all descendant elements, for better or for worse.
 
-Fun fact — the syntax is inspired by globs, for better or for worse.
+Check out the relevant documentation for all of these features to learn more.
 
-#### So. Much. More
+---
+
+**And that's it — that's Tailwind CSS v4.0.** It's been years of work to get to this point, but we're all extremely proud of this release and we can't wait to see what you build with it.
+
+Check it out, play with it, maybe even break it, and definitely let us know what you think.
+
+Just no bug reports until tomorrow please — let us at least enjoy one celebratory team dinner and maybe relax in the hot tub at this hotel for a bit believing that somehow we really did ship flawless software.

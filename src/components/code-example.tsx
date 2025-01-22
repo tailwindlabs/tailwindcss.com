@@ -57,7 +57,7 @@ export async function CodeExample({
 
 export function CodeExampleWrapper({ className, children }: { className?: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-xl bg-gray-950 in-data-stack:mt-0 in-[figure]:-mx-1 in-[figure]:-mb-1 in-data-stack:[:first-child>&]:rounded-b-none in-data-stack:[:last-child>&]:rounded-t-none">
+    <div className="rounded-xl bg-gray-950 in-data-stack:mt-0 in-[figure]:-mx-1 in-[figure]:-mb-1 in-data-stack:rounded-none in-data-stack:[:first-child>&]:rounded-t-xl in-data-stack:[:last-child>&]:rounded-b-xl">
       <div
         className={clsx(
           "rounded-xl p-1 text-sm scheme-dark in-data-stack:not-first:rounded-t-none dark:bg-white/5 dark:inset-ring dark:inset-ring-white/10",

@@ -116,6 +116,9 @@
     text-underline-offset: 3px;
     text-decoration-color: var(--prose-link-underline-color);
     text-decoration-thickness: 1px;
+    & code {
+      font-weight: var(--font-weight-semibold);
+    }
   }
 
   a:hover:where(:not(.not-prose, .not-prose *)) {
@@ -247,6 +250,10 @@
 
   hr:where(:not(.not-prose, .not-prose *)) {
     border-color: var(--prose-hr-color);
+    margin-block: --spacing(16);
+    & + h2 {
+      margin-top: --spacing(16);
+    }
   }
 
   blockquote {
