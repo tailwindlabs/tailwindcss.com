@@ -42,6 +42,7 @@ import avatar7 from "./why-tailwind-css-section/avatar-7.png";
 import { DarkMode } from "./why-tailwind-css-section/dark-mode";
 import { Autoscroll } from "./autoscroll";
 import { Tooltip, TooltipPanel, TooltipTrigger } from "@headlessui/react";
+import { TransitionsSection } from "./transitions-section";
 import { Transforms3d } from "./transforms-3d";
 
 export default function WhyTailwindCssSection() {
@@ -545,9 +546,10 @@ export default function WhyTailwindCssSection() {
                 </BentoDescription>
               </div>
             </BentoHeader>
-            <div className="grid grid-cols-2 gap-[inherit] sm:h-112">
-              <BentoBody padding={false} className="col-span-2 sm:col-span-1">
-                <div className="flex h-full flex-1 flex-col items-center justify-between p-6">
+            <div className="grid h-112 gap-[inherit]">
+              <BentoBody padding={false}>
+                <TransitionsSection />
+                {/* <div className="flex h-full flex-1 flex-col items-center justify-between p-6">
                   <div className="mt-7 flex w-full flex-1 items-center justify-center">
                     <div className="flex items-center justify-center">
                       <button
@@ -648,7 +650,7 @@ export default function WhyTailwindCssSection() {
                     </div>
                   </div>
                   <Code>animate-bounce</Code>
-                </div>
+                </div> */}
               </BentoBody>
             </div>
           </BentoItem>
