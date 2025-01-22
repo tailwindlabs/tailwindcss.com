@@ -67,10 +67,7 @@ export function Resizable({ children, className, ...props }: ComponentProps<"div
     if (!containerRef.current) return;
     let observer = new window.ResizeObserver(([{ target }]) => {
       let width = target.getBoundingClientRect().width ?? 0;
-      // Only apply the offset on larger screens
-      if (width > 1024) {
-        x.set(-Math.max(0, width - DEFAULT_OFFSET));
-      }
+      x.set(-Math.max(0, width - DEFAULT_OFFSET));
     });
     observer.observe(containerRef.current);
     return () => {
