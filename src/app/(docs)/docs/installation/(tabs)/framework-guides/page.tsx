@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     title: "Framework guides",
-    description: "Our recommended approach to installing Tailwind CSS in a number of popular frameworks.",
-    images: "https://v4-test.tailwindcss.com/docs/installation/framework-guides",
+    description: "Our recommended approach to installing Tailwind CSS in popular frameworks.",
+    images: "https://v4-test.tailwindcss.com/api/og?path=/docs/installation/framework-guides",
     url: "https://v4-test.tailwindcss.com/docs/installation/framework-guides",
   },
 };
