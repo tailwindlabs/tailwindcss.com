@@ -12,6 +12,11 @@ export async function getDocPageBySlug(
   slug: string,
 ): Promise<null | { Component: React.FC; title: string; description: string }> {
   try {
+    // Check if the file exists
+    if (!(await fs.stat(path.join(process.cwd(), "./src/docs", `${slug}.mdx`)).catch(() => false))) {
+      return null;
+    }
+
     let module = await import(`../../../docs/${slug}.mdx`);
     if (!module.default) {
       return null;
@@ -38,6 +43,11 @@ export async function getDocPageSlugs() {
 }
 
 export async function generateTableOfContents(slug: string) {
+  // Check if the file exists
+  if (!(await fs.stat(path.join(process.cwd(), "./src/docs", `${slug}.mdx`)).catch(() => false))) {
+    return [];
+  }
+
   let markdown = await fs.readFile(path.join(process.cwd(), "./src/docs", `${slug}.mdx`), "utf8");
 
   return generateTableOfContentsFromMarkdown(markdown);

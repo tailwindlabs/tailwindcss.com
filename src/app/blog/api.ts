@@ -22,6 +22,11 @@ export async function getBlogPostBySlug(slug: string): Promise<{
   slug: string;
 } | null> {
   try {
+    // Check if the file exists
+    if (!(await fs.stat(path.join(__dirname, `../../blog/${slug}/index.mdx`)).catch(() => null))) {
+      return null;
+    }
+
     let module = await import(`../../blog/${slug}/index.mdx`);
     if (!module.default) {
       return null;
