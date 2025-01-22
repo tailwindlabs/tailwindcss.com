@@ -1,9 +1,22 @@
-import Link from "next/link";
-import { getBlogPostBySlug, getBlogPostSlugs, formatDate, nonNullable } from "./api";
-import { Fragment } from "react";
-import { NewsletterForm } from "@/components/newsletter-form";
-import GridContainer from "@/components/grid-container";
 import { Keyboard } from "@/components/blog/keyboard";
+import GridContainer from "@/components/grid-container";
+import { NewsletterForm } from "@/components/newsletter-form";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Fragment } from "react";
+import { formatDate, getBlogPostBySlug, getBlogPostSlugs, nonNullable } from "./api";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "All the latest Tailwind CSS news, straight from the team.",
+  openGraph: {
+    type: "article",
+    title: "Latest updates - Blog",
+    description: "All the latest Tailwind CSS news, straight from the team.",
+    images: "https://v4-test.tailwindcss.com/api/og?path=/blog",
+    url: "https://v4-test.tailwindcss.com/blog",
+  },
+};
 
 export default async function Blog() {
   let slugs = await getBlogPostSlugs();
