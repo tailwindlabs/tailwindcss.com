@@ -33,7 +33,7 @@ export default async function FrameworkGuides() {
           <GuideTile key={idx} guide={guide} />
         ))}
       </ul>
-      <div className="my-16">
+      <div className="my-4 md:my-16">
         <Cta>
           Don't see your framework of choice? Try using the <Link href="/docs/installation">Tailwind CLI</Link>, the{" "}
           <Link href="/docs/installation/using-vite">Vite plugin</Link>, or the{" "}

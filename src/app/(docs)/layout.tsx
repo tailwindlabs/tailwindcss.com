@@ -5,7 +5,6 @@ import { Header } from "@/components/header";
 import { MobileNav } from "@/components/mobile-docs-nav";
 import { DocsSidebar } from "@/components/docs-sidebar";
 import { DocsSidebarAutoscroll } from "@/components/docs-sidebar-autoscroll";
-import GridContainer from "@/components/grid-container";
 
 export default async function Layout({
   children,

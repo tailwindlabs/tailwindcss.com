@@ -96,7 +96,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
       {/* Add a placeholder div so the Next.js router can find the scrollable element. */}
       <div hidden />
 
-      <div className="isolate mx-auto grid w-full max-w-2xl grid-cols-1 gap-10 pt-10 pb-24 xl:max-w-5xl">
+      <div className="isolate mx-auto grid w-full max-w-2xl grid-cols-1 gap-10 pt-10 md:pb-24 xl:max-w-5xl">
         <div className="px-4 sm:px-6">
           <p className="font-mono text-xs/6 font-medium tracking-widest text-gray-600 uppercase dark:text-gray-400">
             Installation

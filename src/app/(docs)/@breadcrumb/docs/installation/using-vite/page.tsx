@@ -1,5 +1,5 @@
 import { Breadcrumb } from "@/components/breadcrumb";
 
 export default function Page() {
-  return <Breadcrumb section="Getting Started" title="Using PostCSS" />;
+  return <Breadcrumb section="Getting Started" title="Using Vite" />;
 }

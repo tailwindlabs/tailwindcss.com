@@ -128,7 +128,7 @@ export default function Page() {
         </p>
       </div>
       <Steps steps={steps} />
-      <div className="my-16">
+      <div className="my-4 md:my-16">
         <Cta label="Explore our framework guides" href="/docs/installation/framework-guides">
           <strong className="font-semibold text-gray-950 dark:text-white">Are you stuck?</strong> Setting up Tailwind
           with PostCSS can be a bit different across different build tools. Check our framework guides to see if we have
