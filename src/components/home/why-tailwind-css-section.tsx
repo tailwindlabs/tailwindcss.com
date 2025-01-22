@@ -42,7 +42,6 @@ import avatar7 from "./why-tailwind-css-section/avatar-7.png";
 import { DarkMode } from "./why-tailwind-css-section/dark-mode";
 import { Autoscroll } from "./autoscroll";
 import { Tooltip, TooltipPanel, TooltipTrigger } from "@headlessui/react";
-import { motion } from "framer-motion";
 import { Transforms3d } from "./transforms-3d";
 
 export default function WhyTailwindCssSection() {
