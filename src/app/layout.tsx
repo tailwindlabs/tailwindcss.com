@@ -76,6 +76,7 @@ const ubuntuMono = localFont({
 const js = String.raw;
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://v4-test.tailwindcss.com"),
   title: {
     default: "Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.",
     template: "%s - Tailwind CSS",
