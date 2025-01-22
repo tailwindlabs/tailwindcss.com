@@ -72,12 +72,12 @@ export default async function DocPage(props: Props) {
         <div className="col-start-2 row-span-2 border-r border-l border-gray-950/5 max-xl:hidden dark:border-white/10"></div>
 
         <div className="max-xl:mx-auto max-xl:w-full max-xl:max-w-(--breakpoint-md)">
-          <GridContainer className="mt-16 px-4 font-mono text-sm/7 font-medium tracking-widest text-gray-500 uppercase lg:px-2">
+          <div className="mt-16 px-4 font-mono text-sm/7 font-medium tracking-widest text-gray-500 uppercase lg:px-2">
             <time dateTime={post.meta.date}>{formatDate(post.meta.date)}</time>
-          </GridContainer>
+          </div>
 
-          <GridContainer className="mt-2 mb-6 px-4 lg:px-2 xl:mb-16">
-            <h1 className="inline-block max-w-(--breakpoint-md) text-[2.5rem]/10 text-pretty text-gray-950 lg:text-6xl lg:tracking-tighter dark:text-gray-200">
+          <GridContainer className="mb-6 px-4 lg:px-2 xl:mb-16">
+            <h1 className="inline-block max-w-(--breakpoint-md) text-[2.5rem]/10 tracking-tight text-pretty text-gray-950 max-lg:font-medium lg:text-6xl dark:text-gray-200">
               {post.meta.title}
             </h1>
           </GridContainer>
@@ -125,10 +125,10 @@ export default async function DocPage(props: Props) {
 function Author({ author }: { author: { avatar: string; twitter: string; name: string } }) {
   return (
     <div className="flex gap-4">
-      <Image src={author.avatar} alt="" className="size-14 rounded-full" width={36} height={36} />
-      <div className="text-base font-semibold">
+      <Image src={author.avatar} alt="" className="size-12 rounded-full" width={36} height={36} />
+      <div className="flex flex-col justify-center gap-1 text-sm font-semibold">
         <div className="text-gray-950 dark:text-white">{author.name}</div>
-        <div className="mt-1">
+        <div>
           <a
             href={`https://twitter.com/${author.twitter}`}
             target="_blank"

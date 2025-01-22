@@ -264,6 +264,17 @@
     content: close-quote;
   }
 
+  figure:where(:not(.not-prose, .not-prose *)) {
+    figcaption:where(:not(.not-prose, .not-prose *)) {
+      margin-top: calc(var(--spacing) * 3);
+      text-align: center;
+      font-size: var(--text-sm);
+      line-height: var(--text-sm--line-height);
+      font-style: italic;
+      color: color-mix(in oklab, var(--prose-color) 75%, transparent);
+    }
+  }
+
   :first-child:where(:not(.not-prose, .not-prose *)) {
     margin-top: 0;
   }
@@ -274,37 +285,10 @@
 }
 
 .prose-blog {
-  font-size: var(--text-base);
-  line-height: 2;
-
-  *:where(:not(.not-prose, .not-prose *)) + *:where(:not(.not-prose, .not-prose *)) {
-    margin-top: calc(var(--spacing) * 8);
-  }
-
-  h2:where(:not(.not-prose, .not-prose *)) {
-    font-size: var(--text-xl);
-    line-height: calc(32 / 20);
-  }
-
-  li + li:where(:not(.not-prose, .not-prose *)) {
-    margin-top: calc(var(--spacing) * 4);
-  }
-
   img:where(:not(.not-prose, .not-prose *)) {
     @media (max-width: theme(--breakpoint-sm)) {
       margin-inline: calc(var(--spacing) * -4);
       max-width: calc(100% + calc(var(--spacing) * 8));
-    }
-  }
-
-  figure:where(:not(.not-prose, .not-prose *)) {
-    figcaption:where(:not(.not-prose, .not-prose *)) {
-      margin-top: calc(var(--spacing) * 3);
-      text-align: center;
-      font-size: var(--text-sm);
-      line-height: var(--text-sm--line-height);
-      font-style: italic;
-      color: color-mix(in oklab, var(--prose-color) 75%, transparent);
     }
   }
 }

@@ -12,14 +12,12 @@ export default async function Blog() {
     .filter((post) => !post.meta.private);
 
   return (
-    <div className="relative mt-24">
+    <div className="relative mx-auto mt-24 max-lg:max-w-2xl">
       <div className="absolute -top-24 -right-32 isolate z-0 not-xl:hidden">
         <Keyboard />
       </div>
       <GridContainer>
-        <h1 className="mx-2 text-4xl tracking-tighter text-balance sm:text-5xl lg:text-6xl xl:text-8xl">
-          Latest Updates
-        </h1>
+        <h1 className="mx-2 text-6xl tracking-tighter text-balance sm:text-7xl lg:text-8xl">Latest Updates</h1>
       </GridContainer>
 
       <GridContainer className="mt-10">
@@ -36,7 +34,7 @@ export default async function Blog() {
         {posts.map(({ meta, slug }, index) => (
           <Fragment key={slug}>
             <GridContainer className="p col-span-3 grid grid-cols-subgrid divide-x divide-gray-950/5 dark:divide-white/10">
-              <div className="x-2 font-mono text-sm/6 font-medium tracking-widest text-gray-500 uppercase max-lg:hidden">
+              <div className="px-2 font-mono text-sm/6 font-medium tracking-widest text-gray-500 uppercase max-lg:hidden">
                 {formatDate(meta.date)}
               </div>
               <div className="max-lg:hidden" />
@@ -52,7 +50,7 @@ export default async function Blog() {
                   <div className="prose prose-blog mt-4 line-clamp-3 leading-7">{meta.excerpt}</div>
                   <Link
                     href={`/blog/${slug}`}
-                    className="mt-4 inline-block font-semibold text-sky-500 hover:text-sky-600 dark:text-sky-400"
+                    className="mt-4 inline-block text-sm font-semibold text-sky-500 hover:text-sky-600 dark:text-sky-400"
                   >
                     Read more
                   </Link>
@@ -61,9 +59,9 @@ export default async function Blog() {
             </GridContainer>
             {index !== posts.length - 1 && (
               <div className="contents divide-x divide-gray-950/5 dark:divide-white/10">
-                <div className="h-8 max-lg:hidden" />
-                <div className="h-8 max-lg:hidden" />
-                <div className="h-8" />
+                <div className="h-16 max-lg:hidden" />
+                <div className="h-16 max-lg:hidden" />
+                <div className="h-16" />
               </div>
             )}
           </Fragment>
