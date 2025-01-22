@@ -173,7 +173,7 @@ const nextConfig = {
 
       {
         source: "/docs/content-configuration",
-        destination: "/docs/how-classes-are-generated",
+        destination: "/docs/detecting-classes-in-source-files",
         permanent: false,
       },
       {
