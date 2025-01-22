@@ -31,9 +31,10 @@ export function TransitionsSection() {
             />
           </path>
         </svg>
-        <div className="flex flex-col justify-between overflow-hidden pt-1 pb-4">
-          <p className="max-w-full font-mono text-xs text-nowrap text-gray-700 dark:text-gray-200">
-            transition duration-750 <span className="font-medium text-gray-950 dark:text-white">linear</span>
+        <div className="flex w-full min-w-0 flex-col justify-between pt-1 pb-4">
+          <p className="flex font-mono text-xs text-nowrap text-clip text-gray-700 dark:text-gray-200">
+            <span className="hidden sm:visible">transition duration-750</span>
+            <span className="font-medium text-gray-950 dark:text-white">linear</span>
           </p>
           <div className="@container relative grid grid-cols-[auto_1fr_auto] items-center px-4 sm:px-5">
             <motion.div
@@ -67,9 +68,10 @@ export function TransitionsSection() {
             />
           </path>
         </svg>
-        <div className="flex flex-col justify-between overflow-hidden pt-1 pb-4">
-          <p className="font-mono text-xs text-gray-700 dark:text-gray-200">
-            transition duration-750 <span className="font-medium text-gray-950 dark:text-white">ease-out</span>
+        <div className="flex w-full min-w-0 flex-col justify-between pt-1 pb-4">
+          <p className="flex font-mono text-xs text-nowrap text-clip text-gray-700 dark:text-gray-200">
+            <span className="hidden sm:visible">transition duration-750</span>
+            <span className="font-medium text-gray-950 dark:text-white">ease-out</span>
           </p>
           <div className="@container relative grid max-w-full grid-cols-[auto_1fr_auto] items-center px-4 sm:px-5">
             <motion.div
@@ -108,9 +110,10 @@ export function TransitionsSection() {
             />
           </path>
         </svg>
-        <div className="flex flex-col justify-between overflow-hidden pt-1 pb-4">
-          <p className="font-mono text-xs text-nowrap text-gray-700 dark:text-gray-200">
-            transition duration-750 <span className="font-medium text-gray-950 dark:text-white">ease-in-out</span>
+        <div className="flex w-full min-w-0 flex-col justify-between pt-1 pb-4">
+          <p className="flex-1 font-mono text-xs text-nowrap text-clip text-gray-700 dark:text-gray-200">
+            <span className="hidden sm:visible">transition duration-750</span>
+            <span className="font-medium text-gray-950 dark:text-white">ease-in-out</span>
           </p>
           <div className="@container relative grid grid-cols-[auto_1fr_auto] items-center px-4 sm:px-5">
             <motion.div
@@ -149,9 +152,10 @@ export function TransitionsSection() {
             />
           </path>
         </svg>
-        <div className="flex flex-col justify-between overflow-hidden pt-1 pb-4">
-          <p className="font-mono text-xs text-nowrap text-gray-700 dark:text-gray-200">
-            transition duration-750 <span className="font-medium text-gray-950 dark:text-white">ease-in</span>
+        <div className="flex w-full min-w-0 flex-col justify-between pt-1 pb-4">
+          <p className="flex font-mono text-xs text-nowrap text-clip text-gray-700 dark:text-gray-200">
+            <span className="hidden sm:visible">transition duration-750</span>
+            <span className="font-medium text-gray-950 dark:text-white">ease-in</span>
           </p>
           <div className="@container relative grid grid-cols-[auto_1fr_auto] items-center px-4 sm:px-5">
             <motion.div
