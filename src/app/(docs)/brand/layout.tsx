@@ -19,7 +19,7 @@ export default async function DocPage({ children }: { children: React.ReactNode 
       {/* Add a placeholder div so the Next.js router can find the scrollable element. */}
       <div hidden />
 
-      <div className="mx-auto grid w-full max-w-2xl grid-cols-1 gap-10 pb-24 xl:max-w-5xl xl:grid-cols-[minmax(0,1fr)_var(--container-2xs)]">
+      <div className="mx-auto grid w-full max-w-2xl grid-cols-1 gap-10 xl:max-w-5xl xl:grid-cols-[minmax(0,1fr)_var(--container-2xs)]">
         <div className="px-4 pt-10 pb-24 sm:px-6 xl:pr-0">
           <h1 data-title="true" className="mt-2 text-3xl font-medium tracking-tight text-gray-950 dark:text-white">
             {post.title}

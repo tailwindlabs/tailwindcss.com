@@ -8,11 +8,11 @@ export function FooterSitemap({ className }: { className?: string }) {
     <footer className="bg-white text-sm/loose text-gray-950 dark:bg-gray-950 dark:text-white">
       <div
         className={clsx(
-          "mx-auto grid w-full grid-cols-1 justify-between gap-x-4 gap-y-0 sm:grid-cols-2 md:grid-cols-4 md:gap-6 lg:gap-8",
+          "mx-auto grid w-full grid-cols-2 justify-between gap-y-0 md:grid-cols-4 md:gap-6 md:gap-x-4 lg:gap-8",
           className,
         )}
       >
-        <div className="border-x border-b border-gray-950/5 py-10 pl-2 md:border-b-0 dark:border-white/10">
+        <div className="border-x border-b border-gray-950/5 py-10 pl-2 not-md:border-0 md:border-b-0 dark:border-white/10">
           <h3 className="font-semibold">Learn</h3>
           <ul className="mt-4 grid gap-4">
             <li>
@@ -37,7 +37,7 @@ export function FooterSitemap({ className }: { className?: string }) {
             </li>
           </ul>
         </div>
-        <div className="border-x border-b border-gray-950/5 py-10 pl-2 md:border-b-0 dark:border-white/10">
+        <div className="border-x border-b border-gray-950/5 py-10 pl-2 not-md:border-0 md:border-b-0 dark:border-white/10">
           <h3 className="mb-2 font-semibold">Tailwind UI</h3>
           <ul className="mt-4 grid gap-4">
             <li>
@@ -57,7 +57,7 @@ export function FooterSitemap({ className }: { className?: string }) {
             </li>
           </ul>
         </div>
-        <div className="border-x border-b border-gray-950/5 py-10 pl-2 sm:border-b-0 dark:border-white/10">
+        <div className="border-x border-b border-gray-950/5 py-10 pl-2 not-md:border-0 sm:border-b-0 dark:border-white/10">
           <h3 className="font-semibold">Resources</h3>
           <ul className="mt-4 grid gap-4">
             <li>
@@ -82,7 +82,7 @@ export function FooterSitemap({ className }: { className?: string }) {
             </li>
           </ul>
         </div>
-        <div className="border-x border-gray-950/5 py-10 pl-2 dark:border-white/10">
+        <div className="border-x border-gray-950/5 py-10 pl-2 not-md:border-0 dark:border-white/10">
           <h3 className="font-semibold">Community</h3>
           <ul className="mt-4 grid gap-4">
             <li>
