@@ -53,12 +53,11 @@ export let steps: Step[] = [
       </p>
     ),
 
-    // TODO: Update version number once the ruby gem is updated for a stable v4 release.
     code: {
       name: "Terminal",
       lang: "shell",
       code: shell`
-        ./bin/bundle add tailwindcss-ruby -v 4.0.0.beta.9
+        ./bin/bundle add tailwindcss-ruby
         ./bin/bundle add tailwindcss-rails
         ./bin/rails tailwindcss:install
       `,
