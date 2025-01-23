@@ -1,5 +1,5 @@
 import type { MDXComponents } from "mdx/types";
-import React, { ReactNode, useId } from "react";
+import React, { ReactNode } from "react";
 import { CodeExample } from "./components/code-example";
 import Link from "next/link";
 

@@ -4,7 +4,7 @@ import { formatDate, getBlogPostBySlug, getBlogPostSlugs } from "../api";
 import Image from "next/image";
 import { NewsletterForm } from "@/components/newsletter-form";
 import GridContainer from "@/components/grid-container";
-import type { Metadata, ResolvingMetadata } from "next/types";
+import type { Metadata } from "next/types";
 
 type Props = {
   params: Promise<{
