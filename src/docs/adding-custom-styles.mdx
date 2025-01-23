@@ -526,9 +526,14 @@ If you need to apply multiple variants at the same time, use nesting:
 
 ```css
 /* [!code filename:CSS] */
-@variant dark {
-  @variant hover {
-    background: black;
+.my-element {
+  background: white;
+
+  /* [!code highlight:6] */
+  @variant dark {
+    @variant hover {
+      background: black;
+    }
   }
 }
 ```
