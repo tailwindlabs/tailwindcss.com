@@ -57,8 +57,6 @@ export function Color({ name, shade }: { name: string; shade: string }) {
 		return () => clearTimeout(timeout);
 	}, [justCopied]);
 
-	const whiteHasContrastAgainstShade = Number(shade) > 400;
-
 	return (
 		<Tooltip as="div" showDelayMs={100} hideDelayMs={0} className="relative">
 			<TooltipTrigger>
