@@ -115,7 +115,7 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{
             __html: js`
               try {
-                _updateTheme(localStorage.theme)
+                _updateTheme(localStorage.currentTheme)
               } catch (_) {}
 
               try {
@@ -175,7 +175,7 @@ export default async function RootLayout({
   );
 }
 
-const FAVICON_VERSION = 3;
+const FAVICON_VERSION = 4;
 function v(href: string) {
   return `${href}?v=${FAVICON_VERSION}`;
 }

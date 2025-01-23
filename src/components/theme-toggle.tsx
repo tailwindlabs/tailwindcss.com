@@ -17,7 +17,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   let [theme, setTheme] = useState<Theme>(null);
 
   useEffect(() => {
-    setTheme((localStorage.getItem("theme") ?? "system") as Theme);
+    setTheme((localStorage.getItem("currentTheme") ?? "system") as Theme);
   }, []);
 
   let themeValue = useMemo(() => ({ theme, setTheme }), [theme]);
@@ -27,9 +27,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
 function onChange(theme: Theme, setTheme: (theme: Theme) => void) {
   if (theme !== null) {
-    localStorage.setItem("theme", theme);
+    localStorage.setItem("currentTheme", theme);
   } else {
-    localStorage.removeItem("theme");
+    localStorage.removeItem("currentTheme");
   }
   (window as any)._updateTheme(theme);
   setTheme(theme);
