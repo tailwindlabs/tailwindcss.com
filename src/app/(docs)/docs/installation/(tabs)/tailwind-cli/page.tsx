@@ -49,7 +49,7 @@ const steps: Step[] = [
     code: {
       name: "Terminal",
       lang: "shell",
-      code: "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
+      code: "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch",
     },
   },
   {
