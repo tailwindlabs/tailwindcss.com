@@ -20,6 +20,19 @@ export function VersionSwitcher({ className }) {
         </svg>
       </Menu.Button>
       <Menu.Items className="absolute top-full mt-1 py-2 w-40 rounded-lg bg-white shadow ring-1 ring-slate-900/5 text-sm leading-6 font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:highlight-white/5">
+        <Menu.Item>
+          {({ active }) => (
+            <a
+              href="https://tailwindcss.com"
+              className={clsx(
+                'block px-3 py-1',
+                active && 'bg-slate-50 text-slate-900 dark:bg-slate-600/30 dark:text-white'
+              )}
+            >
+              v4
+            </a>
+          )}
+        </Menu.Item>
         <Menu.Item disabled>
           <span className="flex items-center justify-between px-3 py-1 text-sky-500 dark:text-sky-400">
             {version}
