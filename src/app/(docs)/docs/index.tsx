@@ -12,7 +12,6 @@ export default {
     ["Dark mode", "/docs/dark-mode"],
     ["Theme variables", "/docs/theme"],
     ["Colors", "/docs/colors"],
-    // ["Spacing scale", "/docs/spacing-scale"],
     ["Adding custom styles", "/docs/adding-custom-styles"],
     ["Detecting classes in source files", "/docs/detecting-classes-in-source-files"],
     ["Functions and directives", "/docs/functions-and-directives"],
