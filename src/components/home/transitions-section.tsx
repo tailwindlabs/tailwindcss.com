@@ -21,15 +21,18 @@ export function TransitionsSection() {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path d="M8 56.9441L56 8.94409" stroke="currentColor" strokeOpacity={0.3}></path>
-          <path d="M8 56.9441L56 8.94409" stroke="currentColor">
-            <animate
-              attributeName="stroke-dasharray"
-              dur="4.5s"
-              keyTimes="0;0.167;0.5;0.667;1"
-              values="0,96;67.75,96;67.75,96;0,96;0,96"
-              repeatCount="indefinite"
-            />
-          </path>
+          <motion.path
+            d="M8 56.9441L56 8.94409"
+            stroke="currentColor"
+            strokeDasharray="67.88225555419922"
+            variants={{
+              start: { pathLength: 0 },
+              end: { pathLength: 1 },
+            }}
+            initial="start"
+            animate="end"
+            transition={{ ease: "linear", repeat: Infinity, duration: 0.75, repeatDelay: 1.5, repeatType: "mirror" }}
+          />
         </svg>
         <div className="flex w-full min-w-0 flex-col justify-between pt-1 pb-4">
           <p className="flex font-mono text-xs text-nowrap text-clip text-gray-700 dark:text-gray-200">
@@ -58,15 +61,18 @@ export function TransitionsSection() {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path d="M8 57C8 57 32 9 56 9" stroke="currentColor" strokeOpacity={0.3}></path>
-          <path d="M8 57C8 57 32 9 56 9" stroke="currentColor">
-            <animate
-              attributeName="stroke-dasharray"
-              dur="4.5s"
-              keyTimes="0;0.167;0.5;0.667;1"
-              values="0,100;71,100;71,100;0,100;0,100"
-              repeatCount="indefinite"
-            />
-          </path>
+          <motion.path
+            d="M8 57C8 57 32 9 56 9"
+            stroke="currentColor"
+            strokeDasharray="70.46297454833984"
+            variants={{
+              start: { pathLength: 0 },
+              end: { pathLength: 1 },
+            }}
+            initial="start"
+            animate="end"
+            transition={{ ease: "linear", repeat: Infinity, duration: 0.75, repeatDelay: 1.5, repeatType: "mirror" }}
+          />
         </svg>
         <div className="flex w-full min-w-0 flex-col justify-between pt-1 pb-4">
           <p className="flex font-mono text-xs text-nowrap text-clip text-gray-700 dark:text-gray-200">
@@ -100,15 +106,18 @@ export function TransitionsSection() {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path d="M8 57C32 57 32 9 56 9" stroke="currentColor" strokeOpacity={0.3}></path>
-          <path d="M8 57C32 57 32 9 56 9" stroke="currentColor">
-            <animate
-              attributeName="stroke-dasharray"
-              dur="4.5s"
-              keyTimes="0;0.167;0.5;0.667;1"
-              values="0,100;71.73,100;71.73,100;0,100;0,100"
-              repeatCount="indefinite"
-            />
-          </path>
+          <motion.path
+            d="M8 57C32 57 32 9 56 9"
+            stroke="currentColor"
+            strokeDasharray="71.77388000488281"
+            variants={{
+              start: { pathLength: 0 },
+              end: { pathLength: 1 },
+            }}
+            initial="start"
+            animate="end"
+            transition={{ ease: "linear", repeat: Infinity, duration: 0.75, repeatDelay: 1.5, repeatType: "mirror" }}
+          />
         </svg>
         <div className="flex w-full min-w-0 flex-col justify-between pt-1 pb-4">
           <p className="flex-1 font-mono text-xs text-nowrap text-clip text-gray-700 dark:text-gray-200">
@@ -142,15 +151,18 @@ export function TransitionsSection() {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path d="M8 57C32 57 56 9 56 9" stroke="currentColor" strokeOpacity={0.3}></path>
-          <path d="M8 57C32 57 56 9 56 9" stroke="currentColor">
-            <animate
-              attributeName="stroke-dasharray"
-              dur="4.5s"
-              keyTimes="0;0.167;0.5;0.667;1"
-              values="0,96;70.2,96;70.2,96;0,96;0,96"
-              repeatCount="indefinite"
-            />
-          </path>
+          <motion.path
+            d="M8 57C32 57 56 9 56 9"
+            stroke="currentColor"
+            strokeDasharray="70.46295166015625"
+            variants={{
+              start: { pathLength: 0 },
+              end: { pathLength: 1 },
+            }}
+            initial="start"
+            animate="end"
+            transition={{ ease: "linear", repeat: Infinity, duration: 0.75, repeatDelay: 1.5, repeatType: "mirror" }}
+          />
         </svg>
         <div className="flex w-full min-w-0 flex-col justify-between pt-1 pb-4">
           <p className="flex font-mono text-xs text-nowrap text-clip text-gray-700 dark:text-gray-200">
