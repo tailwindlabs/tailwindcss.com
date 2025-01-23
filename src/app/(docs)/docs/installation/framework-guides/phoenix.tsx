@@ -65,7 +65,7 @@ export let steps: Step[] = [
       code: elixir`
         config :tailwind,
           # [!code highlight:2]
-          version: "4.0.0-beta.9",
+          version: "4.0.0",
           myproject: [
             args: ~w(
               # [!code highlight:3]
