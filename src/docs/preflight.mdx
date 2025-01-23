@@ -11,10 +11,10 @@ When you import `tailwindcss` into your project, Preflight is automatically inje
 /* [!code filename:CSS] */
 @layer theme, base, components, utilities;
 
-@import "./theme.css" layer(theme);
+@import "tailwindcss/theme.css" layer(theme);
 /* [!code highlight:2] */
-@import "./preflight.css" layer(base);
-@import "./utilities.css" layer(utilities);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
 ```
 
 While most of the styles in Preflight are meant to go unnoticed—they simply make things behave more like you'd expect them to—some are more opinionated and can be surprising when you first encounter them.
@@ -216,9 +216,9 @@ By default, this is what `@import "tailwindcss";` injects:
 /* [!code filename:CSS] */
 @layer theme, base, components, utilities;
 
-@import "./theme.css" layer(theme);
-@import "./preflight.css" layer(base);
-@import "./utilities.css" layer(utilities);
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
 ```
 
 To disable Preflight, simply omit its import while keeping everything else:
@@ -227,7 +227,7 @@ To disable Preflight, simply omit its import while keeping everything else:
 /* [!code filename:CSS] */
 @layer theme, base, components, utilities;
 
-@import "./theme.css" layer(theme);
-@import "./preflight.css" layer(base); /* [!code --] */
-@import "./utilities.css" layer(utilities);
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base); /* [!code --] */
+@import "tailwindcss/utilities.css" layer(utilities);
 ```
