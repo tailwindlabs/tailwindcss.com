@@ -433,8 +433,7 @@ export function CustomizingYourSpacingScale({ utility, utilities }: { utility: s
         </div>
       </div>
       <p>
-        Learn more about customizing the spacing scale in the{" "}
-        <a href="/docs/spacing-scale">spacing scale documentation</a>.
+        Learn more about customizing the spacing scale in the <a href="/docs/theme">theme variable documentation</a>.
       </p>
     </>
   );
