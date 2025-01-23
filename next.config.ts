@@ -478,15 +478,15 @@ const nextConfig = {
   },
   async headers() {
     return [
-      {
-        source: "/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, s-maxage 600, stale-while-revalidate 86400",
-          },
-        ],
-      },
+      // {
+      //   source: "/:path*",
+      //   headers: [
+      //     {
+      //       key: "Cache-Control",
+      //       value: "public, s-maxage 600, stale-while-revalidate 86400",
+      //     },
+      //   ],
+      // },
     ];
   },
 } satisfies NextConfig;
