@@ -16,7 +16,7 @@ export function Iframe({ children, ...props }: React.ComponentProps<"iframe">) {
 
     // We need to add `light` or `dark` to the <html> element in the iframe
     // for Safari to work properly
-    let root = mountNode.getRootNode() as HTMLDocument;
+    let root = mountNode.getRootNode() as Document;
     if (root) {
       root.documentElement.className = theme as string;
     }
