@@ -2664,7 +2664,7 @@ While it's generally preferable to put utility classes directly on child element
 
 </Figure>
 
-It's important to note that overriding a style with a utility directly on the child itself won't work because the `*:…` classes will appearing after unprefixed onces:
+It's important to note that overriding a style with a utility directly on the child itself won't work due to the specificity of the generated child selector:
 
 <TipBad>{<>Won't work, children can't override their own styling.</>}</TipBad>
 
