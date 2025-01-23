@@ -476,19 +476,6 @@ const nextConfig = {
       { source: "/discord", destination: "https://discord.gg/7NF8GNe", permanent: false },
     ];
   },
-  async headers() {
-    return [
-      // {
-      //   source: "/:path*",
-      //   headers: [
-      //     {
-      //       key: "Cache-Control",
-      //       value: "public, s-maxage 600, stale-while-revalidate 86400",
-      //     },
-      //   ],
-      // },
-    ];
-  },
 } satisfies NextConfig;
 
 const withMDX = require("@next/mdx")();
