@@ -644,7 +644,7 @@ export default function WhyTailwindCssSection() {
                 </div>
                 <div className="absolute -right-3 bottom-12 w-[50cqw] shrink-0 divide-y divide-gray-950/5 rounded-xl bg-white inset-ring shadow-2xl inset-ring-gray-950/5 dark:divide-white/5 dark:bg-gray-800 dark:inset-ring-white/5">
                   {[
-                    { src: avatar1.src, name: " سارة أحم", role: "مديرة مشاريع" },
+                    { src: avatar1.src, name: "سارة أحمد", role: "مديرة مشاريع" },
                     { src: avatar2.src, name: "علي محمد", role: "مطور برمجيات" },
                     { src: avatar3.src, name: "خالد عمر", role: "مصمم واجهات المستخدم" },
                   ].map((user, idx) => {
