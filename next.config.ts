@@ -331,7 +331,7 @@ const nextConfig = {
         permanent: false,
       },
       {
-        source: "/docs/backdrop-filter-rotate",
+        source: "/docs/backdrop-hue-rotate",
         destination: "/docs/backdrop-filter-hue-rotate",
         permanent: false,
       },
