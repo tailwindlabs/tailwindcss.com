@@ -1925,7 +1925,7 @@ Use the `not-supports-[...]` variant to style things based on whether a certain 
 You can configure shortcuts for common `@supports` rules you're using in your project by creating a new variant in the `supports-*` namespace:
 
 ```css
-@variant supports-grid {
+@custom-variant supports-grid {
   @supports (display: grid) {
     @slot;
   }
@@ -2142,8 +2142,8 @@ By default we've included variants for the most common boolean ARIA attributes:
 You can customize which `aria-*` variants are available by creating a new variant:
 
 ```css
-@variant aria-asc (&[aria-sort="ascending"]);
-@variant aria-desc (&[aria-sort="descending"]);
+@custom-variant aria-asc (&[aria-sort="ascending"]);
+@custom-variant aria-desc (&[aria-sort="descending"]);
 ```
 
 If you need to use a one-off `aria` variant that doesn’t make sense to include in your project, or for more complex ARIA attributes that take specific values, use square brackets to generate a property on the fly using any arbitrary value:
@@ -2342,7 +2342,7 @@ Alternatively, you can configure shortcuts for common data attributes you're usi
 <!-- [!code filename:app.css] -->
 @import "tailwindcss";
 
-@variant data-checked (&[data-ui~="checked"]);
+@custom-variant data-checked (&[data-ui~="checked"]);
 ```
 
 You can then use these custom `data-*` variants in your project:
@@ -2885,7 +2885,7 @@ With at-rule custom variants the `&` placeholder isn't necessary, just like when
 If you find yourself using the same arbitrary variant multiple times in your project, it might be worth creating a custom variant:
 
 ```css
-@variant pointer-coarse {
+@custom-variant pointer-coarse {
   @media (pointer: coarse) {
     @slot;
   }
@@ -2902,13 +2902,13 @@ Now you can use the `pointer-coarse:<utility>` variant in your HTML:
 You can create variants using the shorthand syntax when nesting isn't required:
 
 ```css
-@variant pointer-coarse (@media (pointer: coarse));
+@custom-variant pointer-coarse (@media (pointer: coarse));
 ```
 
 When a custom variant has multiple rules, they can be nested within each other:
 
 ```css
-@variant any-hover {
+@custom-variant any-hover {
   @media (any-hover: hover) {
     &:hover {
       @slot;

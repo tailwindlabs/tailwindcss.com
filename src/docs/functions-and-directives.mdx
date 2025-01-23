@@ -85,9 +85,14 @@ If you need to apply multiple variants at the same time, use nesting:
 
 ```css
 /* [!code filename:CSS] */
-@variant dark {
-  @variant hover {
-    background: black;
+.my-element {
+  background: white;
+
+  /* [!code highlight:6] */
+  @variant dark {
+    @variant hover {
+      background: black;
+    }
   }
 }
 ```
@@ -106,7 +111,7 @@ Use the `@custom-variant` directive to add a custom variant in your project:
 
 This lets you write utilities like `pointer-coarse:size-48` and `theme-midnight:bg-slate-900`.
 
-Learn more about adding custom variants in the [adding custom variants documentation](/docs/adding-custom-styles#adding-custom-variants).
+Learn more about adding custom variants in the [registering a custom variant documentation](/docs/hover-focus-and-other-states#registering-a-custom-variant).
 
 <h3 id="apply-directive">@apply</h3>
 

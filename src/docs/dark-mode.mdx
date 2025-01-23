@@ -116,7 +116,7 @@ If you want your dark theme to be driven by a CSS selector instead of the `prefe
 @import "tailwindcss";
 
 /* [!code highlight:2] */
-@variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 ```
 
 Now instead of `dark:*` utilities being applied based on `prefers-color-scheme`, they will be applied whenever the `dark` class is present earlier in the HTML tree:
@@ -145,7 +145,7 @@ To use a data attribute instead of a class to activate dark mode, just override 
 @import "tailwindcss";
 
 /* [!code highlight:2] */
-@variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 ```
 
 Now dark mode utilities will be applied whenever the `data-theme` attribute is set to `dark` somewhere up the tree:
