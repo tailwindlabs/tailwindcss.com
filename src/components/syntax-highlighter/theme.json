@@ -351,7 +351,7 @@
       }
     },
     {
-      "name": "[HTML] - Punctation",
+      "name": "[HTML] - Punctuation",
       "scope": ["text.html punctuation", "text.html keyword.operator", "text.html meta.tag"],
       "settings": {
         "foreground": "var(--color-slate-400)"
