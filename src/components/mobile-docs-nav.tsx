@@ -1,8 +1,8 @@
 "use client";
 
+import { CloseButton, Dialog, DialogPanel } from "@headlessui/react";
 import { useEffect, useState } from "react";
 import { IconButton } from "./icon-button";
-import { CloseButton, Dialog, DialogPanel } from "@headlessui/react";
 
 export function MobileNav({
   header,

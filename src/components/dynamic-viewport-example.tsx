@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState, useRef } from "react";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import clsx from "clsx";
-import { Stripes } from "./stripes";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { useRef, useState } from "react";
 import { Example } from "./example";
+import { Stripes } from "./stripes";
 
 const viewport = {
   lvh: 491,

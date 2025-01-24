@@ -1,5 +1,5 @@
-import index from "../app/(docs)/docs/index";
 import Link from "next/link";
+import index from "../app/(docs)/docs/index";
 
 let flatIndex = Object.values(index).flatMap((e) => e.flatMap((e) => [e, ...(Array.isArray(e[2]) ? e[2] : [])]));
 

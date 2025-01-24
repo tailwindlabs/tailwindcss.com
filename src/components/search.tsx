@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useCallback, useRef, createContext, useContext, useEffect, useMemo } from "react";
-import { createPortal } from "react-dom";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { DocSearchModal } from "@docsearch/react";
 import clsx from "clsx";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 const INDEX_NAME = "tailwindcss";
 const API_KEY = "5fc87cef58bb80203d2207578309fab6";

@@ -1,11 +1,14 @@
-import React from "react";
-import type { Element, ElementContent } from "hast";
-import type { ShikiTransformer } from "shiki";
 import clsx from "clsx";
-import GridContainer from "../grid-container";
-import CategoryHeader from "./category-header";
+import type { Element, ElementContent } from "hast";
+import React from "react";
+import type { ShikiTransformer } from "shiki";
 import { html } from "../code-example";
+import { generateCss } from "../generated-css";
+import GridContainer from "../grid-container";
+import { HighlightedCode } from "../highlight";
+import { getTextContent } from "../highlight-classes";
 import { AnchoredToBottom } from "./anchored-to-bottom";
+import CategoryHeader from "./category-header";
 import {
   EditorAnimation,
   EditorKeyframe,
@@ -13,9 +16,6 @@ import {
   TerminalAnimation,
   TypingAnimation,
 } from "./explainer/animation";
-import { HighlightedCode } from "../highlight";
-import { getTextContent } from "../highlight-classes";
-import { generateCss } from "../generated-css";
 
 export default function ExplainerSection() {
   let timeline: EditorKeyframe[] = [

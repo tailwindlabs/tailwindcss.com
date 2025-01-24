@@ -1,8 +1,8 @@
 "use client";
 
-import { createContext, Fragment, useContext, useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import { useInView } from "framer-motion";
+import { createContext, Fragment, useContext, useEffect, useRef, useState } from "react";
 
 export interface EditorKeyframe {
   class?: string;

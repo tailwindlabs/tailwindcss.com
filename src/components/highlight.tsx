@@ -1,7 +1,7 @@
+import { Components, toJsxRuntime } from "hast-util-to-jsx-runtime";
 import { Fragment, type JSX } from "react";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { createHighlighter, ShikiTransformer } from "shiki";
-import { Components, toJsxRuntime } from "hast-util-to-jsx-runtime";
 import atApplyInjection from "./syntax-highlighter/at-apply.json";
 import atRulesInjection from "./syntax-highlighter/at-rules.json";
 import themeFnInjection from "./syntax-highlighter/theme-fn.json";

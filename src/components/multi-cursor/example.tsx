@@ -1,8 +1,8 @@
 import clsx from "clsx";
+import { ThemedToken } from "shiki";
+import { html } from "../code-example";
 import { HighlightedCode } from "../highlight";
 import { TypingAnimation } from "./animation";
-import { html } from "../code-example";
-import { ThemedToken } from "shiki";
 
 export function MultiCursorCode() {
   let code = html`

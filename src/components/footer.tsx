@@ -1,7 +1,6 @@
-import React from "react";
-import ThemeToggle from "./theme-toggle";
-import Link from "next/link";
 import clsx from "clsx";
+import Link from "next/link";
+import ThemeToggle from "./theme-toggle";
 
 export function FooterSitemap({ className }: { className?: string }) {
   return (

@@ -1,6 +1,6 @@
+import css from "dedent";
 import { Fragment } from "react";
 import { CodeExample } from "./code-example";
-import css from "dedent";
 
 const screens = {
   sm: "small",

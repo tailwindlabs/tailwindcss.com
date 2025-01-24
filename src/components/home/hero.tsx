@@ -1,13 +1,13 @@
 "use client";
 
 import clsx from "clsx";
+import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
 import GridContainer from "../grid-container";
 import { SearchButton } from "../search";
+import cover from "./cover.png";
 import { Editor } from "./editor";
 import LinkButton from "./link-button";
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import cover from "./cover.png";
 
 const SYMBOL = { color: "var(--color-slate-400)" };
 const ELEMENT = { color: "var(--color-pink-400)" };

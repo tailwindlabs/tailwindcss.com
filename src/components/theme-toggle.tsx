@@ -1,7 +1,7 @@
 "use client";
 
 import { Radio, RadioGroup } from "@headlessui/react";
-import React, { createContext, use, useContext, useEffect, useMemo, useState } from "react";
+import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 type Theme = "light" | "dark" | "system" | null;
 

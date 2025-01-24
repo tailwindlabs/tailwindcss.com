@@ -1,7 +1,7 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
 import clsx from "clsx";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export interface AnimationContextBag {
   /** Where the cursor is at */

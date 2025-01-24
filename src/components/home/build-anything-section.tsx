@@ -1,23 +1,23 @@
-import { BentoItem } from "./bento";
-import GridContainer from "../grid-container";
-import CategoryHeader from "./category-header";
 import Image from "next/image";
 import React from "react";
-import openai from "./build-anything-section/openai.png";
-import opal from "./build-anything-section/opal.png";
+import GridContainer from "../grid-container";
+import { BentoItem } from "./bento";
+import clerk from "./build-anything-section/clerk.png";
 import feastables from "./build-anything-section/feastables.png";
+import googleIo from "./build-anything-section/googleio.png";
 import gumroad from "./build-anything-section/gumroad.png";
-import skims from "./build-anything-section/skims.png";
+import midjourney from "./build-anything-section/midjourney.png";
+import nasa from "./build-anything-section/nasa.png";
+import opal from "./build-anything-section/opal.png";
+import openai from "./build-anything-section/openai.png";
+import poolside from "./build-anything-section/poolside.png";
 import reddit from "./build-anything-section/reddit.png";
 import rivian from "./build-anything-section/rivian.png";
 import shopify from "./build-anything-section/shopify.png";
-import clerk from "./build-anything-section/clerk.png";
-import verge from "./build-anything-section/verge.png";
-import googleIo from "./build-anything-section/googleio.png";
+import skims from "./build-anything-section/skims.png";
 import ted from "./build-anything-section/ted.png";
-import poolside from "./build-anything-section/poolside.png";
-import midjourney from "./build-anything-section/midjourney.png";
-import nasa from "./build-anything-section/nasa.png";
+import verge from "./build-anything-section/verge.png";
+import CategoryHeader from "./category-header";
 
 export default function BuildAnythingSection() {
   return (

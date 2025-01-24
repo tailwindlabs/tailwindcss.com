@@ -1,18 +1,18 @@
 "use client";
 
+import clsx from "clsx";
+import { motion, type MotionValue, useMotionValue, useTransform } from "framer-motion";
 import {
-  useReducer,
+  ComponentProps,
   createContext,
   RefObject,
   useContext,
   useEffect,
   useMemo,
+  useReducer,
   useRef,
-  ComponentProps,
   useState,
 } from "react";
-import { motion, type MotionValue, useMotionValue, useTransform } from "framer-motion";
-import clsx from "clsx";
 
 const DEFAULT_OFFSET = 768;
 

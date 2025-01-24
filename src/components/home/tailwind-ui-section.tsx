@@ -1,13 +1,13 @@
 "use client";
 
-import { BentoItem } from "./bento";
-import { motion } from "framer-motion";
-import { TabGroup, TabPanels, TabList, Tab, TabPanel } from "@headlessui/react";
-import CategoryHeader from "./category-header";
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import clsx from "clsx";
-import GridContainer from "../grid-container";
-import LinkButton from "./link-button";
+import { motion } from "framer-motion";
 import React from "react";
+import GridContainer from "../grid-container";
+import { BentoItem } from "./bento";
+import CategoryHeader from "./category-header";
+import LinkButton from "./link-button";
 import templatesCol1 from "./templates-col-1.png";
 import templatesCol2 from "./templates-col-2.png";
 import templatesCol3 from "./templates-col-3.png";
