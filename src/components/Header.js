@@ -188,7 +188,7 @@ export function Header({ navIsOpen, onNavToggle }) {
                 href="https://tailwindcss.com"
                 className="text-sm text-white font-bold underline sm:hidden"
               >
-                Go to Tailwind CSS v3 &rarr;
+                Go to Tailwind CSS v4 &rarr;
               </a>
             </div>
             <span
