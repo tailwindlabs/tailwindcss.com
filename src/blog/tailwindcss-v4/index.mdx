@@ -659,16 +659,16 @@ It does double duty and also lets you negate media queries and `@supports` queri
 
 ```html
 <!-- [!code filename:HTML] -->
-<!-- [!code classes:not-supports-hanging-punctation:px-4] -->
-<div class="not-supports-hanging-punctation:px-4">
+<!-- [!code classes:not-supports-hanging-punctuation:px-4] -->
+<div class="not-supports-hanging-punctuation:px-4">
   <!-- ... -->
 </div>
 ```
 
 ```css
 /* [!code filename:CSS] */
-.not-supports-hanging-punctation\:px-4 {
-  @supports not (hanging-punctation: var(--tw)) {
+.not-supports-hanging-punctuation\:px-4 {
+  @supports not (hanging-punctuation: var(--tw)) {
     padding-inline: calc(var(--spacing) * 4);
   }
 }
