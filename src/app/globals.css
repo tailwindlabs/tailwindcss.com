@@ -14,7 +14,7 @@
 @theme {
   --animate-flash-code: flash-code 2s forwards;
 
-  /* This uses --color-sky-500 but it's inlined because of an bug in chrome */
+  /* This uses --color-sky-500 but it's inlined because of a bug in chrome */
   @keyframes flash-code {
     0% {
       background-color: oklch(0.685 0.169 237.323 / 10%);
