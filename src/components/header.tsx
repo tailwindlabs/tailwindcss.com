@@ -160,8 +160,8 @@ export function Header(props: React.PropsWithChildren) {
             <GitHubLogo className="size-5 fill-black/40 dark:fill-gray-400" />
           </Link>
         </div>
-        <div className="flex items-center gap-4 md:hidden">
-          <SearchButton aria-label="Search">
+        <div className="flex items-center gap-2.5 md:hidden">
+          <SearchButton aria-label="Search" className="inline-grid size-7 place-items-center rounded-md">
             <svg viewBox="0 0 16 16" fill="currentColor" className="size-4">
               <path
                 fillRule="evenodd"
