@@ -89,6 +89,7 @@ export let steps: Step[] = [
       lang: "ts",
       code: js`
         import { defineConfig } from 'vite'
+        import laravel from 'laravel-vite-plugin';
         // [!code highlight:2]
         import tailwindcss from '@tailwindcss/vite'
 
