@@ -465,12 +465,12 @@ To support negative values, register separate positive and negative utilities in
 ```css
 /* [!code filename:CSS] */
 @utility inset-* {
-  inset: calc(--var(--spacing) * --value([percentage], [length]));
+  inset: calc(var(--spacing) * --value([percentage], [length]));
 }
 
 /* [!code highlight:4] */
 @utility -inset-* {
-  inset: calc(--var(--spacing) * --value([percentage], [length]) * -1);
+  inset: calc(var(--spacing) * --value([percentage], [length]) * -1);
 }
 ```
 
