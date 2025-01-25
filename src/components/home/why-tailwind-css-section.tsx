@@ -729,45 +729,45 @@ export default function WhyTailwindCssSection() {
                 </BentoDescription>
               </div>
             </BentoHeader>
-            <BentoBody className="h-112">
-              <div className="-mt-27 -mr-124 -mb-8 bg-white px-6 py-16 ring ring-gray-950/5 md:px-16 xl:-mr-26 dark:bg-gray-950 dark:ring-white/10">
+            <BentoBody className="h-112 !p-4">
+              <div className="-mt-27 sm:-mt-10 md:-mt-27 -mr-124 -mb-8 w-full bg-white px-3 sm:px-6 lg:px-8 xl:px-16 py-16 ring ring-gray-950/5 xl:-mr-26 dark:bg-gray-950 dark:ring-white/10">
                 <div className="flex flex-col gap-2">
                   <span className="text-sm/7 font-medium text-gray-950/75 dark:text-white/75">
                     Power Meets Precision
                   </span>
-                  <h3 className="text-4xl/12 font-semibold text-gray-950 dark:text-white">
+                  <h3 className="text-2xl/8 sm:text-3xl/10 md:text-2xl/8 lg:text-4xl/12 font-semibold text-gray-950 dark:text-white">
                     Redefining real-time performance
                   </h3>
-                  <p className="text-lg/7 font-medium text-gray-950/75 dark:text-white/75">
+                  <p className="text-base/6 sm:text-lg/7 md:text-base/6 lg:text-lg/7 font-medium text-gray-950/75 dark:text-white/75">
                     Our next-generation rendering engine delivers unmatched speed and efficiency, empowering creators to
                     push boundaries like never before.
                   </p>
                 </div>
-                <div className="mt-10 flex flex-col gap-10">
+                <div className="mt-6 sm:mt-8 md:mt-6 xl:mt-8 flex flex-col gap-4 lg:gap-7 2xl:gap-10">
                   <div className="flex gap-6">
                     <div className="flex flex-1 flex-col gap-2.5">
-                      <span className="text-base/7 font-medium text-gray-950 dark:text-white">
+                      <span className="text-base/5 sm:text-base/7 md:text-base/6 lg:text-base/7 font-medium text-gray-950 dark:text-white">
                         Render time performance
                       </span>
-                      <div className="h-2.5 w-full rounded-full bg-linear-to-r from-emerald-500 to-sky-400 ring-1 ring-gray-950/10 ring-inset dark:from-emerald-400 dark:ring-white/10"></div>
+                      <div className="h-2 sm:h-2.5 w-full rounded-full bg-linear-to-r from-emerald-500 to-sky-400 ring-1 ring-gray-950/10 ring-inset dark:from-emerald-400 dark:ring-white/10"></div>
                     </div>
                     <span className="text-3xl/12 font-semibold text-gray-950 dark:text-white">6.4x</span>
                   </div>
                   <div className="flex gap-6">
                     <div className="flex flex-1 flex-col gap-2.5">
-                      <span className="text-base/7 font-medium text-gray-950 dark:text-white">
+                      <span className="text-base/5 sm:text-base/7 md:text-base/6 lg:text-base/7 font-medium text-gray-950 dark:text-white">
                         Real-time frame rate
                       </span>
-                      <div className="h-2.5 w-3/4 rounded-full bg-linear-to-r from-pink-600 to-amber-300 ring-1 ring-gray-950/10 ring-inset dark:from-pink-500 dark:to-amber-200 dark:ring-white/10"></div>
+                      <div className="h-2 sm:h-2.5 w-3/4 rounded-full bg-linear-to-r from-pink-600 to-amber-300 ring-1 ring-gray-950/10 ring-inset dark:from-pink-500 dark:to-amber-200 dark:ring-white/10"></div>
                     </div>
                     <span className="text-3xl/12 font-semibold text-gray-950 dark:text-white">4.2x</span>
                   </div>
                   <div className="flex gap-6">
                     <div className="flex flex-1 flex-col gap-2.5">
-                      <span className="text-base/7 font-medium text-gray-950 dark:text-white">
+                      <span className="text-base/5 sm:text-base/7 md:text-base/6 lg:text-base/7 font-medium text-gray-950 dark:text-white">
                         Multi-platform build time
                       </span>
-                      <div className="h-2.5 w-1/2 rounded-full bg-linear-to-r from-purple-600 to-cyan-400 ring-1 ring-gray-950/10 ring-inset dark:from-purple-500 dark:ring-white/10"></div>
+                      <div className="h-2 sm:h-2.5 w-1/2 rounded-full bg-linear-to-r from-purple-600 to-cyan-400 ring-1 ring-gray-950/10 ring-inset dark:from-purple-500 dark:ring-white/10"></div>
                     </div>
                     <span className="text-3xl/12 font-semibold text-gray-950 dark:text-white">2.7x</span>
                   </div>
