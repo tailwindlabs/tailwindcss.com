@@ -449,7 +449,7 @@ export function TabButton(
   return (
     <Tab
       className={clsx(
-        "group flex items-center gap-4 p-4 text-sm/7 focus:outline-none max-lg:flex-col sm:p-6 lg:grid lg:grid-cols-[auto_1fr]",
+        "group flex items-center gap-4 p-4 text-sm/7 cursor-pointer focus:outline-none max-lg:flex-col sm:p-6 lg:grid lg:grid-cols-[auto_1fr]",
         props.className,
       )}
       // {...props}
