@@ -81,7 +81,7 @@ export const description = "Utilities for controlling the box shadow of an eleme
     ["inset-ring-current", "--tw-inset-ring-color: currentColor;"],
     ["inset-ring-transparent", "--tw-inset-ring-color: transparent;"],
     ...Object.entries(colors).map(([name, value]) => [
-      `ring-${name}`,
+      `inset-ring-${name}`,
       `--tw-inset-ring-color: var(--color-${name}); /* ${value} */`,
     ]),
   ]}
