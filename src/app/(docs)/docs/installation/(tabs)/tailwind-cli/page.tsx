@@ -44,6 +44,20 @@ const steps: Step[] = [
     },
   },
   {
+    title: "Import Tailwind config in your CSS",
+    body: (
+      <p>
+        Add the <code>@config "../tailwind.config.js</code> to your main CSS file to load your tailwind config. The path
+        to the config is relative from your main CSS file.
+      </p>
+    ),
+    code: {
+      name: "src/input.css",
+      lang: "css",
+      code: '@config "../tailwind.config.js";',
+    },
+  },
+  {
     title: "Start the Tailwind CLI build process",
     body: <p>Run the CLI tool to scan your source files for classes and build your CSS.</p>,
     code: {
