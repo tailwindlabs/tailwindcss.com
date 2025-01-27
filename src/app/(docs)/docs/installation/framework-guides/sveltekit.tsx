@@ -116,7 +116,7 @@ export let steps: Step[] = [
     ),
     code: {
       name: "Terminal",
-      lang: "shell",xf
+      lang: "shell",
       code: shell`
         npm run dev
       `,
