@@ -98,11 +98,12 @@ export let steps: Step[] = [
       lang: "svelte",
       code: html`
         <script>
+          let { children }  = $props();
           // [!code highlight:2]
           import "../app.css";
         </script>
 
-        <slot />
+        {@render children()}
       `,
     },
   },
