@@ -1,3 +1,5 @@
+import { CodeExampleStack } from "@/components/code-example";
+
 export const title = "Functions and directives";
 export const description = "A reference for the custom functions and directives Tailwind exposes to your CSS.";
 
@@ -139,19 +141,19 @@ This is useful when you need to write custom CSS (like to override the styles in
 
 <h3 id="reference-directive">@reference</h3>
 
-If you want to use `@apply` or `@variant` in the `<style>` block of a Vue or Svelte component, or within CSS modules, you will need to import your theme configuration to make those values available in that context.
+If you want to use `@apply` or `@variant` in the `<style>` block of a Vue or Svelte component, or within CSS modules, you will need to import your theme variables, custom utilities, and custom variants to make those values available in that context.
 
-To do this without duplicating the CSS variables in your CSS output, use the `@reference` directive instead of the `@import` directive when importing your theme:
+To do this without duplicating any CSS in your output, use the `@reference` directive to import your main stylesheet for reference without actually including the styles:
 
 ```html
-<!-- [!code filename:HTML] -->
+<!-- [!code filename:Vue] -->
 <template>
   <h1>Hello world!</h1>
 </template>
 
 <style>
   /* [!code highlight:2] */
-  @reference "../../my-theme.css";
+  @reference "../../app.css";
 
   h1 {
     @apply text-2xl font-bold text-red-500;
@@ -159,17 +161,17 @@ To do this without duplicating the CSS variables in your CSS output, use the `@r
 </style>
 ```
 
-If you’re just using the default theme, you can import `tailwindcss/theme` directly:
+If you’re just using the default theme with no customizations, you can import `tailwindcss` directly:
 
 ```html
-<!-- [!code filename:HTML] -->
+<!-- [!code filename:Vue] -->
 <template>
   <h1>Hello world!</h1>
 </template>
 
 <style>
   /* [!code highlight:2] */
-  @reference "tailwindcss/theme";
+  @reference "tailwindcss";
 
   h1 {
     @apply text-2xl font-bold text-red-500;
@@ -183,26 +185,58 @@ Tailwind provides the following build-time functions to make working with colors
 
 <h3 id="alpha-function">--alpha()</h3>
 
-Use the `--alpha()` function to generate a color with an opacity applied to it:
+Use the `--alpha()` function to adjust the opacity of a color:
+
+<CodeExampleStack>
 
 ```css
-/* [!code filename:CSS] */
+/* [!code filename:Input CSS] */
 .my-element {
   /* [!code highlight:2] */
   color: --alpha(var(--color-lime-300) / 50%);
 }
 ```
 
+```css
+/* [!code filename:Compiled CSS] */
+.my-element {
+  color: color-mix(in oklab, var(--color-lime-300) 50%, transparent);
+}
+```
+
+</CodeExampleStack>
+
 <h3 id="spacing-function">--spacing()</h3>
 
 Use the `--spacing()` function to generate a spacing value based on your theme:
 
+<CodeExampleStack>
+
 ```css
-/* [!code filename:CSS] */
+/* [!code filename:Input CSS] */
 .my-element {
   /* [!code highlight:2] */
   margin: --spacing(4);
 }
+```
+
+```css
+/* [!code filename:Compiled CSS] */
+.my-element {
+  margin: calc(var(--spacing) * 4);
+}
+```
+
+</CodeExampleStack>
+
+This can also be useful in arbitrary values, especially in combination with `calc()`:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:py-[calc(--spacing(4)-1px)]] -->
+<div class="py-[calc(--spacing(4)-1px)]">
+  <!-- ... -->
+</div>
 ```
 
 ## Compatibility
@@ -243,4 +277,4 @@ Use the `theme()` function to access your Tailwind theme values using dot notati
 }
 ```
 
-This function is deprecated, and we recommend referencing [theme variables](/docs/theme) instead.
+This function is deprecated, and we recommend [using CSS theme variables](/docs/theme#using-your-theme-variables) instead.
