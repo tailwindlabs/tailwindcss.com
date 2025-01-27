@@ -557,3 +557,43 @@ If you need access to a resolved CSS variable value in JS, you can use `getCompu
 let styles = getComputedStyle(document.documentElement);
 let shadow = styles.getPropertyValue("--shadow-xl");
 ```
+
+### Using @apply with Vue, Svelte, or CSS modules
+
+In v4, stylesheets that are bundled separately from your main CSS file (e.g. CSS modules files, `<style>` blocks in Vue, Svelte, or Astro, etc.) do not have access to theme variables, custom utilities, and custom variants defined in other files.
+
+To make these definitions available in these contexts, use [`@reference`](/docs/functions-and-directives#reference-directive) to import them without duplicating any CSS in your bundle:
+
+```html
+<!-- [!code filename:Vue] -->
+<template>
+  <h1>Hello world!</h1>
+</template>
+
+<style>
+  /* [!code highlight:2] */
+  @reference "../../app.css";
+
+  h1 {
+    @apply text-2xl font-bold text-red-500;
+  }
+</style>
+```
+
+Alternatively, you can use your CSS theme variables directly instead of using `@apply` at all, which will also improve performance since Tailwind won't need to process these styles:
+
+```html
+<!-- [!code filename:Vue] -->
+<template>
+  <h1>Hello world!</h1>
+</template>
+
+<style>
+  h1 {
+    /* [!code highlight:2] */
+    color: var(--text-red-500);
+  }
+</style>
+```
+
+You can find more documentation on [using Tailwind with CSS modules](/docs/compatibility#css-modules).
