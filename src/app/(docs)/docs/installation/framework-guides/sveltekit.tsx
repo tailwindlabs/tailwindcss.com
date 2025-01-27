@@ -102,7 +102,7 @@ export let steps: Step[] = [
           // [!code highlight:2]
           import "../app.css";
         </script>
-        
+
         {@render children()}
       `,
     },
@@ -116,7 +116,7 @@ export let steps: Step[] = [
     ),
     code: {
       name: "Terminal",
-      lang: "shell",
+      lang: "shell",xf
       code: shell`
         npm run dev
       `,
