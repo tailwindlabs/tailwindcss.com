@@ -102,8 +102,8 @@ export let steps: Step[] = [
           // [!code highlight:2]
           import "../app.css";
         </script>
-        {@render children()}
         
+        {@render children()}
       `,
     },
   },
