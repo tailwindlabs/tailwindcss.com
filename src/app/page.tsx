@@ -37,7 +37,7 @@ export default function Home() {
           <FooterMeta className="px-4 md:px-6 lg:px-8" />
         </div>
       </div>
-      <div className="!fixed" aria-hidden="true">
+      <div className="fixed!" aria-hidden="true">
         <input type="text" tabIndex={-1} />
       </div>
     </div>
