@@ -3,6 +3,7 @@ import { isObject } from '@/utils/isObject'
 import { castArray } from '@/utils/castArray'
 import clsx from 'clsx'
 import { Heading } from '@/components/Heading'
+import { Transition } from '@headlessui/react'
 
 function renderProperties(
   properties,
@@ -69,6 +70,26 @@ export const ClassTable = memo(
       }
     }, [isCollapsed])
 
+    const [transition, setTransition] = useState({ visible: false, top: 0 });
+
+    useEffect(() => {
+      if (transition.visible) {
+        const handle = window.setTimeout(() => {
+          setTransition({ visible: false })
+        }, 1500)
+        return () => {
+          window.clearTimeout(handle)
+        }
+      }
+    }, [transition])
+
+    const handleCopyClick = (value, offsetTop) => {
+      navigator.clipboard.writeText(value).then(() => {
+        const adjustTop = 18
+        setTransition({ visible: true, top: offsetTop + adjustTop })
+      });
+    };
+
     return (
       <div ref={ref} className={clsx('relative', showHeading && 'mt-10')}>
         {showHeading && (
@@ -89,7 +110,7 @@ export const ClassTable = memo(
             {custom ? (
               custom()
             ) : (
-              <table className="w-full text-left border-collapse">
+              <table className="w-full text-left border-collapse relative">
                 <thead>
                   <tr>
                     <th className="sticky z-10 top-0 text-sm leading-6 font-semibold text-slate-700 bg-white p-0 dark:bg-slate-900 dark:text-slate-300">
@@ -123,7 +144,7 @@ export const ClassTable = memo(
                     )}
                   </tr>
                 </thead>
-                <tbody className="align-baseline">
+                <tbody className="align-baseline relative">
                   {sort(classes).map((utility, i) => {
                     let selector = utility
                     let properties = { ...utilities[selector] }
@@ -136,11 +157,12 @@ export const ClassTable = memo(
                         <td
                           translate="no"
                           className={clsx(
-                            'py-2 pr-2 font-mono font-medium text-xs leading-6 text-sky-500 whitespace-nowrap dark:text-sky-400',
+                            'py-2 pr-2 font-mono font-medium text-xs leading-6 text-sky-500 whitespace-nowrap dark:text-sky-400 cursor-pointer',
                             {
                               'border-t border-slate-100 dark:border-slate-400/10': i !== 0,
                             }
                           )}
+                          onClick={({ currentTarget: { offsetTop } }) => handleCopyClick(transformSelector(selector), offsetTop)}
                         >
                           {transformSelector(selector)}
                         </td>
@@ -169,6 +191,35 @@ export const ClassTable = memo(
                     )
                   })}
                 </tbody>
+                <Transition
+                  show={transition.visible}
+                  enter="transform ease-out duration-200 transition origin-bottom"
+                  enterFrom="opacity-0"
+                  enterTo="opacity-100"
+                  leave="transition ease-in duration-100"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                >
+                  <div className="absolute z-10" style={{ top: transition.top }}>
+                    <div className="relative bg-sky-500 text-white font-mono text-[0.625rem] leading-6 font-medium px-1.5 rounded-lg">
+                      Copied
+                      <svg
+                        aria-hidden="true"
+                        width="16"
+                        height="6"
+                        viewBox="0 0 16 6"
+                        className="text-sky-500 absolute top-full left-1/2 -mt-px -ml-2"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                          d="M15 0H1V1.00366V1.00366V1.00371H1.01672C2.72058 1.0147 4.24225 2.74704 5.42685 4.72928C6.42941 6.40691 9.57154 6.4069 10.5741 4.72926C11.7587 2.74703 13.2803 1.0147 14.9841 1.00371H15V0Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </Transition>
               </table>
             )}
             <div className="sticky bottom-0 h-px -mt-px bg-slate-200 dark:bg-slate-400/20" />
