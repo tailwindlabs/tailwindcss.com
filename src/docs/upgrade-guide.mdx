@@ -379,15 +379,20 @@ To customize the `container` utility in v4, extend it using the `@utility` direc
 }
 ```
 
-### Preflight changes
+### Default border color
 
-We've made a couple small changes to the base styles in Preflight in v4:
+In v3, the `border-*` and `divide-*` utilities used your configured `gray-200` color by default. We've changed this to `currentColor` in v4 to make Tailwind less opinionated and match browser defaults.
 
-#### New default border color
+To update your project for this change, make sure you specify a color anywhere you're using a `border-*` or `divide-*` utility utility:
 
-In v3, borders used your configured `gray-200` color by default. We've updated this in v4 to be just `currentColor`, which matches the default behavior of all browsers.
+```html
+<!-- [!code classes:border-gray-200] -->
+<div class="border border-gray-200 px-2 py-3 ...">
+  <!-- ... -->
+</div>
+```
 
-To update your project for this change, make sure you're using a border color utility anywhere you're using the `border` utility, or add these lines of CSS to your project to preserve the v3 behavior:
+Alternatively, add these base styles to your project to preserve the v3 behavior:
 
 ```css
 /* [!code filename:CSS] */
@@ -401,6 +406,45 @@ To update your project for this change, make sure you're using a border color ut
   }
 }
 ```
+
+### Default ring width and color
+
+We've changed the width of the `ring` utility from 3px to 1px and changed the default color from `blue-500` to `currentColor` to make things more consistent the `border-*`, `divide-*`, and `outline-*` utilities.
+
+To update your project for these changes, replace any use of `ring` with `ring-3`:
+
+```html
+<!-- prettier-ignore -->
+<button class="focus:ring ..."> <!-- [!code --] -->
+<button class="focus:ring-3 ..."> <!-- [!code ++] -->
+  <!-- ... -->
+</button>
+```
+
+Then make sure to add `ring-blue-500` anywhere you were depending on the default ring color:
+
+```html
+<!-- [!code classes:focus:ring-blue-500] -->
+<button class="focus:ring-3 focus:ring-blue-500 ...">
+  <!-- ... -->
+</button>
+```
+
+Alternatively, add these theme variables to your CSS to preserve the v3 behavior:
+
+```css
+/* [!code filename:CSS] */
+@theme {
+  --default-ring-width: 3px;
+  --default-ring-color: var(--color-blue-500);
+}
+```
+
+Note though that these variables are only supported for compatibility reasons, and are not considered idiomatic usage of Tailwind CSS v4.0.
+
+### Preflight changes
+
+We've made a couple small changes to the base styles in Preflight in v4:
 
 #### New default placeholder color
 
