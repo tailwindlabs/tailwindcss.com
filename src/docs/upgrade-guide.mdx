@@ -418,17 +418,19 @@ You probably won't even notice this change (it might even make your project look
 }
 ```
 
-#### Button cursor change
+#### Buttons use the default cursor
 
-In v3, `button` elements would have a `cursor: pointer` by default. This was changed in v4 to be closer to browser defaults.
+Buttons now use `cursor: default` instead of `cursor: pointer` to match the default browser behavior.
 
-To update your project for this change, you can apply the following compatibility styles:
+If you'd like to continue using `cursor: pointer` by default, add these base styles to your CSS:
 
 ```css
 /* [!code filename:CSS] */
-button:not(:disabled),
-[role="button"]:not(:disabled) {
-  cursor: pointer;
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
 }
 ```
 
