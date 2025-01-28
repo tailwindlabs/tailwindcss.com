@@ -30,9 +30,10 @@ People have been talking about the best way to sort your utility classes in Tail
 
 This plugin scans your templates for class attributes containing Tailwind CSS classes, and then sorts those classes automatically following our [recommended class order](#how-classes-are-sorted).
 
+{/* prettier-ignore */}
 ```html {{ filename: 'HTML' }}
 <!-- Before -->
-<button class="bg-sky-700 px-4 py-2 text-white hover:bg-sky-800 sm:px-8 sm:py-3">...</button>
+<button class="text-white px-4 sm:px-8 py-2 sm:py-3 bg-sky-700 hover:bg-sky-800">...</button>
 
 <!-- After -->
 <button class="bg-sky-700 px-4 py-2 text-white hover:bg-sky-800 sm:px-8 sm:py-3">...</button>
@@ -75,7 +76,7 @@ Utilities themselves are sorted in the same order we sort them in the CSS as wel
 
 {/* prettier-ignore */}
 ```html
-<div class="p-4 pt-2"> <!-- [!code --] -->
+<div class="pt-2 p-4"> <!-- [!code --] -->
 <div class="p-4 pt-2"> <!-- [!code ++] -->
     <!-- ... -->
   </div>
@@ -86,7 +87,7 @@ The actual order of the different utilities is loosely based on the box model, a
 
 {/* prettier-ignore */}
 ```html
-<div class="ml-4 flex h-24 border-2 border-gray-300 p-3 text-gray-700 shadow-md"> <!-- [!code --] -->
+<div class="text-gray-700 shadow-md p-3 border-gray-300 ml-4 h-24 flex border-2"> <!-- [!code --] -->
 <div class="ml-4 flex h-24 border-2 border-gray-300 p-3 text-gray-700 shadow-md"> <!-- [!code ++] -->
     <!-- ... -->
   </div>
@@ -97,7 +98,7 @@ Modifiers like `hover:` and `focus:` are grouped together and sorted after any p
 
 {/* prettier-ignore */}
 ```html
-<div class="scale-125 opacity-50 hover:scale-150 hover:opacity-75"> <!-- [!code --] -->
+<div class="hover:opacity-75 opacity-50 hover:scale-150 scale-125"> <!-- [!code --] -->
 <div class="scale-125 opacity-50 hover:scale-150 hover:opacity-75"> <!-- [!code ++] -->
     <!-- ... -->
   </div>
@@ -108,7 +109,7 @@ Responsive modifiers like `md:` and `lg:` are grouped together at the end in the
 
 {/* prettier-ignore */}
 ```html
-<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"> <!-- [!code --] -->
+<div class="lg:grid-cols-4 grid sm:grid-cols-3 grid-cols-2"> <!-- [!code --] -->
 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"> <!-- [!code ++] -->
     <!-- ... -->
   </div>
@@ -119,7 +120,7 @@ Any custom classes that don't come from Tailwind plugins (like classes for targe
 
 {/* prettier-ignore */}
 ```html
-<div class="select2-dropdown p-3 shadow-xl"> <!-- [!code --] -->
+<div class="p-3 shadow-xl select2-dropdown"> <!-- [!code --] -->
 <div class="select2-dropdown p-3 shadow-xl"> <!-- [!code ++] -->
     <!-- ... -->
   </div>
