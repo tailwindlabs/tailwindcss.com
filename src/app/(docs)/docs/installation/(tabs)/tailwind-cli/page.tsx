@@ -87,8 +87,10 @@ const steps: Step[] = [
 export default function Page() {
   return (
     <>
-      <div id="content-wrapper" className="prose relative z-10 mb-10 max-w-3xl">
-        <h3 className="sr-only">Installing Tailwind CLI</h3>
+      <div id="content-wrapper" className="prose relative z-10 mb-10 max-w-3xl" data-content="true">
+        <h3 className="sr-only" data-title="true">
+          Installing Tailwind CLI
+        </h3>
         <p>
           The simplest and fastest way to get up and running with Tailwind CSS from scratch is with the Tailwind CLI
           tool. The CLI is also available as a <Link href="/blog/standalone-cli">standalone executable</Link> if you

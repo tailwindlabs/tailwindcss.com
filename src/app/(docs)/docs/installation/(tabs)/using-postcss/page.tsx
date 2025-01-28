@@ -120,8 +120,10 @@ const steps: Step[] = [
 export default function Page() {
   return (
     <>
-      <div id="content-wrapper" className="prose relative z-10 mb-10 max-w-3xl">
-        <h3 className="sr-only">Installing Tailwind CSS as a PostCSS plugin</h3>
+      <div id="content-wrapper" className="prose relative z-10 mb-10 max-w-3xl" data-content="true">
+        <h3 data-title="true" className="sr-only">
+          Installing Tailwind CSS as a PostCSS plugin
+        </h3>
         <p>
           Installing Tailwind CSS as a PostCSS plugin is the most seamless way to integrate it with frameworks like
           Next.js and Angular.

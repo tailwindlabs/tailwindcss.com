@@ -85,8 +85,10 @@ const steps: Step[] = [
 export default function Page() {
   return (
     <>
-      <div id="content-wrapper" className="prose relative z-10 mb-10 max-w-3xl">
-        <h3 className="sr-only">Play CDN</h3>
+      <div id="content-wrapper" className="prose relative z-10 mb-10 max-w-3xl" data-content="true">
+        <h3 className="sr-only" data-title="true">
+          Using Play CDN
+        </h3>
         <p>
           Use the Play CDN to try Tailwind right in the browser without any build step. The Play CDN is designed for
           development purposes only, and is not intended for production.
