@@ -23,6 +23,9 @@ export const description = "Utilities for controlling an element's margin.";
     ].flatMap(([prefix, property]) => [
       [`${prefix}-<number>`, `${property}: calc(var(--spacing) * <number>);`],
       [`-${prefix}-<number>`, `${property}: calc(var(--spacing) * -<number>);`],
+      [`${prefix}-auto`, `${property}: auto;`],
+      [`${prefix}-px`, `${property}: 1px;`],
+      [`-${prefix}-px`, `${property}: -1px;`],
       [`${prefix}-(<custom-property>)`, `${property}: var(<custom-property>);`],
       [`${prefix}-[<value>]`, `${property}: <value>;`],
     ]),
@@ -33,29 +36,49 @@ export const description = "Utilities for controlling an element's margin.";
       [
         `${prefix}-<number>`,
         dedent`& > :not(:last-child) {
-          ${property}-start: calc(var(--spacing) * <number>);
-          ${property}-end: calc(var(--spacing) * <number>);
+          --tw-${prefix}-reverse: 0;
+          ${property}-start: calc(calc(var(--spacing) * <number>) * var(--tw-${prefix}-reverse));
+          ${property}-end: calc(calc(var(--spacing) * <number>) * calc(1 - var(--tw-${prefix}-reverse)));
         };`,
       ],
       [
         `-${prefix}-<number>`,
         dedent`& > :not(:last-child) {
-          ${property}-start: calc(var(--spacing) * -<number>);
-          ${property}-end: calc(var(--spacing) * -<number>);
+          --tw-${prefix}-reverse: 0;
+          ${property}-start: calc(calc(var(--spacing) * -<number>) * var(--tw-${prefix}-reverse));
+          ${property}-end: calc(calc(var(--spacing) * -<number>) * calc(1 - var(--tw-${prefix}-reverse)));
+        };`,
+      ],
+      [
+        `${prefix}-px`,
+        dedent`& > :not(:last-child) {
+          --tw-${prefix}-reverse: 0;
+          ${property}-start: calc(calc(var(--spacing) * 1px) * var(--tw-${prefix}-reverse));
+          ${property}-end: calc(calc(var(--spacing) * 1px) * calc(1 - var(--tw-${prefix}-reverse)));
+        };`,
+      ],
+      [
+        `-${prefix}-px`,
+        dedent`& > :not(:last-child) {
+          --tw-${prefix}-reverse: 0;
+          ${property}-start: calc(calc(var(--spacing) * -1px) * var(--tw-${prefix}-reverse));
+          ${property}-end: calc(calc(var(--spacing) * -1px) * calc(1 - var(--tw-${prefix}-reverse)));
         };`,
       ],
       [
         `${prefix}-(<custom-property>)`,
         dedent`& > :not(:last-child) {
-          ${property}-start: <custom-property>;
-          ${property}-end: <custom-property>);
+          --tw-${prefix}-reverse: 0;
+          ${property}-start: calc(var(<custom-property>) * var(--tw-${prefix}-reverse));
+          ${property}-end: calc(var(<custom-property>) * calc(1 - var(--tw-${prefix}-reverse)));
         };`,
       ],
       [
         `${prefix}-[<value>]`,
         dedent`& > :not(:last-child) {
-          ${property}-start: <value>;
-          ${property}-end: <value>);
+          --tw-${prefix}-reverse: 0;
+          ${property}-start: calc(<value> * var(--tw-${prefix}-reverse));
+          ${property}-end: calc(<value> * calc(1 - var(--tw-${prefix}-reverse)));
         };`,
       ],
     ]),
@@ -71,7 +94,8 @@ export const description = "Utilities for controlling an element's margin.";
         --tw-space-y-reverse: 1;
       }`,
     ],
-  ]}
+
+]}
 />
 
 ## Examples

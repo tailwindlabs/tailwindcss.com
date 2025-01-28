@@ -10,8 +10,9 @@ export const description = "Utilities for controlling how elements are sized and
 <ApiTable
   rows={[
     ["row-span-<number>", "grid-row: span <number> / span <number>;"],
-    ["row-(<custom-property>)", "grid-row: var(<custom-property>);"],
-    ["row-[<value>]", "grid-row: <value>;"],
+    ["row-span-full", "grid-row: 1 / -1;"],
+    ["row-span-(<custom-property>)", "grid-row: span var(<custom-property>) / span var(<custom-property>);"],
+    ["row-span-[<value>]", "grid-row: span <value> / span <value>;"],
     ["row-start-<number>", "grid-row-start: <number>;"],
     ["-row-start-<number>", "grid-row-start: calc(<number> * -1);"],
     ["row-start-auto", "grid-row-start: auto;"],
@@ -22,6 +23,9 @@ export const description = "Utilities for controlling how elements are sized and
     ["row-end-auto", "grid-row-end: auto;"],
     ["row-end-(<custom-property>)", "grid-row-end: var(<custom-property>);"],
     ["row-end-[<value>]", "grid-row-end: <value>;"],
+    ["row-auto", "grid-row: auto;"],
+    ["row-(<custom-property>)", "grid-row: var(<custom-property>);"],
+    ["row-[<value>]", "grid-row: <value>;"],
   ]}
 />
 
