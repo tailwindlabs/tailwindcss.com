@@ -418,6 +418,20 @@ You probably won't even notice this change (it might even make your project look
 }
 ```
 
+#### Button cursor change
+
+In v3, `button` elements would have a `cursor: pointer` by default. This was changed in v4 to be closer to browser defaults.
+
+To update your project for this change, you can apply the following compatibility styles:
+
+```css
+/* [!code filename:CSS] */
+button:not(:disabled),
+[role="button"]:not(:disabled) {
+  cursor: pointer;
+}
+```
+
 ### Adding custom utilities
 
 In v3, any custom classes you defined within `@layer utilities` would get picked up by Tailwind as a true utility class and would automatically work with variants like `hover`, `focus`, or `lg`.
