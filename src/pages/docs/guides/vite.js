@@ -63,6 +63,26 @@ let tabs = [
         },
       },
       {
+        title: 'Add css section to vite config',
+        body: () => <p>Add the config needed for vite to use Tailwindcss in the <code>vite.config.js</code>.</p>,
+        code: {
+          name: 'vite.config.js',
+          lang: 'ts',
+          code: `  import { defineConfig } from "vite";
+  import react from "@vitejs/plugin-react-swc";
+> import tailwindcss from "tailwindcss";
+
+  export default defineConfig({
+    plugins: [react()],
+>   css: {
+>     postcss: {
+>       plugins: [tailwindcss()],
+>     },
+>   },
+  })`,
+        },
+      },
+      {
         title: 'Add the Tailwind directives to your CSS',
         body: () => (
           <p>
