@@ -418,6 +418,22 @@ You probably won't even notice this change (it might even make your project look
 }
 ```
 
+#### Buttons use the default cursor
+
+Buttons now use `cursor: default` instead of `cursor: pointer` to match the default browser behavior.
+
+If you'd like to continue using `cursor: pointer` by default, add these base styles to your CSS:
+
+```css
+/* [!code filename:CSS] */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+```
+
 ### Adding custom utilities
 
 In v3, any custom classes you defined within `@layer utilities` would get picked up by Tailwind as a true utility class and would automatically work with variants like `hover`, `focus`, or `lg`.
