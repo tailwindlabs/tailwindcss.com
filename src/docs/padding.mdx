@@ -22,7 +22,7 @@ export const description = "Utilities for controlling an element's padding.";
     ["pl", "padding-left"],
   ].flatMap(([prefix, property]) => [
     [`${prefix}-<number>`, `${property}: calc(var(--spacing) * <number>);`],
-    [`${prefix}-px`, `${property}: calc(var(--spacing) * 1px);`],
+    [`${prefix}-px`, `${property}: 1px;`],
     [`${prefix}-(<custom-property>)`, `${property}: var(<custom-property>);`],
     [`${prefix}-[<value>]`, `${property}: <value>;`],
   ])}
