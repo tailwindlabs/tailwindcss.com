@@ -434,7 +434,7 @@ Now none of the default utility classes that are driven by theme variables will 
 
 ### Defining animation keyframes
 
-Define the `@keyframes` rules for your `--animate-*` theme variables within `@theme` to only include them in your generated CSS when your custom animation utilities are actually used:
+Define the `@keyframes` rules for your `--animate-*` theme variables within `@theme` to include them in your generated CSS:
 
 ```css
 /* [!code filename:app.css] */
@@ -456,7 +456,7 @@ Define the `@keyframes` rules for your `--animate-*` theme variables within `@th
 }
 ```
 
-If you want your custom `@keyframes` rules to always be included in the output, define them outside of `@theme` instead.
+If you want your custom `@keyframes` rules to always be included even when not adding an `--animate-*` theme variable, define them outside of `@theme` instead.
 
 ### Referencing other variables
 
