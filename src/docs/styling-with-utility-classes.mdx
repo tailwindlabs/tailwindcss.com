@@ -894,3 +894,102 @@ Here's what a `btn-primary` class might look like, using [theme variables](/docs
 </Figure>
 
 Again though, for anything that's more complicated than just a single HTML element, we highly recommend using template partials so the styles and structure can be encapsulated in one place.
+
+## Managing style conflicts
+
+{/* All of the styles in Tailwind have fairly low specificity which can lead to style conflicts */}
+
+### Conflicting utility classes
+
+When you add two classes that target the same CSS property, the class that appears later in the stylesheet wins. So in this example, the element will receive `display: grid` even though `flex` comes last in the actual `class` attribute:
+
+<CodeExampleStack>
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- prettier-ignore -->
+<div class="grid flex">
+  <!-- ... -->
+</div>
+```
+
+```css
+/* [!code filename: CSS] */
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+```
+
+</CodeExampleStack>
+
+In general, you should just never add two conflicting classes to the same element — only ever add the one you actually want to take effect:
+
+```jsx
+// [!code word:gridLayout\ \?\ \"grid\"\ \:\ \"flex\"]
+function Example({ gridLayout }) {
+  return <div className={gridLayout ? "grid" : "flex"}>{/* ... */}</div>;
+}
+```
+
+Using component-based libraries like React or Vue, this often means exposing specific props for styling customizations instead of letting consumers add extra classes from outside of a component, since those styles will often conflict.
+
+### Using the important modifier
+
+When you really need to force a specific utility class to take effect and have no other means of managing the specificity, you can add `!` to the end of the class name to make all of the declarations `!important`:
+
+<CodeExampleStack>
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:bg-red-500!] -->
+<!-- prettier-ignore -->
+<div class="bg-teal-500 bg-red-500!">
+  <!-- ... -->
+</div>
+```
+
+```css
+/* [!code filename: Generated CSS] */
+/* [!code word:!important] */
+.bg-red-500\! {
+  background-color: var(--color-red-500) !important;
+}
+.bg-teal-500 {
+  background-color: var(--color-teal-500);
+}
+```
+
+</CodeExampleStack>
+
+### Using the important flag
+
+If you're adding Tailwind to a project that has existing complex CSS with high specificity rules, you can use the `important` flag when importing Tailwind to mark _all_ utilities as `!important`:
+
+<CodeExampleStack>
+
+```css
+/* [!code filename:app.css] */
+/* [!code word:important] */
+@import "tailwindcss" important;
+```
+
+```css
+/* [!code filename:Compiled CSS] */
+/* [!code word:!important] */
+@layer utilities {
+  .flex {
+    display: flex !important;
+  }
+  .gap-4 {
+    gap: 1rem !important;
+  }
+  .underline {
+    text-decoration-line: underline !important;
+  }
+}
+```
+
+</CodeExampleStack>
