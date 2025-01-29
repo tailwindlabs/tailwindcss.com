@@ -57,10 +57,10 @@ export async function CodeExample({
 
 export function CodeExampleWrapper({ className, children }: { className?: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-xl bg-gray-950 in-data-stack:mt-0 in-data-stack:rounded-none in-[figure]:-mx-1 in-[figure]:-mb-1 in-data-stack:[:first-child>&]:rounded-t-xl in-data-stack:[:last-child>&]:rounded-b-xl">
+    <div className="rounded-xl bg-gray-950 in-data-stack:mt-0 in-data-stack:rounded-none in-[figure]:-mx-1 in-[figure]:-mb-1 in-data-stack:[:first-child>&]:rounded-t-xl in-data-stack:[:first-child>&]:*:rounded-t-xl in-data-stack:[:last-child>&]:rounded-b-xl in-data-stack:[:last-child>&]:*:rounded-b-xl">
       <div
         className={clsx(
-          "rounded-xl p-1 text-sm scheme-dark in-data-stack:not-first:rounded-t-none dark:bg-white/5 dark:inset-ring dark:inset-ring-white/10",
+          "p-1 text-sm scheme-dark dark:bg-white/5 dark:inset-ring dark:inset-ring-white/10 in-data-stack:dark:inset-ring-0",
           className,
         )}
       >
@@ -73,7 +73,7 @@ export function CodeExampleWrapper({ className, children }: { className?: string
 export function CodeExampleStack({ children }: { children: React.ReactNode }) {
   return (
     <div data-stack>
-      <div className="not-prose">{children}</div>
+      <div className="not-prose rounded-xl dark:outline dark:-outline-offset-1 dark:outline-white/10">{children}</div>
     </div>
   );
 }
