@@ -531,39 +531,6 @@ Then you can use `@import` to include your theme variables in other projects:
 
 You can put shared theme variables like this in their own package in monorepo setups or even publish them to NPM and import them just like any other third-party CSS files.
 
-### Important
-
-The `important` option can be used to make all utilities have a 
-
-To generate utilities as `!important`, set the important option on the Tailwind
-CSS import:
-
-```css
-/* [!code filename:app.css] */
-/* [!code word:important] */
-@import "tailwindcss" important;
-```
-
-To generate individual utilities as `!important`, use the `!` syntax at the end of a utility class:
-
-<CodeExampleStack>
-
-```html
-<!-- [!code filename:index.html] -->
-<!-- [!code word:!] -->
-<div class="bg-red-500!"></div>
-```
-
-```css
-/* [!code filename: Generated CSS] */
-/* [!code word:!important] */
-.bg-red-500\! {
-  background-color: var(--color-red-500) !important;
-}
-```
-
-</CodeExampleStack>
-
 ## Using your theme variables
 
 All of your theme variables are turned into regular CSS variables when you compile your CSS:
