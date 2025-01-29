@@ -928,8 +928,9 @@ When you add two classes that target the same CSS property, the class that appea
 In general, you should just never add two conflicting classes to the same element — only ever add the one you actually want to take effect:
 
 ```jsx
+// [!code filename:example.jsx]
 // [!code word:gridLayout\ \?\ \"grid\"\ \:\ \"flex\"]
-function Example({ gridLayout }) {
+export function Example({ gridLayout }) {
   return <div className={gridLayout ? "grid" : "flex"}>{/* ... */}</div>;
 }
 ```
