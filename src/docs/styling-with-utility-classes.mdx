@@ -945,7 +945,8 @@ When you really need to force a specific utility class to take effect and have n
 ```html
 <!-- [!code filename:HTML] -->
 <!-- [!code classes:bg-red-500!] -->
-<div class="bg-blue-500 bg-red-500!">
+<!-- prettier-ignore -->
+<div class="bg-teal-500 bg-red-500!">
   <!-- ... -->
 </div>
 ```
@@ -953,11 +954,11 @@ When you really need to force a specific utility class to take effect and have n
 ```css
 /* [!code filename: Generated CSS] */
 /* [!code word:!important] */
-.bg-blue-500 {
-  background-color: var(--color-blue-500);
-}
 .bg-red-500\! {
   background-color: var(--color-red-500) !important;
+}
+.bg-teal-500 {
+  background-color: var(--color-teal-500);
 }
 ```
 
