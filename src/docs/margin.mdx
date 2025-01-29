@@ -53,16 +53,16 @@ export const description = "Utilities for controlling an element's margin.";
         `${prefix}-px`,
         dedent`& > :not(:last-child) {
           --tw-${prefix}-reverse: 0;
-          ${property}-start: calc(calc(var(--spacing) * 1px) * var(--tw-${prefix}-reverse));
-          ${property}-end: calc(calc(var(--spacing) * 1px) * calc(1 - var(--tw-${prefix}-reverse)));
+          ${property}-start: calc(1px * var(--tw-${prefix}-reverse));
+          ${property}-end: calc(1px * calc(1 - var(--tw-${prefix}-reverse)));
         };`,
       ],
       [
         `-${prefix}-px`,
         dedent`& > :not(:last-child) {
           --tw-${prefix}-reverse: 0;
-          ${property}-start: calc(calc(var(--spacing) * -1px) * var(--tw-${prefix}-reverse));
-          ${property}-end: calc(calc(var(--spacing) * -1px) * calc(1 - var(--tw-${prefix}-reverse)));
+          ${property}-start: calc(-1px * var(--tw-${prefix}-reverse));
+          ${property}-end: calc(-1px * calc(1 - var(--tw-${prefix}-reverse)));
         };`,
       ],
       [
