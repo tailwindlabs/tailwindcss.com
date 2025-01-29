@@ -153,6 +153,8 @@ Use `@source` to explicitly register source paths that Tailwind ignores by defau
 
 This is especially useful when you need to scan an external library that is built with Tailwind, since dependencies are usually listed in your `.gitignore` file and ignored by Tailwind.
 
+The path in the `@source()` is relative to this css file defining the source, and not relative to where you run the Tailwind build command.
+
 ### Setting your base path
 
 Tailwind uses the current working directory as its starting point when scanning for class names by default.
