@@ -482,10 +482,10 @@ Modifiers are handled using the `--modifier()` function which works exactly like
 /* [!code filename:CSS] */
 @utility text-* {
   /* prettier-ignore */
-  font-size: --value(--font-size-*, [length]);
+  font-size: --value(--text-*, [length]);
   /* [!code highlight:2] */
   /* prettier-ignore */
-  line-height: --modifier(--line-height-*, [length], [*]);
+  line-height: --modifier(--leading-*, [length], [*]);
 }
 ```
 
