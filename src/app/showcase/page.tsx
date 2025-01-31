@@ -1,3 +1,4 @@
+import { FooterSitemap, FooterMeta } from "@/components/footer";
 import GridContainer from "@/components/grid-container";
 import ShowcaseThumbnail from "@/components/showcase-thumbnail";
 import type { Metadata } from "next";
@@ -40,6 +41,13 @@ export default async function Showcase() {
         {showcase.map((showcase, siteIndex) => (
           <ShowcaseThumbnail key={showcase.name} showcase={showcase} priority={siteIndex < 8} />
         ))}
+      </div>
+      <GridContainer>
+        <FooterSitemap className="*:first:border-l-0 *:last:border-r-0" />
+      </GridContainer>
+
+      <div>
+        <FooterMeta className="px-4 md:px-6 lg:px-8" />
       </div>
     </div>
   );
