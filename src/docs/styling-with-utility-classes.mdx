@@ -897,8 +897,6 @@ Again though, for anything that's more complicated than just a single HTML eleme
 
 ## Managing style conflicts
 
-{/* All of the styles in Tailwind have fairly low specificity which can lead to style conflicts */}
-
 ### Conflicting utility classes
 
 When you add two classes that target the same CSS property, the class that appears later in the stylesheet wins. So in this example, the element will receive `display: grid` even though `flex` comes last in the actual `class` attribute:
@@ -989,6 +987,36 @@ If you're adding Tailwind to a project that has existing complex CSS with high s
   }
   .underline {
     text-decoration-line: underline !important;
+  }
+}
+```
+
+</CodeExampleStack>
+
+### Using the prefix option
+
+If your project has class names that conflict with Tailwind CSS utilities, you can prefix all Tailwind-generated classes and CSS variables using the `prefix` option:
+
+<CodeExampleStack>
+
+```css
+/* [!code filename:app.css] */
+/* [!code word:important] */
+@import "tailwindcss" prefix(tw);
+```
+
+```css
+/* [!code filename:Compiled CSS] */
+/* [!code word:tw\:] */
+@layer theme {
+  :root {
+    --tw-color-red-500: oklch(0.637 0.237 25.331);
+  }
+}
+
+@layer utilities {
+  .tw\:text-red-500 {
+    color: var(--tw-color-red-500);
   }
 }
 ```
