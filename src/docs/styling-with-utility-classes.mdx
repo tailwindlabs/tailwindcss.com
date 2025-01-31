@@ -994,3 +994,33 @@ If you're adding Tailwind to a project that has existing complex CSS with high s
 ```
 
 </CodeExampleStack>
+
+### Using the prefix option
+
+If your project has class names that conflict with Tailwind CSS utilities, you can prefix all Tailwind-generated classes and CSS variables using the `prefix` options:
+
+<CodeExampleStack>
+
+```css
+/* [!code filename:app.css] */
+/* [!code word:important] */
+@import "tailwindcss" prefix(tw);
+```
+
+```css
+/* [!code filename:Compiled CSS] */
+/* [!code word:tw\:] */
+@layer theme {
+  :root {
+    --tw-color-red-500: oklch(0.637 0.237 25.331);
+  }
+}
+
+@layer utilities {
+  .tw\:text-red-500 {
+    color: var(--tw-color-red-500);
+  }
+}
+```
+
+</CodeExampleStack>
