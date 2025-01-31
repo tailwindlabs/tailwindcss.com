@@ -5,6 +5,7 @@ import Image from "next/image";
 import { NewsletterForm } from "@/components/newsletter-form";
 import GridContainer from "@/components/grid-container";
 import type { Metadata } from "next/types";
+import { FooterSitemap, FooterMeta } from "@/components/footer";
 
 type Props = {
   params: Promise<{
@@ -97,7 +98,7 @@ export default async function DocPage(props: Props) {
           </div>
         </div>
 
-        <div className="mb-46 max-xl:mx-auto max-xl:mt-16 max-xl:w-full max-xl:max-w-(--breakpoint-md)">
+        <div className="max-xl:mx-auto max-xl:mt-16 max-xl:w-full max-xl:max-w-(--breakpoint-md)">
           <GridContainer className="px-4 py-2 lg:px-2">
             <article className="prose prose-blog max-w-(--breakpoint-md)">
               <post.Component />
@@ -116,6 +117,10 @@ export default async function DocPage(props: Props) {
               </div>
             </section>
           </GridContainer>
+          <GridContainer className="mt-46">
+            <FooterSitemap className="*:first:border-l-0 *:last:border-r-0" />
+          </GridContainer>
+          <FooterMeta className="px-4 md:px-6 lg:px-8" />
         </div>
       </div>
     </>

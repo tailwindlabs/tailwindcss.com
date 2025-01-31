@@ -67,7 +67,7 @@ export default function ShowcaseThumbnail({ showcase, priority = false }: { show
 
   return (
     <div
-      className="group dark:border-bg-white/10 relative border-x border-gray-950/5 transition-colors hover:bg-gray-950/5 max-sm:border-0 sm:max-lg:nth-[2n]:border-r-0 sm:max-lg:nth-[2n+1]:border-l-0 lg:max-xl:nth-[3n]:border-r-0 lg:max-xl:nth-[3n+1]:border-l-0 xl:nth-[4n]:border-r-0 xl:nth-[4n+1]:border-l-0"
+      className="group dark:border-bg-white/10 relative isolate border-x border-gray-950/5 transition-colors hover:bg-gray-950/5 max-sm:border-0 sm:max-lg:nth-[2n]:border-r-0 sm:max-lg:nth-[2n+1]:border-l-0 lg:max-xl:nth-[3n]:border-r-0 lg:max-xl:nth-[3n+1]:border-l-0 xl:nth-[4n]:border-r-0 xl:nth-[4n+1]:border-l-0 dark:border-white/10 dark:hover:bg-white/2.5"
       onMouseEnter={() => {
         if (state.current === "idle") {
           state.current = "playing";

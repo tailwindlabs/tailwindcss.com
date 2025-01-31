@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Fragment } from "react";
 import { formatDate, getBlogPostBySlug, getBlogPostSlugs, nonNullable } from "./api";
+import { FooterSitemap, FooterMeta } from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -80,6 +81,10 @@ export default async function Blog() {
           </Fragment>
         ))}
       </div>
+      <GridContainer>
+        <FooterSitemap className="*:first:border-l-0 *:last:border-r-0" />
+      </GridContainer>
+      <FooterMeta className="px-4 md:px-6 lg:px-8" />
     </div>
   );
 }
