@@ -1,3 +1,5 @@
+import { CodeExampleStack } from "@/components/code-example";
+
 export const title = "Upgrade guide";
 export const description = "Upgrading your Tailwind CSS projects from v3 to v4.";
 
@@ -73,6 +75,25 @@ npx tailwindcss -i input.css -o output.css
   # [!code ++:2]
 npx @tailwindcss/cli -i input.css -o output.css
 ```
+
+#### CLI options
+
+In v3, you could use the `--config` option to point to your configuration file.
+In v4 there is no configuration file anymore. If you still require a
+configuration file, make sure to include it in your CSS file and use the `@config` directive:
+
+<CodeExampleStack>
+
+```css
+/* [!code filename:input.css] */
+@config "./tailwind.config.js";
+```
+
+```shell
+npx @tailwindcss/cli -i input.css -o output.css
+```
+
+</CodeExampleStack>
 
 ## Changes from v3
 
