@@ -15,6 +15,7 @@ const guides: Guide[] = await create({
   solidjs: () => import("./solidjs"),
   sveltekit: () => import("./sveltekit"),
   angular: () => import("./angular"),
+  dotnet: () => import("./dotnet"),
   "ruby-on-rails": () => import("./ruby-on-rails"),
   "react-router": () => import("./react-router"),
   phoenix: () => import("./phoenix"),
