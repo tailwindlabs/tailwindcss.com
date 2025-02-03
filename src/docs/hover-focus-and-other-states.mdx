@@ -993,17 +993,16 @@ For more control, you can use the `&` character to mark where `.group` should en
 
 The `in-*` variant works similarly to `group` except you don't need to add `group` to the parent element:
 
+{/* prettier-ignore */}
 ```html
 <!-- [!code classes:in-focus:opacity-100] -->
 <!-- [!code --:3] -->
 <div tabindex="0" class="group">
   <div class="opacity-50 group-focus:opacity-100">
-    <!-- [!code ++:3] -->
-    <div tabindex="0">
-      <div class="opacity-50 in-focus:opacity-100">
-        <!-- ... -->
-      </div>
-    </div>
+<!-- [!code ++:3] -->
+<div tabindex="0">
+  <div class="opacity-50 in-focus:opacity-100">
+    <!-- ... -->
   </div>
 </div>
 ```
