@@ -103,4 +103,16 @@ If needed, use the [@font-face](https://developer.mozilla.org/en-US/docs/Web/CSS
 }
 ```
 
+If you want to use Google Fonts, you can use an import at the top of your CSS
+file:
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); /* [!code highlight] */
+@import "tailwindcss";
+
+@theme {
+  --font-roboto: 'Roboto', sans-serif; /* [!code highlight] */
+}
+```
+
 </CustomizingYourTheme>
