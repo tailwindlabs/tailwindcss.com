@@ -559,7 +559,9 @@ Generally though we recommend treating hover functionality as an enhancement, an
 
 ### Transitioning outline-color
 
-The `transition` and `transition-color` utilities will now include `outline-color` in their property lists. To fix issues with transitioning e.g. on focus, ensure that `outline-color` is applied unconditionally:
+The `transition` and `transition-color` utilities now include the `outline-color` property.
+
+This means if you were adding an outline with a custom color on focus, you will see the color transition from the default color. To avoid this, make sure you set the outline color unconditionally, or explicitly set it for both states:
 
 ```html
 <!-- [!code filename:HTML] -->
