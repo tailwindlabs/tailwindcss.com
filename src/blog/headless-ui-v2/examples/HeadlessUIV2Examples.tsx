@@ -157,7 +157,7 @@ export function ComboboxExample() {
             leaveTo="opacity-0"
             afterLeave={() => setQuery("")}
           >
-            <ComboboxOptions className="mt-2 max-h-60 w-[--input-width] overflow-y-auto rounded-xl border border-gray-200 bg-white p-1 backdrop-blur empty:invisible dark:border-white/5 dark:bg-white/5">
+            <ComboboxOptions className="mt-2 max-h-60 w-(--input-width) overflow-y-auto rounded-xl border border-gray-200 bg-white p-1 backdrop-blur empty:invisible dark:border-white/5 dark:bg-white/5">
               {({ option: person }) => (
                 <ComboboxOption
                   key={person.id}
