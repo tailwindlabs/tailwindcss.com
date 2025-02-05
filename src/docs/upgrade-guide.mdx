@@ -557,6 +557,20 @@ This can create problems if you've built your site in a way that depends on touc
 
 Generally though we recommend treating hover functionality as an enhancement, and not depending on it for your site to work since touch devices don't truly have the ability to hover.
 
+### Transitioning outline-color
+
+The `transition` and `transition-color` utilities now include the `outline-color` property.
+
+This means if you were adding an outline with a custom color on focus, you will see the color transition from the default color. To avoid this, make sure you set the outline color unconditionally, or explicitly set it for both states:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code --:2] -->
+<button class="transition hover:outline-2 hover:outline-cyan-500"></button>
+<!-- [!code ++:2] -->
+<button class="outline-cyan-500 transition hover:outline-2"></button>
+```
+
 ### Disabling core plugins
 
 In v3 there was a `corePlugins` option you could use to completely disable certain utilities in the framework. This is no longer supported in v4.
