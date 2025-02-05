@@ -188,7 +188,7 @@ export function Header({ navIsOpen, onNavToggle }) {
                 href="https://tailwindcss.com"
                 className="text-sm text-white font-bold underline sm:hidden"
               >
-                Go to Tailwind CSS v3 &rarr;
+                Go to Tailwind CSS v4 &rarr;
               </a>
             </div>
             <span
@@ -200,7 +200,7 @@ export function Header({ navIsOpen, onNavToggle }) {
                 href="https://tailwindcss.com"
                 className="whitespace-nowrap inline-flex rounded-md bg-white py-2 px-3 text-xs font-semibold  text-blue-500 hover:bg-opacity-90"
               >
-                Go to Tailwind CSS v3 &rarr;
+                Go to Tailwind CSS v4 &rarr;
               </a>
             </div>
           </div>
