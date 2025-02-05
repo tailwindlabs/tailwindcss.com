@@ -20,7 +20,7 @@ export let steps: Step[] = [
     body: (
       <p>
         Start by creating a new Astro project if you don't have one set up already. The most common approach is to use{" "}
-        <a href="https://docs.astro.build/en/getting-started/#start-your-first-project">create astro</a>.
+        <a href="https://docs.astro.build/en/install-and-setup/#install-from-the-cli-wizard">create astro</a>.
       </p>
     ),
     code: {
