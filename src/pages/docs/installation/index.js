@@ -29,14 +29,14 @@ let steps = [
       name: 'tailwind.config.js',
       lang: 'js',
       code: `  /** @type {import('tailwindcss').Config} */
-export default {
->  content: ["./src/**/*.{html,js}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}`,
+ export default {
+>   content: ["./src/**/*.{html,js}"],
+    theme: {
+      extend: {},
     },
+    plugins: [],
+  }`,
+     },
   },
   {
     title: 'Add the Tailwind directives to your CSS',
