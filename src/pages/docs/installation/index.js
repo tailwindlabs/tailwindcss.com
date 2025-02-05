@@ -36,7 +36,7 @@ let steps = [
     },
     plugins: [],
   }`,
-     },
+    },
   },
   {
     title: 'Add the Tailwind directives to your CSS',
