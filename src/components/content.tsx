@@ -51,6 +51,7 @@ export function UsingACustomValue({
   value,
   variable,
   dataType,
+  valueDataType,
   element = "div",
   elementAttributes = {},
   children,
@@ -61,6 +62,7 @@ export function UsingACustomValue({
   value?: string;
   variable?: string;
   dataType?: string;
+  valueDataType?: string;
   element?: string;
   elementAttributes?: Record<string, string>;
   children?: React.ReactNode;
@@ -72,6 +74,7 @@ export function UsingACustomValue({
   }
 
   utility = utility || utilities![0];
+  let arbitraryTypeHint = valueDataType ? `${valueDataType}:` : null;
 
   return (
     <>
@@ -83,7 +86,7 @@ export function UsingACustomValue({
               <Fragment key={index}>
                 {utilities.length > 1 && index === utilities.length - 1 ? " and " : ""}
                 <code>
-                  {name}-[<var>{"<value>"}</var>]
+                  {name}-[{arbitraryTypeHint}<var>{"<value>"}</var>]
                 </code>
                 {index === utilities.length - 1 || utilities.length < 3 ? "" : ","}
               </Fragment>
@@ -93,7 +96,7 @@ export function UsingACustomValue({
           <>
             Use the{" "}
             <code>
-              {utility}-[<var>{"<value>"}</var>]
+              {utility}-[{arbitraryTypeHint}<var>{"<value>"}</var>]
             </code>{" "}
             syntax
           </>
@@ -109,10 +112,10 @@ export function UsingACustomValue({
                 code: htmlSnippet({
                   elementName: element,
                   attributes: {
-                    class: `${utility}-[${value}] ...`,
+                    class: `${utility}-[${arbitraryTypeHint}${value}] ...`,
                     ...elementAttributes,
                   },
-                  featuredClass: `${utility}-[${value}]`,
+                  featuredClass: `${utility}-[${arbitraryTypeHint}${value}]`,
                 }),
               }}
             />
