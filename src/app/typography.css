@@ -89,7 +89,10 @@
   }
 
   :is(h2, h3, h4):where(:not(.not-prose, .not-prose *)) {
-    scroll-margin-top: calc(var(--spacing) * 18);
+    scroll-margin-top: calc(var(--spacing) * 32);
+    @variant lg {
+      scroll-margin-top: calc(var(--spacing) * 18);
+    }
   }
 
   ul:where(:not(.not-prose, .not-prose *)) {
