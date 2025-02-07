@@ -106,7 +106,7 @@ const steps: Step[] = [
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <!-- [!code highlight:2] -->
-          <link href="/dist/styles.css" rel="stylesheet">
+          <link href="/src/styles.css" rel="stylesheet">
         </head>
         <body>
           <!-- [!code highlight:4] -->
