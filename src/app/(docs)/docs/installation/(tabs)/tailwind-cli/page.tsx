@@ -27,7 +27,7 @@ const steps: Step[] = [
     code: {
       name: "Terminal",
       lang: "shell",
-      code: "npm install tailwindcss @tailwindcss/cli",
+      code: "npm install -D tailwindcss @tailwindcss/cli",
     },
   },
   {
