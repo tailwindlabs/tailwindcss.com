@@ -30,7 +30,7 @@ for (let line of styles.split("\n")) {
 export function ColorPalette() {
   return (
     <div className="not-prose grid grid-cols-[auto_minmax(0,_1fr)] items-center gap-4">
-      <div className="col-start-2 grid grid-cols-11 justify-items-center gap-1.5 font-medium text-gray-950 *:rotate-180 *:[writing-mode:vertical-lr] sm:gap-4 sm:*:rotate-0 sm:*:[writing-mode:horizontal-tb] dark:text-white">
+      <div className="sticky top-22 z-10 col-start-2 grid grid-cols-11 justify-items-center gap-1.5 font-medium text-gray-950 *:rotate-180 *:[writing-mode:vertical-lr] sm:top-22 sm:gap-4 sm:*:rotate-0 sm:*:[writing-mode:horizontal-tb] md:top-22 lg:top-8 dark:text-white">
         <div>50</div>
         <div>100</div>
         <div>200</div>
