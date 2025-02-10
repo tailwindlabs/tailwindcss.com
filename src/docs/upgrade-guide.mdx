@@ -478,6 +478,64 @@ If you'd like to continue using `cursor: pointer` by default, add these base sty
 }
 ```
 
+#### Dialog margins removed
+
+`<dialog>` elements now have their margin reset. If you want to preserve the v3 behavior, add this CSS to your project:
+
+```css
+/* [!code filename:CSS] */
+@layer base {
+  dialog {
+    margin: auto;
+  }
+}
+```
+
+### Using a prefix
+
+Prefixes now look like variants and are always at the beginning of the class name:
+
+```html
+<!-- [!code classes:tw:bg-red-500,tw:flex,tw:hover:bg-red-600] -->
+<div class="tw:flex tw:bg-red-500 tw:hover:bg-red-600">
+  <!-- ... -->
+</div>
+```
+
+When using a prefix, you should still configure your theme variables as if you aren't using a prefix:
+
+```css {{ filename: "app.css" }}
+@import "tailwindcss" prefix(tw);
+
+@theme {
+  --font-display: "Satoshi", "sans-serif";
+
+  --breakpoint-3xl: 1920px;
+
+  --color-avocado-100: oklch(0.99 0 0);
+  --color-avocado-200: oklch(0.98 0.04 113.22);
+  --color-avocado-300: oklch(0.94 0.11 115.03);
+
+  /* ... */
+}
+```
+
+The generated CSS variables _will_ include a prefix though to avoid conflicts with any existing variables in your project:
+
+```css {{ filename: "dist.css" }}
+:root {
+  --tw-font-display: "Satoshi", "sans-serif";
+
+  --tw-breakpoint-3xl: 1920px;
+
+  --tw-color-avocado-100: oklch(0.99 0 0);
+  --tw-color-avocado-200: oklch(0.98 0.04 113.22);
+  --tw-color-avocado-300: oklch(0.94 0.11 115.03);
+
+  /* ... */
+}
+```
+
 ### Adding custom utilities
 
 In v3, any custom classes you defined within `@layer utilities` would get picked up by Tailwind as a true utility class and would automatically work with variants like `hover`, `focus`, or `lg`.
