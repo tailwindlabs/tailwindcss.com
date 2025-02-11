@@ -365,9 +365,26 @@ To update your project for this change, replace any usage of `ring` with `ring-3
 <input class="ring-3 ring-blue-500" />
 ```
 
-#### Updated space-x-\* and space-y-\* utilities
+### Space-between selector
 
-The [`space-x-*` and `space-y-*` utilities](/docs/margin#adding-space-between-children) now use an updated selector that adds a margin to all but the last elements. If this change causes any issues, we recommend to migrate to a flex or grid layout and use `gap` instead:
+We've changed the selector used by the [`space-x-*` and `space-y-*` utilities](/docs/margin#adding-space-between-children) to address serious performance issues on large pages:
+
+```css
+/* [!code filename:CSS] */
+/* Before */
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 1rem;
+}
+
+/* Now */
+.space-y-4 > :not(:last-child) {
+  margin-bottom: 1rem;
+}
+```
+
+You might see changes in your project if you were ever using these utilities with inline elements, or if you were adding other margins to child elements to tweak their spacing.
+
+If this change causes any issues in your project, we recommend migrating to a flex or grid layout and using `gap` instead:
 
 {/* prettier-ignore */}
 ```html
@@ -494,7 +511,9 @@ If you'd like to continue using `cursor: pointer` by default, add these base sty
 
 #### Dialog margins removed
 
-`<dialog>` elements now have their margin reset. If you want to preserve the v3 behavior, add this CSS to your project:
+Preflight now resets margins on `<dialog>` elements to be consistent with how other elements are reset.
+
+If you still want dialogs to be centered by default, add this CSS to your project:
 
 ```css
 /* [!code filename:CSS] */
@@ -534,7 +553,7 @@ When using a prefix, you should still configure your theme variables as if you a
 }
 ```
 
-The generated CSS variables _will_ include a prefix though to avoid conflicts with any existing variables in your project:
+The generated CSS variables _will_ include a prefix to avoid conflicts with any existing variables in your project:
 
 ```css {{ filename: "dist.css" }}
 :root {
