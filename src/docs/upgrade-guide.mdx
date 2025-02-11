@@ -365,6 +365,37 @@ To update your project for this change, replace any usage of `ring` with `ring-3
 <input class="ring-3 ring-blue-500" />
 ```
 
+### Space-between selector
+
+We've changed the selector used by the [`space-x-*` and `space-y-*` utilities](/docs/margin#adding-space-between-children) to address serious performance issues on large pages:
+
+```css
+/* [!code filename:CSS] */
+/* Before */
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 1rem;
+}
+
+/* Now */
+.space-y-4 > :not(:last-child) {
+  margin-bottom: 1rem;
+}
+```
+
+You might see changes in your project if you were ever using these utilities with inline elements, or if you were adding other margins to child elements to tweak their spacing.
+
+If this change causes any issues in your project, we recommend migrating to a flex or grid layout and using `gap` instead:
+
+{/* prettier-ignore */}
+```html
+<!-- [!code filename:HTML] -->
+<div class="space-y-4 p-4"> <!-- [!code --] -->
+<div class="flex flex-col gap-4 p-4"> <!-- [!code ++] -->
+  <label for="name">Name</label>
+  <input type="text" name="name" />
+</div>
+```
+
 ### Container configuration
 
 In v3, the `container` utility had several configuration options like `center` and `padding` that no longer exist in v4.
@@ -475,6 +506,66 @@ If you'd like to continue using `cursor: pointer` by default, add these base sty
   [role="button"]:not(:disabled) {
     cursor: pointer;
   }
+}
+```
+
+#### Dialog margins removed
+
+Preflight now resets margins on `<dialog>` elements to be consistent with how other elements are reset.
+
+If you still want dialogs to be centered by default, add this CSS to your project:
+
+```css
+/* [!code filename:CSS] */
+@layer base {
+  dialog {
+    margin: auto;
+  }
+}
+```
+
+### Using a prefix
+
+Prefixes now look like variants and are always at the beginning of the class name:
+
+```html
+<!-- [!code classes:tw:bg-red-500,tw:flex,tw:hover:bg-red-600] -->
+<div class="tw:flex tw:bg-red-500 tw:hover:bg-red-600">
+  <!-- ... -->
+</div>
+```
+
+When using a prefix, you should still configure your theme variables as if you aren't using a prefix:
+
+```css {{ filename: "app.css" }}
+@import "tailwindcss" prefix(tw);
+
+@theme {
+  --font-display: "Satoshi", "sans-serif";
+
+  --breakpoint-3xl: 1920px;
+
+  --color-avocado-100: oklch(0.99 0 0);
+  --color-avocado-200: oklch(0.98 0.04 113.22);
+  --color-avocado-300: oklch(0.94 0.11 115.03);
+
+  /* ... */
+}
+```
+
+The generated CSS variables _will_ include a prefix to avoid conflicts with any existing variables in your project:
+
+```css {{ filename: "dist.css" }}
+:root {
+  --tw-font-display: "Satoshi", "sans-serif";
+
+  --tw-breakpoint-3xl: 1920px;
+
+  --tw-color-avocado-100: oklch(0.99 0 0);
+  --tw-color-avocado-200: oklch(0.98 0.04 113.22);
+  --tw-color-avocado-300: oklch(0.94 0.11 115.03);
+
+  /* ... */
 }
 ```
 
