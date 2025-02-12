@@ -140,7 +140,7 @@ export let steps: Step[] = [
           Hello world!
         </h1>
 
-        <style>
+        <style lang="postcss">
           /* [!code highlight:2] */
           @reference "tailwindcss/theme";
 
