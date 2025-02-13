@@ -61,3 +61,8 @@ export function ColorPalette() {
     </div>
   );
 }
+{
+  /* <div className="sticky top-28 z-9 bg-white lg:top-14 dark:bg-gray-950">&nbsp;</div>
+      <div className="sticky top-28 z-9 col-start-2 grid grid-cols-11 justify-items-center gap-1.5 bg-white font-medium text-gray-950 *:rotate-180 *:[writing-mode:vertical-lr] max-sm:py-1 sm:gap-4 sm:*:rotate-0 sm:*:[writing-mode:horizontal-tb] lg:top-14 dark:bg-gray-950 dark:text-white">
+         */
+}
