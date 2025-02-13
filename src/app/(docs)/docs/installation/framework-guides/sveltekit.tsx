@@ -63,9 +63,9 @@ export let steps: Step[] = [
 
         export default defineConfig({
           plugins: [
+            sveltekit(),
             // [!code highlight:2]
             tailwindcss(),
-            sveltekit(),
           ],
         });
       `,
