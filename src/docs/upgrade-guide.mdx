@@ -396,6 +396,30 @@ If this change causes any issues in your project, we recommend migrating to a fl
 </div>
 ```
 
+### Using variants with gradients
+
+In v3, overriding part of a gradient with a variant would "reset" the entire gradient, so in this example the `to-*` color would be transparent in dark mode instead of yellow:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:dark:from-blue-500] -->
+<div class="bg-gradient-to-r from-red-500 to-yellow-400 dark:from-blue-500">
+  <!-- ... -->
+</div>
+```
+
+In v4, these values are preserved which is more consistent with how other utilities in Tailwind work.
+
+This means you may need to explicitly use `via-none` if you want to "unset" a three-stop gradient back to a two-stop gradient in a specific state:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:dark:via-none] -->
+<div class="bg-linear-to-r from-red-500 via-orange-400 to-yellow-400 dark:via-none dark:from-blue-500 dark:to-teal-400">
+  <!-- ... -->
+</div>
+```
+
 ### Container configuration
 
 In v3, the `container` utility had several configuration options like `center` and `padding` that no longer exist in v4.
