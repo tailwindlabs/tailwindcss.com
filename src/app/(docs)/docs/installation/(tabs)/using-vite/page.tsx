@@ -28,7 +28,7 @@ const steps: Step[] = [
       name: "Terminal",
       lang: "shell",
       code: dedent`
-        npm install tailwindcss @tailwindcss/vite
+        npm install tailwindcss @tailwindcss/vite --save-dev
       `,
     },
   },
