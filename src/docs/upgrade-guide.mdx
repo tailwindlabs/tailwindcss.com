@@ -595,7 +595,7 @@ The generated CSS variables _will_ include a prefix to avoid conflicts with any 
 
 ### Adding custom utilities
 
-In v3, any custom classes you defined within `@layer utilities` would get picked up by Tailwind as a true utility class and would automatically work with variants like `hover`, `focus`, or `lg` with the difference being that `@layer components` would always come first in the generated stylesheet.
+In v3, any custom classes you defined within `@layer utilities` or `@layer components` would get picked up by Tailwind as a true utility class and would automatically work with variants like `hover`, `focus`, or `lg` with the difference being that `@layer components` would always come first in the generated stylesheet.
 
 In v4 we are using native cascade layers and no longer hijacking the `@layer` at-rule, so we've introduced the `@utility` API as a replacement:
 
@@ -613,7 +613,7 @@ In v4 we are using native cascade layers and no longer hijacking the `@layer` at
 }
 ```
 
-In v4, custom utilities are sorted based on the amount of properties they define. This means that component utilities like this `.btn` can be overwritten by other Tailwind utilities without additional configuration:
+Custom utilities are now also sorted based on the amount of properties they define. This means that component utilities like this `.btn` can be overwritten by other Tailwind utilities without additional configuration:
 
 ```css
 /* [!code filename:CSS] */
