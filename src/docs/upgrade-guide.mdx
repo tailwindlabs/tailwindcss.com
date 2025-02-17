@@ -601,17 +601,6 @@ In v4 we are using native cascade layers and no longer hijacking the `@layer` at
 
 ```css
 /* [!code filename:CSS] */
-@layer components {
-  .btn {
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    background-color: ButtonFace;
-  }
-}
-/* [!code ++:4] */
-@utility tab-4 {
-  tab-size: 4;
-}
 /* [!code --:6] */
 @layer utilities {
   .tab-4 {
