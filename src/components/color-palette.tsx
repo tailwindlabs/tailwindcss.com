@@ -8,21 +8,16 @@ import { Color } from "./color";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const styles = await fs.readFile(
-  path.join(__dirname, "../../node_modules/tailwindcss/theme.css"),
-  "utf-8",
-);
+let styles = await fs.readFile(path.join(__dirname, "../../node_modules/tailwindcss/theme.css"), "utf-8");
 
-const colors: Record<string, Record<string, string>> = {};
-for (const line of styles.split("\n")) {
+let colors: Record<string, Record<string, string>> = {};
+for (let line of styles.split("\n")) {
   if (line.startsWith("  --color-")) {
-    const [key, value] = line
-      .split(":")
-      .map((part) => part.trim().replace(";", ""));
-    const match = key.match(/^--color-([a-z]+)-(\d+)$/);
+    let [key, value] = line.split(":").map((part) => part.trim().replace(";", ""));
+    let match = key.match(/^--color-([a-z]+)-(\d+)$/);
 
     if (match) {
-      const [, group, shade] = match;
+      let [, group, shade] = match;
 
       if (!colors[group]) {
         colors[group] = {};
@@ -51,12 +46,10 @@ export function ColorPalette() {
       </div>
       {Object.entries(colors).map(([key, shades]) => (
         <React.Fragment key={key}>
-          <p className="font-medium text-gray-950 capitalize sm:pr-12 dark:text-white">
-            {key}
-          </p>
+          <p className="font-medium text-gray-950 capitalize sm:pr-12 dark:text-white">{key}</p>
           <div className="grid grid-cols-11 gap-1.5 sm:gap-4">
             {Object.keys(shades).map((shade, i) => (
-              <Color key={i} name={key} shade={shade} />
+              <Color key={i} name={key} shade={shade} value={shades[shade]} />
             ))}
           </div>
         </React.Fragment>

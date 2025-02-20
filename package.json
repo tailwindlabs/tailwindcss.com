@@ -17,7 +17,6 @@
     "@tailwindcss/postcss": "4.0.0",
     "@types/mdx": "^2.0.13",
     "clsx": "^2.1.1",
-    "colorizr": "^3.0.7",
     "dedent": "^1.5.3",
     "fathom-client": "^3.7.2",
     "feed": "^4.2.2",
