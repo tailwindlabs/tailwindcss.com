@@ -114,7 +114,7 @@ export async function GET(req: NextRequest) {
         "Cache-Control":
           process.env.NODE_ENV === "development"
             ? "no-cache, no-store"
-            : "public, immutable, no-transform, s-maxage=31536000, max-age=600",
+            : "public, no-transform, s-maxage=31536000, max-age=600",
       },
       fonts: [
         {

@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import { SearchProvider } from "@/components/search";
 import { ThemeProvider } from "@/components/theme-toggle";
 import Fathom from "@/components/fathom";
+import Script from "next/script";
 
 const inter = localFont({
   src: [
@@ -73,7 +74,55 @@ const ubuntuMono = localFont({
   ],
   variable: "--font-ubuntu-mono",
 });
+
 const js = String.raw;
+let darkModeScript = js`
+  try {
+    _updateTheme(localStorage.currentTheme)
+  } catch (_) {}
+
+  try {
+    if (/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
+      document.documentElement.classList.add('os-macos')
+    }
+  } catch (_) {}
+
+  function _updateTheme(theme) {
+    let classList = document.documentElement.classList;
+
+    classList.remove("light", "dark", "system");
+    document.querySelectorAll('meta[name="theme-color"]').forEach(el => el.remove())
+    if (theme === 'dark') {
+      classList.add('dark')
+
+      let meta = document.createElement('meta')
+      meta.name = 'theme-color'
+      meta.content = 'oklch(.13 .028 261.692)'
+      document.head.appendChild(meta)
+    } else if (theme === 'light') {
+      classList.add('light')
+
+      let meta = document.createElement('meta')
+      meta.name = 'theme-color'
+      meta.content = 'white'
+      document.head.appendChild(meta)
+    } else {
+      classList.add('system')
+
+      let meta1 = document.createElement('meta')
+      meta1.name = 'theme-color'
+      meta1.content = 'oklch(.13 .028 261.692)'
+      meta1.media = '(prefers-color-scheme: dark)'
+      document.head.appendChild(meta1)
+
+      let meta2 = document.createElement('meta')
+      meta2.name = 'theme-color'
+      meta2.content = 'white'
+      meta2.media = '(prefers-color-scheme: light)'
+      document.head.appendChild(meta2)
+    }
+  }
+`;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tailwindcss.com"),
@@ -111,57 +160,7 @@ export default async function RootLayout({
         <meta name="msapplication-TileColor" content="#38bdf8" />
         <meta name="msapplication-config" content={v("/favicons/browserconfig.xml")} />
 
-        <script
-          dangerouslySetInnerHTML={{
-            __html: js`
-              try {
-                _updateTheme(localStorage.currentTheme)
-              } catch (_) {}
-
-              try {
-                if (/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
-                  document.documentElement.classList.add('os-macos')
-                }
-              } catch (_) {}
-
-              function _updateTheme(theme) {
-                let classList = document.documentElement.classList;
-
-                classList.remove("light", "dark", "system");
-                document.querySelectorAll('meta[name="theme-color"]').forEach(el => el.remove())
-                if (theme === 'dark') {
-                  classList.add('dark')
-
-                  let meta = document.createElement('meta')
-                  meta.name = 'theme-color'
-                  meta.content = 'oklch(.13 .028 261.692)'
-                  document.head.appendChild(meta)
-                } else if (theme === 'light') {
-                  classList.add('light')
-
-                  let meta = document.createElement('meta')
-                  meta.name = 'theme-color'
-                  meta.content = 'white'
-                  document.head.appendChild(meta)
-                } else {
-                  classList.add('system')
-
-                  let meta1 = document.createElement('meta')
-                  meta1.name = 'theme-color'
-                  meta1.content = 'oklch(.13 .028 261.692)'
-                  meta1.media = '(prefers-color-scheme: dark)'
-                  document.head.appendChild(meta1)
-
-                  let meta2 = document.createElement('meta')
-                  meta2.name = 'theme-color'
-                  meta2.content = 'white'
-                  meta2.media = '(prefers-color-scheme: light)'
-                  document.head.appendChild(meta2)
-                }
-              }
-            `,
-          }}
-        />
+        <Script src={`data:text/javascript;base64,${btoa(darkModeScript)}`} />
       </head>
       <body>
         <Fathom />

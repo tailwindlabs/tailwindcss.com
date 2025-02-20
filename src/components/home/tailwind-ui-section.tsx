@@ -33,7 +33,7 @@ export default function TailwindUiSection() {
 
       <GridContainer>
         <h2 className="px-2 text-[2.5rem]/10 font-medium tracking-tighter max-sm:px-4 2xl:mt-0">
-          Move even faster with Tailwind UI
+          Move even faster with Tailwind UI.
         </h2>
       </GridContainer>
 

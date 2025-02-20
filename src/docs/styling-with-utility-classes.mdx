@@ -393,7 +393,7 @@ Both of these effects rely on the `filter` property in CSS, so Tailwind uses CSS
 }
 ```
 
-The generated CSS above is slightly simplified, but the trick here is that each utility sets a CSS variable for the just the effect it's meant to apply. Then the `filter` property looks at all of these variables, falling back to nothing if the variable hasn't been set.
+The generated CSS above is slightly simplified, but the trick here is that each utility sets a CSS variable just for the effect it's meant to apply. Then the `filter` property looks at all of these variables, falling back to nothing if the variable hasn't been set.
 
 Tailwind uses this same approach for [gradients](/docs/background-image#adding-a-linear-gradient), [shadow colors](/docs/box-shadow#setting-the-shadow-color), [transforms](/docs/translate), and more.
 

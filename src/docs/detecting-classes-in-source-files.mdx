@@ -142,7 +142,7 @@ If you need to scan any files that Tailwind is ignoring by default, you can [exp
 
 ## Explicitly registering sources
 
-Use `@source` to explicitly register source paths that Tailwind ignores by default:
+Use `@source` to explicitly register source paths relative to the stylesheet:
 
 ```css
 /* [!code filename:CSS] */
@@ -151,7 +151,7 @@ Use `@source` to explicitly register source paths that Tailwind ignores by defau
 @source "../node_modules/@acmecorp/ui-lib";
 ```
 
-This is especially useful when you need to scan an external library that is built with Tailwind, since dependencies are usually listed in your `.gitignore` file and ignored by Tailwind.
+This is especially useful when you need to scan an external library that is built with Tailwind, since dependencies are usually listed in your `.gitignore` file and ignored by Tailwind by default.
 
 ### Setting your base path
 

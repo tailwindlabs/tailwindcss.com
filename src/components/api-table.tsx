@@ -68,7 +68,7 @@ export function ApiTable({ rows }: { rows: [string, string][] }) {
   );
 
   return (
-    <div id="quick-reference" className="not-prose relative scroll-mt-16">
+    <div id="quick-reference" className="not-prose relative isolate scroll-mt-16">
       <div className="w-full overflow-x-auto whitespace-nowrap">
         <table className="grid w-full grid-cols-[auto_auto] border-b border-gray-900/10 dark:border-white/10">
           <thead className="col-span-2 grid grid-cols-subgrid">
