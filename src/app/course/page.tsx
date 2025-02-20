@@ -46,7 +46,7 @@ export default async function Course() {
           </GridContainer>
         </div>
       </div>
-      <div className="pt-14 pb-28">
+      <div className="px-2 pt-14 pb-28">
         <div className="max-w-xl space-y-8 text-[0.9375rem]/7 text-gray-300">
           <p>
             When you build UI components that are used by tens of thousands of developers, you learn to really care
