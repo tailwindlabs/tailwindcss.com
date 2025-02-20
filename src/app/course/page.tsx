@@ -47,29 +47,29 @@ export default async function Course() {
         </div>
       </div>
       <div className="px-2 pt-14 pb-28">
-        <div className="max-w-xl space-y-8 text-base/7 text-gray-400 **:[strong]:font-medium **:[strong]:text-white">
+        <div className="max-w-xl space-y-8 text-base/7 text-gray-400 marker:text-white/60 **:[li]:pl-2 **:[strong]:font-medium **:[strong]:text-white **:[ul]:list-[square] **:[ul]:space-y-4 **:[ul]:pl-8">
           <p>
             When you build UI components that are used by <strong>tens of thousands of developers</strong>, you learn to
             really care about the details, like:
           </p>
-          <ul className="list-[square] space-y-4 pl-8 marker:text-white/60">
-            <li className="pl-2">
+          <ul>
+            <li>
               <strong>Building layouts that don't break</strong> when the content is longer than you planned for in
               Figma
             </li>
-            <li className="pl-2">
+            <li>
               Making a table scrollable, <strong>without the content getting cropped</strong> by the page padding
             </li>
-            <li className="pl-2">
+            <li>
               <strong>Automatically aligning icons</strong> in dropdown menus, even when some items are just text
             </li>
-            <li className="pl-2">
+            <li>
               Making an entire card clickable, <strong>without destroying the experience</strong> for screen readers
             </li>
-            <li className="pl-2">
+            <li>
               <strong>Fine-tuning click targets for mobile</strong>, without making everything else harder to maintain
             </li>
-            <li className="pl-2">
+            <li>
               Getting the border radius <strong>mathematically perfect</strong> on nested elements, without hard-coding
               magic numbers
             </li>
