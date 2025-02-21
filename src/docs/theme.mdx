@@ -499,6 +499,21 @@ For example, this text will fall back to `sans-serif` instead of using `Inter` l
 
 This happens because `var(--font-sans)` is resolved where `--font-sans` is defined _(on `#parent`)_, and `--font-inter` has no value there since it's not defined until deeper in the tree _(on `#child`)_.
 
+### Generating all CSS variables
+
+By default only used CSS variables will be generated in the final CSS output. If you want to always generate all CSS variables, you can use the `static` theme option:
+
+```css
+/* [!code filename:app.css] */
+/* [!code word:static] */
+@import "tailwindcss";
+
+@theme static {
+  --color-primary: var(--color-red-500);
+  --color-secondary: var(--color-blue-500);
+}
+```
+
 ### Sharing across projects
 
 Since theme variables are defined in CSS, sharing them across projects is just a matter of throwing them into their own CSS file that you can import in each project:
