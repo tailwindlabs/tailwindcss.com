@@ -295,7 +295,7 @@ const hexColors = {
 
 export function Color({ name, shade, value }: { name: string; shade: string; value: string }) {
   let useShift = useShiftKey();
-  let panelRef = useRef<HTMLDivElement>(null);
+  let panelRef = useRef<HTMLElement>(null);
 
   let colorVariableName = `--color-${name}-${shade}`;
   let hexValue = hexColors[name]?.[shade];
@@ -303,20 +303,20 @@ export function Color({ name, shade, value }: { name: string; shade: string; val
   function copyHexToClipboard(e: React.MouseEvent) {
     e.preventDefault();
     e.stopPropagation();
+
     let panel = panelRef.current;
-    if (!panel) {
-      return;
-    }
-    let prevValue = panel.innerText;
+    if (!panel) return;
+
+    let prevValue = panel.innerHTML;
     if (e.shiftKey) {
       navigator.clipboard.writeText(hexColors[name][shade]);
-      panel.innerText = "Copied hex value!";
+      panel.innerHTML = "Copied hex value!";
     } else {
       navigator.clipboard.writeText(value);
-      panel.innerText = "Copied to clipboard!";
+      panel.innerHTML = "Copied to clipboard!";
     }
     setTimeout(() => {
-      panel.innerText = prevValue;
+      panel.innerHTML = prevValue;
     }, 1300);
   }
 
@@ -335,10 +335,15 @@ export function Color({ name, shade, value }: { name: string; shade: string; val
       <TooltipPanel
         as="div"
         anchor="top"
-        ref={panelRef}
-        className="pointer-events-none z-10 translate-y-2 rounded-full border border-gray-950 bg-gray-950/90 py-0.5 pr-2 pb-1 pl-3 text-center font-mono text-xs/6 font-medium whitespace-nowrap text-white opacity-100 inset-ring inset-ring-white/10 transition-[opacity] starting:opacity-0"
+        className="pointer-events-none z-10 flex translate-y-2 items-center gap-1 rounded-full border border-gray-950 bg-gray-950/90 py-0.5 pr-2 pb-1 pl-3 text-center font-mono text-xs/6 font-medium whitespace-nowrap text-white opacity-100 inset-ring inset-ring-white/10 transition-[opacity] starting:opacity-0"
       >
-        {useShift && hexValue ? hexValue : value}
+        <span
+          ref={(panel) => {
+            if (panel) panelRef.current = panel;
+          }}
+        >
+          {useShift && hexValue ? hexValue : value}
+        </span>
       </TooltipPanel>
     </Tooltip>
   );
