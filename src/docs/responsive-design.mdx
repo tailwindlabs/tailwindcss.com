@@ -324,6 +324,10 @@ This updates the `2xl` breakpoint to use `100rem` instead of the default `96rem`
 </div>
 ```
 
+Note that it's important to always use the same unit for defining your breakpoints or the generated utilities may be sorted in an unexpected order, causing breakpoint classes to override each other in unexpected ways.
+
+Tailwind uses `rem` for the default breakpoints, so if you are adding additional breakpoints to the defaults, make sure you use `rem` as well.
+
 Learn more about customizing your theme in the [theme documentation](/docs/theme).
 
 ### Removing default breakpoints
