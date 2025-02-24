@@ -159,8 +159,7 @@ export default async function RootLayout({
         <meta name="application-name" content="Tailwind CSS" />
         <meta name="msapplication-TileColor" content="#38bdf8" />
         <meta name="msapplication-config" content={v("/favicons/browserconfig.xml")} />
-
-        <Script src={`data:text/javascript;base64,${btoa(darkModeScript)}`} />
+        <script type="text/javascript" dangerouslySetInnerHTML={{__html: darkModeScript}}></script>
       </head>
       <body>
         <Fathom />
