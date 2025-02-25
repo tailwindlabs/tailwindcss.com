@@ -29,7 +29,7 @@ export function Transforms3d() {
           src={_3dTransformsImg.src}
           className="absolute inset-0 size-82 rounded-2xl shadow-2xl outline outline-gray-950/5 transition duration-300 transform-3d"
         />
-        <div className="col-start-1 row-start-1 size-82 rounded-2xl bg-gray-950/5 p-2 inset-ring shadow-inner inset-ring-gray-950/5 dark:bg-white/10 dark:inset-ring-white/10">
+        <div className="col-start-1 row-start-1 size-82 rounded-2xl bg-gray-950/5 p-2 shadow-inner inset-ring inset-ring-gray-950/5 dark:bg-white/10 dark:inset-ring-white/10">
           <div className="size-full rounded-lg outline outline-gray-950/10 outline-dashed"></div>
         </div>
       </div>

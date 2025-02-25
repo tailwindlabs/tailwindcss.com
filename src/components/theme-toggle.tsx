@@ -38,7 +38,7 @@ function onChange(theme: Theme, setTheme: (theme: Theme) => void) {
 function ThemeToggleButton(props: React.ComponentProps<typeof Radio>) {
   return (
     <Radio
-      className="rounded-full p-1.5 *:size-7 data-checked:bg-white data-checked:inset-ring data-checked:ring data-checked:ring-gray-950/10 data-checked:inset-ring-white/10 sm:p-0 dark:data-checked:bg-gray-700 dark:data-checked:text-white dark:data-checked:ring-transparent"
+      className="rounded-full p-1.5 *:size-7 data-checked:bg-white data-checked:ring data-checked:inset-ring data-checked:ring-gray-950/10 data-checked:inset-ring-white/10 sm:p-0 dark:data-checked:bg-gray-700 dark:data-checked:text-white dark:data-checked:ring-transparent"
       {...props}
     />
   );

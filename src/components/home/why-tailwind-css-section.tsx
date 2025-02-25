@@ -284,7 +284,7 @@ export default function WhyTailwindCssSection() {
                     return (
                       <div key={name} data-target className="flex snap-center snap-always flex-col items-center gap-2">
                         <Code>{name}</Code>
-                        <div className="inset-ring ring shadow ring-gray-950/10 inset-ring-white/20">
+                        <div className="shadow ring inset-ring ring-gray-950/10 inset-ring-white/20">
                           <div className={clsx("size-(--size) bg-white/15", className)} />
                         </div>
                       </div>
@@ -617,7 +617,7 @@ export default function WhyTailwindCssSection() {
                 </div>
               </div>
               <div className="@container relative isolate flex h-full items-center justify-center">
-                <div className="absolute bottom-12 -left-2 z-1 w-[60cqw] shrink-0 divide-y divide-gray-950/5 rounded-xl bg-white inset-ring shadow-2xl inset-ring-gray-950/5 dark:divide-white/5 dark:bg-gray-800 dark:inset-ring-white/5">
+                <div className="absolute bottom-12 -left-2 z-1 w-[60cqw] shrink-0 divide-y divide-gray-950/5 rounded-xl bg-white shadow-2xl inset-ring inset-ring-gray-950/5 dark:divide-white/5 dark:bg-gray-800 dark:inset-ring-white/5">
                   {[
                     { src: avatar4.src, name: "Will Winton", role: "Director of Operations" },
                     { src: avatar5.src, name: "Kristin Yardly", role: "Marketing Coordinator" },
@@ -641,7 +641,7 @@ export default function WhyTailwindCssSection() {
                     );
                   })}
                 </div>
-                <div className="absolute -right-3 bottom-12 w-[50cqw] shrink-0 divide-y divide-gray-950/5 rounded-xl bg-white inset-ring shadow-2xl inset-ring-gray-950/5 dark:divide-white/5 dark:bg-gray-800 dark:inset-ring-white/5">
+                <div className="absolute -right-3 bottom-12 w-[50cqw] shrink-0 divide-y divide-gray-950/5 rounded-xl bg-white shadow-2xl inset-ring inset-ring-gray-950/5 dark:divide-white/5 dark:bg-gray-800 dark:inset-ring-white/5">
                   {[
                     { src: avatar1.src, name: "سارة أحمد", role: "مديرة مشاريع" },
                     { src: avatar2.src, name: "علي محمد", role: "مطور برمجيات" },
