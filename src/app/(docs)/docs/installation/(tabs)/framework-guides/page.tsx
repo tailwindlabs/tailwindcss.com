@@ -79,7 +79,7 @@ function GuideTile({ guide }: { guide: Guide }) {
         </h4>
         <p className="text-sm leading-6 text-slate-700 dark:text-slate-400">{guide.tile.description}</p>
       </div>
-      <div className="dark:highlight-white/5 flex h-14 w-14 flex-none items-center justify-center overflow-hidden rounded-full bg-white ring-1 shadow ring-slate-900/5 dark:bg-slate-800">
+      <div className="dark:highlight-white/5 flex h-14 w-14 flex-none items-center justify-center overflow-hidden rounded-full bg-white shadow ring-1 ring-slate-900/5 dark:bg-slate-800">
         {LogoDark ? (
           <>
             <Logo className="block dark:hidden" />
