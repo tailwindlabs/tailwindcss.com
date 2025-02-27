@@ -37,7 +37,7 @@ export default async function Course() {
           <GridContainer>
             <p className="max-w-2xl text-lg/7 font-medium text-gray-400">
               <strong className="font-medium text-white">Short, tactical video lessons</strong> from the creator of
-              TailwindCSS, delivered directly to your inbox{" "}
+              Tailwind CSS, delivered directly to your inbox{" "}
               <strong className="font-medium text-white">every day for a week</strong>.
             </p>
           </GridContainer>

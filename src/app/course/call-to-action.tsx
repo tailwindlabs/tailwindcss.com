@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 
 export function SignUpForm() {
   return (
@@ -29,6 +30,7 @@ export function HeroActions() {
   let input = useRef<HTMLInputElement>(null);
   let getCourseButton = useRef(null);
   let containerRef = useRef<HTMLInputElement>(null);
+  let [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     if (!input.current) return;
@@ -155,6 +157,7 @@ export function HeroActions() {
       <AnimatePresence initial={false}>
         {signUpState === "closed" && (
           <motion.button
+            onClick={() => setIsDialogOpen(true)}
             layout
             transition={{ duration: 0.3 }}
             className="inline-flex flex-nowrap items-baseline gap-1.5 self-center rounded-full bg-white/25 px-4 py-2 pl-3 text-sm/6 font-semibold whitespace-nowrap text-white hover:bg-white/30"
@@ -180,6 +183,16 @@ export function HeroActions() {
           </motion.button>
         )}
       </AnimatePresence>
+      <Dialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
+        <DialogBackdrop className="fixed inset-0 bg-black/85" />
+        <div className="fixed inset-0 grid place-items-center">
+          <DialogPanel>
+            <video controls className="rounded-2xl">
+              <source src="https://assets.tailwindcss.com/build-uis-that-dont-suck/intro.mp4" type="video/mp4" />
+            </video>
+          </DialogPanel>
+        </div>
+      </Dialog>
     </div>
   );
 }
