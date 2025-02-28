@@ -7,12 +7,13 @@ import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 
 export function SignUpForm() {
   return (
-    <div className="flex">
+    <form className="flex" method="POST" action="https://app.kit.com/forms/7712177/subscriptions">
       <div className="flex items-center rounded-full bg-white">
         <input
           autoFocus
           type="email"
           id="email"
+          name="email_address"
           className="w-3xs rounded-full bg-transparent px-4 py-2 text-sm/6 text-gray-950 focus:outline-none"
           placeholder="Enter your email"
           aria-label="Email address"
@@ -21,12 +22,12 @@ export function SignUpForm() {
           Sign up
         </button>
       </div>
-    </div>
+    </form>
   );
 }
 
 export function HeroActions() {
-  let [signUpState, setSignUpState] = useState<"closed" | "open" | "subscribed">("closed");
+  let [signUpState, setSignUpState] = useState<"closed" | "open">("closed");
   let input = useRef<HTMLInputElement>(null);
   let getCourseButton = useRef(null);
   let containerRef = useRef<HTMLInputElement>(null);
@@ -48,7 +49,7 @@ export function HeroActions() {
           ref={containerRef}
           layout
           transition={{ duration: signUpState === "open" ? 0.1 : 0.2, ease: "circOut" }}
-          className="relative flex items-center bg-white data-[state=open]:overflow-hidden data-[state=subscribed]:bg-gray-950"
+          className="relative flex items-center bg-white data-[state=open]:overflow-hidden"
           style={{ borderRadius: 20 }}
           data-state={signUpState}
         >
@@ -124,33 +125,6 @@ export function HeroActions() {
                 Get the free course &rarr;
               </motion.button>
             )}
-            {signUpState === "subscribed" && (
-              <motion.button
-                onClick={() => setSignUpState("closed")}
-                layout
-                transition={{ duration: 0.3 }}
-                className="inline-flex flex-nowrap items-baseline gap-1.5 self-center rounded-full bg-white/25 px-4 py-2 pl-3 text-sm/6 font-semibold whitespace-nowrap text-white hover:bg-white/30"
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: 1,
-                }}
-                exit={{
-                  opacity: 0,
-                }}
-              >
-                <svg width={20} height={20} fill="none" className="self-center stroke-white">
-                  <path d="M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                  <path
-                    d="M13.91 9.67a.37.37 0 0 1 0 .66l-5.6 3.11a.38.38 0 0 1-.56-.33V6.9c0-.29.3-.47.56-.33l5.6 3.11Z"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                You're in
-              </motion.button>
-            )}
           </AnimatePresence>
         </motion.div>
       </div>
@@ -186,8 +160,8 @@ export function HeroActions() {
       <Dialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
         <DialogBackdrop className="fixed inset-0 bg-black/85" />
         <div className="fixed inset-0 grid place-items-center">
-          <DialogPanel>
-            <video controls className="rounded-2xl">
+          <DialogPanel className="max-w-7xl p-8">
+            <video autoPlay controls className="aspect-video rounded-2xl">
               <source src="https://assets.tailwindcss.com/build-uis-that-dont-suck/intro.mp4" type="video/mp4" />
             </video>
           </DialogPanel>

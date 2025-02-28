@@ -14,12 +14,15 @@ export default async function Course() {
   return (
     <div className="dark relative px-4 py-8 sm:px-0">
       <div>
-        <div className="absolute inset-x-0 top-0 -z-10 aspect-video opacity-75">
+        <div className="absolute inset-x-0 top-0 left-1/5 -z-10 aspect-video opacity-50">
           <video autoPlay loop muted playsInline className="absolute size-full object-right">
-            <source src="https://assets.tailwindcss.com/course-demos/background-video.mp4" type="video/mp4" />
+            <source
+              src="https://assets.tailwindcss.com/build-uis-that-dont-suck/background-loop.mp4"
+              type="video/mp4"
+            />
             Your browser does not support the video tag.
           </video>
-          <div className="absolute inset-0 size-full bg-linear-to-r from-gray-950 from-30%"></div>
+          <div className="absolute inset-0 size-full bg-linear-to-r from-gray-950 to-75%"></div>
           <div className="absolute inset-0 size-full bg-linear-to-t from-gray-950 to-50%"></div>
         </div>
         <GridContainer>
