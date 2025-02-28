@@ -1,6 +1,6 @@
 import { Logo } from "@/components/logo";
 import { HeroActions, SignUpForm } from "./call-to-action";
-import { GridContainer } from "./layout";
+import { GridContainer } from "./grid-container";
 
 import type { Metadata } from "next";
 

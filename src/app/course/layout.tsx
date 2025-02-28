@@ -1,13 +1,4 @@
-import BaseContainer from "@/components/grid-container";
 import React from "react";
-
-export function GridContainer({ children }: { children: React.ReactNode }) {
-  return (
-    <BaseContainer>
-      <div className="px-0 py-2 sm:px-2">{children}</div>
-    </BaseContainer>
-  );
-}
 
 export default async function Layout({ children }: React.PropsWithChildren) {
   return (

@@ -1,5 +1,5 @@
 import { Logo } from "@/components/logo";
-import { GridContainer } from "../layout";
+import { GridContainer } from "../grid-container";
 
 export default async function Course() {
   return (
