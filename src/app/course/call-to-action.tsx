@@ -87,6 +87,7 @@ export function HeroActions({
                 transition={{ duration: 0.1 }}
               >
                 <input
+                  autoFocus
                   required
                   ref={input}
                   onBlur={handleBlur}
