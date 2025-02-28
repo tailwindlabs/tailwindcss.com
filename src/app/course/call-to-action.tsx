@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
+import { Button, Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 
 export function SignUpForm() {
   return (
@@ -26,7 +26,13 @@ export function SignUpForm() {
   );
 }
 
-export function HeroActions() {
+export function HeroActions({
+  onWatchPreview = () => {},
+  onClosePreview = () => {},
+}: {
+  onWatchPreview?: () => void;
+  onClosePreview?: () => void;
+}) {
   let [signUpState, setSignUpState] = useState<"closed" | "open">("closed");
   let input = useRef<HTMLInputElement>(null);
   let getCourseButton = useRef(null);
@@ -130,11 +136,16 @@ export function HeroActions() {
       </div>
       <AnimatePresence initial={false}>
         {signUpState === "closed" && (
-          <motion.button
-            onClick={() => setIsDialogOpen(true)}
+          <Button
+            as={motion.button}
+            onClick={() => {
+              console.log(onWatchPreview.toString());
+              onWatchPreview();
+              setIsDialogOpen(true);
+            }}
             layout
             transition={{ duration: 0.3 }}
-            className="inline-flex flex-nowrap items-baseline gap-1.5 self-center rounded-full bg-white/25 px-4 py-2 pl-3 text-sm/6 font-semibold whitespace-nowrap text-white hover:bg-white/30"
+            className="inline-flex flex-nowrap items-baseline gap-1.5 self-center rounded-full bg-white/25 px-4 py-2 pl-3 text-sm/6 font-semibold whitespace-nowrap text-white hover:bg-white/30 focus:not-data-focus:outline-none"
             initial={{
               opacity: 0,
             }}
@@ -154,14 +165,20 @@ export function HeroActions() {
               />
             </svg>
             Watch the first video
-          </motion.button>
+          </Button>
         )}
       </AnimatePresence>
-      <Dialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
+      <Dialog
+        open={isDialogOpen}
+        onClose={() => {
+          setIsDialogOpen(false);
+          onClosePreview();
+        }}
+      >
         <DialogBackdrop className="fixed inset-0 bg-black/85" />
         <div className="fixed inset-0 grid place-items-center">
-          <DialogPanel className="max-w-7xl p-8">
-            <video autoPlay controls className="aspect-video rounded-2xl">
+          <DialogPanel className="w-full max-w-7xl p-8">
+            <video autoPlay controls className="aspect-video w-full rounded-2xl">
               <source src="https://assets.tailwindcss.com/build-uis-that-dont-suck/intro.mp4" type="video/mp4" />
             </video>
           </DialogPanel>
