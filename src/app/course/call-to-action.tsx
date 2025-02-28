@@ -11,7 +11,6 @@ export function SignUpForm() {
       <div className="flex items-center rounded-full bg-white">
         <input
           required
-          autoFocus
           type="email"
           id="email"
           name="email_address"
@@ -83,7 +82,6 @@ export function HeroActions() {
               >
                 <input
                   required
-                  autoFocus
                   ref={input}
                   onBlur={handleBlur}
                   type="email"
