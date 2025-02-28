@@ -10,6 +10,7 @@ export function SignUpForm() {
     <form className="flex" method="POST" action="https://app.kit.com/forms/7712177/subscriptions">
       <div className="flex items-center rounded-full bg-white">
         <input
+          required
           autoFocus
           type="email"
           id="email"
@@ -19,7 +20,7 @@ export function SignUpForm() {
           aria-label="Email address"
         />
         <button className="mr-0.5 shrink-0 overflow-hidden rounded-full bg-gray-950 px-3 py-1.5 text-sm/6 font-semibold text-nowrap text-white hover:bg-gray-950/85">
-          Sign up
+          Get the course
         </button>
       </div>
     </form>
@@ -81,6 +82,7 @@ export function HeroActions() {
                 transition={{ duration: 0.1 }}
               >
                 <input
+                  required
                   autoFocus
                   ref={input}
                   onBlur={handleBlur}
@@ -153,7 +155,7 @@ export function HeroActions() {
                 strokeLinejoin="round"
               />
             </svg>
-            Watch intro video
+            Watch the first video
           </motion.button>
         )}
       </AnimatePresence>
