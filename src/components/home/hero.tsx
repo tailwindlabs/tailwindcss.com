@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
     <div>
       <div
         aria-hidden="true"
-        className="flex h-16 items-end whitespace-pre px-2 font-mono text-xs/6 text-black/20 max-sm:px-4 sm:h-24 dark:text-white/25"
+        className="flex h-16 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 sm:h-24 dark:text-white/25"
       >
         <span className="hidden max-sm:inline">text-4xl </span>
         <span className="hidden sm:max-md:inline">text-5xl </span>
@@ -62,13 +62,13 @@ const Hero: React.FC = () => {
         <span className="max-sm:hidden">text-balance</span>
       </div>
       <GridContainer>
-        <h1 className="text-balance px-2 text-4xl tracking-tighter max-lg:font-medium max-sm:px-4 sm:text-5xl lg:text-6xl xl:text-8xl">
+        <h1 className="px-2 text-4xl tracking-tighter text-balance max-lg:font-medium max-sm:px-4 sm:text-5xl lg:text-6xl xl:text-8xl">
           Rapidly build modern websites without ever leaving your HTML.
         </h1>
       </GridContainer>
       <div
         aria-hidden="true"
-        className="flex h-6 items-end whitespace-pre px-2 font-mono text-xs/6 text-black/20 max-sm:px-4 sm:h-10 dark:text-white/25"
+        className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 sm:h-10 dark:text-white/25"
       >
         text-lg <span className="inline dark:hidden">text-gray-950</span>
         <span className="hidden dark:inline">text-white</span> font-medium
@@ -109,7 +109,7 @@ const Hero: React.FC = () => {
             <kbd className="hidden font-sans text-xs/4 text-gray-500 dark:text-gray-400 [.os-macos_&]:block">
               <span className="opacity-60">⌘</span>K
             </kbd>
-            <kbd className="not-[.os-macos_&]:block hidden font-sans text-xs/4 text-gray-500 dark:text-gray-400">
+            <kbd className="hidden font-sans text-xs/4 text-gray-500 not-[.os-macos_&]:block dark:text-gray-400">
               <span className="opacity-60">Ctrl</span>&nbsp;K
             </kbd>
           </SearchButton>
@@ -121,7 +121,7 @@ const Hero: React.FC = () => {
             <Editor>
               <div
                 className={clsx(
-                  "*:bg-white/10! dark:*:bg-white/5! *:flex *:*:max-w-none *:*:shrink-0 *:*:grow *:overflow-auto *:rounded-lg *:p-5",
+                  "*:flex *:*:max-w-none *:*:shrink-0 *:*:grow *:overflow-auto *:rounded-lg *:bg-white/10! *:p-5 dark:*:bg-white/5!",
                   "**:[.line]:isolate **:[.line]:block **:[.line]:not-last:min-h-[1lh]",
                   "*:inset-ring *:inset-ring-white/10 dark:*:inset-ring-white/5",
                 )}
@@ -353,7 +353,7 @@ const Hero: React.FC = () => {
               </div>
             </Editor>
           </div>
-          <div className="border-(--pattern-fg) [--pattern-fg:var(--color-black)]/5 max-lg:h-66 dark:[--pattern-fg:var(--color-white)]/10 relative bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed max-lg:border-t lg:border-l">
+          <div className="relative border-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 max-lg:h-66 max-lg:border-t lg:border-l dark:[--pattern-fg:var(--color-white)]/10">
             <div className="absolute right-1/2 max-lg:bottom-8 max-md:translate-x-1/2 md:right-16 lg:top-1/2 lg:-translate-y-1/2 2xl:right-1/2 2xl:translate-x-[calc(50%-3rem)]">
               <Example step={step} />
             </div>
@@ -395,7 +395,7 @@ function Example({ step }: { step: number }) {
             key={step}
             layout={true}
             className={clsx(
-              "z-1 pointer-events-none absolute left-0 right-auto top-1/2 -ml-4 -mt-4 mr-0 rounded-full text-black",
+              "pointer-events-none absolute top-1/2 right-auto left-0 z-1 -mt-4 mr-0 -ml-4 rounded-full text-black",
             )}
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 1, 0] }}
@@ -419,7 +419,7 @@ function Example({ step }: { step: number }) {
           layout="position"
           transition={TRANSITION}
           className={clsx(
-            "duration-350 size-48 shadow-xl transition-[border-radius] dark:outline-1 dark:-outline-offset-1 dark:outline-white/10",
+            "size-48 shadow-xl transition-[border-radius] duration-350 dark:outline-1 dark:-outline-offset-1 dark:outline-white/10",
             step > 1 ? "rounded-md" : null,
           )}
           src={cover.src}
@@ -435,7 +435,7 @@ function Example({ step }: { step: number }) {
             layout="position"
             transition={TRANSITION}
             className={clsx(
-              "duration-350 text-gray-950 transition-[font-size] dark:text-white",
+              "text-gray-950 transition-[font-size] duration-350 dark:text-white",
               step > 2 ? "text-2xl font-medium" : null,
             )}
           >
@@ -445,8 +445,8 @@ function Example({ step }: { step: number }) {
             transition={TRANSITION}
             layout="position"
             className={clsx(
-              "duration-350 text-gray-950 transition-colors dark:text-white",
-              step > 3 ? "text-sky-500! font-medium" : null,
+              "text-gray-950 transition-colors duration-350 dark:text-white",
+              step > 3 ? "font-medium text-sky-500!" : null,
             )}
           >
             The Anti-Patterns
@@ -455,8 +455,8 @@ function Example({ step }: { step: number }) {
             layout="position"
             transition={TRANSITION}
             className={clsx(
-              "duration-350 flex text-gray-950 transition-colors dark:text-white",
-              step > 4 ? "text-gray-600! dark:text-gray-400! gap-2 font-medium" : null,
+              "flex text-gray-950 transition-colors duration-350 dark:text-white",
+              step > 4 ? "gap-2 font-medium text-gray-600! dark:text-gray-400!" : null,
             )}
           >
             <motion.span layout="position" transition={TRANSITION}>

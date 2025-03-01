@@ -24,7 +24,7 @@ export default function BuildAnythingSection() {
     <div className="relative max-w-full">
       <div
         aria-hidden="true"
-        className="max-w-screen h-6 items-end whitespace-pre px-2 font-mono text-xs/6 text-black/20 max-sm:px-4 2xl:flex dark:text-white/25"
+        className="h-6 max-w-screen items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 2xl:flex dark:text-white/25"
       >
         text-4xl <span className="inline dark:hidden">text-gray-950</span>
         <span className="hidden dark:inline">text-white</span> tracking-tighter
@@ -35,12 +35,12 @@ export default function BuildAnythingSection() {
       </GridContainer>
 
       <GridContainer>
-        <h2 className="max-w-lg text-balance px-2 text-[2.5rem]/10 font-medium tracking-tighter max-sm:px-4">
+        <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4">
           Build whatever you want, without touching your CSS file.
         </h2>
       </GridContainer>
 
-      <div className="flex h-6 items-end whitespace-pre px-2 font-mono text-xs/6 text-black/20 max-sm:px-4 sm:h-10 dark:text-white/25">
+      <div className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 sm:h-10 dark:text-white/25">
         text-base <span className="inline dark:hidden">text-gray-950</span>
         <span className="hidden dark:inline">text-white</span>
       </div>
@@ -54,7 +54,7 @@ export default function BuildAnythingSection() {
 
       <GridContainer className="mt-18">
         <div className="h-auto bg-gray-950/5 p-2 dark:bg-white/10">
-          <BentoItem className="p-0! flex h-full flex-row overflow-hidden">
+          <BentoItem className="flex h-full flex-row overflow-hidden p-0!">
             <div className="hidden flex-col gap-2 lg:flex">
               <a
                 href="https://openai.com/"
@@ -209,7 +209,7 @@ export default function BuildAnythingSection() {
 
 function ExternalLinkLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="inset-ring inset-ring-white/10 absolute left-1/2 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 transform flex-row items-center gap-[calc(1rem/16*7)] rounded-full border border-gray-950 bg-gray-950/90 py-0.5 pb-1 pl-3 pr-2 text-center font-mono text-sm/6 font-medium text-white opacity-0 transition-opacity group-hover:flex group-hover:opacity-100">
+    <div className="absolute top-1/2 left-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 transform flex-row items-center gap-[calc(1rem/16*7)] rounded-full border border-gray-950 bg-gray-950/90 py-0.5 pr-2 pb-1 pl-3 text-center font-mono text-sm/6 font-medium text-white opacity-0 inset-ring inset-ring-white/10 transition-opacity group-hover:flex group-hover:opacity-100">
       {children}
       <svg viewBox="0 0 16 16" fill="currentColor" className="size-4">
         <path
