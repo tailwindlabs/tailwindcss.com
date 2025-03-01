@@ -477,7 +477,7 @@ const nextConfig = {
     ];
   },
   async rewrites() {
-    return ["plus-assets"].flatMap((path) => [
+    return ["plus", "plus-assets", "vendor", "nova-api"].flatMap((path) => [
       {
         source: `/${path}`,
         destination: `http://tailwindui.com/${path}`,
