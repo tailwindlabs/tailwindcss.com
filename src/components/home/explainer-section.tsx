@@ -102,7 +102,10 @@ export default function ExplainerSection() {
 
   return (
     <div className="relative max-w-full">
-      <div className="hidden h-4 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/10 max-sm:px-4 2xl:visible 2xl:flex dark:text-white/15">
+      <div
+        aria-hidden="true"
+        className="hidden h-4 items-end whitespace-pre px-2 font-mono text-xs/6 text-black/20 max-sm:px-4 2xl:visible 2xl:flex dark:text-white/25"
+      >
         text-4xl <span className="inline dark:hidden">text-gray-950</span>
         <span className="hidden dark:inline">text-white</span> tracking-tighter text-balance
       </div>
@@ -117,7 +120,7 @@ export default function ExplainerSection() {
         </h2>
       </GridContainer>
 
-      <div className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/10 max-sm:px-4 sm:h-10 dark:text-white/15">
+      <div className="flex h-6 items-end whitespace-pre px-2 font-mono text-xs/6 text-black/20 max-sm:px-4 sm:h-10 dark:text-white/25">
         text-base <span className="inline dark:hidden">text-gray-950</span>
         <span className="hidden dark:inline">text-white</span>
       </div>
@@ -133,10 +136,10 @@ export default function ExplainerSection() {
       <GridContainer className="mt-16">
         <div className="w-full bg-gray-950/5 p-2 dark:bg-white/10">
           <div className="not-prose">
-            <div className="@container rounded-xl bg-gray-950 in-[figure]:-mx-1 in-[figure]:-mb-1">
+            <div className="@container in-[figure]:-mx-1 in-[figure]:-mb-1 rounded-xl bg-gray-950">
               <div
                 className={clsx(
-                  "rounded-xl p-1 text-sm scheme-dark dark:bg-white/5 dark:inset-ring dark:inset-ring-white/10",
+                  "scheme-dark dark:inset-ring dark:inset-ring-white/10 rounded-xl p-1 text-sm dark:bg-white/5",
                 )}
               >
                 <EditorAnimation timeline={timeline}>
@@ -146,16 +149,16 @@ export default function ExplainerSection() {
                         className={clsx(
                           "inline-flex size-1.5 items-center justify-center rounded-full bg-white/20",
                           "transition-opacity duration-300 ease-in",
-                          "opacity-0 group-data-modified:opacity-100 group-data-modified:duration-100 group-data-modified:ease-linear",
+                          "group-data-modified:opacity-100 group-data-modified:duration-100 group-data-modified:ease-linear opacity-0",
                         )}
                       ></span>
                     </span>
                     <span className="size-3 rounded-full bg-white/20"></span>
                     <span className="size-3 rounded-full bg-white/20"></span>
                   </div>
-                  <div className="flex w-full flex-col gap-1 lg:h-132.5 lg:flex-row">
-                    <div className="flex flex-col gap-1 lg:w-1/2 xl:w-5/8">
-                      <Panel className="min-h-0 flex-1 max-lg:max-h-76" aria-label="panel, HTML editor, animated">
+                  <div className="lg:h-132.5 flex w-full flex-col gap-1 lg:flex-row">
+                    <div className="xl:w-5/8 flex flex-col gap-1 lg:w-1/2">
+                      <Panel className="max-lg:max-h-76 min-h-0 flex-1" aria-label="panel, HTML editor, animated">
                         <Tabs>
                           <Tab selected className="group-data-modified:italic">
                             index.html
@@ -165,14 +168,14 @@ export default function ExplainerSection() {
                         </Tabs>
                         <HtmlFile className="with-line-numbers" />
                       </Panel>
-                      <Panel className="h-32 shrink-0 lg:h-46" aria-label="panel, terminal, animated">
+                      <Panel className="lg:h-46 h-32 shrink-0" aria-label="panel, terminal, animated">
                         <Tabs>
                           <Tab selected>Terminal</Tab>
                         </Tabs>
                         <Terminal />
                       </Panel>
                     </div>
-                    <div className="flex h-66 flex-col gap-2.5 lg:h-auto lg:w-1/2 xl:w-3/8">
+                    <div className="h-66 xl:w-3/8 flex flex-col gap-2.5 lg:h-auto lg:w-1/2">
                       <Panel className="h-full" aria-label="panel, built CSS, animated">
                         <Tabs>
                           <Tab selected>build.css</Tab>
@@ -224,7 +227,7 @@ function HtmlFile({ className }: { className?: string }) {
               <span {...props}>
                 {'"'}
                 <TypingAnimation />
-                <span className="transition-opacity duration-300 group-data-finished:opacity-0 after:absolute after:mt-1.5 after:inline-block after:h-[1.2em] after:w-px after:border-r-2 after:border-sky-400 after:bg-transparent after:content-['']"></span>
+                <span className="group-data-finished:opacity-0 transition-opacity duration-300 after:absolute after:mt-1.5 after:inline-block after:h-[1.2em] after:w-px after:border-r-2 after:border-sky-400 after:bg-transparent after:content-['']"></span>
                 {'"'}
               </span>
             );
@@ -264,7 +267,7 @@ async function BuiltCss({ className, timeline }: { className?: string; timeline:
     <HighlightedCode
       aria-label="editor, readonly, built CSS"
       className={clsx(
-        "opacity-0 group-data-finished:opacity-100 group-data-running:opacity-100",
+        "group-data-finished:opacity-100 group-data-running:opacity-100 opacity-0",
         "*:flex *:*:max-w-none *:*:shrink-0 *:*:grow *:rounded-lg *:px-4 *:py-2",
         "**:[.line]:isolate **:[.line]:block **:[.line]:not-last:min-h-[1lh]",
         "**:[code]:pr-4",
@@ -422,7 +425,7 @@ function Panel({
 function Tabs({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className="sticky top-0 left-0 z-10 col-start-1 row-start-1 mb-px flex items-center gap-2 border-b border-b-white/5 bg-white/2.5 bg-clip-padding p-1 text-white backdrop-blur-lg"
+      className="bg-white/2.5 sticky left-0 top-0 z-10 col-start-1 row-start-1 mb-px flex items-center gap-2 border-b border-b-white/5 bg-clip-padding p-1 text-white backdrop-blur-lg"
       role="presentation"
       aria-label="Tab Bar"
     >
@@ -435,7 +438,7 @@ function Tab({ className, selected, children }: { className?: string; selected?:
   return (
     <button
       className={clsx(
-        "isolate rounded-sm px-2 py-1 text-xs/5 text-white inset-ring-white/5 hover:bg-white/10 aria-selected:bg-white/10 aria-selected:inset-ring",
+        "inset-ring-white/5 aria-selected:inset-ring isolate rounded-sm px-2 py-1 text-xs/5 text-white hover:bg-white/10 aria-selected:bg-white/10",
         className,
       )}
       role="presentation"
