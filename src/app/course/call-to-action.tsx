@@ -8,13 +8,13 @@ import { Button, Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 export function SignUpForm() {
   return (
     <form className="flex" method="POST" action="https://app.kit.com/forms/7712177/subscriptions">
-      <div className="flex items-center rounded-full bg-white">
+      <div className="flex max-w-full items-center rounded-full bg-white">
         <input
           required
           type="email"
           id="email"
           name="email_address"
-          className="w-3xs rounded-full bg-transparent px-4 py-2 text-sm/6 text-gray-950 focus:outline-none"
+          className="w-3xs min-w-0 shrink grow rounded-full bg-transparent px-4 py-2 text-sm/6 text-gray-950 focus:outline-none"
           placeholder="Enter your email"
           aria-label="Email address"
         />
@@ -140,7 +140,6 @@ export function HeroActions({
           <Button
             as={motion.button}
             onClick={() => {
-              console.log(onWatchPreview.toString());
               onWatchPreview();
               setIsDialogOpen(true);
             }}
@@ -165,7 +164,9 @@ export function HeroActions({
                 strokeLinejoin="round"
               />
             </svg>
-            Watch the first video
+            <span>
+              Watch <span className="max-sm:hidden">the</span> intro <span className="max-sm:hidden">video</span>
+            </span>
           </Button>
         )}
       </AnimatePresence>
@@ -178,7 +179,7 @@ export function HeroActions({
       >
         <DialogBackdrop className="fixed inset-0 bg-black/85" />
         <div className="fixed inset-0 grid place-items-center">
-          <DialogPanel className="w-full max-w-7xl p-8">
+          <DialogPanel className="w-full max-w-7xl p-4 sm:p-8">
             <video autoPlay controls className="aspect-video w-full rounded-2xl">
               <source src="https://assets.tailwindcss.com/build-uis-that-dont-suck/intro.mp4" type="video/mp4" />
             </video>
