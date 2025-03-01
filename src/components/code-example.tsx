@@ -179,7 +179,13 @@ export function RawHighlightedCode({
             "highlighted-word relative before:absolute before:-inset-x-0.5 before:-inset-y-0.25 before:-z-10 before:block before:rounded-sm before:bg-[lab(19.93_-1.66_-9.7)] [.highlighted-word_+_&]:before:rounded-l-none",
         }),
       ],
-    });
+    })
+    // Remove extra newlines from `[!code]` highlighter lines. Actual code empty
+    // lines are wrapped in `<span class="line"></span>` so this won't remove
+    // intentional empty lines.
+    .replaceAll(/\n{2,}/g, "\n")
+    // Remove newline from `[!code]` highlighter line at the start of the code snippet.
+    .replaceAll(/(<code[^>]*>)\n/g, '$1');
 
   return <div className={className} dangerouslySetInnerHTML={{ __html: code }} />;
 }
