@@ -93,7 +93,7 @@ const Hero: React.FC = () => {
           <LinkButton href="docs/installation" className="z-1 max-sm:hidden">
             Get started
           </LinkButton>
-          <SearchButton className="outline-gray-950/8 grid w-full grid-cols-[auto_1fr_auto] items-center gap-1 rounded-full px-4 py-2 text-left text-sm/6 text-gray-950/50 outline -outline-offset-1 sm:w-80 dark:bg-white/5 dark:text-white/50 dark:outline-white/15">
+          <SearchButton className="grid w-full grid-cols-[auto_1fr_auto] items-center gap-1 rounded-full px-4 py-2 text-left text-sm/6 text-gray-950/50 inset-ring inset-ring-gray-950/8 sm:w-80 dark:bg-white/5 dark:text-white/50 dark:inset-ring-white/15">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
