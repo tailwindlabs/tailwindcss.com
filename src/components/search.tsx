@@ -11,13 +11,36 @@ const INDEX_NAME = "tailwindcss";
 const API_KEY = "5fc87cef58bb80203d2207578309fab6";
 const APP_ID = "KNPXZI5B0M";
 
-function isTailwindUIUrl(url: string) {
-  return url.startsWith("https://tailwindui.com");
+function isTailwindPlusURL(url: string) {
+  return (
+    url.startsWith('https://tailwindui.com') ||
+    url.startsWith('https://tailwindcss.com/plus') ||
+    url.startsWith('/plus')
+  )
 }
 
 function isExternalURL(url: string) {
+  if (url.startsWith('https://tailwindui.com')) {
+    return false
+  }
+
   return /^https?:\/\//.test(url) && !url.startsWith(window.location.origin);
 }
+
+function rewriteURL(url: string) {
+  if (!url.startsWith('https://tailwindui.com')) {
+    return url
+  }
+
+  url = url.replace('https://tailwindui.com/', 'https://tailwindcss.com/plus/')
+  url = url.replace('/plus/components', '/plus/ui-blocks')
+  url = url.replace('/plus/templates/catalyst', '/plus/ui-kit')
+  url = url.replace('/plus/all-access', '/plus/#pricing')
+  url = url.replace('/plus/documentation', '/plus/ui-blocks/documentation')
+
+  return url
+}
+
 
 const SearchContext = createContext<any>({});
 
@@ -55,7 +78,7 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
       try {
         let data = JSON.parse(localStorage.getItem(key) as any);
         for (let item of data) {
-          if (isTailwindUIUrl(item.url) && !item.hierarchy.lvl1.startsWith("Components")) {
+          if (isTailwindPlusURL(item.url) && !item.hierarchy.lvl1.startsWith("Components")) {
             item.hierarchy.lvl1 = `Components / ${item.hierarchy.lvl1}`;
           }
         }
@@ -122,6 +145,8 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
                   setIsOpen(false);
                   if (isExternalURL(itemUrl)) {
                     window.open(itemUrl, "_blank");
+                  } else if (!isTailwindPlusURL(itemUrl)) {
+                    router.push(itemUrl);
                   } else {
                     router.push(itemUrl);
                   }
@@ -129,6 +154,11 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
               }}
               hitComponent={Hit}
               transformItems={(items) => {
+                items = items.map((item) => {
+                  item.url = rewriteURL(item.url)
+                  return item
+                })
+
                 return items.map((item, index) => {
                   // We transform the absolute URL into a relative URL to
                   // leverage Next's preloading.
@@ -148,7 +178,7 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
                     );
                   }
 
-                  let isTailwindUI = isTailwindUIUrl(item.url);
+                  let isTailwindUI = isTailwindPlusURL(item.url);
 
                   return {
                     ...item,
@@ -159,7 +189,7 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
                           { lvl1: `${item.product} / ${item.product_category}` }
                         : {}),
                     },
-                    url: isTailwindUI ? item.url.split("#")[0] : `${a.pathname}${hash}`,
+                    url: `${a.pathname}${hash}`,
                     __is_result: () => true,
                     __is_parent: () => item.type === "lvl1" && items.length > 1 && index === 0,
                     __is_child: () =>
@@ -167,6 +197,7 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
                     __is_first: () => index === 1,
                     __is_last: () => index === items.length - 1 && index !== 0,
                     __is_tailwindui: () => isTailwindUI,
+                    __is_tailwindcss: () => !isTailwindUI,
                   };
                 });
               }}
@@ -182,7 +213,6 @@ function Hit({ hit, children }: { hit: any; children: React.ReactNode }) {
   return (
     <Link
       href={hit.url}
-      target={hit.__is_tailwindui?.() ? "_blank" : undefined}
       className={clsx({
         "DocSearch-Hit--Result": hit.__is_result?.(),
         "DocSearch-Hit--Parent": hit.__is_parent?.(),
