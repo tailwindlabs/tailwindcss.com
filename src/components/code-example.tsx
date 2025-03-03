@@ -161,13 +161,13 @@ export function RawHighlightedCode({
       theme: theme.name,
       transformers: [
         transformerNotationHighlight({
-          classActiveLine: "-mx-5 inline-block pl-[calc(var(--spacing)*5-2px)] border-l-2 pr-5 border-sky-400 bg-sky-300/15",
+          classActiveLine: "-mx-5 inline-block w-[calc(100%+(var(--spacing)*10))] pl-[calc(var(--spacing)*5-2px)] border-l-2 pr-5 border-sky-400 bg-sky-300/15",
         }),
         transformerNotationDiff({
           classLineAdd:
-            "relative -mx-5 inline-block border-l-4 border-teal-400 bg-teal-300/15 pr-5 pl-8 before:absolute before:left-4 before:text-teal-400 before:content-['+']",
+            "relative -mx-5 inline-block w-[calc(100%+(var(--spacing)*10))] border-l-4 border-teal-400 bg-teal-300/15 pr-5 pl-8 before:absolute before:left-4 before:text-teal-400 before:content-['+']",
           classLineRemove:
-            "relative -mx-5 inline-block border-l-4 border-red-400 bg-red-300/15 pr-5 pl-8 before:absolute before:left-4 before:text-red-400 before:content-['-']",
+            "relative -mx-5 inline-block w-[calc(100%+(var(--spacing)*10))] border-l-4 border-red-400 bg-red-300/15 pr-5 pl-8 before:absolute before:left-4 before:text-red-400 before:content-['-']",
           classActivePre: "[:where(&_.line)]:pl-4",
         }),
         transformerNotationWordHighlight({
