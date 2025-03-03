@@ -4,9 +4,11 @@ import Link, { LinkProps } from "next/link";
 import index from "../app/(docs)/docs/index";
 import { DocsSidebarLink } from "./docs-sidebar-link";
 
-export function TopNavLink(props: React.PropsWithChildren<LinkProps>) {
+export function TopNavLink(props: { href: string } & React.ComponentPropsWithoutRef<"a">) {
+  const Component = props.href.startsWith("/plus") ? "a" : Link;
+
   return (
-    <Link
+    <Component
       className={clsx(
         "inline-flex items-center gap-3 text-base/8 text-gray-600 sm:text-sm/7 dark:text-gray-300",
         "**:data-outline:stroke-gray-400 dark:**:data-outline:stroke-gray-500 **:[svg]:size-5 **:[svg]:sm:size-4",
@@ -39,7 +41,7 @@ function TopNav() {
         </TopNavLink>
       </li>
       <li>
-        <TopNavLink href="https://tailwindui.com/components?ref=sidebar">
+        <TopNavLink href="/plus/ui-blocks?ref=sidebar">
           <svg viewBox="0 0 16 16" fill="none">
             <path data-highlight d="M15.5 11.5V4.5L8 8.5L0.5 4.5V11.5L8 15.5L15.5 11.5Z" />
             <path
@@ -51,7 +53,7 @@ function TopNav() {
         </TopNavLink>
       </li>
       <li>
-        <TopNavLink href="https://tailwindui.com/templates?ref=sidebar">
+        <TopNavLink href="/plus/templates?ref=sidebar">
           <svg viewBox="0 0 16 16" fill="none">
             <path
               data-highlight
@@ -63,6 +65,21 @@ function TopNav() {
             />
           </svg>
           Templates
+        </TopNavLink>
+      </li>
+      <li>
+        <TopNavLink href="/plus/ui-kit?ref=sidebar">
+          <svg viewBox="0 0 16 16" fill="none">
+            <path
+              data-highlight
+              d="M12.5 1.5H3.5C2.39543 1.5 1.5 2.39543 1.5 3.5V4.5V12.5C1.5 13.6046 2.39543 14.5 3.5 14.5H5.5V4.5H14.5V3.5C14.5 2.39543 13.6046 1.5 12.5 1.5Z"
+            />
+            <path
+              data-outline
+              d="M5.5 4.5H14.5M5.5 4.5H1.5M5.5 4.5V14.5M14.5 4.5V3.5C14.5 2.39543 13.6046 1.5 12.5 1.5H3.5C2.39543 1.5 1.5 2.39543 1.5 3.5V4.5M14.5 4.5V12.5C14.5 13.6046 13.6046 14.5 12.5 14.5H5.5M1.5 4.5V12.5C1.5 13.6046 2.39543 14.5 3.5 14.5H5.5"
+            />
+          </svg>
+          UI Kit
         </TopNavLink>
       </li>
       <li>
