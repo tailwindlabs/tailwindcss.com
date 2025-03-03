@@ -161,8 +161,10 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
                   return item
                 })
 
+                // TODO: Remove this once only new stuff is indexed
                 items = items.filter((item) => {
                   // Remove old prev-Tailwind plus search results
+                  // @ts-ignore
                   if (item.hierarchy?.lvl0 === "Components") {
                     return false
                   }
@@ -190,6 +192,16 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
                   }
 
                   let isTailwindUI = isTailwindPlusURL(item.url);
+
+                  if (isTailwindUI && item.hierarchy.lvl0 === "UI Blocks") {
+                    if (item.hierarchy?.lvl0) {
+                      item.hierarchy.lvl0 = "Components"
+                    }
+
+                    if (item._highlightResult?.hierarchy?.lvl0?.value) {
+                      item._highlightResult.hierarchy.lvl0.value = "Components"
+                    }
+                  }
 
                   return {
                     ...item,
