@@ -43,14 +43,9 @@ function TopNav() {
       <li>
         <TopNavLink href="/plus/ui-blocks?ref=sidebar">
           <svg viewBox="0 0 16 16" fill="none">
-            <path
-              data-highlight
-              d="M11.5 7V3L8 5 4.5 3v4L8 9l3.5-2ZM8 13V9l-3.5 2L1 9v4l3.5 2L8 13ZM15 13V9l-3.5 2L8 9v4l3.5 2 3.5-2Z"
-            />
-            <path
-              data-outline
-              d="M4.5 3v4m0-4L8 1l3.5 2m-7 0L8 5m3.5-2v4m0-4L8 5m3.5 2L8 9m3.5-2L15 9M4.5 7 8 9M4.5 7 1 9m7 0V5m0 4v4m0-4-3.5 2M8 9l3.5 2M1 9v4l3.5 2M1 9l3.5 2M8 13l-3.5 2M8 13l3.5 2m-7 0v-4M15 9v4l-3.5 2M15 9l-3.5 2m0 4v-4"
-            />
+            <path data-outline d="m11 8 .5.25L15 10.5 8 15l-7-4.5 3.5-2.25L5 8" />
+            <path data-highlight d="M8 1 1 5.5 8 10l7-4.5L8 1Z" />
+            <path data-outline d="M8 1 1 5.5 8 10l7-4.5L8 1Z" />
           </svg>
           Components
         </TopNavLink>
