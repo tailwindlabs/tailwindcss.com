@@ -33,6 +33,8 @@ function rewriteURL(url: string) {
   }
 
   url = url.replace('https://tailwindui.com/', 'https://tailwindcss.com/plus/')
+  // Temporary thing while `https://tailwindui.com/` is rewritten to /plus
+  url = url.replace('/plus/plus/', '/plus/')
   url = url.replace('/plus/components', '/plus/ui-blocks')
   url = url.replace('/plus/templates/catalyst', '/plus/ui-kit')
   url = url.replace('/plus/all-access', '/plus/#pricing')
