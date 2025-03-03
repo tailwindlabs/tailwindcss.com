@@ -144,16 +144,18 @@ export function Header(props: React.PropsWithChildren) {
               Ctrl&nbsp;K
             </kbd>
           </SearchButton>
-          {[
-            ["Docs", "/docs"],
-            ["Components", "https://tailwindui.com/?ref=top"],
-            ["Blog", "/blog"],
-            ["Showcase", "/showcase"],
-          ].map(([text, href]) => (
-            <Link href={href} key={href} className="text-sm/6 text-gray-950 dark:text-white">
-              {text}
-            </Link>
-          ))}
+          <Link href="/docs" className="text-sm/6 text-gray-950 dark:text-white">
+            Docs
+          </Link>
+          <a href="/plus?ref=top" className="text-sm/6 text-gray-950 dark:text-white">
+            Plus
+          </a>
+          <Link href="/blog" className="text-sm/6 text-gray-950 dark:text-white">
+            Blog
+          </Link>
+          <Link href="/showcase" className="text-sm/6 text-gray-950 dark:text-white">
+            Showcase
+          </Link>
           <Link href="https://github.com/tailwindlabs/tailwindcss" aria-label="GitHub repository">
             <GitHubLogo className="size-5 fill-black/40 dark:fill-gray-400" />
           </Link>
@@ -190,21 +192,36 @@ export function Header(props: React.PropsWithChildren) {
                 </IconButton>
               </div>
               <div className="grid grid-cols-1 gap-1 px-1 pb-1 sm:px-3 sm:pb-3">
-                {[
-                  ["Docs", "/docs"],
-                  ["Components", "https://tailwindui.com/?ref=top"],
-                  ["Blog", "/blog"],
-                  ["Showcase", "/showcase"],
-                  ["GitHub", "https://github.com/tailwindlabs/tailwindcss"],
-                ].map(([text, href]) => (
-                  <Link
-                    href={href}
-                    key={href}
-                    className="rounded-lg px-3 py-2 text-xl/9 font-medium text-gray-950 data-active:bg-gray-950/5 dark:text-white dark:hover:bg-white/10"
-                  >
-                    {text}
-                  </Link>
-                ))}
+                <Link
+                  href="/docs"
+                  className="rounded-lg px-3 py-2 text-xl/9 font-medium text-gray-950 data-active:bg-gray-950/5 dark:text-white dark:hover:bg-white/10"
+                >
+                  Docs
+                </Link>
+                <a
+                  href="/plus/?ref=top"
+                  className="rounded-lg px-3 py-2 text-xl/9 font-medium text-gray-950 data-active:bg-gray-950/5 dark:text-white dark:hover:bg-white/10"
+                >
+                  Plus
+                </a>
+                <Link
+                  href="/blog"
+                  className="rounded-lg px-3 py-2 text-xl/9 font-medium text-gray-950 data-active:bg-gray-950/5 dark:text-white dark:hover:bg-white/10"
+                >
+                  Blog
+                </Link>
+                <Link
+                  href="/showcase"
+                  className="rounded-lg px-3 py-2 text-xl/9 font-medium text-gray-950 data-active:bg-gray-950/5 dark:text-white dark:hover:bg-white/10"
+                >
+                  Showcase
+                </Link>
+                <Link
+                  href="https://github.com/tailwindlabs/tailwindcss"
+                  className="rounded-lg px-3 py-2 text-xl/9 font-medium text-gray-950 data-active:bg-gray-950/5 dark:text-white dark:hover:bg-white/10"
+                >
+                  GitHub
+                </Link>
               </div>
             </DialogPanel>
           </Dialog>
