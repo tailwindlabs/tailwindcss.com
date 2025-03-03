@@ -7,7 +7,6 @@ import React from "react";
 import GridContainer from "../grid-container";
 import { BentoItem } from "./bento";
 import CategoryHeader from "./category-header";
-import LinkButton from "./link-button";
 import templatesCol1 from "./templates-col-1.png";
 import templatesCol2 from "./templates-col-2.png";
 import templatesCol3 from "./templates-col-3.png";
@@ -36,7 +35,7 @@ export default function TailwindUiSection() {
 
       <GridContainer>
         <h2 className="px-2 text-[2.5rem]/10 font-medium tracking-tighter max-sm:px-4 2xl:mt-0">
-          Move even faster with Tailwind UI.
+          Move even faster with Tailwind Plus.
         </h2>
       </GridContainer>
 
@@ -50,7 +49,7 @@ export default function TailwindUiSection() {
 
       <GridContainer>
         <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-gray-600 max-sm:px-4 dark:text-gray-400">
-          Tailwind UI is a collection of beautiful, fully responsive UI components, designed and developed by us, the
+          Tailwind Plus is a collection of beautiful, fully responsive UI components, designed and developed by us, the
           creators of Tailwind CSS. It's got hundreds of ready-to-use examples to choose from, and is guaranteed to help
           you find the perfect starting point for what you want to build.
         </p>
@@ -58,7 +57,7 @@ export default function TailwindUiSection() {
 
       <GridContainer className="mt-10">
         <div className="px-2 max-sm:px-4">
-          <LinkButton href="https://tailwindui.com/">Explore Tailwind UI</LinkButton>
+          <a href="https://tailwindcss.com/plus?ref=home" className="inline-block rounded-4xl bg-black px-4 py-2 text-sm/6 font-semibold text-white hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600">Explore Tailwind Plus</a>
         </div>
       </GridContainer>
       <TabGroup>
