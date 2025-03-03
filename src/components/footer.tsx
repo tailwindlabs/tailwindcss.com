@@ -16,7 +16,7 @@ export function FooterSitemap({ className }: { className?: string }) {
         </div>
         <div className="flex flex-1 flex-col gap-10">
           <div>
-            <TailwindUI />
+            <TailwindPlus />
           </div>
           <div>
             <Community />
@@ -33,7 +33,7 @@ export function FooterSitemap({ className }: { className?: string }) {
           <Learn />
         </div>
         <div className="border-x border-b border-gray-950/5 py-10 pl-2 not-md:border-0 md:border-b-0 dark:border-white/10">
-          <TailwindUI />
+          <TailwindPlus />
         </div>
         <div className="border-x border-b border-gray-950/5 py-10 pl-2 not-md:border-0 sm:border-b-0 dark:border-white/10">
           <Resources />
@@ -98,25 +98,29 @@ function Learn() {
   );
 }
 
-function TailwindUI() {
+function TailwindPlus() {
   return (
     <>
-      <h3 className="mb-2 font-semibold">Tailwind UI</h3>
+      <h3 className="mb-2 font-semibold">
+        <a href="/plus?ref=footer" className="hover:underline">
+          Tailwind Plus
+        </a>
+      </h3>
       <ul className="mt-4 grid gap-4">
         <li>
-          <Link href="https://tailwindui.com/components?ref=footer" className="hover:underline">
+          <a href="/plus/ui-blocks?ref=footer" className="hover:underline">
             UI Blocks
-          </Link>
+          </a>
         </li>
         <li>
-          <Link href="https://tailwindui.com/templates?ref=footer" className="hover:underline">
+          <a href="/plus/templates?ref=footer" className="hover:underline">
             Templates
-          </Link>
+          </a>
         </li>
         <li>
-          <Link href="https://tailwindui.com/templates/catalyst?ref=footer" className="hover:underline">
+          <a href="/plus/ui-kit?ref=footer" className="hover:underline">
             UI Kit
-          </Link>
+          </a>
         </li>
       </ul>
     </>
