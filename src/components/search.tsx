@@ -120,7 +120,7 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
               initialQuery={initialQuery}
               initialScrollY={window.scrollY}
               searchParameters={{
-                facetFilters: "version:v4",
+                facetFilters: [["version:v4", "version:plus"]],
                 distinct: 1,
                 attributesToRetrieve: [
                   "hierarchy.lvl0",
@@ -159,6 +159,15 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
                 items = items.map((item) => {
                   item.url = rewriteURL(item.url)
                   return item
+                })
+
+                items = items.filter((item) => {
+                  // Remove old prev-Tailwind plus search results
+                  if (item.hierarchy?.lvl0 === "Components") {
+                    return false
+                  }
+
+                  return true
                 })
 
                 return items.map((item, index) => {
