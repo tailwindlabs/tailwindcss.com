@@ -147,15 +147,73 @@ export function Header(props: React.PropsWithChildren) {
           <Link href="/docs" className="text-sm/6 text-gray-950 dark:text-white">
             Docs
           </Link>
-          <a href="/plus?ref=top" className="text-sm/6 text-gray-950 dark:text-white">
-            Plus
-          </a>
           <Link href="/blog" className="text-sm/6 text-gray-950 dark:text-white">
             Blog
           </Link>
           <Link href="/showcase" className="text-sm/6 text-gray-950 dark:text-white">
             Showcase
           </Link>
+          <a
+            href="/plus?ref=top"
+            className="group grid grid-cols-[1fr_1px_repeat(19,1fr)_1px_1fr] grid-rows-[1fr_1px_repeat(11,1fr)_1px_1fr] text-sm/6 text-sky-800 dark:text-sky-300"
+          >
+            {/* Vertical plus lines */}
+            <span className="col-start-2 row-start-1 bg-sky-300 dark:bg-sky-300/50" />
+            <span className="col-start-2 row-start-3 bg-sky-300 dark:bg-sky-300/50" />
+            <span className="col-start-22 row-start-1 bg-sky-300 dark:bg-sky-300/50" />
+            <span className="col-start-22 row-start-3 bg-sky-300 dark:bg-sky-300/50" />
+            <span className="col-start-2 row-start-13 bg-sky-300 dark:bg-sky-300/50" />
+            <span className="col-start-2 row-start-15 bg-sky-300 dark:bg-sky-300/50" />
+            <span className="col-start-22 row-start-13 bg-sky-300 dark:bg-sky-300/50" />
+            <span className="col-start-22 row-start-15 bg-sky-300 dark:bg-sky-300/50" />
+
+            {/* Horizontal plus lines */}
+            <span className="col-span-3 col-start-1 row-start-2 bg-sky-300 dark:bg-sky-300/50" />
+            <span className="col-span-3 col-start-21 row-start-2 bg-sky-300 dark:bg-sky-300/50" />
+            <span className="col-span-3 col-start-1 row-start-14 bg-sky-300 dark:bg-sky-300/50" />
+            <span className="col-span-3 col-start-21 row-start-14 bg-sky-300 dark:bg-sky-300/50" />
+
+            {/* Top horizontal lines */}
+            <span className="col-start-4 row-start-2 bg-sky-300/20" />
+            <span className="col-start-6 row-start-2 bg-sky-300/20" />
+            <span className="col-start-8 row-start-2 bg-sky-300/20" />
+            <span className="col-start-10 row-start-2 bg-sky-300/20" />
+            <span className="col-start-12 row-start-2 bg-sky-300/20" />
+            <span className="col-start-14 row-start-2 bg-sky-300/20" />
+            <span className="col-start-16 row-start-2 bg-sky-300/20" />
+            <span className="col-start-18 row-start-2 bg-sky-300/20" />
+            <span className="col-start-20 row-start-2 bg-sky-300/20" />
+
+            {/* Bottom horizontal lines */}
+            <span className="col-start-4 row-start-14 bg-sky-300/20" />
+            <span className="col-start-6 row-start-14 bg-sky-300/20" />
+            <span className="col-start-8 row-start-14 bg-sky-300/20" />
+            <span className="col-start-10 row-start-14 bg-sky-300/20" />
+            <span className="col-start-12 row-start-14 bg-sky-300/20" />
+            <span className="col-start-14 row-start-14 bg-sky-300/20" />
+            <span className="col-start-16 row-start-14 bg-sky-300/20" />
+            <span className="col-start-18 row-start-14 bg-sky-300/20" />
+            <span className="col-start-20 row-start-14 bg-sky-300/20" />
+
+            {/* Left vertical lines */}
+            <span className="col-start-2 row-start-4 bg-sky-300/20" />
+            <span className="col-start-2 row-start-6 bg-sky-300/20" />
+            <span className="col-start-2 row-start-8 bg-sky-300/20" />
+            <span className="col-start-2 row-start-10 bg-sky-300/20" />
+            <span className="col-start-2 row-start-12 bg-sky-300/20" />
+
+            {/* Right vertical lines */}
+            <span className="col-start-22 row-start-4 bg-sky-300/20" />
+            <span className="col-start-22 row-start-6 bg-sky-300/20" />
+            <span className="col-start-22 row-start-8 bg-sky-300/20" />
+            <span className="col-start-22 row-start-10 bg-sky-300/20" />
+            <span className="col-start-22 row-start-12 bg-sky-300/20" />
+
+            {/* Text */}
+            <span className="col-start-2 col-end-23 row-start-2 row-end-15 bg-sky-400/10 px-1.5 group-hover:bg-sky-400/15">
+              Plus
+            </span>
+          </a>
           <Link href="https://github.com/tailwindlabs/tailwindcss" aria-label="GitHub repository">
             <GitHubLogo className="size-5 fill-black/40 dark:fill-gray-400" />
           </Link>
