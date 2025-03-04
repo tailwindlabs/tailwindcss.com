@@ -463,12 +463,12 @@ const nextConfig = {
       // Tailwind UI
       {
         source: "/components",
-        destination: "https://tailwindui.com/components",
+        destination: "https://tailwindcss.com/plus/ui-blocks",
         permanent: false,
       },
       {
         source: "/components/:slug",
-        destination: "https://tailwindui.com/components",
+        destination: "https://tailwindcss.com/plus/ui-blocks",
         permanent: false,
       },
 
