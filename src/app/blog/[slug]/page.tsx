@@ -105,8 +105,8 @@ export default async function DocPage(props: Props) {
             </article>
           </GridContainer>
 
-          <GridContainer className="px-4 lg:px-2">
-            <section className="mt-16">
+          <GridContainer className="mt-16 px-4 py-4 sm:py-2 lg:px-2">
+            <section>
               <h2 className="text-3xl font-medium tracking-tight text-slate-900 dark:text-white">
                 Get all of our updates directly to your&nbsp;inbox.
                 <br />
