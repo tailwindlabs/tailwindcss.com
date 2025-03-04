@@ -476,6 +476,7 @@ const nextConfig = {
       { source: "/discord", destination: "https://discord.gg/7NF8GNe", permanent: false },
     ];
   },
+  // These rewrites are here as a fallback in case the Cloudflare worker fails
   async rewrites() {
     return ["plus", "plus-assets", "vendor", "nova-api"].flatMap((path) => [
       {
