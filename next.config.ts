@@ -480,11 +480,11 @@ const nextConfig = {
     return ["plus", "plus-assets", "vendor", "nova-api"].flatMap((path) => [
       {
         source: `/${path}`,
-        destination: `http://tailwindui.com/${path}`,
+        destination: `https://tailwindui.com/${path}`,
       },
       {
         source: `/${path}/:path*`,
-        destination: `http://tailwindui.com/${path}/:path*`,
+        destination: `https://tailwindui.com/${path}/:path*`,
       },
     ]);
   },
