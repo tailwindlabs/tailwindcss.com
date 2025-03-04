@@ -12,8 +12,8 @@ export const metadata: Metadata = {
     type: "website",
     title: "Build UIs that don't suck",
     description: "A free video series from the creator of Tailwind CSS.",
-    images: "https://tailwindcss.com/api/og?path=/course",
-    url: "https://tailwindcss.com/course",
+    images: "https://tailwindcss.com/api/og?path=/build-uis-that-dont-suck",
+    url: "https://tailwindcss.com/build-uis-that-dont-suck",
   },
 };
 
