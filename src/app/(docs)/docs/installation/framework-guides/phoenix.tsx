@@ -72,6 +72,7 @@ export let steps: Step[] = [
               --input=assets/css/app.css
               --output=priv/static/assets/app.css
             ),
+            # [!code highlight:2]
             cd: Path.expand("..", __DIR__)
           ]
       `,
