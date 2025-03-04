@@ -155,7 +155,7 @@ export function Header(props: React.PropsWithChildren) {
           </Link>
           <a
             href="/plus?ref=top"
-            className="group grid grid-cols-[1fr_1px_repeat(19,1fr)_1px_1fr] grid-rows-[1fr_1px_repeat(11,1fr)_1px_1fr] text-sm/6 text-sky-800 dark:text-sky-300"
+            className="group grid grid-cols-[2px_1px_2px_repeat(17,1fr)_2px_1px_2px] grid-rows-[2px_1px_2px_repeat(9,1fr)_2px_1px_2px] text-sm/6 text-sky-800 dark:text-sky-300"
           >
             {/* Vertical plus lines */}
             <span className="col-start-2 row-start-1 bg-sky-300 dark:bg-sky-300/50" />
