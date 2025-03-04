@@ -100,8 +100,57 @@ function TopNav() {
           </svg>
           Course
         </TopNavLink>
-        <div className="shrink-0 rounded-full bg-sky-300/20 px-2 font-mono text-[0.6875rem]/4.5 font-medium text-sky-700 uppercase">
-          New
+        <div className="grid shrink-0 grid-cols-[2px_1px_2px_repeat(13,1fr)_2px_1px_2px] grid-rows-[2px_1px_2px_repeat(7,1fr)_2px_1px_2px] font-mono text-[0.625rem]/[1.125rem] font-medium tracking-wider text-sky-800 uppercase dark:text-sky-300">
+          {/* Vertical plus lines */}
+          <span className="col-start-2 row-start-1 bg-sky-300 dark:bg-sky-300/50" />
+          <span className="col-start-2 row-start-3 bg-sky-300 dark:bg-sky-300/50" />
+          <span className="col-start-18 row-start-1 bg-sky-300 dark:bg-sky-300/50" />
+          <span className="col-start-18 row-start-3 bg-sky-300 dark:bg-sky-300/50" />
+          <span className="col-start-2 row-start-11 bg-sky-300 dark:bg-sky-300/50" />
+          <span className="col-start-2 row-start-13 bg-sky-300 dark:bg-sky-300/50" />
+          <span className="col-start-18 row-start-11 bg-sky-300 dark:bg-sky-300/50" />
+          <span className="col-start-18 row-start-13 bg-sky-300 dark:bg-sky-300/50" />
+
+          {/* Horizontal plus lines */}
+          <span className="col-span-3 col-start-1 row-start-2 bg-sky-300 dark:bg-sky-300/50" />
+          <span className="col-span-3 col-start-17 row-start-2 bg-sky-300 dark:bg-sky-300/50" />
+          <span className="col-span-3 col-start-1 row-start-12 bg-sky-300 dark:bg-sky-300/50" />
+          <span className="col-span-3 col-start-17 row-start-12 bg-sky-300 dark:bg-sky-300/50" />
+
+          {/* Top horizontal lines */}
+          <span className="col-start-4 row-start-2 bg-sky-300/20" />
+          <span className="col-start-6 row-start-2 bg-sky-300/20" />
+          <span className="col-start-8 row-start-2 bg-sky-300/20" />
+          <span className="col-start-10 row-start-2 bg-sky-300/20" />
+          <span className="col-start-12 row-start-2 bg-sky-300/20" />
+          <span className="col-start-14 row-start-2 bg-sky-300/20" />
+          <span className="col-start-16 row-start-2 bg-sky-300/20" />
+
+          {/* Bottom horizontal lines */}
+          <span className="col-start-4 row-start-12 bg-sky-300/20" />
+          <span className="col-start-6 row-start-12 bg-sky-300/20" />
+          <span className="col-start-8 row-start-12 bg-sky-300/20" />
+          <span className="col-start-10 row-start-12 bg-sky-300/20" />
+          <span className="col-start-12 row-start-12 bg-sky-300/20" />
+          <span className="col-start-14 row-start-12 bg-sky-300/20" />
+          <span className="col-start-16 row-start-12 bg-sky-300/20" />
+
+          {/* Left vertical lines */}
+          <span className="col-start-2 row-start-4 bg-sky-300/20" />
+          <span className="col-start-2 row-start-6 bg-sky-300/20" />
+          <span className="col-start-2 row-start-8 bg-sky-300/20" />
+          <span className="col-start-2 row-start-10 bg-sky-300/20" />
+          <span className="col-start-2 row-start-12 bg-sky-300/20" />
+
+          {/* Right vertical lines */}
+          <span className="col-start-18 row-start-4 bg-sky-300/20" />
+          <span className="col-start-18 row-start-6 bg-sky-300/20" />
+          <span className="col-start-18 row-start-8 bg-sky-300/20" />
+          <span className="col-start-18 row-start-10 bg-sky-300/20" />
+          <span className="col-start-18 row-start-12 bg-sky-300/20" />
+
+          {/* Text */}
+          <span className="col-start-2 col-end-19 row-start-2 row-end-13 bg-sky-400/10 px-1.5">New</span>
         </div>
       </li>
     </ul>
