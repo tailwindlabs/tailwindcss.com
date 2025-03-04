@@ -1,9 +1,10 @@
-import { Logo } from "@/components/logo";
-import { HeroActions, SignUpForm } from "./call-to-action";
+import { SignUpForm } from "./call-to-action";
 import { GridContainer } from "./grid-container";
 
 import type { Metadata } from "next";
 import { HeroSection } from "./hero-section";
+
+import card from "./card.jpg";
 
 export const metadata: Metadata = {
   title: "Build UIs that don't suck",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "Build UIs that don't suck",
     description: "A free video series from the creator of Tailwind CSS.",
-    images: "https://tailwindcss.com/api/og?path=/build-uis-that-dont-suck",
+    images: card.src,
     url: "https://tailwindcss.com/build-uis-that-dont-suck",
   },
 };
