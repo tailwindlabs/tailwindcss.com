@@ -153,67 +153,43 @@ export function Header(props: React.PropsWithChildren) {
           <Link href="/showcase" className="text-sm/6 text-gray-950 dark:text-white">
             Showcase
           </Link>
-          <a
-            href="/plus?ref=top"
-            className="group grid grid-cols-[2px_1px_2px_repeat(17,1fr)_2px_1px_2px] grid-rows-[2px_1px_2px_repeat(9,1fr)_2px_1px_2px] text-sm/6 text-sky-800 dark:text-sky-300"
-          >
-            {/* Vertical plus lines */}
-            <span className="col-start-2 row-start-1 bg-sky-300 dark:bg-sky-300/50" />
-            <span className="col-start-2 row-start-3 bg-sky-300 dark:bg-sky-300/50" />
-            <span className="col-start-22 row-start-1 bg-sky-300 dark:bg-sky-300/50" />
-            <span className="col-start-22 row-start-3 bg-sky-300 dark:bg-sky-300/50" />
-            <span className="col-start-2 row-start-13 bg-sky-300 dark:bg-sky-300/50" />
-            <span className="col-start-2 row-start-15 bg-sky-300 dark:bg-sky-300/50" />
-            <span className="col-start-22 row-start-13 bg-sky-300 dark:bg-sky-300/50" />
-            <span className="col-start-22 row-start-15 bg-sky-300 dark:bg-sky-300/50" />
-
-            {/* Horizontal plus lines */}
-            <span className="col-span-3 col-start-1 row-start-2 bg-sky-300 dark:bg-sky-300/50" />
-            <span className="col-span-3 col-start-21 row-start-2 bg-sky-300 dark:bg-sky-300/50" />
-            <span className="col-span-3 col-start-1 row-start-14 bg-sky-300 dark:bg-sky-300/50" />
-            <span className="col-span-3 col-start-21 row-start-14 bg-sky-300 dark:bg-sky-300/50" />
-
-            {/* Top horizontal lines */}
-            <span className="col-start-4 row-start-2 bg-sky-300/20" />
-            <span className="col-start-6 row-start-2 bg-sky-300/20" />
-            <span className="col-start-8 row-start-2 bg-sky-300/20" />
-            <span className="col-start-10 row-start-2 bg-sky-300/20" />
-            <span className="col-start-12 row-start-2 bg-sky-300/20" />
-            <span className="col-start-14 row-start-2 bg-sky-300/20" />
-            <span className="col-start-16 row-start-2 bg-sky-300/20" />
-            <span className="col-start-18 row-start-2 bg-sky-300/20" />
-            <span className="col-start-20 row-start-2 bg-sky-300/20" />
-
-            {/* Bottom horizontal lines */}
-            <span className="col-start-4 row-start-14 bg-sky-300/20" />
-            <span className="col-start-6 row-start-14 bg-sky-300/20" />
-            <span className="col-start-8 row-start-14 bg-sky-300/20" />
-            <span className="col-start-10 row-start-14 bg-sky-300/20" />
-            <span className="col-start-12 row-start-14 bg-sky-300/20" />
-            <span className="col-start-14 row-start-14 bg-sky-300/20" />
-            <span className="col-start-16 row-start-14 bg-sky-300/20" />
-            <span className="col-start-18 row-start-14 bg-sky-300/20" />
-            <span className="col-start-20 row-start-14 bg-sky-300/20" />
-
-            {/* Left vertical lines */}
-            <span className="col-start-2 row-start-4 bg-sky-300/20" />
-            <span className="col-start-2 row-start-6 bg-sky-300/20" />
-            <span className="col-start-2 row-start-8 bg-sky-300/20" />
-            <span className="col-start-2 row-start-10 bg-sky-300/20" />
-            <span className="col-start-2 row-start-12 bg-sky-300/20" />
-
-            {/* Right vertical lines */}
-            <span className="col-start-22 row-start-4 bg-sky-300/20" />
-            <span className="col-start-22 row-start-6 bg-sky-300/20" />
-            <span className="col-start-22 row-start-8 bg-sky-300/20" />
-            <span className="col-start-22 row-start-10 bg-sky-300/20" />
-            <span className="col-start-22 row-start-12 bg-sky-300/20" />
-
-            {/* Text */}
-            <span className="col-start-2 col-end-23 row-start-2 row-end-15 bg-sky-400/10 px-1.5 group-hover:bg-sky-400/15">
-              Plus
-            </span>
+          <a href="./plus?ref=top" className="group relative px-1.5 text-sm/6 text-sky-800 dark:text-sky-300">
+            <span className="absolute inset-0 border border-dashed border-sky-300/60 bg-sky-400/10 group-hover:bg-sky-400/15 dark:border-sky-300/30" />
+            Plus
+            <svg
+              width="5"
+              height="5"
+              viewBox="0 0 5 5"
+              className="absolute top-[-2px] left-[-2px] fill-sky-300 dark:fill-sky-300/50"
+            >
+              <path d="M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z" />
+            </svg>
+            <svg
+              width="5"
+              height="5"
+              viewBox="0 0 5 5"
+              className="absolute top-[-2px] right-[-2px] fill-sky-300 dark:fill-sky-300/50"
+            >
+              <path d="M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z" />
+            </svg>
+            <svg
+              width="5"
+              height="5"
+              viewBox="0 0 5 5"
+              className="absolute bottom-[-2px] left-[-2px] fill-sky-300 dark:fill-sky-300/50"
+            >
+              <path d="M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z" />
+            </svg>
+            <svg
+              width="5"
+              height="5"
+              viewBox="0 0 5 5"
+              className="absolute right-[-2px] bottom-[-2px] fill-sky-300 dark:fill-sky-300/50"
+            >
+              <path d="M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z" />
+            </svg>
           </a>
+
           <Link href="https://github.com/tailwindlabs/tailwindcss" aria-label="GitHub repository">
             <GitHubLogo className="size-5 fill-black/40 dark:fill-gray-400" />
           </Link>

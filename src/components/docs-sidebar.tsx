@@ -10,8 +10,9 @@ export function TopNavLink(props: { href: string } & React.ComponentPropsWithout
   return (
     <Component
       className={clsx(
+        "group",
         "inline-flex items-center gap-3 text-base/8 text-gray-600 sm:text-sm/7 dark:text-gray-300",
-        "**:data-outline:stroke-gray-400 dark:**:data-outline:stroke-gray-500 **:[svg]:size-5 **:[svg]:sm:size-4",
+        "**:data-outline:stroke-gray-400 dark:**:data-outline:stroke-gray-500 **:[svg]:first:size-5 **:[svg]:first:sm:size-4",
         "hover:text-gray-950 hover:**:data-highlight:fill-gray-300 hover:**:data-outline:stroke-gray-950",
         "dark:hover:text-white dark:hover:**:data-highlight:fill-gray-600 dark:hover:**:data-outline:stroke-white",
         "aria-[current]:font-semibold aria-[current]:text-gray-950 aria-[current]:**:data-highlight:fill-gray-300 aria-[current]:**:data-outline:stroke-gray-950",
@@ -98,60 +99,44 @@ function TopNav() {
               d="M3.5 7.429V13A7.466 7.466 0 0 0 8 14.5a7.466 7.466 0 0 0 4.5-1.5V7.43m-9 0L8 10l4.5-2.571m-9 0-2-1.143m11 1.143L15 6 8 2 1 6l.5.286m0 5.214V6.286"
             />
           </svg>
-          Course
+          <span>Course</span>
+          <span className="relative px-1.5 font-mono text-[0.625rem]/[1.125rem] font-medium tracking-widest text-sky-800 uppercase dark:text-sky-300">
+            <span className="absolute inset-0 border border-dashed border-sky-300/60 bg-sky-400/10 group-hover:bg-sky-400/15 dark:border-sky-300/30" />
+            New
+            <svg
+              width="5"
+              height="5"
+              viewBox="0 0 5 5"
+              className="absolute top-[-2px] left-[-2px] fill-sky-300 dark:fill-sky-300/50"
+            >
+              <path d="M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z" />
+            </svg>
+            <svg
+              width="5"
+              height="5"
+              viewBox="0 0 5 5"
+              className="absolute top-[-2px] right-[-2px] fill-sky-300 dark:fill-sky-300/50"
+            >
+              <path d="M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z" />
+            </svg>
+            <svg
+              width="5"
+              height="5"
+              viewBox="0 0 5 5"
+              className="absolute bottom-[-2px] left-[-2px] fill-sky-300 dark:fill-sky-300/50"
+            >
+              <path d="M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z" />
+            </svg>
+            <svg
+              width="5"
+              height="5"
+              viewBox="0 0 5 5"
+              className="absolute right-[-2px] bottom-[-2px] fill-sky-300 dark:fill-sky-300/50"
+            >
+              <path d="M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z" />
+            </svg>
+          </span>
         </TopNavLink>
-        <div className="grid shrink-0 grid-cols-[2px_1px_2px_repeat(13,1fr)_2px_1px_2px] grid-rows-[2px_1px_2px_repeat(7,1fr)_2px_1px_2px] font-mono text-[0.625rem]/[1.125rem] font-medium tracking-wider text-sky-800 uppercase dark:text-sky-300">
-          {/* Vertical plus lines */}
-          <span className="col-start-2 row-start-1 bg-sky-300 dark:bg-sky-300/50" />
-          <span className="col-start-2 row-start-3 bg-sky-300 dark:bg-sky-300/50" />
-          <span className="col-start-18 row-start-1 bg-sky-300 dark:bg-sky-300/50" />
-          <span className="col-start-18 row-start-3 bg-sky-300 dark:bg-sky-300/50" />
-          <span className="col-start-2 row-start-11 bg-sky-300 dark:bg-sky-300/50" />
-          <span className="col-start-2 row-start-13 bg-sky-300 dark:bg-sky-300/50" />
-          <span className="col-start-18 row-start-11 bg-sky-300 dark:bg-sky-300/50" />
-          <span className="col-start-18 row-start-13 bg-sky-300 dark:bg-sky-300/50" />
-
-          {/* Horizontal plus lines */}
-          <span className="col-span-3 col-start-1 row-start-2 bg-sky-300 dark:bg-sky-300/50" />
-          <span className="col-span-3 col-start-17 row-start-2 bg-sky-300 dark:bg-sky-300/50" />
-          <span className="col-span-3 col-start-1 row-start-12 bg-sky-300 dark:bg-sky-300/50" />
-          <span className="col-span-3 col-start-17 row-start-12 bg-sky-300 dark:bg-sky-300/50" />
-
-          {/* Top horizontal lines */}
-          <span className="col-start-4 row-start-2 bg-sky-300/20" />
-          <span className="col-start-6 row-start-2 bg-sky-300/20" />
-          <span className="col-start-8 row-start-2 bg-sky-300/20" />
-          <span className="col-start-10 row-start-2 bg-sky-300/20" />
-          <span className="col-start-12 row-start-2 bg-sky-300/20" />
-          <span className="col-start-14 row-start-2 bg-sky-300/20" />
-          <span className="col-start-16 row-start-2 bg-sky-300/20" />
-
-          {/* Bottom horizontal lines */}
-          <span className="col-start-4 row-start-12 bg-sky-300/20" />
-          <span className="col-start-6 row-start-12 bg-sky-300/20" />
-          <span className="col-start-8 row-start-12 bg-sky-300/20" />
-          <span className="col-start-10 row-start-12 bg-sky-300/20" />
-          <span className="col-start-12 row-start-12 bg-sky-300/20" />
-          <span className="col-start-14 row-start-12 bg-sky-300/20" />
-          <span className="col-start-16 row-start-12 bg-sky-300/20" />
-
-          {/* Left vertical lines */}
-          <span className="col-start-2 row-start-4 bg-sky-300/20" />
-          <span className="col-start-2 row-start-6 bg-sky-300/20" />
-          <span className="col-start-2 row-start-8 bg-sky-300/20" />
-          <span className="col-start-2 row-start-10 bg-sky-300/20" />
-          <span className="col-start-2 row-start-12 bg-sky-300/20" />
-
-          {/* Right vertical lines */}
-          <span className="col-start-18 row-start-4 bg-sky-300/20" />
-          <span className="col-start-18 row-start-6 bg-sky-300/20" />
-          <span className="col-start-18 row-start-8 bg-sky-300/20" />
-          <span className="col-start-18 row-start-10 bg-sky-300/20" />
-          <span className="col-start-18 row-start-12 bg-sky-300/20" />
-
-          {/* Text */}
-          <span className="col-start-2 col-end-19 row-start-2 row-end-13 bg-sky-400/10 px-1.5">New</span>
-        </div>
       </li>
     </ul>
   );
