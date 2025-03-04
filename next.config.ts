@@ -476,6 +476,18 @@ const nextConfig = {
       { source: "/discord", destination: "https://discord.gg/7NF8GNe", permanent: false },
     ];
   },
+  async rewrites() {
+    return ["plus-assets"].flatMap((path) => [
+      {
+        source: `/${path}`,
+        destination: `http://tailwindui.com/${path}`,
+      },
+      {
+        source: `/${path}/:path*`,
+        destination: `http://tailwindui.com/${path}/:path*`,
+      },
+    ]);
+  },
 } satisfies NextConfig;
 
 const withMDX = require("@next/mdx")();
