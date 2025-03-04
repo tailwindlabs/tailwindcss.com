@@ -4,7 +4,11 @@ import Image from "next/image";
 import { useEffect, useState, type ReactElement } from "react";
 import bookPromo from "./book-promo.png";
 import coursePromo from "./course-promo.jpg";
-import LinkButton from "./home/link-button";
+// import LinkButton from "./home/link-button";
+
+import clsx from "clsx";
+import Link from "next/link";
+import React from "react";
 
 export function BookPromo() {
   return (
@@ -68,7 +72,7 @@ export function CoursePromo() {
           </div>
         </div>
       </div>
-      <p className="text-[0.815rem]/6 font-semibold text-sky-500 dark:text-sky-400">5-day mini-course</p>
+      <p className="text-[0.8125rem]/6 font-semibold text-sky-500 dark:text-sky-400">5-day mini-course</p>
       <p className="mt-1.5 text-base/5 font-semibold text-gray-950 dark:text-white">Build UIs that don’t suck.</p>
       <p className="mt-3 text-[0.8125rem]/5 text-gray-600 dark:text-gray-400">
         Short, tactical video lessons from the creator of Tailwind CSS, delivered directly to your inbox every day for a
@@ -81,6 +85,28 @@ export function CoursePromo() {
         </LinkButton>
       </p>
     </div>
+  );
+}
+
+export default function LinkButton({
+  className,
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  href: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className={clsx(
+        className,
+        "inline-block rounded-4xl bg-black px-3.5 py-1.25 text-[0.8125rem]/6 font-semibold text-white hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600",
+      )}
+    >
+      {children}
+    </Link>
   );
 }
 
