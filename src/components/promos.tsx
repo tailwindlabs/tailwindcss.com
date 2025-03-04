@@ -69,17 +69,15 @@ export function CoursePromo() {
         </div>
       </div>
       <p className="text-[0.815rem]/6 font-semibold text-sky-500 dark:text-sky-400">5-day mini-course</p>
-      <p className="mt-1.5 text-[0.9375rem]/5 font-semibold text-gray-950 dark:text-white">
-        Build UIs that don’t suck.
-      </p>
-      <p className="mt-6 text-[0.8125rem]/5 text-gray-600 dark:text-gray-400">
+      <p className="mt-1.5 text-base/5 font-semibold text-gray-950 dark:text-white">Build UIs that don’t suck.</p>
+      <p className="mt-3 text-[0.8125rem]/5 text-gray-600 dark:text-gray-400">
         Short, tactical video lessons from the creator of Tailwind CSS, delivered directly to your inbox every day for a
         week.
       </p>
       <p className="mt-4">
-        <LinkButton href="/course">
+        <LinkButton href="/build-uis-that-dont-suck">
           <span className="absolute inset-0" />
-          Get the free course &rarr;
+          Get the free course <span aria-hidden="true">&rarr;</span>
         </LinkButton>
       </p>
     </div>

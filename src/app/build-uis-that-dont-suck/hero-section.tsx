@@ -4,6 +4,7 @@ import { Logo } from "@/components/logo";
 import { GridContainer } from "./grid-container";
 import { HeroActions } from "./call-to-action";
 import { useRef } from "react";
+import Link from "next/link";
 
 export function HeroSection() {
   let videoRef = useRef<HTMLVideoElement>(null);
@@ -19,8 +20,10 @@ export function HeroSection() {
         <div className="absolute inset-0 size-full bg-linear-to-t from-gray-950 to-50%"></div>
       </div>
       <GridContainer>
-        <div className="p-2">
-          <Logo className="h-7" />
+        <div className="flex p-2">
+          <Link href="/" aria-label="Home" className="inline-flex">
+            <Logo className="h-7" />
+          </Link>
         </div>
       </GridContainer>
       <div className="mt-20 flex flex-col gap-4 sm:mt-24">
