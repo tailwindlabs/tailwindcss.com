@@ -4,7 +4,7 @@ export default function linesToDiv(): ShikiTransformer {
   return {
     name: "tailwindcss/lines-to-div",
     line(node) {
-      node.tagName = 'div';
-    }
+      node.tagName = "div";
+    },
   };
 }

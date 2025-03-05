@@ -57,7 +57,12 @@ export default function TailwindUiSection() {
 
       <GridContainer className="mt-10">
         <div className="px-2 max-sm:px-4">
-          <a href="https://tailwindcss.com/plus?ref=home" className="inline-block rounded-4xl bg-black px-4 py-2 text-sm/6 font-semibold text-white hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600">Explore Tailwind Plus</a>
+          <a
+            href="https://tailwindcss.com/plus?ref=home"
+            className="inline-block rounded-4xl bg-black px-4 py-2 text-sm/6 font-semibold text-white hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600"
+          >
+            Explore Tailwind Plus
+          </a>
         </div>
       </GridContainer>
       <TabGroup>

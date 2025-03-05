@@ -13,36 +13,35 @@ const APP_ID = "KNPXZI5B0M";
 
 function isTailwindPlusURL(url: string) {
   return (
-    url.startsWith('https://tailwindui.com') ||
-    url.startsWith('https://tailwindcss.com/plus') ||
-    url.startsWith('/plus')
-  )
+    url.startsWith("https://tailwindui.com") ||
+    url.startsWith("https://tailwindcss.com/plus") ||
+    url.startsWith("/plus")
+  );
 }
 
 function isExternalURL(url: string) {
-  if (url.startsWith('https://tailwindui.com')) {
-    return false
+  if (url.startsWith("https://tailwindui.com")) {
+    return false;
   }
 
   return /^https?:\/\//.test(url) && !url.startsWith(window.location.origin);
 }
 
 function rewriteURL(url: string) {
-  if (!url.startsWith('https://tailwindui.com')) {
-    return url
+  if (!url.startsWith("https://tailwindui.com")) {
+    return url;
   }
 
-  url = url.replace('https://tailwindui.com/', 'https://tailwindcss.com/plus/')
+  url = url.replace("https://tailwindui.com/", "https://tailwindcss.com/plus/");
   // Temporary thing while `https://tailwindui.com/` is rewritten to /plus
-  url = url.replace('/plus/plus/', '/plus/')
-  url = url.replace('/plus/components', '/plus/ui-blocks')
-  url = url.replace('/plus/templates/catalyst', '/plus/ui-kit')
-  url = url.replace('/plus/all-access', '/plus/#pricing')
-  url = url.replace('/plus/documentation', '/plus/ui-blocks/documentation')
+  url = url.replace("/plus/plus/", "/plus/");
+  url = url.replace("/plus/components", "/plus/ui-blocks");
+  url = url.replace("/plus/templates/catalyst", "/plus/ui-kit");
+  url = url.replace("/plus/all-access", "/plus/#pricing");
+  url = url.replace("/plus/documentation", "/plus/ui-blocks/documentation");
 
-  return url
+  return url;
 }
-
 
 const SearchContext = createContext<any>({});
 
@@ -157,20 +156,20 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
               hitComponent={Hit}
               transformItems={(items) => {
                 items = items.map((item) => {
-                  item.url = rewriteURL(item.url)
-                  return item
-                })
+                  item.url = rewriteURL(item.url);
+                  return item;
+                });
 
                 // TODO: Remove this once only new stuff is indexed
                 items = items.filter((item) => {
                   // Remove old prev-Tailwind plus search results
                   // @ts-ignore
                   if (item.hierarchy?.lvl0 === "Components") {
-                    return false
+                    return false;
                   }
 
-                  return true
-                })
+                  return true;
+                });
 
                 return items.map((item, index) => {
                   // We transform the absolute URL into a relative URL to
@@ -195,11 +194,11 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
 
                   if (isTailwindUI && item.hierarchy.lvl0 === "UI Blocks") {
                     if (item.hierarchy?.lvl0) {
-                      item.hierarchy.lvl0 = "Components"
+                      item.hierarchy.lvl0 = "Components";
                     }
 
                     if (item._highlightResult?.hierarchy?.lvl0?.value) {
-                      item._highlightResult.hierarchy.lvl0.value = "Components"
+                      item._highlightResult.hierarchy.lvl0.value = "Components";
                     }
                   }
 
