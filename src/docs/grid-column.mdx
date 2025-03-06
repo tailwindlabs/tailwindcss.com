@@ -24,6 +24,8 @@ export const description = "Utilities for controlling how elements are sized and
     ["col-end-(<custom-property>)", "grid-column-end: var(<custom-property>);"],
     ["col-end-[<value>]", "grid-column-end: <value>;"],
     ["col-auto", "grid-column: auto;"],
+    ["col-<number>", "grid-column: <number>;"],
+    ["-col-<number>", "grid-column: calc(<number> * -1);"],
     ["col-(<custom-property>)", "grid-column: var(<custom-property>);"],
     ["col-[<value>]", "grid-column: <value>;"],
   ]}
