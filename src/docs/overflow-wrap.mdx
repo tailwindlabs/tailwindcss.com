@@ -24,7 +24,7 @@ Use the `wrap-normal` utility to only allow line breaks at natural wrapping poin
 
 <Example padding={false}>
   {
-    <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 [overflow-wrap:normal] text-gray-900 dark:text-gray-200">
+    <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 wrap-normal text-gray-900 dark:text-gray-200">
       The longest word in any of the major English language dictionaries is{" "}
       <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that refers to a lung
       disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it
@@ -50,9 +50,9 @@ Use the `wrap-break-word` utility to allow line breaks between letters in a word
   {
     <p className="mx-auto w-min max-w-xs border-x border-x-pink-400/30 py-8 text-gray-900 dark:text-gray-200">
       The longest word in any of the major English language dictionaries is{" "}
-      <span className="font-bold [overflow-wrap:break-word]">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a
-      word that refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from
-      a volcano; medically, it is the same as silicosis.
+      <span className="font-bold wrap-break-word">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that
+      refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from a
+      volcano; medically, it is the same as silicosis.
     </p>
   }
 </Example>
@@ -60,7 +60,7 @@ Use the `wrap-break-word` utility to allow line breaks between letters in a word
 ```html
 <!-- [!code classes:wrap-break-word] -->
 <p class="w-min">
-  The longest word... <span class="wrap-break-word font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span>
+  The longest word... <span class="font-bold wrap-break-word">pneumonoultramicroscopicsilicovolcanoconiosis,</span>
 </p>
 ```
 
@@ -76,9 +76,9 @@ Use the `wrap-anywhere` utility to allow line breaks between letters in a word i
   {
     <p className="mx-auto w-min max-w-xs border-x border-x-pink-400/30 py-8 text-gray-900 dark:text-gray-200">
       The longest word in any of the major English language dictionaries is{" "}
-      <span className="font-bold [overflow-wrap:anywhere]">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word
-      that refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from a
-      volcano; medically, it is the same as silicosis.
+      <span className="font-bold wrap-anywhere">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that refers
+      to a lung disease contracted from the inhalation of very fine silica particles, specifically from a volcano;
+      medically, it is the same as silicosis.
     </p>
   }
 </Example>
@@ -86,7 +86,7 @@ Use the `wrap-anywhere` utility to allow line breaks between letters in a word i
 ```html
 <!-- [!code classes:wrap-anywhere] -->
 <p class="w-min">
-  The longest word... <span class="wrap-anywhere font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span>
+  The longest word... <span class="font-bold wrap-anywhere">pneumonoultramicroscopicsilicovolcanoconiosis,</span>
 </p>
 ```
 
