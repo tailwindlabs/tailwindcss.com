@@ -3379,6 +3379,30 @@ A quick reference table of every single variant included in Tailwind by default.
       </tr>
       <tr>
         <td>
+          <a href="#user-valid" className="whitespace-nowrap">
+            user-valid
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">
+            <span className="text-gray-400">&</span>:user-valid
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#user-invalid" className="whitespace-nowrap">
+            user-invalid
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">
+            <span className="text-gray-400">&</span>:user-invalid
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td>
           <a href="#in-range" className="whitespace-nowrap">
             in-range
           </a>
@@ -4665,6 +4689,24 @@ Style an input when it's invalid using the `invalid` variant:
 ```html
 <!-- [!code classes:invalid:border-red-500] -->
 <input class="invalid:border-red-500 ..." />
+```
+
+#### :user-valid
+
+Style an input when it's valid, and the user has interacted with the form, using the `user-valid` variant:
+
+```html
+<!-- [!code classes:user-valid:border-green-500] -->
+<input class="user-valid:border-green-500 ..." />
+```
+
+#### :user-invalid
+
+Style an input when it's invalid, and the user has interacted with the form, using the `user-invalid` variant:
+
+```html
+<!-- [!code classes:user-invalid:border-red-500] -->
+<input class="user-invalid:border-red-500 ..." />
 ```
 
 #### :in-range
