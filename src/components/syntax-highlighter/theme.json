@@ -2,7 +2,7 @@
   "name": "tailwindcss-theme",
   "colors": {
     "foreground": "var(--color-slate-400)",
-    "descriptionForeground": "var--color-slate-200)",
+    "descriptionForeground": "var(--color-slate-200)",
     "errorForeground": "var(--color-rose-400)",
     "selection.background": "color-mix(in oklab, var(--color-blue-200) 64%, transparent)",
     "focusBorder": "var(--color-sky-500)",
