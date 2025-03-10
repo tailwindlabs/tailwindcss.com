@@ -64,22 +64,6 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import Tailwind CSS",
-    body: (
-      <p>
-        Add an <code>@import</code> that imports Tailwind CSS to your <code>application.tailwind.css</code> file located
-        in the <code>./app/assets/stylesheets</code> directory.
-      </p>
-    ),
-    code: {
-      name: "application.tailwind.css",
-      lang: "css",
-      code: css`
-        @import "tailwindcss";
-      `,
-    },
-  },
-  {
     title: "Start your build process",
     body: (
       <p>
