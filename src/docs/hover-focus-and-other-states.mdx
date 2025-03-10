@@ -4251,7 +4251,7 @@ A quick reference table of every single variant included in Tailwind by default.
         </td>
         <td>
           <code className="whitespace-nowrap before:content-none after:content-none">
-            [dir="rtl"] <span className="text-gray-400">&</span>
+            <span className="text-gray-400">&</span>:where(:dir(rtl), [dir="rtl"], [dir="rtl"] *)
           </code>
         </td>
       </tr>
@@ -4263,7 +4263,7 @@ A quick reference table of every single variant included in Tailwind by default.
         </td>
         <td>
           <code className="whitespace-nowrap before:content-none after:content-none">
-            [dir="ltr"] <span className="text-gray-400">&</span>
+            <span className="text-gray-400">&</span>:where(:dir(ltr), [dir="ltr"], [dir="ltr"] *)
           </code>
         </td>
       </tr>
@@ -4275,7 +4275,7 @@ A quick reference table of every single variant included in Tailwind by default.
         </td>
         <td>
           <code className="whitespace-nowrap before:content-none after:content-none">
-            <span className="text-gray-400">&</span>:is([open], :popover-open)
+            <span className="text-gray-400">&</span>:is([open], :popover-open, :open)
           </code>
         </td>
       </tr>
