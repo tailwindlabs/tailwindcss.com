@@ -337,6 +337,16 @@ To update your project for these changes, replace all the v3 utilities with thei
 
 #### Renamed outline utility
 
+The `outline` utility now sets `outline-width: 1px` by default to be more consistent with border and ring utilities. Furthermore all `outline-<number>` utilities default `outline-style` to `solid`, omitting the need to combine them with `outline`:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code --:2] -->
+<input class="outline outline-2" />
+<!-- [!code ++:2] -->
+<input class="outline-2" />
+```
+
 The `outline-none` utility previously didn't actually set `outline-style: none`, and instead set an invisible outline that would still show up in forced colors mode for accessibility reasons.
 
 To make this more clear we've renamed this utility to `outline-hidden` and added a new `outline-none` utility that actually sets `outline-style: none`.
