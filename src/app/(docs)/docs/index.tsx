@@ -104,6 +104,7 @@ export default {
     ["vertical-align", "/docs/vertical-align"],
     ["white-space", "/docs/white-space"],
     ["word-break", "/docs/word-break"],
+    ["overflow-wrap", "/docs/overflow-wrap"],
     ["hyphens", "/docs/hyphens"],
     ["content", "/docs/content"],
   ] as const,
