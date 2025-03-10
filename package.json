@@ -15,7 +15,7 @@
     "@heroicons/react": "^2.2.0",
     "@next/mdx": "^15.1.6",
     "@shikijs/transformers": "^1.26.1",
-    "@tailwindcss/postcss": "^4.0.9",
+    "@tailwindcss/postcss": "0.0.0-insiders.cc3e852",
     "@types/mdx": "^2.0.13",
     "clsx": "^2.1.1",
     "dedent": "^1.5.3",
@@ -28,7 +28,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "shiki": "^1.26.1",
-    "tailwindcss": "^4.0.12"
+    "tailwindcss": "0.0.0-insiders.cc3e852"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
