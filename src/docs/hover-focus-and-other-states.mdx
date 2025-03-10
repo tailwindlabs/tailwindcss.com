@@ -1559,6 +1559,22 @@ To style an element based on the width of a parent element instead of the viewpo
 
 Check out the [Responsive design](/docs/responsive-design) documentation for an in-depth look at how these features work.
 
+### pointer and any-pointer
+
+The `pointer` media query tells you whether user has a primary pointing device, like a mouse or stylus, and the accuracy of that pointing device.
+
+Use the `pointer-fine` and `pointer-coarse` variants to provide different styles based on the accuracy of the user's primary pointing device:
+
+```html
+<button class="size-4 pointer-coarse:size-6 ...">
+  <!-- ... -->
+</button>
+```
+
+`pointer-fine` targets an accurate pointing device, like a mouse or stylus, and `pointer-coarse` targets a less accurate pointing device, like a touchscreen or trackpad. Use `pointer-none` to target the absence of a primary pointing device.
+
+While the `pointer` media query targets only the primary pointing device, `any-pointer` is used to target any of the pointing devices that might be available. Use the `any-pointer-fine` and `any-pointer-coarse` variants to provide different styles if at least one connected pointing device meets the requirements.
+
 ### prefers-color-scheme
 
 The `prefers-color-scheme` media query tells you whether the user prefers a light theme or dark theme, and is usually configured at the operating system level.
