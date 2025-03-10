@@ -1,0 +1,99 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+
+export const title = "overflow-wrap";
+export const description = "Utilities for controlling line breaks in an overflowing element.";
+
+<ApiTable
+  rows={[
+    ["wrap-normal", "overflow-wrap: normal;"],
+    ["wrap-anywhere", "overflow-wrap: anywhere;"],
+    ["wrap-break-word", "overflow-wrap: break-word;"],
+  ]}
+/>
+
+## Examples
+
+### Normal
+
+Use the `wrap-normal` utility to only allow line breaks at hard wrap opportunities, like spaces and hyphens:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 [overflow-wrap:normal] text-gray-900 dark:text-gray-200">
+      The longest word in any of the major English language dictionaries is{" "}
+      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that refers to a lung
+      disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it
+      is the same as silicosis.
+    </p>
+  }
+</Example>
+
+```html
+<!-- [!code classes:wrap-normal] -->
+<p class="wrap-normal">The longest word in any of the major...</p>
+```
+
+</Figure>
+
+### Break Word
+
+Use the `wrap-break-word` utility to allow line breaks at soft wrap opportunities, like between letters in a word, if needed:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <p className="mx-auto w-min max-w-xs border-x border-x-pink-400/30 py-8 text-gray-900 dark:text-gray-200">
+      The longest word in any of the major English language dictionaries is{" "}
+      <span className="font-bold [overflow-wrap:break-word]">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a
+      word that refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from
+      a volcano; medically, it is the same as silicosis.
+    </p>
+  }
+</Example>
+
+```html
+<!-- [!code classes:wrap-break-word] -->
+<p class="w-min">
+  The longest word... <span class="wrap-break-word font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span>
+</p>
+```
+
+</Figure>
+
+### Anywhere
+
+Use the `wrap-anywhere` utility to allow line breaks at soft wrap opportunities, like between letters in a word, if needed:
+
+<Figure>
+
+<Example padding={false} className="max-h-96">
+  {
+    <p className="mx-auto w-min max-w-xs border-x border-x-pink-400/30 py-8 text-gray-900 dark:text-gray-200">
+      The longest word in any of the major English language dictionaries is{" "}
+      <span className="font-bold [overflow-wrap:anywhere]">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word
+      that refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from a
+      volcano; medically, it is the same as silicosis.
+    </p>
+  }
+</Example>
+
+```html
+<!-- [!code classes:wrap-anywhere] -->
+<p class="w-min">
+  The longest word... <span class="wrap-anywhere font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span>
+</p>
+```
+
+</Figure>
+
+Unlike the `wrap-break-word`, `wrap-anywhere` allows the browser to factor in mid-word line breaks when calculating the intrinsic `min-content` size of the element.
+
+### Responsive design
+
+<ResponsiveDesign element="p" property="wrap" defaultClass="normal" featuredClass="break-word" />
