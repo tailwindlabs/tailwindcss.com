@@ -1873,9 +1873,18 @@ Use the `portrait` and `landscape` variants to conditionally add styles when the
 </div>
 ```
 
-### print
+### scripting
 
-Use the `print` variant to conditionally add styles that only apply when the document is being printed:
+Use the `scripting`, `scripting-none`, and `scripting-initial` variants to conditionally add styles based whether the user has scriping, such as JavaScript, enabled:
+
+```html
+<!-- [!code classes:scripting-none:fixed] -->
+<div class="hidden scripting-none:fixed">
+  <p>This experience requires JavaScript to function. Please enable JavaScript in your browser settings.</p>
+</div>
+```
+
+### print Use the `print` variant to conditionally add styles that only apply when the document is being printed:
 
 ```html
 <!-- [!code classes:print:hidden] -->
