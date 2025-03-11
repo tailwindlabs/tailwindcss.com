@@ -1873,6 +1873,17 @@ Use the `portrait` and `landscape` variants to conditionally add styles when the
 </div>
 ```
 
+### scripting
+
+Use the `scripting`, `scripting-none`, and `scripting-initial` variants to conditionally add styles based whether the user has scriping, such as JavaScript, enabled:
+
+```html
+<!-- [!code classes:scripting-none:block] -->
+<div class="hidden scripting-none:block">
+  <p>This experience requires JavaScript to function. Please enable JavaScript in your browser settings.</p>
+</div>
+```
+
 ### print
 
 Use the `print` variant to conditionally add styles that only apply when the document is being printed:
@@ -4087,6 +4098,36 @@ A quick reference table of every single variant included in Tailwind by default.
           <code className="whitespace-nowrap before:content-none after:content-none">
             @media (prefers-contrast: less)
           </code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#scripting" className="whitespace-nowrap">
+            scripting
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">@media (scripting: enabled)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#scripting" className="whitespace-nowrap">
+            scripting-initial
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">@media (scripting: initial)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#scripting" className="whitespace-nowrap">
+            scripting-none
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">@media (scripting: none)</code>
         </td>
       </tr>
       <tr>
