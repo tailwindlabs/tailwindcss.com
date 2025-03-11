@@ -3415,6 +3415,18 @@ A quick reference table of every single variant included in Tailwind by default.
       </tr>
       <tr>
         <td>
+          <a href="#placeholder-shown" className="whitespace-nowrap">
+            details-content
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">
+            <span className="text-gray-400">&</span>:details-content
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td>
           <a href="#autofill" className="whitespace-nowrap">
             autofill
           </a>
@@ -4694,12 +4706,25 @@ Style an input when the placeholder is shown using the `placeholder-shown` varia
 <input class="placeholder-shown:border-gray-500 ..." placeholder="you@example.com" />
 ```
 
+#### :details-content
+
+Style the content of a `<details>` element using the `details-content` variant:
+
+```html
+<!-- [!code classes:details-content:bg-gray-100] -->
+<details class="details-content:bg-gray-100 ...">
+  <summary>Details</summary>
+  This is a secret.
+</details>
+```
+
 #### :autofill
 
 Style an input when it has been autofilled by the browser using the `autofill` variant:
 
 ```html
 <!-- [!code classes:autofill:bg-yellow-200] -->
+
 <input class="autofill:bg-yellow-200 ..." />
 ```
 
