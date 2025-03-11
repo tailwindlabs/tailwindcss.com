@@ -1927,6 +1927,17 @@ While `pointer`only targets the primary pointing device, `any-pointer` is used t
 
 You can use `pointer-none` and `any-pointer-none` to target the absence of a pointing device.
 
+### inverted-colors
+
+Use the `inverted-colors` variant to conditionally add styles when the user has enabled an inverted color scheme:
+
+```html
+<!-- [!code classes:inverted-colors:shadow-none] -->
+<div class="shadow-xl inverted-colors:shadow-none ...">
+  <!-- ... -->
+</div>
+```
+
 ### orientation
 
 Use the `portrait` and `landscape` variants to conditionally add styles when the viewport is in a specific orientation:
@@ -4445,6 +4456,18 @@ A quick reference table of every single variant included in Tailwind by default.
         <td>
           <code className="whitespace-nowrap before:content-none after:content-none">
             @media (forced-colors: active)
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#inverted-colors" className="whitespace-nowrap">
+            inverted-colors
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">
+            @media (inverted-colors: inverted)
           </code>
         </td>
       </tr>
