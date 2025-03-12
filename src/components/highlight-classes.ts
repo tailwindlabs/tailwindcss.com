@@ -43,7 +43,7 @@ export function highlightClasses(opts: HighlightClassesOptions): ShikiTransforme
         for (let i = 0; i < line.children.length; ++i) {
           let el = line.children[i];
           if (el.type !== "element") continue;
-          if (el.tagName !== "span") continue;
+          if (el.tagName !== "div" && el.tagName !== "span") continue;
 
           // Tiny state machine to make sure we're inside a class attribute
           let text = getTextContent(el).trim();
@@ -216,7 +216,7 @@ export function getTextContent(element: ElementContent): string {
     return element.value;
   }
 
-  if (element.type === "element" && element.tagName === "span") {
+  if (element.type === "element" && (element.tagName === "div" || element.tagName === "span")) {
     return element.children.map(getTextContent).join("");
   }
 

@@ -47,7 +47,10 @@ import responsive5 from "./why-tailwind-css-section/responsive-5.png";
 export default function WhyTailwindCssSection() {
   return (
     <div className="relative max-w-full">
-      <div className="hidden h-4 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/10 max-sm:px-4 2xl:visible 2xl:flex dark:text-white/15">
+      <div
+        aria-hidden="true"
+        className="hidden h-4 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 2xl:visible 2xl:flex dark:text-white/25"
+      >
         text-4xl <span className="inline dark:hidden">text-gray-950</span>
         <span className="hidden dark:inline">text-white</span> tracking-tighter text-balance
       </div>
@@ -62,7 +65,10 @@ export default function WhyTailwindCssSection() {
         </h2>
       </GridContainer>
 
-      <div className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/10 max-sm:px-4 sm:h-10 dark:text-white/15">
+      <div
+        aria-hidden="true"
+        className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 sm:h-10 dark:text-white/25"
+      >
         text-base <span className="inline dark:hidden">text-gray-950</span>
         <span className="hidden dark:inline">text-white</span>
       </div>
@@ -284,7 +290,7 @@ export default function WhyTailwindCssSection() {
                     return (
                       <div key={name} data-target className="flex snap-center snap-always flex-col items-center gap-2">
                         <Code>{name}</Code>
-                        <div className="inset-ring ring shadow ring-gray-950/10 inset-ring-white/20">
+                        <div className="shadow ring inset-ring ring-gray-950/10 inset-ring-white/20">
                           <div className={clsx("size-(--size) bg-white/15", className)} />
                         </div>
                       </div>
@@ -617,7 +623,7 @@ export default function WhyTailwindCssSection() {
                 </div>
               </div>
               <div className="@container relative isolate flex h-full items-center justify-center">
-                <div className="absolute bottom-12 -left-2 z-1 w-[60cqw] shrink-0 divide-y divide-gray-950/5 rounded-xl bg-white inset-ring shadow-2xl inset-ring-gray-950/5 dark:divide-white/5 dark:bg-gray-800 dark:inset-ring-white/5">
+                <div className="absolute bottom-12 -left-2 z-1 w-[60cqw] shrink-0 divide-y divide-gray-950/5 rounded-xl bg-white shadow-2xl inset-ring inset-ring-gray-950/5 dark:divide-white/5 dark:bg-gray-800 dark:inset-ring-white/5">
                   {[
                     { src: avatar4.src, name: "Will Winton", role: "Director of Operations" },
                     { src: avatar5.src, name: "Kristin Yardly", role: "Marketing Coordinator" },
@@ -641,7 +647,7 @@ export default function WhyTailwindCssSection() {
                     );
                   })}
                 </div>
-                <div className="absolute -right-3 bottom-12 w-[50cqw] shrink-0 divide-y divide-gray-950/5 rounded-xl bg-white inset-ring shadow-2xl inset-ring-gray-950/5 dark:divide-white/5 dark:bg-gray-800 dark:inset-ring-white/5">
+                <div className="absolute -right-3 bottom-12 w-[50cqw] shrink-0 divide-y divide-gray-950/5 rounded-xl bg-white shadow-2xl inset-ring inset-ring-gray-950/5 dark:divide-white/5 dark:bg-gray-800 dark:inset-ring-white/5">
                   {[
                     { src: avatar1.src, name: "سارة أحمد", role: "مديرة مشاريع" },
                     { src: avatar2.src, name: "علي محمد", role: "مطور برمجيات" },

@@ -1,0 +1,53 @@
+import { adamwathan } from "@/app/blog/authors";
+import card from "./card.jpg";
+import Image from "next/image";
+import Link from "next/link";
+
+export const meta = {
+  title: "Tailwind UI is now Tailwind Plus",
+  description: `We just shipped a huge rebrand project, turning what was previously known as Tailwind UI into Tailwind Plus. Tailwind Plus is the all same high-quality resources you know from Tailwind UI, but with all-new possibilities and potential.`,
+  date: "2025-03-04T16:00:00.000Z",
+  authors: [adamwathan],
+  image: card,
+  excerpt: (
+    <>
+      We just shipped a huge rebrand project, turning what was previously known as Tailwind UI into Tailwind Plus.
+      Tailwind Plus is the all same high-quality resources you know from Tailwind UI, but with all-new possibilities and
+      potential.
+    </>
+  ),
+};
+
+We just shipped a huge rebrand project, turning what was previously known as Tailwind UI into [Tailwind Plus](https://tailwindcss.com/plus).
+
+<Link href="https://tailwindcss.com/plus" className="my-12 block">
+  <Image src={card} alt="Tailwind Plus" />
+</Link>
+
+Before you jump to any conclusions, here's what's _not_ changing:
+
+- **No subscription pricing** — it's still a one-time purchase with lifetime access, just like it always has been.
+- **No upgrade cost** — if you already had a Tailwind UI All-Access license, you've now got a Tailwind Plus license. The price isn't changing for new customers either.
+- **All the same content** — you get access to all of the same content, including all of our components, templates, and our Catalyst UI kit.
+
+So why the change? Simply put, there's a lot we want to do for our community that doesn't feel like it fits into the Tailwind UI box.
+
+Here are some of the ideas we've been exploring for Tailwind Plus:
+
+- **Tailwind Play accounts** — so you can save your experiments and find old ideas more easily, and even update existing Plays without losing the original URL.
+- **Custom editor themes** — people ask us about the custom syntax themes we use for our stuff all the time, and Tailwind Plus feels like a cool way to make them available to people.
+- **Color palettes** — alternatives to the Tailwind CSS default color palette, curated for you by expert designers.
+- **Typography themes** — more typography styles like what you get with our typography plugin, but with different stylistic choices.
+- **Building a stronger private community** — Tailwind is used by millions of people which is incredible, but also means there's a ton of noise in public channels. We want to build a great community where you can have high-quality conversations about front-end development with other UI engineers and connect directly with the Tailwind CSS team.
+- **Early access to beta documentation** — get access to the documentation for unreleased features before it goes public, and help us refine things before they go stable.
+- **Early registration for in-person events** — like the Tailwind Connect meetups we've hosted, where you can hang out with the Tailwind team and talk shop with others in the community.
+
+Some of these ideas are further along than others and some of them might not end up being good ideas at all, but I'm really excited to keep exploring them in the coming months.
+
+Of course we're also going to keep investing into more [component examples](/plus/ui-blocks), [templates](/plus/templates), and [Catalyst](/plus/ui-kit) improvements! We're itching to **design a combobox for Catalyst soon** for example, and we're also about to start prototyping **plain HTML versions of our templates** for people who don't use React.
+
+So ultimately Tailwind Plus is the all same high-quality resources you know from Tailwind UI, but with all-new possibilities and potential.
+
+It's a big risk to make a change like this, but it's something I've wanted to do for years and I'm excited to finally pull the trigger and ship it.
+
+So here's to a new era — can't wait to build you some awesome new stuff.

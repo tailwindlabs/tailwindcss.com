@@ -7,7 +7,6 @@ import React from "react";
 import GridContainer from "../grid-container";
 import { BentoItem } from "./bento";
 import CategoryHeader from "./category-header";
-import LinkButton from "./link-button";
 import templatesCol1 from "./templates-col-1.png";
 import templatesCol2 from "./templates-col-2.png";
 import templatesCol3 from "./templates-col-3.png";
@@ -22,7 +21,10 @@ import uiKitCol3 from "./ui-kit-col-3.png";
 export default function TailwindUiSection() {
   return (
     <div className="relative max-w-full">
-      <div className="hidden h-4 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/10 max-sm:px-4 2xl:visible 2xl:flex dark:text-white/15">
+      <div
+        aria-hidden="true"
+        className="hidden h-4 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 2xl:visible 2xl:flex dark:text-white/25"
+      >
         text-4xl <span className="inline dark:hidden">text-gray-950</span>
         <span className="hidden dark:inline">text-white</span> tracking-tighter text-balance
       </div>
@@ -33,18 +35,21 @@ export default function TailwindUiSection() {
 
       <GridContainer>
         <h2 className="px-2 text-[2.5rem]/10 font-medium tracking-tighter max-sm:px-4 2xl:mt-0">
-          Move even faster with Tailwind UI.
+          Move even faster with Tailwind Plus.
         </h2>
       </GridContainer>
 
-      <div className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/10 max-sm:px-4 sm:h-10 dark:text-white/15">
+      <div
+        aria-hidden="true"
+        className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 sm:h-10 dark:text-white/25"
+      >
         text-base <span className="inline dark:hidden">text-gray-950</span>
         <span className="hidden dark:inline">text-white</span>
       </div>
 
       <GridContainer>
         <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-gray-600 max-sm:px-4 dark:text-gray-400">
-          Tailwind UI is a collection of beautiful, fully responsive UI components, designed and developed by us, the
+          Tailwind Plus is a collection of beautiful, fully responsive UI components, designed and developed by us, the
           creators of Tailwind CSS. It's got hundreds of ready-to-use examples to choose from, and is guaranteed to help
           you find the perfect starting point for what you want to build.
         </p>
@@ -52,7 +57,12 @@ export default function TailwindUiSection() {
 
       <GridContainer className="mt-10">
         <div className="px-2 max-sm:px-4">
-          <LinkButton href="https://tailwindui.com/">Explore Tailwind UI</LinkButton>
+          <a
+            href="https://tailwindcss.com/plus?ref=home"
+            className="inline-block rounded-4xl bg-black px-4 py-2 text-sm/6 font-semibold text-white hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600"
+          >
+            Explore Tailwind Plus
+          </a>
         </div>
       </GridContainer>
       <TabGroup>

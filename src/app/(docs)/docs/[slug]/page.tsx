@@ -1,10 +1,9 @@
-import { notFound } from "next/navigation";
-import React from "react";
 import Pagination from "@/components/pagination";
+import { RandomPromo } from "@/components/promos";
 import TableOfContents from "@/components/table-of-contents";
-import { generateTableOfContents, getDocPageBySlug, getDocPageSlugs, getSectionAndTitleBySlug } from "../api";
-import BookPromo from "@/components/book-promo";
+import { notFound } from "next/navigation";
 import { Metadata } from "next/types";
+import { generateTableOfContents, getDocPageBySlug, getDocPageSlugs, getSectionAndTitleBySlug } from "../api";
 
 type Props = {
   params: Promise<{
@@ -94,7 +93,7 @@ export default async function DocPage(props: Props) {
         <div className="max-xl:hidden">
           <div className="sticky top-14 max-h-[calc(100svh-3.5rem)] overflow-x-hidden px-6 pt-10 pb-24">
             <TableOfContents tableOfContents={tableOfContents} />
-            <BookPromo />
+            <RandomPromo />
           </div>
         </div>
       </div>

@@ -33,7 +33,7 @@ export default function Home() {
           <FooterSitemap className="*:first:border-l-0 *:last:border-r-0" />
         </GridContainer>
 
-        <div className="cols-subgrid col-start-1 row-start-5 grid md:col-start-2">
+        <div className="col-start-1 row-start-5 grid md:col-start-2">
           <FooterMeta className="px-4 md:px-6 lg:px-8" />
         </div>
       </div>

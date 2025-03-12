@@ -44,7 +44,7 @@ export default async function Layout({
           <FooterSitemap className="max-w-2xl lg:max-w-5xl" />
         </div>
         <div className="col-span-full col-start-2 row-start-4 h-px bg-gray-950/5 dark:bg-white/10" />
-        <div className="cols-subgrid row-start-5 grid lg:col-start-3">
+        <div className="row-start-5 grid lg:col-start-3">
           <FooterMeta className="max-w-2xl lg:max-w-5xl" />
         </div>
       </div>

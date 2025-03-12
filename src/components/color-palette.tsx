@@ -3,20 +3,21 @@ import path from "node:path";
 
 import { fileURLToPath } from "node:url";
 import React from "react";
+import { Color } from "./color";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const styles = await fs.readFile(path.join(__dirname, "../../node_modules/tailwindcss/theme.css"), "utf-8");
+let styles = await fs.readFile(path.join(__dirname, "../../node_modules/tailwindcss/theme.css"), "utf-8");
 
 let colors: Record<string, Record<string, string>> = {};
 for (let line of styles.split("\n")) {
   if (line.startsWith("  --color-")) {
-    const [key, value] = line.split(":").map((part) => part.trim().replace(";", ""));
-    const match = key.match(/^--color-([a-z]+)-(\d+)$/);
+    let [key, value] = line.split(":").map((part) => part.trim().replace(";", ""));
+    let match = key.match(/^--color-([a-z]+)-(\d+)$/);
 
     if (match) {
-      const [, group, shade] = match;
+      let [, group, shade] = match;
 
       if (!colors[group]) {
         colors[group] = {};
@@ -49,15 +50,15 @@ export function ColorPalette() {
           <p className="font-medium text-gray-950 capitalize sm:pr-12 dark:text-white">{key}</p>
           <div className="grid grid-cols-11 gap-1.5 sm:gap-4">
             {Object.keys(shades).map((shade, i) => (
-              <div
-                key={i}
-                style={{ backgroundColor: `var(--color-${key}-${shade})` }}
-                className="aspect-1/1 rounded-sm outline -outline-offset-1 outline-black/10 sm:rounded-md dark:outline-white/10"
-              />
+              <Color key={i} name={key} shade={shade} value={shades[shade]} />
             ))}
           </div>
         </React.Fragment>
       ))}
+
+      <div className="pt-2 text-center text-gray-500 italic max-sm:hidden sm:col-span-2 md:col-span-1 md:col-start-2 dark:text-gray-400">
+        Click to copy the OKLCH value or shift+click to copy the nearest hex value.
+      </div>
     </div>
   );
 }

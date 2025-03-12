@@ -142,7 +142,7 @@ export let steps: Step[] = [
 
         <style lang="postcss">
           /* [!code highlight:2] */
-          @reference "tailwindcss/theme";
+          @reference "tailwindcss";
 
           :global(html) {
             background-color: theme(--color-gray-100);

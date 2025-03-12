@@ -109,7 +109,7 @@ Here's a simple example of a marketing page component that uses a stacked layout
   {
     <Iframe className="h-[572px] w-full overflow-x-scroll">
       <div className="flex h-screen w-screen items-center justify-center p-8">
-        <div className="mx-auto max-w-md overflow-hidden rounded-lg bg-white ring-1 shadow-xl ring-gray-900/5 sm:max-w-2xl">
+        <div className="mx-auto max-w-md overflow-hidden rounded-lg bg-white shadow-xl ring-1 ring-gray-900/5 sm:max-w-2xl">
           <div className="flex flex-col sm:flex-row">
             <div className="sm:shrink-0">
               <img
@@ -323,6 +323,10 @@ This updates the `2xl` breakpoint to use `100rem` instead of the default `96rem`
   <!-- ... -->
 </div>
 ```
+
+Note that it's important to always use the same unit for defining your breakpoints or the generated utilities may be sorted in an unexpected order, causing breakpoint classes to override each other in unexpected ways.
+
+Tailwind uses `rem` for the default breakpoints, so if you are adding additional breakpoints to the defaults, make sure you use `rem` as well.
 
 Learn more about customizing your theme in the [theme documentation](/docs/theme).
 

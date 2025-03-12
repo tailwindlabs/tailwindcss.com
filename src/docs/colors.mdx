@@ -2,6 +2,7 @@ import { Example } from "@/components/example";
 import { Figure } from "@/components/figure";
 import { ColorPalette } from "../components/color-palette.tsx";
 import { Stripes } from "@/components/stripes.tsx";
+import { TipGood, TipBad, TipCompat, TipInfo } from "@/components/tips";
 
 export const title = "Colors";
 export const description = "Using and customizing the color palette in Tailwind CSS projects.";
@@ -9,7 +10,10 @@ export const description = "Using and customizing the color palette in Tailwind 
 Tailwind CSS includes a vast, beautiful color palette out of the box, carefully crafted by expert designers and suitable for a wide range of different design styles.
 
 <div className="my-10">
+  {/* <TipInfo>{<>Click to copy OKLCH, shift+click to copy nearest hex</>}</TipInfo> */}
+  {/* <div className="mt-6"> */}
   <ColorPalette />
+  {/* </div> */}
 </div>
 
 Every color in the default palette includes 11 steps, with 50 being the lightest, and 950 being the darkest:
@@ -356,7 +360,7 @@ Use the `dark` variant to write classes like `dark:bg-gray-800` that only apply 
     <div className="grid grid-cols-1 sm:grid-cols-2">
       <div className="p-8 pt-7">
         <p className="mb-2 text-sm font-medium text-gray-500">Light mode</p>
-        <div className="rounded-lg bg-white px-6 py-8 ring shadow-xl ring-gray-900/5">
+        <div className="rounded-lg bg-white px-6 py-8 shadow-xl ring ring-gray-900/5">
           <div>
             <span className="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-lg">
               <svg
@@ -386,7 +390,7 @@ Use the `dark` variant to write classes like `dark:bg-gray-800` that only apply 
       </div>
       <div className="bg-gray-900 p-8 pt-7">
         <p className="mb-2 text-sm font-medium text-gray-400">Dark mode</p>
-        <div className="rounded-lg bg-gray-800 px-6 py-8 ring shadow-xl ring-gray-900/5">
+        <div className="rounded-lg bg-gray-800 px-6 py-8 shadow-xl ring ring-gray-900/5">
           <div>
             <span className="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-lg">
               <svg
@@ -461,7 +465,7 @@ Colors are exposed as CSS variables in the `--color-*` namespace, so you can ref
     a {
       color: var(--color-blue-500);
       &:hover {
-        var(--color-blue-800);
+        color: var(--color-blue-800);
       }
     }
   }

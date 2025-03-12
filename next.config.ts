@@ -463,18 +463,30 @@ const nextConfig = {
       // Tailwind UI
       {
         source: "/components",
-        destination: "https://tailwindui.com/components",
+        destination: "https://tailwindcss.com/plus/ui-blocks",
         permanent: false,
       },
       {
         source: "/components/:slug",
-        destination: "https://tailwindui.com/components",
+        destination: "https://tailwindcss.com/plus/ui-blocks",
         permanent: false,
       },
 
       // External Links
       { source: "/discord", destination: "https://discord.gg/7NF8GNe", permanent: false },
     ];
+  },
+  async rewrites() {
+    return ["plus", "plus-assets", "vendor", "nova-api"].flatMap((path) => [
+      {
+        source: `/${path}`,
+        destination: `https://tailwindui.com/${path}`,
+      },
+      {
+        source: `/${path}/:path*`,
+        destination: `https://tailwindui.com/${path}/:path*`,
+      },
+    ]);
   },
 } satisfies NextConfig;
 

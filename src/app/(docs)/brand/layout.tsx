@@ -1,6 +1,5 @@
 import * as fs from "node:fs/promises";
 import * as path from "node:path";
-import BookPromo from "@/components/book-promo";
 import TableOfContents from "@/components/table-of-contents";
 import { generateTableOfContentsFromMarkdown } from "../docs/api";
 import type { Metadata } from "next";
@@ -48,7 +47,6 @@ export default async function DocPage({ children }: { children: React.ReactNode 
         <div className="max-xl:hidden">
           <div className="sticky top-14 max-h-[calc(100svh-3.5rem)] overflow-x-hidden px-6 pt-10 pb-24">
             <TableOfContents tableOfContents={tableOfContents} />
-            <BookPromo />
           </div>
         </div>
       </div>

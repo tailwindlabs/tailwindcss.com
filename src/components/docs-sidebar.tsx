@@ -4,12 +4,15 @@ import Link, { LinkProps } from "next/link";
 import index from "../app/(docs)/docs/index";
 import { DocsSidebarLink } from "./docs-sidebar-link";
 
-export function TopNavLink(props: React.PropsWithChildren<LinkProps>) {
+export function TopNavLink(props: { href: string } & React.ComponentPropsWithoutRef<"a">) {
+  const Component = props.href.startsWith("/plus") ? "a" : Link;
+
   return (
-    <Link
+    <Component
       className={clsx(
+        "group",
         "inline-flex items-center gap-3 text-base/8 text-gray-600 sm:text-sm/7 dark:text-gray-300",
-        "**:data-outline:stroke-gray-400 dark:**:data-outline:stroke-gray-500 **:[svg]:size-5 **:[svg]:sm:size-4",
+        "**:data-outline:stroke-gray-400 dark:**:data-outline:stroke-gray-500 **:[svg]:first:size-5 **:[svg]:first:sm:size-4",
         "hover:text-gray-950 hover:**:data-highlight:fill-gray-300 hover:**:data-outline:stroke-gray-950",
         "dark:hover:text-white dark:hover:**:data-highlight:fill-gray-600 dark:hover:**:data-outline:stroke-white",
         "aria-[current]:font-semibold aria-[current]:text-gray-950 aria-[current]:**:data-highlight:fill-gray-300 aria-[current]:**:data-outline:stroke-gray-950",
@@ -39,19 +42,17 @@ function TopNav() {
         </TopNavLink>
       </li>
       <li>
-        <TopNavLink href="https://tailwindui.com/components?ref=sidebar">
+        <TopNavLink href="/plus/ui-blocks?ref=sidebar">
           <svg viewBox="0 0 16 16" fill="none">
-            <path data-highlight d="M15.5 11.5V4.5L8 8.5L0.5 4.5V11.5L8 15.5L15.5 11.5Z" />
-            <path
-              data-outline
-              d="M0.5 4.5V11.5L8 15.5M0.5 4.5L8 0.5L15.5 4.5M0.5 4.5L8 8.5M15.5 4.5V11.5L8 15.5M15.5 4.5L8 8.5M8 15.5V8.5"
-            />
+            <path data-outline d="m11 8 .5.25L15 10.5 8 15l-7-4.5 3.5-2.25L5 8" />
+            <path data-highlight d="M8 1 1 5.5 8 10l7-4.5L8 1Z" />
+            <path data-outline d="M8 1 1 5.5 8 10l7-4.5L8 1Z" />
           </svg>
           Components
         </TopNavLink>
       </li>
       <li>
-        <TopNavLink href="https://tailwindui.com/templates?ref=sidebar">
+        <TopNavLink href="/plus/templates?ref=sidebar">
           <svg viewBox="0 0 16 16" fill="none">
             <path
               data-highlight
@@ -66,6 +67,18 @@ function TopNav() {
         </TopNavLink>
       </li>
       <li>
+        <TopNavLink href="/plus/ui-kit?ref=sidebar">
+          <svg viewBox="0 0 16 16" fill="none">
+            <path data-highlight d="M15.5 11.5V4.5L8 8.5L0.5 4.5V11.5L8 15.5L15.5 11.5Z" />
+            <path
+              data-outline
+              d="M0.5 4.5V11.5L8 15.5M0.5 4.5L8 0.5L15.5 4.5M0.5 4.5L8 8.5M15.5 4.5V11.5L8 15.5M15.5 4.5L8 8.5M8 15.5V8.5"
+            />
+          </svg>
+          UI Kit
+        </TopNavLink>
+      </li>
+      <li>
         <TopNavLink href="https://play.tailwindcss.com/">
           <svg viewBox="0 0 16 16" fill="none">
             <rect data-highlight x="1.5" y="1.5" width="13" height="13" rx="2" />
@@ -76,23 +89,53 @@ function TopNav() {
           Playground
         </TopNavLink>
       </li>
-      <li>
-        <TopNavLink href="https://github.com/tailwindlabs/tailwindcss/discussions">
+      <li className="flex items-center gap-3">
+        <TopNavLink href="/build-uis-that-dont-suck">
           <svg viewBox="0 0 16 16" fill="none">
-            <path
-              data-highlight
-              d="M6.00009 14.5C7.46126 14.5 8.85879 14.2275 10.1446 13.7305C10.3352 13.6569 10.5054 13.5508 10.6492 13.4215C11.1036 13.0128 11.2947 12.3712 11.0339 11.7807C10.768 11.1783 10.3971 10.6327 9.94444 10.167C8.94508 9.13877 7.54718 8.5 6.00009 8.5C3.75222 8.5 1.81932 9.84851 0.966222 11.7807C0.622968 12.5581 1.06286 13.4241 1.85555 13.7305C3.14138 14.2275 4.53891 14.5 6.00009 14.5Z"
-            />
-            <path
-              data-highlight
-              d="M8.50009 4C8.50009 5.38071 7.3808 6.5 6.00009 6.5C4.61937 6.5 3.50009 5.38071 3.50009 4C3.50009 2.61929 4.61937 1.5 6.00009 1.5C7.3808 1.5 8.50009 2.61929 8.50009 4Z"
-            />
+            <path data-highlight d="M8 2 1 6l7 4 7-4-7-4Z" />
             <path
               data-outline
-              d="M9.94444 10.167C10.5216 9.74744 11.232 9.5 12.0001 9.5C13.4063 9.5 14.6189 10.3293 15.1753 11.5256C15.546 12.3226 14.9303 13.1582 14.0654 13.3151C13.3954 13.4366 12.7051 13.5 12.0001 13.5C11.5431 13.5 11.0923 13.4733 10.6492 13.4215M9.94444 10.167C8.94508 9.13877 7.54718 8.5 6.00009 8.5C3.75222 8.5 1.81932 9.84851 0.966222 11.7807C0.622968 12.5581 1.06286 13.4241 1.85555 13.7305C3.14138 14.2275 4.53891 14.5 6.00009 14.5C7.46126 14.5 8.85879 14.2275 10.1446 13.7305C10.3352 13.6569 10.5054 13.5508 10.6492 13.4215M9.94444 10.167C10.3971 10.6327 10.768 11.1783 11.0339 11.7807C11.2947 12.3712 11.1036 13.0128 10.6492 13.4215M8.50009 4C8.50009 5.38071 7.3808 6.5 6.00009 6.5C4.61937 6.5 3.50009 5.38071 3.50009 4C3.50009 2.61929 4.61937 1.5 6.00009 1.5C7.3808 1.5 8.50009 2.61929 8.50009 4ZM13.5001 6C13.5001 6.82843 12.8285 7.5 12.0001 7.5C11.1717 7.5 10.5001 6.82843 10.5001 6C10.5001 5.17157 11.1717 4.5 12.0001 4.5C12.8285 4.5 13.5001 5.17157 13.5001 6Z"
+              strokeLinecap="round"
+              d="M3.5 7.429V13A7.466 7.466 0 0 0 8 14.5a7.466 7.466 0 0 0 4.5-1.5V7.43m-9 0L8 10l4.5-2.571m-9 0-2-1.143m11 1.143L15 6 8 2 1 6l.5.286m0 5.214V6.286"
             />
           </svg>
-          Community
+          <span>Course</span>
+          <span className="relative px-1.5 font-mono text-[0.625rem]/[1.125rem] font-medium tracking-widest text-sky-800 uppercase dark:text-sky-300">
+            <span className="absolute inset-0 border border-dashed border-sky-300/60 bg-sky-400/10 group-hover:bg-sky-400/15 dark:border-sky-300/30" />
+            New
+            <svg
+              width="5"
+              height="5"
+              viewBox="0 0 5 5"
+              className="absolute top-[-2px] left-[-2px] fill-sky-300 dark:fill-sky-300/50"
+            >
+              <path d="M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z" />
+            </svg>
+            <svg
+              width="5"
+              height="5"
+              viewBox="0 0 5 5"
+              className="absolute top-[-2px] right-[-2px] fill-sky-300 dark:fill-sky-300/50"
+            >
+              <path d="M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z" />
+            </svg>
+            <svg
+              width="5"
+              height="5"
+              viewBox="0 0 5 5"
+              className="absolute bottom-[-2px] left-[-2px] fill-sky-300 dark:fill-sky-300/50"
+            >
+              <path d="M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z" />
+            </svg>
+            <svg
+              width="5"
+              height="5"
+              viewBox="0 0 5 5"
+              className="absolute right-[-2px] bottom-[-2px] fill-sky-300 dark:fill-sky-300/50"
+            >
+              <path d="M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z" />
+            </svg>
+          </span>
         </TopNavLink>
       </li>
     </ul>

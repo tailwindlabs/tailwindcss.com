@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss" theme(static);
 @import "./search.css";
 @import "./typography.css" layer(components);
 

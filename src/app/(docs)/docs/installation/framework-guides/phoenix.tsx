@@ -45,7 +45,7 @@ export let steps: Step[] = [
           [
             # …
             # [!code highlight:2]
-            {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
+            {:tailwind, "~> 0.3", runtime: Mix.env() == :dev},
           ]
         end
       `,
@@ -69,10 +69,11 @@ export let steps: Step[] = [
           myproject: [
             args: ~w(
               # [!code highlight:3]
-              --input=css/app.css
-              --output=../priv/static/assets/app.css
+              --input=assets/css/app.css
+              --output=priv/static/assets/app.css
             ),
-            cd: Path.expand("../assets", __DIR__)
+            # [!code highlight:2]
+            cd: Path.expand("..", __DIR__)
           ]
       `,
     },
@@ -137,15 +138,14 @@ export let steps: Step[] = [
     title: "Import Tailwind CSS",
     body: (
       <p>
-        Add an <code>@import</code> to <code>./assets/css/app.css</code> that imports Tailwind CSS. Additionally, tell
-        Tailwind CSS where to scan for utilities.
+        Add an <code>@import</code> to <code>./assets/css/app.css</code> that imports Tailwind CSS.
       </p>
     ),
     code: {
       name: "app.css",
       lang: "css",
       code: css`
-        @import "tailwindcss" source("../..");
+        @import "tailwindcss";
       `,
     },
   },

@@ -22,7 +22,10 @@ import CategoryHeader from "./category-header";
 export default function BuildAnythingSection() {
   return (
     <div className="relative max-w-full">
-      <div className="h-6 max-w-screen items-end px-2 font-mono text-xs/6 whitespace-pre text-black/10 max-sm:px-4 2xl:flex dark:text-white/15">
+      <div
+        aria-hidden="true"
+        className="h-6 max-w-screen items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 2xl:flex dark:text-white/25"
+      >
         text-4xl <span className="inline dark:hidden">text-gray-950</span>
         <span className="hidden dark:inline">text-white</span> tracking-tighter
       </div>
@@ -37,7 +40,7 @@ export default function BuildAnythingSection() {
         </h2>
       </GridContainer>
 
-      <div className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/10 max-sm:px-4 sm:h-10 dark:text-white/15">
+      <div className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 sm:h-10 dark:text-white/25">
         text-base <span className="inline dark:hidden">text-gray-950</span>
         <span className="hidden dark:inline">text-white</span>
       </div>

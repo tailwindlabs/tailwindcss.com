@@ -49,7 +49,10 @@ const Hero: React.FC = () => {
 
   return (
     <div>
-      <div className="flex h-16 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/10 max-sm:px-4 sm:h-24 dark:text-white/15">
+      <div
+        aria-hidden="true"
+        className="flex h-16 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 sm:h-24 dark:text-white/25"
+      >
         <span className="hidden max-sm:inline">text-4xl </span>
         <span className="hidden sm:max-md:inline">text-5xl </span>
         <span className="hidden lg:max-xl:inline">text-6xl </span>
@@ -63,7 +66,10 @@ const Hero: React.FC = () => {
           Rapidly build modern websites without ever leaving your HTML.
         </h1>
       </GridContainer>
-      <div className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/10 max-sm:px-4 sm:h-10 dark:text-white/15">
+      <div
+        aria-hidden="true"
+        className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 sm:h-10 dark:text-white/25"
+      >
         text-lg <span className="inline dark:hidden">text-gray-950</span>
         <span className="hidden dark:inline">text-white</span> font-medium
       </div>
@@ -87,7 +93,7 @@ const Hero: React.FC = () => {
           <LinkButton href="docs/installation" className="z-1 max-sm:hidden">
             Get started
           </LinkButton>
-          <SearchButton className="grid w-full grid-cols-[auto_1fr_auto] items-center gap-1 rounded-full px-4 py-2 text-left text-sm/6 text-gray-950/50 outline -outline-offset-1 outline-gray-950/8 sm:w-80 dark:bg-white/5 dark:text-white/50 dark:outline-white/15">
+          <SearchButton className="grid w-full grid-cols-[auto_1fr_auto] items-center gap-1 rounded-full px-4 py-2 text-left text-sm/6 text-gray-950/50 inset-ring inset-ring-gray-950/8 sm:w-80 dark:bg-white/5 dark:text-white/50 dark:inset-ring-white/15">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
