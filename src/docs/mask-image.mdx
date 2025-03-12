@@ -70,13 +70,17 @@ export const description = "Utilities for controlling an element's mask image.";
 Use the `mask-[<value>]` syntax to set the mask image of an element:
 
 <Figure>
-
 <Example>
-
+  {
+    <div className="relative mx-auto flex h-48 w-96 items-center justify-center overflow-hidden rounded-lg sm:w-96">
+      <div className="h-full w-full bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] bg-cover bg-center bg-no-repeat [mask-image:url(/mask.png)] [mask-size:110%_90%] [mask-position:center] [mask-repeat:no-repeat]"></div>
+    </div>
+  }
 </Example>
 
 ```html
-
+<!-- [!code classes:mask-[url(/img/scribble.png)]] -->
+<div class="bg-[url(/img/mountains.jpg)] mask-[url(/img/scribble.png)] ..."></div>
 ```
 
 </Figure>
@@ -87,8 +91,99 @@ Use utilities like `mask-linear-to-r` and `mask-linear-<angle>` with the [color 
 
 <Figure>
 
-<Example>
-
+<Example padding={false}>
+  {
+    <div className="relative py-8">
+      <div className="absolute inset-x-0 bottom-8 z-10 flex items-center justify-center">
+        <button
+          type="button"
+          className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50 dark:bg-gray-950 dark:text-white dark:ring-white/20 dark:hover:bg-gray-900"
+        >
+          Show more
+        </button>
+      </div>
+      <div className="border-y border-y-gray-200 bg-white [mask-image:linear-gradient(to_bottom,_black_70%,transparent)] dark:border-y-gray-800 dark:bg-gray-950">
+        <div>
+          <div className="inline-block min-w-full align-middle">
+            <div className="overflow-hidden">
+              <table className="min-w-full">
+                <thead className="border-b border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-950">
+                  <tr>
+                    <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
+                      Name
+                    </th>
+                    <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
+                      Title
+                    </th>
+                    <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
+                      Email
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
+                    <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
+                      Jane Cooper
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                      Regional Paradigm Technician
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                      jane.cooper@example.com
+                    </td>
+                  </tr>
+                  <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
+                    <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
+                      Cody Fisher
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                      Product Directives Officer
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                      cody.fisher@example.com
+                    </td>
+                  </tr>
+                  <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
+                    <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
+                      Leonard Krasner
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                      Senior Designer
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                      leonard.krasner@example.com
+                    </td>
+                  </tr>
+                  <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
+                    <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
+                      Emily Selman
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                      VP, Hardware Engineering
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                      emily.selman@example.com
+                    </td>
+                  </tr>
+                  <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
+                    <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
+                      Anna Roberts
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                      Chief Strategy Officer
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                      anna.roberts@example.com
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
 </Example>
 
 ```html
@@ -103,7 +198,29 @@ Use the `mask-radial` and `mask-radial-[<position>]` utilities with the [color s
 
 <Figure>
 
-<Example padding={false}>
+<Example>
+
+{
+
+<div className="group flex items-center justify-center">
+  <div className="relative">
+    <img
+      className="size-16 shrink-0 rounded-full [mask-image:radial-gradient(circle_at_calc(100%-0.625rem)_calc(100%-0.625rem),_transparent_0.75rem,white_0.75rem)] [mask-repeat:no-repeat]"
+      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+      alt=""
+    />
+    <div className="absolute right-1 bottom-1 size-3 rounded-full bg-radial from-emerald-400 from-30% to-emerald-600 ring inset-ring ring-black/10 inset-ring-white/10"></div>
+  </div>
+  <div className="ml-3 rtl:mr-3 rtl:ml-0">
+    <p className="text-sm font-medium text-gray-700 group-hover:text-gray-900 dark:text-gray-300 dark:group-hover:text-white">
+      Tom Cook
+    </p>
+    <p className="text-sm font-medium text-gray-500 group-hover:text-gray-700 dark:group-hover:text-gray-300">
+      Director of Operations
+    </p>
+  </div>
+</div>
+}
 
 </Example>
 
