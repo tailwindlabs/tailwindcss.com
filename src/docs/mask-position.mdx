@@ -1,0 +1,58 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
+
+export const title = "mask-position";
+export const description = "Utilities for controlling the position of an element's mask image.";
+
+<ApiTable
+  rows={[
+    ["mask-bottom", "mask-position: bottom;"],
+    ["mask-center", "mask-position: center;"],
+    ["mask-left", "mask-position: left;"],
+    ["mask-left-bottom", "mask-position: left bottom;"],
+    ["mask-left-top", "mask-position: left top;"],
+    ["mask-right", "mask-position: right;"],
+    ["mask-right-bottom", "mask-position: right bottom;"],
+    ["mask-right-top", "mask-position: right top;"],
+    ["mask-top", "mask-position: top;"],
+    ["mask-(position:<custom-property>)", "mask-position: var(<custom-property>);"],
+    ["mask-[<value>]", "mask-position: <value>;"],
+  ]}
+/>
+
+## Examples
+
+### Basic example
+
+Use utilities like `mask-center`, `mask-right`, and `mask-left-top` to control the position of an element's mask image:
+
+<Figure >
+
+<Example>
+  {
+
+}
+
+</Example>
+
+```html
+
+```
+
+</Figure>
+
+### Using a custom value
+
+<UsingACustomValue
+  utility="mask"
+  value="center_top_1rem"
+  name="mask position"
+  variable="mask-position"
+  dataType="position"
+/>
+
+### Responsive design
+
+<ResponsiveDesign property="mask-position" defaultClass="mask-center" featuredClass="mask-top" />

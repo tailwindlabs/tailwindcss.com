@@ -1,0 +1,85 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
+import { Stripes } from "@/components/stripes.tsx";
+
+export const title = "mask-size";
+export const description = "Utilities for controlling the size of an element's mask image.";
+
+<ApiTable
+  rows={[
+    ["mask-auto", "mask-size: auto;"],
+    ["mask-cover", "mask-size: cover;"],
+    ["mask-contain", "mask-size: contain;"],
+    ["mask-(length:<custom-property>)", "mask-size: var(<custom-property>);"],
+    ["mask-[<value>]", "mask-size: <value>;"],
+  ]}
+/>
+
+## Examples
+
+### Filling the container
+
+Use the `mask-cover` utility to scale the mask image until it fills the mask layer, cropping the image if needed:
+
+<Figure>
+
+<Example>
+  {
+
+}
+
+</Example>
+
+```html
+<!-- [!code classes:mask-cover] -->
+```
+
+</Figure>
+
+### Filling without cropping
+
+Use the `mask-contain` utility to scale the mask image to the outer edges without cropping or stretching:
+
+<Figure>
+
+<Example>
+  {
+
+}
+
+</Example>
+
+```html
+<!-- [!code classes:mask-contain] -->
+```
+
+</Figure>
+
+### Using the default size
+
+Use the `mask-auto` utility to display the mask image at its default size:
+
+<Figure>
+
+<Example>
+  {
+
+}
+
+</Example>
+
+```html
+<!-- [!code classes:mask-auto] -->
+```
+
+</Figure>
+
+### Using a custom value
+
+<UsingACustomValue utility="mask" value="auto_100px" name="mask image size" variable="mask-size" dataType="length" />
+
+### Responsive design
+
+<ResponsiveDesign property="mask-size" defaultClass="mask-auto" featuredClass="mask-contain" />

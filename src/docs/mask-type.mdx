@@ -1,0 +1,39 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+
+export const title = "mask-type";
+export const description = "Utilities for controlling how an element's mask is interpreted.";
+
+<ApiTable
+  rows={[
+    ["mask-type-alpha", "mask-type: alpha;"],
+    ["mask-type-luminance", "mask-type: luminance;"],
+  ]}
+/>
+
+## Examples
+
+### Basic example
+
+Use the `mask-type-alpha` and `mask-type-luminance` utilities to control the type of an element's mask:
+
+<Figure >
+
+<Example padding={false}>
+  {
+
+}
+
+</Example>
+
+```html
+<!-- [!code classes:mask-type-alpha,mask-type-luminance] -->
+```
+
+</Figure>
+
+### Responsive design
+
+<ResponsiveDesign property="mask-type" defaultClass="mask-type-alpha" featuredClass="mask-type-luminance" />

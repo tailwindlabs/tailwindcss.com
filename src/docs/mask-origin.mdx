@@ -1,0 +1,44 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+
+export const title = "mask-origin";
+export const description =
+  "Utilities for controlling how an element's mask image is positioned relative to borders, padding, and content.";
+
+<ApiTable
+  rows={[
+    ["mask-origin-border", "mask-origin: border-box;"],
+    ["mask-origin-padding", "mask-origin: padding-box;"],
+    ["mask-origin-content", "mask-origin: content-box;"],
+    ["mask-origin-fill", "mask-origin: fill-box;"],
+    ["mask-origin-stroke", "mask-origin: stroke-box;"],
+    ["mask-origin-view", "mask-origin: view-box;"],
+  ]}
+/>
+
+## Examples
+
+### Basic example
+
+Use the `mask-origin-border`, `mask-origin-padding`, and `mask-origin-content` utilities to control where an element's mask is rendered:
+
+<Figure>
+
+<Example >
+  {
+
+}
+
+</Example>
+
+```html
+<!-- [!code classes:mask-origin-border,mask-origin-padding,mask-origin-content] -->
+```
+
+</Figure>
+
+### Responsive design
+
+<ResponsiveDesign property="mask-origin" defaultClass="mask-origin-border" featuredClass="mask-origin-padding" />

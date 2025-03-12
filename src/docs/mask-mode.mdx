@@ -1,0 +1,35 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+
+export const title = "mask-mode";
+export const description = "Utilities for controlling an element's mask mode.";
+
+<ApiTable
+  rows={[
+    ["mask-alpha", "mask-mode: alpha;"],
+    ["mask-luminance", "mask-mode: luminance;"],
+    ["mask-match", "mask-mode: match-source;"],
+  ]}
+/>
+
+## Examples
+
+### Basic example
+
+Use the `mask-alpha`, `mask-luminance` and `mask-source` utilities to control the mode of an element's mask:
+
+<Figure>
+
+<Example>{}</Example>
+
+```html
+<!-- [!code classes:mask-alpha,mask-luminance,mask-match] -->
+```
+
+</Figure>
+
+### Responsive design
+
+<ResponsiveDesign property="mask-mode" defaultClass="mask-alpha" featuredClass="mask-luminance" />

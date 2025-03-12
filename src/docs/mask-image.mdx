@@ -1,0 +1,184 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { CustomizingYourThemeColors, ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+
+export const title = "mask-image";
+export const description = "Utilities for controlling an element's mask image.";
+
+<svg className="hidden">
+  <symbol id="gradient-color-stop" viewBox="0 0 32 34">
+    <path d="M1 4a4 4 0 0 1 4-4h22a4 4 0 0 1 4 4v19.6a4 4 0 0 1-2.118 3.53L16 34 3.118 27.13A4 4 0 0 1 1 23.6V4Z" />
+    <path
+      fill="none"
+      stroke="#000"
+      strokeOpacity=".05"
+      d="M5 .5h22A3.5 3.5 0 0 1 30.5 4v19.6a3.5 3.5 0 0 1-1.853 3.088L16 33.433 3.353 26.688A3.5 3.5 0 0 1 1.5 23.6V4A3.5 3.5 0 0 1 5 .5Z"
+    />
+  </symbol>
+</svg>
+
+<ApiTable
+  rows={[
+    ["mask-[<value>]", "mask-image: <value>;"],
+    ["mask-(image:<custom-property>)", "mask-image: var(<custom-property>);"],
+    ["mask-none", "mask-image: none;"],
+    ["mask-linear-to-t", "mask-image: linear-gradient(to top, var(--tw-mask-gradient-stops));"],
+    ["mask-linear-to-tr", "mask-image: linear-gradient(to top right, var(--tw-mask-gradient-stops));"],
+    ["mask-linear-to-r", "mask-image: linear-gradient(to right, var(--tw-mask-gradient-stops));"],
+    ["mask-linear-to-br", "mask-image: linear-gradient(to bottom right, var(--tw-mask-gradient-stops));"],
+    ["mask-linear-to-b", "mask-image: linear-gradient(to bottom, var(--tw-mask-gradient-stops));"],
+    ["mask-linear-to-bl", "mask-image: linear-gradient(to bottom left, var(--tw-mask-gradient-stops));"],
+    ["mask-linear-to-l", "mask-image: linear-gradient(to left, var(--tw-mask-gradient-stops));"],
+    ["mask-linear-to-tl", "mask-image: linear-gradient(to top left, var(--tw-mask-gradient-stops));"],
+    ["mask-linear-<angle>", "mask-image: linear-gradient(<angle> in oklab, var(--tw-mask-gradient-stops));"],
+    ["-mask-linear-<angle>", "mask-image: linear-gradient(-<angle> in oklab, var(--tw-mask-gradient-stops));"],
+    [
+      "mask-linear-(<custom-property>)",
+      "mask-image: linear-gradient(var(--tw-mask-gradient-stops, var(<custom-property>)));",
+    ],
+    ["mask-linear-[<value>]", "mask-image: linear-gradient(var(--tw-mask-gradient-stops, <value>));"],
+    ["mask-radial", "mask-image: radial-gradient(in oklab, var(--tw-mask-gradient-stops));"],
+    [
+      "mask-radial-(<custom-property>)",
+      "mask-image: radial-gradient(var(--tw-mask-gradient-stops,  var(<custom-property>)));",
+    ],
+    ["mask-radial-[<value>]", "mask-image: radial-gradient(var(--tw-mask-gradient-stops, <value>));"],
+    ["mask-conic-<angle>", "mask-image: conic-gradient(from <angle> in oklab, var(--tw-mask-gradient-stops));"],
+    ["-mask-conic-<angle>", "mask-image: conic-gradient(from -<angle> in oklab, var(--tw-mask-gradient-stops));"],
+    ["mask-conic-(<custom-property>)", "mask-image: var(<custom-property>);"],
+    ["mask-conic-[<value>]", "mask-image: <image>;"],
+    ["mask-from-<color>", "--tw-mask-gradient-from: <color>;"],
+    ["mask-from-<percentage>", "--tw-mask-gradient-from-position: <percentage>;"],
+    ["mask-from-(<custom-property>)", "--tw-mask-gradient-from: var(<custom-property>);"],
+    ["mask-from-[<value>]", "--tw-mask-gradient-from: <value>;"],
+    ["mask-via-<color>", "--tw-mask-gradient-via: <color>;"],
+    ["mask-via-<percentage>", "--tw-mask-gradient-via-position: <percentage>;"],
+    ["mask-via-(<custom-property>)", "--tw-mask-gradient-via: var(<custom-property>);"],
+    ["mask-via-[<value>]", "--tw-mask-gradient-via: <value>;"],
+    ["mask-to-<color>", "--tw-mask-gradient-to: <color>;"],
+    ["mask-to-<percentage>", "--tw-mask-gradient-to-position: <percentage>;"],
+    ["mask-to-(<custom-property>)", "--tw-mask-gradient-to: var(<custom-property>);"],
+    ["mask-to-[<value>]", "--tw-mask-gradient-to: <value>;"],
+  ]}
+/>
+
+## Examples
+
+### Basic example
+
+Use the `mask-[<value>]` syntax to set the mask image of an element:
+
+<Figure>
+
+<Example>
+
+</Example>
+
+```html
+
+```
+
+</Figure>
+
+### Adding a linear gradient mask
+
+Use utilities like `mask-linear-to-r` and `mask-linear-<angle>` with the [color stop utilities](#setting-gradient-color-stops) to add a linear gradient mask to an element:
+
+<Figure>
+
+<Example>
+
+</Example>
+
+```html
+
+```
+
+</Figure>
+
+### Adding a radial gradient mask
+
+Use the `mask-radial` and `mask-radial-[<position>]` utilities with the [color stop utilities](#setting-gradient-color-stops) to add a radial gradient mask to an element:
+
+<Figure>
+
+<Example padding={false}>
+
+</Example>
+
+```html
+
+```
+
+</Figure>
+
+### Adding a conic gradient mask
+
+Use the `mask-conic` and `mask-conic-<angle>` utilities with the [color stop utilities](#setting-mask-color-stops) to add a conic gradient mask to an element:
+
+<Figure>
+
+<Example padding={false}>
+
+</Example>
+
+```html
+
+```
+
+</Figure>
+
+### Setting mask color stops
+
+Use utilities like `mask-from-indigo-500`, `mask-via-purple-500`, and `mask-to-pink-500` to set the colors of the mask gradient stops:
+
+<Figure>
+
+<Example></Example>
+
+```html
+
+```
+
+</Figure>
+
+### Setting mask stop positions
+
+Use utilities like `mask-from-10%`, `mask-via-30%`, and `mask-to-90%` to set more precise positions for the mask gradient color stops:
+
+<Figure>
+
+<Example>{}</Example>
+
+```html
+
+```
+
+</Figure>
+
+### Removing mask images
+
+Use the `mask-none` utility to remove an existing mask image from an element:
+
+```html
+<!-- [!code classes:mask-none] -->
+<div class="mask-none"></div>
+```
+
+### Using a custom value
+
+<UsingACustomValue
+  utilities={["mask-linear", "from"]}
+  name="mask image"
+  value="25deg,red_5%,yellow_60%,lime_90%,teal"
+  variable="mask"
+/>
+
+### Responsive design
+
+<ResponsiveDesign property="mask-image" defaultClass="mask-from-purple-400" featuredClass="mask-from-yellow-500" />
+
+## Customizing your theme
+
+<CustomizingYourThemeColors utilities={["mask-from", "mask-via", "mask-to"]} />

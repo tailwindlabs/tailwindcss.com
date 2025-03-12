@@ -1,0 +1,41 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+
+export const title = "mask-composite";
+export const description = "Utilities for controlling how multiple masks are composited together.";
+
+<ApiTable
+  rows={[
+    ["mask-add", "mask-composite: add;"],
+    ["mask-subtract", "mask-composite: subtract;"],
+    ["mask-intersect", "mask-composite: intersect;"],
+    ["mask-exclude", "mask-composite: exclude;"],
+  ]}
+/>
+
+## Examples
+
+### Basic example
+
+Use utilities like `mask-add` and `mask-intersect` to control how an element's masks are composited together:
+
+<Figure>
+
+<Example>
+  {
+
+}
+
+</Example>
+
+```html
+<!-- [!code classes:mask-add,mask-subtract,mask-intersect,mask-exclude] -->
+```
+
+</Figure>
+
+### Responsive design
+
+<ResponsiveDesign property="mask-composite" defaultClass="mask-add" featuredClass="mask-subtract" />

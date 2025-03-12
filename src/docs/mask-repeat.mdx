@@ -1,0 +1,120 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+
+export const title = "mask-repeat";
+export const description = "Utilities for controlling the repetition of an element's mask image.";
+
+<ApiTable
+  rows={[
+    ["mask-repeat", "mask-repeat: repeat;"],
+    ["mask-no-repeat", "mask-repeat: no-repeat;"],
+    ["mask-repeat-x", "mask-repeat: repeat-x;"],
+    ["mask-repeat-y", "mask-repeat: repeat-y;"],
+    ["mask-repeat-round", "mask-repeat: round;"],
+    ["mask-repeat-space", "mask-repeat: space;"],
+  ]}
+/>
+
+## Examples
+
+### Basic example
+
+Use the `mask-repeat` utility to repeat the mask image both vertically and horizontally:
+
+<Figure>
+
+<Example >
+
+</Example>
+
+```html
+<!-- [!code classes:mask-repeat] -->
+```
+
+</Figure>
+
+### Repeating horizontally
+
+Use the `mask-repeat-x` utility to only repeat the mask image horizontally:
+
+<Figure>
+
+<Example >
+
+</Example>
+
+```html
+<!-- [!code classes:mask-repeat-x] -->
+```
+
+</Figure>
+
+### Repeating vertically
+
+Use the `mask-repeat-y` utility to only repeat the mask image vertically:
+
+<Figure>
+
+<Example >
+
+</Example>
+
+```html
+<!-- [!code classes:mask-repeat-y] -->
+```
+
+</Figure>
+
+### Preventing clipping
+
+Use the `mask-repeat-space` utility to repeat the mask image without clipping:
+
+<Figure>
+
+<Example >
+
+</Example>
+
+```html
+<!-- [!code classes:mask-repeat-space] -->
+```
+
+</Figure>
+
+### Preventing clipping and gaps
+
+Use the `mask-repeat-round` utility to repeat the mask image without clipping, stretching if needed to avoid gaps:
+
+<Figure>
+
+<Example >
+
+</Example>
+
+```html
+<!-- [!code classes:mask-repeat-round] -->
+```
+
+</Figure>
+
+### Disabling repeating
+
+Use the `mask-no-repeat` utility to prevent a mask image from repeating:
+
+<Figure>
+
+<Example >
+
+</Example>
+
+```html
+<!-- [!code classes:mask-no-repeat] -->
+```
+
+</Figure>
+
+### Responsive design
+
+<ResponsiveDesign property="mask-repeat" defaultClass="mask-repeat" featuredClass="mask-repeat-x" />

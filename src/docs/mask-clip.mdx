@@ -1,0 +1,41 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+
+export const title = "mask-clip";
+export const description = "Utilities for controlling the bounding box of an element's mask.";
+
+<ApiTable
+  rows={[
+    ["mask-clip-border", "mask-clip: border-box;"],
+    ["mask-clip-padding", "mask-clip: padding-box;"],
+    ["mask-clip-content", "mask-clip: content-box;"],
+    ["mask-clip-fill", "mask-clip: fill-box;"],
+    ["mask-clip-stroke", "mask-clip: stroke-box;"],
+    ["mask-clip-view", "mask-clip: view-box;"],
+    ["mask-clip-no-clip", "mask-clip: no-clip;"],
+  ]}
+/>
+
+## Examples
+
+### Basic example
+
+Use the `mask-clip-border`, `mask-clip-padding`, and `mask-clip-content` utilities to control the bounding box of an element's mask:
+
+<Figure>
+
+<Example>
+
+</Example>
+
+</Figure>
+
+```html
+<!-- [!code classes:mask-clip-border,mask-clip-padding,mask-clip-content] -->
+```
+
+### Responsive design
+
+<ResponsiveDesign property="mask-clip" defaultClass="mask-clip-border" featuredClass="mask-clip-padding" />
