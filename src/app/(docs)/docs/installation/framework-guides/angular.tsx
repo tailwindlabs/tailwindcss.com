@@ -50,6 +50,22 @@ export let steps: Step[] = [
     },
   },
   {
+    title: "Install Tailwind CSS Typography",
+    body: (
+      <p>
+        Install <code>@tailwindcss/typography</code> to enable intellisense.
+      </p>
+    ),
+
+    code: {
+      name: "Terminal",
+      lang: "shell",
+      code: shell`
+        npm install @tailwindcss/typography -D
+      `,
+    },
+  },
+  {
     title: "Configure PostCSS Plugins",
     body: (
       <p>
@@ -74,14 +90,14 @@ export let steps: Step[] = [
     title: "Import Tailwind CSS",
     body: (
       <p>
-        Add an <code>@import</code> to <code>./src/styles.css</code> that imports Tailwind CSS.
+        Add an <code>@use</code> to <code>./src/styles.css</code> that imports Tailwind CSS.
       </p>
     ),
     code: {
       name: "styles.css",
       lang: "css",
       code: css`
-        @import "tailwindcss";
+        @use "tailwindcss";
       `,
     },
   },
