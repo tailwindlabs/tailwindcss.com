@@ -30,7 +30,6 @@ export const description = "Utilities for controlling an element's mask image.";
       fill="currentColor"
       d="M1 4a4 4 0 0 1 4-4h22a4 4 0 0 1 4 4v19.6a4 4 0 0 1-2.118 3.53L16 34 3.118 27.13A4 4 0 0 1 1 23.6V4Z"
     />
-
   </symbol>
 </svg>
 
@@ -118,7 +117,8 @@ Use utilities like `mask-linear-to-r` and `mask-linear-<angle>` with the [mask c
           Show more
         </button>
       </div>
-      <div className="border-y border-y-gray-200 bg-white [mask-image:linear-gradient(to_bottom,_black_70%,transparent)] dark:border-y-gray-800 dark:bg-gray-950">
+      <div className="border-y border-y-gray-200 bg-white mask-linear-to-b mask-from-white mask-from-70% dark:border-y-gray-800 dark:bg-gray-950">
+
         <div>
           <div className="inline-block min-w-full align-middle">
             <div className="overflow-hidden">
@@ -199,7 +199,9 @@ Use utilities like `mask-linear-to-r` and `mask-linear-<angle>` with the [mask c
         </div>
       </div>
     </div>
-  }
+
+}
+
 </Example>
 
 ```html
@@ -213,7 +215,7 @@ Use utilities like `mask-linear-to-r` and `mask-linear-<angle>` with the [mask c
       Show more
     </button>
   </div>
-  <div class="max-h-96 mask-linear-to-b mask-from-70% ...">
+  <div class="max-h-96 mask-linear-to-b mask-from-white mask-from-70% ...">
     <table>
       <!-- ... -->
     </table>
@@ -274,7 +276,7 @@ Use the `mask-conic` and `mask-conic-<angle>` utilities with the [mask color sto
 <div className="mx-auto flex w-full max-w-sm items-center gap-5 rounded-xl bg-white p-4 shadow-lg ring-1 ring-black/5 dark:bg-gray-800">
   <div className="grid grid-cols-1 grid-rows-1">
     <div className="col-start-1 row-start-1 size-12 rounded-full border-4 border-black/10 dark:border-white/5" />
-    <div className="col-start-1 row-start-1 size-12 rounded-full border-4 border-amber-500 [mask-image:conic-gradient(_white,_white_75%,_transparent_75%)] [mask-repeat:no-repeat] dark:border-amber-400" />
+    <div className="col-start-1 row-start-1 size-12 rounded-full border-4 border-amber-500 mask-conic mask-from-white mask-via-white mask-via-75% mask-to-transparent mask-to-75% dark:border-amber-400" />
   </div>
   <div className="w-0 flex-1 text-sm text-gray-950 dark:text-white">
     <p className="font-medium">Storage used: 75%</p>
@@ -335,7 +337,7 @@ Use utilities like `mask-from-white`, `mask-via-transparent`, and `mask-to-black
         </div>
       </div>
       <div className="relative">
-      <div className="relative z-10 h-64 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] [mask-image:linear-gradient(to_right,_rgba(255,255,255,1),_rgba(255,255,255,0.7),_rgba(255,255,255,0))] bg-cover bg-center [mask-mode:alpha]">
+      <div className="relative z-10 h-64 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-linear-to-r mask-from-white mask-via-white/70 mask-to-transparent bg-cover bg-center [mask-mode:alpha]">
       </div>
             <Stripes className='absolute inset-0 rounded-lg' border />
       </div>
@@ -364,15 +366,16 @@ Use utilities like `mask-from-10%`, `mask-via-30%`, and `mask-to-90%` to set mor
 <Figure>
 
 <Example>
-  {
-    <div className="mx-5 py-2">
+  
+{
+   <div className="mx-5 py-2">
       <div className="relative h-[3.625rem]">
         <div className="absolute top-0 left-[10%] -ml-3 flex h-12 flex-col items-center">
           <svg viewBox="0 0 32 34" className="w-7 flex-none text-white drop-shadow">
             <use href="#gradient-color-stop" />
           </svg>
           <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30">
-            <div className="absolute -top-7 left-0 flex h-8 w-full items-center justify-center font-mono text-[0.6875rem] font-semibold tracking-wider text-gray-950 dark:text-white"> 
+            <div className="absolute -top-7 left-0 flex h-8 w-full items-center justify-center font-mono text-[0.6875rem] font-semibold tracking-wider text-gray-950 dark:text-white">
                 10%
             </div>
           </div>
@@ -382,7 +385,7 @@ Use utilities like `mask-from-10%`, `mask-via-30%`, and `mask-to-90%` to set mor
             <use href="#gradient-color-stop" />
           </svg>
           <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30">
-            
+
             <div className="absolute -top-7 left-0 flex h-8 w-full items-center justify-center font-mono text-[0.6875rem] font-semibold tracking-wider text-gray-950 dark:text-white">
                 30%
             </div>
@@ -401,7 +404,7 @@ Use utilities like `mask-from-10%`, `mask-via-30%`, and `mask-to-90%` to set mor
       </div>
 
             <div className="relative">
-      <div className="h-64 relative z-10 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] [mask-image:linear-gradient(to_right,_rgba(255,255,255,1)_10%,_rgba(255,255,255,0.7)_30%,_rgba(255,255,255,0)_90%)] bg-cover bg-center [mask-mode:luminance]">
+      <div className="h-64 relative z-10 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-linear-to-r mask-from-white mask-from-10% mask-via-white/70 mask-via-30% mask-to-transparent mask-to-90% bg-cover bg-center ">
       </div>
             <Stripes className='absolute inset-0 rounded-lg' border />
       </div>
