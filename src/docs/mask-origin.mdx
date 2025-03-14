@@ -28,13 +28,41 @@ Use the `mask-origin-border`, `mask-origin-padding`, and `mask-origin-content` u
 
 <Example >
   {
-
+    <div className="flex flex-col items-center justify-center space-y-10 sm:flex-row sm:space-y-0 sm:space-x-10">
+      <div className="flex shrink-0 flex-col items-center">
+        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+          mask-origin-border
+        </p>
+        <div className="relative size-24 rounded-lg border-3 border-dashed border-indigo-500/50 dark:border-indigo-400/75">
+          <div className="absolute -inset-[3px] bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial mask-from-white mask-from-70% mask-to-70% bg-cover bg-center mask-origin-border p-1.5 mask-no-repeat"></div>
+        </div>
+      </div>
+      <div className="flex shrink-0 flex-col items-center">
+        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+          mask-origin-padding
+        </p>
+        <div className="relative size-24 rounded-lg border-3 border-dashed border-indigo-500/50 dark:border-indigo-400/75">
+          <div className="absolute -inset-[3px] rounded-lg border-3 bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial mask-from-white mask-from-70% mask-to-70% bg-cover bg-center mask-origin-padding p-1.5 mask-no-repeat"></div>
+        </div>
+      </div>
+      <div className="flex shrink-0 flex-col items-center">
+        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+          mask-origin-content
+        </p>
+        <div className="relative size-24 rounded-lg border-3 border-dashed border-indigo-500/50 dark:border-indigo-400/75">
+          <div className="absolute -inset-[3px] rounded-lg border-3 bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial mask-from-white mask-from-70% mask-to-70% bg-cover bg-center mask-origin-content p-1.5 mask-no-repeat"></div>
+        </div>
+      </div>
+    </div>
 }
 
 </Example>
 
 ```html
 <!-- [!code classes:mask-origin-border,mask-origin-padding,mask-origin-content] -->
+<div class="border-3 bg-[url(/img/mountains.jpg)] mask-radial mask-origin-border p-1.5 ..."></div>
+<div class="border-3 bg-[url(/img/mountains.jpg)] mask-radial mask-origin-padding p-1.5 ..."></div>
+<div class="border-3 bg-[url(/img/mountains.jpg)] mask-radial mask-origin-content p-1.5 ..."></div>
 ```
 
 </Figure>
