@@ -1,4 +1,4 @@
-import {shell, Page, Step, Tile, css, xml, html} from "./utils";
+import { shell, Page, Step, Tile, css, html } from "./utils";
 import Logo from "@/docs/img/guides/dotnet.react.svg";
 import LogoDark from "@/docs/img/guides/dotnet-white.react.svg";
 
