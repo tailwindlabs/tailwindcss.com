@@ -1,4 +1,4 @@
-import {shell, Page, Step, Tile, css, html} from "./utils";
+import {shell, Page, Step, Tile, css, xml, html} from "./utils";
 import Logo from "@/docs/img/guides/dotnet.react.svg";
 import LogoDark from "@/docs/img/guides/dotnet-white.react.svg";
 
@@ -49,7 +49,7 @@ export let steps: Step[] = [
     {
         title: 'Import Tailwind CSS',
         body: (
-            <p>Add an <code>@import</code> to <code>./src/styles.css</code> that imports Tailwind CSS.</p>
+            <p>Add an <code>@import</code> to <code>Styles/main.css</code> that imports Tailwind CSS.</p>
         ),
         code: {
             name: "Styles/main.css",
@@ -60,52 +60,90 @@ export let steps: Step[] = [
         }
     },
     {
+        title: 'Configure the project',
+        body: (
+            <>
+                <p>Add a file called <code>Tailwind.targets</code> at the root of the project.</p>
+                <p>This file declares MSBuild targets that download the Tailwind CLI, and build the stylesheets as part of <code>dotnet build</code>.</p>
+            </>
+        ),
+        code: {
+            name: "Tailwind.targets",
+            lang: "xml",
+            code: `<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <!-- Specify which version of Tailwind to download -->
+    <TailwindVersion>v4.0.14</TailwindVersion>
+
+    <!-- Provide the path to the input & output stylesheets -->
+    <InputStyleSheetPath>Styles/main.css</InputStyleSheetPath>
+    <OutputStyleSheetPath>wwwroot/main.build.css</OutputStyleSheetPath>
+
+    <!-- Provide the path to where Tailwind should be downloaded to -->
+    <!-- This should be a path that is writable by the current user, as well as one that is accessible in CI/CD pipelines -->
+    <!-- On Linux and MacOS, use $XDG_CACHE_HOME or $HOME/.cache ($HOME/.cache/Tailwind/<TailwindVersion>) -->
+    <TailwindDownloadPath Condition="$([System.OperatingSystem]::IsLinux()) Or $([System.OperatingSystem]::IsMacOS())">$([System.IO.Path]::Combine($([MSBuild]::ValueOrDefault($([System.Environment]::GetEnvironmentVariable('XDG_CONFIG_HOME')), $([System.IO.Path]::Combine($([System.Environment]::GetEnvironmentVariable('HOME')), '.cache')))), 'Tailwind'))</TailwindDownloadPath>
+
+    <!-- On Windows, use local app data (%LOCALAPPDATA%\\Tailwind\\<TailwindVersion>) -->
+    <TailwindDownloadPath Condition="$([System.OperatingSystem]::IsWindows())">$([System.IO.Path]::Combine($([System.Environment]::GetFolderPath($([System.Environment]::SpecialFolder.LocalApplicationData))), 'Tailwind'))</TailwindDownloadPath>
+  </PropertyGroup>
+
+  <!-- This line supports hot reload by instructing dotnet watch to be aware of modifications to the input stylesheet -->
+  <ItemGroup>
+    <Watch Include="$(InputStyleSheetPath)"/>
+  </ItemGroup>
+
+  <Target Name="DownloadTailwind">
+    <PropertyGroup>
+      <!-- Determine which version of Tailwind to use based on the current OS & architecture -->
+      <TailwindReleaseName Condition="$([System.OperatingSystem]::IsLinux()) And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == X64">tailwindcss-linux-x64</TailwindReleaseName>
+      <TailwindReleaseName Condition="$([System.OperatingSystem]::IsLinux()) And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == Armv7">tailwindcss-linux-armv7</TailwindReleaseName>
+
+      <TailwindReleaseName Condition="$([System.OperatingSystem]::IsMacOS()) And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == X64">tailwindcss-macos-x64</TailwindReleaseName>
+      <TailwindReleaseName Condition="$([System.OperatingSystem]::IsMacOS()) And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == Arm64">tailwindcss-macos-arm64</TailwindReleaseName>
+
+      <TailwindReleaseName Condition="$([System.OperatingSystem]::IsWindows()) And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == X64">tailwindcss-windows-x64.exe</TailwindReleaseName>
+      <TailwindReleaseName Condition="$([System.OperatingSystem]::IsWindows()) And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == Arm64">tailwindcss-windows-arm64.exe</TailwindReleaseName>
+    </PropertyGroup>
+
+    <!-- Download the file -->
+    <DownloadFile DestinationFolder="$([System.IO.Path]::Combine('$(TailwindDownloadPath)', '$(TailwindVersion)'))"
+                  DestinationFileName="$(TailwindReleaseName)"
+                  SourceUrl="https://github.com/tailwindlabs/tailwindcss/releases/download/$(TailwindVersion)/$(TailwindReleaseName)"
+                  SkipUnchangedFiles="true"
+                  Retries="3">
+      <Output TaskParameter="DownloadedFile" PropertyName="TailwindCliPath"/>
+    </DownloadFile>
+
+    <!-- On unix systems, make the file executable -->
+    <Exec Condition="$([System.OperatingSystem]::IsLinux()) Or $([System.OperatingSystem]::IsMacOS())" Command="chmod +x '$(TailwindCliPath)'"/>
+  </Target>
+
+  <!-- When building the project, run the Tailwind CLI -->
+  <!-- This target can also be executed manually. For example, with dotnet watch: \`dotnet watch msbuild /t:Tailwind\` -->
+  <!-- In order to use hot reload, run both \`dotnet watch run\` and \`dotnet watch msbuild /t:Tailwind\` -->
+  <Target Name="Tailwind" DependsOnTargets="DownloadTailwind" BeforeTargets="Build">
+    <PropertyGroup>
+      <TailwindBuildCommand>'$(TailwindCliPath)' -i '$(InputStyleSheetPath)' -o '$(OutputStyleSheetPath)'</TailwindBuildCommand>
+    </PropertyGroup>
+
+    <Exec Command="$(TailwindBuildCommand)" Condition="'$(Configuration)' == 'Debug'"/>
+    <Exec Command="$(TailwindBuildCommand) --minify" Condition="'$(Configuration)' == 'Release'"/>
+  </Target>
+</Project>`
+        }
+    },
+    {
         title: 'Configure your csproj',
         body: (
             <p>
-                Open the <code>my-app.csproj</code> file and add the following targets.
+                Open the <code>my-app.csproj</code> file and import the <code>Tailwind.targets</code> file.
             </p>
         ),
         code: {
             name: 'my-app.csproj',
             lang: 'xml',
-            code: `<Target Name="Download Tailwind">
-  <PropertyGroup>
-    <!-- Which version of the CLI to download -->
-    <TailwindVersion>v4.0.2</TailwindVersion>
-    
-    <!-- Determine which version of tailwind to use based on the current OS & architecture -->
-    <!-- Linux -->
-    <TailwindReleaseName Condition="$([MSBuild]::IsOsPlatform('Linux')) And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == X64">tailwindcss-linux-x64</TailwindReleaseName>
-    <TailwindReleaseName Condition="$([MSBuild]::IsOsPlatform('Linux')) And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == Armv7">tailwindcss-linux-armv7</TailwindReleaseName>
-    
-    <!-- MacOS -->
-    <TailwindReleaseName Condition="$([MSBuild]::IsOsPlatform('OSX')) And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == X64">tailwindcss-macos-x64</TailwindReleaseName>
-    <TailwindReleaseName Condition="$([MSBuild]::IsOsPlatform('OSX')) And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == Arm64">tailwindcss-macos-arm64</TailwindReleaseName>
-    
-    <!-- Windows -->
-    <TailwindReleaseName Condition="$([MSBuild]::IsOsPlatform('Windows')) And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == X64">tailwindcss-windows-x64.exe</TailwindReleaseName>
-    <TailwindReleaseName Condition="$([MSBuild]::IsOsPlatform('Windows')) And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == Arm64">tailwindcss-windows-arm64.exe</TailwindReleaseName>
-  </PropertyGroup>
-  
-  <!-- Download the file -->
-  <DownloadFile DestinationFolder="$(ProjectDir)/bin"
-                DestinationFileName="$(TailwindReleaseName)"
-                SourceUrl="https://github.com/tailwindlabs/tailwindcss/releases/download/$(TailwindVersion)/$(TailwindReleaseName)"/>
-  <!-- On unix systems, make the file executable -->
-  <Exec Condition="$([MSBuild]::IsOsPlatform('Linux')) Or $([MSBuild]::IsOsPlatform('OSX'))" Command="chmod +x $(ProjectDir)/bin/$(TailwindReleaseName)"/>
-</Target>
-
-<!-- When building the project, run the tailwind CLI -->
-<Target Name="Tailwind" DependsOnTargets="Download Tailwind" BeforeTargets="Build">
-  <PropertyGroup>
-    <TailwindBuildCommand>$(ProjectDir)/bin/$(TailwindReleaseName) -i Styles/main.css -o wwwroot/main.build.css</TailwindBuildCommand>
-  </PropertyGroup>
-  
-  <Exec Command="$(TailwindBuildCommand)" Condition="'$(Configuration)' == 'Debug'" />
-  <Exec Command="$(TailwindBuildCommand) --minify" Condition="'$(Configuration)' == 'Release'" />
-</Target>
-`,
+            code: `<Import Project="Tailwind.targets" />`,
         },
     },
 
