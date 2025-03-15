@@ -33,15 +33,15 @@ export const description = "Utilities for controlling the box shadow of an eleme
     ["shadow-2xl", "box-shadow: var(--shadow-2xl); /* 0 25px 50px -12px rgb(0 0 0 / 0.25) */"],
     ["shadow-none", "box-shadow: 0 0 #0000;"],
     ["shadow-(<custom-property>)", "box-shadow: var(<custom-property>);"],
-    ["shadow-(color:<custom-property>)", "--tw-shadow-color var(<custom-property>);"],
+    ["shadow-(color:<custom-property>)", "--tw-shadow-color: var(<custom-property>);"],
     ["shadow-[<value>]", "box-shadow: <value>;"],
     // Shadow colors
-    ["shadow-inherit", "--tw-shadow-color inherit;"],
-    ["shadow-current", "--tw-shadow-color currentColor;"],
-    ["shadow-transparent", "--tw-shadow-color transparent;"],
+    ["shadow-inherit", "--tw-shadow-color: inherit;"],
+    ["shadow-current", "--tw-shadow-color: currentColor;"],
+    ["shadow-transparent", "--tw-shadow-color: transparent;"],
     ...Object.entries(colors).map(([name, value]) => [
       `shadow-${name}`,
-      `--tw-shadow-color var(--color-${name}); /* ${value} */`,
+      `--tw-shadow-color: var(--color-${name}); /* ${value} */`,
     ]),
     // Inset shadows
     ["inset-shadow-2xs", "box-shadow: var(--inset-shadow-2xs); /* inset 0 1px rgb(0 0 0 / 0.05) */"],
@@ -51,12 +51,12 @@ export const description = "Utilities for controlling the box shadow of an eleme
     ["inset-shadow-(<custom-property>)", "box-shadow: var(<custom-property>);"],
     ["inset-shadow-[<value>]", "box-shadow: <value>;"],
     // Inset shadow colors
-    ["inset-shadow-inherit", "--tw-inset-shadow-color inherit;"],
-    ["inset-shadow-current", "--tw-inset-shadow-color currentColor;"],
-    ["inset-shadow-transparent", "--tw-inset-shadow-color transparent;"],
+    ["inset-shadow-inherit", "--tw-inset-shadow-color: inherit;"],
+    ["inset-shadow-current", "--tw-inset-shadow-color: currentColor;"],
+    ["inset-shadow-transparent", "--tw-inset-shadow-color: transparent;"],
     ...Object.entries(colors).map(([name, value]) => [
       `inset-shadow-${name}`,
-      `--tw-inset-shadow-color var(--color-${name}); /* ${value} */`,
+      `--tw-inset-shadow-color: var(--color-${name}); /* ${value} */`,
     ]),
     // Rings
     ["ring", "--tw-ring-shadow: 0 0 0 1px;"],
