@@ -34,7 +34,7 @@ const steps: Step[] = [
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <!-- [!code highlight:2] -->
-            <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
           </head>
           <body>
             <!-- [!code highlight:4] -->
@@ -62,7 +62,7 @@ const steps: Step[] = [
           <head>
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
             <!-- [!code highlight:6] -->
             <style type="text/tailwindcss">
               @theme {
