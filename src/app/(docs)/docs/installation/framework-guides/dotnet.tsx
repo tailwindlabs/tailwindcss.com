@@ -71,26 +71,59 @@ export let steps: Step[] = [
             name: "Tailwind.targets",
             lang: "xml",
             code: `<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- This file exposes the following parameters -->
+  <!-- TailwindVersion: The version of the Tailwind Standalone CLI to download. -->
+  <!-- TailwindDownloadPath: The path to where to download the Tailwind Standalone CLI. This property is optional, and defaults to %LOCALAPPDATA% on Windows, and $XDG_CACHE_HOME on Linux and MacOS. -->
+  <!-- TailwindInputStyleSheetPath: The path to the input stylesheet. -->
+  <!-- TailwindOutputStyleSheetPath: The path to the output stylesheet. -->
+  <!-- TailwindOptimizeOutputStyleSheet: Whether to optimize the output stylesheet. This property is optional, and defaults to false. -->
+  <!-- TailwindMinifyOutputStyleSheet: Whether to minify the output stylesheet. This property is optional, and defaults to false when Configuration is Debug, and true when Configuration is Release. -->
+  <!-- TailwindDownloadUrl: The URL to the Tailwind Standalone CLI. This property is optional, and defaults to downloading the specified version from GitHub. -->
+
+  <!-- To override these properties, create a PropertyGroup in the csproj file -->
+  <!-- For example: -->
+  <!-- <PropertyGroup> -->
+  <!--    <TailwindVersion>v4.0.14</TailwindVersion> -->
+  <!--    <TailwindInputStyleSheetPath>Styles/main.css</TailwindVersion> -->
+  <!--    <TailwindOutputStyleSheetPath>wwwroot/main.css</TailwindVersion> -->
+  <!-- </PropertyGroup -->
+
   <PropertyGroup>
-    <!-- Specify which version of Tailwind to download -->
-    <TailwindVersion>v4.0.14</TailwindVersion>
+    <TailwindOptimizeOutputStyleSheet Condition="'$(TailwindOptimizeOutputStyleSheet)' == ''">false</TailwindOptimizeOutputStyleSheet>
 
-    <!-- Provide the path to the input & output stylesheets -->
-    <InputStyleSheetPath>Styles/main.css</InputStyleSheetPath>
-    <OutputStyleSheetPath>wwwroot/main.build.css</OutputStyleSheetPath>
+    <TailwindMinifyOutputStyleSheet Condition="$(TailwindMinifyOutputStyleSheet) == '' And '$(Configuration)' == 'Debug'">false</TailwindMinifyOutputStyleSheet>
+    <TailwindMinifyOutputStyleSheet Condition="$(TailwindMinifyOutputStyleSheet) == '' And '$(Configuration)' == 'Release'">true</TailwindMinifyOutputStyleSheet>
 
-    <!-- Provide the path to where Tailwind should be downloaded to -->
+    <!-- The path to where Tailwind should be downloaded to -->
     <!-- This should be a path that is writable by the current user, as well as one that is accessible in CI/CD pipelines -->
-    <!-- On Linux and MacOS, use $XDG_CACHE_HOME or $HOME/.cache ($HOME/.cache/Tailwind/<TailwindVersion>) -->
-    <TailwindDownloadPath Condition="$([System.OperatingSystem]::IsLinux()) Or $([System.OperatingSystem]::IsMacOS())">$([System.IO.Path]::Combine($([MSBuild]::ValueOrDefault($([System.Environment]::GetEnvironmentVariable('XDG_CONFIG_HOME')), $([System.IO.Path]::Combine($([System.Environment]::GetEnvironmentVariable('HOME')), '.cache')))), 'Tailwind'))</TailwindDownloadPath>
+    <!-- By default, this is set to the local app data folder on Windows, and $XDG_CACHE_HOME on Linux and MacOS -->
 
-    <!-- On Windows, use local app data (%LOCALAPPDATA%\\Tailwind\\<TailwindVersion>) -->
-    <TailwindDownloadPath Condition="$([System.OperatingSystem]::IsWindows())">$([System.IO.Path]::Combine($([System.Environment]::GetFolderPath($([System.Environment]::SpecialFolder.LocalApplicationData))), 'Tailwind'))</TailwindDownloadPath>
+    <!-- On Linux and MacOS, use $XDG_CACHE_HOME or $HOME/.cache -->
+    <TailwindDownloadPath Condition="'$(TailwindDownloadPath)' == '' And ($([System.OperatingSystem]::IsLinux()) Or $([System.OperatingSystem]::IsMacOS()))">$([MSBuild]::ValueOrDefault($([System.Environment]::GetEnvironmentVariable('XDG_CONFIG_HOME')), $([System.IO.Path]::Combine($([System.Environment]::GetEnvironmentVariable('HOME')), '.cache'))))</TailwindDownloadPath>
+
+    <!-- On Windows, use local app data (%LOCALAPPDATA%) -->
+    <TailwindDownloadPath Condition="'$(TailwindDownloadPath)' == '' And $([System.OperatingSystem]::IsWindows())">$([System.Environment]::GetFolderPath($([System.Environment]::SpecialFolder.LocalApplicationData)))</TailwindDownloadPath>
   </PropertyGroup>
 
+  <!-- Validate the parameters before download or building -->
+  <Target Name="ValidateParameters" BeforeTargets="DownloadTailwind; Tailwind">
+    <!-- Ensure the version is specified -->
+    <Error Condition="'$(TailwindVersion)' == ''" Text="Tailwind version not specified. Please specify the version. For example: &lt;PropertyGroup&gt;&lt;TailwindVersion&gt;v4.0.14&lt;/TailwindVersion&gt;&lt;/PropertyGroup&gt;"/>
+
+    <!-- Ensure the input stylesheet path is specified & the file exists -->
+    <Error Condition="'$(TailwindInputStyleSheetPath)' == ''" Text="Tailwind input stylesheet not specified. Please specify the path to the input stylesheet in the csproj file. For example: &lt;PropertyGroup&gt;&lt;TailwindInputStyleSheetPath&gt;Styles/main.css&lt;/TailwindInputStyleSheetPath&gt;&lt;/PropertyGroup&gt;"/>
+    <Error Condition="!Exists('$(TailwindInputStyleSheetPath)')" Text="Tailwind input stylesheet '$(TailwindInputStyleSheetPath)' does not exist. Please specify a path to a stylesheet. For example: &lt;PropertyGroup&gt;&lt;TailwindInputStyleSheetPath&gt;Styles/main.css&lt;/TailwindInputStyleSheetPath&gt;&lt;/PropertyGroup&gt;"/>
+
+    <!-- Ensure the output stylesheet path is specified -->
+    <Error Condition="'$(TailwindOutputStyleSheetPath)' == ''" Text="Tailwind output stylesheet not specified. Please specify the path to the output stylesheet in the csproj file. For example: &lt;PropertyGroup&gt;&lt;TailwindOutputStyleSheetPath&gt;Styles/main.css&lt;/TailwindOutputStyleSheetPath>&lt;/PropertyGroup&gt;"/>
+
+    <!-- Ensure the download path is specified -->
+    <Error Condition="'$(TailwindDownloadPath)' == ''" Text="Tailwind download path not specified. Please specify the download path in the csproj file. For example: &lt;PropertyGroup&gt;&lt;TailwindDownloadPath&gt;/tmp&lt;/TailwindDownloadPath&gt;&lt;/PropertyGroup&gt;"/>
+  </Target>
+
   <!-- This line supports hot reload by instructing dotnet watch to be aware of modifications to the input stylesheet -->
-  <ItemGroup>
-    <Watch Include="$(InputStyleSheetPath)"/>
+  <ItemGroup Condition="Exists('$(TailwindInputStyleSheetPath)')">
+    <Watch Include="$(TailwindInputStyleSheetPath)"/>
   </ItemGroup>
 
   <Target Name="DownloadTailwind">
@@ -104,19 +137,22 @@ export let steps: Step[] = [
 
       <TailwindReleaseName Condition="$([System.OperatingSystem]::IsWindows()) And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == X64">tailwindcss-windows-x64.exe</TailwindReleaseName>
       <TailwindReleaseName Condition="$([System.OperatingSystem]::IsWindows()) And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == Arm64">tailwindcss-windows-arm64.exe</TailwindReleaseName>
+
+      <TailwindDownloadUrl Condition="'$(TailwindDownloadUrl)' == '' And $(TailwindVersion) != 'latest'">https://github.com/tailwindlabs/tailwindcss/releases/download/$(TailwindVersion)/$(TailwindReleaseName)</TailwindDownloadUrl>
+      <TailwindDownloadUrl Condition="'$(TailwindDownloadUrl)' == '' And $(TailwindVersion) == 'latest'">https://github.com/tailwindlabs/tailwindcss/releases/latest/download/$(TailwindReleaseName)</TailwindDownloadUrl>
     </PropertyGroup>
 
     <!-- Download the file -->
-    <DownloadFile DestinationFolder="$([System.IO.Path]::Combine('$(TailwindDownloadPath)', '$(TailwindVersion)'))"
+    <DownloadFile DestinationFolder="$([System.IO.Path]::Combine('$(TailwindDownloadPath)', 'Tailwind', '$(TailwindVersion)'))"
                   DestinationFileName="$(TailwindReleaseName)"
-                  SourceUrl="https://github.com/tailwindlabs/tailwindcss/releases/download/$(TailwindVersion)/$(TailwindReleaseName)"
+                  SourceUrl="$(TailwindDownloadUrl)"
                   SkipUnchangedFiles="true"
                   Retries="3">
       <Output TaskParameter="DownloadedFile" PropertyName="TailwindCliPath"/>
     </DownloadFile>
 
     <!-- On unix systems, make the file executable -->
-    <Exec Condition="$([System.OperatingSystem]::IsLinux()) Or $([System.OperatingSystem]::IsMacOS())" Command="chmod +x '$(TailwindCliPath)'"/>
+    <Exec Condition="Exists('$(TailwindCliPath)') And ($([System.OperatingSystem]::IsLinux()) Or $([System.OperatingSystem]::IsMacOS()))" Command="chmod +x '$(TailwindCliPath)'"/>
   </Target>
 
   <!-- When building the project, run the Tailwind CLI -->
@@ -124,11 +160,16 @@ export let steps: Step[] = [
   <!-- In order to use hot reload, run both \`dotnet watch run\` and \`dotnet watch msbuild /t:Tailwind\` -->
   <Target Name="Tailwind" DependsOnTargets="DownloadTailwind" BeforeTargets="Build">
     <PropertyGroup>
-      <TailwindBuildCommand>'$(TailwindCliPath)' -i '$(InputStyleSheetPath)' -o '$(OutputStyleSheetPath)'</TailwindBuildCommand>
+      <TailwindBuildCommand>'$(TailwindCliPath)' -i '$(TailwindInputStyleSheetPath)' -o '$(TailwindOutputStyleSheetPath)' --cwd '$(ProjectDir)'</TailwindBuildCommand>
+
+      <!-- Add optimize flag if specified -->
+      <TailwindBuildCommand Condition="'$(TailwindOptimizeOutputStyleSheet)' == 'true'">$(TailwindBuildCommand) --optimize</TailwindBuildCommand>
+
+      <!-- Add minify flag if specified -->
+      <TailwindBuildCommand Condition="'$(TailwindMinifyOutputStyleSheet)' == 'true'">$(TailwindBuildCommand) --minify</TailwindBuildCommand>
     </PropertyGroup>
 
-    <Exec Command="$(TailwindBuildCommand)" Condition="'$(Configuration)' == 'Debug'"/>
-    <Exec Command="$(TailwindBuildCommand) --minify" Condition="'$(Configuration)' == 'Release'"/>
+    <Exec Command="$(TailwindBuildCommand)"/>
   </Target>
 </Project>`
         }
@@ -137,13 +178,19 @@ export let steps: Step[] = [
         title: 'Configure your csproj',
         body: (
             <p>
-                Open the <code>my-app.csproj</code> file and import the <code>Tailwind.targets</code> file.
+                Specify the version and input & output stylesheets, and import the <code>Tailwind.targets</code> file.
             </p>
         ),
         code: {
             name: 'my-app.csproj',
             lang: 'xml',
-            code: `<Import Project="Tailwind.targets" />`,
+            code: `<PropertyGroup>
+    <TailwindVersion>latest</TailwindVersion>
+    <TailwindInputStyleSheetPath>Styles/main.css</TailwindInputStyleSheetPath>
+    <TailwindOutputStyleSheetPath>wwwroot/main.build.css</TailwindOutputStyleSheetPath>
+</PropertyGroup>
+
+<Import Project="Tailwind.targets" />`,
         },
     },
 
@@ -159,7 +206,7 @@ export let steps: Step[] = [
             name: 'Components/App.razor',
             lang: 'html',
             code: html`
-                <link rel="stylesheet" href="/main.build.css"/>
+                <link rel="stylesheet" href="@Assets["main.build.css"]"/>
             `,
         },
     },
