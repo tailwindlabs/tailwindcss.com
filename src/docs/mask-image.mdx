@@ -85,12 +85,20 @@ export const description = "Utilities for controlling an element's mask image.";
 Use the `mask-[<value>]` syntax to set the mask image of an element:
 
 <Figure>
+
 <Example>
-  {
-    <div className="relative mx-auto flex h-48 w-96 items-center justify-center overflow-hidden rounded-lg sm:w-96">
-      <div className="h-full w-full bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] bg-cover bg-center bg-no-repeat [mask-image:url(/mask.png)] [mask-size:110%_90%] [mask-position:center] [mask-repeat:no-repeat]"></div>
-    </div>
-  }
+
+{
+
+<Stripes
+  border
+  className="relative mx-auto flex h-48 w-96 items-center justify-center overflow-hidden rounded-lg sm:w-96"
+>
+  <div className="h-full w-full bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] [mask-image:url(/mask.png)] bg-cover bg-center bg-no-repeat mask-[size:110%_90%] mask-center mask-no-repeat"></div>
+</Stripes>
+
+}
+
 </Example>
 
 ```html
@@ -235,30 +243,42 @@ Use the `mask-radial` and `mask-radial-[<position>]` utilities with the [mask co
 
 {
 
-<div className="group flex items-center justify-center">
+<div className="flex items-center justify-center">
   <div className="relative">
     <img
-      className="size-16 shrink-0 rounded-full [mask-image:radial-gradient(circle_at_calc(100%-0.625rem)_calc(100%-0.625rem),_transparent_0.75rem,white_0.75rem)] [mask-repeat:no-repeat]"
+      className="size-16 rounded-full mask-radial-[circle_at_85%_85%] mask-from-transparent mask-via-transparent mask-via-15% mask-to-white mask-to-15%"
       src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-      alt=""
+      alt="Tom Cook profile picture"
     />
-    <div className="absolute right-1 bottom-1 size-3 rounded-full bg-radial from-emerald-400 from-30% to-emerald-600 ring inset-ring ring-black/10 inset-ring-white/10"></div>
+    <div className="absolute right-1 bottom-1 size-3 rounded-full bg-emerald-400 ring inset-ring-1 ring-black/2.5 inset-ring-white/30"></div>
   </div>
-  <div className="ml-3 rtl:mr-3 rtl:ml-0">
-    <p className="text-sm font-medium text-gray-700 group-hover:text-gray-900 dark:text-gray-300 dark:group-hover:text-white">
-      Tom Cook
-    </p>
-    <p className="text-sm font-medium text-gray-500 group-hover:text-gray-700 dark:group-hover:text-gray-300">
-      Director of Operations
-    </p>
+  <div className="ml-3 text-sm font-medium">
+    <p className="text-gray-700 dark:text-gray-300">Tom Cook</p>
+    <p className="text-gray-500">Director of Operations</p>
   </div>
 </div>
+
 }
 
 </Example>
 
 ```html
-
+<!-- [!code classes:mask-radial-[circle_at_85%_85%]] -->
+<div class="flex items-center justify-center">
+  <div class="relative">
+    <img
+      class="size-16 rounded-full mask-radial-[circle_at_85%_85%] mask-from-transparent mask-via-transparent mask-via-15% mask-to-white mask-to-15%"
+      src="/img/tom_cook.jpg"
+    />
+    <div
+      class="absolute right-1 bottom-1 size-3 rounded-full bg-emerald-400 ring inset-ring-1 ring-black/2.5 inset-ring-white/30"
+    ></div>
+  </div>
+  <div class="ml-3 text-sm font-medium">
+    <p class="text-gray-700 dark:text-gray-300">Tom Cook</p>
+    <p class="text-gray-500">Director of Operations</p>
+  </div>
+</div>
 ```
 
 </Figure>
@@ -314,34 +334,35 @@ Use utilities like `mask-from-white`, `mask-via-transparent`, and `mask-to-black
 <Figure>
 
 <Example>
-  {
-    <div className="mx-5">
-      <div className="relative h-[3.625rem]">
-        <div className="absolute top-0 left-px -ml-3 flex h-12 flex-col items-center">
-          <svg viewBox="0 0 32 34" className="w-7 flex-none text-white drop-shadow">
-            <use href="#gradient-color-stop" />
-          </svg>
-          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-        </div>
-        <div className="absolute top-0 left-1/2 -ml-3 flex h-12 flex-col items-center">
-          <svg viewBox="0 0 32 34" className="w-7 flex-none text-white/70 drop-shadow">
-            <use href="#gradient-color-stop" />
-          </svg>
-          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-        </div>
-        <div className="absolute top-0 right-px -mr-3 flex h-12 flex-col items-center">
-          <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow">
-            <use href="#gradient-color-stop" />
-          </svg>
-          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-        </div>
-      </div>
-      <div className="relative">
-      <div className="relative z-10 h-64 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-linear-to-r mask-from-white mask-via-white/70 mask-to-transparent bg-cover bg-center [mask-mode:alpha]">
-      </div>
-            <Stripes className='absolute inset-0 rounded-lg' border />
-      </div>
+
+{
+
+<div className="mx-5">
+  <div className="relative h-[3.625rem]">
+    <div className="absolute top-0 left-px -ml-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-white drop-shadow">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
     </div>
+    <div className="absolute top-0 left-1/2 -ml-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-white/70 drop-shadow">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+    </div>
+    <div className="absolute top-0 right-px -mr-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+    </div>
+  </div>
+  <div className="relative">
+    <div className="relative z-10 h-64 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-linear-to-r mask-from-white mask-via-white/70 mask-to-transparent bg-cover bg-center mask-alpha"></div>
+    <Stripes className="absolute inset-0 rounded-lg" border />
+  </div>
+</div>
 }
 
 </Example>
@@ -357,7 +378,7 @@ Use utilities like `mask-from-white`, `mask-via-transparent`, and `mask-to-black
 
 Although you can specify any color value for the mask stops, the visibility of a stop depends on the [`mask-mode`](./docs/mask-mode) property.
 
-When using `mask-mode:luminance`, sticking with grayscale colors will produce the most predictable results. With `mask-mode:alpha`, the opacity of the color stop determines the visibility of the mask.
+When using `mask-mode:luminance`, the luminance value of the color stop determines visibility, so sticking with grayscale colors will produce the most predictable results. With `mask-mode:alpha`, the opacity of the color stop determines the visibility of the masked element.
 
 ### Setting mask stop positions
 
@@ -366,51 +387,47 @@ Use utilities like `mask-from-10%`, `mask-via-30%`, and `mask-to-90%` to set mor
 <Figure>
 
 <Example>
-  
 {
-   <div className="mx-5 py-2">
-      <div className="relative h-[3.625rem]">
-        <div className="absolute top-0 left-[10%] -ml-3 flex h-12 flex-col items-center">
-          <svg viewBox="0 0 32 34" className="w-7 flex-none text-white drop-shadow">
-            <use href="#gradient-color-stop" />
-          </svg>
-          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30">
-            <div className="absolute -top-7 left-0 flex h-8 w-full items-center justify-center font-mono text-[0.6875rem] font-semibold tracking-wider text-gray-950 dark:text-white">
-                10%
-            </div>
-          </div>
-        </div>
-        <div className="absolute top-0 left-[30%] -ml-3 flex h-12 flex-col items-center">
-          <svg viewBox="0 0 32 34" className="w-7 flex-none text-white/70 drop-shadow">
-            <use href="#gradient-color-stop" />
-          </svg>
-          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30">
 
-            <div className="absolute -top-7 left-0 flex h-8 w-full items-center justify-center font-mono text-[0.6875rem] font-semibold tracking-wider text-gray-950 dark:text-white">
-                30%
-            </div>
-          </div>
-        </div>
-        <div className="absolute top-0 right-[10%] -mr-3 flex h-12 flex-col items-center">
-          <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow">
-            <use href="#gradient-color-stop" />
-          </svg>
-          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30">
-            <div className="absolute -top-7 left-0 flex h-8 w-full items-center justify-center font-mono text-[0.6875rem] font-semibold tracking-wider text-gray-950 dark:text-white">
-              90%
-            </div>
-          </div>
+<div className="mx-5 py-2">
+  <div className="relative h-[3.625rem]">
+    <div className="absolute top-0 left-[10%] -ml-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-white drop-shadow">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30">
+        <div className="absolute -top-7 left-0 flex h-8 w-full items-center justify-center font-mono text-[0.6875rem] font-semibold tracking-wider text-gray-950 dark:text-white">
+          10%
         </div>
       </div>
-
-            <div className="relative">
-      <div className="h-64 relative z-10 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-linear-to-r mask-from-white mask-from-10% mask-via-white/70 mask-via-30% mask-to-transparent mask-to-90% bg-cover bg-center ">
-      </div>
-            <Stripes className='absolute inset-0 rounded-lg' border />
-      </div>
-
-      <Stripes />
     </div>
+    <div className="absolute top-0 left-[30%] -ml-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-white/70 drop-shadow">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30">
+        <div className="absolute -top-7 left-0 flex h-8 w-full items-center justify-center font-mono text-[0.6875rem] font-semibold tracking-wider text-gray-950 dark:text-white">
+          30%
+        </div>
+      </div>
+    </div>
+    <div className="absolute top-0 right-[10%] -mr-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30">
+        <div className="absolute -top-7 left-0 flex h-8 w-full items-center justify-center font-mono text-[0.6875rem] font-semibold tracking-wider text-gray-950 dark:text-white">
+          90%
+        </div>
+      </div>
+    </div>
+  </div>
+  <div className="relative">
+    <div className="relative z-10 h-64 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-linear-to-r mask-from-white mask-from-10% mask-via-white/70 mask-via-30% mask-to-transparent mask-to-90% bg-cover bg-center"></div>
+    <Stripes className="absolute inset-0 rounded-lg" border />
+  </div>
+  <Stripes />
+</div>
 
 }
 
@@ -437,7 +454,7 @@ Use the `mask-none` utility to remove an existing mask image from an element:
 ### Using a custom value
 
 <UsingACustomValue
-  utilities={["mask-linear", "from"]}
+  utilities={["mask-linear", "mask-from"]}
   name="mask image"
   value="25deg,red_5%,yellow_60%,lime_90%,teal"
   variable="mask"
@@ -445,7 +462,7 @@ Use the `mask-none` utility to remove an existing mask image from an element:
 
 ### Responsive design
 
-<ResponsiveDesign property="mask-image" defaultClass="mask-from-purple-400" featuredClass="mask-from-yellow-500" />
+<ResponsiveDesign property="mask-image" defaultClass="mask-from-70%" featuredClass="mask-from-50%" />
 
 ## Customizing your theme
 
