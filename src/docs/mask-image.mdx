@@ -115,98 +115,99 @@ Use utilities like `mask-linear-to-r` and `mask-linear-<angle>` with the [mask c
 <Figure>
 
 <Example padding={false}>
-  {
-    <div className="relative py-8">
-      <div className="absolute inset-x-0 bottom-8 z-10 flex items-center justify-center">
-        <button
-          type="button"
-          className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50 dark:bg-gray-950 dark:text-white dark:ring-white/20 dark:hover:bg-gray-900"
-        >
-          Show more
-        </button>
-      </div>
-      <div className="border-y border-y-gray-200 bg-white mask-linear-to-b mask-from-white mask-from-70% dark:border-y-gray-800 dark:bg-gray-950">
 
-        <div>
-          <div className="inline-block min-w-full align-middle">
-            <div className="overflow-hidden">
-              <table className="min-w-full">
-                <thead className="border-b border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-950">
-                  <tr>
-                    <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
-                      Name
-                    </th>
-                    <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
-                      Title
-                    </th>
-                    <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
-                      Email
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
-                    <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
-                      Jane Cooper
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      Regional Paradigm Technician
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      jane.cooper@example.com
-                    </td>
-                  </tr>
-                  <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
-                    <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
-                      Cody Fisher
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      Product Directives Officer
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      cody.fisher@example.com
-                    </td>
-                  </tr>
-                  <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
-                    <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
-                      Leonard Krasner
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      Senior Designer
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      leonard.krasner@example.com
-                    </td>
-                  </tr>
-                  <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
-                    <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
-                      Emily Selman
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      VP, Hardware Engineering
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      emily.selman@example.com
-                    </td>
-                  </tr>
-                  <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
-                    <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
-                      Anna Roberts
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      Chief Strategy Officer
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      anna.roberts@example.com
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+{
+
+<div className="relative py-8">
+  <div className="absolute inset-x-0 bottom-8 z-10 flex items-center justify-center">
+    <button
+      type="button"
+      className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50 dark:bg-gray-950 dark:text-white dark:ring-white/20 dark:hover:bg-gray-900"
+    >
+      Show more
+    </button>
+  </div>
+  <div className="border-y border-y-gray-200 bg-white mask-linear-to-b mask-from-white mask-from-70% dark:border-y-gray-800 dark:bg-gray-950">
+    <div>
+      <div className="inline-block min-w-full align-middle">
+        <div className="overflow-hidden">
+          <table className="min-w-full">
+            <thead className="border-b border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-950">
+              <tr>
+                <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
+                  Name
+                </th>
+                <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
+                  Title
+                </th>
+                <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
+                  Email
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
+                <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
+                  Jane Cooper
+                </td>
+                <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                  Regional Paradigm Technician
+                </td>
+                <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                  jane.cooper@example.com
+                </td>
+              </tr>
+              <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
+                <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
+                  Cody Fisher
+                </td>
+                <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                  Product Directives Officer
+                </td>
+                <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                  cody.fisher@example.com
+                </td>
+              </tr>
+              <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
+                <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
+                  Leonard Krasner
+                </td>
+                <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                  Senior Designer
+                </td>
+                <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                  leonard.krasner@example.com
+                </td>
+              </tr>
+              <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
+                <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
+                  Emily Selman
+                </td>
+                <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                  VP, Hardware Engineering
+                </td>
+                <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                  emily.selman@example.com
+                </td>
+              </tr>
+              <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
+                <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
+                  Anna Roberts
+                </td>
+                <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                  Chief Strategy Officer
+                </td>
+                <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                  anna.roberts@example.com
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
 }
 
@@ -250,7 +251,7 @@ Use the `mask-radial` and `mask-radial-[<position>]` utilities with the [mask co
       src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
       alt="Tom Cook profile picture"
     />
-    <div className="absolute right-1 bottom-1 size-3 rounded-full bg-emerald-400 ring inset-ring-1 ring-black/2.5 inset-ring-white/30"></div>
+    <div className="absolute right-1 bottom-1 size-3 rounded-full bg-emerald-400 inset-ring inset-ring-black/5 dark:inset-ring-white/20"></div>
   </div>
   <div className="ml-3 text-sm font-medium">
     <p className="text-gray-700 dark:text-gray-300">Tom Cook</p>
@@ -295,7 +296,7 @@ Use the `mask-conic` and `mask-conic-<angle>` utilities with the [mask color sto
 
 <div className="mx-auto flex w-full max-w-sm items-center gap-5 rounded-xl bg-white p-4 shadow-lg ring-1 ring-black/5 dark:bg-gray-800">
   <div className="grid grid-cols-1 grid-rows-1">
-    <div className="col-start-1 row-start-1 size-12 rounded-full border-4 border-black/10 dark:border-white/5" />
+    <div className="col-start-1 row-start-1 size-12 rounded-full border-4 border-gray-100 dark:border-gray-700" />
     <div className="col-start-1 row-start-1 size-12 rounded-full border-4 border-amber-500 mask-conic mask-from-white mask-via-white mask-via-75% mask-to-transparent mask-to-75% dark:border-amber-400" />
   </div>
   <div className="w-0 flex-1 text-sm text-gray-950 dark:text-white">
@@ -313,7 +314,7 @@ Use the `mask-conic` and `mask-conic-<angle>` utilities with the [mask color sto
 <!-- [!code classes:mask-conic] -->
 <div class="flex items-center gap-5 rounded-xl bg-white p-4 shadow-lg ring-1 ring-black/5 dark:bg-gray-800">
   <div class="grid grid-cols-1 grid-rows-1">
-    <div class="border-4 border-black/10 dark:border-white/5 ..."></div>
+    <div class="border-4 border-gray-100 dark:border-gray-700 ..."></div>
     <div
       class="border-4 border-amber-500 mask-conic mask-from-white mask-via-white mask-via-75% mask-to-transparent mask-to-75% dark:border-amber-400 ..."
     ></div>
@@ -378,7 +379,7 @@ Use utilities like `mask-from-white`, `mask-via-transparent`, and `mask-to-black
 
 Although you can specify any color value for the mask stops, the visibility of a stop depends on the [`mask-mode`](./docs/mask-mode) property.
 
-When using `mask-mode:luminance`, the luminance value of the color stop determines visibility, so sticking with grayscale colors will produce the most predictable results. With `mask-mode:alpha`, the opacity of the color stop determines the visibility of the masked element.
+When using `mask-mode: luminance`, the luminance value of the color stop determines visibility, so sticking with grayscale colors will produce the most predictable results. With `mask-mode: alpha`, the opacity of the color stop determines the visibility of the masked element.
 
 ### Setting mask stop positions
 

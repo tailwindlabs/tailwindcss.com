@@ -31,62 +31,62 @@ Use utilities like `mask-center`, `mask-right`, and `mask-left-top` to control t
 
 <Figure >
 
-<Example>
+<Example padding={false}>
 
 {
 
-<div className="grid grid-cols-3 items-center justify-center justify-items-center gap-y-8 py-4 max-sm:grid-cols-1">
+<div className="grid grid-cols-3 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:items-end max-sm:justify-between max-sm:px-2 dark:text-gray-400">
   <div className="flex flex-col items-center">
-    <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">mask-left-top</p>
-    <Stripes className="relative h-24 w-32 rounded-lg" border>
+    <p className="mb-3">mask-left-top</p>
+    <Stripes className="aspect-[1.333] w-32 rounded-lg max-sm:w-24" border>
       <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial mask-from-white mask-from-70% mask-to-70% bg-cover bg-center mask-[size:50%_66%] mask-left-top mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
-    <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">mask-top</p>
-    <Stripes className="relative h-24 w-32 rounded-lg" border>
+    <p className="mb-3">mask-top</p>
+    <Stripes className="aspect-[1.333] w-32 rounded-lg max-sm:w-24" border>
       <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial mask-from-white mask-from-70% mask-to-70% bg-cover bg-center mask-[size:50%_66%] mask-top mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
-    <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">mask-right-top</p>
-    <Stripes className="relative h-24 w-32 rounded-lg" border>
+    <p className="mb-3">mask-right-top</p>
+    <Stripes className="aspect-[1.333] w-32 rounded-lg max-sm:w-24" border>
       <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial mask-from-white mask-from-70% mask-to-70% bg-cover bg-center mask-[size:50%_66%] mask-right-top mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
-    <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">mask-left</p>
-    <Stripes className="relative h-24 w-32 rounded-lg" border>
+    <p className="mb-3">mask-left</p>
+    <Stripes className="aspect-[1.333] w-32 rounded-lg max-sm:w-24" border>
       <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial mask-from-white mask-from-70% mask-to-70% bg-cover bg-center mask-[size:50%_66%] mask-left mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
-    <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">mask-center</p>
-    <Stripes className="relative h-24 w-32 rounded-lg" border>
+    <p className="mb-3">mask-center</p>
+    <Stripes className="aspect-[1.333] w-32 rounded-lg max-sm:w-24" border>
       <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial mask-from-white mask-from-70% mask-to-70% bg-cover bg-center mask-[size:50%_66%] mask-center mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
-    <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">mask-right</p>
-    <Stripes className="relative h-24 w-32 rounded-lg" border>
+    <p className="mb-3">mask-right</p>
+    <Stripes className="aspect-[1.333] w-32 rounded-lg max-sm:w-24" border>
       <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial mask-from-white mask-from-70% mask-to-70% bg-cover bg-center mask-[size:50%_66%] mask-right mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
-    <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">mask-left-bottom</p>
-    <Stripes className="relative h-24 w-32 rounded-lg" border>
+    <p className="mb-3">mask-left-bottom</p>
+    <Stripes className="aspect-[1.333] w-32 rounded-lg max-sm:w-24" border>
       <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial mask-from-white mask-from-70% mask-to-70% bg-cover bg-center mask-[size:50%_66%] mask-left-bottom mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
-    <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">mask-bottom</p>
-    <Stripes className="relative h-24 w-32 rounded-lg" border>
+    <p className="mb-3">mask-bottom</p>
+    <Stripes className="aspect-[1.333] w-32 rounded-lg max-sm:w-24" border>
       <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial mask-from-white mask-from-70% mask-to-70% bg-cover bg-center mask-[size:50%_66%] mask-bottom mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
-    <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">mask-right-bottom</p>
-    <Stripes className="relative h-24 w-32 rounded-lg" border>
+    <p className="mb-3">mask-right-bottom</p>
+    <Stripes className="aspect-[1.333] w-32 rounded-lg max-sm:w-24" border>
       <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial mask-from-white mask-from-70% mask-to-70% bg-cover bg-center mask-[size:50%_66%] mask-right-bottom mask-no-repeat"></div>
     </Stripes>
   </div>
@@ -98,15 +98,15 @@ Use utilities like `mask-center`, `mask-right`, and `mask-left-top` to control t
 
 ```html
 <!-- [!code classes:mask-left-top,mask-top,mask-right-top,mask-left,mask-center,mask-right,mask-left-bottom,mask-bottom,mask-right-bottom] -->
-<div class="mask-[url(/img/circle.png)] mask-[size:50%_50%] mask-left-top ..."></div>
-<div class="mask-[url(/img/circle.png)] mask-[size:50%_50%] mask-top ..."></div>
-<div class="mask-[url(/img/circle.png)] mask-[size:50%_50%] mask-right-top ..."></div>
-<div class="mask-[url(/img/circle.png)] mask-[size:50%_50%] mask-left ..."></div>
-<div class="mask-[url(/img/circle.png)] mask-[size:50%_50%] mask-center ..."></div>
-<div class="mask-[url(/img/circle.png)] mask-[size:50%_50%] mask-right ..."></div>
-<div class="mask-[url(/img/circle.png)] mask-[size:50%_50%] mask-left-bottom ..."></div>
-<div class="mask-[url(/img/circle.png)] mask-[size:50%_50%] mask-bottom ..."></div>
-<div class="mask-[url(/img/circle.png)] mask-[size:50%_50%] mask-right-bottom ..."></div>
+<div class="mask-[url(/img/circle.png)] mask-[size:50%] mask-left-top ..."></div>
+<div class="mask-[url(/img/circle.png)] mask-[size:50%] mask-top ..."></div>
+<div class="mask-[url(/img/circle.png)] mask-[size:50%] mask-right-top ..."></div>
+<div class="mask-[url(/img/circle.png)] mask-[size:50%] mask-left ..."></div>
+<div class="mask-[url(/img/circle.png)] mask-[size:50%] mask-center ..."></div>
+<div class="mask-[url(/img/circle.png)] mask-[size:50%] mask-right ..."></div>
+<div class="mask-[url(/img/circle.png)] mask-[size:50%] mask-left-bottom ..."></div>
+<div class="mask-[url(/img/circle.png)] mask-[size:50%] mask-bottom ..."></div>
+<div class="mask-[url(/img/circle.png)] mask-[size:50%] mask-right-bottom ..."></div>
 ```
 
 </Figure>
