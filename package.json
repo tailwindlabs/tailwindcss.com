@@ -28,7 +28,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "shiki": "^1.26.1",
-    "tailwindcss": "0.0.0-insiders.cc3e852"
+    "tailwindcss": "file:tailwindcss.tgz"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
@@ -53,6 +53,12 @@
   "postcss": {
     "plugins": {
       "@tailwindcss/postcss": {}
+    }
+  },
+  "pnpm": {
+    "overrides": {
+      "tailwindcss": "file:./tailwindcss.tgz",
+      "@tailwindcss/postcss>tailwindcss": "file:./tailwindcss.tgz"
     }
   },
   "packageManager": "pnpm@9.14.0"
