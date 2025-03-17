@@ -102,7 +102,7 @@ export let steps: Step[] = [
     <TailwindDownloadPath Condition="'$(TailwindDownloadPath)' == '' And ($([System.OperatingSystem]::IsLinux()) Or $([System.OperatingSystem]::IsMacOS()))">$([MSBuild]::ValueOrDefault($([System.Environment]::GetEnvironmentVariable('XDG_CONFIG_HOME')), $([System.IO.Path]::Combine($([System.Environment]::GetEnvironmentVariable('HOME')), '.cache'))))</TailwindDownloadPath>
 
     <!-- On Windows, use local app data (%LOCALAPPDATA%) -->
-    <TailwindDownloadPath Condition="'$(TailwindDownloadPath)' == '' And $([System.OperatingSystem]::IsWindows())">$([System.Environment]::GetFolderPath($([System.Environment]::SpecialFolder.LocalApplicationData)))</TailwindDownloadPath>
+    <TailwindDownloadPath Condition="'$(TailwindDownloadPath)' == '' And $([System.OperatingSystem]::IsWindows())">$(LOCALAPPDATA)</TailwindDownloadPath>
   </PropertyGroup>
 
   <!-- Validate the parameters before download or building -->
@@ -160,7 +160,12 @@ export let steps: Step[] = [
   <!-- In order to use hot reload, run both \`dotnet watch run\` and \`dotnet watch msbuild /t:Tailwind\` -->
   <Target Name="Tailwind" DependsOnTargets="DownloadTailwind" BeforeTargets="Build">
     <PropertyGroup>
-      <TailwindBuildCommand>'$(TailwindCliPath)' -i '$(TailwindInputStyleSheetPath)' -o '$(TailwindOutputStyleSheetPath)' --cwd '$(ProjectDir)'</TailwindBuildCommand>
+      <!-- Normalize the paths provided -->
+      <TailwindCliPath>$([MSBuild]::NormalizePath('$(TailwindCliPath)'))</TailwindCliPath>
+      <TailwindInputStyleSheetPath>$([MSBuild]::NormalizePath('$(TailwindInputStyleSheetPath)'))</TailwindInputStyleSheetPath>
+      <TailwindOutputStyleSheetPath>$([MSBuild]::NormalizePath('$(TailwindOutputStyleSheetPath)'))</TailwindOutputStyleSheetPath>
+
+      <TailwindBuildCommand>"$(TailwindCliPath)" -i "$(TailwindInputStyleSheetPath)" -o "$(TailwindOutputStyleSheetPath)"</TailwindBuildCommand>
 
       <!-- Add optimize flag if specified -->
       <TailwindBuildCommand Condition="'$(TailwindOptimizeOutputStyleSheet)' == 'true'">$(TailwindBuildCommand) --optimize</TailwindBuildCommand>
