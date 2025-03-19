@@ -3,11 +3,11 @@ export const description = "Upgrading your Tailwind CSS projects from v3 to v4."
 
 Tailwind CSS v4.0 is a new major version of the framework, so while we've worked really hard to minimize breaking changes, some updates are necessary. This guide outlines all the steps required to upgrade your projects from v3 to v4.
 
-To simplify the process, we’ve developed a migration tool that can automatically handle the bulk of these changes for you in typical projects.
+**Tailwind CSS v4.0 is designed for Safari 16.4+, Chrome 111+, and Firefox 128+.** If you need to support older browsers, stick with v3.4 until your browser support requirements change.
 
-### Using the upgrade tool
+## Using the upgrade tool
 
-If you'd like to try upgrading a project from v3 to v4, you can use our upgrade tool to do the vast majority of the heavy lifting for you:
+If you'd like to upgrade a project from v3 to v4, you can use our upgrade tool to do the vast majority of the heavy lifting for you:
 
 ```sh
   # [!code filename:Terminal]
@@ -79,6 +79,12 @@ npx @tailwindcss/cli -i input.css -o output.css
 Here's a comprehensive list of all the breaking changes in Tailwind CSS v4.0.
 
 Our [upgrade tool](##using-the-upgrade-tool) will handle most of these changes for you automatically, so we highly recommend using it if you can.
+
+### Browser requirements
+
+Tailwind CSS v4.0 is designed for modern browsers and targets Safari 16.4, Chrome 111, and Firefox 128. We depend on modern CSS features like `@property` and `color-mix()` for core framework features, and Tailwind CSS v4.0 will not work in older browsers.
+
+If you need to support older browsers, we recommend sticking with v3.4 for now. We're actively exploring a compatibility mode to help people upgrade sooner that we hope to share more news on in the future.
 
 ### Removed @tailwind directives
 
