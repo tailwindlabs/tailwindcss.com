@@ -1,4 +1,4 @@
-import { astro, css, js, Page, shell, Step, Tile } from "./utils";
+import { astro, css, js, Page, shell, Step, Tab, Tile } from "./utils";
 import Logo from "@/docs/img/guides/astro.react.svg";
 import LogoDark from "@/docs/img/guides/astro-white.react.svg";
 
@@ -13,6 +13,17 @@ export let page: Page = {
   title: "Install Tailwind CSS with Astro",
   description: "Setting up Tailwind CSS in an Astro project.",
 };
+
+export let tabs: Tab[] = [
+  {
+    slug: "command",
+    title: "Using command (v5.2.0 or later)",
+  },
+  {
+    slug: "manual",
+    title: "Manual installation",
+  },
+];
 
 export let steps: Step[] = [
   {
@@ -33,6 +44,24 @@ export let steps: Step[] = [
     },
   },
   {
+    tabs: ["command"],
+    title: "Run `astro add` command",
+    body: (
+      <p>
+        Run this command to install all the necessary dependencies, create a <code>./src/styles/global.css</code> file,
+        and add the plugin to your Astro configuration file.
+      </p>
+    ),
+    code: {
+      name: "Terminal",
+      lang: "shell",
+      code: shell`
+        npx astro add tailwind
+      `,
+    },
+  },
+  {
+    tabs: ["manual"],
     title: "Install Tailwind CSS",
     body: (
       <p>
@@ -48,6 +77,7 @@ export let steps: Step[] = [
     },
   },
   {
+    tabs: ["manual"],
     title: "Configure Vite Plugin",
     body: (
       <p>
@@ -74,6 +104,7 @@ export let steps: Step[] = [
     },
   },
   {
+    tabs: ["manual"],
     title: "Import Tailwind CSS",
     body: (
       <p>
