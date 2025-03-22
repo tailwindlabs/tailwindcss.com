@@ -263,7 +263,11 @@ Use the `@plugin` directive to load a legacy JavaScript-based plugin:
 @plugin "@tailwindcss/typography";
 ```
 
-The `@plugin` directive accepts either a package name or a local path.
+The `@plugin` directive accepts either a package name or a local path. Tailwind CSS provides a number of official plugins that you can use with this directive:
+
+- [`@tailwindcss/typography`](https://github.com/tailwindlabs/tailwindcss-typography) - Provides a set of prose classes you can use to add beautiful typographic defaults to any vanilla HTML you don’t control, like HTML rendered from Markdown, or pulled from a CMS.
+- [`@tailwindcss/forms`](https://github.com/tailwindlabs/tailwindcss-forms) - Provides a basic reset for form styles that makes form elements easy to override with utilities.
+- [`@tailwindcss/aspect-ratio`](https://github.com/tailwindlabs/tailwindcss-aspect-ratio) - Provides a composable API for giving elements a fixed aspect ratio.
 
 <h3 id="theme-function">theme()</h3>
 
