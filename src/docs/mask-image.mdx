@@ -127,7 +127,7 @@ Use utilities like `mask-linear-to-r` and `mask-linear-<angle>` with the [mask c
       Show more
     </button>
   </div>
-  <div className="border-y border-y-gray-200 bg-white mask-linear-to-b mask-from-white mask-from-70% dark:border-y-gray-800 dark:bg-gray-950">
+  <div className="mask-b-from-70% border-y border-y-gray-200 bg-white dark:border-y-gray-800 dark:bg-gray-950">
     <div>
       <div className="inline-block min-w-full align-middle">
         <div className="overflow-hidden">
@@ -214,7 +214,7 @@ Use utilities like `mask-linear-to-r` and `mask-linear-<angle>` with the [mask c
 </Example>
 
 ```html
-<!-- [!code classes:mask-linear-to-b] -->
+<!-- [!code classes:mask-b-from-70%] -->
 <div class="relative">
   <div class="absolute inset-x-0 bottom-8 z-10 flex items-center justify-center">
     <button
@@ -224,7 +224,7 @@ Use utilities like `mask-linear-to-r` and `mask-linear-<angle>` with the [mask c
       Show more
     </button>
   </div>
-  <div class="max-h-96 mask-linear-to-b mask-from-white mask-from-70% ...">
+  <div class="mask-b-from-70% max-h-96 ...">
     <table>
       <!-- ... -->
     </table>
@@ -240,22 +240,18 @@ Use the `mask-radial` and `mask-radial-[<position>]` utilities with the [mask co
 
 <Figure>
 
-<Example>
+<Example padding={false}>
 
 {
 
-<div className="flex items-center justify-center">
-  <div className="relative">
-    <img
-      className="size-16 rounded-full mask-radial-[circle_at_85%_85%] mask-from-transparent mask-via-transparent mask-via-15% mask-to-white mask-to-15%"
-      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-      alt="Tom Cook profile picture"
-    />
-    <div className="absolute right-1 bottom-1 size-3 rounded-full bg-emerald-400 inset-ring inset-ring-black/5 dark:inset-ring-white/20"></div>
-  </div>
-  <div className="ml-3 text-sm font-medium">
-    <p className="text-gray-700 dark:text-gray-300">Tom Cook</p>
-    <p className="text-gray-500">Director of Operations</p>
+<div className="mx-auto max-w-lg p-16">
+  <div className="bg-repeat-none mask-radial-to-90% mask-radial-at-left mask-radial-from-40% mask-circle -ml-2.5 aspect-square w-[calc(100%_+_--spacing(2.5))] max-w-sm bg-[url(/keyboard-light.png)] mask-radial bg-cover bg-no-repeat dark:bg-[url(/keyboard-dark.png)]" />
+  <div className="mt-6 text-sm font-medium">
+    <p className="font-mono text-xs text-gray-500 uppercase dark:text-gray-500">Speed</p>
+    <p className="mt-4 text-base text-gray-700 dark:text-gray-300">Built for power users</p>
+    <p className="mt-1 leading-relaxed text-gray-500">
+      It’s never been faster to cold email your entire contact list using our streamlined keyboard shortcuts.
+    </p>
   </div>
 </div>
 
