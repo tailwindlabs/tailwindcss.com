@@ -634,7 +634,7 @@ export default function WhyTailwindCssSection() {
                       <div key={idx} className="flex items-center justify-start gap-4 p-6">
                         <div className="shrink-0">
                           <img
-                            alt=""
+                            alt={`${user.name} profile picture`}
                             src={user.src}
                             className="size-12 shrink-0 rounded-full bg-gray-950/5 outline -outline-offset-1 outline-gray-950/10 dark:outline-white/10"
                           />
@@ -654,18 +654,19 @@ export default function WhyTailwindCssSection() {
                     { src: avatar3.src, name: "خالد عمر", role: "مصمم واجهات المستخدم" },
                   ].map((user, idx) => {
                     return (
-                      <div key={idx} className="flex items-center justify-end gap-4 p-6">
-                        <div className="flex flex-col truncate text-right">
-                          <span className="text-sm/6 font-medium text-gray-950 dark:text-white">{user.name}</span>
-                          <span className="truncate text-sm/6 text-gray-500 dark:text-gray-400">{user.role}</span>
-                        </div>
-                        <div className="shrink-0">
+                      <div key={idx} className="flex items-center justify-start gap-4 p-6" dir="rtl">
+                         <div className="shrink-0">
                           <img
-                            alt=""
+                            alt={`صورة شخصية لـ ${user.name}`}
                             src={user.src}
                             className="size-12 shrink-0 rounded-full bg-gray-950/5 outline -outline-offset-1 outline-gray-950/10 dark:outline-white/10"
                           />
                         </div>
+                        <div className="flex flex-col truncate">
+                          <span className="text-sm/6 font-medium text-gray-950 dark:text-white">{user.name}</span>
+                          <span className="truncate text-sm/6 text-gray-500 dark:text-gray-400">{user.role}</span>
+                        </div>
+                       
                       </div>
                     );
                   })}
