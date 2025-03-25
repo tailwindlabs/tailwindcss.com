@@ -634,7 +634,7 @@ export default function WhyTailwindCssSection() {
                       <div key={idx} className="flex items-center justify-start gap-4 p-6">
                         <div className="shrink-0">
                           <img
-                            alt={`${user.name} profile picture`}
+                            alt=""
                             src={user.src}
                             className="size-12 shrink-0 rounded-full bg-gray-950/5 outline -outline-offset-1 outline-gray-950/10 dark:outline-white/10"
                           />
@@ -657,7 +657,7 @@ export default function WhyTailwindCssSection() {
                       <div key={idx} className="flex items-center justify-start gap-4 p-6" dir="rtl">
                          <div className="shrink-0">
                           <img
-                            alt={`صورة شخصية لـ ${user.name}`}
+                            alt=""
                             src={user.src}
                             className="size-12 shrink-0 rounded-full bg-gray-950/5 outline -outline-offset-1 outline-gray-950/10 dark:outline-white/10"
                           />
