@@ -127,7 +127,7 @@ Use utilities like `mask-linear-to-r` and `mask-linear-<angle>` with the [mask c
       Show more
     </button>
   </div>
-  <div className="mask-b-from-70% border-y border-y-gray-200 bg-white dark:border-y-gray-800 dark:bg-gray-950">
+  <div className="border-y border-y-gray-200 bg-white mask-b-from-70% dark:border-y-gray-800 dark:bg-gray-950">
     <div>
       <div className="inline-block min-w-full align-middle">
         <div className="overflow-hidden">
@@ -224,7 +224,7 @@ Use utilities like `mask-linear-to-r` and `mask-linear-<angle>` with the [mask c
       Show more
     </button>
   </div>
-  <div class="mask-b-from-70% max-h-96 ...">
+  <div class="max-h-96 mask-b-from-70% ...">
     <table>
       <!-- ... -->
     </table>
@@ -244,14 +244,12 @@ Use the `mask-radial` and `mask-radial-[<position>]` utilities with the [mask co
 
 {
 
-<div className="mx-auto max-w-lg p-16">
-  <div className="bg-repeat-none mask-radial-to-90% mask-radial-at-left mask-radial-from-40% mask-circle -ml-2.5 aspect-square w-[calc(100%_+_--spacing(2.5))] max-w-sm bg-[url(/keyboard-light.png)] mask-radial bg-cover bg-no-repeat dark:bg-[url(/keyboard-dark.png)]" />
+<div className="mx-auto flex items-center gap-4 p-16">
+  <div className="bg-repeat-none -ml-2.5 aspect-square w-[calc(100%_+_--spacing(2.5))] bg-[url(/keyboard-light.png)] mask-radial-[100%_100%] mask-radial-from-75% mask-radial-at-left bg-cover bg-no-repeat dark:bg-[url(/keyboard-dark.png)]" />
   <div className="mt-6 text-sm font-medium">
-    <p className="font-mono text-xs text-gray-500 uppercase dark:text-gray-500">Speed</p>
-    <p className="mt-4 text-base text-gray-700 dark:text-gray-300">Built for power users</p>
-    <p className="mt-1 leading-relaxed text-gray-500">
-      It’s never been faster to cold email your entire contact list using our streamlined keyboard shortcuts.
-    </p>
+    <p className="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
+    <p className="mt-2 text-base text-gray-700 dark:text-gray-300">Built for power users</p>
+    <p className="mt-1 leading-relaxed text-gray-500">Work faster than ever with customizable keyboard shortcuts</p>
   </div>
 </div>
 
@@ -264,7 +262,7 @@ Use the `mask-radial` and `mask-radial-[<position>]` utilities with the [mask co
 <div class="flex items-center justify-center">
   <div class="relative">
     <img
-      class="size-16 rounded-full mask-radial-[circle_at_85%_85%] mask-from-transparent mask-via-transparent mask-via-15% mask-to-white mask-to-15%"
+      class="mask-from-transparent mask-via-transparent mask-via-15% mask-to-white mask-to-15% size-16 rounded-full mask-radial-[circle_at_85%_85%]"
       src="/img/tom_cook.jpg"
     />
     <div
@@ -293,7 +291,7 @@ Use the `mask-conic` and `mask-conic-<angle>` utilities with the [mask color sto
 <div className="mx-auto flex w-full max-w-sm items-center gap-5 rounded-xl bg-white p-4 shadow-lg ring-1 ring-black/5 dark:bg-gray-800">
   <div className="grid grid-cols-1 grid-rows-1">
     <div className="col-start-1 row-start-1 size-12 rounded-full border-4 border-gray-100 dark:border-gray-700" />
-    <div className="col-start-1 row-start-1 size-12 rounded-full border-4 border-amber-500 mask-conic mask-from-white mask-via-white mask-via-75% mask-to-transparent mask-to-75% dark:border-amber-400" />
+    <div className="col-start-1 row-start-1 size-12 rounded-full border-4 border-amber-500 mask-conic-from-75% mask-conic-to-75% dark:border-amber-400" />
   </div>
   <div className="w-0 flex-1 text-sm text-gray-950 dark:text-white">
     <p className="font-medium">Storage used: 75%</p>
@@ -307,13 +305,11 @@ Use the `mask-conic` and `mask-conic-<angle>` utilities with the [mask color sto
 </Example>
 
 ```html
-<!-- [!code classes:mask-conic] -->
+<!-- [!code classes:mask-conic-from-75%,mask-conic-to-75%] -->
 <div class="flex items-center gap-5 rounded-xl bg-white p-4 shadow-lg ring-1 ring-black/5 dark:bg-gray-800">
   <div class="grid grid-cols-1 grid-rows-1">
     <div class="border-4 border-gray-100 dark:border-gray-700 ..."></div>
-    <div
-      class="border-4 border-amber-500 mask-conic mask-from-white mask-via-white mask-via-75% mask-to-transparent mask-to-75% dark:border-amber-400 ..."
-    ></div>
+    <div class="border-4 border-amber-500 mask-conic-from-75% mask-conic-to-75% dark:border-amber-400 ..."></div>
   </div>
   <div class="w-0 flex-1 text-sm text-gray-950 dark:text-white">
     <p class="font-medium">Storage used: 75%</p>
@@ -356,7 +352,7 @@ Use utilities like `mask-from-white`, `mask-via-transparent`, and `mask-to-black
     </div>
   </div>
   <div className="relative">
-    <div className="relative z-10 h-64 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-linear-to-r mask-from-white mask-via-white/70 mask-to-transparent bg-cover bg-center mask-alpha"></div>
+    <div className="mask-linear-to-r mask-from-white mask-via-white/70 mask-to-transparent relative z-10 h-64 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] bg-cover bg-center mask-alpha"></div>
     <Stripes className="absolute inset-0 rounded-lg" border />
   </div>
 </div>
@@ -367,7 +363,7 @@ Use utilities like `mask-from-white`, `mask-via-transparent`, and `mask-to-black
 ```html
 <!-- [!code classes:mask-from-white,mask-via-white/70,mask-to-transparent] -->
 <div
-  class="bg-[url(/img/mountains.jpg)] mask-linear-to-r mask-from-white mask-via-white/70 mask-to-transparent ..."
+  class="mask-linear-to-r mask-from-white mask-via-white/70 mask-to-transparent bg-[url(/img/mountains.jpg)] ..."
 ></div>
 ```
 
@@ -420,7 +416,7 @@ Use utilities like `mask-from-10%`, `mask-via-30%`, and `mask-to-90%` to set mor
     </div>
   </div>
   <div className="relative">
-    <div className="relative z-10 h-64 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-linear-to-r mask-from-white mask-from-10% mask-via-white/70 mask-via-30% mask-to-transparent mask-to-90% bg-cover bg-center"></div>
+    <div className="mask-linear-to-r mask-from-white mask-from-10% mask-via-white/70 mask-via-30% mask-to-transparent mask-to-90% relative z-10 h-64 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] bg-cover bg-center"></div>
     <Stripes className="absolute inset-0 rounded-lg" border />
   </div>
   <Stripes />
@@ -433,7 +429,7 @@ Use utilities like `mask-from-10%`, `mask-via-30%`, and `mask-to-90%` to set mor
 ```html
 <!-- [!code classes:mask-from-10%,mask-via-30%,mask-to-90%] -->
 <div
-  class="bg-[url(/img/mountains.jpg)] mask-linear-to-r mask-from-white mask-from-10% mask-via-white/70 mask-via-30% mask-to-transparent mask-to-90% ..."
+  class="mask-linear-to-r mask-from-white mask-from-10% mask-via-white/70 mask-via-30% mask-to-transparent mask-to-90% bg-[url(/img/mountains.jpg)] ..."
 ></div>
 ```
 
