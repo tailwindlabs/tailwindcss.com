@@ -110,7 +110,7 @@ Use the `mask-[<value>]` syntax to set the mask image of an element:
 
 ### Adding a linear gradient mask
 
-Use utilities like `mask-linear-to-r` and `mask-linear-<angle>` with the [mask color stop utilities](#setting-gradient-color-stops) to add a linear gradient mask to an element:
+Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear gradient mask to an element:
 
 <Figure>
 
@@ -234,9 +234,119 @@ Use utilities like `mask-linear-to-r` and `mask-linear-<angle>` with the [mask c
 
 </Figure>
 
+By default, this creates a gradient from black to transparent. You can customize the gradient colors using utilities like `mask-b-from-<color>` and `mask-l-to-<color>`.
+
+You can combine multiple linear gradient utilities to create more complex gradients:
+
+<Figure>
+
+<Example>
+
+{
+
+<div className="mx-8">
+  <div className="relative h-[3.625rem]">
+    <div className="absolute top-0 left-[10%] -ml-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow dark:stroke-white/10">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+    </div>
+    <div className="absolute top-0 left-[20%] -ml-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow dark:stroke-white/10">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+    </div>
+    <div className="absolute top-0 right-[30%] -mr-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow dark:stroke-white/10">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+    </div>
+    <div className="absolute top-0 right-px -mr-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow dark:stroke-white/10">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+    </div>
+  </div>
+  <div className="relative">
+    <div className="relative z-10 h-48 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-70% mask-l-from-80% mask-l-to-90% bg-cover bg-center"></div>
+    <Stripes className="absolute inset-0 rounded-lg" border />
+  </div>
+</div>
+}
+
+</Example>
+
+```html
+<!-- [!code classes:mask-r-from-70%,mask-l-from-80%,mask-l-to-90%] -->
+<div class="mask-r-from-70% mask-l-from-80% mask-l-to-90% ..."></div>
+```
+
+</Figure>
+
+#### Creating symmetrical linear gradients
+
+Use utilities like `mask-x-from-<value>` and `mask-y-from-<value>` to create symmetrical linear gradients:
+
+<Figure>
+
+<Example>
+
+{
+
+<div className="mx-8">
+  <div className="relative h-[3.625rem]">
+    <div className="absolute top-0 left-[10%] -ml-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow dark:stroke-white/10">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+    </div>
+    <div className="absolute top-0 left-[30%] -ml-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow dark:stroke-white/10">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+    </div>
+    <div className="absolute top-0 right-[30%] -mr-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow dark:stroke-white/10">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+    </div>
+    <div className="absolute top-0 right-[10%] -mr-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow dark:stroke-white/10">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+    </div>
+  </div>
+  <div className="relative">
+    <div className="relative z-10 h-48 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-x-from-70% mask-x-to-90% bg-cover bg-center"></div>
+    <Stripes className="absolute inset-0 rounded-lg" border />
+  </div>
+</div>
+}
+
+</Example>
+
+```html
+<!-- [!code classes:mask-x-from-70%,mask-x-to-90%] -->
+<div class="bg-[url(/img/mountains.jpg)] mask-x-from-70% mask-x-to-90% ..."></div>
+```
+
+</Figure>
+
+This is just a shorthand for combining two edge gradients with the same stop values.
+
+#### Creating a custom linear gradient
+
 ### Adding a radial gradient mask
 
-Use the `mask-radial` and `mask-radial-[<position>]` utilities with the [mask color stop utilities](#setting-gradient-color-stops) to add a radial gradient mask to an element:
+Use the `mask-radial-from-<value>` and `mask-radial-to-<value>` utilities to add a radial gradient mask to an element:
 
 <Figure>
 
@@ -244,12 +354,14 @@ Use the `mask-radial` and `mask-radial-[<position>]` utilities with the [mask co
 
 {
 
-<div className="mx-auto flex items-center gap-4 p-16">
-  <div className="bg-repeat-none -ml-2.5 aspect-square w-[calc(100%_+_--spacing(2.5))] bg-[url(/keyboard-light.png)] mask-radial-[100%_100%] mask-radial-from-75% mask-radial-at-left bg-cover bg-no-repeat dark:bg-[url(/keyboard-dark.png)]" />
-  <div className="mt-6 text-sm font-medium">
+<div className="mx-auto flex items-center gap-4 p-16 max-sm:p-8">
+  <div className="bg-repeat-none aspect-square w-full bg-[url(/keyboard-light.png)] mask-radial-[100%_100%] mask-radial-from-75% mask-radial-at-left bg-cover bg-no-repeat dark:bg-[url(/keyboard-dark.png)]" />
+  <div className="font-medium">
     <p className="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
     <p className="mt-2 text-base text-gray-700 dark:text-gray-300">Built for power users</p>
-    <p className="mt-1 leading-relaxed text-gray-500">Work faster than ever with customizable keyboard shortcuts</p>
+    <p className="mt-1 text-sm leading-relaxed text-balance text-gray-500">
+      Work faster than ever with customizable keyboard shortcuts
+    </p>
   </div>
 </div>
 
@@ -258,25 +370,165 @@ Use the `mask-radial` and `mask-radial-[<position>]` utilities with the [mask co
 </Example>
 
 ```html
-<!-- [!code classes:mask-radial-[circle_at_85%_85%]] -->
-<div class="flex items-center justify-center">
-  <div class="relative">
-    <img
-      class="mask-from-transparent mask-via-transparent mask-via-15% mask-to-white mask-to-15% size-16 rounded-full mask-radial-[circle_at_85%_85%]"
-      src="/img/tom_cook.jpg"
-    />
-    <div
-      class="absolute right-1 bottom-1 size-3 rounded-full bg-emerald-400 ring inset-ring-1 ring-black/2.5 inset-ring-white/30"
-    ></div>
-  </div>
-  <div class="ml-3 text-sm font-medium">
-    <p class="text-gray-700 dark:text-gray-300">Tom Cook</p>
-    <p class="text-gray-500">Director of Operations</p>
+<!-- [!code classes:mask-radial-from-75%] -->
+<div class="flex items-center gap-4">
+  <img class="mask-radial-[100%_100%] mask-radial-from-75% mask-radial-at-left ..." src="/img/keyboard.png" />
+  <div class="font-medium">
+    <p className="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
+    <p className="mt-2 text-base text-gray-700 dark:text-gray-300">Built for power users</p>
+    <p className="mt-1 text-sm leading-relaxed text-balance text-gray-500">
+      Work faster than ever with customizable keyboard shortcuts
+    </p>
   </div>
 </div>
 ```
 
 </Figure>
+
+By default, this creates a gradient from black to transparent. You can customize the gradient colors using the `mask-radial-from-<color>` and `mask-radial-to-<color>` utilities.
+
+#### Setting the radial gradient position
+
+Use utilities like `mask-radial-at-bottom-left` and `mask-radial-at-[35%_35%]` to set the position of the center of the radial gradient mask:
+
+<Figure >
+
+<Example padding={false}>
+
+{
+
+<div className="grid grid-cols-3 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
+  <div className="flex flex-col items-center">
+    <p className="mb-3 text-xs">mask-radial-at-top-left</p>
+    <Stripes className="size-28 rounded-lg max-sm:size-24" border>
+      <div className="mask-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-top-left bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+    </Stripes>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="mb-3 text-xs">mask-radial-at-top</p>
+    <Stripes className="size-28 rounded-lg max-sm:size-24" border>
+      <div className="mask-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-top bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+    </Stripes>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="mb-3 text-xs">mask-radial-at-top-right</p>
+    <Stripes className="size-28 rounded-lg max-sm:size-24" border>
+      <div className="mask-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-top-right bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+    </Stripes>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="mb-3 text-xs">mask-radial-at-left</p>
+    <Stripes className="size-28 rounded-lg max-sm:size-24" border>
+      <div className="mask-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-left bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+    </Stripes>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="mb-3 text-xs">mask-radial-at-center</p>
+    <Stripes className="size-28 rounded-lg max-sm:size-24" border>
+      <div className="mask-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-center bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+    </Stripes>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="mb-3 text-xs">mask-radial-at-right</p>
+    <Stripes className="size-28 rounded-lg max-sm:size-24" border>
+      <div className="mask-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-right bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+    </Stripes>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="mb-3 text-xs">mask-radial-at-bottom-left</p>
+    <Stripes className="size-28 rounded-lg max-sm:size-24" border>
+      <div className="mask-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-bottom-left bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+    </Stripes>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="mb-3 text-xs">mask-radial-at-bottom</p>
+    <Stripes className="size-28 rounded-lg max-sm:size-24" border>
+      <div className="mask-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-bottom bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+    </Stripes>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="mb-3 text-xs">mask-radial-at-bottom-right</p>
+    <Stripes className="size-28 rounded-lg max-sm:size-24" border>
+      <div className="mask-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-bottom-right bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+    </Stripes>
+  </div>
+</div>
+
+}
+
+</Example>
+
+```html
+<!-- [!code classes:mask-radial-at-top-left,mask-radial-at-top,mask-radial-at-top-right,mask-radial-at-left,mask-radial-at-center,mask-radial-at-right,mask-radial-at-bottom,mask-radial-at-bottom-left,mask-radial-at-bottom-right] -->
+<div class="mask-radial-from-100% mask-radial-at-top-left ..."></div>
+<div class="mask-radial-from-100% mask-radial-at-top ..."></div>
+<div class="mask-radial-from-100% mask-radial-at-top-right ..."></div>
+<div class="mask-radial-from-100% mask-radial-at-left ..."></div>
+<div class="mask-radial-from-100% mask-radial-at-center ..."></div>
+<div class="mask-radial-from-100% mask-radial-at-right ..."></div>
+<div class="mask-radial-from-100% mask-radial-at-bottom-left ..."></div>
+<div class="mask-radial-from-100% mask-radial-at-bottom ..."></div>
+<div class="mask-radial-from-100% mask-radial-at-bottom-right ..."></div>
+```
+
+</Figure>
+
+This is different from [`mask-position`](./docs/mask-position) which sets the position of the mask image itself, not the radial gradient.
+
+#### Setting the radial gradient size
+
+Use utilities like `mask-radial-closest-corner` and `mask-radial-farthest-side` to set the size of the radial gradient mask:
+
+<Figure >
+
+<Example padding={false}>
+
+{
+
+<div className="grid grid-cols-2 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
+  <div className="flex flex-col items-center">
+    <p className="mb-3 text-xs">mask-radial-closest-side</p>
+    <Stripes className="aspect-[1.33] w-40 rounded-lg max-sm:w-32" border>
+      <div className="mask-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-closest-side mask-radial-at-[30%_30%] bg-cover bg-center mask-no-repeat"></div>
+    </Stripes>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="mb-3 text-xs">mask-radial-closest-corner</p>
+    <Stripes className="aspect-[1.33] w-40 rounded-lg max-sm:w-32" border>
+      <div className="mask-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-closest-corner mask-radial-at-[30%_30%] bg-cover bg-center mask-no-repeat"></div>
+    </Stripes>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="mb-3 text-xs">mask-radial-farthest-side</p>
+    <Stripes className="aspect-[1.33] w-40 rounded-lg max-sm:w-32" border>
+      <div className="mask-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-farthest-side mask-radial-at-[30%_30%] bg-cover bg-center mask-no-repeat"></div>
+    </Stripes>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="mb-3 text-xs">mask-radial-farthest-corner</p>
+    <Stripes className="aspect-[1.33] w-40 rounded-lg max-sm:w-32" border>
+      <div className="mask-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-farthest-corner mask-radial-at-[30%_30%] bg-cover bg-center mask-no-repeat"></div>
+    </Stripes>
+  </div>
+</div>
+
+}
+
+</Example>
+
+```html
+<!-- [!code classes:mask-radial-farthest-corner,mask-radial-farthest-side,mask-radial-closest-corner,mask-radial-closest-side] -->
+<div class="mask-radial-from-100% mask-radial-closest-side mask-radial-at-[30%_30%] ..."></div>
+<div class="mask-radial-from-100% mask-radial-closest-corner mask-radial-at-[30%_30%] ..."></div>
+<div class="mask-radial-from-100% mask-radial-farthest-side mask-radial-at-[30%_30%] ..."></div>
+<div class="mask-radial-from-100% mask-radial-farthest-corner mask-radial-at-[30%_30%] ..."></div>
+```
+
+</Figure>
+
+When setting a custom radial gradient size, the units you can use depend on the `<ending-shape>` of the gradient which is set to `ellipse` by default.
+
+With `mask-circle`, you can only use a single fixed length, like `mask-radial-[5rem]`. Whereas with `mask-ellipse`, you can specify each axis as a fixed length or percentage, like `mask-radial-[40%_80%]`.
 
 ### Adding a conic gradient mask
 
