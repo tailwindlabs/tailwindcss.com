@@ -110,7 +110,7 @@ Use the `mask-[<value>]` syntax to set the mask image of an element:
 
 ### Adding a linear gradient mask
 
-Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear gradient mask to an element:
+Use utilities like `mask-linear-<angle>` and `mask-linear-to-<value>` to add a linear gradient mask to an element:
 
 <Figure>
 
@@ -127,7 +127,7 @@ Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear
       Show more
     </button>
   </div>
-  <div className="border-y border-y-gray-200 bg-white mask-b-from-70% dark:border-y-gray-800 dark:bg-gray-950">
+  <div className="border-y border-y-gray-200 bg-white mask-linear-180 mask-linear-from-70% dark:border-y-gray-800 dark:bg-gray-950">
     <div>
       <div className="inline-block min-w-full align-middle">
         <div className="overflow-hidden">
@@ -214,7 +214,7 @@ Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear
 </Example>
 
 ```html
-<!-- [!code classes:mask-b-from-70%] -->
+<!-- [!code classes:mask-linear-180,mask-linear-from-70%] -->
 <div class="relative">
   <div class="absolute inset-x-0 bottom-8 z-10 flex items-center justify-center">
     <button
@@ -224,7 +224,7 @@ Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear
       Show more
     </button>
   </div>
-  <div class="max-h-96 mask-b-from-70% ...">
+  <div class="max-h-96 mask-linear-180 mask-linear-from-70% ...">
     <table>
       <!-- ... -->
     </table>
@@ -234,9 +234,66 @@ Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear
 
 </Figure>
 
+By default, this creates a gradient from black to transparent. You can customize the gradient colors using utilities like `mask-linear-from-<color>` and `mask-linear-to-<color>`.
+
+#### Masking a single side:
+
+Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` as a short hand for adding a linear gradient mask to a single side of an element:
+
+<Figure >
+
+<Example padding={false}>
+
+{
+
+<div className="grid grid-cols-2 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
+  <div className="flex flex-col items-center text-xs">
+    <p>mask-t-from-50%</p>
+    <p>mask-t-to-90%</p>
+    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-3" border>
+      <div className="mask-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-50% mask-t-to-90% bg-cover bg-center mask-no-repeat"></div>
+    </Stripes>
+  </div>
+  <div className="flex flex-col items-center text-xs">
+    <p>mask-r-from-50%</p>
+    <p>mask-r-to-90%</p>
+    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-3" border>
+      <div className="mask-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-50% mask-r-to-90% bg-cover bg-center mask-no-repeat"></div>
+    </Stripes>
+  </div>
+  <div className="flex flex-col items-center text-xs">
+    <p>mask-b-from-50%</p>
+    <p>mask-b-to-90%</p>
+    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-3" border>
+      <div className="mask-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-50% mask-b-to-90% bg-cover bg-center mask-no-repeat"></div>
+    </Stripes>
+  </div>
+  <div className="flex flex-col items-center text-xs">
+    <p>mask-l-from-50%</p>
+    <p>mask-l-to-90%</p>
+    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-3" border>
+      <div className="mask-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-l-from-50% mask-l-to-90% bg-cover bg-center mask-no-repeat"></div>
+    </Stripes>
+  </div>
+</div>
+
+}
+
+</Example>
+
+```html
+<!-- [!code classes:mask-t-from-50%,mask-t-to-90%,mask-r-from-50%,mask-r-to-90%,mask-b-from-50%,mask-b-to-90%,mask-l-from-50%,mask-l-to-90%] -->
+<div class="mask-t-from-50% mask-t-to-90% ..."></div>
+<div class="mask-r-from-50% mask-r-to-90% ..."></div>
+<div class="mask-b-from-50% mask-b-to-90% ..."></div>
+<div class="mask-l-from-50% mask-l-to-90% ..."></div>
+```
+
+</Figure>
+
 By default, this creates a gradient from black to transparent. You can customize the gradient colors using utilities like `mask-b-from-<color>` and `mask-l-to-<color>`.
 
-You can combine multiple linear gradient utilities to create more complex gradients:
+You can combine multiple single side utilities to create more complex gradients:
 
 <Figure>
 
@@ -340,9 +397,7 @@ Use utilities like `mask-x-from-<value>` and `mask-y-from-<value>` to create sym
 
 </Figure>
 
-This is just a shorthand for combining two edge gradients with the same stop values.
-
-#### Creating a custom linear gradient
+This is just a shorthand for combining two single side gradients with the same stop values.
 
 ### Adding a radial gradient mask
 
@@ -425,7 +480,7 @@ Use utilities like `mask-radial-at-bottom-left` and `mask-radial-at-[35%_35%]` t
   <div className="flex flex-col items-center">
     <p className="mb-3 text-xs">mask-radial-at-center</p>
     <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="mask-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-center bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+      <div className="mask-from-white mask-radial-at-center h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
@@ -464,7 +519,7 @@ Use utilities like `mask-radial-at-bottom-left` and `mask-radial-at-[35%_35%]` t
 <div class="mask-radial-from-100% mask-radial-at-top ..."></div>
 <div class="mask-radial-from-100% mask-radial-at-top-right ..."></div>
 <div class="mask-radial-from-100% mask-radial-at-left ..."></div>
-<div class="mask-radial-from-100% mask-radial-at-center ..."></div>
+<div class="mask-radial-at-center mask-radial-from-100% ..."></div>
 <div class="mask-radial-from-100% mask-radial-at-right ..."></div>
 <div class="mask-radial-from-100% mask-radial-at-bottom-left ..."></div>
 <div class="mask-radial-from-100% mask-radial-at-bottom ..."></div>
@@ -572,121 +627,6 @@ Use the `mask-conic` and `mask-conic-<angle>` utilities with the [mask color sto
 
 </Figure>
 
-### Setting mask color stops
-
-Use utilities like `mask-from-white`, `mask-via-transparent`, and `mask-to-black` to set the colors of the mask gradient stops:
-
-<Figure>
-
-<Example>
-
-{
-
-<div className="mx-5">
-  <div className="relative h-[3.625rem]">
-    <div className="absolute top-0 left-px -ml-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-white drop-shadow">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-    </div>
-    <div className="absolute top-0 left-1/2 -ml-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-white/70 drop-shadow">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-    </div>
-    <div className="absolute top-0 right-px -mr-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-    </div>
-  </div>
-  <div className="relative">
-    <div className="mask-linear-to-r mask-from-white mask-via-white/70 mask-to-transparent relative z-10 h-64 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] bg-cover bg-center mask-alpha"></div>
-    <Stripes className="absolute inset-0 rounded-lg" border />
-  </div>
-</div>
-}
-
-</Example>
-
-```html
-<!-- [!code classes:mask-from-white,mask-via-white/70,mask-to-transparent] -->
-<div
-  class="mask-linear-to-r mask-from-white mask-via-white/70 mask-to-transparent bg-[url(/img/mountains.jpg)] ..."
-></div>
-```
-
-</Figure>
-
-Although you can specify any color value for the mask stops, the visibility of a stop depends on the [`mask-mode`](./docs/mask-mode) property.
-
-When using `mask-mode: luminance`, the luminance value of the color stop determines visibility, so sticking with grayscale colors will produce the most predictable results. With `mask-mode: alpha`, the opacity of the color stop determines the visibility of the masked element.
-
-### Setting mask stop positions
-
-Use utilities like `mask-from-10%`, `mask-via-30%`, and `mask-to-90%` to set more precise positions for the mask gradient color stops:
-
-<Figure>
-
-<Example>
-{
-
-<div className="mx-5 py-2">
-  <div className="relative h-[3.625rem]">
-    <div className="absolute top-0 left-[10%] -ml-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-white drop-shadow">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30">
-        <div className="absolute -top-7 left-0 flex h-8 w-full items-center justify-center font-mono text-[0.6875rem] font-semibold tracking-wider text-gray-950 dark:text-white">
-          10%
-        </div>
-      </div>
-    </div>
-    <div className="absolute top-0 left-[30%] -ml-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-white/70 drop-shadow">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30">
-        <div className="absolute -top-7 left-0 flex h-8 w-full items-center justify-center font-mono text-[0.6875rem] font-semibold tracking-wider text-gray-950 dark:text-white">
-          30%
-        </div>
-      </div>
-    </div>
-    <div className="absolute top-0 right-[10%] -mr-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30">
-        <div className="absolute -top-7 left-0 flex h-8 w-full items-center justify-center font-mono text-[0.6875rem] font-semibold tracking-wider text-gray-950 dark:text-white">
-          90%
-        </div>
-      </div>
-    </div>
-  </div>
-  <div className="relative">
-    <div className="mask-linear-to-r mask-from-white mask-from-10% mask-via-white/70 mask-via-30% mask-to-transparent mask-to-90% relative z-10 h-64 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] bg-cover bg-center"></div>
-    <Stripes className="absolute inset-0 rounded-lg" border />
-  </div>
-  <Stripes />
-</div>
-
-}
-
-</Example>
-
-```html
-<!-- [!code classes:mask-from-10%,mask-via-30%,mask-to-90%] -->
-<div
-  class="mask-linear-to-r mask-from-white mask-from-10% mask-via-white/70 mask-via-30% mask-to-transparent mask-to-90% bg-[url(/img/mountains.jpg)] ..."
-></div>
-```
-
-</Figure>
-
 ### Removing mask images
 
 Use the `mask-none` utility to remove an existing mask image from an element:
@@ -699,7 +639,7 @@ Use the `mask-none` utility to remove an existing mask image from an element:
 ### Using a custom value
 
 <UsingACustomValue
-  utilities={["mask-linear", "mask-from"]}
+  utilities={["mask-linear", "mask-radial"]}
   name="mask image"
   value="25deg,red_5%,yellow_60%,lime_90%,teal"
   variable="mask"
@@ -707,8 +647,8 @@ Use the `mask-none` utility to remove an existing mask image from an element:
 
 ### Responsive design
 
-<ResponsiveDesign property="mask-image" defaultClass="mask-from-70%" featuredClass="mask-from-50%" />
+<ResponsiveDesign property="mask-image" defaultClass="mask-radial-from-70%" featuredClass="mask-radial-from-50%" />
 
 ## Customizing your theme
 
-<CustomizingYourThemeColors utilities={["mask-from", "mask-via", "mask-to"]} />
+<CustomizingYourThemeColors utilities={["mask-radial-from", "mask-conic-to", "mask-b-from"]} />
