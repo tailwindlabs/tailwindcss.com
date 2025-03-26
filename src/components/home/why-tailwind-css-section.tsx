@@ -737,7 +737,7 @@ export default function WhyTailwindCssSection() {
               </div>
             </BentoHeader>
             <BentoBody className="h-112">
-              <div className="-mt-27 -mr-124 -mb-8 bg-white px-6 py-16 ring ring-gray-950/5 md:px-16 xl:-mr-26 dark:bg-gray-950 dark:ring-white/10">
+              <div className="grid size-full place-content-center">
                 <div className="flex flex-col gap-2">
                   <span className="text-sm/7 font-medium text-gray-950/75 dark:text-white/75">
                     Power Meets Precision
