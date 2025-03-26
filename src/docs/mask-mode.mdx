@@ -55,18 +55,13 @@ Use the `mask-alpha`, `mask-luminance` and `mask-match` utilities to control the
 <div className="text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
   <div className="mx-5">
     <div className="relative h-[3.625rem]">
-      <div className="absolute top-0 left-px -ml-3 flex h-12 flex-col items-center">
-        <svg viewBox="0 0 32 34" className="w-7 flex-none text-white drop-shadow">
+      <div className="absolute top-0 left-[50%] -ml-3 flex h-12 flex-col items-center">
+        <svg viewBox="0 0 32 34" className="text-black w-7 flex-none drop-shadow">
           <use href="#gradient-color-stop" />
         </svg>
         <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
       </div>
-      <div className="absolute top-0 left-1/2 -ml-3 flex h-12 flex-col items-center">
-        <svg viewBox="0 0 32 34" className="w-7 flex-none text-white/70 drop-shadow">
-          <use href="#gradient-color-stop" />
-        </svg>
-        <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-      </div>
+
       <div className="absolute top-0 right-px -mr-3 flex h-12 flex-col items-center">
         <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow">
           <use href="#gradient-color-stop" />
@@ -75,25 +70,21 @@ Use the `mask-alpha`, `mask-luminance` and `mask-match` utilities to control the
       </div>
     </div>
     <div className="relative">
-      <div className="relative z-10 h-24 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-linear-to-r mask-from-white mask-via-white/70 mask-to-transparent bg-cover bg-center mask-alpha"></div>
+      <div className="mask-r-from-black mask-r-to-transparent relative z-10 h-24 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-50% bg-cover bg-center mask-alpha"></div>
       <Stripes className="absolute inset-0 rounded-lg" border />
     </div>
     <p className="mt-3">mask-alpha</p>
+
   </div>
   <div className="mx-5 mt-10">
     <div className="relative h-[3.625rem]">
-      <div className="absolute top-0 left-px -ml-3 flex h-12 flex-col items-center">
+      <div className="absolute top-0 left-[50%] -ml-3 flex h-12 flex-col items-center">
         <svg viewBox="0 0 32 34" className="w-7 flex-none text-white drop-shadow">
           <use href="#gradient-color-stop" />
         </svg>
         <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
       </div>
-      <div className="absolute top-0 left-1/2 -ml-3 flex h-12 flex-col items-center">
-        <svg viewBox="0 0 32 34" className="w-7 flex-none text-gray-400 drop-shadow">
-          <use href="#gradient-color-stop" />
-        </svg>
-        <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-      </div>
+     
       <div className="absolute top-0 right-px -mr-3 flex h-12 flex-col items-center">
         <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow">
           <use href="#gradient-color-stop" />
@@ -102,7 +93,7 @@ Use the `mask-alpha`, `mask-luminance` and `mask-match` utilities to control the
       </div>
     </div>
     <div className="relative">
-      <div className="relative z-10 h-24 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-linear-to-r mask-from-white mask-via-gray-400 mask-to-black bg-cover bg-center mask-luminance"></div>
+      <div className="mask-r-from-white mask-r-to-black relative z-10 h-24 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-50% bg-cover bg-center mask-luminance"></div>
       <Stripes className="absolute inset-0 rounded-lg" border />
     </div>
     <p className="mt-3">mask-luminance</p>
@@ -115,8 +106,8 @@ Use the `mask-alpha`, `mask-luminance` and `mask-match` utilities to control the
 
 ```html
 <!-- [!code classes:mask-alpha,mask-luminance,mask-match] -->
-<div class="mask-linear-to-r mask-from-white mask-via-white/70 mask-to-transparent mask-alpha ..."></div>
-<div class="mask-linear-to-r mask-from-white mask-via-gray-400 mask-to-black mask-luminance ..."></div>
+<div class="mask-r-from-black mask-r-to-transparent mask-r-from-50% mask-alpha ..."></div>
+<div class="mask-r-from-white mask-r-to-black mask-r-from-50% mask-luminance ..."></div>
 ```
 
 </Figure>
