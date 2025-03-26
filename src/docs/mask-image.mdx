@@ -500,9 +500,146 @@ Use the `mask-[<value>]` syntax to set the mask image of an element:
 
 </Figure>
 
+### Masking a single side
+
+Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear gradient mask to a single side of an element:
+
+<Figure >
+
+<Example padding={false}>
+
+{
+
+<div className="grid grid-cols-2 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
+  <div className="flex flex-col items-center text-xs">
+    <p>mask-t-from-50%</p>
+    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-3" border>
+      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-50% bg-cover bg-center mask-no-repeat"></div>
+    </Stripes>
+  </div>
+  <div className="flex flex-col items-center text-xs">
+    <p>mask-r-from-30%</p>
+    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-3" border>
+      <div className="mask-r-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-30% bg-cover bg-center mask-no-repeat"></div>
+    </Stripes>
+  </div>
+  <div className="flex flex-col items-center text-xs">
+    <p>mask-l-from-50%</p>
+    <p>mask-l-to-90%</p>
+    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-3" border>
+      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-l-from-50% mask-l-to-90% bg-cover bg-center mask-no-repeat"></div>
+    </Stripes>
+  </div>
+  <div className="flex flex-col items-center text-xs">
+    <p>mask-b-from-20%</p>
+    <p>mask-b-to-80%</p>
+    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-3" border>
+      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-20% mask-b-to-80% bg-cover bg-center mask-no-repeat"></div>
+    </Stripes>
+  </div>
+</div>
+
+}
+
+</Example>
+
+```html
+<!-- [!code classes:mask-t-from-50%,mask-r-from-30%,mask-r-to-90%,mask-b-from-50%,mask-b-to-90%,mask-l-from-20%,mask-l-to-80%] -->
+<div class="mask-t-from-50% ..."></div>
+<div class="mask-r-from-30% ..."></div>
+<div class="mask-b-from-50% mask-b-to-90% ..."></div>
+<div class="mask-l-from-20% mask-l-to-80% ..."></div>
+```
+
+</Figure>
+
+By default, this creates a gradient from black to transparent. You can customize the gradient colors using utilities like `mask-b-from-<color>` and `mask-l-to-<color>`
+
+Combine multiple single side utilities to create more complex gradients, or use utilities like `mask-x-from-<value>` and `mask-y-from-<value>` to create a symmetrical gradient:
+
+<Figure>
+
+<Example>
+
+{
+
+<div className="mx-8 max-sm:justify-between max-sm:px-2">
+  <div className="relative h-[3.625rem]">
+    <div className="absolute top-0 left-[10%] -ml-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow dark:stroke-white/10">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+    </div>
+    <div className="absolute top-0 left-[20%] -ml-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow dark:stroke-white/10">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+    </div>
+    <div className="absolute top-0 right-[30%] -mr-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow dark:stroke-white/10">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+    </div>
+    <div className="absolute top-0 right-px -mr-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow dark:stroke-white/10">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+    </div>
+  </div>
+  <div className="relative">
+    <div className="relative z-10 h-32 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-70% mask-l-from-80% mask-l-to-90% bg-cover bg-center"></div>
+    <Stripes className="absolute inset-0 rounded-lg" border />
+  </div>
+  <div className="relative mt-8 h-[3.625rem]">
+    <div className="absolute top-0 left-[10%] -ml-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow dark:stroke-white/10">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+    </div>
+    <div className="absolute top-0 left-[30%] -ml-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow dark:stroke-white/10">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+    </div>
+    <div className="absolute top-0 right-[30%] -mr-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow dark:stroke-white/10">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+    </div>
+    <div className="absolute top-0 right-[10%] -mr-3 flex h-12 flex-col items-center">
+      <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow dark:stroke-white/10">
+        <use href="#gradient-color-stop" />
+      </svg>
+      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+    </div>
+  </div>
+  <div className="relative">
+    <div className="relative z-10 h-32 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-x-from-70% mask-x-to-90% bg-cover bg-center"></div>
+    <Stripes className="absolute inset-0 rounded-lg" border />
+  </div>
+</div>
+}
+
+</Example>
+
+```html
+<!-- [!code classes:mask-r-from-70%,mask-l-from-80%,mask-l-to-90%,mask-x-from-70%,mask-x-to-90%] -->
+<div class="mask-r-from-70% mask-l-from-80% mask-l-to-90% ..."></div>
+<div class="mask-x-from-70% mask-x-to-90% ..."></div>
+```
+
+</Figure>
+
 ### Adding a linear gradient mask
 
-Use utilities like `mask-linear-<angle>` and `mask-linear-to-<value>` to add a linear gradient mask to an element:
+Use utilities like `mask-linear-<angle>` and `mask-linear-to-<value>` to add a custom linear gradient mask to an element:
 
 <Figure>
 
@@ -626,166 +763,7 @@ Use utilities like `mask-linear-<angle>` and `mask-linear-to-<value>` to add a l
 
 </Figure>
 
-#### Masking a single side:
-
-Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` as a short hand for adding a linear gradient mask to a single side of an element:
-
-<Figure >
-
-<Example padding={false}>
-
-{
-
-<div className="grid grid-cols-2 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
-  <div className="flex flex-col items-center text-xs">
-    <p>mask-t-from-50%</p>
-    <p>mask-t-to-90%</p>
-    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-3" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-50% mask-t-to-90% bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center text-xs">
-    <p>mask-r-from-50%</p>
-    <p>mask-r-to-90%</p>
-    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-3" border>
-      <div className="mask-r-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-50% mask-r-to-90% bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center text-xs">
-    <p>mask-b-from-50%</p>
-    <p>mask-b-to-90%</p>
-    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-3" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-50% mask-b-to-90% bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center text-xs">
-    <p>mask-l-from-50%</p>
-    <p>mask-l-to-90%</p>
-    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-3" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-l-from-50% mask-l-to-90% bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-</div>
-
-}
-
-</Example>
-
-```html
-<!-- [!code classes:mask-t-from-50%,mask-t-to-90%,mask-r-from-50%,mask-r-to-90%,mask-b-from-50%,mask-b-to-90%,mask-l-from-50%,mask-l-to-90%] -->
-<div class="mask-t-from-50% mask-t-to-90% ..."></div>
-<div class="mask-r-from-50% mask-r-to-90% ..."></div>
-<div class="mask-b-from-50% mask-b-to-90% ..."></div>
-<div class="mask-l-from-50% mask-l-to-90% ..."></div>
-```
-
-</Figure>
-
-You can combine multiple single side utilities to create more complex gradients:
-
-<Figure>
-
-<Example>
-
-{
-
-<div className="mx-8">
-  <div className="relative h-[3.625rem]">
-    <div className="absolute top-0 left-[10%] -ml-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow dark:stroke-white/10">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-    </div>
-    <div className="absolute top-0 left-[20%] -ml-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow dark:stroke-white/10">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-    </div>
-    <div className="absolute top-0 right-[30%] -mr-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow dark:stroke-white/10">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-    </div>
-    <div className="absolute top-0 right-px -mr-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow dark:stroke-white/10">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-    </div>
-  </div>
-  <div className="relative">
-    <div className="relative z-10 h-48 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-70% mask-l-from-80% mask-l-to-90% bg-cover bg-center"></div>
-    <Stripes className="absolute inset-0 rounded-lg" border />
-  </div>
-</div>
-}
-
-</Example>
-
-```html
-<!-- [!code classes:mask-r-from-70%,mask-l-from-80%,mask-l-to-90%] -->
-<div class="mask-r-from-70% mask-l-from-80% mask-l-to-90% ..."></div>
-```
-
-</Figure>
-
-#### Creating symmetrical linear gradients
-
-Use utilities like `mask-x-from-<value>` and `mask-y-from-<value>` to create symmetrical linear gradients:
-
-<Figure>
-
-<Example>
-
-{
-
-<div className="mx-8">
-  <div className="relative h-[3.625rem]">
-    <div className="absolute top-0 left-[10%] -ml-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow dark:stroke-white/10">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-    </div>
-    <div className="absolute top-0 left-[30%] -ml-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow dark:stroke-white/10">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-    </div>
-    <div className="absolute top-0 right-[30%] -mr-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow dark:stroke-white/10">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-    </div>
-    <div className="absolute top-0 right-[10%] -mr-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow dark:stroke-white/10">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-    </div>
-  </div>
-  <div className="relative">
-    <div className="relative z-10 h-48 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-x-from-70% mask-x-to-90% bg-cover bg-center"></div>
-    <Stripes className="absolute inset-0 rounded-lg" border />
-  </div>
-</div>
-}
-
-</Example>
-
-```html
-<!-- [!code classes:mask-x-from-70%,mask-x-to-90%] -->
-<div class="bg-[url(/img/mountains.jpg)] mask-x-from-70% mask-x-to-90% ..."></div>
-```
-
-</Figure>
-
-This is just a shorthand for combining two single side gradients with the same stop values.
+By default, this creates a gradient from black to transparent. You can customize the gradient colors using utilities like `mask-linear-from-<color>` and `mask-linear-to-<color>`.
 
 ### Adding a radial gradient mask
 
@@ -827,6 +805,8 @@ Use the `mask-radial-from-<value>` and `mask-radial-to-<value>` utilities to add
 ```
 
 </Figure>
+
+By default, this creates a gradient from black to transparent. You can customize the gradient colors using the `mask-radial-from-<color>` and `mask-radial-to-<color>` utilities.
 
 #### Setting the radial gradient position
 
@@ -1012,6 +992,8 @@ Use the `mask-conic` and `mask-conic-<angle>` utilities with the [mask color sto
 ```
 
 </Figure>
+
+By default, this creates a gradient from black to transparent. You can customize the gradient colors using the `mask-conic-from-<color>` and `mask-conic-to-<color>` utilities.
 
 ### Removing mask images
 
