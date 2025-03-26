@@ -655,7 +655,7 @@ export default function WhyTailwindCssSection() {
                   ].map((user, idx) => {
                     return (
                       <div key={idx} className="flex items-center justify-start gap-4 p-6" dir="rtl">
-                         <div className="shrink-0">
+                        <div className="shrink-0">
                           <img
                             alt=""
                             src={user.src}
@@ -666,7 +666,6 @@ export default function WhyTailwindCssSection() {
                           <span className="text-sm/6 font-medium text-gray-950 dark:text-white">{user.name}</span>
                           <span className="truncate text-sm/6 text-gray-500 dark:text-gray-400">{user.role}</span>
                         </div>
-                       
                       </div>
                     );
                   })}
