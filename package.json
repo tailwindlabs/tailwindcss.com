@@ -15,7 +15,7 @@
     "@heroicons/react": "^2.2.0",
     "@next/mdx": "^15.1.6",
     "@shikijs/transformers": "^1.26.1",
-    "@tailwindcss/postcss": "0.0.0-insiders.cc3e852",
+    "@tailwindcss/postcss": "0.0.0-insiders.eecb6f7",
     "@types/mdx": "^2.0.13",
     "clsx": "^2.1.1",
     "dedent": "^1.5.3",
