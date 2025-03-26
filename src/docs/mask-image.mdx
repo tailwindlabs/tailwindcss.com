@@ -3,6 +3,7 @@ import { CustomizingYourThemeColors, ResponsiveDesign, UsingACustomValue } from 
 import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 import { Stripes } from "@/components/stripes.tsx";
+import dedent from "dedent";
 
 export const title = "mask-image";
 export const description = "Utilities for controlling an element's mask image.";
@@ -38,57 +39,355 @@ export const description = "Utilities for controlling an element's mask image.";
     ["mask-[<value>]", "mask-image: <value>;"],
     ["mask-(image:<custom-property>)", "mask-image: var(<custom-property>);"],
     ["mask-none", "mask-image: none;"],
-    ["mask-linear-to-t", "mask-image: linear-gradient(to top, var(--tw-mask-gradient-stops));"],
-    ["mask-linear-to-tr", "mask-image: linear-gradient(to top right, var(--tw-mask-gradient-stops));"],
-    ["mask-linear-to-r", "mask-image: linear-gradient(to right, var(--tw-mask-gradient-stops));"],
-    ["mask-linear-to-br", "mask-image: linear-gradient(to bottom right, var(--tw-mask-gradient-stops));"],
-    ["mask-linear-to-b", "mask-image: linear-gradient(to bottom, var(--tw-mask-gradient-stops));"],
-    ["mask-linear-to-bl", "mask-image: linear-gradient(to bottom left, var(--tw-mask-gradient-stops));"],
-    ["mask-linear-to-l", "mask-image: linear-gradient(to left, var(--tw-mask-gradient-stops));"],
-    ["mask-linear-to-tl", "mask-image: linear-gradient(to top left, var(--tw-mask-gradient-stops));"],
-    ["mask-linear-<angle>", "mask-image: linear-gradient(<angle> in oklab, var(--tw-mask-gradient-stops));"],
-    ["-mask-linear-<angle>", "mask-image: linear-gradient(-<angle> in oklab, var(--tw-mask-gradient-stops));"],
     [
-      "mask-linear-(<custom-property>)",
-      "mask-image: linear-gradient(var(--tw-mask-gradient-stops, var(<custom-property>)));",
+      "mask-linear-<number>",
+      "mask-image: linear-gradient(<number>deg, black var(--tw-mask-linear-from)), transparent var(--tw-mask-linear-to));",
     ],
-    ["mask-linear-[<value>]", "mask-image: linear-gradient(var(--tw-mask-gradient-stops, <value>));"],
-    ["mask-radial", "mask-image: radial-gradient(in oklab, var(--tw-mask-gradient-stops));"],
     [
-      "mask-radial-(<custom-property>)",
-      "mask-image: radial-gradient(var(--tw-mask-gradient-stops,  var(<custom-property>)));",
+      "-mask-linear-<number>",
+      "mask-image: linear-gradient(calc(<number>deg * -1), black var(--tw-mask-linear-from)), transparent var(--tw-mask-linear-to));",
     ],
-    ["mask-radial-[<value>]", "mask-image: radial-gradient(var(--tw-mask-gradient-stops, <value>));"],
-    ["mask-conic-<angle>", "mask-image: conic-gradient(from <angle> in oklab, var(--tw-mask-gradient-stops));"],
-    ["-mask-conic-<angle>", "mask-image: conic-gradient(from -<angle> in oklab, var(--tw-mask-gradient-stops));"],
-    ["mask-conic-(<custom-property>)", "mask-image: var(<custom-property>);"],
-    ["mask-conic-[<value>]", "mask-image: <image>;"],
-    ["mask-from-<color>", "--tw-mask-gradient-from: <color>;"],
-    ["mask-from-<percentage>", "--tw-mask-gradient-from-position: <percentage>;"],
-    ["mask-from-(<custom-property>)", "--tw-mask-gradient-from: var(<custom-property>);"],
-    ["mask-from-[<value>]", "--tw-mask-gradient-from: <value>;"],
-    ["mask-via-<color>", "--tw-mask-gradient-via: <color>;"],
-    ["mask-via-<percentage>", "--tw-mask-gradient-via-position: <percentage>;"],
-    ["mask-via-(<custom-property>)", "--tw-mask-gradient-via: var(<custom-property>);"],
-    ["mask-via-[<value>]", "--tw-mask-gradient-via: <value>;"],
-    ["mask-to-<color>", "--tw-mask-gradient-to: <color>;"],
-    ["mask-to-<percentage>", "--tw-mask-gradient-to-position: <percentage>;"],
-    ["mask-to-(<custom-property>)", "--tw-mask-gradient-to: var(<custom-property>);"],
-    ["mask-to-[<value>]", "--tw-mask-gradient-to: <value>;"],
-    ["mask-[<value>]", "mask-image: <value>;"],
-    ["mask-(image:<custom-property>)", "mask-image: var(<custom-property>);"],
-    ["mask-none", "mask-image: none;"],
+    [
+      "mask-linear-from-<number>",
+      "mask-image: linear-gradient(var(--tw-mask-linear-position), black calc(var(--spacing * <number>)), transparent var(--tw-mask-linear-to));",
+    ],
+    [
+      "mask-linear-from-<percentage>",
+      "mask-image: linear-gradient(var(--tw-mask-linear-position), black <percentage>, transparent var(--tw-mask-linear-to));",
+    ],
+    [
+      "mask-linear-from-(<custom-property>)",
+      "mask-image: linear-gradient(var(--tw-mask-linear-position), black <custom-property>, transparent var(--tw-mask-linear-to));",
+    ],
+    [
+      "mask-linear-from-[<value>]",
+      "mask-image: linear-gradient(var(--tw-mask-linear-position), black <value>, transparent var(--tw-mask-linear-to));",
+    ],
+    [
+      "mask-linear-to-<number>",
+      "mask-image: linear-gradient(var(--tw-mask-linear-position), black var(--tw-mask-linear-from), transparent calc(var(--spacing * <number>)));",
+    ],
+    [
+      "mask-linear-to-<percentage>",
+      "mask-image: linear-gradient(var(--tw-mask-linear-position), black var(--tw-mask-linear-from), transparent <percentage>);",
+    ],
+    [
+      "mask-linear-to-(<custom-property>)",
+      "mask-image: linear-gradient(var(--tw-mask-linear-position), black var(--tw-mask-linear-from), transparent var(<custom-property>));",
+    ],
+    [
+      "mask-linear-to-[<value>]",
+      "mask-image: linear-gradient(var(--tw-mask-linear-position), black var(--tw-mask-linear-from), transparent <value>);",
+    ],
     [
       "mask-t-from-<number>",
-      "linear-gradient(to top, black calc(var(--spacing \* <number>)), transparent var(--mask-bottom-to)",
+      "mask-image: linear-gradient(to top, black calc(var(--spacing * <number>)), transparent var(--tw-mask-top-to));",
     ],
-    ["mask-t-from-<percentage>", "linear-gradient(to top, black <percentage>, transparent var(--mask-bottom-to)"],
+    [
+      "mask-t-from-<percentage>",
+      "mask-image: linear-gradient(to top, black <percentage>, transparent var(--tw-mask-top-to));",
+    ],
+    [
+      "mask-t-from-(<custom-property>)",
+      "mask-image: linear-gradient(to top, black var(<custom-property>), transparent var(--tw-mask-top-to));",
+    ],
+    ["mask-t-from-[<value>]", "mask-image: linear-gradient(to top, black <value>, transparent var(--tw-mask-top-to));"],
     [
       "mask-t-to-<number>",
-      "linear-gradient(to top, black var(--mask-top-from), transparent calc(var(--spacing \* <number>))",
+      "mask-image: linear-gradient(to top, black var(--tw-mask-top-from), transparent calc(var(--spacing * <number>));",
     ],
-    ["mask-t-to-<percentage>", "linear-gradient(to top, black var(--mask-top-from), transparent <percentage>"],
-  ]}
+    [
+      "mask-t-to-<percentage>",
+      "mask-image: linear-gradient(to top, black var(--tw-mask-top-from), transparent <percentage>);",
+    ],
+    [
+      "mask-t-to-(<custom-property>)",
+      "mask-image: linear-gradient(to top, black var(--tw-mask-top-from), transparent var(<custom-property>));",
+    ],
+    ["mask-t-to-[<value>]", "mask-image: linear-gradient(to top, black var(--tw-mask-top-from), transparent <value>);"],
+    [
+      "mask-r-from-<number>",
+      "mask-image: linear-gradient(to right, black calc(var(--spacing * <number>)), transparent var(--tw-mask-right-to));",
+    ],
+    [
+      "mask-r-from-<percentage>",
+      "mask-image: linear-gradient(to right, black <percentage>, transparent var(--tw-mask-right-to));",
+    ],
+    [
+      "mask-r-from-(<custom-property>)",
+      "mask-image: linear-gradient(to right, black var(<custom-property>), transparent var(--tw-mask-right-to));",
+    ],
+    [
+      "mask-r-from-[<value>]",
+      "mask-image: linear-gradient(to right, black <value>, transparent var(--tw-mask-right-to));",
+    ],
+    [
+      "mask-r-to-<number>",
+      "mask-image: linear-gradient(to right, black var(--tw-mask-right-from), transparent calc(var(--spacing * <number>));",
+    ],
+    [
+      "mask-r-to-<percentage>",
+      "mask-image: linear-gradient(to right, black var(--tw-mask-right-from), transparent <percentage>);",
+    ],
+    [
+      "mask-r-to-(<custom-property>)",
+      "mask-image: linear-gradient(to right, black var(--tw-mask-right-from), transparent var(<custom-property>));",
+    ],
+    [
+      "mask-r-to-[<value>]",
+      "mask-image: linear-gradient(to right, black var(--tw-mask-right-from), transparent <value>);",
+    ],
+    [
+      "mask-b-from-<number>",
+      "mask-image: linear-gradient(to bottom, black calc(var(--spacing * <number>)), transparent var(--tw-mask-bottom-to));",
+    ],
+    [
+      "mask-b-from-<percentage>",
+      "mask-image: linear-gradient(to bottom, black <percentage>, transparent var(--tw-mask-bottom-to));",
+    ],
+    [
+      "mask-b-from-(<custom-property>)",
+      "mask-image: linear-gradient(to bottom, black var(<custom-property>), transparent var(--tw-mask-bottom-to));",
+    ],
+    [
+      "mask-b-from-[<value>]",
+      "mask-image: linear-gradient(to bottom, black <value>, transparent var(--tw-mask-bottom-to));",
+    ],
+    [
+      "mask-b-to-<number>",
+      "mask-image: linear-gradient(to bottom, black var(--tw-mask-bottom-from), transparent calc(var(--spacing * <number>));",
+    ],
+    [
+      "mask-b-to-<percentage>",
+      "mask-image: linear-gradient(to bottom, black var(--tw-mask-bottom-from), transparent <percentage>);",
+    ],
+    [
+      "mask-b-to-(<custom-property>)",
+      "mask-image: linear-gradient(to bottom, black var(--tw-mask-bottom-from), transparent var(<custom-property>));",
+    ],
+    [
+      "mask-b-to-[<value>]",
+      "mask-image: linear-gradient(to bottom, black var(--tw-mask-bottom-from), transparent <value>);",
+    ],
+    [
+      "mask-l-from-<number>",
+      "mask-image: linear-gradient(to left, black calc(var(--spacing * <number>)), transparent var(--tw-mask-left-to));",
+    ],
+    [
+      "mask-l-from-<percentage>",
+      "mask-image: linear-gradient(to left, black <percentage>, transparent var(--tw-mask-left-to));",
+    ],
+    [
+      "mask-l-from-(<custom-property>)",
+      "mask-image: linear-gradient(to left, black var(<custom-property>), transparent var(--tw-mask-left-to));",
+    ],
+    [
+      "mask-l-from-[<value>]",
+      "mask-image: linear-gradient(to left, black <value>, transparent var(--tw-mask-left-to));",
+    ],
+    [
+      "mask-l-to-<number>",
+      "mask-image: linear-gradient(to left, black var(--tw-mask-left-from), transparent calc(var(--spacing * <number>));",
+    ],
+    [
+      "mask-l-to-<percentage>",
+      "mask-image: linear-gradient(to bottom, black var(--tw-mask-left-from), transparent <percentage>);",
+    ],
+    [
+      "mask-l-to-(<custom-property>)",
+      "mask-image: linear-gradient(to left, black var(--tw-mask-left-from), transparent var(<custom-property>));",
+    ],
+    [
+      "mask-l-to-[<value>]",
+      "mask-image: linear-gradient(to left, black var(--tw-mask-left-from), transparent <value>);",
+    ],
+    [
+      "mask-y-from-<number>",
+      dedent`
+        mask-image: linear-gradient(to top, black calc(var(--spacing * <number>)), transparent var(--tw-mask-top-to)), linear-gradient(to bottom, black calc(var(--spacing * <number>)), transparent var(--tw-mask-bottom-to));
+        mask-composite: intersect;`,
+    ],
+    [
+      "mask-y-from-<percentage>",
+      dedent`
+        mask-image: linear-gradient(to top, black <percentage>, transparent var(--tw-mask-top-to)), linear-gradient(to bottom, black <percentage>, transparent var(--tw-mask-bottom-to));
+        mask-composite: intersect;`,
+    ],
+    [
+      "mask-y-from-(<custom-property>)",
+      dedent`
+        mask-image: linear-gradient(to top, black var(<custom-property>), transparent var(--tw-mask-top-to)), linear-gradient(to bottom, black var(<custom-property>), transparent var(--tw-mask-bottom-to));
+        mask-composite: intersect;`,
+    ],
+    [
+      "mask-y-from-[<value>]",
+      dedent`
+        mask-image: linear-gradient(to top, black <value>, transparent var(--tw-mask-top-to)), linear-gradient(to bottom, black <value>, transparent var(--tw-mask-bottom-to));
+        mask-composite: intersect;`,
+    ],
+    [
+      "mask-y-to-<number>",
+      dedent`
+        mask-image: linear-gradient(to top, black var(--tw-mask-top-from), transparent calc(var(--spacing * <number>)), linear-gradient(to bottom, black var(--tw-mask-bottom-from), transparent calc(var(--spacing * <number>));
+        mask-composite: intersect;`,
+    ],
+    [
+      "mask-y-to-<percentage>",
+      dedent`
+        mask-image: linear-gradient(to bottom, black var(--tw-mask-top-from), transparent <percentage>), linear-gradient(to bottom, black var(--tw-mask-bottom-from), transparent <percentage>);
+        mask-composite: intersect;`,
+    ],
+    [
+      "mask-y-to-(<custom-property>)",
+      dedent`
+      mask-image: linear-gradient(to top, black var(--tw-mask-top-from), transparent var(<custom-property>)),linear-gradient(to bottom, black var(--tw-mask-bottom-from), transparent var(<custom-property>));
+      mask-composite: intersect;`,
+    ],
+    [
+      "mask-y-to-[<value>]",
+      dedent`
+      mask-image: linear-gradient(to top, black var(--tw-mask-top-from), transparent <value>),linear-gradient(to bottom, black var(--tw-mask-bottom-from), transparent <value>);
+      mask-composite: intersect;`,
+    ],
+    [
+      "mask-x-from-<number>",
+      dedent`
+        mask-image: linear-gradient(to right, black calc(var(--spacing * <number>)), transparent var(--tw-mask-right-to)), linear-gradient(to left, black calc(var(--spacing * <number>)), transparent var(--tw-mask-left-to));
+        mask-composite: intersect;`,
+    ],
+    [
+      "mask-x-from-<percentage>",
+      dedent`
+        mask-image: linear-gradient(to right, black <percentage>, transparent var(--tw-mask-right-to)), linear-gradient(to left, black <percentage>, transparent var(--tw-mask-left-to));
+        mask-composite: intersect;`,
+    ],
+    [
+      "mask-x-from-(<custom-property>)",
+      dedent`
+        mask-image: linear-gradient(to right, black var(<custom-property>), transparent var(--tw-mask-right-to)), linear-gradient(to left, black var(<custom-property>), transparent var(--tw-mask-left-to));
+        mask-composite: intersect;`,
+    ],
+    [
+      "mask-x-from-[<value>]",
+      dedent`
+        mask-image: linear-gradient(to right, black <value>, transparent var(--tw-mask-right-to)), linear-gradient(to left, black <value>, transparent var(--tw-mask-left-to));
+        mask-composite: intersect;`,
+    ],
+    [
+      "mask-x-to-<number>",
+      dedent`
+        mask-image: linear-gradient(to right, black var(--tw-mask-right-from), transparent calc(var(--spacing * <number>)), linear-gradient(to left, black var(--tw-mask-left-from), transparent calc(var(--spacing * <number>));
+        mask-composite: intersect;`,
+    ],
+    [
+      "mask-x-to-<percentage>",
+      dedent`
+        mask-image: linear-gradient(to left, black var(--tw-mask-right-from), transparent <percentage>), linear-gradient(to left, black var(--tw-mask-left-from), transparent <percentage>);
+        mask-composite: intersect;`,
+    ],
+    [
+      "mask-x-to-(<custom-property>)",
+      dedent`
+        mask-image: linear-gradient(to right, black var(--tw-mask-right-from), transparent var(<custom-property>)),linear-gradient(to left, black var(--tw-mask-left-from), transparent var(<custom-property>));
+        mask-composite: intersect;`,
+    ],
+    [
+      "mask-x-to-[<value>]",
+      dedent`
+        mask-image: linear-gradient(to right, black var(--tw-mask-right-from), transparent <value>),linear-gradient(to left, black var(--tw-mask-left-from), transparent <value>);
+        mask-composite: intersect;`,
+    ],
+    [
+      "mask-radial-from-<number>",
+      "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black calc(var(--spacing * <number>)), transparent var(--tw-mask-radial-to));",
+    ],
+    [
+      "mask-radial-from-<percentage>",
+      "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black <percentage>, transparent var(--tw-mask-radial-to));",
+    ],
+    [
+      "mask-radial-from-(<custom-property>)",
+      "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black var(<custom-property>), transparent var(--tw-mask-radial-to));",
+    ],
+    [
+      "mask-radial-from-[<value>]",
+      "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black <value>, transparent var(--tw-mask-radial-to));",
+    ],
+    [
+      "mask-radial-to-<number>",
+      "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black var(--tw-mask-radial-from), transparent calc(var(--spacing * <number>)));",
+    ],
+    [
+      "mask-radial-to-<percentage>",
+      "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black var(--tw-mask-radial-from), transparent <percentage>);",
+    ],
+    [
+      "mask-radial-to-(<custom-property>)",
+      "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black var(--tw-mask-radial-from), transparent var(<custom-property>));",
+    ],
+    [
+      "mask-radial-to-[<value>]",
+      "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black var(--tw-mask-radial-from), transparent <value>);",
+    ],
+    ["mask-radial-circle", "--tw-mask-radial-shape: circle;"],
+    ["mask-radial-ellipse", "--tw-mask-radial-shape: ellipse;"],
+    ["mask-radial-closest-corner", "--tw-mask-radial-size: closest-corner;"],
+    ["mask-radial-closest-side", "--tw-mask-radial-size: closest-side;"],
+    ["mask-radial-farthest-corner", "--tw-mask-radial-size: farthest-corner;"],
+    ["mask-radial-farthest-side", "--tw-mask-radial-size: farthest-side;"],
+    ["mask-radial-at-top-left", "--tw-mask-radial-position: top left;"],
+    ["mask-radial-at-top", "--tw-mask-radial-position: top;"],
+    ["mask-radial-at-top-right", "--tw-mask-radial-position: top right;"],
+    ["mask-radial-at-left", "--tw-mask-radial-position: left;"],
+    ["mask-radial-at-center", "--tw-mask-radial-position:center;"],
+    ["mask-radial-at-right", "--tw-mask-radial-position: right;"],
+    ["mask-radial-at-bottom-left", "--tw-mask-radial-position: bottom left;"],
+    ["mask-radial-at-bottom", "--tw-mask-radial-position: bottom;"],
+    ["mask-radial-at-bottom-right", "--tw-mask-radial-position: bottom right;"],
+    ["mask-radial-[<value>]", "--tw-mask-radial-position: <value>;"],
+
+    [
+      "mask-conic-<number>",
+      "mask-image: conic-gradient(from <number>deg, black var(--tw-mask-conic-from), transparent var(--tw-mask-conic-to));",
+    ],
+    [
+      "-mask-conic-<number>",
+      "mask-image: conic-gradient(from calc(<number>deg * -1), black var(--tw-mask-conic-from), transparent var(--tw-mask-conic-to));",
+    ],
+    [
+      "mask-conic-from-<number>",
+      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black calc(var(--spacing * <number>)), transparent var(--tw-mask-conic-to));",
+    ],
+    [
+      "mask-conic-from-<percentage>",
+      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black <percentage>, transparent var(--tw-mask-conic-to));",
+    ],
+    [
+      "mask-conic-from-(<custom-property>)",
+      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black var(<custom-property>), transparent var(--tw-mask-conic-to));",
+    ],
+    [
+      "mask-conic-from-[<value>]",
+      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black <value>, transparent var(--tw-mask-conic-to));",
+    ],
+    [
+      "mask-conic-to-<number>",
+      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black var(--tw-mask-conic-from), transparent calc(var(--spacing * <number>));",
+    ],
+    [
+      "mask-conic-to-<percentage>",
+      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black var(--tw-mask-conic-from), transparent <percentage>;",
+    ],
+    [
+      "mask-conic-to-(<custom-property>)",
+      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black var(--tw-mask-conic-from), transparent var(<custom-property>);",
+    ],
+    [
+      "mask-conic-to-[<value>]",
+      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black var(--tw-mask-conic-from), transparent <value>;",
+    ],
+
+]}
 />
 
 ## Examples
@@ -487,7 +786,7 @@ Use utilities like `mask-radial-at-bottom-left` and `mask-radial-at-[35%_35%]` t
   <div className="flex flex-col items-center">
     <p className="mb-3 text-xs">mask-radial-at-center</p>
     <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-center bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+      <div className="mask-radial-at-center h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
@@ -526,7 +825,7 @@ Use utilities like `mask-radial-at-bottom-left` and `mask-radial-at-[35%_35%]` t
 <div class="mask-radial-from-100% mask-radial-at-top ..."></div>
 <div class="mask-radial-from-100% mask-radial-at-top-right ..."></div>
 <div class="mask-radial-from-100% mask-radial-at-left ..."></div>
-<div class="mask-radial-from-100% mask-radial-at-center ..."></div>
+<div class="mask-radial-at-center mask-radial-from-100% ..."></div>
 <div class="mask-radial-from-100% mask-radial-at-right ..."></div>
 <div class="mask-radial-from-100% mask-radial-at-bottom-left ..."></div>
 <div class="mask-radial-from-100% mask-radial-at-bottom ..."></div>
