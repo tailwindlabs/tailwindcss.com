@@ -56,6 +56,10 @@ export const description = "Utilities for controlling an element's mask image.";
       "mask-image: linear-gradient(var(--tw-mask-linear-position), black <percentage>, transparent var(--tw-mask-linear-to));",
     ],
     [
+      "mask-linear-from-<color>",
+      "mask-image: linear-gradient(var(--tw-mask-linear-position), <color> var(--tw-mask-linear-from), transparent var(--tw-mask-linear-to));",
+    ],
+    [
       "mask-linear-from-(<custom-property>)",
       "mask-image: linear-gradient(var(--tw-mask-linear-position), black <custom-property>, transparent var(--tw-mask-linear-to));",
     ],
@@ -70,6 +74,10 @@ export const description = "Utilities for controlling an element's mask image.";
     [
       "mask-linear-to-<percentage>",
       "mask-image: linear-gradient(var(--tw-mask-linear-position), black var(--tw-mask-linear-from), transparent <percentage>);",
+    ],
+    [
+      "mask-linear-to-<color>",
+      "mask-image: linear-gradient(var(--tw-mask-linear-position), black var(--tw-mask-linear-from), <color> var(--tw-mask-linear-to));",
     ],
     [
       "mask-linear-to-(<custom-property>)",
@@ -88,6 +96,10 @@ export const description = "Utilities for controlling an element's mask image.";
       "mask-image: linear-gradient(to top, black <percentage>, transparent var(--tw-mask-top-to));",
     ],
     [
+      "mask-t-from-<color>",
+      "mask-image: linear-gradient(to top, <color> var(--tw-mask-top-from), transparent var(--tw-mask-top-to));",
+    ],
+    [
       "mask-t-from-(<custom-property>)",
       "mask-image: linear-gradient(to top, black var(<custom-property>), transparent var(--tw-mask-top-to));",
     ],
@@ -101,6 +113,10 @@ export const description = "Utilities for controlling an element's mask image.";
       "mask-image: linear-gradient(to top, black var(--tw-mask-top-from), transparent <percentage>);",
     ],
     [
+      "mask-t-to-<color>",
+      "mask-image: linear-gradient(to top, black var(--tw-mask-top-from), <color> var(--tw-mask-top-to));",
+    ],
+    [
       "mask-t-to-(<custom-property>)",
       "mask-image: linear-gradient(to top, black var(--tw-mask-top-from), transparent var(<custom-property>));",
     ],
@@ -112,6 +128,10 @@ export const description = "Utilities for controlling an element's mask image.";
     [
       "mask-r-from-<percentage>",
       "mask-image: linear-gradient(to right, black <percentage>, transparent var(--tw-mask-right-to));",
+    ],
+    [
+      "mask-r-from-<color>",
+      "mask-image: linear-gradient(to right, <color> var(--tw-mask-right-from), transparent var(--tw-mask-right-to));",
     ],
     [
       "mask-r-from-(<custom-property>)",
@@ -130,6 +150,10 @@ export const description = "Utilities for controlling an element's mask image.";
       "mask-image: linear-gradient(to right, black var(--tw-mask-right-from), transparent <percentage>);",
     ],
     [
+      "mask-r-to-<color>",
+      "mask-image: linear-gradient(to right, black var(--tw-mask-right-from), <color> var(--tw-mask-right-to));",
+    ],
+    [
       "mask-r-to-(<custom-property>)",
       "mask-image: linear-gradient(to right, black var(--tw-mask-right-from), transparent var(<custom-property>));",
     ],
@@ -144,6 +168,10 @@ export const description = "Utilities for controlling an element's mask image.";
     [
       "mask-b-from-<percentage>",
       "mask-image: linear-gradient(to bottom, black <percentage>, transparent var(--tw-mask-bottom-to));",
+    ],
+    [
+      "mask-b-from-<color>",
+      "mask-image: linear-gradient(to bottom, <color> var(--tw-mask-bottom-from), transparent var(--tw-mask-bottom-to));",
     ],
     [
       "mask-b-from-(<custom-property>)",
@@ -162,6 +190,10 @@ export const description = "Utilities for controlling an element's mask image.";
       "mask-image: linear-gradient(to bottom, black var(--tw-mask-bottom-from), transparent <percentage>);",
     ],
     [
+      "mask-b-to-<color>",
+      "mask-image: linear-gradient(to bottom, black var(--tw-mask-bottom-from), <color> var(--tw-mask-bottom-to));",
+    ],
+    [
       "mask-b-to-(<custom-property>)",
       "mask-image: linear-gradient(to bottom, black var(--tw-mask-bottom-from), transparent var(<custom-property>));",
     ],
@@ -178,6 +210,10 @@ export const description = "Utilities for controlling an element's mask image.";
       "mask-image: linear-gradient(to left, black <percentage>, transparent var(--tw-mask-left-to));",
     ],
     [
+      "mask-l-from-<color>",
+      "mask-image: linear-gradient(to left, <color> var(--tw-mask-left-from), transparent var(--tw-mask-left-to));",
+    ],
+    [
       "mask-l-from-(<custom-property>)",
       "mask-image: linear-gradient(to left, black var(<custom-property>), transparent var(--tw-mask-left-to));",
     ],
@@ -192,6 +228,10 @@ export const description = "Utilities for controlling an element's mask image.";
     [
       "mask-l-to-<percentage>",
       "mask-image: linear-gradient(to bottom, black var(--tw-mask-left-from), transparent <percentage>);",
+    ],
+    [
+      "mask-l-to-<color>",
+      "mask-image: linear-gradient(to bottom, black var(--tw-mask-left-from), <color> var(--tw-mask-left-to));",
     ],
     [
       "mask-l-to-(<custom-property>)",
@@ -211,6 +251,12 @@ export const description = "Utilities for controlling an element's mask image.";
       "mask-y-from-<percentage>",
       dedent`
         mask-image: linear-gradient(to top, black <percentage>, transparent var(--tw-mask-top-to)), linear-gradient(to bottom, black <percentage>, transparent var(--tw-mask-bottom-to));
+        mask-composite: intersect;`,
+    ],
+    [
+      "mask-y-from-<color>",
+      dedent`
+        mask-image: linear-gradient(to top, <color> var(--tw-mask-top-from), transparent var(--tw-mask-top-to)), linear-gradient(to bottom, <color> var(--tw-mask-bottom-from), transparent var(--tw-mask-bottom-to));
         mask-composite: intersect;`,
     ],
     [
@@ -238,6 +284,12 @@ export const description = "Utilities for controlling an element's mask image.";
         mask-composite: intersect;`,
     ],
     [
+      "mask-y-to-<color>",
+      dedent`
+        mask-image: linear-gradient(to bottom, black var(--tw-mask-top-from), <color> var(--tw-mask-top-to)), linear-gradient(to bottom, black var(--tw-mask-bottom-from), <color> var(--tw-mask-bottom-to));
+        mask-composite: intersect;`,
+    ],
+    [
       "mask-y-to-(<custom-property>)",
       dedent`
       mask-image: linear-gradient(to top, black var(--tw-mask-top-from), transparent var(<custom-property>)),linear-gradient(to bottom, black var(--tw-mask-bottom-from), transparent var(<custom-property>));
@@ -259,6 +311,12 @@ export const description = "Utilities for controlling an element's mask image.";
       "mask-x-from-<percentage>",
       dedent`
         mask-image: linear-gradient(to right, black <percentage>, transparent var(--tw-mask-right-to)), linear-gradient(to left, black <percentage>, transparent var(--tw-mask-left-to));
+        mask-composite: intersect;`,
+    ],
+    [
+      "mask-x-from-<color>",
+      dedent`
+        mask-image: linear-gradient(to right, <color> var(--tw-mask-right-from), transparent var(--tw-mask-right-to)), linear-gradient(to left, <color>  var(--tw-mask-left-from), transparent var(--tw-mask-left-to));
         mask-composite: intersect;`,
     ],
     [
@@ -286,6 +344,12 @@ export const description = "Utilities for controlling an element's mask image.";
         mask-composite: intersect;`,
     ],
     [
+      "mask-x-to-<color>",
+      dedent`
+        mask-image: linear-gradient(to left, black var(--tw-mask-right-from), <color> var(--tw-mask-right-to)), linear-gradient(to left, black var(--tw-mask-left-from), <color> var(--tw-mask-left-to));
+        mask-composite: intersect;`,
+    ],
+    [
       "mask-x-to-(<custom-property>)",
       dedent`
         mask-image: linear-gradient(to right, black var(--tw-mask-right-from), transparent var(<custom-property>)),linear-gradient(to left, black var(--tw-mask-left-from), transparent var(<custom-property>));
@@ -297,6 +361,9 @@ export const description = "Utilities for controlling an element's mask image.";
         mask-image: linear-gradient(to right, black var(--tw-mask-right-from), transparent <value>),linear-gradient(to left, black var(--tw-mask-left-from), transparent <value>);
         mask-composite: intersect;`,
     ],
+    ["mask-radial-[<value>]", "mask-image: radial-gradient(<value>);"],
+    ["mask-radial-[<size>]", "--tw-mask-radial-size: <size>;"],
+    ["mask-radial-[<size>_<size>]", "--tw-mask-radial-size: <size> <size>;"],
     [
       "mask-radial-from-<number>",
       "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black calc(var(--spacing * <number>)), transparent var(--tw-mask-radial-to));",
@@ -304,6 +371,10 @@ export const description = "Utilities for controlling an element's mask image.";
     [
       "mask-radial-from-<percentage>",
       "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black <percentage>, transparent var(--tw-mask-radial-to));",
+    ],
+    [
+      "mask-radial-from-<color>",
+      "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), <color> var(--tw-mask-radial-from), transparent var(--tw-mask-radial-to));",
     ],
     [
       "mask-radial-from-(<custom-property>)",
@@ -320,6 +391,10 @@ export const description = "Utilities for controlling an element's mask image.";
     [
       "mask-radial-to-<percentage>",
       "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black var(--tw-mask-radial-from), transparent <percentage>);",
+    ],
+    [
+      "mask-radial-to-<color>",
+      "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black var(--tw-mask-radial-from), <color> var(--tw-mask-radial-to));",
     ],
     [
       "mask-radial-to-(<custom-property>)",
@@ -344,8 +419,6 @@ export const description = "Utilities for controlling an element's mask image.";
     ["mask-radial-at-bottom-left", "--tw-mask-radial-position: bottom left;"],
     ["mask-radial-at-bottom", "--tw-mask-radial-position: bottom;"],
     ["mask-radial-at-bottom-right", "--tw-mask-radial-position: bottom right;"],
-    ["mask-radial-[<value>]", "--tw-mask-radial-position: <value>;"],
-
     [
       "mask-conic-<number>",
       "mask-image: conic-gradient(from <number>deg, black var(--tw-mask-conic-from), transparent var(--tw-mask-conic-to));",
@@ -361,6 +434,10 @@ export const description = "Utilities for controlling an element's mask image.";
     [
       "mask-conic-from-<percentage>",
       "mask-image: conic-gradient(from var(--tw-mask-conic-position), black <percentage>, transparent var(--tw-mask-conic-to));",
+    ],
+    [
+      "mask-conic-from-<color>",
+      "mask-image: conic-gradient(from var(--tw-mask-conic-position), <color> var(--tw-mask-conic-from), transparent var(--tw-mask-conic-to));",
     ],
     [
       "mask-conic-from-(<custom-property>)",
@@ -379,6 +456,10 @@ export const description = "Utilities for controlling an element's mask image.";
       "mask-image: conic-gradient(from var(--tw-mask-conic-position), black var(--tw-mask-conic-from), transparent <percentage>;",
     ],
     [
+      "mask-conic-to-<color>",
+      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black var(--tw-mask-conic-from), <color> var(--tw-mask-conic-to);",
+    ],
+    [
       "mask-conic-to-(<custom-property>)",
       "mask-image: conic-gradient(from var(--tw-mask-conic-position), black var(--tw-mask-conic-from), transparent var(<custom-property>);",
     ],
@@ -386,8 +467,7 @@ export const description = "Utilities for controlling an element's mask image.";
       "mask-conic-to-[<value>]",
       "mask-image: conic-gradient(from var(--tw-mask-conic-position), black var(--tw-mask-conic-from), transparent <value>;",
     ],
-
-]}
+  ]}
 />
 
 ## Examples
