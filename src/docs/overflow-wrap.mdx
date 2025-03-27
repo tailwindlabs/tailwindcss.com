@@ -4,19 +4,19 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "overflow-wrap";
-export const description = "Utilities for controlling line breaks in an overflowing element.";
+export const description = "Utilities for controlling line breaks within words in an overflowing element.";
 
 <ApiTable
   rows={[
     ["wrap-normal", "overflow-wrap: normal;"],
-    ["wrap-anywhere", "overflow-wrap: anywhere;"],
     ["wrap-break-word", "overflow-wrap: break-word;"],
+    ["wrap-anywhere", "overflow-wrap: anywhere;"],
   ]}
 />
 
 ## Examples
 
-### Normal
+### Wrapping normally
 
 Use the `wrap-normal` utility to only allow line breaks at natural wrapping points, like spaces, hyphens, and punctuation:
 
@@ -40,7 +40,7 @@ Use the `wrap-normal` utility to only allow line breaks at natural wrapping poin
 
 </Figure>
 
-### Break Word
+### Wrapping mid-word
 
 Use the `wrap-break-word` utility to allow line breaks between letters in a word if needed:
 
@@ -60,15 +60,15 @@ Use the `wrap-break-word` utility to allow line breaks between letters in a word
 ```html
 <!-- [!code classes:wrap-break-word] -->
 <p class="w-min">
-  The longest word... <span class="font-bold wrap-break-word">pneumonoultramicroscopicsilicovolcanoconiosis,</span>
+  The longest word... <span class="wrap-break-word">pneumonoultramicroscopicsilicovolcanoconiosis,</span>
 </p>
 ```
 
 </Figure>
 
-### Anywhere
+### Wrapping anywhere
 
-Use the `wrap-anywhere` utility to allow line breaks between letters in a word if needed:
+The `wrap-anywhere` utility behaves similarly to `wrap-break-word`, except that the browser factors in mid-word line breaks when calculating the intrinsic `min-content` size of the element:
 
 <Figure>
 
@@ -86,14 +86,12 @@ Use the `wrap-anywhere` utility to allow line breaks between letters in a word i
 ```html
 <!-- [!code classes:wrap-anywhere] -->
 <p class="w-min">
-  The longest word... <span class="font-bold wrap-anywhere">pneumonoultramicroscopicsilicovolcanoconiosis,</span>
+  The longest word... <span class="wrap-anywhere">pneumonoultramicroscopicsilicovolcanoconiosis,</span>
 </p>
 ```
 
 </Figure>
 
-Unlike the `wrap-break-word`, `wrap-anywhere` allows the browser to factor in mid-word line breaks when calculating the intrinsic `min-content` size of the element.
-
 ### Responsive design
 
-<ResponsiveDesign element="p" property="wrap" defaultClass="normal" featuredClass="break-word" />
+<ResponsiveDesign element="p" property="overflow-wrap" defaultClass="wrap-normal" featuredClass="wrap-break-word" />
