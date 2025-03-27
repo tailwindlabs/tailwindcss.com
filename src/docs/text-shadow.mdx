@@ -1,0 +1,120 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import {
+  CustomizingYourTheme,
+  CustomizingYourThemeColors,
+  ResponsiveDesign,
+  UsingACustomValue,
+} from "@/components/content.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import colors from "./utils/colors";
+
+export const title = "text-shadow";
+export const description = "Utilities for controlling the shadow of a text element.";
+
+<ApiTable
+  rows={[
+    ["text-shadow-2xs", "text-shadow: var(--text-shadow-2xs); /* 0 Add values */"],
+    ["text-shadow-xs", "text-shadow: var(--text-shadow-xs); /* 0 Add values */"],
+    ["text-shadow-sm", "text-shadow: var(--text-shadow-sm); /* Add values */"],
+    ["text-shadow-md", "text-shadow: var(--text-shadow-md); /* Add values */"],
+    ["text-shadow-lg", "text-shadow: var(--text-shadow-lg); /* Add values */"],
+    ["text-shadow-none", "text-shadow: 0 0 #0000;"],
+    ["text-shadow-(<custom-property>)", "text-shadow: var(<custom-property>);"],
+    ["text-shadow-(color:<custom-property>)", "--tw-shadow-color var(<custom-property>);"],
+    ["text-shadow-[<value>]", "text-shadow: <value>;"],
+    ["text-shadow-inherit", "--tw-shadow-color inherit;"],
+    ["text-shadow-current", "--tw-shadow-color currentColor;"],
+    ["text-shadow-transparent", "--tw-shadow-color transparent;"],
+    ...Object.entries(colors).map(([name, value]) => [
+      `shadow-${name}`,
+      `--tw-shadow-color var(--color-${name}); /* ${value} */`,
+    ]),
+  ]}
+/>
+
+## Examples
+
+### Basic example
+
+Use utilities like `text-shadow-sm` and `shadow-lg` to apply different sized text shadows to a text element:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="grid items-center justify-around gap-4 bg-gray-100 px-6 py-14 text-center font-bold text-indigo-600">
+      <p className="text-xl text-shadow-2xs">The quick brown fox jumps over the lazy dog.</p>
+      <p className="text-2xl text-shadow-xs">The quick brown fox jumps over the lazy dog.</p>
+      <p className="text-3xl text-shadow-sm">The quick brown fox jumps over the lazy dog.</p>
+      <p className="text-4xl text-shadow-md">The quick brown fox jumps over the lazy dog.</p>
+      <p className="text-5xl text-shadow-lg">The quick brown fox jumps over the lazy dog.</p>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:text-shadow-md,text-shadow-lg,text-shadow-xl] -->
+<div class="text-shadow-md ..."></div>
+<div class="text-shadow-lg ..."></div>
+<div class="text-shadow-xl ..."></div>
+```
+
+</Figure>
+
+### Setting the shadow color
+
+Use utilities like `text-shadow-indigo-500` and `text-shadow-cyan-500/50` to change the color of a text shadow:
+
+<Figure>
+
+<Example>{}</Example>
+
+```html
+<!-- [!code classes:text-shadow-cyan-500/50,text-shadow-blue-500/50,text-shadow-indigo-500/50] -->
+```
+
+</Figure>
+
+By default colored shadows have an opacity of 100% but you can adjust this using the opacity modifier.
+
+### Removing a text shadow
+
+Use the `text-shadow-none` utility to remove an existing text shadow from an element:
+
+<Figure>
+
+<Example padding={false}>
+  {
+
+}
+
+</Example>
+
+```html
+<!-- [!code classes:text-shadow-none] -->
+```
+
+</Figure>
+
+### Using a custom value
+
+<UsingACustomValue utility={"text-shadow"} name="text shadow" value="0_35px_35px_rgba(0,0,0,0.25)" />
+
+### Responsive design
+
+<ResponsiveDesign property="text-shadow" defaultClass="text-shadow-none" featuredClass="text-shadow-lg" />
+
+## Customizing your theme
+
+<CustomizingYourTheme
+  utility="text-shadow"
+  themeKey="text-shadow"
+  name="text shadow"
+  customName="xl"
+  customValue="0 35px 35px rgba(0, 0, 0, 0.25)"
+/>
+
+### Customizing shadow colors
+
+<CustomizingYourThemeColors utility={"text-shadow"} />
