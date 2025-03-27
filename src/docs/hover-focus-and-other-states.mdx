@@ -4693,20 +4693,20 @@ Style an input when it's invalid using the `invalid` variant:
 
 #### :user-valid
 
-Style an input when it's valid, and the user has interacted with the form, using the `user-valid` variant:
+Style an input when it's valid and the user has interacted with it, using the `user-valid` variant:
 
 ```html
 <!-- [!code classes:user-valid:border-green-500] -->
-<input class="user-valid:border-green-500 ..." />
+<input required class="border user-valid:border-green-500" />
 ```
 
 #### :user-invalid
 
-Style an input when it's invalid, and the user has interacted with the form, using the `user-invalid` variant:
+Style an input when it's invalid and the user has interacted with it, using the `user-invalid` variant:
 
 ```html
 <!-- [!code classes:user-invalid:border-red-500] -->
-<input class="user-invalid:border-red-500 ..." />
+<input required class="border user-invalid:border-red-500" />
 ```
 
 #### :in-range
