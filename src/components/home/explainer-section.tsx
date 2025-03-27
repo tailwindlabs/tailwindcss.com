@@ -21,81 +21,81 @@ export default function ExplainerSection() {
   let timeline: EditorKeyframe[] = [
     {
       terminal: [
-        <>
+        <React.Fragment key="1">
           <span className="text-purple-300" aria-hidden="true">
             ≈
           </span>
           <span aria-label="Tailwind CSS"> tailwindcss </span>
           <span className="text-purple-300">v4.0.0</span>
-        </>,
-        <span></span>,
-        <>
+        </React.Fragment>,
+        <span key="2"></span>,
+        <React.Fragment key="3">
           <span>Done in </span>
           <span className="text-sky-300">12ms</span>
-        </>,
+        </React.Fragment>,
       ],
     },
     {
       class: "flex",
       terminal: [
-        <>
+        <React.Fragment key="4">
           <span>Done in </span>
           <span className="text-sky-300">668µs</span>
-        </>,
+        </React.Fragment>,
       ],
     },
     {
       class: "items-center",
       terminal: [
-        <>
+        <React.Fragment key="5">
           <span>Done in </span>
           <span className="text-sky-300">425µs</span>
-        </>,
+        </React.Fragment>,
       ],
     },
     {
       class: "bg-blue-500",
       terminal: [
-        <>
+        <React.Fragment key="6">
           <span>Done in </span>
           <span className="text-sky-300">451µs</span>
-        </>,
+        </React.Fragment>,
       ],
     },
     {
       class: "px-4",
       terminal: [
-        <>
+        <React.Fragment key="7">
           <span>Done in </span>
           <span className="text-sky-300">940µs</span>
-        </>,
+        </React.Fragment>,
       ],
     },
     {
       class: "py-3",
       terminal: [
-        <>
+        <React.Fragment key="7">
           <span>Done in </span>
           <span className="text-sky-300">2ms</span>
-        </>,
+        </React.Fragment>,
       ],
     },
     {
       class: "text-white",
       terminal: [
-        <>
+        <React.Fragment key="8">
           <span>Done in </span>
           <span className="text-sky-300">1ms</span>
-        </>,
+        </React.Fragment>,
       ],
     },
     {
       class: "hover:bg-blue-400",
       terminal: [
-        <>
+        <React.Fragment key="9">
           <span>Done in </span>
           <span className="text-sky-300">993µs</span>
-        </>,
+        </React.Fragment>,
       ],
     },
   ];
