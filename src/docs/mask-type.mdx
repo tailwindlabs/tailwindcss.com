@@ -5,7 +5,7 @@ import { ResponsiveDesign } from "@/components/content.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "mask-type";
-export const description = "Utilities for controlling how an SVG element's mask is interpreted.";
+export const description = "Utilities for controlling how an SVG mask is interpreted.";
 
 <ApiTable
   rows={[
@@ -18,7 +18,7 @@ export const description = "Utilities for controlling how an SVG element's mask 
 
 ### Basic example
 
-Use the `mask-type-alpha` and `mask-type-luminance` utilities to control the type of an SVG element's mask:
+Use the `mask-type-alpha` and `mask-type-luminance` utilities to control the type of an SVG mask:
 
 <Figure >
 
@@ -79,10 +79,10 @@ Use the `mask-type-alpha` and `mask-type-luminance` utilities to control the typ
 </svg>
 
 <svg>
-  <mask id="blob1" class="mask-type-luminance fill-gray-700/70">
+  <mask id="blob2" class="mask-type-luminance fill-gray-700/70">
     <path d="..."></path>
   </mask>
-  <image href="/img/mountains.jpg" height="100%" width="100%" mask="url(#blob1)" />
+  <image href="/img/mountains.jpg" height="100%" width="100%" mask="url(#blob2)" />
 </svg>
 ```
 

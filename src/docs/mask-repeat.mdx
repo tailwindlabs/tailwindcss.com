@@ -13,8 +13,8 @@ export const description = "Utilities for controlling the repetition of an eleme
     ["mask-no-repeat", "mask-repeat: no-repeat;"],
     ["mask-repeat-x", "mask-repeat: repeat-x;"],
     ["mask-repeat-y", "mask-repeat: repeat-y;"],
-    ["mask-repeat-round", "mask-repeat: round;"],
     ["mask-repeat-space", "mask-repeat: space;"],
+    ["mask-repeat-round", "mask-repeat: round;"],
   ]}
 />
 
@@ -32,7 +32,7 @@ Use the `mask-repeat` utility to repeat the mask image both vertically and horiz
 
 <div className="flex flex-col py-8">
   <Stripes className="h-40 w-full rounded-lg" border>
-    <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[50%_50%] mask-radial-from-100% bg-cover bg-center mask-[size:50px_50px] mask-center mask-repeat"></div>
+    <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-closest-side bg-cover bg-center mask-[size:50px_50px] mask-center mask-repeat"></div>
   </Stripes>
 </div>
 
@@ -53,13 +53,13 @@ Use the `mask-repeat-x` utility to only repeat the mask image horizontally:
 
 <Figure>
 
-<Example>
+<Example >
 
 {
 
 <div className="flex flex-col py-8">
   <Stripes className="h-40 w-full rounded-lg" border>
-    <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[50%_50%] mask-radial-from-100% bg-cover bg-center mask-[size:50px_50px] mask-center mask-repeat-x"></div>
+    <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-closest-side bg-cover bg-center mask-[size:50px_50px] mask-center mask-repeat-x"></div>
   </Stripes>
 </div>
 
@@ -86,9 +86,10 @@ Use the `mask-repeat-y` utility to only repeat the mask image vertically:
 
 <div className="flex flex-col py-8">
   <Stripes className="h-40 w-full rounded-lg" border>
-    <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[50%_50%] mask-radial-from-100% bg-cover bg-center mask-[size:50px_50px] mask-center mask-repeat-y"></div>
+    <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-closest-side bg-cover bg-center mask-[size:50px_50px] mask-center mask-repeat-y"></div>
   </Stripes>
 </div>
+
 }
 
 </Example>
@@ -106,14 +107,17 @@ Use the `mask-repeat-space` utility to repeat the mask image without clipping:
 
 <Figure>
 
-<Example>
-  {
-    <div className="flex flex-col py-8">
-      <Stripes className="h-40 w-full rounded-lg" border>
-        <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[50%_50%] mask-radial-from-100% bg-cover bg-center mask-[size:50px_50px] mask-center mask-repeat-space"></div>
-      </Stripes>
-    </div>
-  }
+<Example resizable>
+
+{
+
+<div className="flex flex-col py-8">
+  <Stripes className="h-40 w-full rounded-lg" border>
+    <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-closest-side bg-cover bg-center mask-[size:50px_50px] mask-repeat-space"></div>
+  </Stripes>
+</div>
+}
+
 </Example>
 
 ```html
@@ -129,14 +133,17 @@ Use the `mask-repeat-round` utility to repeat the mask image without clipping, s
 
 <Figure>
 
-<Example>
-  {
-    <div className="flex flex-col  py-8">
-      <Stripes className=" h-40 w-full rounded-lg" border>
-        <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-[50%_50%] bg-cover bg-center mask-[size:50px_50px] mask-center mask-repeat-round"></div>
-      </Stripes>
-    </div>
-  }
+<Example resizable>
+
+{
+
+<div className="flex flex-col py-8">
+  <Stripes className="h-40 w-full rounded-lg" border>
+    <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-closest-side bg-cover bg-center mask-[size:50px_50px] mask-repeat-round"></div>
+  </Stripes>
+</div>
+
+}
 
 </Example>
 
@@ -156,12 +163,14 @@ Use the `mask-no-repeat` utility to prevent a mask image from repeating:
 <Example >
 {
 
-<div className="flex flex-col  py-8">
-  <Stripes className=" h-40 w-full rounded-lg" border>
-    <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-[50%_50%] bg-cover bg-center mask-[size:50px_50px] mask-center mask-no-repeat"></div>
+<div className="flex flex-col py-8">
+  <Stripes className="h-40 w-full rounded-lg" border>
+    <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-closest-side bg-cover bg-center mask-[size:50px_50px] mask-center mask-no-repeat"></div>
   </Stripes>
 </div>
+
 }
+
 </Example>
 
 ```html
