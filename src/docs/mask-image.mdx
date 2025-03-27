@@ -520,7 +520,7 @@ Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear
   <div className="flex flex-col items-center text-xs">
     <p>mask-r-from-30%</p>
     <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-3" border>
-      <div className="mask-r-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-30% bg-cover bg-center mask-no-repeat"></div>
+      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-white mask-r-from-30% bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center text-xs">
@@ -846,7 +846,7 @@ Use utilities like `mask-radial-at-bottom-left` and `mask-radial-at-[35%_35%]` t
   <div className="flex flex-col items-center">
     <p className="mb-3 text-xs">mask-radial-at-center</p>
     <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="mask-radial-at-center h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-center bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
@@ -885,7 +885,7 @@ Use utilities like `mask-radial-at-bottom-left` and `mask-radial-at-[35%_35%]` t
 <div class="mask-radial-from-100% mask-radial-at-top ..."></div>
 <div class="mask-radial-from-100% mask-radial-at-top-right ..."></div>
 <div class="mask-radial-from-100% mask-radial-at-left ..."></div>
-<div class="mask-radial-at-center mask-radial-from-100% ..."></div>
+<div class="mask-radial-from-100% mask-radial-at-center ..."></div>
 <div class="mask-radial-from-100% mask-radial-at-right ..."></div>
 <div class="mask-radial-from-100% mask-radial-at-bottom-left ..."></div>
 <div class="mask-radial-from-100% mask-radial-at-bottom ..."></div>
@@ -994,6 +994,55 @@ Use the `mask-conic` and `mask-conic-<angle>` utilities with the [mask color sto
 </Figure>
 
 By default, this creates a gradient from black to transparent. You can customize the gradient colors using the `mask-conic-from-<color>` and `mask-conic-to-<color>` utilities.
+
+### Combining gradient masks
+
+Gradient mask utilities, like `mask-radial-from-<value>`, `mask-conic-to-<value>`, and `mask-l-from-<value>` can be combined to create more complex gradient masks:
+
+<Figure>
+
+<Example>
+
+{
+
+<div className="grid grid-cols-2 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
+  <div className="flex flex-col items-center text-xs">
+    <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-3" border>
+      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-80% mask-b-from-80% mask-radial-from-70% mask-radial-to-85% mask-circle mask-radial-at-top-left bg-cover bg-center mask-no-repeat"></div>
+    </Stripes>
+  </div>
+  <div className="flex flex-col items-center text-xs">
+    <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-3" border>
+      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-y-from-80% mask-x-from-80% bg-cover bg-center mask-no-repeat"></div>
+    </Stripes>
+  </div>
+  <div className="flex flex-col items-center text-xs">
+    <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-3" border>
+      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-50% mask-radial-[50%_90%] mask-radial-from-80% mask-radial-at-bottom bg-cover bg-center mask-no-repeat"></div>
+    </Stripes>
+  </div>
+  <div className="flex flex-col items-center text-xs">
+    <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-3" border>
+      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-80% mask-t-to-80% mask-r-from-80% mask-r-to-80% mask-conic-305 mask-conic-from-50% mask-conic-to-50% bg-cover bg-center mask-[size:2.5%_3.25%]"></div>
+    </Stripes>
+  </div>
+</div>
+
+}
+
+</Example>
+
+```html
+<!-- [!code classes:mask-r-from-80%,mask-b-from-80%,mask-radial-from-70%,mask-radial-to-85%,mask-y-from-80%,mask-x-from-80%,mask-b-from-50%,mask-radial-from-80%,mask-t-from-80%,mask-t-to-80%,mask-r-from-80%,mask-r-to-80%,mask-conic-305,mask-conic-from-50%,mask-conic-to-50%,mask-[size:2.5%_3.25%] -->
+<div class="mask-r-from-80% mask-b-from-80% mask-radial-from-70% mask-radial-to-85% ..."></div>
+<div class="mask-y-from-80% mask-x-from-80%"></div>
+<div class="mask-b-from-50% mask-radial-[50%_90%] mask-radial-from-80% ..."></div>
+<div
+  class="mask-t-from-80% mask-t-to-80% mask-r-from-80% mask-r-to-80% mask-conic-305 mask-conic-from-50% mask-conic-to-50% ..."
+></div>
+```
+
+</Figure>
 
 ### Removing mask images
 
