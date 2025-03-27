@@ -453,7 +453,7 @@ export const description = "Utilities for controlling an element's mask image.";
     ],
     [
       "mask-conic-to-<percentage>",
-      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black var(--tw-mask-conic-from), transparent <percentage>;",
+      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black var(--tw-mask-conic-from), transparent <percentage>);",
     ],
     [
       "mask-conic-to-<color>",
@@ -465,7 +465,7 @@ export const description = "Utilities for controlling an element's mask image.";
     ],
     [
       "mask-conic-to-[<value>]",
-      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black var(--tw-mask-conic-from), transparent <value>;",
+      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black var(--tw-mask-conic-from), transparent <value>);",
     ],
   ]}
 />
@@ -553,7 +553,7 @@ Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear
 
 </Figure>
 
-By default, this creates a gradient from black to transparent. You can customize the gradient colors using utilities like `mask-b-from-<color>` and `mask-l-to-<color>`
+By default, this creates a gradient from black to transparent. You can customize the gradient colors using the `mask-b-from-<color>` and `mask-l-to-<color>` utilities.
 
 Combine multiple single side utilities to create more complex gradients, or use utilities like `mask-x-from-<value>` and `mask-y-from-<value>` to create a symmetrical gradient:
 
@@ -763,7 +763,7 @@ Use utilities like `mask-linear-<angle>` and `mask-linear-to-<value>` to add a c
 
 </Figure>
 
-By default, this creates a gradient from black to transparent. You can customize the gradient colors using utilities like `mask-linear-from-<color>` and `mask-linear-to-<color>`.
+By default, this creates a gradient from black to transparent. You can customize the gradient colors using the `mask-linear-from-<color>` and `mask-linear-to-<color>` utilities.
 
 ### Adding a radial gradient mask
 
@@ -822,55 +822,55 @@ Use utilities like `mask-radial-at-bottom-left` and `mask-radial-at-[35%_35%]` t
   <div className="flex flex-col items-center">
     <p className="mb-3 text-xs">mask-radial-at-top-left</p>
     <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-top-left bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-top-left bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
     <p className="mb-3 text-xs">mask-radial-at-top</p>
     <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-top bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-top bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
     <p className="mb-3 text-xs">mask-radial-at-top-right</p>
     <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-top-right bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-top-right bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
     <p className="mb-3 text-xs">mask-radial-at-left</p>
     <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-left bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-left bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
     <p className="mb-3 text-xs">mask-radial-at-center</p>
     <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-center bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-center bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
     <p className="mb-3 text-xs">mask-radial-at-right</p>
     <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-right bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-right bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
     <p className="mb-3 text-xs">mask-radial-at-bottom-left</p>
     <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-bottom-left bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-bottom-left bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
     <p className="mb-3 text-xs">mask-radial-at-bottom</p>
     <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-bottom bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-bottom bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
     <p className="mb-3 text-xs">mask-radial-at-bottom-right</p>
     <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[2.5rem] mask-radial-from-100% mask-circle mask-radial-at-bottom-right bg-cover bg-center mask-no-repeat max-sm:mask-radial-[4rem]"></div>
+      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-bottom-right bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
 </div>
@@ -953,7 +953,7 @@ With `mask-circle`, you can only use a single fixed length, like `mask-radial-[5
 
 ### Adding a conic gradient mask
 
-Use the `mask-conic` and `mask-conic-<angle>` utilities with the [mask color stop utilities](#setting-mask-color-stops) to add a conic gradient mask to an element:
+Use the `mask-conic-from-<value>`, `mask-conic-to-<value>` and `mask-conic-<angle>` utilities to add a conic gradient mask to an element:
 
 <Figure>
 
