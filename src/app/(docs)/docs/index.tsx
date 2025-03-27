@@ -130,6 +130,7 @@ export default {
   ] as const,
   Effects: [
     ["box-shadow", "/docs/box-shadow"],
+    ["text-shadow", "/docs/text-shadow"],
     ["opacity", "/docs/opacity"],
     ["mix-blend-mode", "/docs/mix-blend-mode"],
     ["background-blend-mode", "/docs/background-blend-mode"],
