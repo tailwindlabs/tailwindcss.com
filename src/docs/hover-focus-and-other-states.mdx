@@ -1960,7 +1960,7 @@ Use the `noscript` variant to conditionally add styles based whether the user ha
 
 ```html
 <!-- [!code classes:noscript:block] -->
-<div class="noscript:block hidden">
+<div class="hidden noscript:block">
   <p>This experience requires JavaScript to function. Please enable JavaScript in your browser settings.</p>
 </div>
 ```
@@ -3513,6 +3513,18 @@ A quick reference table of every single variant included in Tailwind by default.
       </tr>
       <tr>
         <td>
+          <a href="#placeholder-shown" className="whitespace-nowrap">
+            details-content
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">
+            <span className="text-gray-400">&</span>:details-content
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td>
           <a href="#autofill" className="whitespace-nowrap">
             autofill
           </a>
@@ -4890,6 +4902,18 @@ Style an input when the placeholder is shown using the `placeholder-shown` varia
 ```html
 <!-- [!code classes:placeholder-shown:border-gray-500] -->
 <input class="placeholder-shown:border-gray-500 ..." placeholder="you@example.com" />
+```
+
+#### :details-content
+
+Style the content of a `<details>` element using the `details-content` variant:
+
+```html
+<!-- [!code classes:details-content:bg-gray-100] -->
+<details class="details-content:bg-gray-100 ...">
+  <summary>Details</summary>
+  This is a secret.
+</details>
 ```
 
 #### :autofill
