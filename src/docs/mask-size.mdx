@@ -12,8 +12,8 @@ export const description = "Utilities for controlling the size of an element's m
     ["mask-auto", "mask-size: auto;"],
     ["mask-cover", "mask-size: cover;"],
     ["mask-contain", "mask-size: contain;"],
-    ["mask-(length:<custom-property>)", "mask-size: var(<custom-property>);"],
-    ["mask-[<value>]", "mask-size: <value>;"],
+    ["mask-size-(<custom-property>)", "mask-size: var(<custom-property>);"],
+    ["mask-size-[<value>]", "mask-size: <value>;"],
   ]}
 />
 
@@ -95,7 +95,7 @@ Use the `mask-auto` utility to display the mask image at its default size:
 
 ### Using a custom value
 
-<UsingACustomValue utility="mask" value="auto_100px" name="mask image size" variable="mask-size" dataType="length" />
+<UsingACustomValue utility="mask-size" value="auto_100px" name="mask image size" variable="mask-size" />
 
 ### Responsive design
 
