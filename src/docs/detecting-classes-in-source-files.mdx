@@ -167,6 +167,19 @@ To set the base path for source detection explicitly, use the `source()` functio
 
 This can be useful when working with monorepos where your build commands run from the root of the monorepo instead of the root of each project.
 
+### Ignoring specific paths
+
+Use `@source not` to ignore specific paths when scanning for class names:
+
+```css
+/* [!code filename:CSS] */
+@import "tailwindcss";
+/* [!code highlight:2] */
+@source not "src/components/legacy";
+```
+
+This is useful when you have a large number of files in your project, but only want to scan a specific subset of them.
+
 ### Disabling automatic detection
 
 Use `source(none)` to completely disable automatic source detection if you want to register all of your sources explicitly:
@@ -181,3 +194,109 @@ Use `source(none)` to completely disable automatic source detection if you want 
 ```
 
 This can be useful in projects that have multiple Tailwind stylesheets where you want to make sure each one only includes the classes each stylesheet needs.
+
+## Safelisting specific utilities
+
+If you need to make sure Tailwind generates certain class names that don’t exist in your content files, you can force them to be inlined by using `@source inline()`:
+
+```css
+/* [!code filename:CSS] */
+@import "tailwindcss";
+/* [!code highlight:2] */
+@source inline("underline");
+```
+
+```css
+/* [!code filename:Generated CSS] */
+.underline {
+  text-decoration: underline;
+}
+```
+
+### Generating variants
+
+You can also use `@source inline()` to generate classes with variants. For example, to generate the `underline` class with hover and focus variants, add `{hover:,focus:,}` to the source input:
+
+```css
+/* [!code filename:CSS] */
+@import "tailwindcss";
+/* [!code highlight:2] */
+@source inline("{hover:,focus:,}underline");
+```
+
+```css
+/* [!code filename:Generated CSS] */
+.underline {
+  text-decoration: underline;
+}
+
+.hover\\:underline:hover {
+  text-decoration: underline;
+}
+
+.focus\\:underline:focus {
+  text-decoration: underline;
+}
+```
+
+### Generating ranges
+
+The source input is [brace expanded](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html), so you can generate multiple classes at once. For example, to generate all the red shades with hover variants, you can add a range to the source input:
+
+```css
+/* [!code filename:CSS] */
+@import "tailwindcss";
+/* [!code highlight:2] */
+@source inline("{hover:,}bg-red-{50,{100..900..100},950}");
+```
+
+This will generate shades of red from 50 to 950 in increments of 100, along with hover variants for each shade:
+
+```css
+/* [!code filename:Generated CSS] */
+.bg-red-50 {
+  background-color: var(--color-red-50);
+}
+.bg-red-100 {
+  background-color: var(--color-red-100);
+}
+.bg-red-200 {
+  background-color: var(--color-red-200);
+}
+
+/* ... */
+
+.bg-red-800 {
+  background-color: var(--color-red-800);
+}
+.bg-red-900 {
+  background-color: var(--color-red-900);
+}
+.bg-red-950 {
+  background-color: var(--color-red-950);
+}
+@media (hover: hover) {
+  .hover\\:bg-red-50:hover {
+    background-color: var(--color-red-50);
+  }
+
+  /* ... */
+
+  .hover\\:bg-red-950:hover {
+    background-color: var(--color-red-950);
+  }
+}
+```
+
+### Explicitly excluding classes
+
+If you need to avoid specific classes from being generated you can use `@source not inline()`:
+
+```css
+/* [!code filename:CSS] */
+@import "tailwindcss";
+/* [!code highlight:2] */
+@source not inline("{hover:,focus:,}bg-red-{50,{100..900..100},950}");
+```
+
+This will specifically exclude the shades of red from 50 to 950, along with their hover and focus variants, from being generated even if they are detected in your source files.
