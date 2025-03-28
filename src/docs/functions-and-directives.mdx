@@ -83,23 +83,7 @@ Use the `@variant` directive to apply a Tailwind variant to styles in your CSS:
 }
 ```
 
-If you need to apply multiple variants at the same time, use nesting:
-
-```css
-/* [!code filename:CSS] */
-.my-element {
-  background: white;
-
-  /* [!code highlight:6] */
-  @variant dark {
-    @variant hover {
-      background: black;
-    }
-  }
-}
-```
-
-Learn more about variants in the [hover, focus, and other states documentation](/docs/hover-focus-and-other-states).
+Learn more using variants in the [using variants documentation](/docs/adding-custom-styles#using-variants).
 
 <h3 id="custom-variant-directive">@custom-variant</h3>
 
@@ -107,13 +91,12 @@ Use the `@custom-variant` directive to add a custom variant in your project:
 
 ```css
 /* [!code filename:CSS] */
-@custom-variant pointer-coarse (@media (pointer: coarse));
 @custom-variant theme-midnight (&:where([data-theme="midnight"] *));
 ```
 
-This lets you write utilities like `pointer-coarse:size-48` and `theme-midnight:bg-slate-900`.
+This lets you write utilities `theme-midnight:bg-black` and `theme-midnight:text-white`.
 
-Learn more about adding custom variants in the [registering a custom variant documentation](/docs/hover-focus-and-other-states#registering-a-custom-variant).
+Learn more about adding custom variants in the [adding custom variants documentation](/docs/adding-custom-styles#adding-custom-variants).
 
 <h3 id="apply-directive">@apply</h3>
 

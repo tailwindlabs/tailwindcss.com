@@ -1,3 +1,5 @@
+import { CodeExampleStack } from "@/components/code-example";
+
 export const title = "Adding custom styles";
 export const description = "Best practices for adding your own custom styles in Tailwind projects.";
 
@@ -294,6 +296,74 @@ The `components` layer is also a good place to put custom styles for any third-p
 }
 ```
 
+### Using variants
+
+Use the `@variant` directive to apply a Tailwind variant within custom CSS:
+
+<CodeExampleStack>
+
+```css
+/* [!code filename:app.css] */
+.my-element {
+  background: white;
+
+  /* [!code highlight:4] */
+  @variant dark {
+    background: black;
+  }
+}
+```
+
+```css
+/* [!code filename:Compiled CSS] */
+.my-element {
+  background: white;
+
+  /* [!code highlight:4] */
+  @media (prefers-color-scheme: dark) {
+    background: black;
+  }
+}
+```
+
+</CodeExampleStack>
+
+If you need to apply multiple variants at the same time, use nesting:
+
+<CodeExampleStack>
+
+```css
+/* [!code filename:app.css] */
+.my-element {
+  background: white;
+
+  /* [!code highlight:6] */
+  @variant dark {
+    @variant hover {
+      background: black;
+    }
+  }
+}
+```
+
+```css
+/* [!code filename:Compiled CSS] */
+.my-element {
+  background: white;
+
+  /* [!code highlight:7] */
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        background: black;
+      }
+    }
+  }
+}
+```
+
+</CodeExampleStack>
+
 ## Adding custom utilities
 
 ### Simple utilities
@@ -508,31 +578,38 @@ This will match utilities like `aspect-square`, `aspect-3/4`, and `aspect-[7/9]`
 
 ## Adding custom variants
 
-Use the `@variant` directive to apply a Tailwind variant within custom CSS:
+In addition to using the variants that ship with Tailwind, you can also add your own custom variants using the `@custom-variant` directive:
 
 ```css
-/* [!code filename:CSS] */
-.my-element {
-  background: white;
-
-  /* [!code highlight:4] */
-  @variant dark {
-    background: black;
+@custom-variant theme-midnight {
+  &:where([data-theme="midnight"] *) {
+    @slot;
   }
 }
 ```
 
-If you need to apply multiple variants at the same time, use nesting:
+Now you can use the `theme-midnight:<utility>` variant in your HTML:
+
+```html
+<!-- [!code classes:theme-midnight:bg-black] -->
+<html data-theme="midnight">
+  <button class="theme-midnight:bg-black ..."></button>
+</html>
+```
+
+You can create variants using the shorthand syntax when nesting isn't required:
 
 ```css
-/* [!code filename:CSS] */
-.my-element {
-  background: white;
+@custom-variant theme-midnight (&:where([data-theme="midnight"] *));
+```
 
-  /* [!code highlight:6] */
-  @variant dark {
-    @variant hover {
-      background: black;
+When a custom variant has multiple rules, they can be nested within each other:
+
+```css
+@custom-variant any-hover {
+  @media (any-hover: hover) {
+    &:hover {
+      @slot;
     }
   }
 }

@@ -2881,40 +2881,22 @@ With at-rule custom variants the `&` placeholder isn't necessary, just like when
 
 ### Registering a custom variant
 
-If you find yourself using the same arbitrary variant multiple times in your project, it might be worth creating a custom variant:
+If you find yourself using the same arbitrary variant multiple times in your project, it might be worth creating a custom variant using the `@custom-variant` directive:
 
 ```css
-@custom-variant pointer-coarse {
-  @media (pointer: coarse) {
-    @slot;
-  }
-}
+@custom-variant theme-midnight (&:where([data-theme="midnight"] *));
 ```
 
-Now you can use the `pointer-coarse:<utility>` variant in your HTML:
+Now you can use the `theme-midnight:<utility>` variant in your HTML:
 
 ```html
-<!-- [!code classes:pointer-coarse:size-12] -->
-<button class="pointer-coarse:size-12 ..."></button>
+<!-- [!code classes:theme-midnight:bg-black] -->
+<html data-theme="midnight">
+  <button class="theme-midnight:bg-black ..."></button>
+</html>
 ```
 
-You can create variants using the shorthand syntax when nesting isn't required:
-
-```css
-@custom-variant pointer-coarse (@media (pointer: coarse));
-```
-
-When a custom variant has multiple rules, they can be nested within each other:
-
-```css
-@custom-variant any-hover {
-  @media (any-hover: hover) {
-    &:hover {
-      @slot;
-    }
-  }
-}
-```
+Learn more about adding custom variants in the [adding custom variants documentation](/docs/adding-custom-styles#adding-custom-variants).
 
 ## Appendix
 
