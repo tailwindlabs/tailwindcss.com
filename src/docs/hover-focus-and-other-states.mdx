@@ -1943,6 +1943,17 @@ Use the `portrait` and `landscape` variants to conditionally add styles when the
 </div>
 ```
 
+### scripting
+
+Use the `noscript` variant to conditionally add styles based whether the user has scripting, such as JavaScript, enabled:
+
+```html
+<!-- [!code classes:noscript:block] -->
+<div class="noscript:block hidden">
+  <p>This experience requires JavaScript to function. Please enable JavaScript in your browser settings.</p>
+</div>
+```
+
 ### print
 
 Use the `print` variant to conditionally add styles that only apply when the document is being printed:
@@ -4223,6 +4234,16 @@ A quick reference table of every single variant included in Tailwind by default.
           <code className="whitespace-nowrap before:content-none after:content-none">
             @media (prefers-contrast: less)
           </code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#scripting" className="whitespace-nowrap">
+            noscript
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">@media (scripting: none)</code>
         </td>
       </tr>
       <tr>
