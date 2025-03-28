@@ -2954,24 +2954,14 @@ With at-rule custom variants the `&` placeholder isn't necessary, just like when
 If you find yourself using the same arbitrary variant multiple times in your project, it might be worth creating a custom variant:
 
 ```css
-@custom-variant pointer-coarse {
-  @media (pointer: coarse) {
-    @slot;
-  }
-}
+@custom-variant theme-midnight (&:where([data-theme="midnight"] *));
 ```
 
-Now you can use the `pointer-coarse:<utility>` variant in your HTML:
+Now you can use the `theme-midnight:<utility>` variant in your HTML:
 
 ```html
-<!-- [!code classes:pointer-coarse:size-12] -->
-<button class="pointer-coarse:size-12 ..."></button>
-```
-
-You can create variants using the shorthand syntax when nesting isn't required:
-
-```css
-@custom-variant pointer-coarse (@media (pointer: coarse));
+<!-- [!code classes:theme-midnight:bg-slate-900] -->
+<button class="theme-midnight:bg-slate-900 ..."></button>
 ```
 
 When a custom variant has multiple rules, they can be nested within each other:
