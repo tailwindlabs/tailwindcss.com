@@ -229,13 +229,15 @@ You can also use `@source inline()` to generate classes with variants. For examp
 .underline {
   text-decoration: underline;
 }
-
-.hover\\:underline:hover {
-  text-decoration: underline;
+@media (hover: hover) {
+  .hover\\:underline:hover {
+    text-decoration: underline;
+  }
 }
-
-.focus\\:underline:focus {
-  text-decoration: underline;
+@media (focus: focus) {
+  .focus\\:underline:focus {
+    text-decoration: underline;
+  }
 }
 ```
 
