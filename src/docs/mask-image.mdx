@@ -486,7 +486,7 @@ Use the `mask-[<value>]` syntax to set the mask image of an element:
   border
   className="relative mx-auto flex h-48 w-96 items-center justify-center overflow-hidden rounded-lg sm:w-96"
 >
-  <div className="h-full w-full bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] [mask-image:url(/mask.png)] bg-cover bg-center bg-no-repeat mask-[size:110%_90%] mask-center mask-no-repeat"></div>
+  <div className="mask-size-[110%_90%] h-full w-full bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] [mask-image:url(/mask.png)] bg-cover bg-center bg-no-repeat mask-center mask-no-repeat"></div>
 </Stripes>
 
 }
@@ -520,7 +520,7 @@ Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear
   <div className="flex flex-col items-center text-xs">
     <p>mask-r-from-30%</p>
     <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-3" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-white mask-r-from-30% bg-cover bg-center mask-no-repeat"></div>
+      <div className="mask-r-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-30% bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center text-xs">
@@ -1023,7 +1023,7 @@ Gradient mask utilities, like `mask-radial-from-<value>`, `mask-conic-to-<value>
   </div>
   <div className="flex flex-col items-center text-xs">
     <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-3" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-80% mask-t-to-80% mask-r-from-80% mask-r-to-80% mask-conic-305 mask-conic-from-50% mask-conic-to-50% bg-cover bg-center mask-[size:2.5%_3.25%]"></div>
+      <div className="mask-size-[2.5%_3.25%] h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-80% mask-t-to-80% mask-r-from-80% mask-r-to-80% mask-conic-305 mask-conic-from-50% mask-conic-to-50% bg-cover bg-center"></div>
     </Stripes>
   </div>
 </div>
@@ -1033,7 +1033,7 @@ Gradient mask utilities, like `mask-radial-from-<value>`, `mask-conic-to-<value>
 </Example>
 
 ```html
-<!-- [!code classes:mask-r-from-80%,mask-b-from-80%,mask-radial-from-70%,mask-radial-to-85%,mask-y-from-80%,mask-x-from-80%,mask-b-from-50%,mask-radial-from-80%,mask-t-from-80%,mask-t-to-80%,mask-r-from-80%,mask-r-to-80%,mask-conic-305,mask-conic-from-50%,mask-conic-to-50%,mask-[size:2.5%_3.25%] -->
+<!-- [!code classes:mask-r-from-80%,mask-b-from-80%,mask-radial-from-70%,mask-radial-to-85%,mask-y-from-80%,mask-x-from-80%,mask-b-from-50%,mask-radial-from-80%,mask-t-from-80%,mask-t-to-80%,mask-r-from-80%,mask-r-to-80%,mask-conic-305,mask-conic-from-50%,mask-conic-to-50%,mask-size-[2.5%_3.25%] -->
 <div class="mask-r-from-80% mask-b-from-80% mask-radial-from-70% mask-radial-to-85% ..."></div>
 <div class="mask-y-from-80% mask-x-from-80%"></div>
 <div class="mask-b-from-50% mask-radial-[50%_90%] mask-radial-from-80% ..."></div>
