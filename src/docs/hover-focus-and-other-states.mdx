@@ -1857,6 +1857,17 @@ Use the `not-forced-colors` variant to apply styles based when the user is _not_
 
 Tailwind also includes a [forced color adjust](/docs/forced-color-adjust) utilities to opt in and out of forced colors.
 
+### inverted-colors
+
+Use the `inverted-colors` variant to conditionally add styles when the user has enabled an inverted color scheme:
+
+```html
+<!-- [!code classes:inverted-colors:shadow-none] -->
+<div class="shadow-xl inverted-colors:shadow-none ...">
+  <!-- ... -->
+</div>
+```
+
 ### pointer and any-pointer
 
 The `pointer` media query tells you whether the user has a primary pointing device, like a mouse, and the accuracy of that pointing device.
@@ -4106,25 +4117,73 @@ A quick reference table of every single variant included in Tailwind by default.
       </tr>
       <tr>
         <td>
-          <a href="#orientation" className="whitespace-nowrap">
-            portrait
+          <a href="#prefers-reduced-motion" className="whitespace-nowrap">
+            motion-safe
           </a>
         </td>
         <td>
           <code className="whitespace-nowrap before:content-none after:content-none">
-            @media (orientation: portrait)
+            @media (prefers-reduced-motion: no-preference)
           </code>
         </td>
       </tr>
       <tr>
         <td>
-          <a href="#orientation" className="whitespace-nowrap">
-            landscape
+          <a href="#prefers-reduced-motion" className="whitespace-nowrap">
+            motion-reduce
           </a>
         </td>
         <td>
           <code className="whitespace-nowrap before:content-none after:content-none">
-            @media (orientation: landscape)
+            @media (prefers-reduced-motion: reduce)
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#prefers-contrast" className="whitespace-nowrap">
+            contrast-more
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">
+            @media (prefers-contrast: more)
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#prefers-contrast" className="whitespace-nowrap">
+            contrast-less
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">
+            @media (prefers-contrast: less)
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#forced-colors" className="whitespace-nowrap">
+            forced-colors
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">
+            @media (forced-colors: active)
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#inverted-colors" className="whitespace-nowrap">
+            inverted-colors
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">
+            @media (inverted-colors: inverted)
           </code>
         </td>
       </tr>
@@ -4190,49 +4249,25 @@ A quick reference table of every single variant included in Tailwind by default.
       </tr>
       <tr>
         <td>
-          <a href="#prefers-reduced-motion" className="whitespace-nowrap">
-            motion-safe
+          <a href="#orientation" className="whitespace-nowrap">
+            portrait
           </a>
         </td>
         <td>
           <code className="whitespace-nowrap before:content-none after:content-none">
-            @media (prefers-reduced-motion: no-preference)
+            @media (orientation: portrait)
           </code>
         </td>
       </tr>
       <tr>
         <td>
-          <a href="#prefers-reduced-motion" className="whitespace-nowrap">
-            motion-reduce
+          <a href="#orientation" className="whitespace-nowrap">
+            landscape
           </a>
         </td>
         <td>
           <code className="whitespace-nowrap before:content-none after:content-none">
-            @media (prefers-reduced-motion: reduce)
-          </code>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a href="#prefers-contrast" className="whitespace-nowrap">
-            contrast-more
-          </a>
-        </td>
-        <td>
-          <code className="whitespace-nowrap before:content-none after:content-none">
-            @media (prefers-contrast: more)
-          </code>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a href="#prefers-contrast" className="whitespace-nowrap">
-            contrast-less
-          </a>
-        </td>
-        <td>
-          <code className="whitespace-nowrap before:content-none after:content-none">
-            @media (prefers-contrast: less)
+            @media (orientation: landscape)
           </code>
         </td>
       </tr>
@@ -4433,18 +4468,6 @@ A quick reference table of every single variant included in Tailwind by default.
         <td>
           <code className="whitespace-nowrap before:content-none after:content-none">
             <span className="text-gray-400">&</span>:is([open], :popover-open, :open)
-          </code>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a href="#forced-colors" className="whitespace-nowrap">
-            forced-colors
-          </a>
-        </td>
-        <td>
-          <code className="whitespace-nowrap before:content-none after:content-none">
-            @media (forced-colors: active)
           </code>
         </td>
       </tr>
