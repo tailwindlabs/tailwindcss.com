@@ -1,3 +1,5 @@
+"server only";
+
 import { compile } from "@tailwindcss/node";
 
 let input = `

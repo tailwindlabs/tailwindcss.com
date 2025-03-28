@@ -1138,8 +1138,8 @@ packages:
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
 
   '@tailwindcss/node@file:dist/tailwindcss-node.tgz':
-    resolution: {integrity: sha512-X/sQaGpwZ8xtn04HhtDvsaC24cPr1v6DY2v0an2QtuNW5EJKAr7qXGcysgNIiA+uUPXxMbROVANbtgk6hZrfDA==, tarball: file:dist/tailwindcss-node.tgz}
-    version: 4.0.16
+    resolution: {integrity: sha512-0kOKPhz5FTW2eFgylEVn/yPBVAn8l732kN5DQan7HtPZr0/qynuybul0evRJCefpW0XLf/CD7VegdR/LACdO9Q==, tarball: file:dist/tailwindcss-node.tgz}
+    version: 4.0.17
 
   '@tailwindcss/oxide-android-arm64@0.0.0-insiders.3e53e25':
     resolution: {integrity: sha512-HZ9buOwscbk/a2XJCJq/w5gyA+k3FewcK4XlK4wRtRfrq4GLZesXnBDOhu/dm+1H7VYsMZK2g0OUi5wzEXfYww==}
@@ -1212,8 +1212,8 @@ packages:
     engines: {node: '>= 10'}
 
   '@tailwindcss/postcss@file:dist/tailwindcss-postcss.tgz':
-    resolution: {integrity: sha512-gl60VgLN7PV9aLMlddWhD7xoMXS9l2lS7KKfEAroaauLehUrocFhCBYHkoQIDTF5gNJdjA8It1gXKb1+cw65cA==, tarball: file:dist/tailwindcss-postcss.tgz}
-    version: 4.0.16
+    resolution: {integrity: sha512-IJDsNk3vN4Ag7XXjGlpF3C4HQA8z95Zahir3roV/f439cip9BjqbvW6PuiPfdvmZ63BE0gSdeamTo0qP9i++vg==, tarball: file:dist/tailwindcss-postcss.tgz}
+    version: 4.0.17
 
   '@tanstack/react-virtual@3.13.5':
     resolution: {integrity: sha512-MzSSMGkFWCDSb2xXqmdbfQqBG4wcRI3JKVjpYGZG0CccnViLpfRW4tGU97ImfBbSYzvEWJ/2SK/OiIoSmcUBAA==}
@@ -2116,8 +2116,8 @@ packages:
     resolution: {integrity: sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew==}
 
   tailwindcss@file:dist/tailwindcss.tgz:
-    resolution: {integrity: sha512-YroK63a5tFfqUA6f4Uw7dcUXRppIupZ+m8G3EuqMyg+QktSFeZ1uWNDzJQ7hvWqtS1h14luuFBoxc4cbzN5IFw==, tarball: file:dist/tailwindcss.tgz}
-    version: 4.0.16
+    resolution: {integrity: sha512-OiK2V5DxN+7Gb+HnZBVr844uZicg3jVrMQDoqgMmotyKkAj6pCLihsmG9RRMqyJCAuZO6/ZnFofP9gdpZP3b+Q==, tarball: file:dist/tailwindcss.tgz}
+    version: 4.0.17
 
   tapable@2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
@@ -3417,6 +3417,7 @@ snapshots:
     dependencies:
       enhanced-resolve: 5.18.1
       jiti: 2.4.2
+      lightningcss: 1.29.2
       tailwindcss: file:dist/tailwindcss.tgz
 
   '@tailwindcss/oxide-android-arm64@0.0.0-insiders.3e53e25':
@@ -3471,7 +3472,6 @@ snapshots:
       '@alloc/quick-lru': 5.2.0
       '@tailwindcss/node': file:dist/tailwindcss-node.tgz
       '@tailwindcss/oxide': 0.0.0-insiders.3e53e25
-      lightningcss: 1.29.2
       postcss: 8.5.3
       tailwindcss: file:dist/tailwindcss.tgz
 
