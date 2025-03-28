@@ -8,37 +8,13 @@ export const description = "Utilities for controlling line breaks within words i
 
 <ApiTable
   rows={[
-    ["wrap-normal", "overflow-wrap: normal;"],
     ["wrap-break-word", "overflow-wrap: break-word;"],
     ["wrap-anywhere", "overflow-wrap: anywhere;"],
+    ["wrap-normal", "overflow-wrap: normal;"],
   ]}
 />
 
 ## Examples
-
-### Wrapping normally
-
-Use the `wrap-normal` utility to only allow line breaks at natural wrapping points, like spaces, hyphens, and punctuation:
-
-<Figure>
-
-<Example padding={false}>
-  {
-    <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 wrap-normal text-gray-900 dark:text-gray-200">
-      The longest word in any of the major English language dictionaries is{" "}
-      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that refers to a lung
-      disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it
-      is the same as silicosis.
-    </p>
-  }
-</Example>
-
-```html
-<!-- [!code classes:wrap-normal] -->
-<p class="wrap-normal">The longest word in any of the major...</p>
-```
-
-</Figure>
 
 ### Wrapping mid-word
 
@@ -125,6 +101,30 @@ The `wrap-anywhere` utility behaves similarly to `wrap-break-word`, except that 
 </Figure>
 
 This is useful for wrapping text inside of `flex` containers, where you would usually need to set `min-width: 0` on the child element to allow it to shrink below its content size.
+
+### Wrapping normally
+
+Use the `wrap-normal` utility to only allow line breaks at natural wrapping points, like spaces, hyphens, and punctuation:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 wrap-normal text-gray-900 dark:text-gray-200">
+      The longest word in any of the major English language dictionaries is{" "}
+      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that refers to a lung
+      disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it
+      is the same as silicosis.
+    </p>
+  }
+</Example>
+
+```html
+<!-- [!code classes:wrap-normal] -->
+<p class="wrap-normal">The longest word in any of the major...</p>
+```
+
+</Figure>
 
 ### Responsive design
 
