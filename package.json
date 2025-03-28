@@ -15,7 +15,7 @@
     "@heroicons/react": "^2.2.0",
     "@next/mdx": "^15.1.6",
     "@shikijs/transformers": "^1.26.1",
-    "@tailwindcss/postcss": "0.0.0-insiders.cc3e852",
+    "@tailwindcss/postcss": "0.0.0-insiders.eecb6f7",
     "@types/mdx": "^2.0.13",
     "clsx": "^2.1.1",
     "dedent": "^1.5.3",
@@ -28,7 +28,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "shiki": "^1.26.1",
-    "tailwindcss": "0.0.0-insiders.cc3e852"
+    "tailwindcss": "file:tailwindcss.tgz"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
@@ -55,5 +55,12 @@
       "@tailwindcss/postcss": {}
     }
   },
+  "pnpm": {
+    "overrides": {
+      "tailwindcss": "file:./tailwindcss.tgz",
+      "@tailwindcss/postcss>tailwindcss": "file:./tailwindcss.tgz"
+    }
+  },
   "packageManager": "pnpm@9.14.0"
+  
 }
