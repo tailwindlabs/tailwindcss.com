@@ -1857,6 +1857,17 @@ Use the `not-forced-colors` variant to apply styles based when the user is _not_
 
 Tailwind also includes a [forced color adjust](/docs/forced-color-adjust) utilities to opt in and out of forced colors.
 
+### inverted-colors
+
+Use the `inverted-colors` variant to conditionally add styles when the user has enabled an inverted color scheme:
+
+```html
+<!-- [!code classes:inverted-colors:shadow-none] -->
+<div class="shadow-xl inverted-colors:shadow-none ...">
+  <!-- ... -->
+</div>
+```
+
 ### pointer and any-pointer
 
 The `pointer` media query tells you whether the user has a primary pointing device, like a mouse, and the accuracy of that pointing device.
@@ -1926,17 +1937,6 @@ Use the `pointer-fine` variant to target an accurate pointing device, like a mou
 While `pointer`only targets the primary pointing device, `any-pointer` is used to target any of the pointing devices that might be available. Use the `any-pointer-fine` and `any-pointer-coarse` variants to provide different styles if at least one connected pointing device meets the criteria.
 
 You can use `pointer-none` and `any-pointer-none` to target the absence of a pointing device.
-
-### inverted-colors
-
-Use the `inverted-colors` variant to conditionally add styles when the user has enabled an inverted color scheme:
-
-```html
-<!-- [!code classes:inverted-colors:shadow-none] -->
-<div class="shadow-xl inverted-colors:shadow-none ...">
-  <!-- ... -->
-</div>
-```
 
 ### orientation
 
