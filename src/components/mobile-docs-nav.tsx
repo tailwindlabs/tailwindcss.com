@@ -43,7 +43,7 @@ export function MobileNav({
             <div className="flex h-14 items-center border-t border-gray-950/5 bg-white px-4 sm:px-6 lg:hidden dark:border-white/10 dark:bg-gray-950">
               <IconButton
                 onClick={() => setIsOpen(false)}
-                aria-label="Open navigation menu"
+                aria-label="Close navigation menu"
                 className="-ml-1.5"
                 data-autofocus
               >
