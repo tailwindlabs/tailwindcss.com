@@ -15,7 +15,7 @@
     "@heroicons/react": "^2.2.0",
     "@next/mdx": "15.3.0-canary.23",
     "@shikijs/transformers": "^1.29.1",
-    "@tailwindcss/postcss": "0.0.0-insiders.f772266",
+    "@tailwindcss/postcss": "0.0.0-insiders.c32b608",
     "@types/mdx": "^2.0.13",
     "clsx": "^2.1.1",
     "dedent": "^1.5.3",
@@ -28,11 +28,11 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "shiki": "^1.29.1",
-    "tailwindcss": "0.0.0-insiders.f772266"
+    "tailwindcss": "0.0.0-insiders.c32b608"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
-    "@tailwindcss/node": "0.0.0-insiders.f772266",
+    "@tailwindcss/node": "0.0.0-insiders.c32b608",
     "@types/hast": "^3.0.4",
     "@types/node": "^22.13.13",
     "@types/react": "^19.0.12",
