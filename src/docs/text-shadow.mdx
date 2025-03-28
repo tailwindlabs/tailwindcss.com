@@ -28,7 +28,7 @@ export const description = "Utilities for controlling the shadow of a text eleme
       "text-shadow-lg",
       "text-shadow: var(--text-shadow-lg); /* 0px 1px 2px rgba(0, 0, 0, 0.1), 0px 3px 2px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1) */",
     ],
-    ["text-shadow-none", "text-shadow: 0 0 #0000;"],
+    ["text-shadow-none", "text-shadow: none;"],
     ["text-shadow-(<custom-property>)", "text-shadow: var(<custom-property>);"],
     ["text-shadow-(color:<custom-property>)", "--tw-shadow-color var(<custom-property>);"],
     ["text-shadow-[<value>]", "text-shadow: <value>;"],
@@ -61,6 +61,7 @@ Use utilities like `text-shadow-sm` and `shadow-lg` to apply different sized tex
   <p className="relative text-shadow-sm">The quick brown fox jumps over the lazy dog.</p>
   <p className="relative text-shadow-md">The quick brown fox jumps over the lazy dog.</p>
   <p className="relative text-shadow-lg">The quick brown fox jumps over the lazy dog.</p>
+  <p className="relative text-shadow-none">The quick brown fox jumps over the lazy dog.</p>
 </div>
 
 }
