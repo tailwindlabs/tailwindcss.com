@@ -18,8 +18,8 @@ export const description = "Utilities for controlling the position of an element
     ["mask-bottom-left", "mask-position: bottom left;"],
     ["mask-bottom", "mask-position: bottom;"],
     ["mask-bottom-right", "mask-position: bottom right;"],
-    ["mask-(position:<custom-property>)", "mask-position: var(<custom-property>);"],
-    ["mask-[<value>]", "mask-position: <value>;"],
+    ["mask-position-(position:<custom-property>)", "mask-position: var(<custom-property>);"],
+    ["mask-position-[<value>]", "mask-position: <value>;"],
   ]}
 />
 
@@ -113,13 +113,7 @@ Use utilities like `mask-center`, `mask-right`, and `mask-left-top` to control t
 
 ### Using a custom value
 
-<UsingACustomValue
-  utility="mask"
-  value="center_top_1rem"
-  name="mask position"
-  variable="mask-position"
-  dataType="position"
-/>
+<UsingACustomValue utility="mask-position" value="center_top_1rem" name="mask position" variable="mask-position" />
 
 ### Responsive design
 
