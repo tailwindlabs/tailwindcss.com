@@ -457,22 +457,18 @@ export function CustomizingYourThemeColors({
   utilities,
   element = "div",
   elementAttributes = {},
-  themeKey = "color",
-  name = "color",
 }: {
   utility: string;
   utilities?: Array<string>;
   element?: string;
   elementAttributes?: Record<string, string>;
-  name?: string;
-  themeKey?: string;
 }) {
   const primaryUtility = utility || utilities![0];
 
   return (
     <CustomizingYourTheme
-      themeKey={themeKey}
-      name={name}
+      themeKey="color"
+      name="color"
       utility={utility}
       utilities={utilities}
       customName="regal-blue"
