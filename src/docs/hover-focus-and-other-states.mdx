@@ -1909,7 +1909,7 @@ Use the `pointer-fine` variant to target an accurate pointing device, like a mou
 <fieldset aria-label="Choose a memory option">
   <div class="flex items-center justify-between">
     <div>RAM</div>
-    <a> See performance specs </a>
+    <a href="#"> See performance specs </a>
   </div>
   <div class="mt-4 grid grid-cols-6 gap-2 pointer-coarse:mt-6 pointer-coarse:grid-cols-3 pointer-coarse:gap-4">
     <label class="p-2 pointer-coarse:p-4 ...">
@@ -2411,14 +2411,14 @@ Alternatively, you can configure shortcuts for common data attributes you're usi
 <!-- [!code filename:app.css] -->
 @import "tailwindcss";
 
-@custom-variant has-checked (&[data-ui~="checked"]);
+@custom-variant data-checked (&[data-ui~="checked"]);
 ```
 
 You can then use these custom `data-*` variants in your project:
 
 ```html
-<!-- [!code classes:has-checked:underline] -->
-<div data-ui="checked active" class="has-checked:underline">
+<!-- [!code classes:data-checked:underline] -->
+<div data-ui="checked active" class="data-checked:underline">
   <!-- ... -->
 </div>
 ```
