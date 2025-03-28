@@ -2951,7 +2951,7 @@ With at-rule custom variants the `&` placeholder isn't necessary, just like when
 
 ### Registering a custom variant
 
-If you find yourself using the same arbitrary variant multiple times in your project, it might be worth creating a custom variant:
+If you find yourself using the same arbitrary variant multiple times in your project, it might be worth creating a custom variant using the `@custom-variant` directive:
 
 ```css
 @custom-variant theme-midnight (&:where([data-theme="midnight"] *));
@@ -2960,21 +2960,13 @@ If you find yourself using the same arbitrary variant multiple times in your pro
 Now you can use the `theme-midnight:<utility>` variant in your HTML:
 
 ```html
-<!-- [!code classes:theme-midnight:bg-slate-900] -->
-<button class="theme-midnight:bg-slate-900 ..."></button>
+<!-- [!code classes:theme-midnight:bg-black] -->
+<html data-theme="midnight">
+  <button class="theme-midnight:bg-black ..."></button>
+</html>
 ```
 
-When a custom variant has multiple rules, they can be nested within each other:
-
-```css
-@custom-variant any-hover {
-  @media (any-hover: hover) {
-    &:hover {
-      @slot;
-    }
-  }
-}
-```
+Learn more about adding custom variants in the [adding custom variants documentation](/docs/adding-custom-styles#adding-custom-variants).
 
 ## Appendix
 
