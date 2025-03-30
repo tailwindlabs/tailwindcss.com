@@ -1,0 +1,369 @@
+import { adamwathan } from "@/app/blog/authors";
+import card from "./card.jpg";
+import Image from "next/image";
+import { Figure } from "@/components/figure";
+import { Example } from "@/components/example";
+
+export const meta = {
+  title: "Tailwind CSS v4.1: Text shadows, masks, and pointer media queries",
+  description: `A brand new point release with text shadows, mask utilities, and new variants for building better interactive experiences.`,
+  date: "2025-03-31T12:00:00.000Z",
+  authors: [adamwathan],
+  image: card,
+  excerpt: (
+    <>
+      Hot on the heels of Tailwind CSS v4.0, we're excited to release v4.1 with a bunch of powerful new features
+      including text shadows, mask utilities, and new variants for building better interactive experiences.
+    </>
+  ),
+};
+
+<Image src={card} alt="Tailwind CSS v4.1" />
+
+Tailwind CSS v4.0 is only a few months old but because we love open source so much, we couldn't resist the urge to add even more features. Tailwind CSS v4.1 is packed with new utilities and variants that will help you build better interactive experiences.
+
+We all know that your AI assistant still thinks it's 2023, so here's a list of new features in this release you can paste into your chat window:
+
+- [New `text-shadow-*` utilities](#new-text-shadow-utilities): Finally, you can use a feature that has been in CSS since 2009.
+- [Mask elements with the `mask-*` utilities](#mask-elements-with-the-mask-utilities): Use images and gradients to mask the visibility of elements.
+- [Fine-grained text wrapping with `overflow-wrap`](#fine-grained-text-wrapping-with-overflow-wrap): Even the longest German word can't break your layout.
+- [Target input devices with `pointer-*` and `any-pointer-*`](#target-input-devices-with-pointer-and-any-pointer): Touch targets just got easier to style.
+- [Align items with `items-baseline-last`](#align-items-with-items-baseline-last): Align flex or grid items to the baseline of the last line of text.
+- [Keep content visible with `safe` alignment](#keep-content-visible-with-safe-alignment): Safely align content without worrying about overflow.
+- [Safelist specific utilities with `@source inline(…)`](#safelist-specific-utilities-with-source-inline): Include classes that aren't in your source files.
+- [Ignore specific paths with `@source not`](#ignore-specific-paths-with-source-not): Fine-tune the paths that Tailwind scans for classes.
+- [A bunch of new variants](#a-bunch-of-new-variants): build better interactive experiences with `noscript`, `user-valid`, and more.
+
+That's all the cool stuff, but to keep you on your toes there's a few other things in the [release notes](https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.1.0) that you should check out too.
+
+Upgrade your projects by installing the latest version of `tailwindcss` from npm:
+
+```sh
+npm install tailwindcss@latest
+```
+
+---
+
+## New `text-shadow-*` utilities
+
+We've been threatening to add text shadows for at least the last six years and today they are finally here - It's just a pity no one uses them anymore.
+
+Five text shadows have been added to the default theme, from `text-shadow-2xs` to `text-shadow-lg`. They are particularly useful for making headings stand out against a busy background:
+
+<Figure>
+
+<Example padding={false}>
+
+{
+
+<div className="relative grid items-center gap-4 bg-white px-6 py-14 text-center text-2xl font-semibold text-white">
+  <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1635776063328-153b13e3c245?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-size-[150%_200%] bg-left opacity-75" />
+  <p className="relative text-shadow-2xs">The quick brown fox jumps over the lazy dog.</p>
+  <p className="relative text-shadow-xs">The quick brown fox jumps over the lazy dog.</p>
+  <p className="relative text-shadow-sm">The quick brown fox jumps over the lazy dog.</p>
+  <p className="relative text-shadow-md">The quick brown fox jumps over the lazy dog.</p>
+  <p className="relative text-shadow-lg">The quick brown fox jumps over the lazy dog.</p>
+  <p className="relative text-shadow-none">The quick brown fox jumps over the lazy dog.</p>
+</div>
+
+}
+
+</Example>
+
+```html
+<!-- [!code classes:text-shadow-2xs,text-shadow-xs,text-shadow-sm,text-shadow-md,text-shadow-lg,text-shadow-xl] -->
+<p class="text-shadow-2xs ...">...</p>
+<p class="text-shadow-xs ...">...</p>
+<p class="text-shadow-sm ...">...</p>
+<p class="text-shadow-md ...">...</p>
+<p class="text-shadow-lg ...">...</p>
+```
+
+</Figure>
+
+You can change the color of the shadow using the `text-shadow-<color>` utilities. For instance, you can create a pseudo embossed effect by using a small white shadow on dark text:
+
+<Figure>
+
+<Example>
+  {
+    <div className="relative grid h-48 place-items-center">
+      <div className="-ml-10 flex gap-4 max-sm:-ml-20">
+        <button className="relative rounded-full bg-linear-to-b from-white/10 to-white/20 to-70% px-4 py-2 text-sm font-semibold text-black shadow-md ring inset-shadow-2xs ring-black/20 inset-shadow-white/10 text-shadow-2xs dark:text-white">
+          See pricing
+        </button>
+        <button className="relative rounded-full bg-linear-to-b from-fuchsia-300 to-fuchsia-400 to-70% px-4 py-2 text-sm font-semibold text-fuchsia-950 shadow-md ring inset-shadow-2xs ring-fuchsia-500 inset-shadow-white/20 text-shadow-2xs text-shadow-white dark:ring-fuchsia-500/50">
+          Book a demo
+          <div className="absolute top-1/2 -right-full size-40 -translate-y-1/2 overflow-hidden rounded-full shadow-lg outline-2 outline-black/20 dark:outline-white/10">
+            <div className="absolute right-[75%] -bottom-9 grid h-20 w-40 scale-[400%] rounded-full bg-linear-to-b from-fuchsia-300 to-fuchsia-400 to-50% px-4 py-2.5 text-sm font-semibold text-fuchsia-950 text-shadow-2xs text-shadow-white dark:ring-fuchsia-500/50">
+              Book a demo
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:text-shadow-white] -->
+<div class="flex gap-4">
+  <button class="text-black text-shadow-2xs dark:text-white ...">See pricing</button>
+  <button class="text-fuchsia-950 text-shadow-2xs text-shadow-white ...">Book a demo</button>
+</div>
+```
+
+</Figure>
+
+Like with any color, you can control the opacity of a text shadow color with an opacity modifier but we've also added the ability to control the opacity of the default text shadow color.
+
+For example, `text-shadow-lg/50` is the same as setting `text-shadow-lg` and `text-shadow-black/50` at the same time:
+
+<Figure>
+
+<Example padding={false}>
+
+{
+
+<div className="relative grid items-center gap-4 bg-white px-6 py-14 text-center text-2xl font-semibold text-white">
+  <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1635776063328-153b13e3c245?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-size-[150%_200%] bg-left opacity-75" />
+  <p className="relative text-shadow-lg">The quick brown fox jumps over the lazy dog.</p>
+  <p className="relative text-shadow-lg/20">The quick brown fox jumps over the lazy dog.</p>
+  <p className="relative text-shadow-lg/30">The quick brown fox jumps over the lazy dog.</p>
+</div>
+
+}
+
+</Example>
+
+```html
+<!-- [!code classes:text-shadow-lg/20,text-shadow-lg/30] -->
+<p class="text-shadow-lg ...">...</p>
+<p class="text-shadow-lg/20 ...">...</p>
+<p class="text-shadow-lg/30 ...">...</p>
+```
+
+</Figure>
+
+We've also added the same opacity modifiers to the [`drop-shadow`](#filter-drop-shadow) and [`box-shadow`](#box-shadow) utilities.
+
+---
+
+## Mask elements with the `mask-*` utilities
+
+The new `mask-*` utilities let you create interesting effects by masking elements with images, gradients, or SVG paths:
+
+```html
+<div class="mask-gradient-to-r from-black to-transparent ...">
+  <!-- Content -->
+</div>
+```
+
+---
+
+## Fine-grained text wrapping with `overflow-wrap`
+
+The new `overflow-wrap` utilities let you control how text wraps within an element. This is especially useful for long words or URLs that might otherwise break your layout:
+
+```html
+<div class="overflow-wrap-break-word ...">
+  <p>Supercalifragilisticexpialidocious</p>
+</div>
+```
+
+---
+
+## Target input devices with `pointer-*` and `any-pointer-*`
+
+Building interfaces that work great with both touch and mouse input? The new pointer media query variants make it easy to adapt your UI based on the user's input method:
+
+```html
+<button class="pointer-coarse:active:bg-blue-600 pointer-fine:hover:bg-blue-600 ...">Click me or tap me</button>
+```
+
+Use `pointer-fine` to target devices with precise pointing (like mice), and `pointer-coarse` for touch input.
+
+---
+
+## Align items with `items-baseline-last`
+
+When working with flex or grid layouts, sometimes you need the last line of text in each item to align. The new `items-baseline-last` utility makes this easy:
+
+<Figure>
+<Example>
+  {/* Add example showing comparison between regular baseline and baseline-last */}
+  <div className="flex gap-8">
+    <div className="space-y-8">
+      <p className="text-sm font-semibold text-slate-900">items-baseline</p>
+      <div className="flex items-baseline gap-6">
+        <div className="bg-blue-500/5 p-4">
+          <div className="text-sm font-medium text-blue-600">Small</div>
+          <div className="text-slate-600">Single line</div>
+        </div>
+        <div className="bg-blue-500/5 p-4">
+          <div className="text-sm font-medium text-blue-600">Medium length</div>
+          <div className="text-slate-600">Two lines of content that wraps onto multiple lines</div>
+        </div>
+      </div>
+    </div>
+    <div className="space-y-8">
+      <p className="text-sm font-semibold text-slate-900">items-baseline-last</p>
+      <div className="flex items-baseline-last gap-6">
+        <div className="bg-blue-500/5 p-4">
+          <div className="text-sm font-medium text-blue-600">Small</div>
+          <div className="text-slate-600">Single line</div>
+        </div>
+        <div className="bg-blue-500/5 p-4">
+          <div className="text-sm font-medium text-blue-600">Medium length</div>
+          <div className="text-slate-600">Two lines of content that wraps onto multiple lines</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="flex items-baseline-last gap-6">
+  <div>
+    <div>Small</div>
+    <div>Single line</div>
+  </div>
+  <div>
+    <div>Medium length</div>
+    <div>Two lines of content that wraps onto multiple lines</div>
+  </div>
+</div>
+```
+
+</Figure>
+
+---
+
+## Keep content visible with `safe` alignment
+
+Ever had content scroll off the screen because of an unfortunate alignment? The new safe alignment utilities help prevent that:
+
+```html
+<div class="justify-start-safe">
+  <!-- Content won't get cut off -->
+</div>
+```
+
+These utilities work with both flexbox and grid layouts, and are available for all alignment properties.
+
+---
+
+## Safelist specific utilities with `@source inline(…)`
+
+Need to include utilities that aren't in your source files? Use `@source inline`:
+
+```css
+@source inline(.bg-purple-600, .text-3xl);
+```
+
+---
+
+## Ignore specific paths with `@source not`
+
+Control which paths Tailwind scans for classes using `@source not`:
+
+```css
+@source not('test/**/*.test.js');
+```
+
+---
+
+## A bunch of new variants
+
+### Prettier accordions with `details-content`
+
+Style the content inside `<details>` elements when they're open using the new `details-content` variant:
+
+<Figure>
+
+<Example>
+  <details className="group w-full max-w-lg rounded-lg bg-white p-6 shadow">
+    <summary className="cursor-pointer list-none font-semibold">
+      When will my order arrive?
+      <div className="mt-3">
+        Your order will typically arrive within 3-5 business days. You'll receive tracking information via email once
+        your order ships.
+      </div>
+    </summary>
+  </details>
+</Example>
+
+```html
+<details class="group">
+  <summary>
+    When will my order arrive?
+    <!-- [!code word:details-content\:mt-6] -->
+    <div class="mt-3">Your order will typically arrive within 3-5 business days...</div>
+  </summary>
+</details>
+```
+
+</Figure>
+
+---
+
+## Target `inverted-colors` mode
+
+For users with inverted colors enabled, you can now target that mode specifically:
+
+```html
+<div class="inverted-colors:invert-0">
+  <!-- This content won't be inverted in inverted colors mode -->
+</div>
+```
+
+---
+
+## New `noscript` variant
+
+Need to show something different when JavaScript is disabled? Use the new `noscript` variant:
+
+```html
+<div class="hidden noscript:block">Please enable JavaScript to use this app.</div>
+```
+
+---
+
+## Better form validation with `user-valid` and `user-invalid`
+
+Style form inputs based on their validation state with the new `user-valid` and `user-invalid` variants:
+
+<Figure>
+
+<Example>
+  {
+    <form className="max-w-sm space-y-4">
+      <div>
+        <label className="block text-sm font-medium text-gray-700">Email</label>
+        <input
+          type="email"
+          required
+          className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm user-valid:border-green-500 user-invalid:border-red-500"
+        />
+      </div>
+    </form>
+  }
+</Example>
+
+```html
+<input type="email" required class="user-valid:border-green-500 user-invalid:border-red-500 ..." />
+```
+
+</Figure>
+
+---
+
+These are just some of the highlights — for all the details, check out the [release notes](https://github.com/tailwindlabs/tailwindcss/releases) on GitHub.
+
+Ready to try it out? Update to the latest version using npm:
+
+```sh
+npm install tailwindcss@latest
+```
+
+Let us know what you build with these new features!
