@@ -53,6 +53,9 @@ importers:
       open-graph-scraper-lite:
         specifier: ^2.1.0
         version: 2.1.0
+      postcss@insiders:
+        specifier: link:tailwindcss/postcss@insiders
+        version: link:tailwindcss/postcss@insiders
       react:
         specifier: ^19.0.0
         version: 19.0.0

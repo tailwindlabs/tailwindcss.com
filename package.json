@@ -25,6 +25,7 @@
     "motion": "^12.6.2",
     "next": "15.3.0-canary.23",
     "open-graph-scraper-lite": "^2.1.0",
+    "postcss@insiders": "link:tailwindcss/postcss@insiders",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "shiki": "^1.29.1",
