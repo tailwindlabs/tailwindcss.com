@@ -54,8 +54,7 @@ Use utilities like `text-shadow-sm` and `shadow-lg` to apply different sized tex
 
 {
 
-<div className="relative grid items-center justify-around gap-4 bg-white px-6 py-14 text-center text-2xl font-semibold text-white">
-  <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1635776063328-153b13e3c245?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-[size:150%_200%] bg-left opacity-75" />
+<div className="relative grid items-center justify-around gap-4 bg-linear-45 from-indigo-400 via-purple-500 to-pink-500 px-6 py-14 text-center text-2xl font-semibold text-white">
   <p className="relative text-shadow-2xs">The quick brown fox jumps over the lazy dog.</p>
   <p className="relative text-shadow-xs">The quick brown fox jumps over the lazy dog.</p>
   <p className="relative text-shadow-sm">The quick brown fox jumps over the lazy dog.</p>
@@ -74,6 +73,35 @@ Use utilities like `text-shadow-sm` and `shadow-lg` to apply different sized tex
 <p class="text-shadow-sm ...">...</p>
 <p class="text-shadow-md ...">...</p>
 <p class="text-shadow-lg ...">...</p>
+```
+
+</Figure>
+
+### Changing the opacity
+
+You can adjust the opacity of the shadow using the opacity modifier:
+
+<Figure>
+
+<Example padding={false}>
+
+{
+
+<div className="relative grid items-center justify-around gap-4 bg-linear-45 from-indigo-400 via-sky-400 to-emerald-400 px-6 py-14 text-center text-2xl font-semibold text-white">
+  <p className="relative text-shadow-lg">The quick brown fox jumps over the lazy dog.</p>
+  <p className="relative text-shadow-lg/20">The quick brown fox jumps over the lazy dog.</p>
+  <p className="relative text-shadow-lg/30">The quick brown fox jumps over the lazy dog.</p>
+</div>
+
+}
+
+</Example>
+
+```html
+<!-- [!code classes:text-shadow-lg/20,text-shadow-lg/30] -->
+<p class="text-shadow-lg ...">...</p>
+<p class="text-shadow-lg/20 ...">...</p>
+<p class="text-shadow-lg/30 ...">...</p>
 ```
 
 </Figure>
@@ -115,34 +143,6 @@ Use utilities like `text-shadow-indigo-500` and `text-shadow-cyan-500/50` to cha
 </Figure>
 
 By default colored shadows have an opacity of 100% but you can adjust this using the opacity modifier.
-
-You can also adjust the opacity of the default shadow color using an opacity modifier. For example, `text-shadow-lg/20` is the equivalent of setting `text-shadow-lg` and `text-shadow-black/20` at the same time:
-
-<Figure>
-
-<Example padding={false}>
-
-{
-
-<div className="relative grid items-center justify-around gap-4 bg-white px-6 py-14 text-center text-2xl font-semibold text-white">
-  <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1635776063328-153b13e3c245?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-[size:150%_200%] bg-left opacity-75" />
-  <p className="relative text-shadow-lg">The quick brown fox jumps over the lazy dog.</p>
-  <p className="relative text-shadow-lg/20">The quick brown fox jumps over the lazy dog.</p>
-  <p className="relative text-shadow-lg/30">The quick brown fox jumps over the lazy dog.</p>
-</div>
-
-}
-
-</Example>
-
-```html
-<!-- [!code classes:text-shadow-lg/20,text-shadow-lg/30] -->
-<p class="text-shadow-lg ...">...</p>
-<p class="text-shadow-lg/20 ...">...</p>
-<p class="text-shadow-lg/30 ...">...</p>
-```
-
-</Figure>
 
 ### Removing a text shadow
 
