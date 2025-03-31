@@ -62,6 +62,7 @@ export function FooterMeta({ className }: { className?: string }) {
           <Link href="/brand" className="hover:underline">
             Trademark Policy
           </Link>
+          <p className="text-shadow-lg/100">shadow test</p>
         </div>
       </div>
     </div>

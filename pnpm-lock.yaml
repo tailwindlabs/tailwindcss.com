@@ -1212,7 +1212,7 @@ packages:
     engines: {node: '>= 10'}
 
   '@tailwindcss/postcss@file:dist/tailwindcss-postcss.tgz':
-    resolution: {integrity: sha512-IJDsNk3vN4Ag7XXjGlpF3C4HQA8z95Zahir3roV/f439cip9BjqbvW6PuiPfdvmZ63BE0gSdeamTo0qP9i++vg==, tarball: file:dist/tailwindcss-postcss.tgz}
+    resolution: {integrity: sha512-yZMnGP+ETEQLEBrWUD8DyeRI+ZcW8z+vi5kLi18WdPDOsvXCdKY45d0ZBWGz0hc7OCWrSjrEGmlw0zed9SfTYg==, tarball: file:dist/tailwindcss-postcss.tgz}
     version: 4.0.17
 
   '@tanstack/react-virtual@3.13.5':
@@ -2116,7 +2116,7 @@ packages:
     resolution: {integrity: sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew==}
 
   tailwindcss@file:dist/tailwindcss.tgz:
-    resolution: {integrity: sha512-OiK2V5DxN+7Gb+HnZBVr844uZicg3jVrMQDoqgMmotyKkAj6pCLihsmG9RRMqyJCAuZO6/ZnFofP9gdpZP3b+Q==, tarball: file:dist/tailwindcss.tgz}
+    resolution: {integrity: sha512-IKa39Cr2h7+uW1uZmfg8xd2YzhDwVIjA3jOLP9Dl0/stn6M9vdhwIBNdwbOWhREkumjZE7ywijP9HAnkKi72Ng==, tarball: file:dist/tailwindcss.tgz}
     version: 4.0.17
 
   tapable@2.2.1:
