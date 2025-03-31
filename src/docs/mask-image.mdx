@@ -486,7 +486,7 @@ Use the `mask-[<value>]` syntax to set the mask image of an element:
   border
   className="relative mx-auto flex h-48 w-96 items-center justify-center overflow-hidden rounded-lg sm:w-96"
 >
-  <div className="mask-size-[110%_90%] h-full w-full bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] [mask-image:url(/mask.png)] bg-cover bg-center bg-no-repeat mask-center mask-no-repeat"></div>
+  <div className="h-full w-full bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] [mask-image:url(/mask.png)] bg-cover bg-center bg-no-repeat mask-size-[110%_90%] mask-center mask-no-repeat"></div>
 </Stripes>
 
 }
@@ -513,27 +513,27 @@ Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear
 <div className="grid grid-cols-2 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
   <div className="flex flex-col items-center text-xs">
     <p>mask-t-from-50%</p>
-    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-3" border>
+    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-32" border>
       <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-50% bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center text-xs">
     <p>mask-r-from-30%</p>
-    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-3" border>
-      <div className="mask-r-from-white h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-30% bg-cover bg-center mask-no-repeat"></div>
+    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-32" border>
+      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-white mask-r-from-30% bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center text-xs">
     <p>mask-l-from-50%</p>
     <p>mask-l-to-90%</p>
-    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-3" border>
+    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-32" border>
       <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-l-from-50% mask-l-to-90% bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center text-xs">
     <p>mask-b-from-20%</p>
     <p>mask-b-to-80%</p>
-    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-3" border>
+    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-32" border>
       <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-20% mask-b-to-80% bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
@@ -795,9 +795,9 @@ Use the `mask-radial-from-<value>` and `mask-radial-to-<value>` utilities to add
 <div class="flex items-center gap-4">
   <img class="mask-radial-[100%_100%] mask-radial-from-75% mask-radial-at-left ..." src="/img/keyboard.png" />
   <div class="font-medium">
-    <p className="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
-    <p className="mt-2 text-base text-gray-700 dark:text-gray-300">Built for power users</p>
-    <p className="mt-1 text-sm leading-relaxed text-balance text-gray-500">
+    <p class="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
+    <p class="mt-2 text-base text-gray-700 dark:text-gray-300">Built for power users</p>
+    <p class="mt-1 text-sm leading-relaxed text-balance text-gray-500">
       Work faster than ever with customizable keyboard shortcuts
     </p>
   </div>
@@ -909,25 +909,25 @@ Use utilities like `mask-radial-closest-corner` and `mask-radial-farthest-side` 
 <div className="grid grid-cols-2 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
   <div className="flex flex-col items-center">
     <p className="mb-3 text-xs">mask-radial-closest-side</p>
-    <Stripes className="aspect-[1.33] w-40 rounded-lg max-sm:w-32" border>
+    <Stripes className="aspect-[1.33] w-40 rounded-lg max-sm:w-322" border>
       <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-closest-side mask-radial-at-[30%_30%] bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
     <p className="mb-3 text-xs">mask-radial-closest-corner</p>
-    <Stripes className="aspect-[1.33] w-40 rounded-lg max-sm:w-32" border>
+    <Stripes className="aspect-[1.33] w-40 rounded-lg max-sm:w-322" border>
       <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-closest-corner mask-radial-at-[30%_30%] bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
     <p className="mb-3 text-xs">mask-radial-farthest-side</p>
-    <Stripes className="aspect-[1.33] w-40 rounded-lg max-sm:w-32" border>
+    <Stripes className="aspect-[1.33] w-40 rounded-lg max-sm:w-322" border>
       <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-farthest-side mask-radial-at-[30%_30%] bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center">
     <p className="mb-3 text-xs">mask-radial-farthest-corner</p>
-    <Stripes className="aspect-[1.33] w-40 rounded-lg max-sm:w-32" border>
+    <Stripes className="aspect-[1.33] w-40 rounded-lg max-sm:w-322" border>
       <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-farthest-corner mask-radial-at-[30%_30%] bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
@@ -1007,23 +1007,23 @@ Gradient mask utilities, like `mask-radial-from-<value>`, `mask-conic-to-<value>
 
 <div className="grid grid-cols-2 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
   <div className="flex flex-col items-center text-xs">
-    <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-3" border>
+    <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-32" border>
       <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-80% mask-b-from-80% mask-radial-from-70% mask-radial-to-85% mask-circle mask-radial-at-top-left bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center text-xs">
-    <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-3" border>
+    <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-32" border>
       <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-y-from-80% mask-x-from-80% bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center text-xs">
-    <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-3" border>
+    <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-32" border>
       <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-50% mask-radial-[50%_90%] mask-radial-from-80% mask-radial-at-bottom bg-cover bg-center mask-no-repeat"></div>
     </Stripes>
   </div>
   <div className="flex flex-col items-center text-xs">
-    <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-3" border>
-      <div className="mask-size-[2.5%_3.25%] h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-80% mask-t-to-80% mask-r-from-80% mask-r-to-80% mask-conic-305 mask-conic-from-50% mask-conic-to-50% bg-cover bg-center"></div>
+    <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-32" border>
+      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-80% mask-t-to-80% mask-r-from-80% mask-r-to-80% mask-conic-305 mask-conic-from-50% mask-conic-to-50% bg-cover bg-center mask-size-[2.5%_3.25%]"></div>
     </Stripes>
   </div>
 </div>
