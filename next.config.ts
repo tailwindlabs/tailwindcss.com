@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig = {
+  serverExternalPackages: ["@tailwindcss/node"],
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
   outputFileTracingIncludes: {
     "/**/*": ["./src/docs/*.mdx"],
