@@ -22,7 +22,7 @@ export const meta = {
 
 <Image src={card} alt="Tailwind CSS v4.1" />
 
-Tailwind CSS v4.0 is only a few months old but because we love open source so much, we couldn't resist the urge to add even more features. Tailwind CSS v4.1 is packed with new utilities and variants that will help you build better interactive experiences.
+Tailwind CSS v4.0 is only a few months old, but because we love open source so much, we couldn't resist the urge to add even more features. Tailwind CSS v4.1 is packed with new utilities and variants that will help you build better interactive experiences.
 
 We all know that your AI assistant still thinks it's 2023, so here's a list of new features in this release you can paste into your chat window:
 
@@ -195,7 +195,7 @@ One of the coolest features of modern CSS is the ability to use images and gradi
 
 Because you can use any `background-image` as a mask, the logical thing to do was to copy the `bg-*` utilities so they share the same API. The problem with that approach is you often want to combine multiple masks together and the `bg-*` utilities are not composable.
 
-So instead, we created a new set of utilities to work with `mask-image` that are composable and purpose built for the masking use case. For example, you can use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear gradient mask to a single side of an element:
+So instead, we created a new set of utilities to work with `mask-image` that are composable and purpose-built for the masking use case. For example, you can use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear gradient mask to a single side of an element:
 
 <Figure>
 
@@ -619,7 +619,7 @@ If you need to make sure Tailwind generates certain class names that don’t exi
 
 This is the equivalent of the `safelist` configuration option in previous versions of Tailwind, but now you can use it in your CSS files instead of your config file.
 
-The source input is [brace expanded](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html), so you can generate multiple classes at once. For example, to generate all the red shades with hover variants, you can add a range to the source input:
+The source input is [brace-expanded](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html), so you can generate multiple classes at once. For example, to generate all the red shades with hover variants, you can add a range to the source input:
 
 <CodeExampleStack>
 ```css
@@ -722,8 +722,6 @@ While you could always add styles to the children of a `<details>` element, it's
 
 </Figure>
 
-This is especially
-
 ---
 
 ## Target `inverted-colors` mode
@@ -765,9 +763,10 @@ It could be a little tricky to style form elements based on their validation sta
 
 These are just some of the highlights — for all the details, check out the [release
 notes](https://github.com/tailwindlabs/tailwindcss/releases) on GitHub. Ready to try it out? Update to the latest
-version using npm: ```sh npm install tailwindcss@latest
+version using npm:
 
+```sh
+npm install tailwindcss@latest
 ```
 
 Let us know what you build with these new features!
-```
