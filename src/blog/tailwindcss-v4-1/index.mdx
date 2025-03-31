@@ -289,7 +289,7 @@ The gradient mask utilities are also composable, so you can combine them to crea
 <div class="mask-y-from-80% mask-x-from-80%"></div>
 <div class="mask-b-from-50% mask-radial-[50%_90%] mask-radial-from-80% ..."></div>
 <div
-  class="mask-t-from-80% mask-t-to-80% mask-r-from-80% mask-r-to-80% mask-conic-305 mask-conic-from-50% mask-conic-to-50% ..."
+  class="mask-t-from-80% mask-t-to-80% mask-r-from-80% mask-r-to-80% mask-conic-305 mask-conic-from-50% mask-conic-to-50% mask-size-[2.5%_3.25%] ..."
 ></div>
 ```
 
@@ -465,64 +465,63 @@ When working with flex or grid layouts, sometimes you need to align something to
 
 <Figure>
 
-<Example className="py-0">
-  
+<Example padding={false}>
+
 {
 
 <div className="mx-auto grid max-w-md divide-y divide-gray-100 border-x border-x-gray-200 text-gray-700 dark:divide-gray-800 dark:border-x-gray-800 dark:bg-gray-950/10 dark:text-gray-300">
   <div className="group grid grid-cols-[1fr_auto] items-baseline-last gap-x-4 px-4 py-6 hover:bg-gray-50 dark:hover:bg-gray-950/50">
-    <div className="grid grid-cols-[32px_1fr] gap-x-4">
+    <div className="grid grid-cols-[auto_1fr] gap-x-4 max-sm:grid-cols-1">
       <img
-        className="size-[32px] rounded-full"
+        className="size-[2rem] rounded-full"
         src="https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Favatar.51a13c67.jpg&w=128&q=80"
         alt=""
       />
-      {/* This is not an h4 because we're converting h4's to links in MDX files */}
-      <div className="font-semibold text-gray-900 dark:text-white">Spencer Sharp</div>
-      <p className="col-start-2 text-sm">
-        Working on the future of space travel at
-        <br />
-        <a href="#" className="text-blue-500 underline dark:text-blue-400">
-          planeteria.tech
-        </a>
-      </p>
+      <div className="font-semibold text-gray-900 sm:col-start-2 dark:text-white">Spencer Sharp</div>
+      <p className="text-sm sm:col-start-2">Working on the future of astronaut recruitment at SpaceRecruit.</p>
     </div>
-    <p className="text-lg group-hover:text-blue-500 dark:group-hover:text-blue-400">↗</p>
+    <a
+      href="#"
+      className="font-mono text-xs font-medium text-gray-400 underline group-hover:text-blue-500 dark:text-gray-500"
+    >
+      spacerecruit.com
+    </a>
   </div>
   <div className="group grid grid-cols-[1fr_auto] items-baseline-last gap-x-4 px-4 py-6 hover:bg-gray-50 dark:hover:bg-gray-950/50">
-    <div className="grid grid-cols-[32px_1fr] gap-x-4">
+    <div className="grid grid-cols-[auto_1fr] gap-x-4 max-sm:grid-cols-1">
       <img
-        className="size-[32px] rounded-full"
+        className="size-[2rem] rounded-full"
         src="https://images.unsplash.com/photo-1590895340509-793cb98788c9?q=80&w=256&h=256&&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt=""
       />
-      {/* This is not an h4 because we're converting h4's to links in MDX files */}
-      <div className="font-semibold text-gray-900 dark:text-white">Alex Reed</div>
-      <p className="col-start-2 text-sm">
-        A multidisciplinary designer, working at the intersection of art and technology.
-        <br />
-        <a href="#" className="text-blue-500 underline dark:text-blue-400">
-          alex-reed.com
-        </a>
-      </p>
+      <div className="font-semibold text-gray-900 sm:col-start-2 dark:text-white">Alex Reed</div>
+      <p className="text-sm sm:col-start-2">A multidisciplinary designer.</p>
     </div>
-    <p className="text-lg group-hover:text-blue-500 dark:group-hover:text-blue-400">↗</p>
+    <a
+      href="#"
+      className="font-mono text-xs font-medium text-gray-400 underline group-hover:text-blue-500 dark:text-gray-500"
+    >
+      alex-reed.com
+    </a>
   </div>
 </div>
 
 }
 
-  </Example>
+</Example>
 
 ```html
 <!-- [!code classes:items-baseline-last] -->
 <div class="group grid grid-cols-[1fr_auto] items-baseline-last gap-x-4 px-4 py-6">
-  <div class="grid grid-cols-[32px_1fr] gap-x-4">
+  <div class="grid grid-cols-[auto_1fr] gap-x-4">
     <img src="img/profile.jpg" />
     <h4>Spencer Sharp</h4>
-    <p>Product Designer at <a href="...">planeteria.tech</a></p>
+    <p>
+      Working on the future of astronaut recruitment
+      <span> @spacerecruit</span>.
+    </p>
   </div>
-  <p class="text-lg group-hover:text-blue-500">↗</p>
+  <p class="text-lg group-hover:text-blue-500">spacerecruit.com</p>
 </div>
 ```
 
