@@ -2,6 +2,7 @@ import { TipGood, TipBad, TipInfo } from "@/components/tips";
 import { Iframe } from "@/components/iframe";
 import { Example } from "@/components/example";
 import { Figure } from "@/components/figure";
+import { CodeExampleStack } from "@/components/code-example";
 
 export const title = "Detecting classes in source files";
 export const description = "Understanding and customizing how Tailwind scans your source files.";
@@ -199,6 +200,7 @@ This can be useful in projects that have multiple Tailwind stylesheets where you
 
 If you need to make sure Tailwind generates certain class names that don’t exist in your content files, you can force them to be inlined by using `@source inline()`:
 
+<CodeExampleStack>
 ```css
 /* [!code filename:CSS] */
 @import "tailwindcss";
@@ -213,10 +215,13 @@ If you need to make sure Tailwind generates certain class names that don’t exi
 }
 ```
 
+</CodeExampleStack>
+
 ### Generating variants
 
 You can also use `@source inline()` to generate classes with variants. For example, to generate the `underline` class with hover and focus variants, add `{hover:,focus:,}` to the source input:
 
+<CodeExampleStack>
 ```css
 /* [!code filename:CSS] */
 @import "tailwindcss";
@@ -241,18 +246,19 @@ You can also use `@source inline()` to generate classes with variants. For examp
 }
 ```
 
+</CodeExampleStack>
+
 ### Generating ranges
 
 The source input is [brace expanded](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html), so you can generate multiple classes at once. For example, to generate all the red shades with hover variants, you can add a range to the source input:
 
+<CodeExampleStack>
 ```css
 /* [!code filename:CSS] */
 @import "tailwindcss";
 /* [!code highlight:2] */
 @source inline("{hover:,}bg-red-{50,{100..900..100},950}");
 ```
-
-This will generate shades of red from 50 to 950 in increments of 100, along with hover variants for each shade:
 
 ```css
 /* [!code filename:Generated CSS] */
@@ -289,6 +295,10 @@ This will generate shades of red from 50 to 950 in increments of 100, along with
   }
 }
 ```
+
+</CodeExampleStack>
+
+This generates shades of red from 100 to 900 in increments of 100, along with the first and last shades of 50 and 950. It also adds the `hover:` variant for each of those classes.
 
 ### Explicitly excluding classes
 
