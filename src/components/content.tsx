@@ -37,7 +37,7 @@ function htmlSnippet({
     parts.push("></iframe>");
   } else {
     parts.push(">\n");
-    parts.push("  <!-- ... -->\n");
+    parts.push(elementName === "p" ? "  Lorem ipsum dolor sit amet...\n" : "  <!-- ... -->\n");
     parts.push(`</${elementName}>`);
   }
 
