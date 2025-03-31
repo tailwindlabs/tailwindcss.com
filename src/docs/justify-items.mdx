@@ -147,6 +147,41 @@ Use `justify-items-end` to justify grid items against the end of their inline ax
 
 </Figure>
 
+### Safe end
+
+Use `justify-items-end-safe` to justify grid items against the end of their inline axis but allow them to align to the start of the container's inline axis if there is not enough space:
+
+<Figure hint="Resize the container to see the alignment change">
+
+<Example resizable>
+
+{
+
+<div className="grid grid-cols-1 gap-4 font-mono text-sm leading-6 font-bold text-white">
+  <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+  <div className="col-start-1 row-start-1 grid grid-flow-col justify-items-end-safe space-x-4 overflow-x-scroll rounded-lg font-mono text-sm leading-6 font-bold text-white">
+    <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-indigo-500">01</div>
+    <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-indigo-500">02</div>
+    <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-indigo-500">03</div>
+    <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-indigo-500">04</div>
+  </div>
+</div>
+}
+
+</Example>
+
+```html
+<!-- [!code classes:justify-items-end-safe] -->
+<div class="grid grid-flow-col justify-items-end-safe ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+</div>
+```
+
+</Figure>
+
 ### Center
 
 Use `justify-items-center` to justify grid items along their inline axis:
@@ -205,6 +240,41 @@ Use `justify-items-center` to justify grid items along their inline axis:
   <div>04</div>
   <div>05</div>
   <div>06</div>
+</div>
+```
+
+</Figure>
+
+### Safe center
+
+Use `justify-items-center-safe` to justify grid items along their inline axis but allow them to align to the start of the container's inline axis if there is not enough space:
+
+<Figure hint="Resize the container to see the alignment change">
+
+<Example resizable>
+
+{
+
+<div className="grid grid-cols-1 gap-4 font-mono text-sm leading-6 font-bold text-white">
+  <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+  <div className="col-start-1 row-start-1 grid grid-flow-col justify-items-center-safe space-x-4 overflow-x-scroll rounded-lg font-mono text-sm leading-6 font-bold text-white">
+    <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-indigo-500">01</div>
+    <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-indigo-500">02</div>
+    <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-indigo-500">03</div>
+    <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-indigo-500">04</div>
+  </div>
+</div>
+}
+
+</Example>
+
+```html
+<!-- [!code classes:justify-items-center-safe] -->
+<div class="grid grid-flow-col justify-items-center-safe ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
 </div>
 ```
 

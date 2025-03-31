@@ -120,6 +120,40 @@ Use `justify-self-center` to align a grid item along the center of its inline ax
 
 </Figure>
 
+### Safe center
+
+Use `justify-self-center-safe` to align a grid item along the center of its inline axis but allow it to align to the start of it's inline axis if there is not enough space:
+
+<Figure hint="Resize the container to see the alignment change">
+
+<Example resizable>
+  
+{
+
+<div className="mx-auto grid max-w-sm auto-rows-fr grid-cols-1 justify-items-stretch gap-4 text-center font-mono text-sm leading-6 font-bold text-white">
+  <div className="rounded-lg bg-indigo-300 p-4 dark:bg-indigo-800 dark:text-indigo-400">01</div>
+  <div className="grid grid-cols-1">
+    <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+    <div className="col-start-1 row-start-1 h-14 w-56 justify-self-center-safe rounded-lg bg-indigo-500 p-4">02</div>
+  </div>
+  <div className="rounded-lg bg-indigo-300 p-4 dark:bg-indigo-800 dark:text-indigo-400">03</div>
+</div>
+
+}
+
+</Example>
+
+```html
+<!-- [!code classes:justify-self-center-safe] -->
+<div class="grid ...">
+  <!-- ... -->
+  <div class="w-56 justify-self-center-safe ...">02</div>
+  <!-- ... -->
+</div>
+```
+
+</Figure>
+
 ### End
 
 Use `justify-self-end` to align a grid item to the end of its inline axis:
@@ -147,6 +181,40 @@ Use `justify-self-end` to align a grid item to the end of its inline axis:
 <div class="grid justify-items-stretch ...">
   <!-- ... -->
   <div class="justify-self-end ...">02</div>
+  <!-- ... -->
+</div>
+```
+
+</Figure>
+
+### Safe end
+
+Use `justify-self-end-safe` to align a grid item to the end of its inline axis but allow it to align to the start of its inline axis if there is not enough space:
+
+<Figure hint="Resize the container to see the alignment change">
+
+<Example resizable>
+  
+{
+
+<div className="mx-auto grid max-w-sm auto-rows-fr grid-cols-1 justify-items-stretch gap-4 text-center font-mono text-sm leading-6 font-bold text-white">
+  <div className="rounded-lg bg-purple-300 p-4 dark:bg-purple-800 dark:text-purple-400">01</div>
+  <div className="grid grid-cols-1">
+    <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+    <div className="col-start-1 row-start-1 h-14 w-56 justify-self-end-safe rounded-lg bg-purple-500 p-4">02</div>
+  </div>
+  <div className="rounded-lg bg-purple-300 p-4 dark:bg-purple-800 dark:text-purple-400">03</div>
+</div>
+
+}
+
+</Example>
+
+```html
+<!-- [!code classes:justify-self-end-safe] -->
+<div class="grid ...">
+  <!-- ... -->
+  <div class="w-56 justify-self-end-safe ...">02</div>
   <!-- ... -->
 </div>
 ```
