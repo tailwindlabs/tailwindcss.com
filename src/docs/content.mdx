@@ -86,9 +86,7 @@ Since whitespace denotes the end of a class in HTML, replace any spaces in an ar
 
 ```html
 <!-- [!code classes:before:content-['Hello_World']] -->
-<p class="before:content-['Hello_World'] ...">
-  <!-- ... -->
-</p>
+<p class="before:content-['Hello_World'] ..."></p>
 ```
 
 </Figure>
@@ -103,9 +101,7 @@ If you need to include an actual underscore, you can do this by escaping it with
 
 ```html
 <!-- [!code classes:before:content-['Hello\_World']] -->
-<p class="before:content-['Hello\_World']">
-  <!-- ... -->
-</p>
+<p class="before:content-['Hello\_World']"></p>
 ```
 
 </Figure>
@@ -116,18 +112,18 @@ Use the <code>content-{'(<custom-property>)'}</code> syntax to control the conte
 
 ```html
 <!-- [!code classes:content-(--my-content)] -->
-<p class="content-(--my-content)">
-  <!-- ... -->
-</p>
+<p class="content-(--my-content)"></p>
 ```
 
 This is just a shorthand for <code>content-{'[var(<custom-property>)]'}</code> that adds the `var()` function for you automatically.
 
 ### Responsive design
 
-<ResponsiveDesign
-  element="p"
-  property="content"
-  defaultClass="before:content-['Mobile']"
-  featuredClass="before:content-['Desktop']"
-/>
+<ResponsiveDesign property="content">
+
+```html
+<!-- [!code classes:md:before:content-['Desktop']] -->
+<p class="before:content-['Mobile'] md:before:content-['Desktop'] ..."></p>
+```
+
+</ResponsiveDesign>
