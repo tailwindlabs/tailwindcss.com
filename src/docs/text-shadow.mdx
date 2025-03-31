@@ -14,19 +14,19 @@ export const description = "Utilities for controlling the shadow of a text eleme
 
 <ApiTable
   rows={[
-    ["text-shadow-2xs", "text-shadow: var(--text-shadow-2xs); /* 0px 1px 0px rgba(0, 0, 0, 0.15) */"],
-    ["text-shadow-xs", "text-shadow: var(--text-shadow-xs); /* 0px 1px 1px rgba(0, 0, 0, 0.2) */"],
+    ["text-shadow-2xs", "text-shadow: var(--text-shadow-2xs); /* 0px 1px 0px rgb(0 0 0 / 0.15) */"],
+    ["text-shadow-xs", "text-shadow: var(--text-shadow-xs); /* 0px 1px 1px rgb(0 0 0 / 0.2) */"],
     [
       "text-shadow-sm",
-      "text-shadow: var(--text-shadow-sm); /* 0px 1px 0px rgba(0, 0, 0, 0.07), 0px 1px 1px rgba(0, 0, 0, 0.07), 0px 2px 2px rgba(0, 0, 0, 0.07) */",
+      "text-shadow: var(--text-shadow-sm); /* 0px 1px 0px rgb(0 0 0 / 0.075), 0px 1px 1px rgb(0 0 0 / 0.075), 0px 2px 2px rgb(0 0 0 / 0.075) */",
     ],
     [
       "text-shadow-md",
-      "text-shadow: var(--text-shadow-md); /* 0px 1px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.1) */",
+      "text-shadow: var(--text-shadow-md); /* 0px 1px 1px rgb(0 0 0 / 0.1), 0px 1px 2px rgb(0 0 0 / 0.1), 0px 2px 4px rgb(0 0 0 / 0.1) */",
     ],
     [
       "text-shadow-lg",
-      "text-shadow: var(--text-shadow-lg); /* 0px 1px 2px rgba(0, 0, 0, 0.1), 0px 3px 2px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1) */",
+      "text-shadow: var(--text-shadow-lg); /* 0px 1px 2px rgb(0 0 0 / 0.1), 0px 3px 2px rgb(0 0 0 / 0.1), 0px 4px 8px rgb(0 0 0 / 0.1) */",
     ],
     ["text-shadow-none", "text-shadow: none;"],
     ["text-shadow-(<custom-property>)", "text-shadow: var(<custom-property>);"],
@@ -161,7 +161,7 @@ Use the `text-shadow-none` utility to remove an existing text shadow from an ele
 
 ### Using a custom value
 
-<UsingACustomValue utility={"text-shadow"} name="text shadow" value="0_35px_35px_rgba(0,0,0,0.25)" />
+<UsingACustomValue utility="text-shadow" name="text shadow" value="0_35px_35px_rgb(0_0_0_/_0.25)" />
 
 ### Responsive design
 
@@ -174,7 +174,7 @@ Use the `text-shadow-none` utility to remove an existing text shadow from an ele
   themeKey="text-shadow"
   name="text shadow"
   customName="xl"
-  customValue="0 35px 35px rgba(0, 0, 0, 0.25)"
+  customValue="0 35px 35px rgb(0, 0, 0 / 0.25)"
 />
 
 ### Customizing shadow colors
