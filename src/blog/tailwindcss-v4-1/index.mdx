@@ -687,33 +687,42 @@ For more details on how to use `@source inline()`, check out the [detecting clas
 
 ### Prettier accordions with `details-content`
 
-Style the content inside `<details>` elements when they're open using the new `details-content` variant:
+While you could always add styles to the children of a `<details>` element, it's been impossible to style the content container itself. The `details-content` variant targets the content container which is useful for positioning the content container relative to the `<summary>` element:
 
 <Figure>
-
-<Example>
-  <details className="group w-full max-w-lg rounded-lg bg-white p-6 shadow">
-    <summary className="cursor-pointer list-none font-semibold">
-      When will my order arrive?
-      <div className="mt-3">
-        Your order will typically arrive within 3-5 business days. You'll receive tracking information via email once
-        your order ships.
-      </div>
-    </summary>
-  </details>
-</Example>
+  <Example>
+    {
+    <div className="mx-auto max-w-lg">
+      <details className="rounded-lg border border-transparent p-6 details-content:mt-3 details-content:-ml-0.5" open>
+        <summary className="text-sm leading-6 font-semibold text-gray-900 select-none dark:text-white">
+          Why do they call it Ovaltine?
+        </summary>
+        <div
+          className="list-inside list-disc rounded-lg border border-gray-200 bg-gray-50 py-3 pl-3 text-sm leading-6 text-gray-600 dark:border-white/10 dark:bg-gray-800/50 dark:text-gray-400"
+        >
+          <p>The mug is round. The jar is round. They should call it Roundtine.</p>
+        </div>
+      </details>
+    </div>
+    }
+  </Example>
 
 ```html
-<details class="group">
-  <summary>
-    When will my order arrive?
-    <!-- [!code word:details-content\:mt-6] -->
-    <div class="mt-3">Your order will typically arrive within 3-5 business days...</div>
+<!-- [!code classes:details-content:mt-3,details-content:-ml-0.5] -->
+<details class="rounded-lg border border-transparent p-6 details-content:mt-3 details-content:-ml-0.5" open>
+  <summary class="text-sm leading-6 font-semibold text-gray-900 select-none dark:text-white">
+    Why do they call it Ovaltine?
   </summary>
+  <div class="border-gray-200 bg-gray-50 py-3 pl-3  dark:border-white/10 dark:bg-gray-800/50 ...">
+    <p>The mug is round. The jar is round. They should call it Roundtine.</p>
+  </div>
 </details>
+</Figure>
 ```
 
 </Figure>
+
+This is especially
 
 ---
 
