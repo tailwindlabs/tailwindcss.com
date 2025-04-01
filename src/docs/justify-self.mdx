@@ -146,34 +146,34 @@ Use the `justify-self-end` or `justify-self-end-safe` utilities to align a grid 
 <Figure hint="Resize the container to see the alignment change">
 
 <Example resizable>
-{
-
-<div className="grid grid-cols-1 gap-8">
-  <div>
-    <p className="text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">justify-self-end</p>
-    <div className="mt-4 grid auto-rows-fr grid-cols-3 justify-items-stretch gap-10 text-center font-mono text-sm leading-6 font-bold text-white">
-      <div className="rounded-lg bg-blue-300 p-4 dark:bg-blue-800 dark:text-blue-500">01</div>
-      <div className="grid grid-cols-1">
-        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
-        <div className="col-start-1 row-start-1 size-14 justify-self-end rounded-lg bg-blue-500 p-4">02</div>
+  {
+    <div className="grid grid-cols-1 gap-8">
+      <div>
+        <p className="text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">justify-self-end</p>
+        <div className="mt-4 grid auto-rows-fr grid-cols-3 justify-items-stretch gap-10 text-center font-mono text-sm leading-6 font-bold text-white">
+          <div className="rounded-lg bg-blue-300 p-4 dark:bg-blue-800 dark:text-blue-500">01</div>
+          <div className="grid grid-cols-1">
+            <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+            <div className="col-start-1 row-start-1 size-14 justify-self-end rounded-lg bg-blue-500 p-4">02</div>
+          </div>
+          <div className="rounded-lg bg-blue-300 p-4 dark:bg-blue-800 dark:text-blue-500">03</div>
+        </div>
       </div>
-      <div className="rounded-lg bg-blue-300 p-4 dark:bg-blue-800 dark:text-blue-500">03</div>
-    </div>
-  </div>
-  <div>
-    <p className="text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">justify-self-end-safe</p>
-    <div className="mt-4 grid auto-rows-fr grid-cols-3 justify-items-stretch gap-10 text-center font-mono text-sm leading-6 font-bold text-white">
-      <div className="rounded-lg bg-purple-300 p-4 dark:bg-purple-800 dark:text-purple-500">01</div>
-      <div className="grid grid-cols-1">
-        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
-        <div className="col-start-1 row-start-1 size-14 justify-self-end-safe rounded-lg bg-purple-500 p-4">02</div>
+      <div>
+        <p className="text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
+          justify-self-end-safe
+        </p>
+        <div className="mt-4 grid auto-rows-fr grid-cols-3 justify-items-stretch gap-10 text-center font-mono text-sm leading-6 font-bold text-white">
+          <div className="rounded-lg bg-purple-300 p-4 dark:bg-purple-800 dark:text-purple-500">01</div>
+          <div className="grid grid-cols-1">
+            <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+            <div className="col-start-1 row-start-1 size-14 justify-self-end-safe rounded-lg bg-purple-500 p-4">02</div>
+          </div>
+          <div className="rounded-lg bg-purple-300 p-4 dark:bg-purple-800 dark:text-purple-500">03</div>
+        </div>
       </div>
-      <div className="rounded-lg bg-purple-300 p-4 dark:bg-purple-800 dark:text-purple-500">03</div>
     </div>
-  </div>
-</div>
-}
-
+  }
 </Example>
 
 ```html
