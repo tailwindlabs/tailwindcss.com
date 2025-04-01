@@ -479,18 +479,14 @@ Use the `mask-[<value>]` syntax to set the mask image of an element:
 <Figure>
 
 <Example>
-
-{
-
-<Stripes
-  border
-  className="relative mx-auto flex h-48 w-96 items-center justify-center overflow-hidden rounded-lg sm:w-96"
->
-  <div className="h-full w-full bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] [mask-image:url(/mask.png)] bg-cover bg-center bg-no-repeat mask-size-[110%_90%] mask-center mask-no-repeat"></div>
-</Stripes>
-
-}
-
+  {
+    <Stripes
+      border
+      className="relative mx-auto flex h-48 w-96 items-center justify-center overflow-hidden rounded-lg sm:w-96"
+    >
+      <div className="h-full w-full bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] [mask-image:url(/mask.png)] bg-cover bg-center bg-no-repeat mask-size-[110%_90%] mask-center mask-no-repeat"></div>
+    </Stripes>
+  }
 </Example>
 
 ```html
@@ -507,40 +503,36 @@ Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear
 <Figure >
 
 <Example padding={false}>
-
-{
-
-<div className="grid grid-cols-2 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
-  <div className="flex flex-col items-center text-xs">
-    <p>mask-t-from-50%</p>
-    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-32" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-50% bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center text-xs">
-    <p>mask-r-from-30%</p>
-    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-32" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-white mask-r-from-30% bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center text-xs">
-    <p>mask-l-from-50%</p>
-    <p>mask-l-to-90%</p>
-    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-32" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-l-from-50% mask-l-to-90% bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center text-xs">
-    <p>mask-b-from-20%</p>
-    <p>mask-b-to-80%</p>
-    <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-32" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-20% mask-b-to-80% bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-</div>
-
-}
-
+  {
+    <div className="grid grid-cols-2 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
+      <div className="flex flex-col items-center text-xs">
+        <p>mask-t-from-50%</p>
+        <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-32" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-50% bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center text-xs">
+        <p>mask-r-from-30%</p>
+        <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-32" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-white mask-r-from-30% bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center text-xs">
+        <p>mask-l-from-50%</p>
+        <p>mask-l-to-90%</p>
+        <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-32" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-l-from-50% mask-l-to-90% bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center text-xs">
+        <p>mask-b-from-20%</p>
+        <p>mask-b-to-80%</p>
+        <Stripes className="mt-3 aspect-[1.33] w-40 rounded-lg max-sm:w-32" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-20% mask-b-to-80% bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+    </div>
+  }
 </Example>
 
 ```html
@@ -560,73 +552,70 @@ Combine multiple single side utilities to create more complex gradients, or use 
 <Figure>
 
 <Example>
-
-{
-
-<div className="mx-8 max-sm:justify-between max-sm:px-2">
-  <div className="relative h-[3.625rem]">
-    <div className="absolute top-0 left-[10%] -ml-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow dark:stroke-white/10">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+  {
+    <div className="mx-8 max-sm:justify-between max-sm:px-2">
+      <div className="relative h-[3.625rem]">
+        <div className="absolute top-0 left-[10%] -ml-3 flex h-12 flex-col items-center">
+          <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow dark:stroke-white/10">
+            <use href="#gradient-color-stop" />
+          </svg>
+          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+        </div>
+        <div className="absolute top-0 left-[20%] -ml-3 flex h-12 flex-col items-center">
+          <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow dark:stroke-white/10">
+            <use href="#gradient-color-stop" />
+          </svg>
+          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+        </div>
+        <div className="absolute top-0 right-[30%] -mr-3 flex h-12 flex-col items-center">
+          <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow dark:stroke-white/10">
+            <use href="#gradient-color-stop" />
+          </svg>
+          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+        </div>
+        <div className="absolute top-0 right-px -mr-3 flex h-12 flex-col items-center">
+          <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow dark:stroke-white/10">
+            <use href="#gradient-color-stop" />
+          </svg>
+          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+        </div>
+      </div>
+      <div className="relative">
+        <div className="relative z-10 h-32 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-70% mask-l-from-80% mask-l-to-90% bg-cover bg-center"></div>
+        <Stripes className="absolute inset-0 rounded-lg" border />
+      </div>
+      <div className="relative mt-8 h-[3.625rem]">
+        <div className="absolute top-0 left-[10%] -ml-3 flex h-12 flex-col items-center">
+          <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow dark:stroke-white/10">
+            <use href="#gradient-color-stop" />
+          </svg>
+          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+        </div>
+        <div className="absolute top-0 left-[30%] -ml-3 flex h-12 flex-col items-center">
+          <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow dark:stroke-white/10">
+            <use href="#gradient-color-stop" />
+          </svg>
+          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+        </div>
+        <div className="absolute top-0 right-[30%] -mr-3 flex h-12 flex-col items-center">
+          <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow dark:stroke-white/10">
+            <use href="#gradient-color-stop" />
+          </svg>
+          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+        </div>
+        <div className="absolute top-0 right-[10%] -mr-3 flex h-12 flex-col items-center">
+          <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow dark:stroke-white/10">
+            <use href="#gradient-color-stop" />
+          </svg>
+          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+        </div>
+      </div>
+      <div className="relative">
+        <div className="relative z-10 h-32 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-x-from-70% mask-x-to-90% bg-cover bg-center"></div>
+        <Stripes className="absolute inset-0 rounded-lg" border />
+      </div>
     </div>
-    <div className="absolute top-0 left-[20%] -ml-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow dark:stroke-white/10">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-    </div>
-    <div className="absolute top-0 right-[30%] -mr-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow dark:stroke-white/10">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-    </div>
-    <div className="absolute top-0 right-px -mr-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow dark:stroke-white/10">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-    </div>
-  </div>
-  <div className="relative">
-    <div className="relative z-10 h-32 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-70% mask-l-from-80% mask-l-to-90% bg-cover bg-center"></div>
-    <Stripes className="absolute inset-0 rounded-lg" border />
-  </div>
-  <div className="relative mt-8 h-[3.625rem]">
-    <div className="absolute top-0 left-[10%] -ml-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow dark:stroke-white/10">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-    </div>
-    <div className="absolute top-0 left-[30%] -ml-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow dark:stroke-white/10">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-    </div>
-    <div className="absolute top-0 right-[30%] -mr-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow dark:stroke-white/10">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-    </div>
-    <div className="absolute top-0 right-[10%] -mr-3 flex h-12 flex-col items-center">
-      <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow dark:stroke-white/10">
-        <use href="#gradient-color-stop" />
-      </svg>
-      <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-    </div>
-  </div>
-  <div className="relative">
-    <div className="relative z-10 h-32 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-x-from-70% mask-x-to-90% bg-cover bg-center"></div>
-    <Stripes className="absolute inset-0 rounded-lg" border />
-  </div>
-</div>
-}
-
+  }
 </Example>
 
 ```html
@@ -644,102 +633,98 @@ Use utilities like `mask-linear-<angle>` and `mask-linear-to-<value>` to add a c
 <Figure>
 
 <Example padding={false}>
-
-{
-
-<div className="relative py-8">
-  <div className="absolute inset-x-0 bottom-8 z-10 flex items-center justify-center">
-    <button
-      type="button"
-      className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50 dark:bg-gray-950 dark:text-white dark:ring-white/20 dark:hover:bg-gray-900"
-    >
-      Show more
-    </button>
-  </div>
-  <div className="border-y border-y-gray-200 bg-white mask-linear-180 mask-linear-from-70% dark:border-y-gray-800 dark:bg-gray-950">
-    <div>
-      <div className="inline-block min-w-full align-middle">
-        <div className="overflow-hidden">
-          <table className="min-w-full">
-            <thead className="border-b border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-950">
-              <tr>
-                <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
-                  Name
-                </th>
-                <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
-                  Title
-                </th>
-                <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
-                  Email
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
-                <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
-                  Jane Cooper
-                </td>
-                <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                  Regional Paradigm Technician
-                </td>
-                <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                  jane.cooper@example.com
-                </td>
-              </tr>
-              <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
-                <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
-                  Cody Fisher
-                </td>
-                <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                  Product Directives Officer
-                </td>
-                <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                  cody.fisher@example.com
-                </td>
-              </tr>
-              <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
-                <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
-                  Leonard Krasner
-                </td>
-                <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                  Senior Designer
-                </td>
-                <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                  leonard.krasner@example.com
-                </td>
-              </tr>
-              <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
-                <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
-                  Emily Selman
-                </td>
-                <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                  VP, Hardware Engineering
-                </td>
-                <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                  emily.selman@example.com
-                </td>
-              </tr>
-              <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
-                <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
-                  Anna Roberts
-                </td>
-                <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                  Chief Strategy Officer
-                </td>
-                <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                  anna.roberts@example.com
-                </td>
-              </tr>
-            </tbody>
-          </table>
+  {
+    <div className="relative py-8">
+      <div className="absolute inset-x-0 bottom-8 z-10 flex items-center justify-center">
+        <button
+          type="button"
+          className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50 dark:bg-gray-950 dark:text-white dark:ring-white/20 dark:hover:bg-gray-900"
+        >
+          Show more
+        </button>
+      </div>
+      <div className="border-y border-y-gray-200 bg-white mask-linear-180 mask-linear-from-70% dark:border-y-gray-800 dark:bg-gray-950">
+        <div>
+          <div className="inline-block min-w-full align-middle">
+            <div className="overflow-hidden">
+              <table className="min-w-full">
+                <thead className="border-b border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-950">
+                  <tr>
+                    <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
+                      Name
+                    </th>
+                    <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
+                      Title
+                    </th>
+                    <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
+                      Email
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
+                    <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
+                      Jane Cooper
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                      Regional Paradigm Technician
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                      jane.cooper@example.com
+                    </td>
+                  </tr>
+                  <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
+                    <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
+                      Cody Fisher
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                      Product Directives Officer
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                      cody.fisher@example.com
+                    </td>
+                  </tr>
+                  <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
+                    <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
+                      Leonard Krasner
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                      Senior Designer
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                      leonard.krasner@example.com
+                    </td>
+                  </tr>
+                  <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
+                    <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
+                      Emily Selman
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                      VP, Hardware Engineering
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                      emily.selman@example.com
+                    </td>
+                  </tr>
+                  <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
+                    <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
+                      Anna Roberts
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                      Chief Strategy Officer
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
+                      anna.roberts@example.com
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-
-}
-
+  }
 </Example>
 
 ```html
@@ -772,22 +757,18 @@ Use the `mask-radial-from-<value>` and `mask-radial-to-<value>` utilities to add
 <Figure>
 
 <Example padding={false}>
-
-{
-
-<div className="mx-auto flex items-center gap-4 p-16 max-sm:p-8">
-  <div className="bg-repeat-none aspect-square w-full bg-[url(/keyboard-light.png)] mask-radial-[100%_100%] mask-radial-from-75% mask-radial-at-left bg-cover bg-no-repeat dark:bg-[url(/keyboard-dark.png)]" />
-  <div className="font-medium">
-    <p className="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
-    <p className="mt-2 text-base text-gray-700 dark:text-gray-300">Built for power users</p>
-    <p className="mt-1 text-sm leading-relaxed text-balance text-gray-500">
-      Work faster than ever with customizable keyboard shortcuts
-    </p>
-  </div>
-</div>
-
-}
-
+  {
+    <div className="mx-auto flex items-center gap-4 p-16 max-sm:p-8">
+      <div className="bg-repeat-none aspect-square w-full bg-[url(/keyboard-light.png)] mask-radial-[100%_100%] mask-radial-from-75% mask-radial-at-left bg-cover bg-no-repeat dark:bg-[url(/keyboard-dark.png)]" />
+      <div className="font-medium">
+        <p className="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
+        <p className="mt-2 text-base text-gray-700 dark:text-gray-300">Built for power users</p>
+        <p className="mt-1 text-sm leading-relaxed text-balance text-gray-500">
+          Work faster than ever with customizable keyboard shortcuts
+        </p>
+      </div>
+    </div>
+  }
 </Example>
 
 ```html
@@ -815,68 +796,64 @@ Use utilities like `mask-radial-at-bottom-left` and `mask-radial-at-[35%_35%]` t
 <Figure >
 
 <Example padding={false}>
-
-{
-
-<div className="grid grid-cols-3 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
-  <div className="flex flex-col items-center">
-    <p className="mb-3 text-xs">mask-radial-at-top-left</p>
-    <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-top-left bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center">
-    <p className="mb-3 text-xs">mask-radial-at-top</p>
-    <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-top bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center">
-    <p className="mb-3 text-xs">mask-radial-at-top-right</p>
-    <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-top-right bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center">
-    <p className="mb-3 text-xs">mask-radial-at-left</p>
-    <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-left bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center">
-    <p className="mb-3 text-xs">mask-radial-at-center</p>
-    <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-center bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center">
-    <p className="mb-3 text-xs">mask-radial-at-right</p>
-    <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-right bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center">
-    <p className="mb-3 text-xs">mask-radial-at-bottom-left</p>
-    <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-bottom-left bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center">
-    <p className="mb-3 text-xs">mask-radial-at-bottom</p>
-    <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-bottom bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center">
-    <p className="mb-3 text-xs">mask-radial-at-bottom-right</p>
-    <Stripes className="size-28 rounded-lg max-sm:size-24" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-bottom-right bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-</div>
-
-}
-
+  {
+    <div className="grid grid-cols-3 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-xs">mask-radial-at-top-left</p>
+        <Stripes className="size-28 rounded-lg max-sm:size-24" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-top-left bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-xs">mask-radial-at-top</p>
+        <Stripes className="size-28 rounded-lg max-sm:size-24" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-top bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-xs">mask-radial-at-top-right</p>
+        <Stripes className="size-28 rounded-lg max-sm:size-24" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-top-right bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-xs">mask-radial-at-left</p>
+        <Stripes className="size-28 rounded-lg max-sm:size-24" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-left bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-xs">mask-radial-at-center</p>
+        <Stripes className="size-28 rounded-lg max-sm:size-24" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-center bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-xs">mask-radial-at-right</p>
+        <Stripes className="size-28 rounded-lg max-sm:size-24" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-right bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-xs">mask-radial-at-bottom-left</p>
+        <Stripes className="size-28 rounded-lg max-sm:size-24" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-bottom-left bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-xs">mask-radial-at-bottom</p>
+        <Stripes className="size-28 rounded-lg max-sm:size-24" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-bottom bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-xs">mask-radial-at-bottom-right</p>
+        <Stripes className="size-28 rounded-lg max-sm:size-24" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-[33%_33%] mask-radial-from-100% mask-radial-at-bottom-right bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+    </div>
+  }
 </Example>
 
 ```html
@@ -903,38 +880,34 @@ Use utilities like `mask-radial-closest-corner` and `mask-radial-farthest-side` 
 <Figure >
 
 <Example padding={false}>
-
-{
-
-<div className="grid grid-cols-2 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
-  <div className="flex flex-col items-center">
-    <p className="mb-3 text-xs">mask-radial-closest-side</p>
-    <Stripes className="aspect-[1.33] w-40 rounded-lg max-sm:w-322" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-closest-side mask-radial-at-[30%_30%] bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center">
-    <p className="mb-3 text-xs">mask-radial-closest-corner</p>
-    <Stripes className="aspect-[1.33] w-40 rounded-lg max-sm:w-322" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-closest-corner mask-radial-at-[30%_30%] bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center">
-    <p className="mb-3 text-xs">mask-radial-farthest-side</p>
-    <Stripes className="aspect-[1.33] w-40 rounded-lg max-sm:w-322" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-farthest-side mask-radial-at-[30%_30%] bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center">
-    <p className="mb-3 text-xs">mask-radial-farthest-corner</p>
-    <Stripes className="aspect-[1.33] w-40 rounded-lg max-sm:w-322" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-farthest-corner mask-radial-at-[30%_30%] bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-</div>
-
-}
-
+  {
+    <div className="grid grid-cols-2 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-xs">mask-radial-closest-side</p>
+        <Stripes className="aspect-[1.33] w-40 rounded-lg max-sm:w-322" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-closest-side mask-radial-at-[30%_30%] bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-xs">mask-radial-closest-corner</p>
+        <Stripes className="aspect-[1.33] w-40 rounded-lg max-sm:w-322" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-closest-corner mask-radial-at-[30%_30%] bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-xs">mask-radial-farthest-side</p>
+        <Stripes className="aspect-[1.33] w-40 rounded-lg max-sm:w-322" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-farthest-side mask-radial-at-[30%_30%] bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-xs">mask-radial-farthest-corner</p>
+        <Stripes className="aspect-[1.33] w-40 rounded-lg max-sm:w-322" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-farthest-corner mask-radial-at-[30%_30%] bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+    </div>
+  }
 </Example>
 
 ```html
@@ -957,24 +930,21 @@ Use the `mask-conic-from-<value>`, `mask-conic-to-<value>` and `mask-conic-<angl
 
 <Figure>
 
-<Example >
-
-{
-
-<div className="mx-auto flex w-full max-w-sm items-center gap-5 rounded-xl bg-white p-4 shadow-lg ring-1 ring-black/5 dark:bg-gray-800">
-  <div className="grid grid-cols-1 grid-rows-1">
-    <div className="col-start-1 row-start-1 size-12 rounded-full border-4 border-gray-100 dark:border-gray-700" />
-    <div className="col-start-1 row-start-1 size-12 rounded-full border-4 border-amber-500 mask-conic-from-75% mask-conic-to-75% dark:border-amber-400" />
-  </div>
-  <div className="w-0 flex-1 text-sm text-gray-950 dark:text-white">
-    <p className="font-medium">Storage used: 75%</p>
-    <p className="mt-1 text-gray-500 dark:text-gray-400">
-      <span className="font-medium">0.48 GB</span> out of 2 GB remaining
-    </p>
-  </div>
-</div>
-}
-
+<Example>
+  {
+    <div className="mx-auto flex w-full max-w-sm items-center gap-5 rounded-xl bg-white p-4 shadow-lg ring-1 ring-black/5 dark:bg-gray-800">
+      <div className="grid grid-cols-1 grid-rows-1">
+        <div className="col-start-1 row-start-1 size-12 rounded-full border-4 border-gray-100 dark:border-gray-700" />
+        <div className="col-start-1 row-start-1 size-12 rounded-full border-4 border-amber-500 mask-conic-from-75% mask-conic-to-75% dark:border-amber-400" />
+      </div>
+      <div className="w-0 flex-1 text-sm text-gray-950 dark:text-white">
+        <p className="font-medium">Storage used: 75%</p>
+        <p className="mt-1 text-gray-500 dark:text-gray-400">
+          <span className="font-medium">0.48 GB</span> out of 2 GB remaining
+        </p>
+      </div>
+    </div>
+  }
 </Example>
 
 ```html
@@ -1002,34 +972,30 @@ Gradient mask utilities, like `mask-radial-from-<value>`, `mask-conic-to-<value>
 <Figure>
 
 <Example>
-
-{
-
-<div className="grid grid-cols-2 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
-  <div className="flex flex-col items-center text-xs">
-    <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-32" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-80% mask-b-from-80% mask-radial-from-70% mask-radial-to-85% mask-circle mask-radial-at-top-left bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center text-xs">
-    <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-32" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-y-from-80% mask-x-from-80% bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center text-xs">
-    <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-32" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-50% mask-radial-[50%_90%] mask-radial-from-80% mask-radial-at-bottom bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center text-xs">
-    <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-32" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-80% mask-t-to-80% mask-r-from-80% mask-r-to-80% mask-conic-305 mask-conic-from-50% mask-conic-to-50% bg-cover bg-center mask-size-[2.5%_3.25%]"></div>
-    </Stripes>
-  </div>
-</div>
-
-}
-
+  {
+    <div className="grid grid-cols-2 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
+      <div className="flex flex-col items-center text-xs">
+        <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-32" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-80% mask-b-from-80% mask-radial-from-70% mask-radial-to-85% mask-circle mask-radial-at-top-left bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center text-xs">
+        <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-32" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-y-from-80% mask-x-from-80% bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center text-xs">
+        <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-32" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-50% mask-radial-[50%_90%] mask-radial-from-80% mask-radial-at-bottom bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center text-xs">
+        <Stripes className="aspect-[1.33] w-48 rounded-lg max-sm:w-32" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-80% mask-t-to-80% mask-r-from-80% mask-r-to-80% mask-conic-305 mask-conic-from-50% mask-conic-to-50% bg-cover bg-center mask-size-[2.5%_3.25%]"></div>
+        </Stripes>
+      </div>
+    </div>
+  }
 </Example>
 
 ```html
