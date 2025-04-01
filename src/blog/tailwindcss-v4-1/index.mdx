@@ -1,6 +1,8 @@
 import { adamwathan } from "@/app/blog/authors";
 import card from "./card.jpg";
 import Image from "next/image";
+import SafariDark from "./safari-15-dark.png";
+import SafariLight from "./safari-15-light.png";
 import { Figure } from "@/components/figure";
 import { Example } from "@/components/example";
 import { Stripes } from "@/components/stripes";
@@ -34,6 +36,7 @@ We all know that your AI assistant still thinks it's 2023, so here's a list of n
 - [Keep content visible with `safe` alignment](#keep-content-visible-with-safe-alignment): Safely align content without worrying about overflow.
 - [Ignore specific paths with `@source not`](#ignore-specific-paths-with-source-not): Fine-tune the paths that Tailwind scans for classes.
 - [Safelist specific utilities with `@source inline(…)`](#safelist-specific-utilities-with-source-inline): Include classes that aren't in your source files.
+- [Improved backwards compatibility](#improved-backwards-compatibility): Some cutting-edge features degrade more gracefully on older browsers.
 - [A bunch of new variants](#a-bunch-of-new-variants): Build better interactive experiences with `noscript`, `user-valid`, and more.
 
 That's all the cool stuff, but to keep you on your toes there's a few other things in the [release notes](https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.1.0) that you should check out too.
@@ -679,6 +682,37 @@ You can also use `@source inline()` with the `not` modifier to exclude specific 
 This will specifically exclude the shades of red from 50 to 950, along with their hover and focus variants, from being generated even if they are detected in your source files.
 
 For more details on how to use `@source inline()`, check out the [detecting classes in source files](docs/detecting-classes-in-source-files#safelisting-specific-utilities) documentation.
+
+---
+
+### Improved backwards compatibility
+
+We all know someone who has been refusing to update iOS for the last five years because they prefer the old interface. Well, we've been working hard to make sure that those people have one less thing to complain about.
+
+In Tailwind 4.0, we took advantage of some modern CSS features to make the framework lighter but also more flexible. Although these have been widely available in CSS for a while now, some features, like `@property` and `oklch` color mixing, needed some work to degrade gracefully on older browsers like Safari 15.
+
+<Image
+  alt="Comparison between how Tailwind CSS v4.0 (left) and Tailwind CSS v4.1 (right) render in Safari 15.5. Tailwind CSS v4.0 fails to render some background gradients that are now visible in Tailwind CSS v4.1"
+  src={SafariLight}
+  className="block border border-black/5 dark:hidden"
+/>
+
+<Image
+  alt="Comparison between how Tailwind CSS v4.0 (left) and Tailwind CSS v4.1 (right) render in Safari 15.5. Tailwind CSS v4.0 fails to render some background gradients that are now visible in Tailwind CSS v4.1"
+  src={SafariDark}
+  className="hidden border border-white/10 dark:block"
+/>
+
+Here's the full list of backwards compatibility work we've done in this release:
+
+- Update default theme values to use percentages in `oklab` for better Safari support (e.g., `oklch(63.7% 0.237 25.331)`).
+- Polyfill `@property` using `@supports` for older Safari and Firefox versions.
+- Implement fallbacks for `color-mix` using inlined theme colors, converting to `srgb` for compatibility.
+- Add fallbacks for the relative color feature in new shadow utilities and `color-mix` when using `currentcolor`.
+- Provide fallbacks for gradient interpolation methods like `bg-linear-to-r/oklab`.
+- Polyfill `@media` queries range syntax.
+
+To learn everything you need to know about Tailwind compatibility, you can read the full [documentation](docs/compatibility)
 
 ---
 
