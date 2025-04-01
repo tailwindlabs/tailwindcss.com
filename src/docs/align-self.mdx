@@ -275,10 +275,12 @@ Use the `self-baseline-last` utility to align an item along the container's cros
 
 ```html
 <!-- [!code classes:self-baseline-last] -->
-<div class="grid grid-cols-[auto_1fr_auto]">
-  <img src="img/spencer-sharp.jpg" />
-  <h4>Spencer Sharp</h4>
-  <p class="self-baseline-last">Working on the future of astronaut recruitment at Space Recruit.</p>
+<div class="grid grid-cols-[1fr_auto]">
+  <div>
+    <img src="img/spencer-sharp.jpg" />
+    <h4>Spencer Sharp</h4>
+    <p class="self-baseline-last">Working on the future of astronaut recruitment at Space Recruit.</p>
+  </div>
   <p class="self-baseline-last">spacerecruit.com</p>
 </div>
 ```
