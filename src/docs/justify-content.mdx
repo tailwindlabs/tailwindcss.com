@@ -1,3 +1,4 @@
+import { CodeExampleStack } from "@/components/code-example";
 import { ApiTable } from "@/components/api-table.tsx";
 import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
@@ -95,15 +96,22 @@ Use the `justify-center` or `justify-center-safe` utilities to justify items alo
   }
 </Example>
 
+<CodeExampleStack>
+
 ```html
-<!-- [!code classes:justify-center,justify-center-safe] -->
+<!-- [!code filename:justify-center] -->
+<!-- [!code classes:justify-center] -->
 <div class="flex justify-center ...">
   <div>01</div>
   <div>02</div>
   <div>03</div>
   <div>04</div>
 </div>
+```
 
+```html
+<!-- [!code filename:justify-center-safe] -->
+<!-- [!code classes:justify-center-safe] -->
 <div class="flex justify-center-safe ...">
   <div>01</div>
   <div>02</div>
@@ -111,6 +119,8 @@ Use the `justify-center` or `justify-center-safe` utilities to justify items alo
   <div>04</div>
 </div>
 ```
+
+</CodeExampleStack>
 
 </Figure>
 
@@ -153,15 +163,22 @@ Use the `justify-end` or `justify-end-safe` utilities to justify items against t
   }
 </Example>
 
+<CodeExampleStack>
+
 ```html
-<!-- [!code classes:justify-end,justify-end-safe] -->
+<!-- [!code filename:justify-end] -->
+<!-- [!code classes:justify-end] -->
 <div class="flex justify-end ...">
   <div>01</div>
   <div>02</div>
   <div>03</div>
   <div>03</div>
 </div>
+```
 
+```html
+<!-- [!code filename:justify-end-safe] -->
+<!-- [!code classes:justify-end-safe] -->
 <div class="flex justify-end-safe ...">
   <div>01</div>
   <div>02</div>
@@ -169,6 +186,8 @@ Use the `justify-end` or `justify-end-safe` utilities to justify items against t
   <div>03</div>
 </div>
 ```
+
+</CodeExampleStack>
 
 </Figure>
 
