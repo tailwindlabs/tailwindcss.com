@@ -134,6 +134,15 @@ export default {
     ["opacity", "/docs/opacity"],
     ["mix-blend-mode", "/docs/mix-blend-mode"],
     ["background-blend-mode", "/docs/background-blend-mode"],
+    ["mask-clip", "/docs/mask-clip"],
+    ["mask-composite", "/docs/mask-composite"],
+    ["mask-image", "/docs/mask-image"],
+    ["mask-mode", "/docs/mask-mode"],
+    ["mask-origin", "/docs/mask-origin"],
+    ["mask-position", "/docs/mask-position"],
+    ["mask-repeat", "/docs/mask-repeat"],
+    ["mask-size", "/docs/mask-size"],
+    ["mask-type", "/docs/mask-type"],
   ] as const,
   Filters: [
     [
