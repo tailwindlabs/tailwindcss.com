@@ -54,12 +54,13 @@ Use utilities like `mask-add` and `mask-intersect` to control how an element's m
   }
 </Example>
 
+{/* prettier-ignore */}
 ```html
 <!-- [!code classes:mask-add,mask-subtract,mask-intersect,mask-exclude] -->
-<div class="mask-[url(/img/circle.png),_url(/img/circle.png)] mask-add mask-[position:30%_50%,70%_50%]"></div>
-<div class="mask-[url(/img/circle.png),_url(/img/circle.png)] mask-subtract mask-[position:30%_50%,70%_50%]"></div>
-<div class="mask-[url(/img/circle.png),_url(/img/circle.png)] mask-intersect mask-[position:30%_50%,70%_50%]"></div>
-<div class="mask-[url(/img/circle.png),_url(/img/circle.png)] mask-exclude mask-[position:30%_50%,70%_50%]"></div>
+<div class="mask-add mask-[url(/img/circle.png),url(/img/circle.png)] bg-[url(/img/mountains.jpg)] mask-[position:30%_50%,70%_50%]"></div>
+<div class="mask-subtract mask-[url(/img/circle.png),url(/img/circle.png)] bg-[url(/img/mountains.jpg)] mask-[position:30%_50%,70%_50%]"></div>
+<div class="mask-intersect mask-[url(/img/circle.png),url(/img/circle.png)] bg-[url(/img/mountains.jpg)] mask-[position:30%_50%,70%_50%]"></div>
+<div class="mask-exclude mask-[url(/img/circle.png),url(/img/circle.png)] bg-[url(/img/mountains.jpg)] mask-[position:30%_50%,70%_50%]"></div>
 ```
 
 </Figure>
