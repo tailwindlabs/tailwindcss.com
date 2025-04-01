@@ -1,3 +1,4 @@
+import { CodeExampleStack } from "@/components/code-example";
 import { ApiTable } from "@/components/api-table.tsx";
 import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
@@ -180,20 +181,29 @@ Use the `justify-self-end` or `justify-self-end-safe` utilities to align a grid 
   }
 </Example>
 
+<CodeExampleStack>
+
 ```html
-<!-- [!code classes:justify-self-end,justify-self-end-safe] -->
+<!-- [!code filename:justify-self-end] -->
+<!-- [!code classes:justify-self-end] -->
 <div class="grid justify-items-stretch ...">
   <!-- ... -->
   <div class="justify-self-end ...">02</div>
   <!-- ... -->
 </div>
+```
 
+```html
+<!-- [!code filename:justify-self-end-safe] -->
+<!-- [!code classes:justify-self-end-safe] -->
 <div class="grid justify-items-stretch ...">
   <!-- ... -->
   <div class="justify-self-end-safe ...">02</div>
   <!-- ... -->
 </div>
 ```
+
+</CodeExampleStack>
 
 </Figure>
 
