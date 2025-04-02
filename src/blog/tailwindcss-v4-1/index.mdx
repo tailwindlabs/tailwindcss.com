@@ -94,15 +94,15 @@ You can change the color of the shadow using the `text-shadow-<color>` utilities
   {
     <div className="relative grid h-48 place-items-center">
       <div className="-mr-10 flex gap-4 max-sm:-mr-32">
-        <button className="relative rounded-full bg-linear-to-b from-sky-300 to-sky-400 to-70% px-4 py-2 text-sm font-semibold text-sky-950 shadow-md ring inset-shadow-2xs ring-sky-500 inset-shadow-white/20 text-shadow-2xs text-shadow-white/50 dark:ring-sky-500/50">
+        <button className="relative rounded-full bg-linear-to-b from-sky-300 to-sky-400 to-70% px-4 py-2 text-sm font-semibold text-sky-950 shadow-md ring inset-shadow-2xs ring-sky-500 inset-shadow-white/20 text-shadow-2xs text-shadow-sky-300 dark:ring-sky-500/50">
           Book a demo
           <div className="absolute top-1/2 -left-6/5 size-42 -translate-y-1/2 overflow-hidden rounded-full bg-white/20 p-2 shadow-lg ring-2 ring-black/5 backdrop-blur-sm dark:ring-black/10">
-            <div className="grid size-full items-center overflow-hidden rounded-full bg-linear-to-b from-sky-300 to-sky-400 to-50% px-5 pb-2 text-[70px] font-semibold whitespace-nowrap text-sky-900 inset-ring-2 inset-ring-black/10 text-shadow-[0px_5px_0px_var(--tw-text-shadow-color)] text-shadow-white/50">
+            <div className="grid size-full items-center overflow-hidden rounded-full bg-linear-to-b from-sky-300 to-sky-400 to-50% px-5 pb-2 text-[70px] font-semibold whitespace-nowrap text-sky-900 inset-ring-2 inset-ring-black/10 text-shadow-[0px_5px_0px_var(--tw-text-shadow-color)] text-shadow-sky-300">
               Book a demo
             </div>
           </div>
         </button>
-        <button className="relative rounded-full bg-linear-to-b from-white/10 to-white/20 to-70% px-4 py-2 text-sm font-semibold text-black shadow-md ring inset-shadow-2xs ring-black/20 inset-shadow-white/10 dark:text-white">
+        <button className="relative rounded-full bg-linear-to-b from-white/10 to-white/20 to-70% px-4 py-2 text-sm font-semibold text-gray-950 shadow-md ring inset-shadow-2xs ring-black/20 inset-shadow-white/10 dark:text-white dark:text-shadow-2xs">
           See pricing
         </button>
       </div>
@@ -111,11 +111,9 @@ You can change the color of the shadow using the `text-shadow-<color>` utilities
 </Example>
 
 ```html
-<!-- [!code classes:text-shadow-white/50] -->
-<div class="flex gap-4">
-  <button class="text-sky-950 text-shadow-2xs text-shadow-white/50 ...">Book a demo</button>
-  <button class="text-black dark:text-white ...">See pricing</button>
-</div>
+<!-- [!code classes:text-shadow-sky-300] -->
+<button class="text-sky-950 text-shadow-2xs text-shadow-sky-300 ...">Book a demo</button>
+<button class="text-gray-950 dark:text-white dark:text-shadow-2xs ...">See pricing</button>
 ```
 
 </Figure>
