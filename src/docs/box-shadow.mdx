@@ -215,7 +215,7 @@ Use utilities like `inset-shadow-xs` and `inset-shadow-sm` to apply an inset box
 
 <Example padding={false}>
   {
-    <div className="flex items-center justify-around gap-4 bg-white p-6 font-mono font-bold">
+    <div className="flex flex-col items-center justify-around gap-4 gap-y-6 bg-white p-6 font-mono font-bold sm:flex-row">
       <div className="flex flex-col items-center">
         <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">inset-shadow-2xs</p>
         <div className="size-24 rounded-lg bg-white ring-1 inset-shadow-2xs ring-black/5"></div>
@@ -251,7 +251,7 @@ Use utilities like `inset-shadow-indigo-500` and `inset-shadow-cyan-500/50` to c
 
 <Example padding={false}>
   {
-    <div className="flex items-center justify-around gap-4 bg-white p-6 font-mono font-bold">
+    <div className="flex flex-col items-center justify-around gap-4 gap-y-6 bg-white p-6 font-mono font-bold sm:flex-row">
       <div className="flex flex-col items-center">
         <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">inset-shadow-indigo-500</p>
         <div className="size-24 rounded-lg bg-indigo-200 inset-shadow-sm inset-shadow-indigo-500"></div>
@@ -282,7 +282,7 @@ Use `ring` or `ring-<number>` utilities like `ring-2` and `ring-4` to apply a so
 
 <Example>
   {
-    <div className="grid grid-cols-1 gap-4 text-center leading-6 font-bold text-white sm:grid-cols-3">
+    <div className="grid grid-cols-1 gap-x-4 gap-y-6 text-center leading-6 font-bold text-white sm:grid-cols-3">
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">ring</p>
         <button className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-gray-700 ring dark:bg-white/15 dark:text-gray-200">
@@ -324,7 +324,7 @@ Use utilities like `ring-indigo-500` and `ring-cyan-500/50` to change the color 
 
 <Example>
   {
-    <div className="grid grid-cols-1 gap-4 text-center leading-6 font-bold text-white sm:grid-cols-2">
+    <div className="grid grid-cols-1 gap-x-4 gap-y-6 text-center leading-6 font-bold text-white sm:grid-cols-2">
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">ring-blue-500</p>
         <button className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-gray-700 ring-2 ring-blue-500 dark:bg-white/15 dark:text-gray-200">
@@ -361,7 +361,7 @@ Use `inset-ring` or `inset-ring-<number>` utilities like `inset-ring-2` and `ins
 
 <Example>
   {
-    <div className="grid grid-cols-1 gap-4 text-center leading-6 font-bold text-white sm:grid-cols-3">
+    <div className="grid grid-cols-1 gap-x-4 gap-y-6 text-center leading-6 font-bold text-white sm:grid-cols-3">
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">inset-ring</p>
         <button className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-gray-700 inset-ring dark:bg-white/15 dark:text-gray-200">
@@ -403,7 +403,7 @@ Use utilities like `inset-ring-indigo-500` and `inset-ring-cyan-500/50` to chang
 
 <Example>
   {
-    <div className="grid grid-cols-1 gap-4 text-center leading-6 font-bold text-white sm:grid-cols-2">
+    <div className="grid grid-cols-1 gap-x-4 gap-y-6 text-center leading-6 font-bold text-white sm:grid-cols-2">
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
           inset-ring-blue-500
