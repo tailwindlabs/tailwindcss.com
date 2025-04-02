@@ -616,42 +616,68 @@ Ever had center aligned content overflow in both directions when the container g
 
 The new `safe` alignment utilities will change the alignment to `start` when the container starts to overflow, so it only overflows in one direction.
 
-<Figure hint="Resize the container to see the alignment change"  >
+<Figure hint="Resize the container to see the alignment behavior">
 
 <Example resizable>
   {
-    <div className="mx-auto flex flex-col items-center-safe">
-      <h2 className="text-center text-base font-semibold text-gray-900 dark:text-gray-200">
-        Select a category to filter:
-      </h2>
-      <ul className="flex gap-2 pt-4 text-sm text-sky-600 *:rounded-full *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5 dark:text-sky-300 dark:*:border-sky-500/15 dark:*:bg-sky-500/10">
-        <li>Sales</li>
-        <li>Marketing</li>
-        <li>SEO</li>
-        <li>Analytics</li>
-        <li>Design</li>
-        <li>Strategy</li>
-        <li>Growth</li>
-        <li>UX/UI</li>
-      </ul>
+    <div className="grid grid-cols-1 gap-8">
+      <div>
+        <p className="text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">justify-center</p>
+        <ul className="flex justify-center gap-2 pt-4 text-sm text-sky-600 *:rounded-full *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5 dark:text-sky-300 dark:*:border-sky-500/15 dark:*:bg-sky-500/10">
+          <li>Sales</li>
+          <li>Marketing</li>
+          <li>SEO</li>
+          <li>Analytics</li>
+          <li>Design</li>
+          <li>Strategy</li>
+          <li>Growth</li>
+          <li>UX/UI</li>
+        </ul>
+      </div>
+      <div>
+        <p className="text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+          justify-center-safe
+        </p>
+        <ul className="flex justify-center-safe gap-2 pt-4 text-sm text-sky-600 *:rounded-full *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5 dark:text-sky-300 dark:*:border-sky-500/15 dark:*:bg-sky-500/10">
+          <li>Sales</li>
+          <li>Marketing</li>
+          <li>SEO</li>
+          <li>Analytics</li>
+          <li>Design</li>
+          <li>Strategy</li>
+          <li>Growth</li>
+          <li>UX/UI</li>
+        </ul>
+      </div>
     </div>
   }
 </Example>
 
+<CodeExampleStack>
+
 ```html
-<!-- [!code classes:items-center-safe] -->
-<div class="mx-auto flex flex-col items-center-safe">
-  <h2 class="text-center">Select a category to filter:</h2>
-  <ul
-    class="*:rounded-full *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5 dark:text-sky-300 dark:*:border-sky-500/15 dark:*:bg-sky-500/10 ..."
-  >
-    <li>Sales</li>
-    <li>Marketing</li>
-    <li>SEO</li>
-    <!-- ... -->
-  </ul>
-</div>
+<!-- [!code filename:justify-center] -->
+<!-- [!code classes:justify-center] -->
+<ul class="flex justify-center gap-2 ...">
+  <li>Sales</li>
+  <li>Marketing</li>
+  <li>SEO</li>
+  <!-- ... -->
+</ul>
 ```
+
+```html
+<!-- [!code filename:justify-center-safe] -->
+<!-- [!code classes:justify-center-safe] -->
+<ul class="flex justify-center-safe gap-2 ...">
+  <li>Sales</li>
+  <li>Marketing</li>
+  <li>SEO</li>
+  <!-- ... -->
+</ul>
+```
+
+</CodeExampleStack>
 
 </Figure>
 
