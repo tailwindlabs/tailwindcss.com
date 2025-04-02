@@ -59,20 +59,16 @@ Five text shadows have been added to the default theme, from `text-shadow-2xs` t
 <Figure>
 
 <Example padding={false}>
-
-{
-
-<div className="relative grid items-center gap-4 bg-white px-6 py-14 text-center text-2xl font-semibold text-white">
-  <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1635776063328-153b13e3c245?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-size-[150%_200%] bg-left opacity-75" />
-  <p className="relative text-shadow-2xs">The quick brown fox jumps over the lazy dog.</p>
-  <p className="relative text-shadow-xs">The quick brown fox jumps over the lazy dog.</p>
-  <p className="relative text-shadow-sm">The quick brown fox jumps over the lazy dog.</p>
-  <p className="relative text-shadow-md">The quick brown fox jumps over the lazy dog.</p>
-  <p className="relative text-shadow-lg">The quick brown fox jumps over the lazy dog.</p>
-</div>
-
-}
-
+  {
+    <div className="relative grid items-center gap-4 bg-white px-6 py-14 text-center text-2xl font-semibold text-white">
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1635776063328-153b13e3c245?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-size-[150%_200%] bg-left opacity-75" />
+      <p className="relative text-shadow-2xs">The quick brown fox jumps over the lazy dog.</p>
+      <p className="relative text-shadow-xs">The quick brown fox jumps over the lazy dog.</p>
+      <p className="relative text-shadow-sm">The quick brown fox jumps over the lazy dog.</p>
+      <p className="relative text-shadow-md">The quick brown fox jumps over the lazy dog.</p>
+      <p className="relative text-shadow-lg">The quick brown fox jumps over the lazy dog.</p>
+    </div>
+  }
 </Example>
 
 ```html
@@ -127,18 +123,14 @@ For example, `text-shadow-lg/50` is the same as setting `text-shadow-lg` and `te
 <Figure>
 
 <Example padding={false}>
-
-{
-
-<div className="relative grid items-center gap-4 bg-white px-6 py-14 text-center text-2xl font-semibold text-white">
-  <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1635776063328-153b13e3c245?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-size-[150%_200%] bg-left opacity-75" />
-  <p className="relative text-shadow-lg">The quick brown fox jumps over the lazy dog.</p>
-  <p className="relative text-shadow-lg/20">The quick brown fox jumps over the lazy dog.</p>
-  <p className="relative text-shadow-lg/30">The quick brown fox jumps over the lazy dog.</p>
-</div>
-
-}
-
+  {
+    <div className="relative grid items-center gap-4 bg-white px-6 py-14 text-center text-2xl font-semibold text-white">
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1635776063328-153b13e3c245?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-size-[150%_200%] bg-left opacity-75" />
+      <p className="relative text-shadow-lg">The quick brown fox jumps over the lazy dog.</p>
+      <p className="relative text-shadow-lg/20">The quick brown fox jumps over the lazy dog.</p>
+      <p className="relative text-shadow-lg/30">The quick brown fox jumps over the lazy dog.</p>
+    </div>
+  }
 </Example>
 
 ```html
@@ -161,22 +153,18 @@ One of the coolest features of modern CSS is the ability to use images and gradi
 <Figure>
 
 <Example padding={false}>
-
-{
-
-<div className="mx-auto flex items-center p-16 max-sm:p-6">
-  <div className="bg-repeat-none aspect-square max-h-72 w-full bg-[url(/keyboard-light.png)] mask-radial-[100%_200%] mask-radial-from-transparent mask-radial-from-15% mask-radial-to-black mask-radial-to-60% mask-radial-at-right bg-cover bg-no-repeat dark:bg-[url(/keyboard-dark.png)]" />
-  <div className="font-medium max-sm:-mx-3">
-    <p className="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
-    <p className="mt-2 text-base whitespace-nowrap text-gray-700 dark:text-gray-300">Built for power users</p>
-    <p className="mt-1 text-sm leading-relaxed text-balance text-gray-500">
-      Work faster than ever with our keyboard shortcuts
-    </p>
-  </div>
-</div>
-
-}
-
+  {
+    <div className="mx-auto flex items-center p-16 max-sm:p-6">
+      <div className="bg-repeat-none aspect-square max-h-72 w-full bg-[url(/keyboard-light.png)] mask-radial-[100%_200%] mask-radial-from-transparent mask-radial-from-15% mask-radial-to-black mask-radial-to-60% mask-radial-at-right bg-cover bg-no-repeat dark:bg-[url(/keyboard-dark.png)]" />
+      <div className="font-medium max-sm:-mx-3">
+        <p className="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
+        <p className="mt-2 text-base whitespace-nowrap text-gray-700 dark:text-gray-300">Built for power users</p>
+        <p className="mt-1 text-sm leading-relaxed text-balance text-gray-500">
+          Work faster than ever with our keyboard shortcuts
+        </p>
+      </div>
+    </div>
+  }
 </Example>
 
 ```html
@@ -203,41 +191,37 @@ So instead, we created a new set of utilities to work with `mask-image` that are
 
 <Figure>
 
-<Example >
-
-{
-
-<div className="grid grid-cols-2 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
-  <div className="flex flex-col items-center text-xs">
-    <p>mask-t-from-50%</p>
-    <Stripes className="mt-3 aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-50% bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center text-xs">
-    <p>mask-r-from-30%</p>
-    <Stripes className="mt-3 aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-white mask-r-from-30% bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center text-xs">
-    <p>mask-l-from-50%</p>
-    <p>mask-l-to-90%</p>
-    <Stripes className="mt-3 aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-l-from-50% mask-l-to-90% bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center text-xs">
-    <p>mask-b-from-20%</p>
-    <p>mask-b-to-80%</p>
-    <Stripes className="mt-3 aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-20% mask-b-to-80% bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-</div>
-
-}
-
+<Example>
+  {
+    <div className="grid grid-cols-2 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
+      <div className="flex flex-col items-center text-xs">
+        <p>mask-t-from-50%</p>
+        <Stripes className="mt-3 aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-50% bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center text-xs">
+        <p>mask-r-from-30%</p>
+        <Stripes className="mt-3 aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-white mask-r-from-30% bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center text-xs">
+        <p>mask-l-from-50%</p>
+        <p>mask-l-to-90%</p>
+        <Stripes className="mt-3 aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-l-from-50% mask-l-to-90% bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center text-xs">
+        <p>mask-b-from-20%</p>
+        <p>mask-b-to-80%</p>
+        <Stripes className="mt-3 aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-20% mask-b-to-80% bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+    </div>
+  }
 </Example>
 
 ```html
@@ -257,34 +241,30 @@ The gradient mask utilities are also composable, so you can combine them to crea
 <Figure>
 
 <Example>
-
-{
-
-<div className="grid grid-cols-2 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
-  <div className="flex flex-col items-center text-xs">
-    <Stripes className="aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-80% mask-b-from-80% mask-radial-from-70% mask-radial-to-85% mask-circle mask-radial-at-top-left bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center text-xs">
-    <Stripes className="aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-y-from-80% mask-x-from-80% bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center text-xs">
-    <Stripes className="aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-50% mask-radial-[50%_90%] mask-radial-from-80% mask-radial-at-bottom bg-cover bg-center mask-no-repeat"></div>
-    </Stripes>
-  </div>
-  <div className="flex flex-col items-center text-xs">
-    <Stripes className="aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
-      <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-80% mask-t-to-80% mask-r-from-80% mask-r-to-80% mask-conic-305 mask-conic-from-50% mask-conic-to-50% bg-cover bg-center mask-size-[2.5%_3.25%]"></div>
-    </Stripes>
-  </div>
-</div>
-
-}
-
+  {
+    <div className="grid grid-cols-2 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
+      <div className="flex flex-col items-center text-xs">
+        <Stripes className="aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-80% mask-b-from-80% mask-radial-from-70% mask-radial-to-85% mask-circle mask-radial-at-top-left bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center text-xs">
+        <Stripes className="aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-y-from-80% mask-x-from-80% bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center text-xs">
+        <Stripes className="aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-50% mask-radial-[50%_90%] mask-radial-from-80% mask-radial-at-bottom bg-cover bg-center mask-no-repeat"></div>
+        </Stripes>
+      </div>
+      <div className="flex flex-col items-center text-xs">
+        <Stripes className="aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-80% mask-t-to-80% mask-r-from-80% mask-r-to-80% mask-conic-305 mask-conic-from-50% mask-conic-to-50% bg-cover bg-center mask-size-[2.5%_3.25%]"></div>
+        </Stripes>
+      </div>
+    </div>
+  }
 </Example>
 
 ```html
@@ -334,37 +314,36 @@ It's similar to `wrap-break-word`, but it allows mid-word line breaks when calcu
 <Figure>
 
 <Example>
-
-{
-
-<div>
-  <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">wrap-break-word</p>
-  <div className="mx-auto flex max-w-sm items-center gap-4 rounded-xl bg-white p-3 shadow-sm ring ring-black/2.5 dark:bg-black/10 dark:ring-white/10">
-    <img
-      className="size-16 rounded-full outline -outline-offset-1 outline-black/10 dark:outline-white/10"
-      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-      alt=""
-    />
-    <div className="wrap-break-word">
-      <p className="text-sm font-medium text-gray-900 dark:text-white">Jay Riemenschneider</p>
-      <p className="text-sm text-gray-500 dark:text-gray-400">jason.riemenschneider@vandelayindustries.com</p>
+  {
+    <div>
+      <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">wrap-break-word</p>
+      <div className="mx-auto flex max-w-sm items-center gap-4 rounded-xl bg-white p-3 shadow-sm ring ring-black/2.5 dark:bg-black/10 dark:ring-white/10">
+        <img
+          className="size-16 rounded-full outline -outline-offset-1 outline-black/10 dark:outline-white/10"
+          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+          alt=""
+        />
+        <div className="wrap-break-word">
+          <p className="text-sm font-medium text-gray-900 dark:text-white">Jay Riemenschneider</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400">jason.riemenschneider@vandelayindustries.com</p>
+        </div>
+      </div>
+      <p className="mt-8 mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+        wrap-anywhere
+      </p>
+      <div className="mx-auto flex max-w-sm items-center gap-4 rounded-xl bg-white p-3 shadow-sm ring ring-black/2.5 dark:bg-black/10 dark:ring-white/10">
+        <img
+          className="size-16 rounded-full outline -outline-offset-1 outline-black/10 dark:outline-white/10"
+          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+          alt=""
+        />
+        <div className="wrap-anywhere">
+          <p className="text-sm font-medium text-gray-900 dark:text-white">Jay Riemenschneider</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400">jason.riemenschneider@vandelayindustries.com</p>
+        </div>
+      </div>
     </div>
-  </div>
-  <p className="mt-8 mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">wrap-anywhere</p>
-  <div className="mx-auto flex max-w-sm items-center gap-4 rounded-xl bg-white p-3 shadow-sm ring ring-black/2.5 dark:bg-black/10 dark:ring-white/10">
-    <img
-      className="size-16 rounded-full outline -outline-offset-1 outline-black/10 dark:outline-white/10"
-      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-      alt=""
-    />
-    <div className="wrap-anywhere">
-      <p className="text-sm font-medium text-gray-900 dark:text-white">Jay Riemenschneider</p>
-      <p className="text-sm text-gray-500 dark:text-gray-400">jason.riemenschneider@vandelayindustries.com</p>
-    </div>
-  </div>
-</div>
-}
-
+  }
 </Example>
 
 ```html
@@ -574,48 +553,44 @@ When working with flex or grid layouts, sometimes you need to align something to
 <Figure>
 
 <Example padding={false}>
-
-{
-
-<div className="mx-auto grid max-w-md divide-y divide-gray-100 border-x border-x-gray-200 text-gray-700 dark:divide-gray-800 dark:border-x-gray-800 dark:bg-gray-950/10 dark:text-gray-300">
-  <div className="group grid grid-cols-[1fr_auto] items-baseline-last gap-x-4 px-4 py-6 hover:bg-gray-50 dark:hover:bg-gray-950/50">
-    <div className="grid grid-cols-[auto_1fr] gap-x-4 max-sm:grid-cols-1">
-      <img
-        className="size-[2rem] rounded-full"
-        src="https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Favatar.51a13c67.jpg&w=128&q=80"
-        alt=""
-      />
-      <div className="font-semibold text-gray-900 sm:col-start-2 dark:text-white">Spencer Sharp</div>
-      <p className="text-sm sm:col-start-2">Working on the future of astronaut recruitment at SpaceRecruit.</p>
+  {
+    <div className="mx-auto grid max-w-md divide-y divide-gray-100 border-x border-x-gray-200 text-gray-700 dark:divide-gray-800 dark:border-x-gray-800 dark:bg-gray-950/10 dark:text-gray-300">
+      <div className="group grid grid-cols-[1fr_auto] items-baseline-last gap-x-4 px-4 py-6 hover:bg-gray-50 dark:hover:bg-gray-950/50">
+        <div className="grid grid-cols-[auto_1fr] gap-x-4 max-sm:grid-cols-1">
+          <img
+            className="size-[2rem] rounded-full"
+            src="https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Favatar.51a13c67.jpg&w=128&q=80"
+            alt=""
+          />
+          <div className="font-semibold text-gray-900 sm:col-start-2 dark:text-white">Spencer Sharp</div>
+          <p className="text-sm sm:col-start-2">Working on the future of astronaut recruitment at SpaceRecruit.</p>
+        </div>
+        <a
+          href="#"
+          className="font-mono text-xs font-medium text-gray-400 underline group-hover:text-blue-500 dark:text-gray-500"
+        >
+          spacerecruit.com
+        </a>
+      </div>
+      <div className="group grid grid-cols-[1fr_auto] items-baseline-last gap-x-4 px-4 py-6 hover:bg-gray-50 dark:hover:bg-gray-950/50">
+        <div className="grid grid-cols-[auto_1fr] gap-x-4 max-sm:grid-cols-1">
+          <img
+            className="size-[2rem] rounded-full"
+            src="https://images.unsplash.com/photo-1590895340509-793cb98788c9?q=80&w=256&h=256&&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
+          />
+          <div className="font-semibold text-gray-900 sm:col-start-2 dark:text-white">Alex Reed</div>
+          <p className="text-sm sm:col-start-2">A multidisciplinary designer.</p>
+        </div>
+        <a
+          href="#"
+          className="font-mono text-xs font-medium text-gray-400 underline group-hover:text-blue-500 dark:text-gray-500"
+        >
+          alex-reed.com
+        </a>
+      </div>
     </div>
-    <a
-      href="#"
-      className="font-mono text-xs font-medium text-gray-400 underline group-hover:text-blue-500 dark:text-gray-500"
-    >
-      spacerecruit.com
-    </a>
-  </div>
-  <div className="group grid grid-cols-[1fr_auto] items-baseline-last gap-x-4 px-4 py-6 hover:bg-gray-50 dark:hover:bg-gray-950/50">
-    <div className="grid grid-cols-[auto_1fr] gap-x-4 max-sm:grid-cols-1">
-      <img
-        className="size-[2rem] rounded-full"
-        src="https://images.unsplash.com/photo-1590895340509-793cb98788c9?q=80&w=256&h=256&&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt=""
-      />
-      <div className="font-semibold text-gray-900 sm:col-start-2 dark:text-white">Alex Reed</div>
-      <p className="text-sm sm:col-start-2">A multidisciplinary designer.</p>
-    </div>
-    <a
-      href="#"
-      className="font-mono text-xs font-medium text-gray-400 underline group-hover:text-blue-500 dark:text-gray-500"
-    >
-      alex-reed.com
-    </a>
-  </div>
-</div>
-
-}
-
+  }
 </Example>
 
 ```html
@@ -646,24 +621,23 @@ The new `safe` alignment utilities will change the alignment to `start` when the
 <Figure hint="Resize the container to see the alignment change"  >
 
 <Example resizable>
-  
-{
-
-<div className="mx-auto flex flex-col items-center-safe">
-  <h2 className="text-center text-base font-semibold text-gray-900 dark:text-gray-200">Select a category to filter:</h2>
-  <ul className="flex gap-2 pt-4 text-sm text-sky-600 *:rounded-full *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5 dark:text-sky-300 dark:*:border-sky-500/15 dark:*:bg-sky-500/10">
-    <li>Sales</li>
-    <li>Marketing</li>
-    <li>SEO</li>
-    <li>Analytics</li>
-    <li>Design</li>
-    <li>Strategy</li>
-    <li>Growth</li>
-    <li>UX/UI</li>
-  </ul>
-</div>
-}
-
+  {
+    <div className="mx-auto flex flex-col items-center-safe">
+      <h2 className="text-center text-base font-semibold text-gray-900 dark:text-gray-200">
+        Select a category to filter:
+      </h2>
+      <ul className="flex gap-2 pt-4 text-sm text-sky-600 *:rounded-full *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5 dark:text-sky-300 dark:*:border-sky-500/15 dark:*:bg-sky-500/10">
+        <li>Sales</li>
+        <li>Marketing</li>
+        <li>SEO</li>
+        <li>Analytics</li>
+        <li>Design</li>
+        <li>Strategy</li>
+        <li>Growth</li>
+        <li>UX/UI</li>
+      </ul>
+    </div>
+  }
 </Example>
 
 ```html
