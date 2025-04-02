@@ -7,6 +7,7 @@ import {
 } from "@/components/content.tsx";
 import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
+import colors from "./utils/colors";
 
 export const title = "filter: drop-shadow()";
 export const description = "Utilities for applying drop-shadow filters to an element.";
@@ -21,7 +22,15 @@ export const description = "Utilities for applying drop-shadow filters to an ele
     ["drop-shadow-2xl", "filter: drop-shadow(var(--drop-shadow-2xl)); /* 0 25px 25px rgb(0 0 0 / 0.15) */"],
     ["drop-shadow-none", "filter: drop-shadow(0 0 #0000);"],
     ["drop-shadow-(<custom-property>)", "filter: drop-shadow(var(<custom-property>));"],
+    ["drop-shadow-(color:<custom-property>)", "--tw-drop-shadow-color: var(<custom-property>);"],
     ["drop-shadow-[<value>]", "filter: drop-shadow(<value>);"],
+    ["drop-shadow-inherit", "--tw-drop-shadow-color: inherit;"],
+    ["drop-shadow-current", "--tw-drop-shadow-color: currentColor;"],
+    ["drop-shadow-transparent", "--tw-drop-shadow-color: transparent;"],
+    ...Object.entries(colors).map(([name, value]) => [
+      `drop-shadow-${name}`,
+      `--tw-drop-shadow-color: var(--color-${name}); /* ${value} */`,
+    ]),
   ]}
 />
 
