@@ -31,6 +31,7 @@ We all know that your AI assistant still thinks it's 2023, so here's a list of n
 - [New `text-shadow-*` utilities](#new-text-shadow-utilities): Finally, you can use a feature that has been in CSS since 2009.
 - [Mask elements with the `mask-*` utilities](#mask-elements-with-the-mask-utilities): Use images and gradients to mask the visibility of elements.
 - [Fine-grained text wrapping with `overflow-wrap`](#fine-grained-text-wrapping-with-overflow-wrap): Even the longest German word can't break your layout.
+- [Colored `drop-shadow` support](#colored-drop-shadow-support): Box and text shadows have colors, so why not drop shadows.
 - [Target input devices with `pointer-*` and `any-pointer-*`](#target-input-devices-with-pointer-and-any-pointer): Touch targets just got easier to style.
 - [Align items with `items-baseline-last`](#align-items-with-items-baseline-last): Align flex or grid items to the baseline of the last line of text.
 - [Keep content visible with `safe` alignment](#keep-content-visible-with-safe-alignment): Safely align content without worrying about overflow.
@@ -387,6 +388,110 @@ It's similar to `wrap-break-word`, but it allows mid-word line breaks when calcu
 </Figure>
 
 There's not much more to it than that, but here's the [`overflow-wrap`](/docs/overflow-wrap) documentation if you want to read it again in slightly different words.
+
+---
+
+## Colored `drop-shadow` support
+
+While we were building out `text-shadow` support we thought we might as well add another feature we never got around to implementing: colored drop shadows.
+
+Now you can use utilities like `drop-shadow-indigo-500` and `drop-shadow-cyan-500/50` to change the color of a drop shadow:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-3 items-end gap-8 bg-white max-sm:grid-cols-1">
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">drop-shadow-cyan-500/50</p>
+        <svg className="size-28 text-gray-950/100 drop-shadow-xl drop-shadow-cyan-500/50" viewBox="0 0 84 84">
+          <path
+            d="M22.0992 77L2.19922 42.5L22.0992 8H61.8992L81.7992 42.5L61.8992 77H22.0992Z"
+            className="fill-cyan-500"
+          />
+        </svg>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">drop-shadow-sky-500/50</p>
+        <svg className="size-28 text-gray-950/100 drop-shadow-xl drop-shadow-sky-500/50" viewBox="0 0 84 84">
+          <path
+            d="M22.0992 77L2.19922 42.5L22.0992 8H61.8992L81.7992 42.5L61.8992 77H22.0992Z"
+            className="fill-sky-500"
+          />
+        </svg>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">drop-shadow-indigo-500/50</p>
+        <svg className="size-28 text-gray-950/100 drop-shadow-xl drop-shadow-indigo-500/50" viewBox="0 0 84 84">
+          <path
+            d="M22.0992 77L2.19922 42.5L22.0992 8H61.8992L81.7992 42.5L61.8992 77H22.0992Z"
+            className="fill-indigo-500"
+          />
+        </svg>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:drop-shadow-cyan-500/50,drop-shadow-blue-500/50,drop-shadow-indigo-500/50] -->
+<svg class="fill-cyan-500 drop-shadow-xl drop-shadow-cyan-500/50 ...">...</svg>
+<svg class="fill-blue-500 drop-shadow-xl drop-shadow-blue-500/50 ...">...</svg>
+<svg class="fill-indigo-500 drop-shadow-xl drop-shadow-indigo-500/50 ...">...</svg>
+```
+
+</Figure>
+
+Like with all the other shadow utilities, you can now also adjust the opacity of the default shadow color:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-3 items-end gap-8 bg-white max-sm:grid-cols-1">
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">drop-shadow-xl</p>
+        <svg className="size-28 text-gray-950/100 drop-shadow-xl" viewBox="0 0 84 84">
+          <path
+            d="M22.0992 77L2.19922 42.5L22.0992 8H61.8992L81.7992 42.5L61.8992 77H22.0992Z"
+            className="fill-white"
+          />
+        </svg>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">drop-shadow-xl/25</p>
+        <svg className="size-28 text-gray-950/100 drop-shadow-xl/25" viewBox="0 0 84 84">
+          <path
+            d="M22.0992 77L2.19922 42.5L22.0992 8H61.8992L81.7992 42.5L61.8992 77H22.0992Z"
+            className="fill-white"
+          />
+        </svg>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">drop-shadow-xl/50</p>
+        <svg className="size-28 text-gray-950/100 drop-shadow-xl/50" viewBox="0 0 84 84">
+          <path
+            d="M22.0992 77L2.19922 42.5L22.0992 8H61.8992L81.7992 42.5L61.8992 77H22.0992Z"
+            className="fill-white"
+          />
+        </svg>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:drop-shadow-xl,drop-shadow-xl/25,drop-shadow-xl/50] -->
+<svg class="fill-white drop-shadow-xl ...">...</svg>
+<svg class="fill-white drop-shadow-xl/25 ...">...</svg>
+<svg class="fill-white drop-shadow-xl/50 ...">...</svg>
+```
+
+</Figure>
+
+Using the opacity modifier like this is just a shorthand for setting `drop-shadow-xl` and `text-shadow-black/<opacity>` at the same time.
+
+There isn't anything more to it but here's the `drop-shadow` [documentation](/docs/filter-drop-shadow) anyway.
 
 ---
 
