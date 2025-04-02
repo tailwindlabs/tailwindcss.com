@@ -86,8 +86,13 @@ Use the `mask-type-alpha` and `mask-type-luminance` utilities to control the typ
 
 </Figure>
 
-When using `mask-type-luminance` the luminance value of the svg mask determines visibility, so sticking with grayscale colors will produce the most predictable results. With `mask-alpha`, the opacity of the svg mask determines the visibility of the masked element.
+When using `mask-type-luminance` the luminance value of the SVG mask determines visibility, so sticking with grayscale colors will produce the most predictable results. With `mask-alpha`, the opacity of the SVG mask determines the visibility of the masked element.
 
 ### Responsive design
 
-<ResponsiveDesign property="mask-type" defaultClass="mask-type-alpha" featuredClass="mask-type-luminance" />
+<ResponsiveDesign
+  element="mask"
+  property="mask-type"
+  defaultClass="mask-type-alpha"
+  featuredClass="mask-type-luminance"
+/>
