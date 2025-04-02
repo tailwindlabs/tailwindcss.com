@@ -34,6 +34,7 @@ export const description = "Utilities for controlling the border radius of an el
       `${className}-3xl`,
       properties.map((property) => `${property}: var(--radius-3xl); /* 1.5rem (24px) */`).join("\n"),
     ],
+    [`${className}-4xl`, properties.map((property) => `${property}: var(--radius-4xl); /* 2rem (32px) */`).join("\n")],
     [`${className}-none`, properties.map((property) => `${property}: 0;`).join("\n")],
     [`${className}-full`, properties.map((property) => `${property}: calc(infinity * 1px);`).join("\n")],
     [
