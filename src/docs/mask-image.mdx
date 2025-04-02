@@ -1,3 +1,6 @@
+import KeyboardLight from "@/docs/img/keyboard-light.png";
+import KeyboardDark from "@/docs/img/keyboard-dark.png";
+import maskImg from "@/docs/img/mask.png";
 import { ApiTable } from "@/components/api-table.tsx";
 import { CustomizingYourThemeColors, ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 import { Example } from "@/components/example.tsx";
@@ -484,7 +487,10 @@ Use the `mask-[<value>]` syntax to set the mask image of an element:
       border
       className="relative mx-auto flex h-48 w-full max-w-96 items-center justify-center overflow-hidden rounded-lg sm:w-96"
     >
-      <div className="h-full w-full bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] [mask-image:url(/mask.png)] bg-cover bg-center bg-no-repeat mask-size-[110%_90%] mask-center mask-no-repeat"></div>
+      <div
+        className="h-full w-full bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] bg-cover bg-center bg-no-repeat mask-size-[110%_90%] mask-center mask-no-repeat"
+        style={{ maskImage: `url(${maskImg.src})` }}
+      ></div>
     </Stripes>
   }
 </Example>
@@ -765,13 +771,20 @@ Use the `mask-radial-from-<value>` and `mask-radial-to-<value>` utilities to add
 
 <Example padding={false}>
   {
-    <div className="mx-auto flex items-center gap-4 p-16 max-sm:p-8">
-      <div className="bg-repeat-none aspect-square w-full bg-[url(/keyboard-light.png)] mask-radial-[100%_100%] mask-radial-from-75% mask-radial-at-left bg-cover bg-no-repeat dark:bg-[url(/keyboard-dark.png)]" />
-      <div className="font-medium">
+    <div className="mx-auto flex items-center p-16 max-sm:p-6">
+      <img
+        src={KeyboardLight.src}
+        className="aspect-square max-h-72 w-full mask-radial-[100%_200%] mask-radial-from-transparent mask-radial-from-15% mask-radial-to-black mask-radial-to-60% mask-radial-at-right object-cover object-top-left dark:hidden"
+      />
+      <img
+        src={KeyboardDark.src}
+        className="hidden aspect-square max-h-72 w-full mask-radial-[100%_200%] mask-radial-from-transparent mask-radial-from-15% mask-radial-to-black mask-radial-to-60% mask-radial-at-right object-cover object-top-left dark:block"
+      />
+      <div className="font-medium max-sm:-mx-3">
         <p className="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
-        <p className="mt-2 text-base text-gray-700 dark:text-gray-300">Built for power users</p>
+        <p className="mt-2 text-base whitespace-nowrap text-gray-700 dark:text-gray-300">Built for power users</p>
         <p className="mt-1 text-sm leading-relaxed text-balance text-gray-500">
-          Work faster than ever with customizable keyboard shortcuts
+          Work faster than ever with our keyboard shortcuts
         </p>
       </div>
     </div>
