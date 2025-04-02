@@ -70,8 +70,8 @@ importers:
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.8.2)
       '@tailwindcss/node':
-        specifier: 0.0.0-insiders.c32b608
-        version: 0.0.0-insiders.c32b608
+        specifier: 4.1.1
+        version: 4.1.1
       '@types/hast':
         specifier: ^3.0.4
         version: 3.0.4
@@ -1110,9 +1110,6 @@ packages:
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
 
-  '@tailwindcss/node@0.0.0-insiders.c32b608':
-    resolution: {integrity: sha512-6fTQcwqFaNostHBJSKdngtXs39r3U42kvMJrBzKT+r2v47qTqEUiFHUuSTXdmbFin+ms2hmopgkIgryIg87lAQ==}
-
   '@tailwindcss/node@4.1.1':
     resolution: {integrity: sha512-xvlh4pvfG/bkv0fEtJDABAm1tjtSmSyi2QmS4zyj1EKNI1UiOYiUq1IphSwDsNJ5vJ9cWEGs4rJXpUdCN2kujQ==}
 
@@ -2093,9 +2090,6 @@ packages:
 
   tabbable@6.2.0:
     resolution: {integrity: sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew==}
-
-  tailwindcss@0.0.0-insiders.c32b608:
-    resolution: {integrity: sha512-GmqUQelFaoDlePMCYOrmGR+mNZf9AQ2nCvRyaGTlvDGe9RObQvM07Jg5XX78INNM9Gn/ILm33V2ucSdr4uen0w==}
 
   tailwindcss@4.1.1:
     resolution: {integrity: sha512-QNbdmeS979Efzim2g/bEvfuh+fTcIdp1y7gA+sb6OYSW74rt7Cr7M78AKdf6HqWT3d5AiTb7SwTT3sLQxr4/qw==}
@@ -3390,12 +3384,6 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@tailwindcss/node@0.0.0-insiders.c32b608':
-    dependencies:
-      enhanced-resolve: 5.18.1
-      jiti: 2.4.2
-      tailwindcss: 0.0.0-insiders.c32b608
-
   '@tailwindcss/node@4.1.1':
     dependencies:
       enhanced-resolve: 5.18.1
@@ -4481,8 +4469,6 @@ snapshots:
       picocolors: 1.1.1
 
   tabbable@6.2.0: {}
-
-  tailwindcss@0.0.0-insiders.c32b608: {}
 
   tailwindcss@4.1.1: {}
 
