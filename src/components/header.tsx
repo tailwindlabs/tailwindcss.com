@@ -54,7 +54,7 @@ function VersionPicker() {
         className="flex items-center gap-0.5 rounded-2xl bg-gray-950/5 py-0.5 pr-1.5 pl-2.5 text-xs/5 font-medium text-gray-950 tabular-nums hover:bg-gray-950/7.5 data-active:bg-gray-950/7.5 dark:bg-white/10 dark:text-white dark:hover:bg-white/12.5 dark:data-active:bg-white/12.5"
         aria-label="Select version of library"
       >
-        v4.0
+        v4.1
         <ChevronDownIcon className="size-4 fill-gray-400" />
       </MenuButton>
       <MenuItems
@@ -63,7 +63,7 @@ function VersionPicker() {
       >
         <MenuItem disabled>
           <div className="flex items-center justify-between gap-2 rounded-lg px-2.5 data-active:bg-gray-950/5 dark:data-active:bg-white/10">
-            v4.0
+            v4.1
             <CheckIcon className="size-4" />
           </div>
         </MenuItem>
