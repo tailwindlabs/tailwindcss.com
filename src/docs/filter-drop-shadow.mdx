@@ -93,6 +93,55 @@ Use utilities like `drop-shadow-sm` and `drop-shadow-xl` to add a drop shadow to
 
 This is useful for applying shadows to irregular shapes, like text and SVG elements. For applying shadows to regular elements, you probably want to use [box shadow](/docs/box-shadow) instead.
 
+### Changing the opacity
+
+Use the opacity modifier to adjust the opacity of the drop shadow:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-3 items-end gap-8 bg-white max-sm:grid-cols-1">
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">drop-shadow-xl</p>
+        <svg className="size-28 text-gray-950/100 drop-shadow-xl" viewBox="0 0 84 84">
+          <path
+            d="M22.0992 77L2.19922 42.5L22.0992 8H61.8992L81.7992 42.5L61.8992 77H22.0992Z"
+            className="fill-white"
+          />
+        </svg>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">drop-shadow-xl/25</p>
+        <svg className="size-28 text-gray-950/100 drop-shadow-xl/25" viewBox="0 0 84 84">
+          <path
+            d="M22.0992 77L2.19922 42.5L22.0992 8H61.8992L81.7992 42.5L61.8992 77H22.0992Z"
+            className="fill-white"
+          />
+        </svg>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">drop-shadow-xl/50</p>
+        <svg className="size-28 text-gray-950/100 drop-shadow-xl/50" viewBox="0 0 84 84">
+          <path
+            d="M22.0992 77L2.19922 42.5L22.0992 8H61.8992L81.7992 42.5L61.8992 77H22.0992Z"
+            className="fill-white"
+          />
+        </svg>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:drop-shadow-xl,drop-shadow-xl/25,drop-shadow-xl/50] -->
+<svg class="fill-white drop-shadow-xl ...">...</svg>
+<svg class="fill-white drop-shadow-xl/25 ...">...</svg>
+<svg class="fill-white drop-shadow-xl/50 ...">...</svg>
+```
+
+</Figure>
+
 ### Setting the shadow color
 
 Use utilities like `drop-shadow-indigo-500` and `drop-shadow-cyan-500/50` to change the color of a drop shadow:
@@ -135,14 +184,29 @@ Use utilities like `drop-shadow-indigo-500` and `drop-shadow-cyan-500/50` to cha
 
 ```html
 <!-- [!code classes:drop-shadow-cyan-500/50,drop-shadow-blue-500/50,drop-shadow-indigo-500/50] -->
-<svg class="fill-cyan-500 drop-shadow-lg drop-shadow-cyan-500/50 ...">Subscribe</svg>
-<svg class="fill-blue-500 drop-shadow-lg drop-shadow-blue-500/50 ...">Subscribe</svg>
-<svg class="fill-indigo-500 drop-shadow-lg drop-shadow-indigo-500/50 ...">Subscribe</svg>
+<svg class="fill-cyan-500 drop-shadow-lg drop-shadow-cyan-500/50 ...">...</svg>
+<svg class="fill-blue-500 drop-shadow-lg drop-shadow-blue-500/50 ...">...</svg>
+<svg class="fill-indigo-500 drop-shadow-lg drop-shadow-indigo-500/50 ...">...</svg>
 ```
 
 </Figure>
 
 By default colored shadows have an opacity of 100% but you can adjust this using the opacity modifier.
+
+### Removing a drop shadow
+
+Use the `drop-shadow-none` utility to remove an existing drop shadow from an element:
+
+<Figure>
+
+```html
+<!-- [!code classes:dark:drop-shadow-none] -->
+<svg class="drop-shadow-lg dark:drop-shadow-none">
+  <!-- ... -->
+</svg>
+```
+
+</Figure>
 
 ### Using a custom value
 
