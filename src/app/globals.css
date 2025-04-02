@@ -47,11 +47,6 @@
   }
 }
 
-/* TODO: remove before 4.1 docs branch is merged  */
-@utility self-baseline-last {
-  align-self: last baseline;
-}
-
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
