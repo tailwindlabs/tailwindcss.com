@@ -475,7 +475,7 @@ export const description = "Utilities for controlling an element's mask image.";
 
 ## Examples
 
-### Basic example
+### Using an image mask
 
 Use the `mask-[<value>]` syntax to set the mask image of an element:
 
@@ -505,7 +505,7 @@ Use the `mask-[<value>]` syntax to set the mask image of an element:
 
 </Figure>
 
-### Masking a single side
+### Masking edges
 
 Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear gradient mask to a single side of an element:
 
@@ -546,224 +546,90 @@ Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear
   }
 </Example>
 
+{/* prettier-ignore */}
 ```html
 <!-- [!code classes:mask-t-from-50%,mask-r-from-30%,mask-r-to-90%,mask-b-from-50%,mask-b-to-90%,mask-l-from-20%,mask-l-to-80%] -->
-<div class="mask-t-from-50% ..."></div>
-<div class="mask-r-from-30% ..."></div>
-<div class="mask-b-from-50% mask-b-to-90% ..."></div>
-<div class="mask-l-from-20% mask-l-to-80% ..."></div>
+<div class="mask-t-from-50% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-r-from-30% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-b-from-50% mask-b-to-90% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-l-from-20% mask-l-to-80% bg-[url(/img/mountains.jpg)] ..."></div>
 ```
 
 </Figure>
 
-By default, this creates a gradient from black to transparent. You can customize the gradient colors using the `mask-b-from-<color>` and `mask-l-to-<color>` utilities.
-
-### Combining multiple sides
-
-Combine multiple single side utilities to create more complex gradients, or use utilities like `mask-x-from-<value>` and `mask-y-from-<value>` to create a symmetrical gradient:
-
-<Figure>
-
-<Example>
-  {
-    <div className="mx-8 max-sm:justify-between max-sm:px-2">
-      <div className="relative h-[3.625rem]">
-        <div className="absolute top-0 left-[10%] -ml-3 flex h-12 flex-col items-center">
-          <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow-sm dark:stroke-white/10">
-            <use href="#gradient-color-stop" />
-          </svg>
-          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-        </div>
-        <div className="absolute top-0 left-[20%] -ml-3 flex h-12 flex-col items-center">
-          <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow-sm dark:stroke-white/10">
-            <use href="#gradient-color-stop" />
-          </svg>
-          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-        </div>
-        <div className="absolute top-0 right-[30%] -mr-3 flex h-12 flex-col items-center">
-          <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow-sm dark:stroke-white/10">
-            <use href="#gradient-color-stop" />
-          </svg>
-          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-        </div>
-        <div className="absolute top-0 right-px -mr-3 flex h-12 flex-col items-center">
-          <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow-sm dark:stroke-white/10">
-            <use href="#gradient-color-stop" />
-          </svg>
-          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-        </div>
-      </div>
-      <div className="relative">
-        <div className="relative z-10 h-32 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-70% mask-l-from-80% mask-l-to-90% bg-cover bg-center"></div>
-        <Stripes className="absolute inset-0 rounded-lg" border />
-      </div>
-      <div className="relative mt-8 h-[3.625rem]">
-        <div className="absolute top-0 left-[10%] -ml-3 flex h-12 flex-col items-center">
-          <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow-sm dark:stroke-white/10">
-            <use href="#gradient-color-stop" />
-          </svg>
-          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-        </div>
-        <div className="absolute top-0 left-[30%] -ml-3 flex h-12 flex-col items-center">
-          <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow-sm dark:stroke-white/10">
-            <use href="#gradient-color-stop" />
-          </svg>
-          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-        </div>
-        <div className="absolute top-0 right-[30%] -mr-3 flex h-12 flex-col items-center">
-          <svg viewBox="0 0 32 34" className="w-7 flex-none text-black drop-shadow-sm dark:stroke-white/10">
-            <use href="#gradient-color-stop" />
-          </svg>
-          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-        </div>
-        <div className="absolute top-0 right-[10%] -mr-3 flex h-12 flex-col items-center">
-          <svg viewBox="0 0 32 34" className="w-7 flex-none text-transparent drop-shadow-sm dark:stroke-white/10">
-            <use href="#gradient-color-stop" />
-          </svg>
-          <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
-        </div>
-      </div>
-      <div className="relative">
-        <div className="relative z-10 h-32 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-x-from-70% mask-x-to-90% bg-cover bg-center"></div>
-        <Stripes className="absolute inset-0 rounded-lg" border />
-      </div>
-    </div>
-  }
-</Example>
-
-```html
-<!-- [!code classes:mask-r-from-70%,mask-l-from-80%,mask-l-to-90%,mask-x-from-70%,mask-x-to-90%] -->
-<div class="mask-r-from-70% mask-l-from-80% mask-l-to-90% ..."></div>
-<div class="mask-x-from-70% mask-x-to-90% ..."></div>
-```
-
-</Figure>
-
-### Adding a linear gradient mask
-
-Use utilities like `mask-linear-<angle>` and `mask-linear-to-<value>` to add a custom linear gradient mask to an element:
+Additionally, use utilities like `mask-x-from-70%` and `mask-y-to-90%` to apply a mask to two sides of an element at the same time:
 
 <Figure>
 
 <Example padding={false}>
   {
-    <div className="relative py-8">
-      <div className="absolute inset-x-0 bottom-8 z-10 flex items-center justify-center">
-        <button
-          type="button"
-          className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50 dark:bg-gray-950 dark:text-white dark:ring-white/20 dark:hover:bg-gray-900"
-        >
-          Show more
-        </button>
+    <div className="grid grid-cols-1 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-xs font-medium text-gray-500 max-sm:justify-between max-sm:px-2 sm:grid-cols-2 dark:text-gray-400">
+      <div className="flex flex-col items-center gap-3">
+        <p>horizontal from 70% to 90%</p>
+        <div className="grid aspect-3/2 w-44 grid-cols-1">
+          <Stripes className="col-start-1 row-start-1 rounded-lg" border />
+          <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-x-from-70% mask-x-to-90% bg-cover bg-center mask-no-repeat"></div>
+        </div>
       </div>
-      <div className="border-y border-y-gray-200 bg-white mask-linear-180 mask-linear-from-70% dark:border-y-gray-800 dark:bg-gray-950">
-        <div className="overflow-x-auto">
-          <div className="inline-block min-w-full align-middle">
-            <div className="overflow-hidden">
-              <table className="min-w-full">
-                <thead className="border-b border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-950">
-                  <tr>
-                    <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
-                      Name
-                    </th>
-                    <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
-                      Title
-                    </th>
-                    <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
-                      Email
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
-                    <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
-                      Jane Cooper
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      Regional Paradigm Technician
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      jane.cooper@example.com
-                    </td>
-                  </tr>
-                  <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
-                    <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
-                      Cody Fisher
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      Product Directives Officer
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      cody.fisher@example.com
-                    </td>
-                  </tr>
-                  <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
-                    <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
-                      Leonard Krasner
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      Senior Designer
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      leonard.krasner@example.com
-                    </td>
-                  </tr>
-                  <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
-                    <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
-                      Emily Selman
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      VP, Hardware Engineering
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      emily.selman@example.com
-                    </td>
-                  </tr>
-                  <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
-                    <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900 dark:text-white">
-                      Anna Roberts
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      Chief Strategy Officer
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      anna.roberts@example.com
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+      <div className="flex flex-col items-center gap-3">
+        <p>vertical from 70% to 90%</p>
+        <div className="grid aspect-3/2 w-44 grid-cols-1">
+          <Stripes className="col-start-1 row-start-1 rounded-lg" border />
+          <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-y-from-70% mask-y-to-90% bg-cover bg-center mask-no-repeat"></div>
         </div>
       </div>
     </div>
   }
 </Example>
 
+{/* prettier-ignore */}
 ```html
-<!-- [!code classes:mask-linear-180,mask-linear-from-70%] -->
-<div class="relative">
-  <div class="absolute inset-x-0 bottom-8 z-10 flex items-center justify-center">
-    <button
-      type="button"
-      class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-900 dark:bg-gray-950 dark:text-white dark:ring-white/20 dark:hover:bg-gray-900 ..."
-    >
-      Show more
-    </button>
-  </div>
-  <div class="max-h-96 mask-linear-180 mask-linear-from-70% ...">
-    <table>
-      <!-- ... -->
-    </table>
-  </div>
-</div>
+<!-- [!code classes:mask-x-from-70%,mask-x-to-90%,mask-y-from-70%,mask-y-to-90%] -->
+<div class="mask-x-from-70% mask-x-to-90% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-y-from-70% mask-y-to-90% bg-[url(/img/mountains.jpg)] ..."></div>
 ```
 
 </Figure>
 
-By default, this creates a gradient from black to transparent. You can customize the gradient colors using the `mask-linear-from-<color>` and `mask-linear-to-<color>` utilities.
+By default, linear gradient masks transition from black to transparent, but you can customize the gradient colors using the `mask-<side>-from-<color>` and `mask-<side>-to-<color>` utilities.
 
-### Adding a radial gradient mask
+### Adding an angled linear mask
+
+Use utilities like `mask-linear-<angle>`, `mask-linear-from-20`, and `mask-linear-to-40` to add a custom linear gradient mask to an element:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="grid grid-cols-1 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-xs font-medium text-gray-500 max-sm:justify-between max-sm:px-2 sm:grid-cols-2 dark:text-gray-400">
+      <div className="flex flex-col items-center gap-3">
+        <p>50° from 60% to 80%</p>
+        <div className="grid aspect-3/2 w-44 grid-cols-1">
+          <Stripes className="col-start-1 row-start-1 rounded-lg" border />
+          <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-linear-50 mask-linear-from-60% mask-linear-to-80% bg-cover bg-center mask-no-repeat"></div>
+        </div>
+      </div>
+      <div className="flex flex-col items-center gap-3">
+        <p>-50° from 60% to 80%</p>
+        <div className="grid aspect-3/2 w-44 grid-cols-1">
+          <Stripes className="col-start-1 row-start-1 rounded-lg" border />
+          <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] -mask-linear-50 mask-linear-from-60% mask-linear-to-80% bg-cover bg-center mask-no-repeat"></div>
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+{/* prettier-ignore */}
+```html
+<!-- [!code classes:mask-linear-50,mask-linear-from-60%,mask-linear-to-80%,mask-linear-50,mask-linear-from-60%,mask-linear-to-80%] -->
+<div class="mask-linear-50 mask-linear-from-60% mask-linear-to-80% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-linear-50 mask-linear-from-60% mask-linear-to-80% bg-[url(/img/mountains.jpg)] ..."></div>
+```
+
+</Figure>
+
+### Adding a radial mask
 
 Use the `mask-radial-from-<value>` and `mask-radial-to-<value>` utilities to add a radial gradient mask to an element:
 
@@ -807,9 +673,9 @@ Use the `mask-radial-from-<value>` and `mask-radial-to-<value>` utilities to add
 
 </Figure>
 
-By default, this creates a gradient from black to transparent. You can customize the gradient colors using the `mask-radial-from-<color>` and `mask-radial-to-<color>` utilities.
+By default, radial gradient masks transition from black to transparent, but you can customize the gradient colors using the `mask-radial-from-<color>` and `mask-radial-to-<color>` utilities.
 
-#### Setting the radial gradient position
+#### Setting the radial position
 
 Use utilities like `mask-radial-at-bottom-left` and `mask-radial-at-[35%_35%]` to set the position of the center of the radial gradient mask:
 
@@ -876,24 +742,25 @@ Use utilities like `mask-radial-at-bottom-left` and `mask-radial-at-[35%_35%]` t
   }
 </Example>
 
+{/* prettier-ignore */}
 ```html
 <!-- [!code classes:mask-radial-at-top-left,mask-radial-at-top,mask-radial-at-top-right,mask-radial-at-left,mask-radial-at-center,mask-radial-at-right,mask-radial-at-bottom,mask-radial-at-bottom-left,mask-radial-at-bottom-right] -->
-<div class="mask-radial-from-100% mask-radial-at-top-left ..."></div>
-<div class="mask-radial-from-100% mask-radial-at-top ..."></div>
-<div class="mask-radial-from-100% mask-radial-at-top-right ..."></div>
-<div class="mask-radial-from-100% mask-radial-at-left ..."></div>
-<div class="mask-radial-from-100% mask-radial-at-center ..."></div>
-<div class="mask-radial-from-100% mask-radial-at-right ..."></div>
-<div class="mask-radial-from-100% mask-radial-at-bottom-left ..."></div>
-<div class="mask-radial-from-100% mask-radial-at-bottom ..."></div>
-<div class="mask-radial-from-100% mask-radial-at-bottom-right ..."></div>
+<div class="mask-radial-at-top-left mask-radial-from-100% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-radial-at-top mask-radial-from-100% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-radial-at-top-right mask-radial-from-100% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-radial-at-left mask-radial-from-100% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-radial-at-center mask-radial-from-100% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-radial-at-right mask-radial-from-100% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-radial-at-bottom-left mask-radial-from-100% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-radial-at-bottom mask-radial-from-100% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-radial-at-bottom-right mask-radial-from-100% bg-[url(/img/mountains.jpg)] ..."></div>
 ```
 
 </Figure>
 
 This is different from [`mask-position`](./docs/mask-position) which sets the position of the mask image itself, not the radial gradient.
 
-#### Setting the radial gradient size
+#### Setting the radial size
 
 Use utilities like `mask-radial-closest-corner` and `mask-radial-farthest-side` to set the size of the radial gradient mask:
 
@@ -930,12 +797,13 @@ Use utilities like `mask-radial-closest-corner` and `mask-radial-farthest-side` 
   }
 </Example>
 
+{/* prettier-ignore */}
 ```html
 <!-- [!code classes:mask-radial-farthest-corner,mask-radial-farthest-side,mask-radial-closest-corner,mask-radial-closest-side] -->
-<div class="mask-radial-from-100% mask-radial-closest-side mask-radial-at-[30%_30%] ..."></div>
-<div class="mask-radial-from-100% mask-radial-closest-corner mask-radial-at-[30%_30%] ..."></div>
-<div class="mask-radial-from-100% mask-radial-farthest-side mask-radial-at-[30%_30%] ..."></div>
-<div class="mask-radial-from-100% mask-radial-farthest-corner mask-radial-at-[30%_30%] ..."></div>
+<div class="mask-radial-closest-side mask-radial-from-100% mask-radial-at-[30%_30%] bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-radial-closest-corner mask-radial-from-100% mask-radial-at-[30%_30%] bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-radial-farthest-side mask-radial-from-100% mask-radial-at-[30%_30%] bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-radial-farthest-corner mask-radial-from-100% mask-radial-at-[30%_30%] bg-[url(/img/mountains.jpg)] ..."></div>
 ```
 
 </Figure>
@@ -944,7 +812,7 @@ When setting a custom radial gradient size, the units you can use depend on the 
 
 With `mask-circle`, you can only use a single fixed length, like `mask-radial-[5rem]`. Whereas with `mask-ellipse`, you can specify each axis as a fixed length or percentage, like `mask-radial-[40%_80%]`.
 
-### Adding a conic gradient mask
+### Adding a conic mask
 
 Use the `mask-conic-from-<value>`, `mask-conic-to-<value>` and `mask-conic-<angle>` utilities to add a conic gradient mask to an element:
 
@@ -983,9 +851,9 @@ Use the `mask-conic-from-<value>`, `mask-conic-to-<value>` and `mask-conic-<angl
 
 </Figure>
 
-By default, this creates a gradient from black to transparent. You can customize the gradient colors using the `mask-conic-from-<color>` and `mask-conic-to-<color>` utilities.
+By default, conic gradient masks transition from black to transparent, but you can customize the gradient colors using the `mask-conic-from-<color>` and `mask-conic-to-<color>` utilities.
 
-### Combining gradient masks
+### Combining masks
 
 Gradient mask utilities, like `mask-radial-from-<value>`, `mask-conic-to-<value>`, and `mask-l-from-<value>` can be combined to create more complex gradient masks:
 
@@ -1020,10 +888,10 @@ Gradient mask utilities, like `mask-radial-from-<value>`, `mask-conic-to-<value>
 
 {/* prettier-ignore */}
 ```html
-<div class="mask-r-from-80% mask-b-from-80% mask-radial-from-70% mask-radial-to-85% ..."></div>
-<div class="mask-y-from-80% mask-x-from-80%"></div>
-<div class="mask-b-from-50% mask-radial-[50%_90%] mask-radial-from-80% ..."></div>
-<div class="mask-t-from-80% mask-t-to-80% mask-r-from-80% mask-r-to-80% mask-conic-305 mask-conic-from-50% mask-conic-to-50% ..."></div>
+<div class="mask-r-from-80% mask-b-from-80% mask-radial-from-70% mask-radial-to-85% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-y-from-80% mask-x-from-80% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-b-from-50% mask-radial-[50%_90%] mask-radial-from-80% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-t-from-80% mask-t-to-80% mask-r-from-80% mask-r-to-80% mask-conic-305 mask-conic-from-50% mask-conic-to-50% bg-[url(/img/mountains.jpg)] ..."></div>
 ```
 
 </Figure>
@@ -1046,7 +914,7 @@ Use the `mask-none` utility to remove an existing mask image from an element:
 <UsingACustomValue
   utilities={["mask-linear", "mask-radial"]}
   name="mask image"
-  value="25deg,red_5%,yellow_60%,lime_90%,teal"
+  value="70deg,transparent_10%,black,transparent_80%"
   variable="mask"
 />
 
