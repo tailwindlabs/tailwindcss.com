@@ -3,6 +3,8 @@ import card from "./card.jpg";
 import Image from "next/image";
 import SafariDark from "./safari-15-dark.png";
 import SafariLight from "./safari-15-light.png";
+import KeyboardLight from "./keyboard-light.png";
+import KeyboardDark from "./keyboard-dark.png";
 import { Figure } from "@/components/figure";
 import { Example } from "@/components/example";
 import { Stripes } from "@/components/stripes";
@@ -24,23 +26,25 @@ export const meta = {
 
 <Image src={card} alt="Tailwind CSS v4.1" />
 
-Tailwind CSS v4.0 is only a few months old, but because we love open source so much, we couldn't resist the urge to add even more features. Tailwind CSS v4.1 is packed with new utilities and variants that will help you build better interactive experiences.
+I wasn't sure it would ever happen but we did it — we released a version of Tailwind CSS that includes `text-shadow` utilities.
 
-We all know that your AI assistant still thinks it's 2023, so here's a list of new features in this release you can paste into your chat window:
+Tailwind CSS v4.1 is here and it's packed with new utilities, variants, and developer experience improvements that will help you _(or your LLM, you coward)_ build even better interactive experiences.
 
-- [New `text-shadow-*` utilities](#new-text-shadow-utilities): Finally, you can use a feature that has been in CSS since 2009.
-- [Mask elements with the `mask-*` utilities](#mask-elements-with-the-mask-utilities): Use images and gradients to mask the visibility of elements.
-- [Fine-grained text wrapping with `overflow-wrap`](#fine-grained-text-wrapping-with-overflow-wrap): Even the longest German word can't break your layout.
-- [Colored `drop-shadow` support](#colored-drop-shadow-support): Box and text shadows have colors, so why not drop shadows.
-- [Target input devices with `pointer-*` and `any-pointer-*`](#target-input-devices-with-pointer-and-any-pointer): Touch targets just got easier to style.
-- [Align items with `items-baseline-last`](#align-items-with-items-baseline-last): Align flex or grid items to the baseline of the last line of text.
-- [Keep content visible with `safe` alignment](#keep-content-visible-with-safe-alignment): Safely align content without worrying about overflow.
-- [Ignore specific paths with `@source not`](#ignore-specific-paths-with-source-not): Fine-tune the paths that Tailwind scans for classes.
-- [Safelist specific utilities with `@source inline(…)`](#safelist-specific-utilities-with-source-inline): Include classes that aren't in your source files.
-- [Improved backwards compatibility](#improved-backwards-compatibility): Some cutting-edge features degrade more gracefully on older browsers.
-- [A bunch of new variants](#a-bunch-of-new-variants): Build better interactive experiences with `noscript`, `user-valid`, and more.
+Here's all the best stuff we got into this release:
 
-That's all the cool stuff, but to keep you on your toes there's a few other things in the [release notes](https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.1.0) that you should check out too.
+- [New `text-shadow-*` utilities](#new-text-shadow-utilities) — only about twenty years after they were first supported by a browser.
+- [Mask elements with the `mask-*` utilities](#mask-elements-with-the-mask-utilities) — use images and gradients to mask elements with new ergonomic APIs.
+- [Improved compatibility with older browsers](#improved-compatibility-with-older-browsers) — we've made things degrade way more gracefully for older browsers, while still taking advantage of modern features in browsers that support them.
+- [Fine-grained text wrapping with `overflow-wrap`](#fine-grained-text-wrapping-with-overflow-wrap) — defend the integrity of your layouts from even the longest German words your users will throw at you.
+- [Colored `drop-shadow` support](#colored-drop-shadow-support) — can't really remember why we didn't have these before but we do now.
+- [Target input devices with `pointer-*` and `any-pointer-*`](#target-input-devices-with-pointer-and-any-pointer) — tweak your design for touch devices explicitly instead of relying on viewport size.
+- [Align items to the last baseline](#align-items-to-the-last-baseline) — align flex or grid items to the baseline of the last line of text using the new `items-baseline-last` and `self-baseline-last` utilities.
+- [Keep content visible with `safe` alignment](#keep-content-visible-with-safe-alignment) — center content in flex and grid layouts without it disappearing when there's not enough space.
+- [Ignore specific paths with `@source not`](#ignore-specific-paths-with-source-not) — explicitly ignore irrelevant large directories and speed up your builds even more.
+- [Safelist specific utilities with `@source inline(…)`](#safelist-specific-utilities-with-source-inline) — force Tailwind to include classes that aren't in your source files.
+- [A bunch of other new variants](#a-bunch-of-other-new-variants) — including `noscript`, `user-valid`, `inverted-colors`, and more.
+
+That's all the cool stuff, but there's a few other little things hiding in the [release notes](https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.1.0) that you might want to check out too.
 
 Upgrade your projects by installing the latest version of `tailwindcss` from npm:
 
@@ -52,9 +56,9 @@ npm install tailwindcss@latest
 
 ## New `text-shadow-*` utilities
 
-We've been threatening to add text shadows for at least the last six years and today they are finally here - It's just a pity no one uses them anymore.
+We've been threatening to add text shadows for at least the last six years and today they are finally here.
 
-Five text shadows have been added to the default theme, from `text-shadow-2xs` to `text-shadow-lg`. They are particularly useful for making headings stand out against a busy background:
+We've added five text shadows to the default theme, from `text-shadow-2xs` to `text-shadow-lg`. They are particularly useful for making headings stand out against a busy background:
 
 <Figure>
 
@@ -82,7 +86,7 @@ Five text shadows have been added to the default theme, from `text-shadow-2xs` t
 
 </Figure>
 
-You can change the color of the shadow using the `text-shadow-<color>` utilities. For instance, you can create a pseudo embossed effect by using a small white shadow on dark text:
+You can change the color of the shadow using the `text-shadow-<color>` utilities. For instance, you can create a sort of embossed effect by using a small white shadow on dark text:
 
 <Figure>
 
@@ -98,7 +102,7 @@ You can change the color of the shadow using the `text-shadow-<color>` utilities
             </div>
           </div>
         </button>
-        <button className="relative rounded-full bg-linear-to-b from-white/10 to-white/20 to-70% px-4 py-2 text-sm font-semibold text-black shadow-md ring inset-shadow-2xs ring-black/20 inset-shadow-white/10 text-shadow-2xs dark:text-white">
+        <button className="relative rounded-full bg-linear-to-b from-white/10 to-white/20 to-70% px-4 py-2 text-sm font-semibold text-black shadow-md ring inset-shadow-2xs ring-black/20 inset-shadow-white/10 dark:text-white">
           See pricing
         </button>
       </div>
@@ -110,13 +114,13 @@ You can change the color of the shadow using the `text-shadow-<color>` utilities
 <!-- [!code classes:text-shadow-white/50] -->
 <div class="flex gap-4">
   <button class="text-sky-950 text-shadow-2xs text-shadow-white/50 ...">Book a demo</button>
-  <button class="text-black text-shadow-2xs dark:text-white ...">See pricing</button>
+  <button class="text-black dark:text-white ...">See pricing</button>
 </div>
 ```
 
 </Figure>
 
-Like with any color, you can control the opacity of a text shadow color with an opacity modifier but we've also added the ability to control the opacity of the default text shadow color.
+If you just want to adjust the opacity of a text shadow without changing the color, you can slap an opacity modifier directly on text shadow size utilities like `text-shadow-lg`.
 
 For example, `text-shadow-lg/50` is the same as setting `text-shadow-lg` and `text-shadow-black/50` at the same time:
 
@@ -142,20 +146,27 @@ For example, `text-shadow-lg/50` is the same as setting `text-shadow-lg` and `te
 
 </Figure>
 
-We've also added the same opacity modifiers to the [`drop-shadow`](#filter-drop-shadow) and [`box-shadow`](#box-shadow) utilities. Check out the [`text-shadow`](/docs/text-shadow) docs for more details.
+Check out the [`text-shadow`](/docs/text-shadow) docs for more details.
 
 ---
 
 ## Mask elements with the `mask-*` utilities
 
-One of the coolest features of modern CSS is the ability to use images and gradients as masks - basically using the opacity of an image to control the visibility of an element:
+One of the coolest features of modern CSS is the ability to use images and gradients as masks - basically using the opacity of an image to hide certain parts of an element:
 
 <Figure>
 
 <Example padding={false}>
   {
     <div className="mx-auto flex items-center p-16 max-sm:p-6">
-      <div className="bg-repeat-none aspect-square max-h-72 w-full bg-[url(/keyboard-light.png)] mask-radial-[100%_200%] mask-radial-from-transparent mask-radial-from-15% mask-radial-to-black mask-radial-to-60% mask-radial-at-right bg-cover bg-no-repeat dark:bg-[url(/keyboard-dark.png)]" />
+      <img
+        src={KeyboardLight.src}
+        className="aspect-square max-h-72 w-full mask-radial-[100%_200%] mask-radial-from-transparent mask-radial-from-15% mask-radial-to-black mask-radial-to-60% mask-radial-at-right object-cover object-top-left dark:hidden"
+      />
+      <img
+        src={KeyboardDark.src}
+        className="hidden aspect-square max-h-72 w-full mask-radial-[100%_200%] mask-radial-from-transparent mask-radial-from-15% mask-radial-to-black mask-radial-to-60% mask-radial-at-right object-cover object-top-left dark:block"
+      />
       <div className="font-medium max-sm:-mx-3">
         <p className="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
         <p className="mt-2 text-base whitespace-nowrap text-gray-700 dark:text-gray-300">Built for power users</p>
@@ -170,9 +181,10 @@ One of the coolest features of modern CSS is the ability to use images and gradi
 ```html
 <!-- [!code classes:mask-radial-from-transparent,mask-radial-from-15%,mask-radial-to-black,mask-radial-to-55%,mask-radial-at-right] -->
 <div class="mx-auto flex items-center p-16 max-sm:p-8">
-  <div
-    class="bg-[url(/img/keyboard.png)] mask-radial-from-transparent mask-radial-from-15% mask-radial-to-black mask-radial-to-55% mask-radial-at-right ..."
-  ></div>
+  <img
+    src="/img/keyboard.png"
+    class="mask-radial-from-transparent mask-radial-from-15% mask-radial-to-black mask-radial-to-55% mask-radial-at-right ..."
+  />
   <div class="font-medium">
     <p class="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
     <p class="mt-2 text-base text-gray-700 dark:text-gray-300">Built for power users</p>
@@ -280,6 +292,39 @@ The gradient mask utilities are also composable, so you can combine them to crea
 </Figure>
 
 Masking is a super powerful technique and there's a lot more to the API than we can cover here. For a full breakdown of the new utilities, check out the [documentation](/docs/mask-image).
+
+---
+
+### Improved compatibility with older browsers
+
+We went all-in on modern platform features with Tailwind CSS v4.0 to make the best framework we could, and give this version the longest shelf-life possible.
+
+Unfortunately some of those features degrade really poorly in older browsers, to the point where even basic things like colors and shadows might not render at all for someone visiting from an old iPhone or iPad that's stuck on Safari 15.
+
+For Tailwind CSS v4.1, we put a bunch of effort into coming up with and testing our own framework-specific fallbacks to make your sites render as best as possible in older browsers, even if some super modern things still don't behave quite the same.
+
+<Image
+  alt="Comparison between how Tailwind CSS v4.0 (left) and Tailwind CSS v4.1 (right) render in Safari 15.5. Tailwind CSS v4.0 fails to render some background gradients that are now visible in Tailwind CSS v4.1"
+  src={SafariLight}
+  className="block border border-black/5 dark:hidden"
+/>
+
+<Image
+  alt="Comparison between how Tailwind CSS v4.0 (left) and Tailwind CSS v4.1 (right) render in Safari 15.5. Tailwind CSS v4.0 fails to render some background gradients that are now visible in Tailwind CSS v4.1"
+  src={SafariDark}
+  className="hidden border border-white/10 dark:block"
+/>
+
+Here's a list of the things we've managed to improve in this release:
+
+- Colors defined in `oklab` now render in older versions of Safari
+- Features that depend on custom properties defined with `@property` (like shadows, transforms, gradients and more) now work in older versions of Safari and Firefox
+- Colors using the opacity modifier now render with inlined fallbacks in older browsers
+- Gradients using explicit interpolation methods fall back to the browser default when not supported
+
+Tailwind CSS v4 is still _designed_ for modern browsers like Safari 16.4 and up and still depends on a lot of modern features for everything to work _perfectly_, but at least now your sites will render and be usable in older browsers, even if in certain specific situations the odd shadow color be different.
+
+To learn everything you need to know about browser compatibility in Tailwind CSS v4, you can read the full [browser compatibility documentation](/docs/compatibility).
 
 ---
 
@@ -421,64 +466,15 @@ Now you can use utilities like `drop-shadow-indigo-500` and `drop-shadow-cyan-50
 
 </Figure>
 
-Like with all the other shadow utilities, you can now also adjust the opacity of the default shadow color:
-
-<Figure>
-
-<Example>
-  {
-    <div className="grid grid-cols-3 items-end gap-8 bg-white max-sm:grid-cols-1">
-      <div className="flex flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">drop-shadow-xl</p>
-        <svg className="size-28 text-gray-950/100 drop-shadow-xl" viewBox="0 0 84 84">
-          <path
-            d="M22.0992 77L2.19922 42.5L22.0992 8H61.8992L81.7992 42.5L61.8992 77H22.0992Z"
-            className="fill-white"
-          />
-        </svg>
-      </div>
-      <div className="flex flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">drop-shadow-xl/25</p>
-        <svg className="size-28 text-gray-950/100 drop-shadow-xl/25" viewBox="0 0 84 84">
-          <path
-            d="M22.0992 77L2.19922 42.5L22.0992 8H61.8992L81.7992 42.5L61.8992 77H22.0992Z"
-            className="fill-white"
-          />
-        </svg>
-      </div>
-      <div className="flex flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">drop-shadow-xl/50</p>
-        <svg className="size-28 text-gray-950/100 drop-shadow-xl/50" viewBox="0 0 84 84">
-          <path
-            d="M22.0992 77L2.19922 42.5L22.0992 8H61.8992L81.7992 42.5L61.8992 77H22.0992Z"
-            className="fill-white"
-          />
-        </svg>
-      </div>
-    </div>
-  }
-</Example>
-
-```html
-<!-- [!code classes:drop-shadow-xl,drop-shadow-xl/25,drop-shadow-xl/50] -->
-<svg class="fill-white drop-shadow-xl ...">...</svg>
-<svg class="fill-white drop-shadow-xl/25 ...">...</svg>
-<svg class="fill-white drop-shadow-xl/50 ...">...</svg>
-```
-
-</Figure>
-
-Using the opacity modifier like this is just a shorthand for setting `drop-shadow-xl` and `text-shadow-black/<opacity>` at the same time.
-
-There isn't anything more to it but here's the `drop-shadow` [documentation](/docs/filter-drop-shadow) anyway.
+There isn't much more to it but here's the [`drop-shadow` documentation](/docs/filter-drop-shadow) anyway.
 
 ---
 
 ## Target input devices with `pointer-*` and `any-pointer-*`
 
-There's nothing worse than a touch target that is too small to hit with your finger. The new `pointer-*` and `any-pointer-*` variants let you target specific input devices, so you can style your interface elements accordingly.
+The new `pointer-fine` and `pointer-coarse` variants let you style something differently depending on whether the user is using a device with a mouse or using a touchscreen.
 
-The `pointer-fine` variant targets an accurate pointing device, like a mouse or trackpad, while the `pointer-coarse` variant targets less accurate pointing devices, like a touchscreen:
+Use `pointer-fine` to target precise pointing devices like mouses and trackpads, and `pointer-coarse` to target devices lower precision like touchscreens:
 
 <Figure hint="Try emulating a touch device in your developer tools to see the changes">
 
@@ -542,13 +538,15 @@ The `pointer-fine` variant targets an accurate pointing device, like a mouse or 
 
 If you're on your phone, you'll see the `pointer-coarse` styles applied, which make the touch targets larger and easier to hit. If you're on a desktop, you'll see the `pointer-fine` styles applied, which make the touch targets smaller and more precise.
 
-While `pointer-*` only targets the primary pointing device, `any-pointer-*` is used to target any of the pointing devices that might be available.
+The `any-pointer-*` variants work the same way but instead of just checking the user's _primary_ pointing device, they check if _any_ pointing device matches. So `any-pointer-coarse` will match on a laptop with a touchscreen for a example, even if the user also has a mouse connected.
 
 ---
 
-## Align items with `items-baseline-last`
+## Align items to the last baseline
 
-When working with flex or grid layouts, sometimes you need to align something to the baseline of the last line of text rather than the end of the container. The new `items-baseline-last` utility does just that:
+When working with flex or grid layouts, sometimes you need to align something to the baseline of the last line of text rather than the end of the container.
+
+The new `items-baseline-last` utility does just that:
 
 <Figure>
 
@@ -597,7 +595,7 @@ When working with flex or grid layouts, sometimes you need to align something to
 <!-- [!code classes:items-baseline-last] -->
 <div class="group grid grid-cols-[1fr_auto] items-baseline-last gap-x-4 px-4 py-6">
   <div class="grid grid-cols-[auto_1fr] gap-x-4">
-    <img src="img/profile.jpg" />
+    <img src="/img/profile.jpg" />
     <h4>Spencer Sharp</h4>
     <p>
       Working on the future of astronaut recruitment
@@ -609,6 +607,8 @@ When working with flex or grid layouts, sometimes you need to align something to
 ```
 
 </Figure>
+
+We've also added `self-baseline-last` for when you need to align just a single items, and not all items in the flex or grid container.
 
 ---
 
@@ -678,7 +678,7 @@ This is useful when you have a large number of files in your project, but only w
 
 ## Safelist specific utilities with `@source inline(…)`
 
-If you need to make sure Tailwind generates certain class names that don’t exist in your content files, you can force them to be inlined by using `@source inline()`:
+If you need to make sure Tailwind generates certain class names that don’t exist in your content files, you can force them to be generated by using `@source inline()`:
 
 <CodeExampleStack>
 
@@ -734,20 +734,20 @@ The source input is [brace-expanded](https://www.gnu.org/software/bash/manual/ht
   background-color: var(--color-red-950);
 }
 @media (hover: hover) {
-  .hover\\:bg-red-50:hover {
+  .hover\:bg-red-50:hover {
     background-color: var(--color-red-50);
   }
 
   /* ... */
 
-  .hover\\:bg-red-950:hover {
+  .hover\:bg-red-950:hover {
     background-color: var(--color-red-950);
   }
 }
 ```
 
 </CodeExampleStack>
-This will generate shades of red from 100 to 900 in increments of 100, along with the first and last shades of 50 and 950. It also adds the `hover:` variant for each of those classes.
+This will generate shades of red from 100 to 900 in increments of 100, as well as the 50 and 950 shades. It also adds the `hover:` variant for each of those classes.
 
 You can also use `@source inline()` with the `not` modifier to exclude specific classes from being generated:
 
@@ -755,51 +755,22 @@ You can also use `@source inline()` with the `not` modifier to exclude specific 
 /* [!code filename:CSS] */
 @import "tailwindcss";
 /* [!code highlight:2] */
-@source not inline("{hover:,focus:,}bg-red-{50,{100..900..100},950}");
+@source not inline("container");
 ```
 
-This will specifically exclude the shades of red from 50 to 950, along with their hover and focus variants, from being generated even if they are detected in your source files.
+This will specifically prevent the `container` class from being generated, even if the word `container` is detected in your source files.
 
-For more details on how to use `@source inline()`, check out the [detecting classes in source files](docs/detecting-classes-in-source-files#safelisting-specific-utilities) documentation.
-
----
-
-### Improved backwards compatibility
-
-We all know someone who has been refusing to update iOS for the last five years because they prefer the old interface. Well, we've been working hard to make sure that those people have one less thing to complain about.
-
-In Tailwind 4.0, we took advantage of some modern CSS features to make the framework lighter but also more flexible. Although these have been widely available in CSS for a while now, some features, like `@property` and `oklch` color mixing, needed some work to degrade gracefully on older browsers like Safari 15.
-
-<Image
-  alt="Comparison between how Tailwind CSS v4.0 (left) and Tailwind CSS v4.1 (right) render in Safari 15.5. Tailwind CSS v4.0 fails to render some background gradients that are now visible in Tailwind CSS v4.1"
-  src={SafariLight}
-  className="block border border-black/5 dark:hidden"
-/>
-
-<Image
-  alt="Comparison between how Tailwind CSS v4.0 (left) and Tailwind CSS v4.1 (right) render in Safari 15.5. Tailwind CSS v4.0 fails to render some background gradients that are now visible in Tailwind CSS v4.1"
-  src={SafariDark}
-  className="hidden border border-white/10 dark:block"
-/>
-
-Here's the full list of backwards compatibility work we've done in this release:
-
-- Update default theme values to use percentages in `oklab` for better Safari support (e.g., `oklch(63.7% 0.237 25.331)`).
-- Polyfill `@property` using `@supports` for older Safari and Firefox versions.
-- Implement fallbacks for `color-mix` using inlined theme colors, converting to `srgb` for compatibility.
-- Add fallbacks for the relative color feature in new shadow utilities and `color-mix` when using `currentcolor`.
-- Provide fallbacks for gradient interpolation methods like `bg-linear-to-r/oklab`.
-- Polyfill `@media` queries range syntax.
-
-To learn everything you need to know about Tailwind compatibility, you can read the full [documentation](docs/compatibility)
+For more details, check out the [detecting classes in source files](/docs/detecting-classes-in-source-files#safelisting-specific-utilities) documentation.
 
 ---
 
-## A bunch of new variants
+## A bunch of other new variants
 
 ### Prettier accordions with `details-content`
 
-While you could always add styles to the children of a `<details>` element, it's been impossible to style the content container itself. The `details-content` variant targets the content container which is useful for positioning the content container relative to the `<summary>` element:
+While you could always add styles to the children of a `<details>` element, it's been impossible to style the content container itself.
+
+The new `details-content` variant targets the content container which is useful for positioning the content container relative to the `<summary>` element:
 
 <Figure>
   <Example>
@@ -838,7 +809,7 @@ While you could always add styles to the children of a `<details>` element, it's
 
 ## Target `inverted-colors` mode
 
-Use the `inverted-colors` variant to conditionally add styles when the user has enabled an inverted color scheme:
+Use the `inverted-colors` variant to conditionally add styles when the user has enabled an inverted color scheme in their OS:
 
 ```html
 <!-- [!code classes:inverted-colors:shadow-none] -->
@@ -847,23 +818,27 @@ Use the `inverted-colors` variant to conditionally add styles when the user has 
 </div>
 ```
 
-This is particularly useful for preventing black shadows being turned white when the user has enabled an inverted color scheme.
+This is useful for things like preventing black shadows being turned white when inverted colors are enabled.
 
 ---
 
 ## New `noscript` variant
 
-Yes, some people disable JavaScript and now you can tell them your app doesn't work without it. The `noscript` variant lets you conditionally apply styles when `scripting` is disabled:
+Yes, some people disable JavaScript and now you can tell them your app doesn't work without it. The `noscript` variant lets you conditionally apply styles when JS is disabled:
 
 ```html
 <div class="hidden noscript:block">Please enable JavaScript to use this app.</div>
 ```
 
+You could already do this with the `<noscript>` tag but now you can do it with CSS too, which Tailwind let's you write in your HTML, so… yeah.
+
 ---
 
 ## Better form validation with `user-valid` and `user-invalid`
 
-It could be a little tricky to style form elements based on their validation state, but now you can use the new `user-valid` and `user-invalid` variants to apply validation styles to inputs only after the user has interacted with them:
+Ever tried the `:invalid` pseudo-class only for the page to be full of red invalid states as soon as it loads, before the user has even touched your form?
+
+The new `user-valid` and `user-invalid` variants try to solve this problem, by only applying validation-related styling after the user has actually interacted with the controls:
 
 ```html
 <!-- [!code classes:user-valid:border-green-500,user-invalid:border-red-500] -->
@@ -873,12 +848,10 @@ It could be a little tricky to style form elements based on their validation sta
 
 ---
 
-These are just some of the highlights — for all the details, check out the [release
-notes](https://github.com/tailwindlabs/tailwindcss/releases) on GitHub. Ready to try it out? Update to the latest
-version using npm:
+So that's it, that's Tailwind CSS v4.1! Update to the latest version using npm and start playing with it today:
 
 ```sh
 npm install tailwindcss@latest
 ```
 
-Let us know what you build with these new features!
+Looking forward to seeing what you build with the new features!
