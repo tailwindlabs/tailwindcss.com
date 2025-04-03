@@ -682,7 +682,7 @@ Sometimes you need to specifically exclude some parts of your code base from bei
 /* [!code filename:CSS] */
 @import "tailwindcss";
 /* [!code highlight:2] */
-@source not "src/components/legacy";
+@source not "./src/components/legacy";
 ```
 
 This is useful when you have a large number of files in your project, but only want to scan a specific subset of them.
