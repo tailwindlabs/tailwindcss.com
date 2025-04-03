@@ -215,18 +215,18 @@ So instead, we created a new set of utilities to work with `mask-image` that are
         <p>mask-r-from-30%</p>
         <div className="grid aspect-3/2 w-44 grid-cols-1">
           <Stripes className="col-start-1 row-start-1 rounded-lg" border />
-          <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-white mask-r-from-30% bg-cover bg-center mask-no-repeat"></div>
+          <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-30% bg-cover bg-center mask-no-repeat"></div>
         </div>
       </div>
       <div className="flex flex-col items-center gap-3">
-        <p>mask-b-from-50% mask-b-to-90%</p>
+        <p>mask-l-from-50% mask-l-to-90%</p>
         <div className="grid aspect-3/2 w-44 grid-cols-1">
           <Stripes className="col-start-1 row-start-1 rounded-lg" border />
           <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-l-from-50% mask-l-to-90% bg-cover bg-center mask-no-repeat"></div>
         </div>
       </div>
       <div className="flex flex-col items-center gap-3">
-        <p>mask-l-from-20% mask-l-to-80%</p>
+        <p>mask-b-from-20% mask-b-to-80%</p>
         <div className="grid aspect-3/2 w-44 grid-cols-1">
           <Stripes className="col-start-1 row-start-1 rounded-lg" border />
           <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-20% mask-b-to-80% bg-cover bg-center mask-no-repeat"></div>
@@ -238,11 +238,11 @@ So instead, we created a new set of utilities to work with `mask-image` that are
 
 {/* prettier-ignore */}
 ```html
-<!-- [!code classes:mask-t-from-50%,mask-r-from-30%,mask-r-to-90%,mask-b-from-50%,mask-b-to-90%,mask-l-from-20%,mask-l-to-80%] -->
+<!-- [!code classes:mask-t-from-50%,mask-r-from-30%,mask-l-from-50%,mask-l-to-90%,mask-b-from-20%,mask-b-to-80%] -->
 <div class="mask-t-from-50% bg-[url(/img/mountains.jpg)] ..."></div>
 <div class="mask-r-from-30% bg-[url(/img/mountains.jpg)] ..."></div>
-<div class="mask-b-from-50% mask-b-to-90% bg-[url(/img/mountains.jpg)] ..."></div>
-<div class="mask-l-from-20% mask-l-to-80% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-l-from-50% mask-l-to-90% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-b-from-20% mask-b-to-80% bg-[url(/img/mountains.jpg)] ..."></div>
 ```
 
 </Figure>
