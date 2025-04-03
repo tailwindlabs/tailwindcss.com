@@ -64,8 +64,7 @@ We've added five text shadows to the default theme, from `text-shadow-2xs` to `t
 
 <Example padding={false}>
   {
-    <div className="relative grid items-center gap-4 bg-white px-6 py-14 text-center text-2xl font-semibold text-white">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1635776063328-153b13e3c245?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-size-[150%_200%] bg-left opacity-75" />
+    <div className="relative grid items-center justify-around gap-4 bg-linear-45 from-indigo-400 via-purple-500 to-pink-500 px-6 py-14 text-center text-2xl font-semibold text-white">
       <p className="relative text-shadow-2xs">The quick brown fox jumps over the lazy dog.</p>
       <p className="relative text-shadow-xs">The quick brown fox jumps over the lazy dog.</p>
       <p className="relative text-shadow-sm">The quick brown fox jumps over the lazy dog.</p>
@@ -77,11 +76,11 @@ We've added five text shadows to the default theme, from `text-shadow-2xs` to `t
 
 ```html
 <!-- [!code classes:text-shadow-2xs,text-shadow-xs,text-shadow-sm,text-shadow-md,text-shadow-lg,text-shadow-xl] -->
-<p class="text-shadow-2xs ...">...</p>
-<p class="text-shadow-xs ...">...</p>
-<p class="text-shadow-sm ...">...</p>
-<p class="text-shadow-md ...">...</p>
-<p class="text-shadow-lg ...">...</p>
+<p class="text-shadow-2xs ...">The quick brown fox...</p>
+<p class="text-shadow-xs ...">The quick brown fox...</p>
+<p class="text-shadow-sm ...">The quick brown fox...</p>
+<p class="text-shadow-md ...">The quick brown fox...</p>
+<p class="text-shadow-lg ...">The quick brown fox...</p>
 ```
 
 </Figure>
@@ -126,8 +125,7 @@ For example, `text-shadow-lg/50` is the same as setting `text-shadow-lg` and `te
 
 <Example padding={false}>
   {
-    <div className="relative grid items-center gap-4 bg-white px-6 py-14 text-center text-2xl font-semibold text-white">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1635776063328-153b13e3c245?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-size-[150%_200%] bg-left opacity-75" />
+    <div className="relative grid items-center justify-around gap-4 bg-linear-45 from-indigo-400 via-sky-400 to-emerald-400 px-6 py-14 text-center text-2xl font-semibold text-white">
       <p className="relative text-shadow-lg">The quick brown fox jumps over the lazy dog.</p>
       <p className="relative text-shadow-lg/20">The quick brown fox jumps over the lazy dog.</p>
       <p className="relative text-shadow-lg/30">The quick brown fox jumps over the lazy dog.</p>
@@ -137,9 +135,9 @@ For example, `text-shadow-lg/50` is the same as setting `text-shadow-lg` and `te
 
 ```html
 <!-- [!code classes:text-shadow-lg/20,text-shadow-lg/30] -->
-<p class="text-shadow-lg ...">...</p>
-<p class="text-shadow-lg/20 ...">...</p>
-<p class="text-shadow-lg/30 ...">...</p>
+<p class="text-shadow-lg ...">The quick brown fox...</p>
+<p class="text-shadow-lg/20 ...">The quick brown fox...</p>
+<p class="text-shadow-lg/30 ...">The quick brown fox...</p>
 ```
 
 </Figure>
@@ -201,48 +199,51 @@ So instead, we created a new set of utilities to work with `mask-image` that are
 
 <Figure>
 
-<Example>
+<Example padding={false}>
   {
-    <div className="grid grid-cols-2 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
-      <div className="flex flex-col items-center text-xs">
+    <div className="grid grid-cols-1 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-xs font-medium text-gray-500 max-sm:justify-between max-sm:px-2 sm:grid-cols-2 dark:text-gray-400">
+      <div className="flex flex-col items-center gap-3">
         <p>mask-t-from-50%</p>
-        <Stripes className="mt-3 aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
-          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-50% bg-cover bg-center mask-no-repeat"></div>
-        </Stripes>
+        <div className="grid aspect-3/2 w-44 grid-cols-1">
+          <Stripes className="col-start-1 row-start-1 rounded-lg" border />
+          <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-50% bg-cover bg-center mask-no-repeat"></div>
+        </div>
       </div>
-      <div className="flex flex-col items-center text-xs">
+      <div className="flex flex-col items-center gap-3">
         <p>mask-r-from-30%</p>
-        <Stripes className="mt-3 aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
-          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-white mask-r-from-30% bg-cover bg-center mask-no-repeat"></div>
-        </Stripes>
+        <div className="grid aspect-3/2 w-44 grid-cols-1">
+          <Stripes className="col-start-1 row-start-1 rounded-lg" border />
+          <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-white mask-r-from-30% bg-cover bg-center mask-no-repeat"></div>
+        </div>
       </div>
-      <div className="flex flex-col items-center text-xs">
-        <p>mask-l-from-50%</p>
-        <p>mask-l-to-90%</p>
-        <Stripes className="mt-3 aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
-          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-l-from-50% mask-l-to-90% bg-cover bg-center mask-no-repeat"></div>
-        </Stripes>
+      <div className="flex flex-col items-center gap-3">
+        <p>mask-b-from-50% mask-b-to-90%</p>
+        <div className="grid aspect-3/2 w-44 grid-cols-1">
+          <Stripes className="col-start-1 row-start-1 rounded-lg" border />
+          <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-l-from-50% mask-l-to-90% bg-cover bg-center mask-no-repeat"></div>
+        </div>
       </div>
-      <div className="flex flex-col items-center text-xs">
-        <p>mask-b-from-20%</p>
-        <p>mask-b-to-80%</p>
-        <Stripes className="mt-3 aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
-          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-20% mask-b-to-80% bg-cover bg-center mask-no-repeat"></div>
-        </Stripes>
+      <div className="flex flex-col items-center gap-3">
+        <p>mask-l-from-20% mask-l-to-80%</p>
+        <div className="grid aspect-3/2 w-44 grid-cols-1">
+          <Stripes className="col-start-1 row-start-1 rounded-lg" border />
+          <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-20% mask-b-to-80% bg-cover bg-center mask-no-repeat"></div>
+        </div>
       </div>
     </div>
   }
 </Example>
 
+{/* prettier-ignore */}
 ```html
 <!-- [!code classes:mask-t-from-50%,mask-r-from-30%,mask-r-to-90%,mask-b-from-50%,mask-b-to-90%,mask-l-from-20%,mask-l-to-80%] -->
-<div class="mask-t-from-50% ..."></div>
-<div class="mask-r-from-30% ..."></div>
-<div class="mask-b-from-50% mask-b-to-90% ..."></div>
-<div class="mask-l-from-20% mask-l-to-80% ..."></div>
+<div class="mask-t-from-50% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-r-from-30% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-b-from-50% mask-b-to-90% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-l-from-20% mask-l-to-80% bg-[url(/img/mountains.jpg)] ..."></div>
 ```
 
- </Figure>
+</Figure>
 
 It's more natural to think about which side you want to mask, rather than trying to work out the exact gradient you need to use.
 
@@ -252,39 +253,37 @@ The gradient mask utilities are also composable, so you can combine them to crea
 
 <Example>
   {
-    <div className="grid grid-cols-2 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-sm font-medium text-gray-500 max-sm:justify-between max-sm:px-2 dark:text-gray-400">
+    <div className="grid grid-cols-1 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-xs font-medium text-gray-500 max-sm:justify-between max-sm:px-2 sm:grid-cols-2 dark:text-gray-400">
       <div className="flex flex-col items-center text-xs">
-        <Stripes className="aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
+        <Stripes className="aspect-3/2 w-48 rounded-lg" border>
           <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-80% mask-b-from-80% mask-radial-from-70% mask-radial-to-85% mask-circle mask-radial-at-top-left bg-cover bg-center mask-no-repeat"></div>
         </Stripes>
       </div>
       <div className="flex flex-col items-center text-xs">
-        <Stripes className="aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
+        <Stripes className="aspect-3/2 w-48 rounded-lg" border>
           <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-y-from-80% mask-x-from-80% bg-cover bg-center mask-no-repeat"></div>
         </Stripes>
       </div>
       <div className="flex flex-col items-center text-xs">
-        <Stripes className="aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
+        <Stripes className="aspect-3/2 w-48 rounded-lg" border>
           <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-50% mask-radial-[50%_90%] mask-radial-from-80% mask-radial-at-bottom bg-cover bg-center mask-no-repeat"></div>
         </Stripes>
       </div>
       <div className="flex flex-col items-center text-xs">
-        <Stripes className="aspect-[1.33] w-56 rounded-lg max-sm:w-32" border>
-          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-80% mask-t-to-80% mask-r-from-80% mask-r-to-80% mask-conic-305 mask-conic-from-50% mask-conic-to-50% bg-cover bg-center mask-size-[2.5%_3.25%]"></div>
+        <Stripes className="aspect-3/2 w-48 rounded-lg" border>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-90% mask-t-to-90% mask-r-from-90% mask-r-to-90% mask-conic-305 mask-conic-from-50% mask-conic-to-50% bg-cover bg-center mask-size-[3.75%_4.875%]"></div>
         </Stripes>
       </div>
     </div>
   }
 </Example>
 
+{/* prettier-ignore */}
 ```html
-<!-- [!code classes:mask-r-from-80%,mask-b-from-80%,mask-radial-from-70%,mask-radial-to-85%,mask-y-from-80%,mask-x-from-80%,mask-b-from-50%,mask-radial-from-80%,mask-t-from-80%,mask-t-to-80%,mask-r-from-80%,mask-r-to-80%,mask-conic-305,mask-conic-from-50%,mask-conic-to-50%,mask-size-[2.5%_3.25%] -->
-<div class="mask-r-from-80% mask-b-from-80% mask-radial-from-70% mask-radial-to-85% ..."></div>
-<div class="mask-y-from-80% mask-x-from-80%"></div>
-<div class="mask-b-from-50% mask-radial-[50%_90%] mask-radial-from-80% ..."></div>
-<div
-  class="mask-t-from-80% mask-t-to-80% mask-r-from-80% mask-r-to-80% mask-conic-305 mask-conic-from-50% mask-conic-to-50% mask-size-[2.5%_3.25%] ..."
-></div>
+<div class="mask-r-from-80% mask-b-from-80% mask-radial-from-70% mask-radial-to-85% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-y-from-80% mask-x-from-80% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-b-from-50% mask-radial-[50%_90%] mask-radial-from-80% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-t-from-90% mask-t-to-90% mask-r-from-90% mask-r-to-90% mask-conic-305 mask-conic-from-50% mask-conic-to-50% mask-size-[3.75%_4.875%] bg-[url(/img/mountains.jpg)] ..."></div>
 ```
 
 </Figure>
@@ -359,7 +358,7 @@ It's similar to `wrap-break-word`, but it allows mid-word line breaks when calcu
 <Example>
   {
     <div>
-      <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">wrap-break-word</p>
+      <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">wrap-break-word</p>
       <div className="mx-auto flex max-w-sm items-center gap-4 rounded-xl bg-white p-3 shadow-sm ring ring-black/2.5 dark:bg-black/10 dark:ring-white/10">
         <img
           className="size-16 rounded-full outline -outline-offset-1 outline-black/10 dark:outline-white/10"
@@ -371,7 +370,7 @@ It's similar to `wrap-break-word`, but it allows mid-word line breaks when calcu
           <p className="text-sm text-gray-500 dark:text-gray-400">jason.riemenschneider@vandelayindustries.com</p>
         </div>
       </div>
-      <p className="mt-8 mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+      <p className="mt-8 mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
         wrap-anywhere
       </p>
       <div className="mx-auto flex max-w-sm items-center gap-4 rounded-xl bg-white p-3 shadow-sm ring ring-black/2.5 dark:bg-black/10 dark:ring-white/10">
@@ -425,7 +424,7 @@ Now you can use utilities like `drop-shadow-indigo-500` and `drop-shadow-cyan-50
   {
     <div className="grid grid-cols-3 items-end gap-8 bg-white max-sm:grid-cols-1">
       <div className="flex flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">drop-shadow-cyan-500/50</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500">drop-shadow-cyan-500/50</p>
         <svg className="size-28 text-gray-950/100 drop-shadow-xl drop-shadow-cyan-500/50" viewBox="0 0 84 84">
           <path
             d="M22.0992 77L2.19922 42.5L22.0992 8H61.8992L81.7992 42.5L61.8992 77H22.0992Z"
@@ -434,7 +433,7 @@ Now you can use utilities like `drop-shadow-indigo-500` and `drop-shadow-cyan-50
         </svg>
       </div>
       <div className="flex flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">drop-shadow-sky-500/50</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500">drop-shadow-sky-500/50</p>
         <svg className="size-28 text-gray-950/100 drop-shadow-xl drop-shadow-sky-500/50" viewBox="0 0 84 84">
           <path
             d="M22.0992 77L2.19922 42.5L22.0992 8H61.8992L81.7992 42.5L61.8992 77H22.0992Z"
@@ -443,7 +442,7 @@ Now you can use utilities like `drop-shadow-indigo-500` and `drop-shadow-cyan-50
         </svg>
       </div>
       <div className="flex flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">drop-shadow-indigo-500/50</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500">drop-shadow-indigo-500/50</p>
         <svg className="size-28 text-gray-950/100 drop-shadow-xl drop-shadow-indigo-500/50" viewBox="0 0 84 84">
           <path
             d="M22.0992 77L2.19922 42.5L22.0992 8H61.8992L81.7992 42.5L61.8992 77H22.0992Z"
@@ -551,7 +550,7 @@ The new `items-baseline-last` utility does just that:
 <Example padding={false}>
   {
     <div className="mx-auto grid max-w-md divide-y divide-gray-100 border-x border-x-gray-200 text-gray-700 dark:divide-gray-800 dark:border-x-gray-800 dark:bg-gray-950/10 dark:text-gray-300">
-      <div className="group grid grid-cols-[1fr_auto] items-baseline-last gap-x-4 px-4 py-6 hover:bg-gray-50 dark:hover:bg-gray-950/50">
+      <div className="grid grid-cols-[1fr_auto] items-baseline-last gap-x-4 px-4 py-6">
         <div className="grid grid-cols-[auto_1fr] gap-x-4 max-sm:grid-cols-1">
           <img
             className="size-[2rem] rounded-full"
@@ -559,16 +558,16 @@ The new `items-baseline-last` utility does just that:
             alt=""
           />
           <div className="font-semibold text-gray-900 sm:col-start-2 dark:text-white">Spencer Sharp</div>
-          <p className="text-sm sm:col-start-2">Working on the future of astronaut recruitment at SpaceRecruit.</p>
+          <p className="text-sm sm:col-start-2">Working on the future of astronaut recruitment at Space Recruit.</p>
         </div>
         <a
           href="#"
-          className="font-mono text-xs font-medium text-gray-400 underline group-hover:text-blue-500 dark:text-gray-500"
+          className="font-mono text-xs font-medium text-gray-400 underline hover:text-blue-500 dark:text-gray-500"
         >
           spacerecruit.com
         </a>
       </div>
-      <div className="group grid grid-cols-[1fr_auto] items-baseline-last gap-x-4 px-4 py-6 hover:bg-gray-50 dark:hover:bg-gray-950/50">
+      <div className="grid grid-cols-[1fr_auto] items-baseline-last gap-x-4 px-4 py-6">
         <div className="grid grid-cols-[auto_1fr] gap-x-4 max-sm:grid-cols-1">
           <img
             className="size-[2rem] rounded-full"
@@ -580,7 +579,7 @@ The new `items-baseline-last` utility does just that:
         </div>
         <a
           href="#"
-          className="font-mono text-xs font-medium text-gray-400 underline group-hover:text-blue-500 dark:text-gray-500"
+          className="font-mono text-xs font-medium text-gray-400 underline hover:text-blue-500 dark:text-gray-500"
         >
           alex-reed.com
         </a>
@@ -591,16 +590,13 @@ The new `items-baseline-last` utility does just that:
 
 ```html
 <!-- [!code classes:items-baseline-last] -->
-<div class="group grid grid-cols-[1fr_auto] items-baseline-last gap-x-4 px-4 py-6">
-  <div class="grid grid-cols-[auto_1fr] gap-x-4">
-    <img src="/img/profile.jpg" />
+<div class="grid grid-cols-[1fr_auto] items-baseline-last">
+  <div>
+    <img src="img/spencer-sharp.jpg" />
     <h4>Spencer Sharp</h4>
-    <p>
-      Working on the future of astronaut recruitment
-      <span> @spacerecruit</span>.
-    </p>
+    <p>Working on the future of astronaut recruitment at Space Recruit.</p>
   </div>
-  <p class="text-lg group-hover:text-blue-500">spacerecruit.com</p>
+  <p>spacerecruit.com</p>
 </div>
 ```
 
@@ -622,7 +618,7 @@ The new `safe` alignment utilities will change the alignment to `start` when the
   {
     <div className="grid grid-cols-1 gap-8">
       <div>
-        <p className="text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">justify-center</p>
+        <p className="text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">justify-center</p>
         <ul className="flex justify-center gap-2 pt-4 text-sm text-sky-600 *:rounded-full *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5 dark:text-sky-300 dark:*:border-sky-500/15 dark:*:bg-sky-500/10">
           <li>Sales</li>
           <li>Marketing</li>
@@ -635,7 +631,7 @@ The new `safe` alignment utilities will change the alignment to `start` when the
         </ul>
       </div>
       <div>
-        <p className="text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+        <p className="text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
           justify-center-safe
         </p>
         <ul className="flex justify-center-safe gap-2 pt-4 text-sm text-sky-600 *:rounded-full *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5 dark:text-sky-300 dark:*:border-sky-500/15 dark:*:bg-sky-500/10">
