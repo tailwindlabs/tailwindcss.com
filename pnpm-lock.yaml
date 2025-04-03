@@ -24,7 +24,7 @@ importers:
         specifier: ^1.29.1
         version: 1.29.2
       '@tailwindcss/postcss':
-        specifier: ^4.1.1
+        specifier: 4.1.1
         version: 4.1.1
       '@types/mdx':
         specifier: ^2.0.13
@@ -63,14 +63,14 @@ importers:
         specifier: ^1.29.1
         version: 1.29.2
       tailwindcss:
-        specifier: ^4.1.1
+        specifier: 4.1.1
         version: 4.1.1
     devDependencies:
       '@svgr/webpack':
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.8.2)
       '@tailwindcss/node':
-        specifier: ^4.1.1
+        specifier: 4.1.1
         version: 4.1.1
       '@types/hast':
         specifier: ^3.0.4
