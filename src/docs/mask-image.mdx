@@ -515,28 +515,28 @@ Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear
   {
     <div className="grid grid-cols-1 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-xs font-medium text-gray-500 max-sm:justify-between max-sm:px-2 sm:grid-cols-2 dark:text-gray-400">
       <div className="flex flex-col items-center gap-3">
-        <p>top from 50%</p>
+        <p>mask-t-from-50%</p>
         <div className="grid aspect-3/2 w-44 grid-cols-1">
           <Stripes className="col-start-1 row-start-1 rounded-lg" border />
           <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-50% bg-cover bg-center mask-no-repeat"></div>
         </div>
       </div>
       <div className="flex flex-col items-center gap-3">
-        <p>right from 30%</p>
+        <p>mask-r-from-30%</p>
         <div className="grid aspect-3/2 w-44 grid-cols-1">
           <Stripes className="col-start-1 row-start-1 rounded-lg" border />
           <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-white mask-r-from-30% bg-cover bg-center mask-no-repeat"></div>
         </div>
       </div>
       <div className="flex flex-col items-center gap-3">
-        <p>left from 50% to 90%</p>
+        <p>mask-b-from-50% mask-b-to-90%</p>
         <div className="grid aspect-3/2 w-44 grid-cols-1">
           <Stripes className="col-start-1 row-start-1 rounded-lg" border />
           <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-l-from-50% mask-l-to-90% bg-cover bg-center mask-no-repeat"></div>
         </div>
       </div>
       <div className="flex flex-col items-center gap-3">
-        <p>bottom from 20% to 80%</p>
+        <p>mask-l-from-20% mask-l-to-80%</p>
         <div className="grid aspect-3/2 w-44 grid-cols-1">
           <Stripes className="col-start-1 row-start-1 rounded-lg" border />
           <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-20% mask-b-to-80% bg-cover bg-center mask-no-repeat"></div>
@@ -565,14 +565,14 @@ Additionally, use utilities like `mask-x-from-70%` and `mask-y-to-90%` to apply 
   {
     <div className="grid grid-cols-1 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-xs font-medium text-gray-500 max-sm:justify-between max-sm:px-2 sm:grid-cols-2 dark:text-gray-400">
       <div className="flex flex-col items-center gap-3">
-        <p>horizontal from 70% to 90%</p>
+        <p>mask-x-from-70% mask-x-to-90%</p>
         <div className="grid aspect-3/2 w-44 grid-cols-1">
           <Stripes className="col-start-1 row-start-1 rounded-lg" border />
           <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-x-from-70% mask-x-to-90% bg-cover bg-center mask-no-repeat"></div>
         </div>
       </div>
       <div className="flex flex-col items-center gap-3">
-        <p>vertical from 70% to 90%</p>
+        <p>mask-y-from-70% mask-y-to-90%</p>
         <div className="grid aspect-3/2 w-44 grid-cols-1">
           <Stripes className="col-start-1 row-start-1 rounded-lg" border />
           <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-y-from-70% mask-y-to-90% bg-cover bg-center mask-no-repeat"></div>
@@ -603,14 +603,14 @@ Use utilities like `mask-linear-<angle>`, `mask-linear-from-20`, and `mask-linea
   {
     <div className="grid grid-cols-1 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-xs font-medium text-gray-500 max-sm:justify-between max-sm:px-2 sm:grid-cols-2 dark:text-gray-400">
       <div className="flex flex-col items-center gap-3">
-        <p>50° from 60% to 80%</p>
+        <p>mask-linear-50</p>
         <div className="grid aspect-3/2 w-44 grid-cols-1">
           <Stripes className="col-start-1 row-start-1 rounded-lg" border />
           <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-linear-50 mask-linear-from-60% mask-linear-to-80% bg-cover bg-center mask-no-repeat"></div>
         </div>
       </div>
       <div className="flex flex-col items-center gap-3">
-        <p>-50° from 60% to 80%</p>
+        <p>-mask-linear-50</p>
         <div className="grid aspect-3/2 w-44 grid-cols-1">
           <Stripes className="col-start-1 row-start-1 rounded-lg" border />
           <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] -mask-linear-50 mask-linear-from-60% mask-linear-to-80% bg-cover bg-center mask-no-repeat"></div>
