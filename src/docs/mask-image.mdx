@@ -866,22 +866,12 @@ Gradient mask utilities, like `mask-radial-from-<value>`, `mask-conic-to-<value>
     <div className="grid grid-cols-1 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-xs font-medium text-gray-500 max-sm:justify-between max-sm:px-2 sm:grid-cols-2 dark:text-gray-400">
       <div className="flex flex-col items-center text-xs">
         <Stripes className="aspect-3/2 w-48 rounded-lg" border>
-          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-80% mask-b-from-80% mask-radial-from-70% mask-radial-to-85% mask-circle mask-radial-at-top-left bg-cover bg-center mask-no-repeat"></div>
-        </Stripes>
-      </div>
-      <div className="flex flex-col items-center text-xs">
-        <Stripes className="aspect-3/2 w-48 rounded-lg" border>
-          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-y-from-80% mask-x-from-80% bg-cover bg-center mask-no-repeat"></div>
-        </Stripes>
-      </div>
-      <div className="flex flex-col items-center text-xs">
-        <Stripes className="aspect-3/2 w-48 rounded-lg" border>
           <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-50% mask-radial-[50%_90%] mask-radial-from-80% mask-radial-at-bottom bg-cover bg-center mask-no-repeat"></div>
         </Stripes>
       </div>
       <div className="flex flex-col items-center text-xs">
         <Stripes className="aspect-3/2 w-48 rounded-lg" border>
-          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-90% mask-t-to-90% mask-r-from-90% mask-r-to-90% mask-conic-305 mask-conic-from-50% mask-conic-to-50% bg-cover bg-center mask-size-[3.75%_4.875%]"></div>
+          <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-80% mask-b-from-80% mask-radial-from-70% mask-radial-to-85% mask-circle mask-radial-at-top-left bg-cover bg-center mask-no-repeat"></div>
         </Stripes>
       </div>
     </div>
@@ -890,10 +880,9 @@ Gradient mask utilities, like `mask-radial-from-<value>`, `mask-conic-to-<value>
 
 {/* prettier-ignore */}
 ```html
-<div class="mask-r-from-80% mask-b-from-80% mask-radial-from-70% mask-radial-to-85% bg-[url(/img/mountains.jpg)] ..."></div>
-<div class="mask-y-from-80% mask-x-from-80% bg-[url(/img/mountains.jpg)] ..."></div>
+<!-- [!code classes:mask-b-from-50%,mask-radial-[50%_90%],mask-radial-from-80%,mask-r-from-80%,mask-b-from-80%,mask-radial-from-70%,mask-radial-to-85%] -->
 <div class="mask-b-from-50% mask-radial-[50%_90%] mask-radial-from-80% bg-[url(/img/mountains.jpg)] ..."></div>
-<div class="mask-t-from-90% mask-t-to-90% mask-r-from-90% mask-r-to-90% mask-conic-305 mask-conic-from-50% mask-conic-to-50% mask-size-[3.75%_4.875%] bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-r-from-80% mask-b-from-80% mask-radial-from-70% mask-radial-to-85% bg-[url(/img/mountains.jpg)] ..."></div>
 ```
 
 </Figure>
