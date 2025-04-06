@@ -37,7 +37,7 @@ export const description = "Utilities for controlling the shadow of a text eleme
     ["text-shadow-transparent", "--tw-shadow-color transparent;"],
     ...Object.entries(colors).map(([name, value]) => [
       `text-shadow-${name}`,
-      `--tw-shadow-color var(--color-${name}); /* ${value} */`,
+      `--tw-text-shadow-color var(--color-${name}); /* ${value} */`,
     ]),
   ]}
 />
