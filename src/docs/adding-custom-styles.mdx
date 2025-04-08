@@ -462,6 +462,19 @@ To resolve the value as a bare value, use the `--value({type})` syntax, where `{
 
 This will match utilities like `tab-1` and `tab-76`.
 
+#### Literal values
+
+To support literal values, use the `--value('literal')` syntax (notice the quotes):
+
+```css
+/* [!code filename:CSS] */
+@utility tab-* {
+  tab-size: --value('inherit', 'initial', 'unset');
+}
+```
+
+This will match utilities like `tab-inherit`, `tab-initial`, and `tab-unset`.
+
 #### Arbitrary values
 
 To support arbitrary values, use the `--value([{type}])` syntax (notice the square brackets) to tell Tailwind which types are supported as an arbitrary value:
