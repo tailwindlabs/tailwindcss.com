@@ -28,12 +28,12 @@ export function YouTubeVideo({ className, id, ...props }: React.IframeHTMLAttrib
   );
 }
 
-export function Image({ className, ...props }: React.ComponentProps<typeof NextImage>) {
+export function Image({ src, className, ...props }: React.ComponentProps<typeof NextImage>) {
   return (
     <div data-media className={className}>
       <div className="not-prose relative overflow-hidden rounded-xl">
         <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-slate-950/10 ring-inset dark:ring-white/10"></div>
-        <NextImage width={768 * 2} {...props} />
+        {typeof src === "string" ? <img src={src} {...props} /> : <NextImage width={768 * 2} src={src} {...props} />}
       </div>
     </div>
   );
