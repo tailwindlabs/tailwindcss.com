@@ -1,8 +1,8 @@
 import { adamwathan } from "@/app/blog/authors";
-import Image from "next/image";
 import Link from "next/link";
 import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure";
+import { Image, Video } from "@/components/media";
 
 import home from "./home.png";
 import documentation from "./documentation.png";
@@ -23,11 +23,11 @@ export const meta = {
   ),
 };
 
-It's been months in the making but I'm excited to finally release our next website template — <Link href="https://tailwindui.com/templates/protocol">Protocol</Link>, a beautiful starter kit for building amazing API reference websites.
-
 <Link href="https://tailwindui.com/templates/protocol">
   <Image alt="Learn about the Protocol template" src={home} />
 </Link>
+
+It's been months in the making but I'm excited to finally release our next website template — <Link href="https://tailwindui.com/templates/protocol">Protocol</Link>, a beautiful starter kit for building amazing API reference websites.
 
 Powered by Next.js and MDX and styled with Tailwind CSS, it's built exactly the way we'd build our own API reference documentation.
 
@@ -39,57 +39,15 @@ As usual we had a lot of fun getting carried away with the design, and putting t
 
 We've got sticky code blocks that stay in view as you scroll through the request and response details for that endpoint:
 
-<Example>
-  {
-    <div className="relative overflow-hidden rounded-2xl">
-      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-slate-900/10 ring-inset"></div>
-      <video
-        src="https://assets.tailwindcss.com/blog/2022-12-15-protocol-api-documentation-template/sticky-code-blocks.mp4"
-        autoPlay
-        playsInline
-        loop
-        muted
-        className="m-0 block"
-      />
-    </div>
-  }
-</Example>
+<Video src="https://assets.tailwindcss.com/blog/2022-12-15-protocol-api-documentation-template/sticky-code-blocks.mp4" />
 
 There's also this beautiful hover effect on the homepage cards — it follows your mouse cursor with this gradient glow that uncovers a subtle background pattern:
 
-<Example>
-  {
-    <div className="relative overflow-hidden rounded-2xl">
-      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-slate-900/10 ring-inset"></div>
-      <video
-        src="https://assets.tailwindcss.com/blog/2022-12-15-protocol-api-documentation-template/hovering-cards.mp4"
-        autoPlay
-        playsInline
-        loop
-        muted
-        className="m-0 block"
-      />
-    </div>
-  }
-</Example>
+<Video src="https://assets.tailwindcss.com/blog/2022-12-15-protocol-api-documentation-template/hovering-cards.mp4" />
 
 My favorite detail though has to be the sidebar navigation, which tracks the visible page content but using a sort of "minimap" strategy, where _all_ visible page sections are highlighted:
 
-<Example>
-  {
-    <div className="relative overflow-hidden rounded-2xl">
-      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-slate-900/10 ring-inset"></div>
-      <video
-        src="https://assets.tailwindcss.com/blog/2022-12-15-protocol-api-documentation-template/animated-sidebar.mp4"
-        autoPlay
-        playsInline
-        loop
-        muted
-        className="m-0 block"
-      />
-    </div>
-  }
-</Example>
+<Video src="https://assets.tailwindcss.com/blog/2022-12-15-protocol-api-documentation-template/animated-sidebar.mp4" />
 
 Watching this animate as you scroll through the page is really a sight to behold — props to <Link href="https://www.framer.com/motion/">Framer Motion</Link> for doing the heavy lifting here as usual. Even if I absolutely hated React I'm pretty sure I'd still use it just to use this library, it's really that good.
 
@@ -228,21 +186,7 @@ We love Algolia for documentation search, and we use it for the Tailwind CSS web
 
 We've wired it up for Protocol as well, but this time using Algolia's headless <Link href="https://www.algolia.com/doc/ui-libraries/autocomplete/introduction/what-is-autocomplete/">autocomplete library</Link> so we had total control of the search UI:
 
-<Example>
-  {
-    <div className="relative overflow-hidden rounded-2xl">
-      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-slate-900/10 ring-inset"></div>
-      <video
-        src="https://assets.tailwindcss.com/blog/2022-12-15-protocol-api-documentation-template/command-palette.mp4"
-        autoPlay
-        playsInline
-        loop
-        muted
-        className="m-0 block"
-      />
-    </div>
-  }
-</Example>
+<Video src="https://assets.tailwindcss.com/blog/2022-12-15-protocol-api-documentation-template/command-palette.mp4" />
 
 The nice thing about this approach is we can use regular old utility classes to style everything instead of writing custom CSS to style an already-styled widget, which just feels a lot more _right_ in a Tailwind CSS project.
 
