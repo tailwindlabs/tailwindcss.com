@@ -128,6 +128,10 @@
     text-decoration-thickness: 2px;
   }
 
+  a:where(:not(.not-prose, .not-prose *)):has(> [data-media]) {
+    display: block;
+  }
+
   strong:where(:not(.not-prose, .not-prose *)) {
     color: var(--prose-strong-color);
     font-weight: var(--font-weight-semibold);

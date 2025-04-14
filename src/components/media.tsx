@@ -1,0 +1,40 @@
+import NextImage from "next/image";
+
+export function Video({ className, ...props }: React.VideoHTMLAttributes<HTMLVideoElement>) {
+  return (
+    <div data-media className={className}>
+      <div className="not-prose relative overflow-hidden rounded-xl">
+        <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-slate-950/10 ring-inset dark:ring-white/10"></div>
+        <video autoPlay playsInline loop muted {...props} />
+      </div>
+    </div>
+  );
+}
+
+export function YouTubeVideo({ className, id, ...props }: React.IframeHTMLAttributes<HTMLIFrameElement>) {
+  return (
+    <div data-media className={className}>
+      <div className="not-prose relative overflow-hidden rounded-xl bg-slate-700">
+        <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-slate-950/10 ring-inset dark:ring-white/10"></div>
+        <iframe
+          src={`https://www.youtube.com/embed/${id}`}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          className="aspect-video w-full border-0"
+          {...props}
+        />
+      </div>
+    </div>
+  );
+}
+
+export function Image({ className, ...props }: React.ComponentProps<typeof NextImage>) {
+  return (
+    <div data-media className={className}>
+      <div className="not-prose relative overflow-hidden rounded-xl">
+        <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-slate-950/10 ring-inset dark:ring-white/10"></div>
+        <NextImage width={768 * 2} {...props} />
+      </div>
+    </div>
+  );
+}
