@@ -1,6 +1,7 @@
 import { adamwathan } from "@/app/blog/authors";
 import image from "./card.jpg";
 import Link from "next/link";
+import { YouTubeVideo } from "@/components/media";
 import { Image } from "@/components/media";
 
 export const meta = {
@@ -26,13 +27,7 @@ For that reason, you've always had to be careful about expensive changes to your
 
 Today I'm super excited to share a new project we've been working on that makes these considerations a thing of the past: <Link href="https://github.com/tailwindlabs/tailwindcss-jit">**a just-in-time compiler for Tailwind CSS**</Link>.
 
-<iframe
-  src="https://www.youtube.com/embed/3O_3X7InOw8"
-  frameBorder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-  className="aspect-video w-full"
-></iframe>
+<YouTubeVideo id="3O_3X7InOw8" />
 
 [@tailwindcss/jit](https://github.com/tailwindlabs/tailwindcss-jit) is a new experimental library that compiles all of your CSS _on-demand_ as you author your template files, instead of generating your entire stylesheet up front.
 

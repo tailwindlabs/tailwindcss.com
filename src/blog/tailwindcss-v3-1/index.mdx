@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure";
 import card from "./card.jpg";
 import discordMessage from "./discord-message.png";
-import { Image } from "@/components/media";
+import { Image, YouTubeVideo } from "@/components/media";
 import Link from "next/link";
 
 export const meta = {
@@ -25,15 +25,7 @@ export const meta = {
 
 It's been about six months since we released [Tailwind CSS v3.0](/blog/tailwindcss-v3), and even though we've been collecting a lot of little improvements in the codebase since then, we just didn't have _that-one-feature_ yet that makes you say _"okay, it's release-cuttin' time"_.
 
-<div className="my-12 overflow-hidden rounded-xl bg-slate-700">
-  <iframe
-    className="aspect-video w-full rounded-xl"
-    src="https://www.youtube.com/embed/nOQyWbPO2Ds"
-    frameBorder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowFullScreen
-  ></iframe>
-</div>
+<YouTubeVideo id="nOQyWbPO2Ds" />
 
 Then on a random Saturday night a couple of weeks ago, I was talking to Robin in our Discord about coming up with a way to target the `html` element using `:has` and a class deeper in the document, and explained how I thought it would look if we added support for arbitrary variants — something I've wanted to tackle for over a year:
 
