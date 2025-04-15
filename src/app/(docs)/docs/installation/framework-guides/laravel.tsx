@@ -124,6 +124,33 @@ export let steps: Step[] = [
       `,
     },
   },
+  {
+      tabs: ["vite"],
+      title: "Remove legacy PostCSS configuration",
+      body: (
+          <p>
+              You can remove <code>tailwindcss</code>, <code>postcss-import</code>, and <code>autoprefixer</code> from your <code>postcss.config.js</code> — Tailwind CSS v4 handles them automatically via the Vite plugin.
+              This simplifies setup when upgrading from <a href="https://v3.tailwindcss.com/">v3</a>.
+              See the <a href="https://tailwindcss.com/docs/upgrade-guide">upgrade guide</a> for details.
+          </p>
+      ),
+      code: {
+          name: "postcss.config.js",
+          lang: "js",
+          code: js`
+      export default {
+          plugins: {
+              // [!code --:4]
+              "postcss-import": {},
+               tailwindcss: {},
+               autoprefixer: {},
+               // [!code ++:2]
+              "@tailwindcss/postcss": {},
+          },
+     };
+    `,
+      },
+  },
 
   {
     title: "Import Tailwind CSS",
