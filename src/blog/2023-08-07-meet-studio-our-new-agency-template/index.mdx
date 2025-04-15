@@ -1,7 +1,7 @@
 import { adamwathan } from "@/app/blog/authors";
 import twitterCard from "./twitter-card.png";
 import Link from "next/link";
-import Image from "next/image";
+import { Image, Video } from "@/components/media";
 import template from "./template.png";
 
 export const meta = {
@@ -20,11 +20,9 @@ export const meta = {
 
 We just released [Studio](https://tailwindui.com/templates/studio) — a beautiful new agency website template we've been working on for the last couple of months for Tailwind UI.
 
-<p>
-  <Link href="https://tailwindui.com/templates/studio">
-    <Image src={template} alt="Learn about the Studio template" />
-  </Link>
-</p>
+<Link href="https://tailwindui.com/templates/studio">
+  <Image src={template} alt="Learn about the Studio template" />
+</Link>
 
 We built it with Next.js, MDX, and of course Tailwind CSS, and it's the first template we've published using the new Next.js [App Router](https://nextjs.org/docs/app).
 
@@ -47,17 +45,7 @@ One of the unspoken rules of agency websites is that they've gotta be flashy. We
 
 For instance, we built a light declarative component-based API around some features of [Framer Motion](https://www.framer.com/motion/) to make it easy to do scroll-triggered entrance animations:
 
-<div className="relative overflow-hidden rounded-2xl">
-  <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-slate-900/10 ring-inset"></div>
-  <video
-    src="https://assets.tailwindcss.com/blog/2023-08-07-meet-studio-our-new-agency-template/scroll-entrance-animations.mp4"
-    autoPlay
-    playsInline
-    loop
-    muted
-    className="m-0 block"
-  />
-</div>
+<Video src="https://assets.tailwindcss.com/blog/2023-08-07-meet-studio-our-new-agency-template/scroll-entrance-animations.mp4" />
 
 The authoring experience for these types of animations turned out really nice — just wrap the stuff you want to fade in with a `FadeIn` or `FadeInStagger` component and you're in business:
 
@@ -91,49 +79,19 @@ function Clients() {
 
 We also added this nice little animation to the logo where the mark is filled with a solid color on hover:
 
-<div className="relative overflow-hidden rounded-2xl">
-  <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-slate-900/10 ring-inset"></div>
-  <video
-    src="https://assets.tailwindcss.com/blog/2023-08-07-meet-studio-our-new-agency-template/logo-hover-animation.mp4"
-    autoPlay
-    playsInline
-    loop
-    muted
-    className="m-0 block"
-  />
-</div>
+<Video src="https://assets.tailwindcss.com/blog/2023-08-07-meet-studio-our-new-agency-template/logo-hover-animation.mp4" />
 
 This little detail looks small but interestingly you can't really do it without client-side navigation, because the animation would re-run when clicking the logo to go back to the homepage. Using a framework like Next.js, we're able to keep the logo filled in while hovering, even across URL changes, which feels a lot nicer.
 
 The menu drawer animation turned out really nice as well, pushing the whole page down when it opens:
 
-<div className="relative overflow-hidden rounded-2xl">
-  <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-slate-900/10 ring-inset"></div>
-  <video
-    src="https://assets.tailwindcss.com/blog/2023-08-07-meet-studio-our-new-agency-template/menu-slide-animation.mp4"
-    autoPlay
-    playsInline
-    loop
-    muted
-    className="m-0 block"
-  />
-</div>
+<Video src="https://assets.tailwindcss.com/blog/2023-08-07-meet-studio-our-new-agency-template/menu-slide-animation.mp4" />
 
 If you look closely, the logo and button don't just naively change color either — it's actually driven precisely by the position of the sheet that's sliding down, and the logo is actually partially white and partially black at the same time when the edge of the sheet is intersecting with it.
 
 Another detail I really love is this interaction we came up with for the images on the case study pages:
 
-<div className="relative overflow-hidden rounded-2xl">
-  <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-slate-900/10 ring-inset"></div>
-  <video
-    src="https://assets.tailwindcss.com/blog/2023-08-07-meet-studio-our-new-agency-template/scroll-saturation-animation.mp4"
-    autoPlay
-    playsInline
-    loop
-    muted
-    className="m-0 block"
-  />
-</div>
+<Video src="https://assets.tailwindcss.com/blog/2023-08-07-meet-studio-our-new-agency-template/scroll-saturation-animation.mp4" />
 
 We wanted the whole site to feel black and white, but showing black and white images all of the time didn't feel right. So we came up with this treatment where the image starts off black and white, and the saturation animates back in as the image gets close to the center of the screen when scrolling. We also show the full color image on hover.
 

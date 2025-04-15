@@ -1,7 +1,8 @@
 import { adamwathan } from "@/app/blog/authors";
 import image from "./card.jpg";
 import Link from "next/link";
-import Image from "next/image";
+import { YouTubeVideo } from "@/components/media";
+import { Image } from "@/components/media";
 
 export const meta = {
   title: `Just-In-Time: The Next Generation of Tailwind CSS`,
@@ -18,6 +19,8 @@ export const meta = {
   ),
 };
 
+<YouTubeVideo id="3O_3X7InOw8" />
+
 _**Update**: As of Tailwind CSS v2.1, the new Just-in-Time engine is included right in Tailwind CSS itself, so you don't need the `@tailwindcss/jit` package anymore. <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">Learn more in the documentation</Link>._
 
 One of the hardest constraints we've had to deal with as we've improved Tailwind CSS over the years is the generated file size in development. With enough customizations to your config file, the generated CSS can reach 10mb or more, and there's only so much CSS that build tools and even the browser itself will comfortably tolerate.
@@ -25,14 +28,6 @@ One of the hardest constraints we've had to deal with as we've improved Tailwind
 For that reason, you've always had to be careful about expensive changes to your config file like adding too many extra breakpoints or enabling extra variants like `disabled` or `focus-visible`.
 
 Today I'm super excited to share a new project we've been working on that makes these considerations a thing of the past: <Link href="https://github.com/tailwindlabs/tailwindcss-jit">**a just-in-time compiler for Tailwind CSS**</Link>.
-
-<iframe
-  src="https://www.youtube.com/embed/3O_3X7InOw8"
-  frameBorder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-  className="aspect-video w-full"
-></iframe>
 
 [@tailwindcss/jit](https://github.com/tailwindlabs/tailwindcss-jit) is a new experimental library that compiles all of your CSS _on-demand_ as you author your template files, instead of generating your entire stylesheet up front.
 

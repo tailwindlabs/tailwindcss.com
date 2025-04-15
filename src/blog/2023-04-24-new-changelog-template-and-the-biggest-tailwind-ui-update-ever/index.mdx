@@ -1,7 +1,7 @@
 import { adamwathan } from "@/app/blog/authors";
 import twitterCard from "./twitter-card.png";
 import Link from "next/link";
-import Image from "next/image";
+import { Image } from "@/components/media";
 import commitTemplate from "./commit-template.png";
 import commitTemplateDarkMode from "./commit-template-dark-mode.png";
 import commitTemplateForMotionOne from "./commit-template-for-motion-one.png";
@@ -36,11 +36,9 @@ Over the last four months we've probably done more work on Tailwind UI than we e
 
 Just a few days ago we released [Commit](https://tailwindui.com/templates/commit), a brand new changelog template we designed for Tailwind UI — built of course with Tailwind CSS and Next.js.
 
-<p>
-  <Link href="https://tailwindui.com/templates/commit">
-    <Image src={commitTemplate} alt="The Commit template" />
-  </Link>
-</p>
+<Link href="https://tailwindui.com/templates/commit">
+  <Image src={commitTemplate} alt="The Commit template" />
+</Link>
 
 Public changelogs have become a really popular way to keep people in the loop about what you've been working on, and to stay accountable and build your shipping muscles. They aren't a new concept by any means of course, but I don't think it was until [Linear](https://linear.app/changelog) started publishing to their changelog site that others got excited about using them almost as an alternative to a company blog.
 

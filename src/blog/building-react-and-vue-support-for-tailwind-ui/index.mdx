@@ -1,6 +1,6 @@
 import { adamwathan } from "@/app/blog/authors";
 import stackedListExample from "./stacked-list-example.png";
-import Image from "next/image";
+import { Image } from "@/components/media";
 export const meta = {
   private: true,
   title: "Building React + Vue support for Tailwind UI",
@@ -19,7 +19,7 @@ Hey! We're getting _really_ close to releasing React + Vue support for Tailwind 
 
 Grab some popcorn...
 
-## The Backstory
+## The backstory
 
 From the day we started working on Tailwind UI somewhere in mid-2019 I knew that ultimately it would be 10x more valuable to people if they could grab fully interactive examples built using their favorite JS framework. Trying to make that happen for the first release was way too ambitious though, so we had to figure out how to get there one step at a time.
 

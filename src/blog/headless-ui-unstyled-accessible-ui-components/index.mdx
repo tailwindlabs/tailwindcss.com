@@ -2,7 +2,7 @@ import { adamwathan } from "@/app/blog/authors";
 import card from "./card.jpg";
 import headlessUiCard from "./headless-ui-card.png";
 import { CodeExample, js, CodeBlock, CodeExampleGroup } from "@/components/code-example";
-import Image from "next/image";
+import { Image, Iframe } from "@/components/media";
 import Link from "next/link";
 
 export const meta = {
@@ -20,6 +20,8 @@ export const meta = {
   ),
 };
 
+<Image alt="Headless UI Logo" src={headlessUiCard} />
+
 One of the biggest pain points when building modern web applications is building custom components like select menus, dropdowns, toggles, modals, tabs, radio groups — components that are pretty similar from project to project, but never quite the _same_.
 
 You could use an off-the-shelf package, but they usually come tightly coupled with their own provided styles. It ends up being very hard to get them to match the look and feel of your own project, and almost always involves writing a bunch of CSS overrides, which feels like a big step backwards when working Tailwind CSS.
@@ -29,8 +31,6 @@ The other option is building your own components from scratch. At first it seems
 We think there's a better option, so we're building it.
 
 **[Headless UI](https://headlessui.dev) is a set of completely unstyled, fully accessible UI components for React and Vue** _(and soon Alpine.js)_ that make it easy to build these sorts of custom components without worrying about any of the complex implementation details yourself, and without sacrificing the ability to style them from scratch with simple utility classes.
-
-<Image alt="Headless UI Logo" src={headlessUiCard} />
 
 Here's what it looks like to build a custom dropdown _(one of many components the library includes)_ using `@headlessui/react`, with complete keyboard navigation support and ARIA attribute management, styled with simple Tailwind CSS utilities:
 
@@ -83,14 +83,10 @@ There are [over 3000 lines of tests for this component](https://github.com/tailw
 
 Here's a fully-styled live demo _(taken from [Tailwind UI](https://tailwindui.com))_ so you can see it in action:
 
-<iframe
+<Iframe
   src="https://codesandbox.io/embed/headlessuireact-menu-example-b6xje?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.js&theme=dark"
-  className="w-full overflow-hidden rounded border-0"
-  style={{ height: "480px" }}
   title="@headlessui/react Menu Example"
-  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
+/>
 
 Make sure to try it with the keyboard or a screen reader to really appreciate it!
 

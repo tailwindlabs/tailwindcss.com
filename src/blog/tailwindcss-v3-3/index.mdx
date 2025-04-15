@@ -1,6 +1,6 @@
 import { adamwathan } from "@/app/blog/authors";
 import card from "./card.jpg";
-import Image from "next/image";
+import { Image } from "@/components/media";
 import Image950Sky from "./950-sky.png";
 import Image950SkyDark from "./950-sky-dark.png";
 import Image950Slate from "./950-slate.png";
@@ -65,21 +65,19 @@ In the grays they act as basically a tinted black, which is great for ultra dark
 
 And in the rest of the color spectrum we optimized `950` for high contrast text and tinted control backgrounds:
 
-<div className="contents dark:hidden">
-  <Image
-    alt="Comparison between two light user interfaces, one using sky-900 as the darkest color and the other using sky-950 as
+<Image
+  alt="Comparison between two light user interfaces, one using sky-900 as the darkest color and the other using sky-950 as
   the darkest color"
-    src={Image950Sky}
-  />
-</div>
+  src={Image950Sky}
+  className="dark:hidden"
+/>
 
-<div className="hidden dark:contents">
-  <Image
-    alt="Comparison between two light user interfaces, one using sky-900 as the darkest color and the other using sky-950 as
+<Image
+  alt="Comparison between two light user interfaces, one using sky-900 as the darkest color and the other using sky-950 as
   the darkest color"
-    src={Image950SkyDark}
-  />
-</div>
+  src={Image950SkyDark}
+  className="hidden dark:block"
+/>
 
 Believe it or not the hardest part about this project was convincing ourselves to be okay with having 11 shades per color. Trying to make that look good in the [color palette documentation](https://v3.tailwindcss.com/docs/customizing-colors) was a nightmare.
 

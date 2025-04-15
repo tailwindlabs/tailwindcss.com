@@ -1,6 +1,6 @@
 import { adamwathan } from "@/app/blog/authors";
 import card from "./card.jpg";
-import Image from "next/image";
+import { Image } from "@/components/media";
 import Link from "next/link";
 
 export const meta = {
@@ -48,7 +48,7 @@ Some of them were pretty hard to identify, especially because there's quite a bi
 
 For example, this section isn't really that different from a hero section you might see on a marketing site:
 
-![](https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/adidas-hero.jpg)
+<Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/adidas-hero.jpg" />
 
 So should the ecommerce kit have "Hero Sections" too, like the marketing kit? And if so what makes them different — why have two duplicate categories?
 
@@ -68,7 +68,7 @@ Sometimes it was the font size being a little too big compared to other elements
 
 So for the ecommerce package, we designed _everything_ as page examples from the very beginning. In total, we've designed around 50 complete pages so far, including home pages, category listings, product pages, checkout forms, and tons more.
 
-![](https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/50-pages.jpg)
+<Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/50-pages.jpg" />
 
 We'd reuse a few things across pages to move quickly (like footer or navbar ideas), but generally we tried to make every core element of every page unique, to generate as many ideas as possible.
 
@@ -80,7 +80,7 @@ What happens instead is we take the full page designs that are in _pretty good_ 
 
 Here's an example of a design that changed a _lot_ during the building process — Figma on the left, final HTML version on the right:
 
-![](https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/figma-vs-html.jpg)
+<Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/figma-vs-html.jpg" />
 
 Definitely think everything turns out a lot better when we are open to iterating on designs like this as we go instead of just throwing them over the wall.
 
@@ -88,7 +88,7 @@ If you're interested in the actual process we use for writing the templates, we 
 
 Here's what it looks like:
 
-![](https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/templating-sample.jpg)
+<Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/templating-sample.jpg" />
 
 You can read more about it [in this email I sent back in April](https://blog.tailwindcss.com/building-react-and-vue-support-for-tailwind-ui) if you're curious about more of the details!
 
@@ -96,7 +96,7 @@ You can read more about it [in this email I sent back in April](https://blog.tai
 
 **Next, we extracted the individual components.** Once the page designs are finalized and built, we extract the individual elements into their own templates. This is where "Product Overviews" are extracted from product pages, "Product Lists" are extracted from category pages, and "Promo Sections" are extracted from storefront home pages.
 
-![](https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/exploded-view.jpg)
+<Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/exploded-view.jpg" />
 
 The thing that's tough about this process is it's not really as simple as just "a page is comprised of components" — as you probably know even _components_ are comprised of components, so deciding exactly how to slice things for Tailwind UI is always tough.
 
@@ -104,13 +104,13 @@ Generally we err on the side of bigger components, because it's easy for someone
 
 The way I like to think about it is we're trying to give you pre-built LEGO creations, not just the bricks.
 
-![](https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/lego.jpeg)
+<Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/lego.jpeg" />
 
 It's easy to take the wheels off the truck if that's all you need — it's harder to turn the wheels, a seat, and some headlights into a nice truck from scratch though.
 
 For example, this single "Product Overview" section could be cut up into a bunch of smaller components:
 
-![](https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/product-overview.jpg)
+<Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/product-overview.jpg" />
 
 There's an image gallery, a star review widget, a color swatch picker, and a feature accordion there at a bare minimum. But I think providing it holistically like this is the better place to start — you can still grab all that stuff if you need it but as a bigger component it also serves as _inspiration_ and that's a really important ingredient in what makes Tailwind UI a cool product.
 
@@ -124,11 +124,11 @@ For this ecommerce kit, we couldn't really see where the holes were in the produ
 
 We noticed a bunch of things we were blind to at first, for example, we only had two mega menu ideas — probably because it was really easy to just not design the "open" state of any navbar when designing new pages. So we went back to the design step, and came up with a bunch of new concepts to flesh out the category.
 
-![](https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/mega-menu-concepts.jpg)
+<Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/mega-menu-concepts.jpg" />
 
 We also noticed that we had a disproportionate number of sort of card-based designs on off-white backgrounds, and not enough just flat simple designs which I think is a lot more common in ecommerce design. So we went back to the beginning and designed a bunch of new pages to fill this gap as well:
 
-![](https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/white-backgrounds.jpg)
+<Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/white-backgrounds.jpg" />
 
 We're less than a week away from when we hope to release this thing and every day we are _still_ designing brand new things to fill gaps we are identifying as we get closer to the finish line. The product is getting more awesome every day though, and I think these are the best designs we've come up with for Tailwind UI period _(thank god really, getting worse at this would be depressing.)_
 

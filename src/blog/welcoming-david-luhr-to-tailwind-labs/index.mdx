@@ -1,6 +1,6 @@
 import { adamwathan } from "@/app/blog/authors";
 import card from "./card.jpg";
-import Image from "next/image";
+import { YouTubeVideo } from "@/components/media";
 import Link from "next/link";
 
 export const meta = {
@@ -25,13 +25,7 @@ We started working with <Link href="https://twitter.com/david_luhr">David Luhr</
 Today we're excited to share that David has joined the team full-time!
 
 <figure>
-  <iframe
-    src="https://www.youtube.com/embed/djg8WoRGrq0"
-    frameBorder="0"
-    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-    allowFullScreen
-    className="aspect-video w-full"
-  ></iframe>
+  <YouTubeVideo id="djg8WoRGrq0" />
   <figcaption>Watch David build some Tailwind UI components in Figma live on his YouTube channel!</figcaption>
 </figure>
 

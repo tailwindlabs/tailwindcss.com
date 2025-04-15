@@ -1,6 +1,5 @@
 import { adamwathan, danhollick } from "@/app/blog/authors";
 import card from "./card.jpg";
-import Image from "next/image";
 import SafariDark from "./safari-15-dark.png";
 import SafariLight from "./safari-15-light.png";
 import KeyboardLight from "./keyboard-light.png";
@@ -9,6 +8,7 @@ import { Figure } from "@/components/figure";
 import { Example } from "@/components/example";
 import { Stripes } from "@/components/stripes";
 import { CodeExampleStack } from "@/components/code-example";
+import { Image, YouTubeVideo } from "@/components/media";
 
 export const meta = {
   title: "Tailwind CSS v4.1: Text shadows, masks, and tons more",
@@ -26,15 +26,7 @@ export const meta = {
   ),
 };
 
-<div className="my-12 overflow-hidden rounded-xl bg-slate-700">
-  <iframe
-    className="aspect-video w-full rounded-xl"
-    src="https://www.youtube.com/embed/HTFHoA12MJk?si=MLnoXcId4wCIdHVZ&amp;controls=0"
-    frameBorder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowFullScreen
-  ></iframe>
-</div>
+<YouTubeVideo id="HTFHoA12MJk" />
 
 I wasn't sure it would ever happen but we did it — we released a version of Tailwind CSS that includes `text-shadow` utilities.
 
@@ -321,13 +313,13 @@ For Tailwind CSS v4.1, we put a bunch of effort into coming up with and testing 
 <Image
   alt="Comparison between how Tailwind CSS v4.0 (left) and Tailwind CSS v4.1 (right) render in Safari 15.5. Tailwind CSS v4.0 fails to render some background gradients that are now visible in Tailwind CSS v4.1"
   src={SafariLight}
-  className="block border border-black/5 dark:hidden"
+  className="dark:hidden"
 />
 
 <Image
   alt="Comparison between how Tailwind CSS v4.0 (left) and Tailwind CSS v4.1 (right) render in Safari 15.5. Tailwind CSS v4.0 fails to render some background gradients that are now visible in Tailwind CSS v4.1"
   src={SafariDark}
-  className="hidden border border-white/10 dark:block"
+  className="hidden dark:block"
 />
 
 Here's a list of the things we've managed to improve in this release:

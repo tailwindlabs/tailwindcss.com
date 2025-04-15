@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Image } from "@/components/media";
 import Link from "next/link";
 import card from "./card.jpg";
 import banner from "./banner.jpg";
@@ -20,11 +20,11 @@ export const meta = {
   ),
 };
 
-We just released Headless UI v1.4, which includes a brand new `Tab` component, and new APIs for manually closing `Popover` and `Disclosure` components more easily.
-
 <Link href="https://headlessui.dev">
   <Image alt="Headless UI v1.4" src={banner} />
 </Link>
+
+We just released Headless UI v1.4, which includes a brand new `Tab` component, and new APIs for manually closing `Popover` and `Disclosure` components more easily.
 
 ## Tabs
 
@@ -103,7 +103,7 @@ Like all Headless UI components, this totally abstracts away stuff like keyboard
 
 [Check out the documentation](https://headlessui.dev/react/tabs) to learn more.
 
-### Closing Disclosures and Popovers
+### Closing disclosures and popovers
 
 Up until now, there was no way to close a `Disclosure` without clicking the actual button used to open it. For typical disclosure use cases this isn't a big deal, but it often makes sense to use disclosures for things like mobile navigation, where you want to close it when someone clicks a link _inside_ of it.
 

@@ -1,7 +1,7 @@
 import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 import Link from "next/link";
-import Image from "next/image";
+import { YouTubeVideo } from "@/components/media";
 import { adamwathan } from "@/app/blog/authors";
 import image from "./card.jpg";
 
@@ -21,22 +21,15 @@ export const meta = {
   ),
 };
 
+<YouTubeVideo id="eCWhTZ34Hck" />
+
 To get the most out of Tailwind, you need a build step. It's the only way to be able to customize your [`tailwind.config.js`](https://v2.tailwindcss.com/docs/configuration) file, extract components with [`@apply`](https://v2.tailwindcss.com/docs/functions-and-directives#apply), or include [plugins](https://v2.tailwindcss.com/docs/plugins).
 
 This isn't a problem if you've already bought in to the framework, but if you're just trying to kick the tires for the first time it's a lot of friction. You either have to set up a local development environment with PostCSS support, or stick to the static CDN build, which means you lose out on lots of cool features.
 
 So today we're excited to release the first version of [**Tailwind Play**](https://play.tailwindcss.com), an advanced online playground for Tailwind CSS that lets you use all of Tailwind's build-time features directly in the browser.
 
-<iframe
-  src="https://www.youtube.com/embed/eCWhTZ34Hck"
-  frameBorder="0"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-  className="aspect-video w-full"
-></iframe>
-
-It includes support for all of Tailwind's coolest features, plus tons of stuff that's even better in Tailwind Play than
-it is in your editor, like:
+It includes support for all of Tailwind's coolest features, plus tons of stuff that's even better in Tailwind Play than it is in your editor, like:
 
 - Customizing your Tailwind theme
 - Enabling special variants, like `group-hover` or `focus-within`

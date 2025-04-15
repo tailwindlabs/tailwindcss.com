@@ -1,6 +1,6 @@
 import { adamwathan } from "@/app/blog/authors";
 import card from "./card.jpg";
-import Image from "next/image";
+import { Image } from "@/components/media";
 import Link from "next/link";
 import { Example } from "@/components/example";
 
@@ -21,13 +21,13 @@ export const meta = {
   ),
 };
 
-Last fall we announced <Link href="https://blog.tailwindcss.com/headless-ui-unstyled-accessible-ui-components">Headless UI</Link>, a library of completely unstyled, fully accessible UI components, designed to pair perfectly with Tailwind CSS.
-
-Today we’re super excited to release <Link href="https://headlessui.dev">Headless UI v1.0</Link>, which more than doubles the amount of included components for both React and Vue.
-
 <Link href="https://headlessui.dev">
   <Image alt="Headless UI" src={card} />
 </Link>
+
+Last fall we announced <Link href="https://blog.tailwindcss.com/headless-ui-unstyled-accessible-ui-components">Headless UI</Link>, a library of completely unstyled, fully accessible UI components, designed to pair perfectly with Tailwind CSS.
+
+Today we’re super excited to release <Link href="https://headlessui.dev">Headless UI v1.0</Link>, which more than doubles the amount of included components for both React and Vue.
 
 ## What’s new
 

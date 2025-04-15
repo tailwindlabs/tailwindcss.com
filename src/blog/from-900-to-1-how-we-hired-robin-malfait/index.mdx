@@ -1,5 +1,5 @@
 import { Figure } from "@/components/figure.tsx";
-import Image from "next/image";
+import { Image } from "@/components/media";
 import Link from "next/link";
 import { adamwathan } from "@/app/blog/authors";
 import robinImage from "./robin.jpg";
@@ -22,11 +22,11 @@ export const meta = {
   ),
 };
 
+<Image alt="Robin Malfait" src={robinImage} />
+
 Back in May we published [our first job posting](https://jobs.tailwindui.com/full-stack-developer) to help us find a full-stack developer to join our team.
 
 After receiving almost 900 applications and interviewing dozens of talented people, we're excited to finally share that [Robin Malfait](https://twitter.com/malfaitrobin) accepted our offer for the position and is officially part of the Tailwind Labs team as of today!
-
-<Image alt="Robin Malfait" src={robinImage} />
 
 Robin is a talented developer from Belgium, and has been an active member of the Tailwind community for a long time. If you're a Tailwind UI customer and have ever asked a question in the `#react` channel on our Discord server, there's a 90% chance he's the helpful person who answered your question. He even built a [bookmarklet](https://gist.github.com/RobinMalfait/a90e8651196c273dfa51eec0f43e1676) to help people convert Tailwind UI components to JSX!
 
@@ -38,7 +38,7 @@ What follows is the story of how we went about hiring for this role, and how we 
 
 ---
 
-## The Job Posting
+## The job posting
 
 Before this role, we had only hired [Brad](https://blog.tailwindcss.com/welcoming-brad-cornes-to-the-tailwind-team) who we already knew and trusted, so we didn't need a job posting or any sort of rigorous application process.
 
@@ -56,7 +56,7 @@ Here are the important things I focused on when writing it:
 
 We got _tons_ of positive feedback about this posting, and I'm really proud of how it turned out. I think it was very applicant-centric, and I think it made a big difference in the quality of submissions we got.
 
-## The Application Process
+## The application process
 
 One thing we did a bit differently from other companies is that we didn't ask for a resume or give applicants a big list of questions to answer. All we asked for was an "application", in whatever form the person decided. It could be a cover letter, a small website, a video, a slide deck, whatever.
 
@@ -83,7 +83,7 @@ Some people did some _really_ out there and creative things in their application
 
 Robin's was one of maybe 40-50 that _really_ stood out from a content perspective.
 
-## Filtering the Applications
+## Filtering the applications
 
 Dealing with almost 900 job applications is a lot of work. Over half of them we were able to discard immediately because they just provided a link to their LinkedIn profile or a generic resume, but filtering through the rest was really tough.
 
@@ -91,7 +91,7 @@ I've never hired anyone this way before, and at first I really felt like we need
 
 I decided to sort the good applications as best I could, then just slice off the top 20 and start there. It meant there were lots of great people we wouldn't talk to and that maybe we even missed out on the absolute best applicant, but the reality is that we only have so much time we can dedicate to this, and I had to believe that out of the ~20 best applications, there would certainly be _multiple_ people we wouldn't regret hiring at all, even if there was a chance that the absolute best person was somewhere in the other 30.
 
-## The Interview Process
+## The interview process
 
 We started by scheduling video interviews with the top ~20 applicants, which took about 3 weeks to get through.
 
@@ -104,7 +104,7 @@ These were 30-45 minute calls where we had a pretty casual conversation about a 
 
 This was a great way just to get to know the people who applied and get a gut sense for who stood out the most. We really enjoyed meeting with every single person we talked to, but made the hard decision to filter down again to about 10 people for the next phase.
 
-## Take-Home Project
+## Take-home project
 
 The next step in the application process was a take-home project, where the applicant had to build out a design Steve had created using either Vue or React. We estimated it to be about a 4-8 hour project.
 
@@ -120,7 +120,7 @@ All of the submissions we got back were great, but again we forced ourselves to 
 
 One thing we really loved about Robin's submission was that he spent a lot of time guiding us through his solution with comments in the code. For regular production code I would say it was definitely overkill, but as part of a job application I thought it was extremely helpful to get a behind-the-scenes look into how he actually _thinks_ about the code he is writing. He also spent a lot of time describing alternate solutions to certain problems and why he didn't go with those approaches, which was very beneficial as well.
 
-## Pairing Session
+## Pairing session
 
 The final step in the application process was a two-hour pair programming session with me.
 

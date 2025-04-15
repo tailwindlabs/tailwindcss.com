@@ -1,6 +1,6 @@
 import { adamwathan } from "@/app/blog/authors";
 import card from "./card.jpg";
-import Image from "next/image";
+import { Image } from "@/components/media";
 import Link from "next/link";
 
 export const meta = {
@@ -19,13 +19,13 @@ export const meta = {
   ),
 };
 
-Last year we released <Link href="https://tailwindui.com">Tailwind UI</Link> — a huge directory of professionally designed UI examples built with Tailwind CSS. Up until now, all of the examples in Tailwind UI have been pure HTML which is sort of the lowest common denominator for all web developers, and makes it possible to adapt them to any templating language or JavaScript framework.
-
-Today we’re excited to add first class support for React and Vue 3 to all of the examples in Tailwind UI, which makes it even easier to adapt them for your projects.
-
 <Link href="https://tailwindui.com">
   <Image alt="Tailwind UI: Now for React and Vue" src={card} />
 </Link>
+
+Last year we released <Link href="https://tailwindui.com">Tailwind UI</Link> — a huge directory of professionally designed UI examples built with Tailwind CSS. Up until now, all of the examples in Tailwind UI have been pure HTML which is sort of the lowest common denominator for all web developers, and makes it possible to adapt them to any templating language or JavaScript framework.
+
+Today we’re excited to add first class support for React and Vue 3 to all of the examples in Tailwind UI, which makes it even easier to adapt them for your projects.
 
 It’s been <Link href="https://blog.tailwindcss.com/building-react-and-vue-support-for-tailwind-ui">a long journey</Link> but I am super proud of where we ended up on this one, and really think it’s going to make Tailwind UI a useful tool for a whole new group of Tailwind CSS users.
 

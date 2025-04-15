@@ -1,7 +1,7 @@
 import { adamwathan } from "@/app/blog/authors";
 import card from "./card.jpg";
-import Image from "next/image";
 import Link from "next/link";
+import { Image } from "@/components/media";
 
 export const meta = {
   title: "Tailwind UI is now Tailwind Plus",
@@ -18,11 +18,11 @@ export const meta = {
   ),
 };
 
-We just shipped a huge rebrand project, turning what was previously known as Tailwind UI into [Tailwind Plus](https://tailwindcss.com/plus).
-
-<Link href="https://tailwindcss.com/plus" className="my-12 block">
+<Link href="https://tailwindcss.com/plus">
   <Image src={card} alt="Tailwind Plus" />
 </Link>
+
+We just shipped a huge rebrand project, turning what was previously known as Tailwind UI into [Tailwind Plus](https://tailwindcss.com/plus).
 
 Before you jump to any conclusions, here's what's _not_ changing:
 
