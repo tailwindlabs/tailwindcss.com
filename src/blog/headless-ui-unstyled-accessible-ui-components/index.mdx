@@ -20,6 +20,8 @@ export const meta = {
   ),
 };
 
+<Image alt="Headless UI Logo" src={headlessUiCard} />
+
 One of the biggest pain points when building modern web applications is building custom components like select menus, dropdowns, toggles, modals, tabs, radio groups — components that are pretty similar from project to project, but never quite the _same_.
 
 You could use an off-the-shelf package, but they usually come tightly coupled with their own provided styles. It ends up being very hard to get them to match the look and feel of your own project, and almost always involves writing a bunch of CSS overrides, which feels like a big step backwards when working Tailwind CSS.
@@ -29,8 +31,6 @@ The other option is building your own components from scratch. At first it seems
 We think there's a better option, so we're building it.
 
 **[Headless UI](https://headlessui.dev) is a set of completely unstyled, fully accessible UI components for React and Vue** _(and soon Alpine.js)_ that make it easy to build these sorts of custom components without worrying about any of the complex implementation details yourself, and without sacrificing the ability to style them from scratch with simple utility classes.
-
-<Image alt="Headless UI Logo" src={headlessUiCard} />
 
 Here's what it looks like to build a custom dropdown _(one of many components the library includes)_ using `@headlessui/react`, with complete keyboard navigation support and ARIA attribute management, styled with simple Tailwind CSS utilities:
 
