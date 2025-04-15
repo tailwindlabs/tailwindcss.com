@@ -1,3 +1,5 @@
+import { Example } from "@/components/example";
+import { Figure } from "@/components/figure";
 import { reinink, adamwathan } from "@/app/blog/authors";
 import card from "./card.jpg";
 import banner from "./banner.jpg";
@@ -32,7 +34,11 @@ Like all other Headless UI components, the combobox abstracts away all of the co
 
 Here's a quick demo if you'd like to see it in action:
 
+<Figure>
+
 <Demo />
+
+</Figure>
 
 We've intentionally designed it so that you have full control over filtering the actual results. You can do basic string comparisons, use a fuzzy search library like <Link href="https://fusejs.io/">Fuse.js</Link>, or even make server-side requests to an API — whatever makes sense for your project.
 
