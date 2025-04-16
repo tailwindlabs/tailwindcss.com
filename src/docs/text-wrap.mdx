@@ -111,7 +111,7 @@ For performance reasons browsers limit text balancing to blocks that are ~6 line
 
 ### Pretty text wrapping
 
-Use the `text-pretty` utility to prevent orphans (a single word on its own line) at the end of a text block:
+Use the `text-pretty` utility to optimimise for wrapping prettiness rather than browser speed. Behaviour varies by browser but often involves more complicated text wrapping approaches such as preventing orphans (a single word on its own line) at the end of a text block:
 
 <Figure>
 
@@ -138,6 +138,8 @@ Use the `text-pretty` utility to prevent orphans (a single word on its own line)
 ```
 
 </Figure>
+
+Browsers vary in their interpretation of prettiness but may include advanced typographic concepts such as: reducing the variation in length between lines; avoiding typographic rivers; prioritizing different classes of soft wrap opportunities, hyphenation opportunities, or justification opportunities; avoiding hyphenation on too many consecutive lines.
 
 ### Responsive design
 
