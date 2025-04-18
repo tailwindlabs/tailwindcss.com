@@ -46,6 +46,12 @@ chmod +x tailwindcss-macos-arm64
 mv tailwindcss-macos-arm64 tailwindcss
 ```
 
+At the top of your main CSS file (e.g., `input.css`), add the Tailwind CSS imports as you can see in <Link href="/docs/installation/tailwind-cli">the Tailwind CLI installation</Link> steps:
+
+```css
+@import "tailwindcss";
+```
+
 Now you can use it just like our npm-distributed CLI tool:
 
 ```sh
