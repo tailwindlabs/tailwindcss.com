@@ -9,35 +9,29 @@ import { Image } from "@/components/media";
 import Link from "next/link";
 import { CodeExample, js, ts, CodeExampleGroup, CodeBlock } from "@/components/code-example";
 
-import { adamwathan } from "@/app/blog/authors";
+import { rozsazoltan } from "@/app/blog/authors";
 import image from "./card.jpg";
 
 export const meta = {
-  title: "Standalone CLI: Use Tailwind CSS without Node.js",
-  description: `Today we're announcing a new standalone CLI build that gives you the full power of Tailwind CLI in a self-contained executable — no Node.js or npm required.`,
-  date: "2021-12-16T16:00:00.000Z",
-  authors: [adamwathan],
+  title: "Standalone CLI: Use Tailwind CSS v4 without Node.js",
+  description: `Updated v4-compatible post for the Standalone CLI introduced in v3. Build applications with Tailwind CLI without requiring Node.js or npm.`,
+  date: "2025-04-18T13:00:00.000Z",
+  authors: [rozsazoltan],
   image,
   excerpt: (
     <>
       Tailwind CSS is written in JavaScript and distributed as an npm package, which means you've always had to have Node.js and npm installed to use it.
 
-      Today we're announcing a new <Link href="https://github.com/tailwindlabs/tailwindcss/releases/latest">standalone CLI build</Link> that gives you the full power of Tailwind CLI in a self-contained executable — no Node.js or npm required.
+      Updated v4-compatible documentation for the Standalone CLI introduced in v3. Build applications with Tailwind CLI without requiring Node.js or npm.
     </>
   ),
 };
-
-<div className="bg-yellow-100 dark:bg-yellow-900 border-l-4 border-yellow-500 p-4">
-  <strong>Warning:</strong> This blog post was created for Tailwind CSS v3.
-  
-  Therefore, the installation steps included may differ starting from v4. To clearly distinguish between the two posts, we <Link href="/blog/2025-04-18-standalone-cli-for-v4">mentioned the current steps related to Tailwind CLI</Link> in a new blog post.
-</div>
 
 Tailwind CSS is written in JavaScript and distributed as an npm package, which means you've always had to have Node.js and npm installed to use it.
 
 This has made it harder to integrate into projects where using npm isn't always common, and with tools like <Link href="https://world.hey.com/dhh/rails-7-will-have-three-great-answers-to-javascript-in-2021-8d68191b">Rails</Link> and <Link href="https://github.com/phoenixframework/phoenix/pull/4377">Phoenix</Link> both moving away from npm by default, we needed to find a way for people to use Tailwind in these projects without forcing them to adopt an entirely separate ecosystem of tooling.
 
-Today we're announcing a new <Link href="https://github.com/tailwindlabs/tailwindcss/releases/latest">standalone CLI build</Link> that gives you the full power of Tailwind CLI in a self-contained executable — no Node.js or npm required.
+Since 2021, you can use Tailwind CSS without requiring Node.js or npm via the <Link href="https://github.com/tailwindlabs/tailwindcss/releases/latest">standalone CLI build</Link>. We're now updating the documentation related to that announcement for v4.
 
 ---
 
@@ -52,12 +46,15 @@ chmod +x tailwindcss-macos-arm64
 mv tailwindcss-macos-arm64 tailwindcss
 ```
 
+At the top of your main CSS file (e.g., `input.css`), add the Tailwind CSS imports as you can see in <Link href="/docs/installation/tailwind-cli">the Tailwind CLI installation</Link> steps:
+
+```css
+@import "tailwindcss";
+```
+
 Now you can use it just like our npm-distributed CLI tool:
 
 ```sh
-# Create a tailwind.config.js file
-./tailwindcss init
-
 # Start a watcher
 ./tailwindcss -i input.css -o output.css --watch
 
@@ -65,24 +62,18 @@ Now you can use it just like our npm-distributed CLI tool:
 ./tailwindcss -i input.css -o output.css --minify
 ```
 
-We've even bundled the latest versions of all of our first-party plugins, so if you want to use them in your project, just `require` them in your `tailwind.config.js` file like you would in a Node-based project:
+We've even bundled the latest versions of all of our first-party plugins, so if you want to use them in your project, just `@plugin` them in your `input.css` file like you would in a Node-based project:
 
-```js
-module.exports = {
-  // ...
-  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
-};
+```css
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
 ```
 
+<div className="bg-blue-100 dark:bg-blue-900 border-l-4 border-blue-500 p-4">
+  <strong>Note:</strong> Starting from Tailwind CSS v4, the init process has been removed, and there is no need for a `tailwind.config.js` file. For configuration, <Link href="/blog/tailwindcss-v4#css-first-configuration">follow our CSS-first configuration guide</Link>.
+</div>
+
 You get all the power of our standard npm-distributed CLI in a convenient, portable package — no dependencies required.
-
----
-
-## How does it work?
-
-We didn't rewrite Tailwind in Rust or anything (<Link href="https://twitter.com/malfaitrobin/status/1446905317825069063">yet...</Link>) — we're actually using <Link href="https://github.com/vercel/pkg">pkg</Link>, a really cool project by <Link href="https://vercel.com">Vercel</Link> that lets you turn a Node.js project into an executable that can be run without installing Node.js by bundling all of the parts your project needs right into the executable itself.
-
-This is what makes it possible for you to still use a `tailwind.config.js` file with the full power of JavaScript, rather than a static format like JSON.
 
 ---
 
