@@ -1,0 +1,78 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { CustomizingYourTheme } from "@/components/content.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+import { Stripes } from "@/components/stripes.tsx";
+import { UsingACustomValue } from "@/components/content.tsx";
+import { Image } from "@/components/media";
+import Link from "next/link";
+import { CodeExample, js, ts, CodeExampleGroup, CodeBlock } from "@/components/code-example";
+
+import { rozsazoltan } from "@/app/blog/authors";
+import image from "./card.jpg";
+
+export const meta = {
+  title: "Standalone CLI: Use Tailwind CSS v4 without Node.js",
+  description: `Updated v4-compatible post for the Standalone CLI introduced in v3. Build applications with Tailwind CLI without requiring Node.js or npm.`,
+  date: "2025-04-18T13:00:00.000Z",
+  authors: [rozsazoltan],
+  image,
+  excerpt: (
+    <>
+      Tailwind CSS is written in JavaScript and distributed as an npm package, which means you've always had to have Node.js and npm installed to use it.
+
+      Updated v4-compatible documentation for the Standalone CLI introduced in v3. Build applications with Tailwind CLI without requiring Node.js or npm.
+    </>
+  ),
+};
+
+Tailwind CSS is written in JavaScript and distributed as an npm package, which means you've always had to have Node.js and npm installed to use it.
+
+This has made it harder to integrate into projects where using npm isn't always common, and with tools like <Link href="https://world.hey.com/dhh/rails-7-will-have-three-great-answers-to-javascript-in-2021-8d68191b">Rails</Link> and <Link href="https://github.com/phoenixframework/phoenix/pull/4377">Phoenix</Link> both moving away from npm by default, we needed to find a way for people to use Tailwind in these projects without forcing them to adopt an entirely separate ecosystem of tooling.
+
+Since 2021, you can use Tailwind CSS without requiring Node.js or npm via the <Link href="https://github.com/tailwindlabs/tailwindcss/releases/latest">standalone CLI build</Link>. We're now updating the documentation related to that announcement for v4.
+
+---
+
+## Get started
+
+To install it, grab the executable for your platform from the <Link href="https://github.com/tailwindlabs/tailwindcss/releases/latest">latest release</Link> on GitHub, making sure to give it executable permissions:
+
+```sh
+# Example for macOS arm64
+curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-macos-arm64
+chmod +x tailwindcss-macos-arm64
+mv tailwindcss-macos-arm64 tailwindcss
+```
+
+Now you can use it just like our npm-distributed CLI tool:
+
+```sh
+# Start a watcher
+./tailwindcss -i input.css -o output.css --watch
+
+# Compile and minify your CSS for production
+./tailwindcss -i input.css -o output.css --minify
+```
+
+We've even bundled the latest versions of all of our first-party plugins, so if you want to use them in your project, just `@plugin` them in your `input.css` file like you would in a Node-based project:
+
+```css
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+```
+
+<div class="bg-blue-100 border-l-4 border-blue-500 p-4">
+  <strong>Note:</strong> Starting from TailwindCSS v4, the init process has been removed, and there is no need for a `tailwind.config.js` file. For configuration, <Link href="/blog/tailwindcss-v4#css-first-configuration">follow our CSS-first configuration guide</Link>.
+</div>
+
+You get all the power of our standard npm-distributed CLI in a convenient, portable package — no dependencies required.
+
+---
+
+## Which CLI should I use?
+
+If you are already using npm in your project, use the npm-distributed version of our CLI that we've always provided. It's simpler to update, the file size is smaller, and you're already in the ecosystem anyways — there's no benefit at all to using the standalone build.
+
+If on the other hand you're working on a project where you don't otherwise need Node.js or npm, the standalone build can be a great choice. If Tailwind was the only reason you had a `package.json` file, this is probably going to feel like a nicer solution.
