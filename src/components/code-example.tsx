@@ -190,11 +190,18 @@ export function RawHighlightedCode({
   return <div className={className} dangerouslySetInnerHTML={{ __html: code }} />;
 }
 
+function cleanCodeForCopy(code:string) {
+  return code
+    .split('\n')
+    .filter(line => !line.includes('[!code highlight'))
+    .join('\n');
+}
+
 function CodeExampleFilename({ filename, code }: { filename: string; code?: string }) {
   return (
     <div className="flex justify-between px-3 pt-0.5 pb-1.5 text-xs/5 text-gray-400 dark:text-white/50">
       {filename}
-      {code && <CopyButton code={code} />}
+      {code && <CopyButton code={cleanCodeForCopy(code)} />}
     </div>
   );
 }
