@@ -1,3 +1,4 @@
+// Added a copy button to the code block to copy the code to clipboard
 'use client'
 
 import { useState } from 'react'
