@@ -74,7 +74,7 @@ export default function App({ Component, pageProps, router }) {
   let image = meta.ogImage ?? meta.image
   image = image
     ? `https://v3.tailwindcss.com/${image.default?.src ?? image.src ?? image}`
-    : `https://v3.tailwindcss.com//api/og?path=${router.pathname}`
+    : `https://v3.tailwindcss.com/api/og?path=${router.pathname}`
 
   if (router.pathname.includes('/examples/')) {
     return <Component {...pageProps} />

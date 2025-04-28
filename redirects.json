@@ -316,5 +316,200 @@
     "source": "/docs/typography-plugin",
     "destination": "https://github.com/tailwindlabs/tailwindcss-typography",
     "permanent": false
+  },
+  {
+    "source": "/showcase",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/algolia",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/candycode",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/clearbit",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/coinbase",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/column",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/dizzie",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/dotnet",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/feastables",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/github",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/google-io-2022",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/grand-leisure",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/keepgrading",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/keynote",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/laracon",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/lemon-squeezy",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/loom",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/mashable",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/modern-treasury",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/nasa",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/national-park-foundation",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/netflix",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/nytimes",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/opal",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/openai",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/planetscale",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/pocket",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/primer",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/salient",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/savvycal",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/shopify",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/spiegel",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/spotlight",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/syntax",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/the-verge",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/transmit",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/turbo",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/wander",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
+  },
+  {
+    "source": "/showcase/wealthfront",
+    "destination": "https://tailwindcss.com/showcase",
+    "permanent": true
   }
 ]
