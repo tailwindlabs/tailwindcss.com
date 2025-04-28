@@ -511,5 +511,310 @@
     "source": "/showcase/wealthfront",
     "destination": "https://tailwindcss.com/showcase",
     "permanent": true
+  },
+  {
+    "source": "/blog",
+    "destination": "https://tailwindcss.com/blog",
+    "permanent": true
+  },
+  {
+    "source": "/blog/2022-05-23-headless-ui-v1-6-tailwind-ui-team-management",
+    "destination": "https://tailwindcss.com/blog/2022-05-23-headless-ui-v1-6-tailwind-ui-team-management",
+    "permanent": true
+  },
+  {
+    "source": "/blog/2022-06-23-tailwind-templates-and-all-access",
+    "destination": "https://tailwindcss.com/blog/2022-06-23-tailwind-templates-and-all-access",
+    "permanent": true
+  },
+  {
+    "source": "/blog/2022-08-17-tailwind-framer-motion-template-and-tailwind-jobs",
+    "destination": "https://tailwindcss.com/blog/2022-08-17-tailwind-framer-motion-template-and-tailwind-jobs",
+    "permanent": true
+  },
+  {
+    "source": "/blog/2022-09-09-new-personal-website-heroicons-2-headless-ui-v17",
+    "destination": "https://tailwindcss.com/blog/2022-09-09-new-personal-website-heroicons-2-headless-ui-v17",
+    "permanent": true
+  },
+  {
+    "source": "/blog/2022-12-15-protocol-api-documentation-template",
+    "destination": "https://tailwindcss.com/blog/2022-12-15-protocol-api-documentation-template",
+    "permanent": true
+  },
+  {
+    "source": "/blog/2023-04-24-new-changelog-template-and-the-biggest-tailwind-ui-update-ever",
+    "destination": "https://tailwindcss.com/blog/2023-04-24-new-changelog-template-and-the-biggest-tailwind-ui-update-ever",
+    "permanent": true
+  },
+  {
+    "source": "/blog/2023-07-18-tailwind-connect-2023-recap",
+    "destination": "https://tailwindcss.com/blog/2023-07-18-tailwind-connect-2023-recap",
+    "permanent": true
+  },
+  {
+    "source": "/blog/2023-08-07-meet-studio-our-new-agency-template",
+    "destination": "https://tailwindcss.com/blog/2023-08-07-meet-studio-our-new-agency-template",
+    "permanent": true
+  },
+  {
+    "source": "/blog/2024-05-24-catalyst-application-layouts",
+    "destination": "https://tailwindcss.com/blog/2024-05-24-catalyst-application-layouts",
+    "permanent": true
+  },
+  {
+    "source": "/blog/2024-05-30-prettier-plugin-collapse-whitespace",
+    "destination": "https://tailwindcss.com/blog/2024-05-30-prettier-plugin-collapse-whitespace",
+    "permanent": true
+  },
+  {
+    "source": "/blog/2024-06-21-headless-ui-v2-1",
+    "destination": "https://tailwindcss.com/blog/2024-06-21-headless-ui-v2-1",
+    "permanent": true
+  },
+  {
+    "source": "/blog/2024-09-12-meet-radiant-our-new-saas-landing-page-template",
+    "destination": "https://tailwindcss.com/blog/2024-09-12-meet-radiant-our-new-saas-landing-page-template",
+    "permanent": true
+  },
+  {
+    "source": "/blog/2024-09-12-radiant-a-beautiful-new-marketing-site-template",
+    "destination": "https://tailwindcss.com/blog/2024-09-12-radiant-a-beautiful-new-marketing-site-template",
+    "permanent": true
+  },
+  {
+    "source": "/blog/automatic-class-sorting-with-prettier",
+    "destination": "https://tailwindcss.com/blog/automatic-class-sorting-with-prettier",
+    "permanent": true
+  },
+  {
+    "source": "/blog/building-react-and-vue-support-for-tailwind-ui",
+    "destination": "https://tailwindcss.com/blog/building-react-and-vue-support-for-tailwind-ui",
+    "permanent": true
+  },
+  {
+    "source": "/blog/building-the-tailwind-blog",
+    "destination": "https://tailwindcss.com/blog/building-the-tailwind-blog",
+    "permanent": true
+  },
+  {
+    "source": "/blog/catalyst-v1",
+    "destination": "https://tailwindcss.com/blog/catalyst-v1",
+    "permanent": true
+  },
+  {
+    "source": "/blog/designing-tailwind-ui-ecommerce",
+    "destination": "https://tailwindcss.com/blog/designing-tailwind-ui-ecommerce",
+    "permanent": true
+  },
+  {
+    "source": "/blog/from-900-to-1-how-we-hired-robin-malfait",
+    "destination": "https://tailwindcss.com/blog/from-900-to-1-how-we-hired-robin-malfait",
+    "permanent": true
+  },
+  {
+    "source": "/blog/headless-ui-unstyled-accessible-ui-components",
+    "destination": "https://tailwindcss.com/blog/headless-ui-unstyled-accessible-ui-components",
+    "permanent": true
+  },
+  {
+    "source": "/blog/headless-ui-v1",
+    "destination": "https://tailwindcss.com/blog/headless-ui-v1",
+    "permanent": true
+  },
+  {
+    "source": "/blog/headless-ui-v1-4",
+    "destination": "https://tailwindcss.com/blog/headless-ui-v1-4",
+    "permanent": true
+  },
+  {
+    "source": "/blog/headless-ui-v1-5",
+    "destination": "https://tailwindcss.com/blog/headless-ui-v1-5",
+    "permanent": true
+  },
+  {
+    "source": "/blog/headless-ui-v2",
+    "destination": "https://tailwindcss.com/blog/headless-ui-v2",
+    "permanent": true
+  },
+  {
+    "source": "/blog/heroicons-micro",
+    "destination": "https://tailwindcss.com/blog/heroicons-micro",
+    "permanent": true
+  },
+  {
+    "source": "/blog/heroicons-v1",
+    "destination": "https://tailwindcss.com/blog/heroicons-v1",
+    "permanent": true
+  },
+  {
+    "source": "/blog/hiring-a-design-engineer-and-staff-engineer",
+    "destination": "https://tailwindcss.com/blog/hiring-a-design-engineer-and-staff-engineer",
+    "permanent": true
+  },
+  {
+    "source": "/blog/introducing-catalyst",
+    "destination": "https://tailwindcss.com/blog/introducing-catalyst",
+    "permanent": true
+  },
+  {
+    "source": "/blog/introducing-heroicons",
+    "destination": "https://tailwindcss.com/blog/introducing-heroicons",
+    "permanent": true
+  },
+  {
+    "source": "/blog/introducing-linting-for-tailwindcss-intellisense",
+    "destination": "https://tailwindcss.com/blog/introducing-linting-for-tailwindcss-intellisense",
+    "permanent": true
+  },
+  {
+    "source": "/blog/introducing-tailwind-play",
+    "destination": "https://tailwindcss.com/blog/introducing-tailwind-play",
+    "permanent": true
+  },
+  {
+    "source": "/blog/just-in-time-the-next-generation-of-tailwind-css",
+    "destination": "https://tailwindcss.com/blog/just-in-time-the-next-generation-of-tailwind-css",
+    "permanent": true
+  },
+  {
+    "source": "/blog/multi-line-truncation-with-tailwindcss-line-clamp",
+    "destination": "https://tailwindcss.com/blog/multi-line-truncation-with-tailwindcss-line-clamp",
+    "permanent": true
+  },
+  {
+    "source": "/blog/simon-vrachliotis-joins-tailwind-labs",
+    "destination": "https://tailwindcss.com/blog/simon-vrachliotis-joins-tailwind-labs",
+    "permanent": true
+  },
+  {
+    "source": "/blog/standalone-cli",
+    "destination": "https://tailwindcss.com/blog/standalone-cli",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tailwind-ui-ecommerce",
+    "destination": "https://tailwindcss.com/blog/tailwind-ui-ecommerce",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tailwind-ui-now-with-react-and-vue-support",
+    "destination": "https://tailwindcss.com/blog/tailwind-ui-now-with-react-and-vue-support",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tailwindcss-1-5",
+    "destination": "https://tailwindcss.com/blog/tailwindcss-1-5",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tailwindcss-1-6",
+    "destination": "https://tailwindcss.com/blog/tailwindcss-1-6",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tailwindcss-1-7",
+    "destination": "https://tailwindcss.com/blog/tailwindcss-1-7",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tailwindcss-1-8",
+    "destination": "https://tailwindcss.com/blog/tailwindcss-1-8",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tailwindcss-1-9",
+    "destination": "https://tailwindcss.com/blog/tailwindcss-1-9",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tailwindcss-2-1",
+    "destination": "https://tailwindcss.com/blog/tailwindcss-2-1",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tailwindcss-2-2",
+    "destination": "https://tailwindcss.com/blog/tailwindcss-2-2",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tailwindcss-from-zero-to-production",
+    "destination": "https://tailwindcss.com/blog/tailwindcss-from-zero-to-production",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tailwindcss-typography",
+    "destination": "https://tailwindcss.com/blog/tailwindcss-typography",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tailwindcss-typography-v0-5",
+    "destination": "https://tailwindcss.com/blog/tailwindcss-typography-v0-5",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tailwindcss-v2",
+    "destination": "https://tailwindcss.com/blog/tailwindcss-v2",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tailwindcss-v3",
+    "destination": "https://tailwindcss.com/blog/tailwindcss-v3",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tailwindcss-v3-1",
+    "destination": "https://tailwindcss.com/blog/tailwindcss-v3-1",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tailwindcss-v3-2",
+    "destination": "https://tailwindcss.com/blog/tailwindcss-v3-2",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tailwindcss-v3-3",
+    "destination": "https://tailwindcss.com/blog/tailwindcss-v3-3",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tailwindcss-v3-4",
+    "destination": "https://tailwindcss.com/blog/tailwindcss-v3-4",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tailwindcss-v4-alpha",
+    "destination": "https://tailwindcss.com/blog/tailwindcss-v4-alpha",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tailwindcss-v4-beta",
+    "destination": "https://tailwindcss.com/blog/tailwindcss-v4-beta",
+    "permanent": true
+  },
+  {
+    "source": "/blog/utility-friendly-transitions-with-tailwindui-react",
+    "destination": "https://tailwindcss.com/blog/utility-friendly-transitions-with-tailwindui-react",
+    "permanent": true
+  },
+  {
+    "source": "/blog/welcoming-brad-cornes-to-the-tailwind-team",
+    "destination": "https://tailwindcss.com/blog/welcoming-brad-cornes-to-the-tailwind-team",
+    "permanent": true
+  },
+  {
+    "source": "/blog/welcoming-david-luhr-to-tailwind-labs",
+    "destination": "https://tailwindcss.com/blog/welcoming-david-luhr-to-tailwind-labs",
+    "permanent": true
+  },
+  {
+    "source": "/blog/welcoming-james-mcdonald-to-tailwind-labs",
+    "destination": "https://tailwindcss.com/blog/welcoming-james-mcdonald-to-tailwind-labs",
+    "permanent": true
+  },
+  {
+    "source": "/blog/whats-new-in-tailwindcss-on-youtube",
+    "destination": "https://tailwindcss.com/blog/whats-new-in-tailwindcss-on-youtube",
+    "permanent": true
   }
 ]

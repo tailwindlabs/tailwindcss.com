@@ -129,31 +129,14 @@ export default async function handler(req, res) {
     return res.end('Error')
   }
 
-  let isBlog = path.startsWith('/blog/')
-  let eyebrow
-  let description
-  let date
-
-  if (isBlog) {
-    date = $('article time').attr('datetime')
-    if (date) {
-      date = new Date(date).toLocaleDateString('en-US', {
-        day: 'numeric',
-        month: 'short',
-        year: 'numeric',
-        timeZone: 'UTC',
-      })
-    }
-  } else {
-    eyebrow = $('#nav li[data-active="true"]')
-      .parents('li')
-      .first()
-      .children('h5')
-      .first()
-      .text()
-      .trim()
-    description = $('meta[property="og:description"]').attr('content')
-  }
+  let eyebrow = $('#nav li[data-active="true"]')
+    .parents('li')
+    .first()
+    .children('h5')
+    .first()
+    .text()
+    .trim()
+  let description = $('meta[property="og:description"]').attr('content')
 
   let interMedium = load('Inter-Medium.otf')
   let interSemiBold = load('Inter-SemiBold.otf')
@@ -189,42 +172,29 @@ export default async function handler(req, res) {
         />
         <div tw="absolute flex flex-col justify-between p-24 w-full h-full">
           {logo}
-          {isBlog ? (
-            <div tw="flex flex-col">
-              <div tw="flex items-center text-[28px] leading-[48px] font-semibold">
-                <div tw="flex text-sky-500">{t('What’s new')}</div>
-                {date && <div tw="flex w-1.5 h-1.5 rounded-full bg-slate-500/30 mx-6" />}
-                {date && <div tw="flex text-slate-400">{t(date)}</div>}
+          <div tw="flex flex-col">
+            {eyebrow && (
+              <div tw="flex text-sky-500 text-[28px] leading-[48px] font-semibold">
+                {t(eyebrow)}
               </div>
-              <div tw="mt-4 flex text-slate-900 text-[48px] leading-[72px] tracking-tight font-extrabold">
-                {t(title)}
-              </div>
+            )}
+            <div tw="mt-4 flex text-slate-900 text-[72px] leading-[80px] tracking-tight font-extrabold">
+              {t(title)}
             </div>
-          ) : (
-            <div tw="flex flex-col">
-              {eyebrow && (
-                <div tw="flex text-sky-500 text-[28px] leading-[48px] font-semibold">
-                  {t(eyebrow)}
-                </div>
-              )}
-              <div tw="mt-4 flex text-slate-900 text-[72px] leading-[80px] tracking-tight font-extrabold">
-                {t(title)}
+            {description && (
+              <div tw="mt-4 flex text-slate-500 text-[32px] leading-[56px] font-medium">
+                {description.split(' ').length > 2 ? (
+                  <div tw="flex">
+                    {t(description.split(' ').slice(0, -1).join(' '))}
+                    &nbsp;
+                    {t(description.split(' ').at(-1))}
+                  </div>
+                ) : (
+                  <div tw="flex">{t(description)}</div>
+                )}
               </div>
-              {description && (
-                <div tw="mt-4 flex text-slate-500 text-[32px] leading-[56px] font-medium">
-                  {description.split(' ').length > 2 ? (
-                    <div tw="flex">
-                      {t(description.split(' ').slice(0, -1).join(' '))}
-                      &nbsp;
-                      {t(description.split(' ').at(-1))}
-                    </div>
-                  ) : (
-                    <div tw="flex">{t(description)}</div>
-                  )}
-                </div>
-              )}
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     ),
