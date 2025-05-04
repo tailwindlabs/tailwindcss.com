@@ -670,7 +670,7 @@ export function MyComponent({ company }) {
         "--brand-hover-color": company.brandHoverColor,
       }}
       className="bg-[var(--brand-color)] hover:bg-[var(--brand-hover-color)]" // [!code --]
-      className="bg-(--brand-color) hover:bg-(--brand-hover-color)" // [!code ++]
+      className="bg-[--brand-color] hover:bg-[--brand-hover-color]" // [!code ++]
     />
   );
 }
