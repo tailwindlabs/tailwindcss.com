@@ -12,6 +12,19 @@ function startsWithVowel(string: string) {
   return ["a", "e", "i", "o", "u"].includes(string[0]);
 }
 
+function utilityToThemeKeyColorPrefix(utility: string) {
+  switch (utility) {
+    case "decoration":
+      return "text-decoration";
+    case "bg":
+      return "background";
+    case "shadow":
+      return "box-shadow";
+    default:
+      return utility;
+  }
+}
+
 function htmlSnippet({
   elementName,
   attributes,
@@ -450,6 +463,8 @@ export function CustomizingYourThemeColors({
   element?: string;
   elementAttributes?: Record<string, string>;
 }) {
+  const primaryUtility = utility || utilities![0];
+
   return (
     <CustomizingYourTheme
       themeKey="color"
@@ -460,6 +475,12 @@ export function CustomizingYourThemeColors({
       customValue="#243c5a"
       element={element}
       elementAttributes={elementAttributes}
+      children={
+        <p>
+          You may also specify colors specifically for <code>{primaryUtility}</code> by using{" "}
+          <code>--{utilityToThemeKeyColorPrefix(primaryUtility)}-color-*</code> in your theme.
+        </p>
+      }
     />
   );
 }
