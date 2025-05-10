@@ -11,7 +11,7 @@ export const description = "Utilities for controlling the thickness of text deco
     ["decoration-<number>", "text-decoration-thickness: <number>px;"],
     ["decoration-from-font", "text-decoration-thickness: from-font;"],
     ["decoration-auto", "text-decoration-thickness: auto;"],
-    ["decoration-(<custom-property>)", "text-decoration-thickness: var(<custom-property>);"],
+    ["decoration-(length:<custom-property>)", "text-decoration-thickness: var(<custom-property>);"],
     ["decoration-[<value>]", "text-decoration-thickness: <value>;"],
   ]}
 />
@@ -62,6 +62,7 @@ Use `decoration-<number>` utilities like `decoration-2` and `decoration-4` to ch
   name="text decoration thickness"
   value="0.25rem"
   variable="decoration-thickness"
+  dataType="length"
 />
 
 ### Responsive design
