@@ -1,4 +1,4 @@
-import { Heading } from '@/components/heading';
+import { H3 } from '@/components/heading';
 import { CodeExampleStack } from "@/components/code-example";
 
 export const title = "Functions and directives";
@@ -8,7 +8,7 @@ export const description = "A reference for the custom functions and directives 
 
 Directives are custom Tailwind-specific [at-rules](https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule) you can use in your CSS that offer special functionality for Tailwind CSS projects.
 
-<Heading level="3" id="import-directive">@import</Heading>
+<H3 id="import-directive">@import</H3>
 
 Use the `@import` directive to inline import CSS files, including Tailwind itself:
 
@@ -17,7 +17,7 @@ Use the `@import` directive to inline import CSS files, including Tailwind itsel
 @import "tailwindcss";
 ```
 
-<Heading level="3" id="theme-directive">@theme</Heading>
+<H3 id="theme-directive">@theme</H3>
 
 Use the `@theme` directive to define your project's custom design tokens, like fonts, colors, and breakpoints:
 
@@ -44,7 +44,7 @@ Use the `@theme` directive to define your project's custom design tokens, like f
 
 Learn more about customizing your theme in the [theme variables documentation](/docs/theme).
 
-<Heading level="3" id="source-directive">@source</Heading>
+<H3 id="source-directive">@source</H3>
 
 Use the `@source` directive to explicitly specify source files that aren't picked up by Tailwind's automatic content detection:
 
@@ -55,7 +55,7 @@ Use the `@source` directive to explicitly specify source files that aren't picke
 
 Learn more about automatic content detection in the [detecting classes in source files documentation](/docs/detecting-classes-in-source-files).
 
-<Heading level="3" id="utility-directive">@utility</Heading>
+<H3 id="utility-directive">@utility</H3>
 
 Use the `@utility` directive to add custom utilities to your project that work with variants like `hover`, `focus` and `lg`:
 
@@ -68,7 +68,7 @@ Use the `@utility` directive to add custom utilities to your project that work w
 
 Learn more about registering custom utilities in the [adding custom utilities documentation](/docs/adding-custom-styles#adding-custom-utilities).
 
-<Heading level="3" id="variant-directive">@variant</Heading>
+<H3 id="variant-directive">@variant</H3>
 
 Use the `@variant` directive to apply a Tailwind variant to styles in your CSS:
 
@@ -86,7 +86,7 @@ Use the `@variant` directive to apply a Tailwind variant to styles in your CSS:
 
 Learn more using variants in the [using variants documentation](/docs/adding-custom-styles#using-variants).
 
-<Heading level="3" id="custom-variant-directive">@custom-variant</Heading>
+<H3 id="custom-variant-directive">@custom-variant</H3>
 
 Use the `@custom-variant` directive to add a custom variant in your project:
 
@@ -99,7 +99,7 @@ This lets you write utilities `theme-midnight:bg-black` and `theme-midnight:text
 
 Learn more about adding custom variants in the [adding custom variants documentation](/docs/adding-custom-styles#adding-custom-variants).
 
-<Heading level="3" id="apply-directive">@apply</Heading>
+<H3 id="apply-directive">@apply</H3>
 
 Use the `@apply` directive to inline any existing utility classes into your own custom CSS:
 
@@ -123,7 +123,7 @@ Use the `@apply` directive to inline any existing utility classes into your own 
 
 This is useful when you need to write custom CSS (like to override the styles in a third-party library) but still want to work with your design tokens and use the same syntax you’re used to using in your HTML.
 
-<Heading level="3" id="reference-directive">@reference</Heading>
+<H3 id="reference-directive">@reference</H3>
 
 If you want to use `@apply` or `@variant` in the `<style>` block of a Vue or Svelte component, or within CSS modules, you will need to import your theme variables, custom utilities, and custom variants to make those values available in that context.
 
@@ -167,7 +167,7 @@ If you’re just using the default theme with no customizations, you can import 
 
 Tailwind provides the following build-time functions to make working with colors and the spacing scale easier.
 
-<Heading level="3" id="alpha-function">--alpha()</Heading>
+<H3 id="alpha-function">--alpha()</H3>
 
 Use the `--alpha()` function to adjust the opacity of a color:
 
@@ -190,7 +190,7 @@ Use the `--alpha()` function to adjust the opacity of a color:
 
 </CodeExampleStack>
 
-<Heading level="3" id="spacing-function">--spacing()</Heading>
+<H3 id="spacing-function">--spacing()</H3>
 
 Use the `--spacing()` function to generate a spacing value based on your theme:
 
@@ -227,7 +227,7 @@ This can also be useful in arbitrary values, especially in combination with `cal
 
 The following directives and functions exist solely for compatibility with Tailwind CSS v3.x.
 
-<Heading level="3" id="config-directive">@config</Heading>
+<H3 id="config-directive">@config</H3>
 
 Use the `@config` directive to load a legacy JavaScript-based configuration file:
 
@@ -238,7 +238,7 @@ Use the `@config` directive to load a legacy JavaScript-based configuration file
 
 The `corePlugins`, `safelist`, and `separator` options from the JavaScript-based config are not supported in v4.0.
 
-<Heading level="3" id="plugin-directive">@plugin</Heading>
+<H3 id="plugin-directive">@plugin</H3>
 
 Use the `@plugin` directive to load a legacy JavaScript-based plugin:
 
@@ -249,7 +249,7 @@ Use the `@plugin` directive to load a legacy JavaScript-based plugin:
 
 The `@plugin` directive accepts either a package name or a local path.
 
-<Heading level="3" id="theme-function">theme()</Heading>
+<H3 id="theme-function">theme()</H3>
 
 Use the `theme()` function to access your Tailwind theme values using dot notation:
 
