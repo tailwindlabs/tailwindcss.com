@@ -516,6 +516,25 @@ Now utilities like `bg-midnight`, `text-tahiti`, and `fill-bermuda` will be avai
 
 Learn more about theme variables in the [theme variables documentation](/docs/theme).
 
+### Custom color for specific utility
+
+If you want to declare a color specifically for a single utility, you should prefix the `--color-*` theme namespace with the corresponding utility:
+
+```css
+/* [!code filename:CSS] */
+@import "tailwindcss";
+
+/* [!code highlight:6] */
+@theme {
+  --background-color-midnight: #121063; /* for only bg-midnight */
+  --text-color-tahiti: #3ab7bf;         /* for only text-tahiti */
+  --border-color-bermuda: #78dcca;      /* for only border-bermuda */
+}
+```
+
+Now, the `midnight` color can only be used with the `bg-*` utility, `tahiti` only with `text-*`, and `bermuda` only with `border-*`.
+
+
 ### Overriding default colors
 
 Override any of the default colors by defining new theme variables with the same name:
