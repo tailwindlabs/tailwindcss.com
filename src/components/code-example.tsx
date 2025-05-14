@@ -137,9 +137,10 @@ export function HighlightedCode({
     <RawHighlightedCode
       example={example}
       className={clsx(
-        "*:flex *:*:max-w-none *:*:shrink-0 *:*:grow *:overflow-auto *:rounded-lg *:bg-white/10! *:p-5 dark:*:bg-white/5!",
+        "*:flex *:*:shrink-0 *:*:grow *:overflow-auto *:rounded-lg *:bg-white/10! *:p-5 dark:*:bg-white/5!",
         "**:[.line]:isolate **:[.line]:not-last:min-h-[1lh]",
         "*:inset-ring *:inset-ring-white/10 dark:*:inset-ring-white/5",
+        example.lang === "txt" ? "*:*:max-w-full *:*:whitespace-normal" : "*:*:max-w-none",
         className,
       )}
     />
