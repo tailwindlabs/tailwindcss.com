@@ -26,6 +26,7 @@ const guides: Guide[] = await create({
   astro: () => import("./astro"),
   qwik: () => import("./qwik"),
   rspack: () => import("./rspack"),
+  dotnet: () => import("./dotnet"),
 });
 
 async function create(list: Record<string, () => Promise<any>>): Promise<Guide[]> {
