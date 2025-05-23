@@ -1,4 +1,4 @@
-import { css, js, shell, Page, Step, Tile, tsx } from "./utils";
+import { css, js, shell, Page, Step, Tile } from "./utils";
 import Logo from "@/docs/img/guides/nextjs.react.svg";
 import LogoDark from "@/docs/img/guides/nextjs-white.react.svg";
 
@@ -95,7 +95,7 @@ export let steps: Step[] = [
     code: {
       name: "layout.tsx",
       lang: "tsx",
-      code: tsx`
+      code: js`
         import "./globals.css";
       `,
     },
