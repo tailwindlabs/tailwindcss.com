@@ -1,4 +1,4 @@
-import { css, js, shell, Page, Step, Tile } from "./utils";
+import { css, js, shell, Page, Step, Tile, tsx } from "./utils";
 import Logo from "@/docs/img/guides/nextjs.react.svg";
 import LogoDark from "@/docs/img/guides/nextjs-white.react.svg";
 
@@ -82,6 +82,21 @@ export let steps: Step[] = [
       lang: "css",
       code: css`
         @import "tailwindcss";
+      `,
+    },
+  },
+  {
+    title: "Import global.css",
+    body: (
+      <p>
+        Import the global.css file in the <code>./src/app/layout.tsx</code> file.
+      </p>
+    ),
+    code: {
+      name: "layout.tsx",
+      lang: "tsx",
+      code: tsx`
+        import "./globals.css";
       `,
     },
   },

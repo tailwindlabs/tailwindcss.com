@@ -2,6 +2,7 @@ import dedent from "dedent";
 import type { ReactNode } from "react";
 
 export const js = dedent;
+export const tsx = dedent;
 export const css = dedent;
 export const shell = dedent;
 export const html = dedent;
