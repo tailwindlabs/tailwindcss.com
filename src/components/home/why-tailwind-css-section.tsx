@@ -136,19 +136,19 @@ export default function WhyTailwindCssSection() {
                         <div className="relative mb-4 overflow-hidden rounded-lg @max-[theme(--breakpoint-xl)]:-mx-4 @max-[theme(--breakpoint-xl)]:-mt-4 @min-[theme(--breakpoint-lg)]:hidden">
                           <div className="grid grid-cols-1 gap-2 @min-[theme(--breakpoint-sm)]:grid-cols-4">
                             <img
-                              alt=""
+                              alt="Sample photo showcasing a house near lake Huron"
                               src={responsive1.src}
                               className="h-48 w-full rounded-lg bg-gray-950/5 object-cover @min-[theme(--breakpoint-sm)]:col-span-2 @min-[theme(--breakpoint-sm)]:h-40"
                             />
 
                             <img
-                              alt=""
+                              alt="Sample photo showcasing a house near lake Huron"
                               src={responsive2.src}
                               className="col-span-2 h-48 w-full rounded-lg bg-gray-950/5 object-cover @max-[theme(--breakpoint-sm)]:hidden @min-[theme(--breakpoint-md)]:col-span-1 @min-[theme(--breakpoint-sm)]:h-40"
                             />
 
                             <img
-                              alt=""
+                              alt="Sample photo showcasing a house near lake Huron"
                               src={responsive3.src}
                               className="h-48 w-full rounded-lg bg-gray-950/5 object-cover @max-[theme(--breakpoint-md)]:hidden @min-[theme(--breakpoint-sm)]:h-40"
                             />
@@ -218,28 +218,28 @@ export default function WhyTailwindCssSection() {
                       </div>
                       <div className="grid grid-cols-4 grid-rows-2 gap-2 @max-[theme(--breakpoint-lg)]:hidden">
                         <img
-                          alt=""
+                          alt="Beach House on Lake Huron"
                           src={responsive1.src}
                           className="col-span-4 h-[150px] w-full rounded-lg bg-gray-950/5 object-cover @min-[theme(--breakpoint-xl)]:col-span-2 @min-[theme(--breakpoint-xl)]:row-span-2 @min-[theme(--breakpoint-xl)]:aspect-square @min-[theme(--breakpoint-xl)]:h-[308px]"
                         />
                         <img
-                          alt=""
+                          alt="Sample photo showcasing a house near lake Huron"
                           src={responsive2.src}
                           className="col-span-2 h-[150px] w-full rounded-lg bg-gray-950/5 @max-[theme(--breakpoint-xl)]:aspect-square @min-[theme(--breakpoint-xl)]:col-span-1"
                         />
                         <img
-                          alt=""
+                          alt="Sample photo showcasing a house near lake Huron"
                           src={responsive3.src}
                           className="col-span-2 h-[150px] w-full rounded-lg bg-gray-950/5 @max-[theme(--breakpoint-xl)]:aspect-square @min-[theme(--breakpoint-xl)]:col-span-1"
                         />
                         <div className="contents @max-[theme(--breakpoint-xl)]:hidden">
                           <img
-                            alt=""
+                            alt="Sample photo showcasing a house near lake Huron"
                             src={responsive4.src}
                             className="aspect-square size-[150px] rounded-lg bg-gray-950/5"
                           />
                           <img
-                            alt=""
+                            alt="Sample photo showcasing a house near lake Huron"
                             src={responsive5.src}
                             className="aspect-square size-[150px] rounded-lg bg-gray-950/5"
                           />
@@ -303,7 +303,11 @@ export default function WhyTailwindCssSection() {
                 </Autoscroll>
 
                 <div className="absolute inset-0 mt-8 flex items-center justify-center">
-                  <img alt="" src={filtersImg.src} className="size-64 inset-ring inset-ring-gray-950/10" />
+                  <img
+                    alt="Sample photo to showcase filtering"
+                    src={filtersImg.src}
+                    className="size-64 inset-ring inset-ring-gray-950/10"
+                  />
                 </div>
               </div>
             </BentoBody>
@@ -507,8 +511,8 @@ export default function WhyTailwindCssSection() {
                     <h3 className="text-base/6 font-semibold text-gray-950 dark:text-white">Browse properties</h3>
                     <div className="mt-6 grid grid-cols-[repeat(2,var(--size))] grid-rows-[repeat(3,var(--size))] gap-2 sm:grid-cols-[repeat(3,var(--size))] sm:grid-rows-[repeat(2,var(--size))]">
                       <div className="relative col-span-2 row-span-1 overflow-hidden rounded-t-2xl sm:col-span-1 sm:row-span-2 sm:rounded-none sm:rounded-l-2xl dark:outline dark:outline-white/10">
-                        <img alt="" className="not-sm:hidden" src={cssGrid1.src} />
-                        <img alt="" className="sm:hidden" src={cssGrid1Mobile.src} />
+                        <img alt="Treehouse sample photo" className="not-sm:hidden" src={cssGrid1.src} />
+                        <img alt="Mansions sample photo" className="sm:hidden" src={cssGrid1Mobile.src} />
                         <div className="absolute inset-0 flex items-end bg-linear-to-b from-transparent via-transparent to-gray-950">
                           <span className="p-4 text-sm/5 font-semibold text-white">Treehouses</span>
                         </div>
@@ -520,13 +524,13 @@ export default function WhyTailwindCssSection() {
                         </div>
                       </div>
                       <div className="relative overflow-hidden sm:rounded-tr-2xl dark:outline dark:outline-white/10">
-                        <img alt="" src={cssGrid3.src} />
+                        <img alt="Lakefront cottages sample photo" src={cssGrid3.src} />
                         <div className="absolute inset-0 flex items-end bg-linear-to-b from-transparent via-transparent to-gray-950">
                           <span className="p-4 text-sm/5 font-semibold text-white">Lakefront cottages</span>
                         </div>
                       </div>
                       <div className="relative col-span-2 overflow-hidden rounded-b-2xl sm:rounded-bl-none dark:outline dark:outline-white/10">
-                        <img alt="" className="aspect-2/1" src={cssGrid4.src} />
+                        <img alt="Designer houses sample photo" className="aspect-2/1" src={cssGrid4.src} />
                         <div className="absolute inset-0 flex items-end bg-linear-to-b from-transparent via-transparent to-gray-950">
                           <span className="p-4 text-sm/5 font-semibold text-white">Designer homes</span>
                         </div>
@@ -634,7 +638,7 @@ export default function WhyTailwindCssSection() {
                       <div key={idx} className="flex items-center justify-start gap-4 p-6">
                         <div className="shrink-0">
                           <img
-                            alt=""
+                            alt="User avatar photo"
                             src={user.src}
                             className="size-12 shrink-0 rounded-full bg-gray-950/5 outline -outline-offset-1 outline-gray-950/10 dark:outline-white/10"
                           />
@@ -657,7 +661,7 @@ export default function WhyTailwindCssSection() {
                       <div key={idx} className="flex items-center justify-start gap-4 p-6" dir="rtl">
                         <div className="shrink-0">
                           <img
-                            alt=""
+                            alt="User avatar photo"
                             src={user.src}
                             className="size-12 shrink-0 rounded-full bg-gray-950/5 outline -outline-offset-1 outline-gray-950/10 dark:outline-white/10"
                           />
