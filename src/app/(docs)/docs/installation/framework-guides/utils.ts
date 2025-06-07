@@ -8,6 +8,7 @@ export const html = dedent;
 export const astro = dedent;
 export const twig = dedent;
 export const elixir = dedent;
+export const yaml = dedent;
 export const handlebars = dedent;
 
 export interface LogoComponent {
