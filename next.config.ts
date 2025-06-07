@@ -419,6 +419,11 @@ const nextConfig = {
         permanent: false,
       },
       {
+        source: "/docs/guides/hugo",
+        destination: "/docs/installation/framework-guides/hugo",
+        permanent: false,
+      },
+      {
         source: "/docs/guides/meteor",
         destination: "/docs/installation/framework-guides/meteor",
         permanent: false,

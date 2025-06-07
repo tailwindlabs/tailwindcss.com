@@ -215,6 +215,7 @@ const highlighter = await createHighlighter({
     "tsx",
     "twig",
     "vue",
+    "yaml",
     "md",
   ],
 });
