@@ -191,13 +191,13 @@ export default function BuildAnythingSection() {
                 <Image src={midjourney} alt="Midjourney" width={293} />
               </a>
               <a
-                href="https://nasa.gov/"
+                href="https://www.jpl.nasa.gov/"
                 rel="noreferrer"
                 target="_blank"
                 className="group relative opacity-75 transition-opacity hover:opacity-100"
               >
-                <ExternalLinkLabel>nasa.gov</ExternalLinkLabel>
-                <Image src={nasa} alt="NASA" width={293} />
+                <ExternalLinkLabel>jpl.nasa.gov</ExternalLinkLabel>
+                <Image src={nasa} alt="NASA/JPL" width={293} />
               </a>
             </div>
           </BentoItem>
