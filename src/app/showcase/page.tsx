@@ -28,10 +28,10 @@ export default async function Showcase() {
 
       <GridContainer className="mt-10">
         <p className="prose mx-2 max-w-(--breakpoint-md) text-lg leading-8 text-gray-600 dark:text-gray-400">
-          Well not quite <em>anything</em>, like you can't build a Mars rover with it. But you can definitely build the
-          website for the rover —{" "}
+          Well not quite <em>anything</em>, like you can't build a spaceship with it. But you can definitely build the
+          website for the spaceship —{" "}
           <a href="https://www.jpl.nasa.gov/" target="_blank" rel="noreferrer">
-            NASA/JPL
+            NASA
           </a>{" "}
           did.
         </p>
