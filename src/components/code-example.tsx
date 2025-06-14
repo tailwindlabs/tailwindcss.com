@@ -1,3 +1,4 @@
+"use client";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import {
   transformerNotationDiff,
@@ -8,6 +9,7 @@ import { clsx } from "clsx";
 import dedent from "dedent";
 import { createHighlighter } from "shiki";
 import theme from "./syntax-highlighter/theme.json";
+import { useState } from "react";
 
 import { highlightClasses } from "./highlight-classes";
 import atApplyInjection from "./syntax-highlighter/at-apply.json";
@@ -38,7 +40,7 @@ export function css(strings: TemplateStringsArray, ...args: any[]) {
   return { lang: "css", code: dedent(strings, ...args) };
 }
 
-export async function CodeExample({
+export function CodeExample({
   example,
   filename,
   className = "",
@@ -49,7 +51,7 @@ export async function CodeExample({
 }) {
   return (
     <CodeExampleWrapper className={className}>
-      {filename ? <CodeExampleFilename filename={filename} /> : null}
+      {filename ? <CodeExampleFilename filename={filename} example={example} /> : null}
       <HighlightedCode example={example} />
     </CodeExampleWrapper>
   );
@@ -188,8 +190,33 @@ export function RawHighlightedCode({
   return <div className={className} dangerouslySetInnerHTML={{ __html: code }} />;
 }
 
-function CodeExampleFilename({ filename }: { filename: string }) {
-  return <div className="px-3 pt-0.5 pb-1.5 text-xs/5 text-gray-400 dark:text-white/50">{filename}</div>;
+function CodeExampleFilename({ filename, example }: { filename: string; example?: { lang: string; code: string } }) {
+  const [copyText, setCopyText] = useState("Copy");
+
+  const codeCopier = async () => {
+    try {
+      if (example != undefined) {
+        await navigator.clipboard.writeText(example.code);
+        setCopyText("Copied!");
+        setTimeout(() => {
+          setCopyText("Copy");
+        }, 5000);
+      }
+    } catch (error) {
+      console.log("Coping Faild!");
+    }
+  };
+
+  return (
+    <div className="flex w-full items-center justify-between px-3 pt-0.5 pb-1.5 text-xs/5 text-gray-400 dark:text-white/50">
+      {filename}
+      {example != undefined && (
+        <button onClick={codeCopier} className="rounded-xl border p-1 px-2 hover:text-white active:bg-gray-950">
+          {copyText}
+        </button>
+      )}
+    </div>
+  );
 }
 
 const highlighter = await createHighlighter({
