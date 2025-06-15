@@ -1,13 +1,27 @@
 "use client";
 import { useState } from "react";
 
-export function CodeExampleFilename({ filename, example }: { filename: string; example?: { lang: string; code: string } }) {
+export function CodeExampleFilename({
+  filename,
+  example,
+}: {
+  filename: string;
+  example?: { lang: string; code: string };
+}) {
   const [copyText, setCopyText] = useState("Copy");
 
   const codeCopier = async () => {
     try {
       if (example != undefined) {
-        await navigator.clipboard.writeText(example.code);
+        const code = example.code
+          .split("\n")
+          .filter((line) => {
+            const trimmed = line.trim();
+            return !(trimmed.startsWith("//") || trimmed.startsWith("<!--"));
+          })
+          .join("\n");
+
+        await navigator.clipboard.writeText(code);
         setCopyText("Copied!");
         setTimeout(() => {
           setCopyText("Copy");
