@@ -39,7 +39,7 @@ export function css(strings: TemplateStringsArray, ...args: any[]) {
   return { lang: "css", code: dedent(strings, ...args) };
 }
 
-export function CodeExample({
+export async function CodeExample({
   example,
   filename,
   className = "",
