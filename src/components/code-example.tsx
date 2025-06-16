@@ -38,6 +38,55 @@ export function css(strings: TemplateStringsArray, ...args: any[]) {
   return { lang: "css", code: dedent(strings, ...args) };
 }
 
+export function unshiki(code: string): string {
+  const lines = code.split("\n");
+  const result: string[] = [];
+  let skip = 0;
+
+  const commentRegex = /\/\*.*?\*\/|\/\/.*|<!--.*?-->|#.*/g;
+  const codeTagRegex = /\[!code\s+([^\]]+)\]/;
+
+  for (let i = 0; i < lines.length; i++) {
+    // skip lines if a remove directive is active
+    if (skip > 0) {
+      skip--;
+      continue;
+    }
+
+    let line = lines[i];
+    const comments = [...line.matchAll(commentRegex)];
+
+    let removed = false;
+
+    // process comments to detect [!code ...] directives
+    for (const c of comments) {
+      const match = c[0].match(codeTagRegex);
+      if (match) {
+        // check if directive to remove next N lines
+        const spec = match[1];
+        const removeMatch = spec.match(/^--:(\d+)$/);
+        if (removeMatch) {
+          // set lines to skip
+          skip = parseInt(removeMatch[1], 10) - 1;
+          // current line removed (important if the line is not just a comment but also valid code)
+          removed = true;
+          break;
+        }
+
+        // remove comment if it's not a remove directive
+        line = line.slice(0, c.index) + line.slice(c.index! + c[0].length);
+      }
+    }
+
+    // add line if not removed and line is not empty or has no comments
+    if (!removed && (comments.length === 0 || line.trim() !== "")) {
+      result.push(line);
+    }
+  }
+
+  return result.join('\n').trim();
+}
+
 export async function CodeExample({
   example,
   filename,
