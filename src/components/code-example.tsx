@@ -8,6 +8,7 @@ import { clsx } from "clsx";
 import dedent from "dedent";
 import { createHighlighter } from "shiki";
 import theme from "./syntax-highlighter/theme.json";
+import { CopyButton } from "./copy-button";
 
 import { highlightClasses } from "./highlight-classes";
 import atApplyInjection from "./syntax-highlighter/at-apply.json";
@@ -97,8 +98,12 @@ export async function CodeExample({
   className?: string;
 }) {
   return (
-    <CodeExampleWrapper className={className}>
+    <CodeExampleWrapper className={clsx('relative', className)}>
       {filename ? <CodeExampleFilename filename={filename} /> : null}
+      <CopyButton
+        className="absolute right-4 top-2 z-10 text-stone-400"
+        value={example.code}
+      />
       <HighlightedCode example={example} />
     </CodeExampleWrapper>
   );
