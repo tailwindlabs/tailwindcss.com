@@ -3,11 +3,11 @@ export const description = "Upgrading your Tailwind CSS projects from v3 to v4."
 
 Tailwind CSS v4.0 is a new major version of the framework, so while we've worked really hard to minimize breaking changes, some updates are necessary. This guide outlines all the steps required to upgrade your projects from v3 to v4.
 
-To simplify the process, we’ve developed a migration tool that can automatically handle the bulk of these changes for you in typical projects.
+**Tailwind CSS v4.0 is designed for Safari 16.4+, Chrome 111+, and Firefox 128+.** If you need to support older browsers, stick with v3.4 until your browser support requirements change.
 
-### Using the upgrade tool
+## Using the upgrade tool
 
-If you'd like to try upgrading a project from v3 to v4, you can use our upgrade tool to do the vast majority of the heavy lifting for you:
+If you'd like to upgrade a project from v3 to v4, you can use our upgrade tool to do the vast majority of the heavy lifting for you:
 
 ```sh
   # [!code filename:Terminal]
@@ -78,7 +78,13 @@ npx @tailwindcss/cli -i input.css -o output.css
 
 Here's a comprehensive list of all the breaking changes in Tailwind CSS v4.0.
 
-Our [upgrade tool](##using-the-upgrade-tool) will handle most of these changes for you automatically, so we highly recommend using it if you can.
+Our [upgrade tool](#using-the-upgrade-tool) will handle most of these changes for you automatically, so we highly recommend using it if you can.
+
+### Browser requirements
+
+Tailwind CSS v4.0 is designed for modern browsers and targets Safari 16.4, Chrome 111, and Firefox 128. We depend on modern CSS features like `@property` and `color-mix()` for core framework features, and Tailwind CSS v4.0 will not work in older browsers.
+
+If you need to support older browsers, we recommend sticking with v3.4 for now. We're actively exploring a compatibility mode to help people upgrade sooner that we hope to share more news on in the future.
 
 ### Removed @tailwind directives
 
@@ -755,7 +761,7 @@ If you still need to use a JavaScript config file, you can load it explicitly us
 @config "../../tailwind.config.js";
 ```
 
-The `corePlugins`, `safelist`, and `separator` options from the JavaScript-based config are not supported in v4.0.
+The `corePlugins`, `safelist`, and `separator` options from the JavaScript-based config are not supported in v4.0. To safelist utilities in v4 use [`@source inline()`](/docs/detecting-classes-in-source-files#safelisting-specific-utilities).
 
 ### Theme values in JavaScript
 
@@ -818,3 +824,9 @@ Alternatively, you can use your CSS theme variables directly instead of using `@
 ```
 
 You can find more documentation on [using Tailwind with CSS modules](/docs/compatibility#css-modules).
+
+### Using Sass, Less, and Stylus
+
+Tailwind CSS v4.0 is not designed to be used with CSS preprocessors like Sass, Less, or Stylus. Think of Tailwind CSS itself as your preprocessor — you shouldn't use Tailwind with Sass for the same reason you wouldn't use Sass with Stylus. Because of this it is not possible to use Sass, Less, or Stylus for your stylesheets or `<style>` blocks in Vue, Svelte, Astro, etc.
+
+Learn more in the [compatibility documentation](/docs/compatibility#sass-less-and-stylus).

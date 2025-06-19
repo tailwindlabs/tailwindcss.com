@@ -2,7 +2,7 @@ import { adamwathan } from "@/app/blog/authors";
 import card from "./card.jpg";
 import * as icons from "@heroicons/react/16/solid";
 import Link from "next/link";
-import Image from "next/image";
+import { Image } from "@/components/media";
 import miniVsMicroDetails from "./mini-vs-micro-details.jpg";
 import miniVsMicroDropdown from "./mini-vs-micro-dropdown.jpg";
 
@@ -20,13 +20,11 @@ export const meta = {
   ),
 };
 
-We just released [Heroicons v2.1](https://heroicons.com) which includes a brand new micro style — a full set of almost three hundred 16&times;16 icons designed for tighter, higher density UIs.
+<Link href="https://heroicons.com">
+  <Image src={card} alt="Heroicons Micro" />
+</Link>
 
-<p>
-  <Link href="https://heroicons.com">
-    <Image src={card} alt="Heroicons Micro" />
-  </Link>
-</p>
+We just released [Heroicons v2.1](https://heroicons.com) which includes a brand new micro style — a full set of almost three hundred 16&times;16 icons designed for tighter, higher density UIs.
 
 We've wanted to do a set this size for a long time, but it wasn't until we started working on [a new React UI kit project](https://twitter.com/steveschoger/status/1725246591269769363) earlier this year that we finally needed them badly enough to bite the bullet and design them.
 
@@ -42,9 +40,9 @@ Icons always turn out a lot sharper when you design them for the exact size they
 
 <Image alt="Examples of details adjusted for Heroicons Micro" src={miniVsMicroDetails} />
 
-About a month later we had a brand new set of 288 icons, meticulously crafted for higher density interfaces like what we've been working on with Catalyst.
+About a month later we had a brand new set of icons, meticulously crafted for higher density interfaces like what we've been working on with Catalyst.
 
-<div className="my-12">
+<div className="my-12 px-2">
   <div className="not-prose grid grid-cols-[repeat(auto-fill,1rem)] justify-between gap-x-12 gap-y-8">
     {Object.entries(icons)
       .sort(([a], [b]) => a.localeCompare(b))

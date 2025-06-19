@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure";
 import card from "./card.jpg";
 import discordMessage from "./discord-message.png";
-import Image from "next/image";
+import { Image, YouTubeVideo } from "@/components/media";
 import Link from "next/link";
 
 export const meta = {
@@ -17,23 +17,15 @@ export const meta = {
     <>
       It's been about six months since we released <Link href="/blog/tailwindcss-v3">Tailwind CSS v3.0</Link>, and even
       though we've been collecting a lot of little improvements in the codebase since then, we just didn't have{" "}
-      <i>that-one-feature</i> yet that makes you say
-      <i>"okay, it's release-cuttin' time"</i>.
+      <em>that-one-feature</em> yet that makes you say
+      <em>"okay, it's release-cuttin' time"</em>.
     </>
   ),
 };
 
-It's been about six months since we released [Tailwind CSS v3.0](/blog/tailwindcss-v3), and even though we've been collecting a lot of little improvements in the codebase since then, we just didn't have _that-one-feature_ yet that makes you say _"okay, it's release-cuttin' time"_.
+<YouTubeVideo id="nOQyWbPO2Ds" />
 
-<div className="my-12 overflow-hidden rounded-xl bg-slate-700">
-  <iframe
-    className="aspect-video w-full rounded-xl"
-    src="https://www.youtube.com/embed/nOQyWbPO2Ds"
-    frameBorder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowFullScreen
-  ></iframe>
-</div>
+It's been about six months since we released [Tailwind CSS v3.0](/blog/tailwindcss-v3), and even though we've been collecting a lot of little improvements in the codebase since then, we just didn't have _that-one-feature_ yet that makes you say _"okay, it's release-cuttin' time"_.
 
 Then on a random Saturday night a couple of weeks ago, I was talking to Robin in our Discord about coming up with a way to target the `html` element using `:has` and a class deeper in the document, and explained how I thought it would look if we added support for arbitrary variants — something I've wanted to tackle for over a year:
 
@@ -657,8 +649,7 @@ Use the new `contrast-more` and `contrast-less` variants to modify your design w
       <form>
         <div>
           <label htmlFor="contrast-example" className="block text-sm font-medium text-slate-700">
-            {" "}
-            Social Security Number{" "}
+            Social Security Number
           </label>
           <div className="mt-1">
             <input
@@ -835,42 +826,42 @@ You can even style the first `p` inside the `div` in the second child `li` but o
 
 <Example>
   {
-    <div class="mx-auto max-w-md">
+    <div className="mx-auto max-w-md">
       <ul
         role="list"
-        class="space-y-4 [&>*]:rounded-lg [&>*]:bg-white [&>*]:p-4 [&>*]:shadow hover:[&>li:nth-child(2)>div>p:first-child]:text-indigo-500"
+        className="space-y-4 [&>*]:rounded-lg [&>*]:bg-white [&>*]:p-4 [&>*]:shadow hover:[&>li:nth-child(2)>div>p:first-child]:text-indigo-500"
       >
-        <li class="flex">
+        <li className="flex">
           <img
-            class="h-10 w-10 rounded-full"
+            className="h-10 w-10 rounded-full"
             src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
             alt=""
           />
-          <div class="ml-3 overflow-hidden">
-            <p class="text-sm font-medium text-slate-900">Kristen Ramos</p>
-            <p class="truncate text-sm text-slate-500">kristen.ramos@example.com</p>
+          <div className="ml-3 overflow-hidden">
+            <p className="text-sm font-medium text-slate-900">Kristen Ramos</p>
+            <p className="truncate text-sm text-slate-500">kristen.ramos@example.com</p>
           </div>
         </li>
-        <li class="flex">
+        <li className="flex">
           <img
-            class="h-10 w-10 rounded-full"
+            className="h-10 w-10 rounded-full"
             src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
             alt=""
           />
-          <div class="ml-3 overflow-hidden">
-            <p class="text-sm font-medium text-slate-900">Floyd Miles</p>
-            <p class="truncate text-sm text-slate-500">floyd.miles@example.com</p>
+          <div className="ml-3 overflow-hidden">
+            <p className="text-sm font-medium text-slate-900">Floyd Miles</p>
+            <p className="truncate text-sm text-slate-500">floyd.miles@example.com</p>
           </div>
         </li>
-        <li class="flex">
+        <li className="flex">
           <img
-            class="h-10 w-10 rounded-full"
+            className="h-10 w-10 rounded-full"
             src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
             alt=""
           />
-          <div class="ml-3 overflow-hidden">
-            <p class="text-sm font-medium text-slate-900">Courtney Henry</p>
-            <p class="truncate text-sm text-slate-500">courtney.henry@example.com</p>
+          <div className="ml-3 overflow-hidden">
+            <p className="text-sm font-medium text-slate-900">Courtney Henry</p>
+            <p className="truncate text-sm text-slate-500">courtney.henry@example.com</p>
           </div>
         </li>
       </ul>

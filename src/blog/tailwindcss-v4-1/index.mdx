@@ -1,0 +1,901 @@
+import { adamwathan, danhollick } from "@/app/blog/authors";
+import card from "./card.jpg";
+import SafariDark from "./safari-15-dark.png";
+import SafariLight from "./safari-15-light.png";
+import KeyboardLight from "./keyboard-light.png";
+import KeyboardDark from "./keyboard-dark.png";
+import { Figure } from "@/components/figure";
+import { Example } from "@/components/example";
+import { Stripes } from "@/components/stripes";
+import { CodeExampleStack } from "@/components/code-example";
+import { Image, YouTubeVideo } from "@/components/media";
+
+export const meta = {
+  title: "Tailwind CSS v4.1: Text shadows, masks, and tons more",
+  description:
+    "I wasn't sure it would ever happen but we did it — we released a version of Tailwind CSS that includes text shadow utilities. Tailwind CSS v4.1 is here and it's packed with improvements that will help you (or your LLM, you coward) build even better interactive experiences.",
+  date: "2025-04-03T20:00:00.000Z",
+  authors: [adamwathan, danhollick],
+  image: card,
+  excerpt: (
+    <>
+      I wasn't sure it would ever happen but we did it — we released a version of Tailwind CSS that includes text shadow
+      utilities. Tailwind CSS v4.1 is here and it's packed with improvements that will help you (or your LLM, you
+      coward) build even better interactive experiences.
+    </>
+  ),
+};
+
+<YouTubeVideo id="HTFHoA12MJk" />
+
+I wasn't sure it would ever happen but we did it — we released a version of Tailwind CSS that includes `text-shadow` utilities.
+
+Tailwind CSS v4.1 is here and it's packed with new utilities, variants, and developer experience improvements that will help you _(or your LLM, you coward)_ build even better interactive experiences.
+
+Here's all the best stuff we got into this release:
+
+- [New `text-shadow-*` utilities](#new-text-shadow-utilities) — only about twenty years after they were first supported by a browser.
+- [Mask elements with the `mask-*` utilities](#mask-elements-with-the-mask-utilities) — use images and gradients to mask elements with new ergonomic APIs.
+- [Improved compatibility with older browsers](#improved-compatibility-with-older-browsers) — we've made things degrade way more gracefully for older browsers, while still taking advantage of modern features in browsers that support them.
+- [Fine-grained text wrapping with `overflow-wrap`](#fine-grained-text-wrapping-with-overflow-wrap) — defend the integrity of your layouts from even the longest German words your users will throw at you.
+- [Colored `drop-shadow` support](#colored-drop-shadow-support) — can't really remember why we didn't have these before but we do now.
+- [Target input devices with `pointer-*` and `any-pointer-*`](#target-input-devices-with-pointer-and-any-pointer) — tweak your design for touch devices explicitly instead of relying on viewport size.
+- [Align items to the last baseline](#align-items-to-the-last-baseline) — align flex or grid items to the baseline of the last line of text using the new `items-baseline-last` and `self-baseline-last` utilities.
+- [Keep content visible with `safe` alignment](#keep-content-visible-with-safe-alignment) — center content in flex and grid layouts without it disappearing when there's not enough space.
+- [Ignore specific paths with `@source not`](#ignore-specific-paths-with-source-not) — explicitly ignore irrelevant large directories and speed up your builds even more.
+- [Safelist specific utilities with `@source inline(…)`](#safelist-specific-utilities-with-source-inline) — force Tailwind to include classes that aren't in your source files.
+- [A bunch of other new variants](#a-bunch-of-other-new-variants) — including `noscript`, `user-valid`, `inverted-colors`, and more.
+
+That's all the cool stuff, but there's a few other little things hiding in the [release notes](https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.1.0) that you might want to check out too.
+
+Upgrade your projects by installing the latest version of `tailwindcss` from npm:
+
+<CodeExampleStack>
+
+```sh
+# [!code filename:Using the Tailwind CLI]
+npm install tailwindcss@latest @tailwindcss/cli@latest
+```
+
+```sh
+# [!code filename:Using Vite]
+npm install tailwindcss@latest @tailwindcss/vite@latest
+```
+
+```sh
+# [!code filename:Using PostCSS]
+npm install tailwindcss@latest @tailwindcss/postcss@latest
+```
+
+</CodeExampleStack>
+
+---
+
+## New `text-shadow-*` utilities
+
+We've been threatening to add text shadows for at least the last six years and today they are finally here.
+
+We've added five text shadows to the default theme, from `text-shadow-2xs` to `text-shadow-lg`. They are particularly useful for making headings stand out against a busy background:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="relative grid items-center justify-around gap-4 bg-linear-45 from-indigo-400 via-purple-500 to-pink-500 px-6 py-14 text-center text-2xl font-semibold text-white">
+      <p className="relative text-shadow-2xs">The quick brown fox jumps over the lazy dog.</p>
+      <p className="relative text-shadow-xs">The quick brown fox jumps over the lazy dog.</p>
+      <p className="relative text-shadow-sm">The quick brown fox jumps over the lazy dog.</p>
+      <p className="relative text-shadow-md">The quick brown fox jumps over the lazy dog.</p>
+      <p className="relative text-shadow-lg">The quick brown fox jumps over the lazy dog.</p>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:text-shadow-2xs,text-shadow-xs,text-shadow-sm,text-shadow-md,text-shadow-lg,text-shadow-xl] -->
+<p class="text-shadow-2xs ...">The quick brown fox...</p>
+<p class="text-shadow-xs ...">The quick brown fox...</p>
+<p class="text-shadow-sm ...">The quick brown fox...</p>
+<p class="text-shadow-md ...">The quick brown fox...</p>
+<p class="text-shadow-lg ...">The quick brown fox...</p>
+```
+
+</Figure>
+
+You can change the color of the shadow using the `text-shadow-<color>` utilities. For instance, you can create a sort of embossed effect by using a small white shadow on dark text:
+
+<Figure>
+
+<Example>
+  {
+    <div className="relative grid h-48 place-items-center">
+      <div className="-mr-10 flex gap-4 max-sm:-mr-32">
+        <button className="relative rounded-full bg-linear-to-b from-sky-300 to-sky-400 to-70% px-4 py-2 text-sm font-semibold text-sky-950 shadow-md ring inset-shadow-2xs ring-sky-500 inset-shadow-white/20 text-shadow-2xs text-shadow-sky-300 dark:ring-sky-500/50">
+          Book a demo
+          <div className="absolute top-1/2 -left-6/5 size-42 -translate-y-1/2 overflow-hidden rounded-full bg-white/20 p-2 shadow-lg ring-2 ring-black/5 backdrop-blur-sm dark:ring-black/10">
+            <div className="grid size-full items-center overflow-hidden rounded-full bg-linear-to-b from-sky-300 to-sky-400 to-50% px-5 pb-2 text-[70px] font-semibold whitespace-nowrap text-sky-900 inset-ring-2 inset-ring-black/10 text-shadow-[0px_5px_0px_var(--tw-text-shadow-color)] text-shadow-sky-300">
+              Book a demo
+            </div>
+          </div>
+        </button>
+        <button className="relative rounded-full bg-linear-to-b from-white/10 to-white/20 to-70% px-4 py-2 text-sm font-semibold text-gray-950 shadow-md ring inset-shadow-2xs ring-black/20 inset-shadow-white/10 dark:text-white dark:text-shadow-2xs">
+          See pricing
+        </button>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:text-shadow-sky-300] -->
+<button class="text-sky-950 text-shadow-2xs text-shadow-sky-300 ...">Book a demo</button>
+<button class="text-gray-950 dark:text-white dark:text-shadow-2xs ...">See pricing</button>
+```
+
+</Figure>
+
+If you just want to adjust the opacity of a text shadow without changing the color, you can slap an opacity modifier directly on text shadow size utilities like `text-shadow-lg`.
+
+For example, `text-shadow-lg/50` is the same as setting `text-shadow-lg` and `text-shadow-black/50` at the same time:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="relative grid items-center justify-around gap-4 bg-linear-45 from-indigo-400 via-sky-400 to-emerald-400 px-6 py-14 text-center text-2xl font-semibold text-white">
+      <p className="relative text-shadow-lg">The quick brown fox jumps over the lazy dog.</p>
+      <p className="relative text-shadow-lg/20">The quick brown fox jumps over the lazy dog.</p>
+      <p className="relative text-shadow-lg/30">The quick brown fox jumps over the lazy dog.</p>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:text-shadow-lg/20,text-shadow-lg/30] -->
+<p class="text-shadow-lg ...">The quick brown fox...</p>
+<p class="text-shadow-lg/20 ...">The quick brown fox...</p>
+<p class="text-shadow-lg/30 ...">The quick brown fox...</p>
+```
+
+</Figure>
+
+Check out the [`text-shadow`](/docs/text-shadow) docs for more details.
+
+---
+
+## Mask elements with the `mask-*` utilities
+
+One of the coolest features of modern CSS is the ability to use images and gradients as masks - basically using the opacity of an image to hide certain parts of an element:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="mx-auto flex items-center p-16 max-sm:p-6">
+      <img
+        src={KeyboardLight.src}
+        className="aspect-square max-h-72 w-full mask-radial-[100%_200%] mask-radial-from-transparent mask-radial-from-15% mask-radial-to-black mask-radial-to-60% mask-radial-at-right object-cover object-top-left dark:hidden"
+        alt=""
+      />
+      <img
+        src={KeyboardDark.src}
+        className="hidden aspect-square max-h-72 w-full mask-radial-[100%_200%] mask-radial-from-transparent mask-radial-from-15% mask-radial-to-black mask-radial-to-60% mask-radial-at-right object-cover object-top-left dark:block"
+        alt=""
+      />
+      <div className="font-medium max-sm:-mx-3">
+        <p className="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
+        <p className="mt-2 text-base whitespace-nowrap text-gray-700 dark:text-gray-300">Built for power users</p>
+        <p className="mt-1 text-sm leading-relaxed text-balance text-gray-500">
+          Work faster than ever with our keyboard shortcuts
+        </p>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:mask-radial-from-transparent,mask-radial-from-15%,mask-radial-to-black,mask-radial-to-55%,mask-radial-at-right] -->
+<div class="mx-auto flex items-center p-16 max-sm:p-8">
+  <img
+    src="/img/keyboard.png"
+    class="mask-radial-from-transparent mask-radial-from-15% mask-radial-to-black mask-radial-to-55% mask-radial-at-right ..."
+  />
+  <div class="font-medium">
+    <p class="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
+    <p class="mt-2 text-base text-gray-700 dark:text-gray-300">Built for power users</p>
+    <p class="mt-1 text-sm leading-relaxed text-balance text-gray-500">
+      Work faster than ever with our keyboard shortcuts
+    </p>
+  </div>
+</div>
+```
+
+</Figure>
+
+Because you can use any `background-image` as a mask, the logical thing to do was to copy the `bg-*` utilities so they share the same API. The problem with that approach is you often want to combine multiple masks together and the `bg-*` utilities are not composable.
+
+So instead, we created a new set of utilities to work with `mask-image` that are composable and purpose-built for the masking use case. For example, you can use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear gradient mask to a single side of an element:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="grid grid-cols-1 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-xs font-medium text-gray-500 max-sm:justify-between max-sm:px-2 sm:grid-cols-2 dark:text-gray-400">
+      <div className="flex flex-col items-center gap-3">
+        <p>mask-t-from-50%</p>
+        <div className="grid aspect-3/2 w-48 grid-cols-1">
+          <Stripes className="col-start-1 row-start-1 rounded-lg" border />
+          <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-t-from-50% bg-cover bg-center mask-no-repeat"></div>
+        </div>
+      </div>
+      <div className="flex flex-col items-center gap-3">
+        <p>mask-r-from-30%</p>
+        <div className="grid aspect-3/2 w-48 grid-cols-1">
+          <Stripes className="col-start-1 row-start-1 rounded-lg" border />
+          <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-30% bg-cover bg-center mask-no-repeat"></div>
+        </div>
+      </div>
+      <div className="flex flex-col items-center gap-3">
+        <p>mask-l-from-50% mask-l-to-90%</p>
+        <div className="grid aspect-3/2 w-48 grid-cols-1">
+          <Stripes className="col-start-1 row-start-1 rounded-lg" border />
+          <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-l-from-50% mask-l-to-90% bg-cover bg-center mask-no-repeat"></div>
+        </div>
+      </div>
+      <div className="flex flex-col items-center gap-3">
+        <p>mask-b-from-20% mask-b-to-80%</p>
+        <div className="grid aspect-3/2 w-48 grid-cols-1">
+          <Stripes className="col-start-1 row-start-1 rounded-lg" border />
+          <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-20% mask-b-to-80% bg-cover bg-center mask-no-repeat"></div>
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+{/* prettier-ignore */}
+```html
+<!-- [!code classes:mask-t-from-50%,mask-r-from-30%,mask-l-from-50%,mask-l-to-90%,mask-b-from-20%,mask-b-to-80%] -->
+<div class="mask-t-from-50% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-r-from-30% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-l-from-50% mask-l-to-90% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-b-from-20% mask-b-to-80% bg-[url(/img/mountains.jpg)] ..."></div>
+```
+
+</Figure>
+
+It's more natural to think about which side you want to mask, rather than trying to work out the exact gradient you need to use.
+
+The gradient mask utilities are also composable, so you can combine radial, conic and linear gradients together to create more complex masks:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-1 items-end gap-x-2 gap-y-8 p-8 text-center font-mono text-xs font-medium text-gray-500 max-sm:justify-between max-sm:px-2 sm:grid-cols-2 dark:text-gray-400">
+      <div className="flex flex-col items-center">
+        <div className="grid aspect-3/2 w-48 grid-cols-1">
+          <Stripes className="col-start-1 row-start-1 rounded-lg" border />
+          <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-b-from-50% mask-radial-[50%_90%] mask-radial-from-80% mask-radial-at-bottom bg-cover bg-center mask-no-repeat"></div>
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <div className="grid aspect-3/2 w-48 grid-cols-1">
+          <Stripes className="col-start-1 row-start-1 rounded-lg" border />
+          <div className="col-start-1 row-start-1 rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-r-from-80% mask-b-from-80% mask-radial-from-70% mask-radial-to-85% mask-circle mask-radial-at-top-left bg-cover bg-center mask-no-repeat"></div>
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+{/* prettier-ignore */}
+```html
+<!-- [!code classes:mask-b-from-50%,mask-radial-[50%_90%],mask-radial-from-80%,mask-r-from-80%,mask-b-from-80%,mask-radial-from-70%,mask-radial-to-85%] -->
+<div class="mask-b-from-50% mask-radial-[50%_90%] mask-radial-from-80% bg-[url(/img/mountains.jpg)] ..."></div>
+<div class="mask-r-from-80% mask-b-from-80% mask-radial-from-70% mask-radial-to-85% bg-[url(/img/mountains.jpg)] ..."></div>
+```
+
+</Figure>
+
+Masking is a super powerful technique and there's a lot more to the API than we can cover here. For a full breakdown of the new utilities, check out the [documentation](/docs/mask-image).
+
+---
+
+### Improved compatibility with older browsers
+
+We went all-in on modern platform features with Tailwind CSS v4.0 to make the best framework we could, and give this version the longest shelf-life possible.
+
+Unfortunately some of those features degrade really poorly in older browsers, to the point where even basic things like colors and shadows might not render at all for someone visiting from an old iPhone or iPad that's stuck on Safari 15.
+
+For Tailwind CSS v4.1, we put a bunch of effort into coming up with and testing our own framework-specific fallbacks to make your sites render as best as possible in older browsers, even if some super modern things still don't behave quite the same.
+
+<Image
+  alt="Comparison between how Tailwind CSS v4.0 (left) and Tailwind CSS v4.1 (right) render in Safari 15.5. Tailwind CSS v4.0 fails to render some background gradients that are now visible in Tailwind CSS v4.1"
+  src={SafariLight}
+  className="dark:hidden"
+/>
+
+<Image
+  alt="Comparison between how Tailwind CSS v4.0 (left) and Tailwind CSS v4.1 (right) render in Safari 15.5. Tailwind CSS v4.0 fails to render some background gradients that are now visible in Tailwind CSS v4.1"
+  src={SafariDark}
+  className="hidden dark:block"
+/>
+
+Here's a list of the things we've managed to improve in this release:
+
+- Colors defined in `oklab` now render in older versions of Safari
+- Features that depend on custom properties defined with `@property` (like shadows, transforms, gradients and more) now work in older versions of Safari and Firefox
+- Colors using the opacity modifier now render with inlined fallbacks in older browsers
+- Gradients using explicit interpolation methods fall back to the browser default when not supported
+
+Tailwind CSS v4 is still _designed_ for modern browsers like Safari 16.4 and up and still depends on a lot of modern features for everything to work _perfectly_, but at least now your sites will render and be usable in older browsers, even if in certain specific situations the odd shadow color be different.
+
+To learn everything you need to know about browser compatibility in Tailwind CSS v4, you can read the full [browser compatibility documentation](/docs/compatibility).
+
+---
+
+## Fine-grained text wrapping with `overflow-wrap`
+
+The new `overflow-wrap` utilities let you control how text wraps within an element. The `wrap-break-word` utility is especially useful for long words or URLs that might otherwise break your layout:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 wrap-break-word text-gray-900 dark:text-gray-200">
+      The longest word in any of the major English language dictionaries is{" "}
+      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that refers to a lung
+      disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it
+      is the same as silicosis.
+    </p>
+  }
+</Example>
+
+```html
+<!-- [!code classes:wrap-break-word] -->
+<p class="wrap-break-word">The longest word in any of the major...</p>
+```
+
+</Figure>
+
+The one case where this doesn't quite behave like you'd expect is inside a flex container and that's where you probably want to use the new `wrap-anywhere` utility instead.
+
+It's similar to `wrap-break-word`, but it allows mid-word line breaks when calculating the intrinsic size of the element, replacing the need to set `min-width: 0` on the child element:
+
+<Figure>
+
+<Example>
+  {
+    <div>
+      <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">wrap-break-word</p>
+      <div className="mx-auto flex max-w-sm items-center gap-4 rounded-xl bg-white p-3 shadow-sm ring ring-black/2.5 dark:bg-black/10 dark:ring-white/10">
+        <img
+          className="size-16 rounded-full outline -outline-offset-1 outline-black/10 dark:outline-white/10"
+          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+          alt=""
+        />
+        <div className="wrap-break-word">
+          <p className="text-sm font-medium text-gray-900 dark:text-white">Jay Riemenschneider</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400">jason.riemenschneider@vandelayindustries.com</p>
+        </div>
+      </div>
+      <p className="mt-8 mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
+        wrap-anywhere
+      </p>
+      <div className="mx-auto flex max-w-sm items-center gap-4 rounded-xl bg-white p-3 shadow-sm ring ring-black/2.5 dark:bg-black/10 dark:ring-white/10">
+        <img
+          className="size-16 rounded-full outline -outline-offset-1 outline-black/10 dark:outline-white/10"
+          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+          alt=""
+        />
+        <div className="wrap-anywhere">
+          <p className="text-sm font-medium text-gray-900 dark:text-white">Jay Riemenschneider</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400">jason.riemenschneider@vandelayindustries.com</p>
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:wrap-anywhere,wrap-break-word] -->
+<div class="flex max-w-sm">
+  <img class="size-16 rounded-full" src="/img/profile.jpg" />
+  <div class="wrap-break-word">
+    <p class="font-medium">Jay Riemenschneider</p>
+    <p>jason.riemenschneider@vandelayindustries.com</p>
+  </div>
+</div>
+<div class="flex max-w-sm">
+  <img class="size-16 rounded-full" src="/img/profile.jpg" />
+  <div class="wrap-anywhere">
+    <p class="font-medium">Jay Riemenschneider</p>
+    <p>jason.riemenschneider@vandelayindustries.com</p>
+  </div>
+</div>
+```
+
+</Figure>
+
+There's not much more to it than that, but here's the [`overflow-wrap`](/docs/overflow-wrap) documentation if you want to read it again in slightly different words.
+
+---
+
+## Colored `drop-shadow` support
+
+While we were building out `text-shadow` support we thought we might as well add another feature we never got around to implementing: colored drop shadows.
+
+Now you can use utilities like `drop-shadow-indigo-500` and `drop-shadow-cyan-500/50` to change the color of a drop shadow:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-3 items-end gap-8 max-sm:grid-cols-1">
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500">drop-shadow-cyan-500/50</p>
+        <svg className="size-28 text-gray-950/100 drop-shadow-xl drop-shadow-cyan-500/50" viewBox="0 0 84 84">
+          <path
+            d="M22.0992 77L2.19922 42.5L22.0992 8H61.8992L81.7992 42.5L61.8992 77H22.0992Z"
+            className="fill-cyan-500"
+          />
+        </svg>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500">drop-shadow-sky-500/50</p>
+        <svg className="size-28 text-gray-950/100 drop-shadow-xl drop-shadow-sky-500/50" viewBox="0 0 84 84">
+          <path
+            d="M22.0992 77L2.19922 42.5L22.0992 8H61.8992L81.7992 42.5L61.8992 77H22.0992Z"
+            className="fill-sky-500"
+          />
+        </svg>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500">drop-shadow-indigo-500/50</p>
+        <svg className="size-28 text-gray-950/100 drop-shadow-xl drop-shadow-indigo-500/50" viewBox="0 0 84 84">
+          <path
+            d="M22.0992 77L2.19922 42.5L22.0992 8H61.8992L81.7992 42.5L61.8992 77H22.0992Z"
+            className="fill-indigo-500"
+          />
+        </svg>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:drop-shadow-cyan-500/50,drop-shadow-blue-500/50,drop-shadow-indigo-500/50] -->
+<svg class="fill-cyan-500 drop-shadow-xl drop-shadow-cyan-500/50 ...">...</svg>
+<svg class="fill-blue-500 drop-shadow-xl drop-shadow-blue-500/50 ...">...</svg>
+<svg class="fill-indigo-500 drop-shadow-xl drop-shadow-indigo-500/50 ...">...</svg>
+```
+
+</Figure>
+
+There isn't much more to it but here's the [`drop-shadow` documentation](/docs/filter-drop-shadow) anyway.
+
+---
+
+## Target input devices with `pointer-*` and `any-pointer-*`
+
+The new `pointer-fine` and `pointer-coarse` variants let you style something differently depending on whether the user is using a device with a mouse or using a touchscreen.
+
+Use `pointer-fine` to target precise pointing devices like mouses and trackpads, and `pointer-coarse` to target devices lower precision like touchscreens:
+
+<Figure hint="Try emulating a touch device in your developer tools to see the changes">
+
+<Example>
+  {
+    <fieldset aria-label="Choose a memory option" className="mx-auto max-w-md">
+      <div className="flex items-center justify-between">
+        <div className="text-sm/6 font-medium text-gray-900 dark:text-white">RAM</div>
+        <a href="#" className="text-sm/6 font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400">
+          See performance specs
+        </a>
+      </div>
+      <div className="mt-4 grid grid-cols-6 gap-2 max-sm:grid-cols-3 pointer-coarse:mt-6 pointer-coarse:grid-cols-3 pointer-coarse:gap-4">
+        <label className="flex items-center justify-center rounded-md bg-white p-2 text-sm font-semibold text-gray-900 uppercase ring-1 ring-gray-300 not-data-focus:not-has-checked:ring-inset hover:bg-gray-50 has-checked:bg-indigo-600 has-checked:text-white has-checked:ring-0 has-checked:hover:bg-indigo-500 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-indigo-600 data-focus:ring-2 data-focus:ring-indigo-600 data-focus:ring-offset-2 data-focus:has-checked:ring-2 sm:flex-1 dark:bg-transparent dark:text-white dark:ring-white/20 dark:hover:bg-gray-950/50 pointer-coarse:p-4">
+          <input type="radio" name="memory-option" value="4 GB" className="sr-only" />
+          <span>4 GB</span>
+        </label>
+        <label className="flex items-center justify-center rounded-md bg-white p-2 text-sm font-semibold text-gray-900 uppercase ring-1 ring-gray-300 not-data-focus:not-has-checked:ring-inset hover:bg-gray-50 has-checked:bg-indigo-600 has-checked:text-white has-checked:ring-0 has-checked:hover:bg-indigo-500 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-indigo-600 data-focus:ring-2 data-focus:ring-indigo-600 data-focus:ring-offset-2 data-focus:has-checked:ring-2 sm:flex-1 dark:bg-transparent dark:text-white dark:ring-white/20 dark:hover:bg-gray-950/50 pointer-coarse:p-4">
+          <input type="radio" name="memory-option" value="8 GB" className="sr-only" defaultChecked />
+          <span>8 GB</span>
+        </label>
+        <label className="flex items-center justify-center rounded-md bg-white p-2 text-sm font-semibold text-gray-900 uppercase ring-1 ring-gray-300 not-data-focus:not-has-checked:ring-inset hover:bg-gray-50 has-checked:bg-indigo-600 has-checked:text-white has-checked:ring-0 has-checked:hover:bg-indigo-500 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-indigo-600 data-focus:ring-2 data-focus:ring-indigo-600 data-focus:ring-offset-2 data-focus:has-checked:ring-2 sm:flex-1 dark:bg-transparent dark:text-white dark:ring-white/20 dark:hover:bg-gray-950/50 pointer-coarse:p-4">
+          <input type="radio" name="memory-option" value="16 GB" className="sr-only" />
+          <span>16 GB</span>
+        </label>
+        <label className="flex items-center justify-center rounded-md bg-white p-2 text-sm font-semibold text-gray-900 uppercase ring-1 ring-gray-300 not-data-focus:not-has-checked:ring-inset hover:bg-gray-50 has-checked:bg-indigo-600 has-checked:text-white has-checked:ring-0 has-checked:hover:bg-indigo-500 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-indigo-600 data-focus:ring-2 data-focus:ring-indigo-600 data-focus:ring-offset-2 data-focus:has-checked:ring-2 sm:flex-1 dark:bg-transparent dark:text-white dark:ring-white/20 dark:hover:bg-gray-950/50 pointer-coarse:p-4">
+          <input type="radio" name="memory-option" value="32 GB" className="sr-only" />
+          <span>32 GB</span>
+        </label>
+        <label className="flex items-center justify-center rounded-md bg-white p-2 text-sm font-semibold text-gray-900 uppercase ring-1 ring-gray-300 not-data-focus:not-has-checked:ring-inset hover:bg-gray-50 has-checked:bg-indigo-600 has-checked:text-white has-checked:ring-0 has-checked:hover:bg-indigo-500 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-indigo-600 data-focus:ring-2 data-focus:ring-indigo-600 data-focus:ring-offset-2 data-focus:has-checked:ring-2 sm:flex-1 dark:bg-transparent dark:text-white dark:ring-white/20 dark:hover:bg-gray-950/50 pointer-coarse:p-4">
+          <input type="radio" name="memory-option" value="64 GB" className="sr-only" />
+          <span>64 GB</span>
+        </label>
+        <label className="flex items-center justify-center rounded-md bg-white p-2 text-sm font-semibold text-gray-900 uppercase ring-1 ring-gray-300 not-data-focus:not-has-checked:ring-inset hover:bg-gray-50 has-checked:bg-indigo-600 has-checked:text-white has-checked:ring-0 has-checked:hover:bg-indigo-500 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-indigo-600 data-focus:ring-2 data-focus:ring-indigo-600 data-focus:ring-offset-2 data-focus:has-checked:ring-2 sm:flex-1 dark:bg-transparent dark:text-white dark:ring-white/20 dark:hover:bg-gray-950/50 pointer-coarse:p-4">
+          <input type="radio" name="memory-option" value="128 GB" className="sr-only" />
+          <span>128 GB</span>
+        </label>
+      </div>
+    </fieldset>
+  }
+</Example>
+
+```html
+<!-- [!code classes:pointer-coarse:mt-6,pointer-coarse:grid-cols-3,pointer-coarse:gap-4,pointer-coarse:p-4] -->
+<fieldset aria-label="Choose a memory option">
+  <div class="flex items-center justify-between">
+    <div>RAM</div>
+    <a href="#"> See performance specs </a>
+  </div>
+  <div class="mt-4 grid grid-cols-6 gap-2 pointer-coarse:mt-6 pointer-coarse:grid-cols-3 pointer-coarse:gap-4">
+    <label class="p-2 pointer-coarse:p-4 ...">
+      <input type="radio" name="memory-option" value="4 GB" className="sr-only" />
+      <span>4 GB</span>
+    </label>
+    <!-- ... -->
+  </div>
+</fieldset>
+```
+
+</Figure>
+
+If you're on your phone, you'll see the `pointer-coarse` styles applied, which make the touch targets larger and easier to hit. If you're on a desktop, you'll see the `pointer-fine` styles applied, which make the touch targets smaller and more precise.
+
+The `any-pointer-*` variants work the same way but instead of just checking the user's _primary_ pointing device, they check if _any_ pointing device matches. So `any-pointer-coarse` will match on a laptop with a touchscreen for a example, even if the user also has a mouse connected.
+
+---
+
+## Align items to the last baseline
+
+When working with flex or grid layouts, sometimes you need to align something to the baseline of the last line of text rather than the end of the container.
+
+The new `items-baseline-last` utility does just that:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="mx-auto grid max-w-md divide-y divide-gray-100 border-x border-x-gray-200 text-gray-700 dark:divide-gray-800 dark:border-x-gray-800 dark:bg-gray-950/10 dark:text-gray-300">
+      <div className="grid grid-cols-[1fr_auto] items-baseline-last gap-x-4 px-4 py-6">
+        <div className="grid grid-cols-[auto_1fr] gap-x-4 max-sm:grid-cols-1">
+          <img
+            className="size-[2rem] rounded-full"
+            src="https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Favatar.51a13c67.jpg&w=128&q=80"
+            alt=""
+          />
+          <div className="font-semibold text-gray-900 sm:col-start-2 dark:text-white">Spencer Sharp</div>
+          <p className="text-sm sm:col-start-2">Working on the future of astronaut recruitment at Space Recruit.</p>
+        </div>
+        <a
+          href="#"
+          className="font-mono text-xs font-medium text-gray-400 underline hover:text-blue-500 dark:text-gray-500"
+        >
+          spacerecruit.com
+        </a>
+      </div>
+      <div className="grid grid-cols-[1fr_auto] items-baseline-last gap-x-4 px-4 py-6">
+        <div className="grid grid-cols-[auto_1fr] gap-x-4 max-sm:grid-cols-1">
+          <img
+            className="size-[2rem] rounded-full"
+            src="https://images.unsplash.com/photo-1590895340509-793cb98788c9?q=80&w=256&h=256&&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
+          />
+          <div className="font-semibold text-gray-900 sm:col-start-2 dark:text-white">Alex Reed</div>
+          <p className="text-sm sm:col-start-2">A multidisciplinary designer.</p>
+        </div>
+        <a
+          href="#"
+          className="font-mono text-xs font-medium text-gray-400 underline hover:text-blue-500 dark:text-gray-500"
+        >
+          alex-reed.com
+        </a>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:items-baseline-last] -->
+<div class="grid grid-cols-[1fr_auto] items-baseline-last">
+  <div>
+    <img src="img/spencer-sharp.jpg" />
+    <h4>Spencer Sharp</h4>
+    <p>Working on the future of astronaut recruitment at Space Recruit.</p>
+  </div>
+  <p>spacerecruit.com</p>
+</div>
+```
+
+</Figure>
+
+We've also added `self-baseline-last` for when you need to align just a single item, and not all items in the flex or grid container.
+
+---
+
+## Keep content visible with `safe` alignment
+
+Ever had center aligned content overflow in both directions when the container got too small? Now you don't have to use a container query to switch the alignment at different sizes.
+
+The new `safe` alignment utilities will change the alignment to `start` when the container starts to overflow, so it only overflows in one direction.
+
+<Figure hint="Resize the container to see the alignment behavior">
+
+<Example resizable>
+  {
+    <div className="grid grid-cols-1 gap-8">
+      <div>
+        <p className="text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">justify-center</p>
+        <ul className="flex justify-center gap-2 pt-4 text-sm text-sky-600 *:rounded-full *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5 dark:text-sky-300 dark:*:border-sky-500/15 dark:*:bg-sky-500/10">
+          <li>Sales</li>
+          <li>Marketing</li>
+          <li>SEO</li>
+          <li>Analytics</li>
+          <li>Design</li>
+          <li>Strategy</li>
+          <li>Growth</li>
+          <li>UX/UI</li>
+        </ul>
+      </div>
+      <div>
+        <p className="text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
+          justify-center-safe
+        </p>
+        <ul className="flex justify-center-safe gap-2 pt-4 text-sm text-sky-600 *:rounded-full *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5 dark:text-sky-300 dark:*:border-sky-500/15 dark:*:bg-sky-500/10">
+          <li>Sales</li>
+          <li>Marketing</li>
+          <li>SEO</li>
+          <li>Analytics</li>
+          <li>Design</li>
+          <li>Strategy</li>
+          <li>Growth</li>
+          <li>UX/UI</li>
+        </ul>
+      </div>
+    </div>
+  }
+</Example>
+
+<CodeExampleStack>
+
+```html
+<!-- [!code filename:justify-center] -->
+<!-- [!code classes:justify-center] -->
+<ul class="flex justify-center gap-2 ...">
+  <li>Sales</li>
+  <li>Marketing</li>
+  <li>SEO</li>
+  <!-- ... -->
+</ul>
+```
+
+```html
+<!-- [!code filename:justify-center-safe] -->
+<!-- [!code classes:justify-center-safe] -->
+<ul class="flex justify-center-safe gap-2 ...">
+  <li>Sales</li>
+  <li>Marketing</li>
+  <li>SEO</li>
+  <!-- ... -->
+</ul>
+```
+
+</CodeExampleStack>
+
+</Figure>
+
+These utilities work with both flexbox and grid layouts, and are available for all alignment properties.
+
+---
+
+## Ignore specific paths with `@source not`
+
+Sometimes you need to specifically exclude some parts of your code base from being scanned by Tailwind. Now you can use `@source not` to ignore specific paths when scanning for class names:
+
+```css
+/* [!code filename:CSS] */
+@import "tailwindcss";
+/* [!code highlight:2] */
+@source not "./src/components/legacy";
+```
+
+This is useful when you have a large number of files in your project, but only want to scan a specific subset of them.
+
+---
+
+## Safelist specific utilities with `@source inline(…)`
+
+If you need to make sure Tailwind generates certain class names that don’t exist in your content files, you can force them to be generated by using `@source inline()`:
+
+<CodeExampleStack>
+
+```css
+/* [!code filename:CSS] */
+@import "tailwindcss";
+/* [!code highlight:2] */
+@source inline("underline");
+```
+
+```css
+/* [!code filename:Generated CSS] */
+.underline {
+  text-decoration: underline;
+}
+```
+
+</CodeExampleStack>
+
+This is the equivalent of the `safelist` configuration option in previous versions of Tailwind, but now you can use it in your CSS files instead of your config file.
+
+The source input is [brace-expanded](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html), so you can generate multiple classes at once. For example, to generate all the red shades with hover variants, you can add a range to the source input:
+
+<CodeExampleStack>
+```css
+/* [!code filename:CSS] */
+@import "tailwindcss";
+/* [!code highlight:2] */
+@source inline("{hover:,}bg-red-{50,{100..900..100},950}");
+```
+
+```css
+/* [!code filename:Generated CSS] */
+.bg-red-50 {
+  background-color: var(--color-red-50);
+}
+.bg-red-100 {
+  background-color: var(--color-red-100);
+}
+.bg-red-200 {
+  background-color: var(--color-red-200);
+}
+
+/* ... */
+
+.bg-red-800 {
+  background-color: var(--color-red-800);
+}
+.bg-red-900 {
+  background-color: var(--color-red-900);
+}
+.bg-red-950 {
+  background-color: var(--color-red-950);
+}
+@media (hover: hover) {
+  .hover\:bg-red-50:hover {
+    background-color: var(--color-red-50);
+  }
+
+  /* ... */
+
+  .hover\:bg-red-950:hover {
+    background-color: var(--color-red-950);
+  }
+}
+```
+
+</CodeExampleStack>
+This will generate shades of red from 100 to 900 in increments of 100, as well as the 50 and 950 shades. It also adds the `hover:` variant for each of those classes.
+
+You can also use `@source inline()` with the `not` modifier to exclude specific classes from being generated:
+
+```css
+/* [!code filename:CSS] */
+@import "tailwindcss";
+/* [!code highlight:2] */
+@source not inline("container");
+```
+
+This will specifically prevent the `container` class from being generated, even if the word `container` is detected in your source files.
+
+For more details, check out the [detecting classes in source files](/docs/detecting-classes-in-source-files#safelisting-specific-utilities) documentation.
+
+---
+
+## A bunch of other new variants
+
+### Prettier accordions with `details-content`
+
+While you could always add styles to the children of a `<details>` element, it's been impossible to style the content container itself.
+
+The new `details-content` variant targets the content container which is useful for positioning the content container relative to the `<summary>` element:
+
+<Figure>
+  <Example>
+    {
+    <div className="mx-auto max-w-lg">
+      <details className="rounded-lg border border-transparent p-6 details-content:mt-3 details-content:-ml-0.5" open>
+        <summary className="text-sm leading-6 font-semibold text-gray-900 select-none dark:text-white">
+          Why do they call it Ovaltine?
+        </summary>
+        <div
+          className="list-inside list-disc rounded-lg border border-gray-200 bg-gray-50 py-3 pl-3 text-sm leading-6 text-gray-600 dark:border-white/10 dark:bg-gray-800/50 dark:text-gray-400"
+        >
+          <p>The mug is round. The jar is round. They should call it Roundtine.</p>
+        </div>
+      </details>
+    </div>
+    }
+  </Example>
+
+```html
+<!-- [!code classes:details-content:mt-3,details-content:-ml-0.5] -->
+<details class="rounded-lg border border-transparent p-6 details-content:mt-3 details-content:-ml-0.5" open>
+  <summary class="text-sm leading-6 font-semibold text-gray-900 select-none dark:text-white">
+    Why do they call it Ovaltine?
+  </summary>
+  <div class="border-gray-200 bg-gray-50 py-3 pl-3 dark:border-white/10 dark:bg-gray-800/50 ...">
+    <p>The mug is round. The jar is round. They should call it Roundtine.</p>
+  </div>
+</details>
+```
+
+</Figure>
+
+---
+
+## Target `inverted-colors` mode
+
+Use the `inverted-colors` variant to conditionally add styles when the user has enabled an inverted color scheme in their OS:
+
+```html
+<!-- [!code classes:inverted-colors:shadow-none] -->
+<div class="shadow-xl inverted-colors:shadow-none ...">
+  <!-- ... -->
+</div>
+```
+
+This is useful for things like preventing black shadows being turned white when inverted colors are enabled.
+
+---
+
+## New `noscript` variant
+
+Yes, some people disable JavaScript and now you can tell them your app doesn't work without it. The `noscript` variant lets you conditionally apply styles when JS is disabled:
+
+```html
+<div class="hidden noscript:block">Please enable JavaScript to use this app.</div>
+```
+
+You could already do this with the `<noscript>` tag but now you can do it with CSS too, which Tailwind lets you write in your HTML, so… yeah.
+
+---
+
+## Better form validation with `user-valid` and `user-invalid`
+
+Ever tried the `:invalid` pseudo-class only for the page to be full of red invalid states as soon as it loads, before the user has even touched your form?
+
+The new `user-valid` and `user-invalid` variants try to solve this problem, by only applying validation-related styling after the user has actually interacted with the controls:
+
+```html
+<!-- [!code classes:user-valid:border-green-500,user-invalid:border-red-500] -->
+<input required class="border user-valid:border-green-500" />
+<input required class="border user-invalid:border-red-500" />
+```
+
+---
+
+So that's it, that's Tailwind CSS v4.1! Update to the latest version using npm and start playing with it today:
+
+<CodeExampleStack>
+
+```sh
+# [!code filename:Using the Tailwind CLI]
+npm install tailwindcss@latest @tailwindcss/cli@latest
+```
+
+```sh
+# [!code filename:Using Vite]
+npm install tailwindcss@latest @tailwindcss/vite@latest
+```
+
+```sh
+# [!code filename:Using PostCSS]
+npm install tailwindcss@latest @tailwindcss/postcss@latest
+```
+
+</CodeExampleStack>
+
+Looking forward to seeing what you build with the new features!

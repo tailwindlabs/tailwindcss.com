@@ -1,7 +1,7 @@
 import { adamwathan } from "@/app/blog/authors";
 import card from "./card.png";
 import catalystUiKit from "./catalyst-ui-kit.png";
-import Image from "next/image";
+import { Image, Video } from "@/components/media";
 import catalystInstallation from "./catalyst-installation.jpg";
 import catalystComponents from "./catalyst-components.png";
 import catalystComponentsDarkMode from "./catalyst-components-dark-mode.png";
@@ -23,9 +23,9 @@ export const meta = {
   ),
 };
 
-Today's the day — we just published the first development preview of [Catalyst](https://tailwindui.com/templates/catalyst), just in time for your holiday hacking sessions.
-
 <Image alt="Overview of components included in Catalyst" src={catalystUiKit} />
+
+Today's the day — we just published the first development preview of [Catalyst](https://tailwindui.com/templates/catalyst), just in time for your holiday hacking sessions.
 
 **Catalyst is our first fully-componentized, batteries-included application UI kit** — real React components with thoughtfully designed APIs that build on each other to create a real component architecture, the same way we'd do it in a real application.
 
@@ -77,17 +77,7 @@ We also took inspiration from the browser, and used unopinionated blue focus rin
 
 We also limited our use of transitions and animations only to places where it felt important, and even then tried to keep them fast so it never feels like you're waiting on the UI.
 
-<div className="relative my-8 overflow-hidden rounded-2xl">
-  <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-slate-900/10 ring-inset"></div>
-  <video
-    src="https://assets.tailwindcss.com/blog/introducing-catalyst/catalyst-switch.mp4"
-    autoPlay
-    playsInline
-    loop
-    muted
-    className="m-0 block"
-  />
-</div>
+<Video src="https://assets.tailwindcss.com/blog/introducing-catalyst/catalyst-switch.mp4" />
 
 **Catalyst also ships with full dark mode support**, and anything you build with Catalyst components automatically adapts between light and dark modes.
 

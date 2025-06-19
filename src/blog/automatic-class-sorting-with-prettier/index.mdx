@@ -1,6 +1,6 @@
 import { Figure } from "@/components/figure.tsx";
 import { CodeBlock } from "@/components/code-example";
-import Image from "next/image";
+import { Image } from "@/components/media";
 import Link from "next/link";
 import { reinink, adamwathan } from "@/app/blog/authors";
 import card from "./card.jpg";
@@ -22,11 +22,11 @@ export const meta = {
   ),
 };
 
-People have been talking about the best way to sort your utility classes in Tailwind projects for <Link href="https://github.com/tailwindlabs/discuss/issues/97">at least four years</Link>. Today we're excited to announce that you can finally stop worrying about it with the release of our official <Link href="https://github.com/tailwindlabs/prettier-plugin-tailwindcss">Prettier plugin for Tailwind CSS</Link>.
-
 <Link href="https://github.com/tailwindlabs/prettier-plugin-tailwindcss">
   <Image alt="Tailwind CSS v3.4" src={banner} />
 </Link>
+
+People have been talking about the best way to sort your utility classes in Tailwind projects for <Link href="https://github.com/tailwindlabs/discuss/issues/97">at least four years</Link>. Today we're excited to announce that you can finally stop worrying about it with the release of our official <Link href="https://github.com/tailwindlabs/prettier-plugin-tailwindcss">Prettier plugin for Tailwind CSS</Link>.
 
 This plugin scans your templates for class attributes containing Tailwind CSS classes, and then sorts those classes automatically following our [recommended class order](#how-classes-are-sorted).
 

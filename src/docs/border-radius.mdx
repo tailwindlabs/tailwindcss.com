@@ -34,6 +34,7 @@ export const description = "Utilities for controlling the border radius of an el
       `${className}-3xl`,
       properties.map((property) => `${property}: var(--radius-3xl); /* 1.5rem (24px) */`).join("\n"),
     ],
+    [`${className}-4xl`, properties.map((property) => `${property}: var(--radius-4xl); /* 2rem (32px) */`).join("\n")],
     [`${className}-none`, properties.map((property) => `${property}: 0;`).join("\n")],
     [`${className}-full`, properties.map((property) => `${property}: calc(infinity * 1px);`).join("\n")],
     [
@@ -56,19 +57,19 @@ Use utilities like `rounded-sm` and `rounded-md` to apply different border radiu
   {
     <div className="flex flex-col items-center justify-around gap-4 text-center text-sm leading-6 font-bold text-white sm:flex-row">
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">rounded-sm</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">rounded-sm</p>
         <div className="size-16 rounded-sm bg-purple-500 p-4"></div>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">rounded-md</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">rounded-md</p>
         <div className="size-16 rounded-md bg-purple-500 p-4"></div>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">rounded-lg</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">rounded-lg</p>
         <div className="size-16 rounded-lg bg-purple-500 p-4"></div>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">rounded-xl</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">rounded-xl</p>
         <div className="size-16 rounded-xl bg-purple-500 p-4"></div>
       </div>
     </div>
@@ -95,19 +96,19 @@ Use utilities like `rounded-t-md` and `rounded-r-lg` to only round one side of a
   {
     <div className="flex flex-col items-center justify-around gap-4 text-center text-sm leading-6 font-bold text-white sm:flex-row">
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">rounded-t-lg</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">rounded-t-lg</p>
         <div className="size-16 rounded-t-lg bg-blue-500 p-4"></div>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">rounded-r-lg</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">rounded-r-lg</p>
         <div className="size-16 rounded-r-lg bg-blue-500 p-4"></div>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">rounded-b-lg</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">rounded-b-lg</p>
         <div className="size-16 rounded-b-lg bg-blue-500 p-4"></div>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">rounded-l-lg</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">rounded-l-lg</p>
         <div className="size-16 rounded-l-lg bg-blue-500 p-4"></div>
       </div>
     </div>
@@ -134,19 +135,19 @@ Use utilities like `rounded-tr-md` and `rounded-tl-lg` utilities to only round o
   {
     <div className="flex flex-col items-center justify-around gap-4 text-center text-sm leading-6 font-bold text-white sm:flex-row">
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">rounded-tl-lg</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">rounded-tl-lg</p>
         <div className="size-16 rounded-tl-lg bg-pink-500 p-4"></div>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">rounded-tr-lg</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">rounded-tr-lg</p>
         <div className="size-16 rounded-tr-lg bg-pink-500 p-4"></div>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">rounded-br-lg</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">rounded-br-lg</p>
         <div className="size-16 rounded-br-lg bg-pink-500 p-4"></div>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">rounded-bl-lg</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">rounded-bl-lg</p>
         <div className="size-16 rounded-bl-lg bg-pink-500 p-4"></div>
       </div>
     </div>
@@ -295,7 +296,7 @@ Use the `rounded-full` utility to create pill buttons:
   {
     <div className="flex justify-center gap-4 text-center text-sm leading-6 font-bold text-white">
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">rounded-full</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">rounded-full</p>
         <button className="rounded-full bg-cyan-500 px-4 py-2 text-sm font-semibold text-white">Save Changes</button>
       </div>
     </div>
@@ -319,7 +320,7 @@ Use the `rounded-none` utility to remove an existing border radius from an eleme
   {
     <div className="flex justify-center gap-4 text-center text-sm leading-6 font-bold text-white">
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">rounded-none</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">rounded-none</p>
         <button className="rounded-none bg-sky-500 px-4 py-2 text-sm font-semibold text-white">Save Changes</button>
       </div>
     </div>

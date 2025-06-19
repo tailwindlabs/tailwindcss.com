@@ -232,6 +232,24 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
 }
 
 function Hit({ hit, children }: { hit: any; children: React.ReactNode }) {
+  if (isTailwindPlusURL(hit.url)) {
+    return (
+      <a
+        href={hit.url}
+        className={clsx({
+          "DocSearch-Hit--Result": hit.__is_result?.(),
+          "DocSearch-Hit--Parent": hit.__is_parent?.(),
+          "DocSearch-Hit--FirstChild": hit.__is_first?.(),
+          "DocSearch-Hit--LastChild": hit.__is_last?.(),
+          "DocSearch-Hit--Child": hit.__is_child?.(),
+          "DocSearch-Hit--TailwindUI": hit.__is_tailwindui?.(),
+        })}
+      >
+        {children}
+      </a>
+    )
+  }
+
   return (
     <Link
       href={hit.url}

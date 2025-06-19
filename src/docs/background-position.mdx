@@ -8,17 +8,17 @@ export const description = "Utilities for controlling the position of an element
 
 <ApiTable
   rows={[
-    ["bg-bottom", "background-position: bottom;"],
-    ["bg-center", "background-position: center;"],
-    ["bg-left", "background-position: left;"],
-    ["bg-left-bottom", "background-position: left bottom;"],
-    ["bg-left-top", "background-position: left top;"],
-    ["bg-right", "background-position: right;"],
-    ["bg-right-bottom", "background-position: right bottom;"],
-    ["bg-right-top", "background-position: right top;"],
+    ["bg-top-left", "background-position: top left;"],
     ["bg-top", "background-position: top;"],
-    ["bg-(position:<custom-property>)", "background-position: var(<custom-property>);"],
-    ["bg-[<value>]", "background-position: <value>;"],
+    ["bg-top-right", "background-position: top right;"],
+    ["bg-left", "background-position: left;"],
+    ["bg-center", "background-position: center;"],
+    ["bg-right", "background-position: right;"],
+    ["bg-bottom-left", "background-position: bottom left;"],
+    ["bg-bottom", "background-position: bottom;"],
+    ["bg-bottom-right", "background-position: bottom right;"],
+    ["bg-position-(<custom-property>)", "background-position: var(<custom-property>);"],
+    ["bg-position-[<value>]", "background-position: <value>;"],
   ]}
 />
 
@@ -26,7 +26,7 @@ export const description = "Utilities for controlling the position of an element
 
 ### Basic example
 
-Use utilities like `bg-center`, `bg-right`, and `bg-left-top` to control the position of an element's background image:
+Use utilities like `bg-center`, `bg-right`, and `bg-top-left` to control the position of an element's background image:
 
 <Figure hint="Hover over these examples to see the full image">
 
@@ -35,11 +35,11 @@ Use utilities like `bg-center`, `bg-right`, and `bg-left-top` to control the pos
     <div className="w-full">
       <div className="flex snap-x scroll-p-4 items-end overflow-x-scroll overflow-y-hidden p-8 pt-16 sm:grid sm:grid-cols-3 sm:gap-16">
         <div className="relative w-32 shrink-0 snap-start snap-always sm:w-auto">
-          <p className="absolute inset-x-0 top-0 mb-3 -translate-y-8 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
-            bg-left-top
+          <p className="absolute inset-x-0 top-0 mb-3 -translate-y-8 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
+            bg-top-left
           </p>
           <div className="group relative mx-auto h-20 w-20 rounded-lg">
-            <div className="relative z-10 h-full w-full rounded-md bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90)] bg-[size:8rem] bg-left-top outline -outline-offset-1 outline-black/10"></div>
+            <div className="relative z-10 h-full w-full rounded-md bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90)] bg-[size:8rem] bg-top-left outline -outline-offset-1 outline-black/10"></div>
             <img
               className="absolute top-0 left-0 h-32 w-32 max-w-none overflow-hidden rounded-md opacity-0 sm:group-hover:opacity-25"
               src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90"
@@ -47,7 +47,7 @@ Use utilities like `bg-center`, `bg-right`, and `bg-left-top` to control the pos
           </div>
         </div>
         <div className="relative w-32 shrink-0 snap-start snap-always sm:w-auto">
-          <p className="absolute inset-x-0 top-0 mb-3 -translate-y-8 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+          <p className="absolute inset-x-0 top-0 mb-3 -translate-y-8 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
             bg-top
           </p>
           <div className="group relative mx-auto h-20 w-20 rounded-lg">
@@ -59,11 +59,11 @@ Use utilities like `bg-center`, `bg-right`, and `bg-left-top` to control the pos
           </div>
         </div>
         <div className="relative w-32 shrink-0 snap-start snap-always sm:w-auto">
-          <p className="absolute inset-x-0 top-0 mb-3 -translate-y-8 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
-            bg-right-top
+          <p className="absolute inset-x-0 top-0 mb-3 -translate-y-8 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
+            bg-top-right
           </p>
           <div className="group relative mx-auto h-20 w-20 rounded-lg">
-            <div className="relative z-10 h-full w-full rounded-md bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90)] bg-[size:8rem] bg-right-top outline -outline-offset-1 outline-black/10"></div>
+            <div className="relative z-10 h-full w-full rounded-md bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90)] bg-[size:8rem] bg-top-right outline -outline-offset-1 outline-black/10"></div>
             <img
               className="absolute top-0 right-0 h-32 w-32 max-w-none overflow-hidden rounded-md opacity-0 sm:group-hover:opacity-25"
               src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90"
@@ -71,7 +71,7 @@ Use utilities like `bg-center`, `bg-right`, and `bg-left-top` to control the pos
           </div>
         </div>
         <div className="relative w-32 shrink-0 snap-start snap-always sm:w-auto">
-          <p className="absolute inset-x-0 top-0 mb-3 -translate-y-8 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+          <p className="absolute inset-x-0 top-0 mb-3 -translate-y-8 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
             bg-left
           </p>
           <div className="group relative mx-auto h-20 w-20 rounded-lg">
@@ -83,7 +83,7 @@ Use utilities like `bg-center`, `bg-right`, and `bg-left-top` to control the pos
           </div>
         </div>
         <div className="relative w-32 shrink-0 snap-start snap-always sm:w-auto">
-          <p className="absolute inset-x-0 top-0 mb-3 -translate-y-8 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+          <p className="absolute inset-x-0 top-0 mb-3 -translate-y-8 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
             bg-center
           </p>
           <div className="group relative mx-auto h-20 w-20 rounded-lg">
@@ -95,7 +95,7 @@ Use utilities like `bg-center`, `bg-right`, and `bg-left-top` to control the pos
           </div>
         </div>
         <div className="relative w-32 shrink-0 snap-start snap-always sm:w-auto">
-          <p className="absolute inset-x-0 top-0 mb-3 -translate-y-8 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+          <p className="absolute inset-x-0 top-0 mb-3 -translate-y-8 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
             bg-right
           </p>
           <div className="group relative mx-auto h-20 w-20 rounded-lg">
@@ -107,11 +107,11 @@ Use utilities like `bg-center`, `bg-right`, and `bg-left-top` to control the pos
           </div>
         </div>
         <div className="relative w-32 shrink-0 snap-start snap-always sm:w-auto">
-          <p className="absolute inset-x-0 top-0 mb-3 -translate-y-8 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
-            bg-left-bottom
+          <p className="absolute inset-x-0 top-0 mb-3 -translate-y-8 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
+            bg-bottom-left
           </p>
           <div className="group relative mx-auto h-20 w-20 rounded-lg">
-            <div className="relative z-10 h-full w-full rounded-md bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90)] bg-[size:8rem] bg-left-bottom outline -outline-offset-1 outline-black/10"></div>
+            <div className="relative z-10 h-full w-full rounded-md bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90)] bg-[size:8rem] bg-bottom-left outline -outline-offset-1 outline-black/10"></div>
             <img
               className="absolute -top-12 left-0 h-32 w-32 max-w-none overflow-hidden rounded-md opacity-0 sm:group-hover:opacity-25"
               src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90"
@@ -119,7 +119,7 @@ Use utilities like `bg-center`, `bg-right`, and `bg-left-top` to control the pos
           </div>
         </div>
         <div className="relative w-32 shrink-0 snap-start snap-always sm:w-auto">
-          <p className="absolute inset-x-0 top-0 mb-3 -translate-y-8 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+          <p className="absolute inset-x-0 top-0 mb-3 -translate-y-8 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
             bg-bottom
           </p>
           <div className="group relative mx-auto h-20 w-20 rounded-lg">
@@ -131,11 +131,11 @@ Use utilities like `bg-center`, `bg-right`, and `bg-left-top` to control the pos
           </div>
         </div>
         <div className="relative -mx-8 w-48 shrink-0 snap-start snap-always sm:w-auto">
-          <p className="absolute inset-x-0 top-0 mb-3 -translate-y-8 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
-            bg-right-bottom
+          <p className="absolute inset-x-0 top-0 mb-3 -translate-y-8 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
+            bg-bottom-right
           </p>
           <div className="group relative mx-auto h-20 w-20 rounded-lg">
-            <div className="relative z-10 h-full w-full rounded-md bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90)] bg-[size:8rem] bg-right-bottom outline -outline-offset-1 outline-black/10"></div>
+            <div className="relative z-10 h-full w-full rounded-md bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90)] bg-[size:8rem] bg-bottom-right outline -outline-offset-1 outline-black/10"></div>
             <img
               className="absolute -top-12 right-0 h-32 w-32 max-w-none overflow-hidden rounded-md opacity-0 sm:group-hover:opacity-25"
               src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90"
@@ -148,29 +148,23 @@ Use utilities like `bg-center`, `bg-right`, and `bg-left-top` to control the pos
 </Example>
 
 ```html
-<!-- [!code classes:bg-left-top,bg-right-top,bg-right-bottom,bg-left-bottom,bg-center,bg-right,bg-top,bg-bottom,bg-left] -->
-<div class="bg-[url(/img/mountains.jpg)] bg-left-top"></div>
+<!-- [!code classes:bg-top-left,bg-top-right,bg-bottom-right,bg-bottom-left,bg-center,bg-right,bg-top,bg-bottom,bg-left] -->
+<div class="bg-[url(/img/mountains.jpg)] bg-top-left"></div>
 <div class="bg-[url(/img/mountains.jpg)] bg-top"></div>
-<div class="bg-[url(/img/mountains.jpg)] bg-right-top"></div>
+<div class="bg-[url(/img/mountains.jpg)] bg-top-right"></div>
 <div class="bg-[url(/img/mountains.jpg)] bg-left"></div>
 <div class="bg-[url(/img/mountains.jpg)] bg-center"></div>
 <div class="bg-[url(/img/mountains.jpg)] bg-right"></div>
-<div class="bg-[url(/img/mountains.jpg)] bg-left-bottom"></div>
+<div class="bg-[url(/img/mountains.jpg)] bg-bottom-left"></div>
 <div class="bg-[url(/img/mountains.jpg)] bg-bottom"></div>
-<div class="bg-[url(/img/mountains.jpg)] bg-right-bottom"></div>
+<div class="bg-[url(/img/mountains.jpg)] bg-bottom-right"></div>
 ```
 
 </Figure>
 
 ### Using a custom value
 
-<UsingACustomValue
-  utility="bg"
-  value="center_top_1rem"
-  name="background position"
-  variable="bg-position"
-  dataType="position"
-/>
+<UsingACustomValue utility="bg-position" value="center_top_1rem" name="background position" variable="bg-position" />
 
 ### Responsive design
 

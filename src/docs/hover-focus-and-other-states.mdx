@@ -1857,6 +1857,87 @@ Use the `not-forced-colors` variant to apply styles based when the user is _not_
 
 Tailwind also includes a [forced color adjust](/docs/forced-color-adjust) utilities to opt in and out of forced colors.
 
+### inverted-colors
+
+Use the `inverted-colors` variant to conditionally add styles when the user has enabled an inverted color scheme:
+
+```html
+<!-- [!code classes:inverted-colors:shadow-none] -->
+<div class="shadow-xl inverted-colors:shadow-none ...">
+  <!-- ... -->
+</div>
+```
+
+### pointer and any-pointer
+
+The `pointer` media query tells you whether the user has a primary pointing device, like a mouse, and the accuracy of that pointing device.
+
+Use the `pointer-fine` variant to target an accurate pointing device, like a mouse or trackpad, or the `pointer-coarse` variant to target a less accurate pointing device, like a touchscreen, which can be useful for providing larger click targets on touch devices:
+
+<Figure hint="Try emulating a touch device in your developer tools to see the changes">
+
+<Example>
+  {
+    <fieldset aria-label="Choose a memory option" className="mx-auto max-w-md">
+      <div className="flex items-center justify-between">
+        <div className="text-sm/6 font-medium text-gray-900 dark:text-white">RAM</div>
+        <a href="#" className="text-sm/6 font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400">
+          See performance specs
+        </a>
+      </div>
+      <div className="mt-4 grid grid-cols-6 gap-2 max-sm:grid-cols-3 pointer-coarse:mt-6 pointer-coarse:grid-cols-3 pointer-coarse:gap-4">
+        <label className="flex items-center justify-center rounded-md bg-white p-2 text-sm font-semibold text-gray-900 uppercase ring-1 ring-gray-300 not-data-focus:not-has-checked:ring-inset hover:bg-gray-50 has-checked:bg-indigo-600 has-checked:text-white has-checked:ring-0 has-checked:hover:bg-indigo-500 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-indigo-600 data-focus:ring-2 data-focus:ring-indigo-600 data-focus:ring-offset-2 data-focus:has-checked:ring-2 sm:flex-1 dark:bg-transparent dark:text-white dark:ring-white/20 dark:hover:bg-gray-950/50 pointer-coarse:p-4">
+          <input type="radio" name="memory-option" value="4 GB" className="sr-only" />
+          <span>4 GB</span>
+        </label>
+        <label className="flex items-center justify-center rounded-md bg-white p-2 text-sm font-semibold text-gray-900 uppercase ring-1 ring-gray-300 not-data-focus:not-has-checked:ring-inset hover:bg-gray-50 has-checked:bg-indigo-600 has-checked:text-white has-checked:ring-0 has-checked:hover:bg-indigo-500 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-indigo-600 data-focus:ring-2 data-focus:ring-indigo-600 data-focus:ring-offset-2 data-focus:has-checked:ring-2 sm:flex-1 dark:bg-transparent dark:text-white dark:ring-white/20 dark:hover:bg-gray-950/50 pointer-coarse:p-4">
+          <input type="radio" name="memory-option" value="8 GB" className="sr-only" defaultChecked />
+          <span>8 GB</span>
+        </label>
+        <label className="flex items-center justify-center rounded-md bg-white p-2 text-sm font-semibold text-gray-900 uppercase ring-1 ring-gray-300 not-data-focus:not-has-checked:ring-inset hover:bg-gray-50 has-checked:bg-indigo-600 has-checked:text-white has-checked:ring-0 has-checked:hover:bg-indigo-500 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-indigo-600 data-focus:ring-2 data-focus:ring-indigo-600 data-focus:ring-offset-2 data-focus:has-checked:ring-2 sm:flex-1 dark:bg-transparent dark:text-white dark:ring-white/20 dark:hover:bg-gray-950/50 pointer-coarse:p-4">
+          <input type="radio" name="memory-option" value="16 GB" className="sr-only" />
+          <span>16 GB</span>
+        </label>
+        <label className="flex items-center justify-center rounded-md bg-white p-2 text-sm font-semibold text-gray-900 uppercase ring-1 ring-gray-300 not-data-focus:not-has-checked:ring-inset hover:bg-gray-50 has-checked:bg-indigo-600 has-checked:text-white has-checked:ring-0 has-checked:hover:bg-indigo-500 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-indigo-600 data-focus:ring-2 data-focus:ring-indigo-600 data-focus:ring-offset-2 data-focus:has-checked:ring-2 sm:flex-1 dark:bg-transparent dark:text-white dark:ring-white/20 dark:hover:bg-gray-950/50 pointer-coarse:p-4">
+          <input type="radio" name="memory-option" value="32 GB" className="sr-only" />
+          <span>32 GB</span>
+        </label>
+        <label className="flex items-center justify-center rounded-md bg-white p-2 text-sm font-semibold text-gray-900 uppercase ring-1 ring-gray-300 not-data-focus:not-has-checked:ring-inset hover:bg-gray-50 has-checked:bg-indigo-600 has-checked:text-white has-checked:ring-0 has-checked:hover:bg-indigo-500 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-indigo-600 data-focus:ring-2 data-focus:ring-indigo-600 data-focus:ring-offset-2 data-focus:has-checked:ring-2 sm:flex-1 dark:bg-transparent dark:text-white dark:ring-white/20 dark:hover:bg-gray-950/50 pointer-coarse:p-4">
+          <input type="radio" name="memory-option" value="64 GB" className="sr-only" />
+          <span>64 GB</span>
+        </label>
+        <label className="flex items-center justify-center rounded-md bg-white p-2 text-sm font-semibold text-gray-900 uppercase ring-1 ring-gray-300 not-data-focus:not-has-checked:ring-inset hover:bg-gray-50 has-checked:bg-indigo-600 has-checked:text-white has-checked:ring-0 has-checked:hover:bg-indigo-500 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-indigo-600 data-focus:ring-2 data-focus:ring-indigo-600 data-focus:ring-offset-2 data-focus:has-checked:ring-2 sm:flex-1 dark:bg-transparent dark:text-white dark:ring-white/20 dark:hover:bg-gray-950/50 pointer-coarse:p-4">
+          <input type="radio" name="memory-option" value="128 GB" className="sr-only" />
+          <span>128 GB</span>
+        </label>
+      </div>
+    </fieldset>
+  }
+</Example>
+
+```html
+<!-- [!code classes:pointer-coarse:mt-6,pointer-coarse:grid-cols-3,pointer-coarse:gap-4,pointer-coarse:p-4] -->
+<fieldset aria-label="Choose a memory option">
+  <div class="flex items-center justify-between">
+    <div>RAM</div>
+    <a href="#"> See performance specs </a>
+  </div>
+  <div class="mt-4 grid grid-cols-6 gap-2 pointer-coarse:mt-6 pointer-coarse:grid-cols-3 pointer-coarse:gap-4">
+    <label class="p-2 pointer-coarse:p-4 ...">
+      <input type="radio" name="memory-option" value="4 GB" className="sr-only" />
+      <span>4 GB</span>
+    </label>
+    <!-- ... -->
+  </div>
+</fieldset>
+```
+
+</Figure>
+
+While `pointer`only targets the primary pointing device, `any-pointer` is used to target any of the pointing devices that might be available. Use the `any-pointer-fine` and `any-pointer-coarse` variants to provide different styles if at least one connected pointing device meets the criteria.
+
+You can use `pointer-none` and `any-pointer-none` to target the absence of a pointing device.
+
 ### orientation
 
 Use the `portrait` and `landscape` variants to conditionally add styles when the viewport is in a specific orientation:
@@ -1870,6 +1951,17 @@ Use the `portrait` and `landscape` variants to conditionally add styles when the
   <div class="landscape:hidden">
     <p>This experience is designed to be viewed in landscape. Please rotate your device to view the site.</p>
   </div>
+</div>
+```
+
+### scripting
+
+Use the `noscript` variant to conditionally add styles based on whether the user has scripting, such as JavaScript, enabled:
+
+```html
+<!-- [!code classes:noscript:block] -->
+<div class="hidden noscript:block">
+  <p>This experience requires JavaScript to function. Please enable JavaScript in your browser settings.</p>
 </div>
 ```
 
@@ -2881,40 +2973,22 @@ With at-rule custom variants the `&` placeholder isn't necessary, just like when
 
 ### Registering a custom variant
 
-If you find yourself using the same arbitrary variant multiple times in your project, it might be worth creating a custom variant:
+If you find yourself using the same arbitrary variant multiple times in your project, it might be worth creating a custom variant using the `@custom-variant` directive:
 
 ```css
-@custom-variant pointer-coarse {
-  @media (pointer: coarse) {
-    @slot;
-  }
-}
+@custom-variant theme-midnight (&:where([data-theme="midnight"] *));
 ```
 
-Now you can use the `pointer-coarse:<utility>` variant in your HTML:
+Now you can use the `theme-midnight:<utility>` variant in your HTML:
 
 ```html
-<!-- [!code classes:pointer-coarse:size-12] -->
-<button class="pointer-coarse:size-12 ..."></button>
+<!-- [!code classes:theme-midnight:bg-black] -->
+<html data-theme="midnight">
+  <button class="theme-midnight:bg-black ..."></button>
+</html>
 ```
 
-You can create variants using the shorthand syntax when nesting isn't required:
-
-```css
-@custom-variant pointer-coarse (@media (pointer: coarse));
-```
-
-When a custom variant has multiple rules, they can be nested within each other:
-
-```css
-@custom-variant any-hover {
-  @media (any-hover: hover) {
-    &:hover {
-      @slot;
-    }
-  }
-}
-```
+Learn more about adding custom variants in the [adding custom variants documentation](/docs/adding-custom-styles#adding-custom-variants).
 
 ## Appendix
 
@@ -3379,6 +3453,30 @@ A quick reference table of every single variant included in Tailwind by default.
       </tr>
       <tr>
         <td>
+          <a href="#user-valid" className="whitespace-nowrap">
+            user-valid
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">
+            <span className="text-gray-400">&</span>:user-valid
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#user-invalid" className="whitespace-nowrap">
+            user-invalid
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">
+            <span className="text-gray-400">&</span>:user-invalid
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td>
           <a href="#in-range" className="whitespace-nowrap">
             in-range
           </a>
@@ -3410,6 +3508,18 @@ A quick reference table of every single variant included in Tailwind by default.
         <td>
           <code className="whitespace-nowrap before:content-none after:content-none">
             <span className="text-gray-400">&</span>:placeholder-shown
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#placeholder-shown" className="whitespace-nowrap">
+            details-content
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">
+            <span className="text-gray-400">&</span>:details-content
           </code>
         </td>
       </tr>
@@ -4019,30 +4129,6 @@ A quick reference table of every single variant included in Tailwind by default.
       </tr>
       <tr>
         <td>
-          <a href="#orientation" className="whitespace-nowrap">
-            portrait
-          </a>
-        </td>
-        <td>
-          <code className="whitespace-nowrap before:content-none after:content-none">
-            @media (orientation: portrait)
-          </code>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a href="#orientation" className="whitespace-nowrap">
-            landscape
-          </a>
-        </td>
-        <td>
-          <code className="whitespace-nowrap before:content-none after:content-none">
-            @media (orientation: landscape)
-          </code>
-        </td>
-      </tr>
-      <tr>
-        <td>
           <a href="#prefers-reduced-motion" className="whitespace-nowrap">
             motion-safe
           </a>
@@ -4087,6 +4173,124 @@ A quick reference table of every single variant included in Tailwind by default.
           <code className="whitespace-nowrap before:content-none after:content-none">
             @media (prefers-contrast: less)
           </code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#forced-colors" className="whitespace-nowrap">
+            forced-colors
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">
+            @media (forced-colors: active)
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#inverted-colors" className="whitespace-nowrap">
+            inverted-colors
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">
+            @media (inverted-colors: inverted)
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#pointer-and-any-pointer" className="whitespace-nowrap">
+            pointer-fine
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">@media (pointer: fine)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#pointer-and-any-pointer" className="whitespace-nowrap">
+            pointer-coarse
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">@media (pointer: coarse)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#pointer-and-any-pointer" className="whitespace-nowrap">
+            pointer-none
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">@media (pointer: none)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#pointer-and-any-pointer" className="whitespace-nowrap">
+            any-pointer-fine
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">@media (any-pointer: fine)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#pointer-and-any-pointer" className="whitespace-nowrap">
+            any-pointer-coarse
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">@media (any-pointer: coarse)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#pointer-and-any-pointer" className="whitespace-nowrap">
+            any-pointer-none
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">@media (any-pointer: none)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#orientation" className="whitespace-nowrap">
+            portrait
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">
+            @media (orientation: portrait)
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#orientation" className="whitespace-nowrap">
+            landscape
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">
+            @media (orientation: landscape)
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#scripting" className="whitespace-nowrap">
+            noscript
+          </a>
+        </td>
+        <td>
+          <code className="whitespace-nowrap before:content-none after:content-none">@media (scripting: none)</code>
         </td>
       </tr>
       <tr>
@@ -4234,12 +4438,12 @@ A quick reference table of every single variant included in Tailwind by default.
       <tr>
         <td>
           <a href="#data-attributes" className="whitespace-nowrap">
-            data-[<span className="text-gray-400">...</span>]
+            data-[<span className="text-gray-400">&hellip;</span>]
           </a>
         </td>
         <td>
           <code className="whitespace-nowrap before:content-none after:content-none">
-            <span className="text-gray-400">&</span>[data-<span className="text-gray-400">...</span>]
+            <span className="text-gray-400">&</span>[data-<span className="text-gray-400">&hellip;</span>]
           </code>
         </td>
       </tr>
@@ -4276,18 +4480,6 @@ A quick reference table of every single variant included in Tailwind by default.
         <td>
           <code className="whitespace-nowrap before:content-none after:content-none">
             <span className="text-gray-400">&</span>:is([open], :popover-open, :open)
-          </code>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a href="#forced-colors" className="whitespace-nowrap">
-            forced-colors
-          </a>
-        </td>
-        <td>
-          <code className="whitespace-nowrap before:content-none after:content-none">
-            @media (forced-colors: active)
           </code>
         </td>
       </tr>
@@ -4637,7 +4829,7 @@ Style an input when it's optional using the `optional` variant:
 
 ```html
 <!-- [!code classes:optional:border-red-500] -->
-<input class="optional:border-red-500 ..." />
+<input class="border optional:border-red-500 ..." />
 ```
 
 #### :required
@@ -4646,7 +4838,7 @@ Style an input when it's required using the `required` variant:
 
 ```html
 <!-- [!code classes:required:border-red-500] -->
-<input class="required:border-red-500 ..." />
+<input required class="border required:border-red-500 ..." />
 ```
 
 #### :valid
@@ -4655,7 +4847,7 @@ Style an input when it's valid using the `valid` variant:
 
 ```html
 <!-- [!code classes:valid:border-green-500] -->
-<input class="valid:border-green-500 ..." />
+<input required class="border valid:border-green-500 ..." />
 ```
 
 #### :invalid
@@ -4664,7 +4856,25 @@ Style an input when it's invalid using the `invalid` variant:
 
 ```html
 <!-- [!code classes:invalid:border-red-500] -->
-<input class="invalid:border-red-500 ..." />
+<input required class="border invalid:border-red-500 ..." />
+```
+
+#### :user-valid
+
+Style an input when it's valid and the user has interacted with it, using the `user-valid` variant:
+
+```html
+<!-- [!code classes:user-valid:border-green-500] -->
+<input required class="border user-valid:border-green-500" />
+```
+
+#### :user-invalid
+
+Style an input when it's invalid and the user has interacted with it, using the `user-invalid` variant:
+
+```html
+<!-- [!code classes:user-invalid:border-red-500] -->
+<input required class="border user-invalid:border-red-500" />
 ```
 
 #### :in-range
@@ -4692,6 +4902,18 @@ Style an input when the placeholder is shown using the `placeholder-shown` varia
 ```html
 <!-- [!code classes:placeholder-shown:border-gray-500] -->
 <input class="placeholder-shown:border-gray-500 ..." placeholder="you@example.com" />
+```
+
+#### :details-content
+
+Style the content of a `<details>` element using the `details-content` variant:
+
+```html
+<!-- [!code classes:details-content:bg-gray-100] -->
+<details class="details-content:bg-gray-100 ...">
+  <summary>Details</summary>
+  This is a secret.
+</details>
 ```
 
 #### :autofill

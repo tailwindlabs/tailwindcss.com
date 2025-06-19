@@ -1,7 +1,7 @@
 import { danhollick } from "@/app/blog/authors";
 import twitterCard from "./twitter-card.png";
 import template from "./template.png";
-import Image from "next/image";
+import { Image, Video } from "@/components/media";
 import savvycalRadiant from "./savvycal-radiant.jpg";
 import sanityStudio from "./sanity-studio.png";
 import blog from "./blog.png";
@@ -20,13 +20,11 @@ export const meta = {
   ),
 };
 
-We just wrapped up work on a beautiful new SaaS marketing site template called [Radiant](https://tailwindui.com/templates/radiant), and it's available now as part of [Tailwind UI](https://tailwindui.com).
+<a href="https://tailwindui.com/templates/radiant">
+  <Image src={template} alt="Learn about the Radiant template" />
+</a>
 
-<p>
-  <a href="https://tailwindui.com/templates/radiant">
-    <Image src={template} alt="Learn about the Radiant template" />
-  </a>
-</p>
+We just wrapped up work on a beautiful new SaaS marketing site template called [Radiant](https://tailwindui.com/templates/radiant), and it's available now as part of [Tailwind UI](https://tailwindui.com).
 
 It’s built with Next.js, Framer Motion, and Tailwind CSS, with a blog powered by Sanity.
 
@@ -42,17 +40,7 @@ It's super easy to overdo animation on a site like this. We've all seen sites wh
 
 Radiant is loaded with delightful animations, but they are all layered on to existing content and triggered by user interaction so the site still feels fast. In most cases, we went for animations that loop to make elements feel "alive" while you're interacting with them.
 
-<div className="relative my-8 overflow-hidden rounded-2xl">
-  <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-slate-900/10 ring-inset"></div>
-  <video
-    src="https://assets.tailwindcss.com/blog/2024-09-12-radiant-a-beautiful-new-marketing-site-template/scheduling-animation.mp4"
-    autoPlay
-    playsInline
-    loop
-    muted
-    className="m-0 block"
-  />
-</div>
+<Video src="https://assets.tailwindcss.com/blog/2024-09-12-radiant-a-beautiful-new-marketing-site-template/scheduling-animation.mp4" />
 
 We used [Framer Motion](https://www.framer.com/motion/) for almost all of the animations. It's declarative, making it easy to create our own APIs for complex animations that other people can customize without much effort.
 
@@ -111,17 +99,7 @@ function Marker({
 
 The logo timeline animation is a bit different, because we wanted the logos to pause in their current position when you stop hovering, rather than return to their original position. This doesn't play very well with Framer's approach of specifying start and end states, so it was actually easier to build this in CSS.
 
-<div className="relative my-8 overflow-hidden rounded-2xl">
-  <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-slate-900/10 ring-inset"></div>
-  <video
-    src="https://assets.tailwindcss.com/blog/2024-09-12-radiant-a-beautiful-new-marketing-site-template/logo-timeline.mp4"
-    autoPlay
-    playsInline
-    loop
-    muted
-    className="m-0 block"
-  />
-</div>
+<Video src="https://assets.tailwindcss.com/blog/2024-09-12-radiant-a-beautiful-new-marketing-site-template/logo-timeline.mp4" />
 
 It exploits the fact that you can set a negative `animation-delay` value to offset the start position of the element. That way all the logos share the same animation keyframes but they can start at different positions and have different durations.
 
@@ -182,17 +160,7 @@ As you've maybe noticed, we're using a bunch of arbitrary properties for individ
 
 The trickiest part of designing a SaaS template like this, is coming up with interactive elements that people can apply to their own product without too much effort. There's nothing worse than buying a template and realizing that it's so specific to the example content that you can't actually use it for your own project.
 
-<div className="relative my-8 overflow-hidden rounded-2xl">
-  <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-slate-900/10 ring-inset"></div>
-  <video
-    src="https://assets.tailwindcss.com/blog/2024-09-12-radiant-a-beautiful-new-marketing-site-template/light-bento.mp4"
-    autoPlay
-    playsInline
-    loop
-    muted
-    className="m-0 block"
-  />
-</div>
+<Video src="https://assets.tailwindcss.com/blog/2024-09-12-radiant-a-beautiful-new-marketing-site-template/light-bento.mp4" />
 
 We came up with some core graphical elements that most SaaS products might have. A map with pins, a logo cluster, a keyboard — things that could be applied to a bunch of different features. Because we wanted them to be easy to repurpose for your own product, we built a lot of them in code and designed nice APIs for them.
 
@@ -210,17 +178,7 @@ The keyboard shortcuts section is another good example. Adding your own shortcut
 
 It turns out it's actually quite a lot of work to build a keyboard in code, but at least now you'll never have to find that out for yourself.
 
-<div className="relative my-8 overflow-hidden rounded-2xl">
-  <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-slate-900/10 ring-inset"></div>
-  <video
-    src="https://assets.tailwindcss.com/blog/2024-09-12-radiant-a-beautiful-new-marketing-site-template/keyboard.mp4"
-    autoPlay
-    playsInline
-    loop
-    muted
-    className="m-0 block"
-  />
-</div>
+<Video src="https://assets.tailwindcss.com/blog/2024-09-12-radiant-a-beautiful-new-marketing-site-template/keyboard.mp4" />
 
 Of course, we also left spots for you to drop in screenshots of your own product. Here's what this section looks like customized to suit our friends at [SavvyCal](https://savvycal.com/), using the same interactive components.
 

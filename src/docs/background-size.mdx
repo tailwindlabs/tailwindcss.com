@@ -12,8 +12,8 @@ export const description = "Utilities for controlling the background size of an 
     ["bg-auto", "background-size: auto;"],
     ["bg-cover", "background-size: cover;"],
     ["bg-contain", "background-size: contain;"],
-    ["bg-(length:<custom-property>)", "background-size: var(<custom-property>);"],
-    ["bg-[<value>]", "background-size: <value>;"],
+    ["bg-size-(<custom-property>)", "background-size: var(<custom-property>);"],
+    ["bg-size-[<value>]", "background-size: <value>;"],
   ]}
 />
 
@@ -93,13 +93,7 @@ Use the `bg-auto` utility to display the background image at its default size:
 
 ### Using a custom value
 
-<UsingACustomValue
-  utility="bg"
-  value="auto_100px"
-  name="background image size"
-  variable="image-size"
-  dataType="length"
-/>
+<UsingACustomValue utility="bg-size" value="auto_100px" name="background size" variable="image-size" />
 
 ### Responsive design
 

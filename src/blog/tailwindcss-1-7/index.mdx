@@ -1,8 +1,6 @@
+import { Example } from "@/components/example";
+import { Figure } from "@/components/figure";
 import { adamwathan } from "@/app/blog/authors";
-import Image from "next/image";
-import Link from "next/link";
-import { Figure } from "@/components/figure.tsx";
-import { CodeBlock, CodeExampleGroup } from "@/components/code-example";
 import image from "./card.jpg";
 
 export const meta = {
@@ -29,13 +27,17 @@ The big one for this release — Tailwind now ships with built-in support for ba
 
 Gradients are designed with a highly composable API that lets you specify up to three color stops in one of 8 directions by default:
 
+<Figure>
+
+<Example>{<div className="h-24 w-full bg-gradient-to-r from-orange-400 via-red-500 to-pink-500" />}</Example>
+
 ```html
 <div class="bg-gradient-to-r from-orange-400 via-red-500 to-pink-500">
   <!-- ... -->
 </div>
 ```
 
-![](https://user-images.githubusercontent.com/4323180/90427639-ce57e280-e090-11ea-8611-53a64707fafc.png)
+</Figure>
 
 This is made possible by a new `backgroundImage` core plugin (which you can use for any background images you like!) and a new `gradientColorStops` core plugin.
 
@@ -120,15 +122,27 @@ It includes 4 new utilities:
 
 Combined with the new gradient features, you can use this to do cool gradient text stuff like this:
 
+<Figure>
+
+<Example>
+  {
+    <div className="text-center text-5xl font-bold">
+      <span className="bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">
+        Greetings from Tailwind v1.7.
+      </span>
+    </div>
+  }
+</Example>
+
 ```html
-<h1 class="text-6xl font-bold">
+<h1 class="text-center text-5xl font-bold">
   <span class="bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">
     Greetings from Tailwind v1.7.
   </span>
 </h1>
 ```
 
-![](https://user-images.githubusercontent.com/4323180/90427567-b54f3180-e090-11ea-988b-c95ed716866f.png)
+</Figure>
 
 Only responsive variants are enabled for the `backgroundClip` plugin by default:
 

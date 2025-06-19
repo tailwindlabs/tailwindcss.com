@@ -10,7 +10,6 @@ import { createHighlighter } from "shiki";
 import theme from "./syntax-highlighter/theme.json";
 
 import { highlightClasses } from "./highlight-classes";
-import linesToDiv from "./lines-to-div";
 import atApplyInjection from "./syntax-highlighter/at-apply.json";
 import atRulesInjection from "./syntax-highlighter/at-rules.json";
 import themeFnInjection from "./syntax-highlighter/theme-fn.json";
@@ -74,7 +73,9 @@ export function CodeExampleWrapper({ className, children }: { className?: string
 export function CodeExampleStack({ children }: { children: React.ReactNode }) {
   return (
     <div data-stack>
-      <div className="not-prose rounded-xl dark:outline dark:-outline-offset-1 dark:outline-white/10">{children}</div>
+      <div className="not-prose rounded-xl in-[figure]:mt-1 in-[figure]:rounded-b-lg in-[figure]:px-0.5 in-[figure]:pb-0.5 dark:outline dark:-outline-offset-1 dark:outline-white/10 dark:in-[figure]:outline-1 dark:in-[figure]:outline-offset-1">
+        {children}
+      </div>
     </div>
   );
 }
@@ -135,9 +136,10 @@ export function HighlightedCode({
     <RawHighlightedCode
       example={example}
       className={clsx(
-        "*:flex *:*:max-w-none *:*:shrink-0 *:*:grow *:overflow-auto *:rounded-lg *:bg-white/10! *:p-5 dark:*:bg-white/5!",
-        "**:[.line]:isolate **:[.line]:not-last:min-h-[1lh]",
+        "*:flex *:*:shrink-0 *:*:grow *:overflow-auto *:rounded-lg *:bg-white/10! *:p-5 dark:*:bg-white/5!",
+        "**:[.line]:isolate **:[.line]:block **:[.line]:not-last:min-h-[1lh]",
         "*:inset-ring *:inset-ring-white/10 dark:*:inset-ring-white/5",
+        example.lang === "txt" ? "*:*:max-w-full *:*:whitespace-normal" : "*:*:max-w-none",
         className,
       )}
     />
@@ -179,7 +181,6 @@ export function RawHighlightedCode({
           highlightedClassName:
             "highlighted-word relative before:absolute before:-inset-x-0.5 before:-inset-y-0.25 before:-z-10 before:block before:rounded-sm before:bg-[lab(19.93_-1.66_-9.7)] [.highlighted-word_+_&]:before:rounded-l-none",
         }),
-        linesToDiv(),
       ],
     })
     .replaceAll("\n", "");

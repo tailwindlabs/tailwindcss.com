@@ -1,10 +1,12 @@
+import { Example } from "@/components/example";
+import { Figure } from "@/components/figure";
 import { reinink, adamwathan } from "@/app/blog/authors";
 import card from "./card.jpg";
 import banner from "./banner.jpg";
 import commandPalette from "./command-palette.jpg";
 import { Transition, Tab, TabGroup, TabList, TabPanels, TabPanel } from "@headlessui/react";
 import Link from "next/link";
-import Image from "next/image";
+import { Image } from "@/components/media";
 import { CodeExampleGroup, CodeBlock, js, jsx, html } from "@/components/code-example";
 import Demo from "./demo";
 
@@ -22,17 +24,21 @@ export const meta = {
   ),
 };
 
-We just released Headless UI v1.5, which includes a brand new `Combobox` component. Comboboxes are like select controls but with autocomplete/typeahead functionality, and are a great alternative to a regular select when you're working with large datasets and want to quickly filter for the right option.
-
 <Link href="https://headlessui.dev">
   <Image alt="Headless UI v1.5" src={banner} />
 </Link>
+
+We just released Headless UI v1.5, which includes a brand new `Combobox` component. Comboboxes are like select controls but with autocomplete/typeahead functionality, and are a great alternative to a regular select when you're working with large datasets and want to quickly filter for the right option.
 
 Like all other Headless UI components, the combobox abstracts away all of the complex accessibility considerations but leaves the styling completely up to you, giving you total control to design exactly the combobox you want without worrying about things like keyboard navigation or screen reader support.
 
 Here's a quick demo if you'd like to see it in action:
 
+<Figure>
+
 <Demo />
+
+</Figure>
 
 We've intentionally designed it so that you have full control over filtering the actual results. You can do basic string comparisons, use a fuzzy search library like <Link href="https://fusejs.io/">Fuse.js</Link>, or even make server-side requests to an API — whatever makes sense for your project.
 

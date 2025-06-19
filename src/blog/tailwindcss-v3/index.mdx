@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Image, YouTubeVideo } from "@/components/media";
 import Link from "next/link";
 import { Example } from "@/components/example";
 import { Figure } from "@/components/figure";
@@ -20,15 +20,9 @@ export const meta = {
   ),
 };
 
-Tailwind CSS v3.0 is here — bringing incredible performance gains, huge workflow improvements, and a seriously ridiculous number of new features.
+<YouTubeVideo id="TmWIrBPE6Bc" />
 
-<iframe
-  src="https://www.youtube.com/embed/TmWIrBPE6Bc"
-  frameBorder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-  className="aspect-video w-full"
-></iframe>
+Tailwind CSS v3.0 is here — bringing incredible performance gains, huge workflow improvements, and a seriously ridiculous number of new features.
 
 For a tour of some of the coolest new features, check out the {" "}<Link href="https://www.youtube.com/watch?v=mSC6GwizOag">"What's new in Tailwind CSS v3.0"</Link> video on our YouTube
 channel.
@@ -85,13 +79,7 @@ For more details and step-by-step instructions on migrating to v3.0, check out t
 
 Back in March we introduced the brand new <Link href="/blog/just-in-time-the-next-generation-of-tailwind-css">Just-in-Time engine</Link> which brought huge performance gains, unlocked exciting new features like <Link href="https://v3.tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values">arbitrary values</Link>, and made complex variant configurations a thing of the past.
 
-<iframe
-  src="https://www.youtube.com/embed/3O_3X7InOw8"
-  frameBorder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-  className="aspect-video w-full"
-></iframe>
+<YouTubeVideo id="3O_3X7InOw8" />
 
 In Tailwind CSS v3.0, the new engine has gone stable and replaced the classic engine, so every Tailwind project can benefit from these improvements out of the box.
 
@@ -119,7 +107,7 @@ After about five false starts, we finally figured out an approach we liked, and 
   {
     <div className="flex flex-col justify-center gap-8 sm:flex-row sm:gap-16">
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-slate-500 dark:text-slate-400">
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
           <>shadow-cyan-500/50</>
         </p>
         <button className="rounded-md bg-cyan-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-cyan-500/50 focus:outline-none">
@@ -127,7 +115,7 @@ After about five false starts, we finally figured out an approach we liked, and 
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-slate-500 dark:text-slate-400">
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
           <>shadow-blue-500/50</>
         </p>
         <button className="rounded-md bg-blue-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-500/50 focus:outline-none">
@@ -135,7 +123,7 @@ After about five false starts, we finally figured out an approach we liked, and 
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-slate-500 dark:text-slate-400">
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
           <>shadow-indigo-500/50</>
         </p>
         <button className="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-indigo-500/50 focus:outline-none">

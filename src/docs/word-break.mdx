@@ -8,8 +8,7 @@ export const description = "Utilities for controlling word breaks in an element.
 
 <ApiTable
   rows={[
-    ["break-normal", "overflow-wrap: normal;\nword-break: normal;"],
-    ["break-words", "overflow-wrap: break-word;"],
+    ["break-normal", "word-break: normal;"],
     ["break-all", "word-break: break-all;"],
     ["break-keep", "word-break: keep-all;"],
   ]}
@@ -37,30 +36,6 @@ Use the `break-normal` utility to only add line breaks at normal word break poin
 ```html
 <!-- [!code classes:break-normal] -->
 <p class="break-normal">The longest word in any of the major...</p>
-```
-
-</Figure>
-
-### Break Words
-
-Use the `break-words` utility to add line breaks mid-word if needed:
-
-<Figure>
-
-<Example padding={false}>
-  {
-    <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 break-words text-gray-900 dark:text-gray-200">
-      The longest word in any of the major English language dictionaries is{" "}
-      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that refers to a lung
-      disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it
-      is the same as silicosis.
-    </p>
-  }
-</Example>
-
-```html
-<!-- [!code classes:break-words] -->
-<p class="break-words">The longest word in any of the major...</p>
 ```
 
 </Figure>

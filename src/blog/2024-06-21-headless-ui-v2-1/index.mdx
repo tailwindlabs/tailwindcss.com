@@ -1,6 +1,6 @@
 import { adamwathan, reinink } from "@/app/blog/authors";
 import card from "./card.jpg";
-import Image from "next/image";
+import { Image, Video } from "@/components/media";
 
 export const meta = {
   title: "Headless UI v2.1: Simplified transition API and improved multi-dialog support",
@@ -126,17 +126,7 @@ This can be really helpful when two unrelated parts of your application need to 
 
 Here's what something like that might look like with [Catalyst](https://tailwindui.com/templates/catalyst), the application UI kit we've been working on recently:
 
-<div className="relative overflow-hidden rounded-2xl">
-  <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-slate-900/10 ring-inset"></div>
-  <video
-    src="https://assets.tailwindcss.com/blog%2F2024-06-21-headless-ui-v2-1%2Fheadlessui-sibling-dialogs.mp4"
-    autoPlay
-    playsInline
-    loop
-    muted
-    className="m-0 block"
-  />
-</div>
+<Video src="https://assets.tailwindcss.com/blog%2F2024-06-21-headless-ui-v2-1%2Fheadlessui-sibling-dialogs.mp4" />
 
 We keep track of the order in which each dialog is opened, and whichever one was opened last is the one that will close when you press escape or click outside the dialog.
 

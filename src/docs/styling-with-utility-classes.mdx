@@ -259,12 +259,11 @@ Styling an element in dark mode is just a matter of adding the `dark:` prefix to
     <div className="grid grid-cols-1 sm:grid-cols-2">
       <div className="p-8 pt-7">
         <p className="mb-2 text-sm font-medium text-gray-500">Light mode</p>
-        <div className="rounded-lg bg-white px-6 py-8 ring shadow-xl ring-gray-900/5">
+        <div className="rounded-lg bg-white px-6 py-8 shadow-xl ring ring-gray-900/5">
           <div>
             <span className="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-lg">
               <svg
                 className="h-6 w-6 text-white"
-
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -289,12 +288,11 @@ Styling an element in dark mode is just a matter of adding the `dark:` prefix to
       </div>
       <div className="bg-gray-900 p-8 pt-7">
         <p className="mb-2 text-sm font-medium text-gray-400">Dark mode</p>
-        <div className="rounded-lg bg-gray-800 px-6 py-8 ring shadow-xl ring-gray-900/5">
+        <div className="rounded-lg bg-gray-800 px-6 py-8 shadow-xl ring ring-gray-900/5">
           <div>
             <span className="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-lg">
               <svg
                 className="h-6 w-6 text-white"
-
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -318,9 +316,7 @@ Styling an element in dark mode is just a matter of adding the `dark:` prefix to
         </div>
       </div>
     </div>
-
-}
-
+  }
 </Example>
 
 ```html
@@ -426,8 +422,8 @@ It's also useful when you need to use CSS features like `calc()`, even if you ar
 
 ```html
 <!-- [!code filename:HTML] -->
-<!-- [!code classes:max-h-[calc(100dvh-(--spacing(6))]] -->
-<div class="max-h-[calc(100dvh-(--spacing(6))]">
+<!-- [!code classes:max-h-[calc(100dvh-(--spacing(6)))]] -->
+<div class="max-h-[calc(100dvh-(--spacing(6)))]">
   <!-- ... -->
 </div>
 ```
@@ -771,8 +767,6 @@ When elements are rendered in a loop like this, the actual class list is only wr
 
 When duplication is localized to a group of elements in a single file, the easiest way to deal with it is to use [multi-cursor editing](https://code.visualstudio.com/docs/editor/codebasics#_multiple-selections-multicursor) to quickly select and edit the class list for each element at once:
 
-You'd be surprised at how often this ends up being the best solution. If you can quickly edit all of the duplicated class lists simultaneously, there's no benefit to introducing any additional abstraction.
-
 <MultiCursorAnimation>
   <Figure>
     <Example>
@@ -783,6 +777,8 @@ You'd be surprised at how often this ends up being the best solution. If you can
     </CodeExampleWrapper>
   </Figure>
 </MultiCursorAnimation>
+
+You'd be surprised at how often this ends up being the best solution. If you can quickly edit all of the duplicated class lists simultaneously, there's no benefit to introducing any additional abstraction.
 
 ### Using components
 
