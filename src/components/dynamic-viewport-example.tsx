@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll, type Transition } from "framer-motion";
 import { useRef, useState } from "react";
 import { Example } from "./example";
 import { Stripes } from "./stripes";
@@ -14,7 +14,7 @@ const viewport = {
   padding: 5,
 };
 
-const transition = {
+const transition: Transition = {
   duration: 0.2,
   ease: "linear",
   type: "tween",
