@@ -1,5 +1,4 @@
 import colorValues from "@/docs/utils/colors";
-import { Tooltip, TooltipPanel, TooltipTrigger } from "@headlessui/react";
 import { StarIcon } from "@heroicons/react/16/solid";
 import clsx from "clsx";
 import { CSSProperties, Fragment, ReactNode } from "react";
@@ -43,6 +42,7 @@ import responsive2 from "./why-tailwind-css-section/responsive-2.png";
 import responsive3 from "./why-tailwind-css-section/responsive-3.png";
 import responsive4 from "./why-tailwind-css-section/responsive-4.png";
 import responsive5 from "./why-tailwind-css-section/responsive-5.png";
+import { ZeroTooltip } from "./zero-ui-tooltip";
 
 export default function WhyTailwindCssSection() {
   return (
@@ -454,28 +454,12 @@ export default function WhyTailwindCssSection() {
                             {colors.map((color) => {
                               let value = colorValues[`${color}-${shade}`];
                               return (
-                                <Tooltip as="div" key={color} showDelayMs={100} hideDelayMs={0} className="relative">
-                                  {shadeIdx === 0 && (
-                                    <>
-                                      <div className="pointer-events-none absolute -top-1 -left-1 h-screen border-l border-gray-950/5 dark:border-white/10"></div>
-                                      <div className="pointer-events-none absolute -top-1 -left-1 h-16 origin-top-left translate-px rotate-225 border-l border-gray-950/5 sm:h-24 dark:border-white/10"></div>
-                                    </>
-                                  )}
-
-                                  <TooltipTrigger>
-                                    <div
-                                      style={{ "--color": `var(--color-${color}-${shade})` } as CSSProperties}
-                                      className="h-(--height) w-(--width) bg-(--color) inset-ring inset-ring-gray-950/10 transition-opacity group-hover:opacity-75 hover:opacity-100 dark:inset-ring-white/10"
-                                    />
-                                  </TooltipTrigger>
-                                  <TooltipPanel
-                                    as="div"
-                                    anchor="top"
-                                    className="pointer-events-none z-10 translate-y-2 rounded-full border border-gray-950 bg-gray-950/90 py-0.5 pr-2 pb-1 pl-3 text-center font-mono text-xs/6 font-medium whitespace-nowrap text-white opacity-100 inset-ring inset-ring-white/10 transition-[opacity] starting:opacity-0"
-                                  >
-                                    {value}
-                                  </TooltipPanel>
-                                </Tooltip>
+                                <ZeroTooltip
+                                  key={color}
+                                  color={`${color}-${shade}`}
+                                  tooltip={value}
+                                  shadeIdx={shadeIdx}
+                                />
                               );
                             })}
                           </Fragment>
