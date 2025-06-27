@@ -81,7 +81,7 @@ const steps: Step[] = [
       </p>
     ),
     code: {
-      name: "style.css",
+      name: "CSS",
       lang: "css",
       code: dedent`
         @import "tailwindcss";
