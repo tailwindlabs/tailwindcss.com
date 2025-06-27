@@ -42,7 +42,7 @@ export let steps: Step[] = [
       name: "Terminal",
       lang: "shell",
       code: shell`
-        npm install -D @tailwindcss/postcss tailwindcss postcss gatsby-plugin-postcss
+        npm install @tailwindcss/postcss tailwindcss postcss gatsby-plugin-postcss
       `,
     },
   },
