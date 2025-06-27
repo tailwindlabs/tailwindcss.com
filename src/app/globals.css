@@ -90,3 +90,6 @@
     }
   }
 }
+
+/* Tooltip variant required by Zero-UI. Zero-UI's build step normally generates this. */
+@custom-variant tooltip-on ([data-tooltip="on"] &);
