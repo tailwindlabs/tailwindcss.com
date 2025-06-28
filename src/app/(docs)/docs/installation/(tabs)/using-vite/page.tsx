@@ -18,6 +18,23 @@ export const metadata: Metadata = {
 
 const steps: Step[] = [
   {
+    title: "Create your project",
+    body: (
+      <p>
+        Start by creating a new Vite project if you don’t have one set up already. The most common approach is to use{" "}
+        <a href="https://vite.dev/guide/#scaffolding-your-first-vite-project">Create Vite</a>.
+      </p>
+    ),
+    code: {
+      name: "Terminal",
+      lang: "shell",
+      code: dedent`
+        npm create vite@latest my-project
+        cd my-project
+      `,
+    },
+  },
+  {
     title: "Install Tailwind CSS",
     body: (
       <p>
@@ -106,7 +123,7 @@ const steps: Step[] = [
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <!-- [!code highlight:2] -->
-          <link href="/src/styles.css" rel="stylesheet">
+          <link href="/src/style.css" rel="stylesheet">
         </head>
         <body>
           <!-- [!code highlight:4] -->
