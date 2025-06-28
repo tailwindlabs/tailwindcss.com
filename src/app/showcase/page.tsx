@@ -200,6 +200,17 @@ const showcase = [
     description: "Software framework website",
   },
   {
+    name: "Microsoft Copilot",
+    url: "https://copilot.microsoft.com",
+    thumbnail: require("./img/copilot.microsoft.com.png").default,
+    video: "/showcase-videos/copilot.microsoft.com.mp4",
+    description: "AI assistant website",
+    dark: {
+      thumbnail: require("./img/copilot.microsoft.com-dark.png").default,
+      video: "/showcase-videos/copilot.microsoft.com-dark.mp4",
+    }
+  },
+  {
     name: "Spotlight",
     url: "https://spotlight.tailwindui.com",
     thumbnail: require("./img/spotlight.tailwindui.com.png").default,
