@@ -8,6 +8,7 @@ import { clsx } from "clsx";
 import dedent from "dedent";
 import { createHighlighter } from "shiki";
 import theme from "./syntax-highlighter/theme.json";
+import { CodeExampleFilename } from "./code-example-client";
 
 import { highlightClasses } from "./highlight-classes";
 import atApplyInjection from "./syntax-highlighter/at-apply.json";
@@ -49,7 +50,7 @@ export async function CodeExample({
 }) {
   return (
     <CodeExampleWrapper className={className}>
-      {filename ? <CodeExampleFilename filename={filename} /> : null}
+      {filename ? <CodeExampleFilename filename={filename} example={example} /> : null}
       <HighlightedCode example={example} />
     </CodeExampleWrapper>
   );
@@ -186,10 +187,6 @@ export function RawHighlightedCode({
     .replaceAll("\n", "");
 
   return <div className={className} dangerouslySetInnerHTML={{ __html: code }} />;
-}
-
-function CodeExampleFilename({ filename }: { filename: string }) {
-  return <div className="px-3 pt-0.5 pb-1.5 text-xs/5 text-gray-400 dark:text-white/50">{filename}</div>;
 }
 
 const highlighter = await createHighlighter({
