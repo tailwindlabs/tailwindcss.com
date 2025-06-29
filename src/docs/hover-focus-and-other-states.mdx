@@ -2755,9 +2755,9 @@ While it's generally preferable to put utility classes directly on child element
 
 </Figure>
 
-It's important to note that overriding a style with a utility directly on the child itself won't work due to the specificity of the generated child selector:
+It's important to note that overriding a style with a utility directly on the child itself won't work since children rules are generated after the regular ones and they have the same specificity:
 
-<TipBad>{<>Won't work, children can't override their own styling.</>}</TipBad>
+<TipBad>{<>Won't work, children can't override styles given to them by the parent.</>}</TipBad>
 
 ```html
 <!-- [!code classes:*:bg-sky-50] -->

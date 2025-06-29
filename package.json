@@ -21,14 +21,14 @@
     "dedent": "^1.5.3",
     "fathom-client": "^3.7.2",
     "feed": "^5.0.1",
-    "framer-motion": "^12.11.0",
-    "motion": "^12.6.2",
+    "framer-motion": "^12.18.1",
+    "motion": "^12.18.1",
     "next": "15.3.2",
     "open-graph-scraper-lite": "^2.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "shiki": "^1.29.1",
-    "tailwindcss": "^4.1.10"
+    "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",

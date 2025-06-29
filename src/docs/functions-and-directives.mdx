@@ -246,6 +246,8 @@ This can also be useful in arbitrary values, especially in combination with `cal
 
 The following directives and functions exist solely for compatibility with Tailwind CSS v3.x.
 
+The `@config` and `@plugin` directives may be used in conjunction with `@theme`, `@utility`, and other CSS-driven features. This can be used to incrementally move over your theme, custom configuration, utilities, variants, and presets to CSS. Things defined in CSS will be merged where possible and otherwise take precedence over those defined in configs, presets, and plugins.
+
 <h3 id="config-directive">
   <a href="#config-directive">@config</a>
 </h3>
@@ -257,7 +259,7 @@ Use the `@config` directive to load a legacy JavaScript-based configuration file
 @config "../../tailwind.config.js";
 ```
 
-The `corePlugins`, `safelist`, and `separator` options from the JavaScript-based config are not supported in v4.0.
+The `corePlugins`, `safelist`, and `separator` options from the JavaScript-based config are not supported in v4.0. To safelist utilities in v4 use [`@source inline()`](/docs/detecting-classes-in-source-files#safelisting-specific-utilities).
 
 <h3 id="plugin-directive">
   <a href="#plugin-directive">@plugin</a>

@@ -333,27 +333,27 @@ export default function TailwindUiSection() {
                 <div className="absolute -left-[300%] h-150 w-380 min-[500px]:-left-[250%] sm:-left-[200%] md:-left-[150%] lg:-left-[100%] xl:-left-[80%] 2xl:-left-[65%]">
                   <div className="grid origin-top-left scale-120 rotate-x-55 rotate-y-0 -rotate-z-45 grid-cols-3 transform-3d">
                     <motion.img
-                      initial={{ translateY: 700 }}
+                      initial={{ y: 700 }}
                       viewport={{ once: true }}
-                      whileInView={{ translateY: 150, transition: { duration: 120 } }}
+                      whileInView={{ y: 150, transition: { duration: 120 } }}
                       src={templatesCol1.src}
                       width={450}
                       height={2156}
                       alt=""
                     />
                     <motion.img
-                      initial={{ translateY: 50 }}
+                      initial={{ y: 50 }}
                       viewport={{ once: true }}
-                      whileInView={{ translateY: 600, transition: { duration: 120 } }}
+                      whileInView={{ y: 600, transition: { duration: 120 } }}
                       src={templatesCol2.src}
                       width={450}
                       height={2307}
                       alt=""
                     />
                     <motion.img
-                      initial={{ translateY: 800 }}
+                      initial={{ y: 800 }}
                       viewport={{ once: true }}
-                      whileInView={{ translateY: 250, transition: { duration: 120 } }}
+                      whileInView={{ y: 250, transition: { duration: 120 } }}
                       src={templatesCol3.src}
                       width={450}
                       height={1843.5}
@@ -369,35 +369,35 @@ export default function TailwindUiSection() {
                 <div className="absolute -left-[300%] h-150 w-380 min-[500px]:-left-[250%] sm:-left-[200%] md:-left-[150%] lg:-left-[100%] xl:-left-[80%] 2xl:-left-[65%]">
                   <div className="grid origin-top-left scale-120 rotate-x-55 rotate-y-0 -rotate-z-45 grid-cols-4 gap-4 transform-3d">
                     <motion.img
-                      initial={{ translateY: 500 }}
+                      initial={{ y: 500 }}
                       viewport={{ once: true }}
-                      whileInView={{ translateY: 850, transition: { duration: 120 } }}
+                      whileInView={{ y: 850, transition: { duration: 120 } }}
                       src={uiBlocksCol2.src}
                       width={487.5}
                       height={1587}
                       alt=""
                     />
                     <motion.div
-                      initial={{ translateY: 350 }}
+                      initial={{ y: 350 }}
                       viewport={{ once: true }}
-                      whileInView={{ translateY: 0, transition: { duration: 120 } }}
+                      whileInView={{ y: 0, transition: { duration: 120 } }}
                     >
                       <img src={uiBlocksCol1.src} width={487.5} height={1858} alt="" />
                       <img src={uiBlocksCol1.src} width={487.5} height={1858} alt="" />
                     </motion.div>
 
                     <motion.div
-                      initial={{ translateY: 600 }}
+                      initial={{ y: 600 }}
                       viewport={{ once: true }}
-                      whileInView={{ translateY: 950, transition: { duration: 120 } }}
+                      whileInView={{ y: 950, transition: { duration: 120 } }}
                     >
                       <img src={uiBlocksCol3.src} width={487.5} height={1676.5} alt="" />
                       <img src={uiBlocksCol3.src} width={487.5} height={1676.5} alt="" />
                     </motion.div>
                     <motion.img
-                      initial={{ translateY: 600 }}
+                      initial={{ y: 600 }}
                       viewport={{ once: true }}
-                      whileInView={{ translateY: 250, transition: { duration: 120 } }}
+                      whileInView={{ y: 250, transition: { duration: 120 } }}
                       src={uiBlocksCol4.src}
                       width={487}
                       height={1747.5}
@@ -413,27 +413,27 @@ export default function TailwindUiSection() {
                 <div className="absolute -left-[300%] h-150 w-380 min-[500px]:-left-[250%] sm:-left-[200%] md:-left-[150%] lg:-left-[100%] xl:-left-[80%] 2xl:-left-[65%]">
                   <div className="flex origin-top-left scale-100 rotate-x-55 rotate-y-0 -rotate-z-45 grid-cols-3 flex-row gap-4 transform-3d">
                     <motion.img
-                      initial={{ translateY: 700 }}
+                      initial={{ y: 700 }}
                       viewport={{ once: true }}
-                      whileInView={{ translateY: 350, transition: { duration: 120 } }}
+                      whileInView={{ y: 350, transition: { duration: 120 } }}
                       src={uiKitCol1.src}
                       width={399}
                       height={2019.5}
                       alt=""
                     />
                     <motion.img
-                      initial={{ translateY: 500 }}
+                      initial={{ y: 500 }}
                       viewport={{ once: true }}
-                      whileInView={{ translateY: 850, transition: { duration: 120 } }}
+                      whileInView={{ y: 850, transition: { duration: 120 } }}
                       src={uiKitCol2.src}
                       width={822}
                       height={2019.5}
                       alt=""
                     />
                     <motion.img
-                      initial={{ translateY: 800 }}
+                      initial={{ y: 800 }}
                       viewport={{ once: true }}
-                      whileInView={{ translateY: 450, transition: { duration: 120 } }}
+                      whileInView={{ y: 450, transition: { duration: 120 } }}
                       src={uiKitCol3.src}
                       width={504}
                       height={1378.5}
