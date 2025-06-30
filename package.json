@@ -20,9 +20,9 @@
     "dedent": "^1.6.0",
     "fathom-client": "^3.7.2",
     "feed": "^5.1.0",
-    "framer-motion": "^12.19.2",
-    "motion": "^12.19.2",
-    "next": "15.3.2",
+    "framer-motion": "^12.20.0",
+    "motion": "^12.20.0",
+    "next": "15.3.4",
     "open-graph-scraper-lite": "^2.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -39,7 +39,7 @@
     "@types/react-dom": "^19.1.6",
     "hast-util-to-jsx-runtime": "^2.3.6",
     "prettier-plugin-svelte": "^3.4.0",
-    "prettier-plugin-tailwindcss": "0.6.11",
+    "prettier-plugin-tailwindcss": "0.6.13",
     "typescript": "^5.8.3"
   },
   "prettier": {
