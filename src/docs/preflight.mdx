@@ -241,8 +241,8 @@ For example, source detection affects generated utilities, so `source(…)` shou
 @layer theme, base, components, utilities;
 
 @import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/utilities.css" layer(utilities);  /* [!code --] */
-@import "tailwindcss/utilities.css" layer(utilities) source(none);  /* [!code ++] */
+@import "tailwindcss/utilities.css" layer(utilities); /* [!code --] */
+@import "tailwindcss/utilities.css" layer(utilities) source(none); /* [!code ++] */
 ```
 
 The same goes for `important`, which also affects utilities:
@@ -252,8 +252,8 @@ The same goes for `important`, which also affects utilities:
 @layer theme, base, components, utilities;
 
 @import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/utilities.css" layer(utilities);  /* [!code --] */
-@import "tailwindcss/utilities.css" layer(utilities) important;  /* [!code ++] */
+@import "tailwindcss/utilities.css" layer(utilities); /* [!code --] */
+@import "tailwindcss/utilities.css" layer(utilities) important; /* [!code ++] */
 ```
 
 Similarly, `theme(static)` and `theme(inline)` affect the generated theme variables and should be placed on the `theme.css` import:
@@ -262,8 +262,8 @@ Similarly, `theme(static)` and `theme(inline)` affect the generated theme variab
 /* [!code filename:CSS] */
 @layer theme, base, components, utilities;
 
-@import "tailwindcss/theme.css" layer(theme);  /* [!code --] */
-@import "tailwindcss/theme.css" layer(theme) theme(static);  /* [!code ++] */
+@import "tailwindcss/theme.css" layer(theme); /* [!code --] */
+@import "tailwindcss/theme.css" layer(theme) theme(static); /* [!code ++] */
 @import "tailwindcss/utilities.css" layer(utilities);
 ```
 
@@ -273,8 +273,8 @@ Finally, using a prefix with `prefix(tw)` affects the utilities and variables, s
 /* [!code filename:CSS] */
 @layer theme, base, components, utilities;
 
-@import "tailwindcss/theme.css" layer(theme);  /* [!code --] */
-@import "tailwindcss/utilities.css" layer(utilities);  /* [!code --] */
-@import "tailwindcss/theme.css" layer(theme) prefix(tw);  /* [!code ++] */
-@import "tailwindcss/utilities.css" layer(utilities) prefix(tw);  /* [!code ++] */
+@import "tailwindcss/theme.css" layer(theme); /* [!code --] */
+@import "tailwindcss/utilities.css" layer(utilities); /* [!code --] */
+@import "tailwindcss/theme.css" layer(theme) prefix(tw); /* [!code ++] */
+@import "tailwindcss/utilities.css" layer(utilities) prefix(tw); /* [!code ++] */
 ```
