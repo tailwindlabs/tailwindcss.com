@@ -39,14 +39,14 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0
       framer-motion:
-        specifier: ^12.19.2
-        version: 12.19.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: ^12.20.0
+        version: 12.20.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       motion:
-        specifier: ^12.19.2
-        version: 12.19.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: ^12.20.0
+        version: 12.20.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next:
-        specifier: 15.3.2
-        version: 15.3.2(@babel/core@7.27.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: 15.3.4
+        version: 15.3.4(@babel/core@7.27.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       open-graph-scraper-lite:
         specifier: ^2.1.0
         version: 2.1.0
@@ -91,8 +91,8 @@ importers:
         specifier: ^3.4.0
         version: 3.4.0(prettier@3.4.2)(svelte@5.17.3)
       prettier-plugin-tailwindcss:
-        specifier: 0.6.11
-        version: 0.6.11(prettier-plugin-svelte@3.4.0(prettier@3.4.2)(svelte@5.17.3))(prettier@3.4.2)
+        specifier: 0.6.13
+        version: 0.6.13(prettier-plugin-svelte@3.4.0(prettier@3.4.2)(svelte@5.17.3))(prettier@3.4.2)
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -914,8 +914,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@next/env@15.3.2':
-    resolution: {integrity: sha512-xURk++7P7qR9JG1jJtLzPzf0qEvqCN0A/T3DXf8IPMKo9/6FfjxtEffRJIIew/bIL4T3C2jLLqBor8B/zVlx6g==}
+  '@next/env@15.3.4':
+    resolution: {integrity: sha512-ZkdYzBseS6UjYzz6ylVKPOK+//zLWvD6Ta+vpoye8cW11AjiQjGYVibF0xuvT4L0iJfAPfZLFidaEzAOywyOAQ==}
 
   '@next/mdx@15.3.0-canary.23':
     resolution: {integrity: sha512-vd/nCDOHu8H4Jo9BpdDYw7TxU/qoWyK7LFRN0hs5t82/XHVqqEO7K0A0OkQHCxoAgdbVMXJV1GMIioyLrOWNaA==}
@@ -928,50 +928,50 @@ packages:
       '@mdx-js/react':
         optional: true
 
-  '@next/swc-darwin-arm64@15.3.2':
-    resolution: {integrity: sha512-2DR6kY/OGcokbnCsjHpNeQblqCZ85/1j6njYSkzRdpLn5At7OkSdmk7WyAmB9G0k25+VgqVZ/u356OSoQZ3z0g==}
+  '@next/swc-darwin-arm64@15.3.4':
+    resolution: {integrity: sha512-z0qIYTONmPRbwHWvpyrFXJd5F9YWLCsw3Sjrzj2ZvMYy9NPQMPZ1NjOJh4ojr4oQzcGYwgJKfidzehaNa1BpEg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
 
-  '@next/swc-darwin-x64@15.3.2':
-    resolution: {integrity: sha512-ro/fdqaZWL6k1S/5CLv1I0DaZfDVJkWNaUU3un8Lg6m0YENWlDulmIWzV96Iou2wEYyEsZq51mwV8+XQXqMp3w==}
+  '@next/swc-darwin-x64@15.3.4':
+    resolution: {integrity: sha512-Z0FYJM8lritw5Wq+vpHYuCIzIlEMjewG2aRkc3Hi2rcbULknYL/xqfpBL23jQnCSrDUGAo/AEv0Z+s2bff9Zkw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
 
-  '@next/swc-linux-arm64-gnu@15.3.2':
-    resolution: {integrity: sha512-covwwtZYhlbRWK2HlYX9835qXum4xYZ3E2Mra1mdQ+0ICGoMiw1+nVAn4d9Bo7R3JqSmK1grMq/va+0cdh7bJA==}
+  '@next/swc-linux-arm64-gnu@15.3.4':
+    resolution: {integrity: sha512-l8ZQOCCg7adwmsnFm8m5q9eIPAHdaB2F3cxhufYtVo84pymwKuWfpYTKcUiFcutJdp9xGHC+F1Uq3xnFU1B/7g==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@next/swc-linux-arm64-musl@15.3.2':
-    resolution: {integrity: sha512-KQkMEillvlW5Qk5mtGA/3Yz0/tzpNlSw6/3/ttsV1lNtMuOHcGii3zVeXZyi4EJmmLDKYcTcByV2wVsOhDt/zg==}
+  '@next/swc-linux-arm64-musl@15.3.4':
+    resolution: {integrity: sha512-wFyZ7X470YJQtpKot4xCY3gpdn8lE9nTlldG07/kJYexCUpX1piX+MBfZdvulo+t1yADFVEuzFfVHfklfEx8kw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@next/swc-linux-x64-gnu@15.3.2':
-    resolution: {integrity: sha512-uRBo6THWei0chz+Y5j37qzx+BtoDRFIkDzZjlpCItBRXyMPIg079eIkOCl3aqr2tkxL4HFyJ4GHDes7W8HuAUg==}
+  '@next/swc-linux-x64-gnu@15.3.4':
+    resolution: {integrity: sha512-gEbH9rv9o7I12qPyvZNVTyP/PWKqOp8clvnoYZQiX800KkqsaJZuOXkWgMa7ANCCh/oEN2ZQheh3yH8/kWPSEg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@next/swc-linux-x64-musl@15.3.2':
-    resolution: {integrity: sha512-+uxFlPuCNx/T9PdMClOqeE8USKzj8tVz37KflT3Kdbx/LOlZBRI2yxuIcmx1mPNK8DwSOMNCr4ureSet7eyC0w==}
+  '@next/swc-linux-x64-musl@15.3.4':
+    resolution: {integrity: sha512-Cf8sr0ufuC/nu/yQ76AnarbSAXcwG/wj+1xFPNbyNo8ltA6kw5d5YqO8kQuwVIxk13SBdtgXrNyom3ZosHAy4A==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@next/swc-win32-arm64-msvc@15.3.2':
-    resolution: {integrity: sha512-LLTKmaI5cfD8dVzh5Vt7+OMo+AIOClEdIU/TSKbXXT2iScUTSxOGoBhfuv+FU8R9MLmrkIL1e2fBMkEEjYAtPQ==}
+  '@next/swc-win32-arm64-msvc@15.3.4':
+    resolution: {integrity: sha512-ay5+qADDN3rwRbRpEhTOreOn1OyJIXS60tg9WMYTWCy3fB6rGoyjLVxc4dR9PYjEdR2iDYsaF5h03NA+XuYPQQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
 
-  '@next/swc-win32-x64-msvc@15.3.2':
-    resolution: {integrity: sha512-aW5B8wOPioJ4mBdMDXkt5f3j8pUr9W8AnlX0Df35uRWNT1Y6RIybxjnSUe+PhM+M1bwgyY8PHLmXZC6zT1o5tA==}
+  '@next/swc-win32-x64-msvc@15.3.4':
+    resolution: {integrity: sha512-4kDt31Bc9DGyYs41FTL1/kNpDeHyha2TC0j5sRRoKCyrhNcfZ/nRQkAUlF27mETwm8QyHqIjHJitfcza2Iykfg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -1522,8 +1522,8 @@ packages:
     resolution: {integrity: sha512-qGNhgYygnefSkAHHrNHqC7p3R8J0/xQDS/cYUud8er/qD9EFGWyCdUDfULHTJQN1d3H3WprzVwMc9MfB4J50Wg==}
     engines: {node: '>=20', pnpm: '>=10'}
 
-  framer-motion@12.19.2:
-    resolution: {integrity: sha512-0cWMLkYr+i0emeXC4hkLF+5aYpzo32nRdQ0D/5DI460B3O7biQ3l2BpDzIGsAHYuZ0fpBP0DC8XBkVf6RPAlZw==}
+  framer-motion@12.20.0:
+    resolution: {integrity: sha512-RDGhDfJa/7yhlosYDOenPoEhNvfWN7rcIzoPy0weFF4d61gMJAjGa2f6d3f+4s6eD7vm3PEmlBQZxrjymwYH0A==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -1825,14 +1825,14 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  motion-dom@12.19.0:
-    resolution: {integrity: sha512-m96uqq8VbwxFLU0mtmlsIVe8NGGSdpBvBSHbnnOJQxniPaabvVdGgxSamhuDwBsRhwX7xPxdICgVJlOpzn/5bw==}
+  motion-dom@12.19.3:
+    resolution: {integrity: sha512-uAKtDg5i3CNhvL3vdWKDgZqqtWEy15lZGhq5FE2VMYMlloNlsgQjdOWMeMrU/UCjE8yx/8662pB/zWo7QTiE+A==}
 
   motion-utils@12.19.0:
     resolution: {integrity: sha512-BuFTHINYmV07pdWs6lj6aI63vr2N4dg0vR+td0rtrdpWOhBzIkEklZyLcvKBoEtwSqx8Jg06vUB5RS0xDiUybw==}
 
-  motion@12.19.2:
-    resolution: {integrity: sha512-Yb69HXE4ryhVd1xwpgWMMQAQgqEGMSGWG+NOumans2fvSCtT8gsj8JK7jhcGnc410CLT3BFPgquP67zmjbA5Jw==}
+  motion@12.20.0:
+    resolution: {integrity: sha512-BnqD+49GKiTL6eJ/Jc/s0hWQan0VaO95FuwKyRXBdlXb5TpO2pZ5JCO7kozseq4bFA+oD3vC8yKT5Cw+mdDCqQ==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -1853,8 +1853,8 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  next@15.3.2:
-    resolution: {integrity: sha512-CA3BatMyHkxZ48sgOCLdVHjFU36N7TF1HhqAHLFOkV6buwZnvMI84Cug8xD56B9mCuKrqXnLn94417GrZ/jjCQ==}
+  next@15.3.4:
+    resolution: {integrity: sha512-mHKd50C+mCjam/gcnwqL1T1vPx/XQNFlXqFIVdgQdVAFY9iIQtY0IfaVflEYzKiqjeA7B0cYYMaCrmAYFjs4rA==}
     engines: {node: ^18.18.0 || ^19.8.0 || >= 20.0.0}
     hasBin: true
     peerDependencies:
@@ -1934,8 +1934,8 @@ packages:
       prettier: ^3.0.0
       svelte: ^3.2.0 || ^4.0.0-next.0 || ^5.0.0-next.0
 
-  prettier-plugin-tailwindcss@0.6.11:
-    resolution: {integrity: sha512-YxaYSIvZPAqhrrEpRtonnrXdghZg1irNg4qrjboCXrpybLWVs55cW2N3juhspVJiO0JBvYJT8SYsJpc8OQSnsA==}
+  prettier-plugin-tailwindcss@0.6.13:
+    resolution: {integrity: sha512-uQ0asli1+ic8xrrSmIOaElDu0FacR4x69GynTh2oZjFY10JUt6EEumTQl5tB4fMeD6I1naKd+4rXQQ7esT2i1g==}
     engines: {node: '>=14.21.3'}
     peerDependencies:
       '@ianvs/prettier-plugin-sort-imports': '*'
@@ -3227,34 +3227,34 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@next/env@15.3.2': {}
+  '@next/env@15.3.4': {}
 
   '@next/mdx@15.3.0-canary.23':
     dependencies:
       source-map: 0.7.4
 
-  '@next/swc-darwin-arm64@15.3.2':
+  '@next/swc-darwin-arm64@15.3.4':
     optional: true
 
-  '@next/swc-darwin-x64@15.3.2':
+  '@next/swc-darwin-x64@15.3.4':
     optional: true
 
-  '@next/swc-linux-arm64-gnu@15.3.2':
+  '@next/swc-linux-arm64-gnu@15.3.4':
     optional: true
 
-  '@next/swc-linux-arm64-musl@15.3.2':
+  '@next/swc-linux-arm64-musl@15.3.4':
     optional: true
 
-  '@next/swc-linux-x64-gnu@15.3.2':
+  '@next/swc-linux-x64-gnu@15.3.4':
     optional: true
 
-  '@next/swc-linux-x64-musl@15.3.2':
+  '@next/swc-linux-x64-musl@15.3.4':
     optional: true
 
-  '@next/swc-win32-arm64-msvc@15.3.2':
+  '@next/swc-win32-arm64-msvc@15.3.4':
     optional: true
 
-  '@next/swc-win32-x64-msvc@15.3.2':
+  '@next/swc-win32-x64-msvc@15.3.4':
     optional: true
 
   '@react-aria/focus@3.20.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
@@ -3831,9 +3831,9 @@ snapshots:
     dependencies:
       xml-js: 1.6.11
 
-  framer-motion@12.19.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  framer-motion@12.20.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
-      motion-dom: 12.19.0
+      motion-dom: 12.19.3
       motion-utils: 12.19.0
       tslib: 2.8.1
     optionalDependencies:
@@ -4249,15 +4249,15 @@ snapshots:
 
   mkdirp@3.0.1: {}
 
-  motion-dom@12.19.0:
+  motion-dom@12.19.3:
     dependencies:
       motion-utils: 12.19.0
 
   motion-utils@12.19.0: {}
 
-  motion@12.19.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  motion@12.20.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
-      framer-motion: 12.19.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      framer-motion: 12.20.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       tslib: 2.8.1
     optionalDependencies:
       react: 19.1.0
@@ -4267,9 +4267,9 @@ snapshots:
 
   nanoid@3.3.11: {}
 
-  next@15.3.2(@babel/core@7.27.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  next@15.3.4(@babel/core@7.27.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
-      '@next/env': 15.3.2
+      '@next/env': 15.3.4
       '@swc/counter': 0.1.3
       '@swc/helpers': 0.5.15
       busboy: 1.6.0
@@ -4279,14 +4279,14 @@ snapshots:
       react-dom: 19.1.0(react@19.1.0)
       styled-jsx: 5.1.6(@babel/core@7.27.7)(react@19.1.0)
     optionalDependencies:
-      '@next/swc-darwin-arm64': 15.3.2
-      '@next/swc-darwin-x64': 15.3.2
-      '@next/swc-linux-arm64-gnu': 15.3.2
-      '@next/swc-linux-arm64-musl': 15.3.2
-      '@next/swc-linux-x64-gnu': 15.3.2
-      '@next/swc-linux-x64-musl': 15.3.2
-      '@next/swc-win32-arm64-msvc': 15.3.2
-      '@next/swc-win32-x64-msvc': 15.3.2
+      '@next/swc-darwin-arm64': 15.3.4
+      '@next/swc-darwin-x64': 15.3.4
+      '@next/swc-linux-arm64-gnu': 15.3.4
+      '@next/swc-linux-arm64-musl': 15.3.4
+      '@next/swc-linux-x64-gnu': 15.3.4
+      '@next/swc-linux-x64-musl': 15.3.4
+      '@next/swc-win32-arm64-msvc': 15.3.4
+      '@next/swc-win32-x64-msvc': 15.3.4
       sharp: 0.34.2
     transitivePeerDependencies:
       - '@babel/core'
@@ -4372,7 +4372,7 @@ snapshots:
       prettier: 3.4.2
       svelte: 5.17.3
 
-  prettier-plugin-tailwindcss@0.6.11(prettier-plugin-svelte@3.4.0(prettier@3.4.2)(svelte@5.17.3))(prettier@3.4.2):
+  prettier-plugin-tailwindcss@0.6.13(prettier-plugin-svelte@3.4.0(prettier@3.4.2)(svelte@5.17.3))(prettier@3.4.2):
     dependencies:
       prettier: 3.4.2
     optionalDependencies:
