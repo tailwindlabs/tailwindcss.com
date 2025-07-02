@@ -1,0 +1,584 @@
+import { FooterMeta } from "@/components/footer";
+import clsx from "clsx";
+import type { Metadata } from "next";
+import Image from "next/image";
+import AdamTeachingImage from "./adam-teaching.jpg";
+
+export const metadata: Metadata = {
+  title: "Sponsor",
+  description: "Help keep Tailwind CSS sustainable long term by supporting the project individually or as a company.",
+  openGraph: {
+    type: "article",
+    title: "Sponsor - Tailwind CSS",
+    description: "Help keep Tailwind CSS sustainable long term by supporting the project individually or as a company.",
+    images: "https://tailwindcss.com/api/og?path=/sponsor",
+    url: "https://tailwindcss.com/sponsor",
+  },
+};
+
+export const partners = [
+  {
+    name: "Polar",
+    url: "https://polar.sh/",
+    logo: function (props: React.SVGProps<SVGSVGElement>) {
+      return (
+        <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
+          <path d="M140.641 63.702V31.903h12.752c1.676 0 3.2.424 4.571 1.272 1.372.818 2.453 1.953 3.246 3.407.822 1.454 1.234 3.074 1.234 4.86 0 1.848-.412 3.514-1.234 4.998-.793 1.484-1.874 2.665-3.246 3.543-1.371.878-2.895 1.317-4.571 1.317h-8.776v12.402h-3.976Zm3.976-16.263h8.868c.914 0 1.737-.257 2.468-.772.731-.545 1.31-1.272 1.737-2.18.427-.91.64-1.924.64-3.044 0-1.09-.213-2.06-.64-2.908a5.445 5.445 0 0 0-1.737-2.044 4.185 4.185 0 0 0-2.468-.772h-8.868v11.72ZM177.171 64.156c-2.346 0-4.449-.53-6.308-1.59a12.084 12.084 0 0 1-4.342-4.406c-1.066-1.878-1.6-4.013-1.6-6.405 0-2.393.534-4.513 1.6-6.36a11.735 11.735 0 0 1 4.342-4.361c1.859-1.06 3.962-1.59 6.308-1.59 2.347 0 4.434.53 6.262 1.59a11.307 11.307 0 0 1 4.343 4.36c1.066 1.848 1.599 3.968 1.599 6.36 0 2.393-.533 4.528-1.599 6.406-1.037 1.847-2.484 3.316-4.343 4.406-1.828 1.06-3.915 1.59-6.262 1.59Zm0-3.543c1.615 0 3.048-.379 4.297-1.136a8.2 8.2 0 0 0 2.925-3.18c.732-1.332 1.082-2.846 1.052-4.542.03-1.696-.32-3.195-1.052-4.498-.701-1.332-1.676-2.377-2.925-3.134-1.249-.757-2.682-1.136-4.297-1.136-1.615 0-3.062.379-4.342 1.136-1.249.757-2.225 1.802-2.925 3.134-.701 1.333-1.052 2.832-1.052 4.498 0 1.696.351 3.21 1.052 4.542a8.193 8.193 0 0 0 2.925 3.18c1.28.757 2.727 1.136 4.342 1.136ZM193.552 63.702V30.086h3.839v33.616h-3.839ZM212.539 64.156c-2.042 0-3.901-.53-5.577-1.59-1.645-1.09-2.955-2.574-3.93-4.452-.975-1.877-1.463-3.997-1.463-6.36 0-2.392.503-4.512 1.508-6.36 1.006-1.847 2.347-3.3 4.023-4.36 1.706-1.06 3.611-1.59 5.713-1.59 1.249 0 2.392.182 3.428.545a9.146 9.146 0 0 1 2.834 1.544 8.611 8.611 0 0 1 2.057 2.272 7.568 7.568 0 0 1 1.097 2.726l-1.006-.455.046-6.132h3.84v23.758h-3.84v-5.77l.96-.499c-.213.878-.625 1.726-1.234 2.544a9.336 9.336 0 0 1-2.194 2.18 11.145 11.145 0 0 1-2.88 1.454 10.415 10.415 0 0 1-3.382.545Zm.914-3.589c1.554 0 2.925-.378 4.114-1.135 1.188-.757 2.133-1.787 2.834-3.09.701-1.332 1.051-2.861 1.051-4.587 0-1.696-.35-3.195-1.051-4.498a7.729 7.729 0 0 0-2.834-3.089c-1.189-.757-2.56-1.135-4.114-1.135-1.554 0-2.925.378-4.114 1.135-1.188.757-2.133 1.787-2.834 3.09-.67 1.302-1.005 2.8-1.005 4.497 0 1.696.335 3.21 1.005 4.542.701 1.333 1.646 2.378 2.834 3.135 1.189.757 2.56 1.135 4.114 1.135ZM230.042 63.702V39.944h3.84l.091 6.677-.411-1.135a8.464 8.464 0 0 1 1.645-3.044 8.9 8.9 0 0 1 2.697-2.18 7.331 7.331 0 0 1 3.382-.818c.518 0 1.006.045 1.463.136.488.06.883.152 1.188.273l-1.051 4.224a5.889 5.889 0 0 0-1.234-.408 5.738 5.738 0 0 0-1.189-.137c-.975 0-1.873.182-2.696.545a6.302 6.302 0 0 0-2.057 1.5 7.242 7.242 0 0 0-1.326 2.135 7.501 7.501 0 0 0-.457 2.634v13.356h-3.885Z" />
+          <path
+            d="M84.878 67.863c11.075 7.45 26.13 4.568 33.627-6.44 7.497-11.006 4.597-25.97-6.478-33.42-11.075-7.45-26.131-4.568-33.628 6.439s-4.597 25.97 6.479 33.42Zm3.212.197c10.13 5.15 22.982.315 28.705-10.8 5.722-11.116 2.148-24.304-7.983-29.455s-22.983-.316-28.705 10.8c-5.722 11.116-2.148 24.303 7.983 29.455Z"
+            clipRule="evenodd"
+            fillRule="evenodd"
+          />
+          <path
+            d="M90.977 70.688c9.145 2.959 19.903-4.856 24.029-17.455 4.126-12.598.057-25.209-9.088-28.167-9.146-2.958-19.904 4.857-24.03 17.455-4.125 12.598-.056 25.21 9.089 28.167Zm2.797-.957c7.74 1.64 16.108-6.79 18.692-18.829 2.584-12.039-1.595-23.129-9.335-24.77-7.74-1.64-16.108 6.79-18.692 18.83C81.855 57 86.035 68.09 93.774 69.73Z"
+            clipRule="evenodd"
+            fillRule="evenodd"
+          />
+          <path
+            d="M95.896 71.716c6.119.65 12.226-9.494 13.64-22.656 1.414-13.162-2.4-24.358-8.519-25.008-6.119-.649-12.226 9.495-13.64 22.657-1.414 13.161 2.4 24.358 8.519 25.007Zm2.863-4.006c4.429-.07 7.878-8.979 7.704-19.9-.173-10.92-3.904-19.718-8.332-19.648-4.429.07-7.878 8.979-7.704 19.9.173 10.92 3.904 19.718 8.332 19.648Z"
+            clipRule="evenodd"
+            fillRule="evenodd"
+          />
+        </svg>
+      );
+    },
+  },
+  {
+    name: "Bento",
+    url: "https://bentonow.com/",
+    logo: function (props: React.SVGProps<SVGSVGElement>) {
+      return (
+        <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
+          <path d="M234.33 54.47h-2.853l3.377-7.17h2.853l-3.377 7.17Zm19.025-13.081h-28.57c-1.936 0-4.032 1.118-4.681 2.496l-7.816 16.58c-.65 1.378.393 2.496 2.33 2.496h28.569c1.937 0 4.033-1.118 4.682-2.496l7.816-16.58c.65-1.378-.393-2.496-2.33-2.496ZM87.277 54.47h-2.853l3.378-7.17h2.853l-3.378 7.17Zm19.026-13.081H90.592l-4.017-8.304H70.211l4.016 8.304L64.06 62.961h32.075c1.937 0 4.033-1.117 4.682-2.496l7.816-16.58c.65-1.378-.394-2.496-2.33-2.496ZM125.22 47.3h4.885l-.884 1.877h-4.885l.884-1.877Zm-3.377 7.17.884-1.878h20.233l4.107-8.707c.65-1.378-.394-2.496-2.33-2.496h-28.57c-1.936 0-4.032 1.118-4.681 2.496l-7.817 16.58c-.649 1.379.395 2.496 2.331 2.496h32.075l4.001-8.491h-20.233ZM183.172 41.389h-28.57c-1.936 0-4.032 1.118-4.682 2.496l-8.992 19.076h16.365l7.378-15.661h2.853l-7.378 15.661h16.364l8.992-19.076c.649-1.378-.394-2.496-2.33-2.496ZM199.728 54.47l3.378-7.17h12.531l2.79-5.911h-12.532l4.078-8.304h-16.364l-13.07 27.38c-.65 1.378.393 2.496 2.33 2.496h25.39l4.001-8.492h-12.532Z" />
+        </svg>
+      );
+    },
+  },
+  {
+    name: "Cal.com",
+    url: "https://cal.com/",
+    logo: function (props: React.SVGProps<SVGSVGElement>) {
+      return (
+        <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
+          <path d="M86.324 65.85C75.872 65.85 68 57.592 68 47.4c0-10.226 7.47-18.55 18.324-18.55 5.762 0 9.748 1.767 12.863 5.81l-5.025 4.18c-2.11-2.243-4.656-3.364-7.838-3.364-7.068 0-10.954 5.402-10.954 11.925 0 6.523 4.254 11.823 10.954 11.823 3.149 0 5.829-1.121 7.939-3.363l4.958 4.348c-2.982 3.873-7.068 5.64-12.897 5.64ZM120.861 38.702h6.767v26.5h-6.767V61.33c-1.407 2.752-3.752 4.587-8.241 4.587-7.168 0-12.897-6.218-12.897-13.862s5.729-13.862 12.897-13.862c4.456 0 6.834 1.835 8.241 4.587v-4.077Zm.201 13.352c0-4.145-2.848-7.576-7.336-7.576-4.322 0-7.136 3.465-7.136 7.576 0 4.009 2.814 7.576 7.136 7.576 4.455 0 7.336-3.465 7.336-7.576ZM132.418 28h6.767v37.168h-6.767V28ZM142.2 61.67c0-2.175 1.742-4.01 4.12-4.01 2.379 0 4.054 1.835 4.054 4.01 0 2.242-1.709 4.076-4.054 4.076s-4.12-1.834-4.12-4.076ZM176.268 60.922c-2.513 3.057-6.332 4.994-10.854 4.994-8.073 0-14.002-6.218-14.002-13.862s5.929-13.862 14.002-13.862c4.355 0 8.14 1.835 10.653 4.723l-5.226 4.383c-1.307-1.631-3.015-2.854-5.427-2.854-4.321 0-7.135 3.465-7.135 7.576s2.814 7.576 7.135 7.576c2.613 0 4.422-1.358 5.762-3.193l5.092 4.519ZM176.837 52.054c0-7.644 5.93-13.862 14.003-13.862s14.002 6.218 14.002 13.862-5.929 13.862-14.002 13.862c-8.073-.034-14.003-6.218-14.003-13.862Zm21.138 0c0-4.145-2.814-7.576-7.135-7.576-4.321-.034-7.135 3.431-7.135 7.576 0 4.111 2.814 7.576 7.135 7.576s7.135-3.465 7.135-7.576ZM250.601 48.997v16.172h-6.766V50.66c0-4.586-2.144-6.557-5.36-6.557-3.015 0-5.159 1.495-5.159 6.557V65.17h-6.766V50.66c0-4.586-2.178-6.557-5.36-6.557-3.015 0-5.662 1.495-5.662 6.557V65.17h-6.766v-26.5h6.766v3.669c1.407-2.854 3.953-4.281 7.873-4.281 3.718 0 6.833 1.834 8.542 4.926 1.708-3.16 4.221-4.926 8.776-4.926 5.561.034 9.882 4.247 9.882 10.94Z" />
+        </svg>
+      );
+    },
+  },
+  {
+    name: "Namespace",
+    url: "https://namespace.so/",
+    logo: function (props: React.SVGProps<SVGSVGElement>) {
+      return (
+        <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
+          <path d="M112.266 39.002h3.507v2.538c1.269-1.97 3.206-2.938 5.509-2.938 3.842 0 6.043 2.505 6.043 6.844v10.25h-3.673V46.08c0-2.637-1.27-4.073-3.64-4.073-2.705 0-4.141 2.004-4.141 5.81v7.88h-3.605V39.001ZM137.538 38.6c4.675 0 6.978 2.169 6.978 6.509v10.584h-3.607v-2.305c-1.134 1.703-3.005 2.705-5.308 2.705-3.372 0-5.644-2.17-5.644-5.243 0-2.87 2.038-4.875 5.343-5.176l4.641-.467c.701-.067.968-.3.968-.768v-.369c0-1.401-1.202-2.237-3.304-2.237-2.303 0-3.84.968-4.239 2.606l-2.905-1.835c.867-2.606 3.338-4.008 7.079-4.008l-.002.003Zm-1.436 9.981c-1.537.166-2.407.968-2.407 2.17 0 1.334 1.036 2.17 2.739 2.17 2.539 0 4.475-1.77 4.475-3.974v-.968l-4.807.6v.002ZM167.583 38.6c4.006 0 6.379 2.47 6.379 7.212v9.881h-3.64v-9.616c0-2.671-1.202-4.072-3.473-4.072-2.905 0-4.307 2.003-4.307 5.808v7.88h-3.605v-9.616c0-2.671-1.237-4.072-3.508-4.072-2.874 0-4.275 2.003-4.275 5.808v7.88h-3.607V39.002h3.508v2.603c1.036-1.937 2.77-3.006 5.244-3.006 2.474 0 4.374 1.07 5.343 3.206 1.303-2.103 3.239-3.206 5.944-3.206h-.003ZM184.637 38.6c5.174 0 8.113 3.672 8.113 8.813v1.036h-12.825v.034c.335 2.84 2.604 4.24 5.01 4.24 2.204 0 3.84-.967 5.008-2.169l1.703 2.904c-1.368 1.337-3.541 2.638-6.679 2.638-5.343 0-8.715-3.538-8.715-8.682 0-5.145 3.239-8.815 8.383-8.815h.002Zm-.068 3.205c-2.637 0-4.174 1.469-4.608 3.906h8.85c-.233-2.305-1.635-3.906-4.242-3.906ZM201.191 38.6c3.007 0 5.177 1.068 6.612 3.072l-2.437 2.303c-.901-1.368-2.57-2.07-4.442-2.07-1.669 0-2.705.603-2.705 1.67 0 1.134 1.103 1.401 3.941 2.068 3.341.802 5.677 1.77 5.677 5.142 0 3.372-2.471 5.308-6.777 5.308-3.407 0-6.112-1.236-7.415-3.372l2.471-2.37c.968 1.503 2.706 2.472 5.207 2.472 1.771 0 2.841-.6 2.841-1.836 0-1.235-1.036-1.502-3.707-2.102-2.871-.633-5.911-1.635-5.911-5.175 0-3.172 2.538-5.108 6.643-5.108l.002-.003ZM209.867 39.002h3.606v2.37c1.334-1.805 3.338-2.773 5.745-2.773 4.608 0 7.814 3.572 7.814 8.747 0 5.176-3.206 8.747-7.78 8.747-2.37 0-4.341-.968-5.777-2.803v10.509h-3.605V39.002h-.003Zm13.458 8.347c0-3.172-2.004-5.308-5.008-5.308-3.003 0-5.007 2.102-5.007 5.308 0 3.205 2.004 5.307 5.007 5.307 3.004 0 5.008-2.136 5.008-5.307ZM236.009 38.6c4.675 0 6.978 2.169 6.978 6.509v10.584h-3.606v-2.305c-1.134 1.703-3.006 2.705-5.309 2.705-3.372 0-5.643-2.17-5.643-5.243 0-2.87 2.038-4.875 5.343-5.176l4.642-.467c.7-.067.967-.3.967-.768v-.369c0-1.401-1.201-2.237-3.305-2.237-2.302 0-3.839.968-4.239 2.606l-2.904-1.835c.866-2.606 3.338-4.008 7.079-4.008l-.003.003Zm-1.435 9.981c-1.537.166-2.407.968-2.407 2.17 0 1.334 1.036 2.17 2.739 2.17 2.539 0 4.475-1.77 4.475-3.974v-.968l-4.807.6v.002ZM253.701 38.6c2.468 0 4.574.835 6.176 2.436l-2.171 2.837c-1.269-1.168-2.604-1.77-4.106-1.77-3.006 0-5.042 2.136-5.042 5.243s2.072 5.243 5.008 5.243c1.57 0 3.039-.633 4.31-1.835l2.071 2.87c-1.604 1.602-3.842 2.471-6.379 2.471-5.173 0-8.714-3.537-8.714-8.713 0-5.175 3.639-8.78 8.85-8.78l-.003-.003ZM268.888 38.6c5.173 0 8.112 3.672 8.112 8.813v1.036h-12.824v.034c.335 2.84 2.604 4.24 5.01 4.24 2.204 0 3.84-.967 5.008-2.169l1.702 2.904c-1.367 1.337-3.541 2.638-6.679 2.638-5.343 0-8.715-3.538-8.715-8.682 0-5.145 3.24-8.815 8.383-8.815h.003Zm-.068 3.205c-2.637 0-4.174 1.469-4.608 3.906h8.85c-.234-2.305-1.636-3.906-4.242-3.906ZM70.799 20c15.352 0 27.798 12.41 27.798 27.72 0 15.308-12.446 27.718-27.798 27.719C55.446 75.439 43 63.029 43 47.719 43 32.412 55.446 20 70.799 20Zm.523 43.09h13.955v-4.154H71.322v4.154ZM57.367 35.259v20.718h4.165V42.173l9.816 13.804h3.417V35.259H70.6v13.094L61.433 35.26h-4.066Z" />
+        </svg>
+      );
+    },
+  },
+  {
+    name: "Resend",
+    url: "https://resend.com/",
+    logo: function (props: React.SVGProps<SVGSVGElement>) {
+      return (
+        <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
+          <path d="M117.236 39.269c8.585 0 14.832 5.914 14.389 16.663h-20.907c.781 2.987 2.867 5.554 7.042 5.554 2.338 0 4.474-.639 6.086-2.637h7.215l-.121.64C129.69 64.963 123.403 68 117.76 68c-8.948 0-14.954-5.994-14.954-14.346 0-8.351 6.006-14.385 14.43-14.385Zm60.498 0c8.626 0 14.833 5.914 14.43 16.663h-20.913c.771 2.987 2.842 5.554 7.048 5.554 2.338 0 4.473-.639 6.046-2.637h7.255l-.121.64c-1.25 5.474-7.538 8.511-13.18 8.511-8.948 0-14.953-5.994-14.953-14.346 0-8.351 6.005-14.385 14.388-14.385ZM255 67.2h-7.819l.402-3.876c-1.088 2.317-4.594 4.595-8.988 4.595-7.255 0-13.139-5.514-13.139-14.226 0-8.711 5.804-14.225 13.139-14.225 3.991 0 6.45 1.278 8.626 3.476V28H255v39.2ZM146.981 39.109c6.369 0 11.971 2.278 13.583 7.872l.162.6h-7.941c-1.693-2.078-3.95-2.358-5.804-2.358-1.733 0-4.473.44-4.473 2.118 0 1.558 1.813 2.078 3.385 2.277l4.595.48c7.295.64 10.52 3.477 10.52 9.031 0 6.393-6.409 8.791-12.737 8.791s-12.898-2.797-14.147-8.471l-.121-.6h8.142c1.128 3.197 6.328 2.957 6.126 2.957 3.063 0 4.958-.919 4.958-2.397 0-.96-.323-2.078-3.467-2.478l-4.796-.48c-6.328-.439-10.157-3.756-10.157-8.71 0-6.075 5.804-8.632 12.172-8.632ZM89.183 28c7.658 0 12.213 4.516 12.213 10.51s-4.555 10.509-12.213 10.509h-3.869l19.226 18.182H90.957L76.326 53.415c-1.048-.96-1.532-2.078-1.532-3.037 0-1.359.968-2.558 2.822-3.077l7.537-1.998c2.861-.76 4.836-2.957 4.836-5.834 0-3.517-2.902-5.555-6.489-5.555H65V28h24.183Zm121.884 11.309c6.852 0 11.648 4.955 11.648 12.028V67.2h-7.819V52.655c0-3.996-2.136-6.393-5.925-6.393-3.789 0-6.247 2.477-6.247 6.393v14.546h-7.659V39.868h7.78l-.363 4.356c1.129-2.198 4.635-4.915 8.585-4.915Zm29.382 6.953c-4.715 0-7.214 3.476-7.214 7.432 0 4.236 2.822 7.473 7.214 7.473 4.233 0 6.973-3.277 6.973-7.473 0-4.195-2.66-7.432-6.973-7.432Zm-123.213-.8c-3.81 0-5.987 2.256-6.663 5.275h13.188c-.081-.348-.184-.72-.318-1.119-.968-2.717-3.225-4.156-6.207-4.156Zm60.498 0c-3.777 0-5.948 2.256-6.622 5.275h13.187c-.08-.348-.183-.72-.317-1.119-.968-2.717-3.225-4.156-6.248-4.156Z" />
+        </svg>
+      );
+    },
+  },
+  {
+    name: "TipTap",
+    url: "https://tiptap.dev/",
+    logo: function (props: React.SVGProps<SVGSVGElement>) {
+      return (
+        <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
+          <path d="M122.314 31.25h22.73v4.866h-8.605v23.679h-5.52V36.116h-8.605v-4.865ZM148.307 35.792v-5.19h5.196v5.19h-5.196Zm0 24.003V38.387h5.196v21.408h-5.196ZM162.937 38.387v.81c0 .852-.203 1.5-.569 2.23-.162.406-.446.893-.04 1.095.406.203.649-.324.73-.486 1.299-2.27 3.45-3.974 6.779-3.974 5.56 0 9.335 4.866 9.335 11.029s-3.775 11.028-9.335 11.028c-3.248 0-5.48-1.662-6.779-4.014-.081-.122-.243-.527-.609-.405-.446.162-.284.567-.081.973.366.73.569 1.378.569 2.19v8.716h-5.196V38.387h5.196Zm5.682 17.029c3.653 0 5.358-2.92 5.358-6.325 0-3.406-1.705-6.325-5.358-6.325-3.41 0-5.682 2.919-5.682 6.325 0 3.405 2.272 6.325 5.682 6.325ZM195.107 42.928h-5.845v9.771c0 2.352.041 2.555 2.233 2.555h3.612v4.54h-4.708c-4.303 0-6.332-1.419-6.332-6.568V42.928h-3.897v-4.541h3.897v-5.839h5.195v5.839h5.845v4.54ZM213.624 38.387h5.195v21.408h-5.195v-.933c0-.81.203-1.46.568-2.19.203-.405.366-.81-.081-.972-.365-.122-.528.283-.609.405-1.502 2.23-3.531 4.014-6.778 4.014-5.561 0-9.336-4.865-9.336-11.028s3.775-11.029 9.336-11.029c3.328 0 5.601 1.622 6.778 3.974.081.162.325.689.731.486.406-.202.162-.689-.041-1.094-.365-.73-.568-1.379-.568-2.23v-.811Zm-5.683 17.029c3.41 0 5.683-2.92 5.683-6.325 0-3.406-2.273-6.325-5.683-6.325-3.653 0-5.357 2.919-5.357 6.325 0 3.405 1.704 6.325 5.357 6.325ZM228.26 38.387v.81c0 .852-.203 1.5-.569 2.23-.162.406-.446.893-.04 1.095.406.203.649-.324.731-.486 1.298-2.27 3.45-3.974 6.778-3.974 5.561 0 9.336 4.866 9.336 11.029s-3.775 11.028-9.336 11.028c-3.247 0-5.48-1.662-6.778-4.014-.082-.122-.244-.527-.609-.405-.447.162-.284.567-.082.973.366.73.569 1.378.569 2.19v8.716h-5.196V38.387h5.196Zm5.682 17.029c3.653 0 5.358-2.92 5.358-6.325 0-3.406-1.705-6.325-5.358-6.325-3.409 0-5.682 2.919-5.682 6.325 0 3.405 2.273 6.325 5.682 6.325ZM82.574 26a21.94 21.94 0 0 0-11.12 3.007c-.658.385-.947 1.24-.388 1.758.491.456 1.15.735 1.873.735h19.27c.724 0 1.382-.279 1.873-.735.559-.518.27-1.373-.387-1.758A21.94 21.94 0 0 0 82.575 26ZM104.598 48a2.751 2.751 0 0 0-2.753-2.75H63.304A2.751 2.751 0 0 0 60.55 48a2.751 2.751 0 0 0 2.753 2.75h38.541a2.751 2.751 0 0 0 2.753-2.75ZM94.082 65.235c.559.518.27 1.373-.387 1.758A21.94 21.94 0 0 1 82.575 70a21.94 21.94 0 0 1-11.122-3.007c-.657-.385-.946-1.24-.387-1.758a2.745 2.745 0 0 1 1.873-.735h19.27c.724 0 1.382.279 1.873.735ZM63.304 38.375a2.751 2.751 0 0 1 2.753-2.75h33.035a2.751 2.751 0 1 1 0 5.5H66.057a2.751 2.751 0 0 1-2.753-2.75ZM63.304 57.625a2.751 2.751 0 0 1 2.753-2.75h33.035a2.751 2.751 0 1 1 0 5.5H66.057a2.751 2.751 0 0 1-2.753-2.75Z" />
+        </svg>
+      );
+    },
+  },
+];
+
+function DarkButtonLink({ className, ...props }: React.ComponentProps<"a">) {
+  return (
+    <a
+      className={clsx(
+        className,
+        "rounded-4xl bg-black px-4 py-2 text-center text-sm/6 font-semibold text-white hover:bg-gray-800 dark:bg-white dark:text-gray-950 dark:hover:bg-white/90",
+      )}
+      {...props}
+    />
+  );
+}
+
+function LightButtonLink({ className, ...props }: React.ComponentProps<"a">) {
+  return (
+    <a
+      className={clsx(
+        className,
+        "rounded-full px-4 py-2 text-center text-sm/6 font-semibold text-gray-950 ring-1 ring-gray-950/10 hover:ring-gray-950/20 dark:bg-white/5 dark:text-gray-100 dark:ring-white/15 dark:hover:ring-white/20",
+      )}
+      {...props}
+    />
+  );
+}
+
+function Header() {
+  return (
+    <div className="line-y mt-12 grid gap-x-10 sm:mt-20 lg:mt-24 lg:grid-cols-[3fr_2fr]">
+      <div className="px-4 py-2 max-lg:line-b sm:px-2 lg:border-r lg:border-gray-950/5 dark:lg:border-white/10">
+        <p className="font-mono text-[0.8125rem]/6 font-medium tracking-widest text-pretty text-gray-600 uppercase dark:text-gray-500">
+          Sponsor
+        </p>
+        <h1 className="mt-2 text-6xl tracking-tighter text-pretty sm:text-8xl">Support the future of Tailwind CSS</h1>
+      </div>
+      <div className="@container grid grid-cols-1 grid-rows-[1fr_auto] lg:border-l lg:border-gray-950/5 dark:lg:border-white/10">
+        <div className="flex items-center px-4 py-2 max-lg:line-y max-lg:mt-6 sm:px-2">
+          <p className="max-w-2xl text-lg/7 font-medium text-pretty text-gray-600 dark:text-gray-400">
+            Help keep Tailwind CSS sustainable long term by supporting the project individually or as a company.
+          </p>
+        </div>
+        <div className="flex gap-4 px-4 py-2 whitespace-nowrap max-lg:line-t max-lg:mt-6 sm:px-2 lg:border-t lg:border-gray-950/5 @max-md:flex-col dark:lg:border-white/10">
+          <DarkButtonLink href="#insiders" className="inline-flex items-center justify-center gap-2">
+            Support as an individual
+            <svg fill="currentColor" aria-hidden="true" viewBox="0 0 10 10" className="-mr-0.5 w-2.5">
+              <path d="M4.85355 0.146423L9.70711 4.99998L4.85355 9.85353L4.14645 9.14642L7.79289 5.49998H0V4.49998H7.79289L4.14645 0.85353L4.85355 0.146423Z"></path>
+            </svg>
+          </DarkButtonLink>
+          <LightButtonLink href="#partners" className="inline-flex items-center justify-center gap-2">
+            Support as a company
+            <svg
+              fill="currentColor"
+              aria-hidden="true"
+              viewBox="0 0 10 10"
+              className="-mr-0.5 w-2.5 fill-gray-600 dark:fill-gray-400"
+            >
+              <path d="M4.85355 0.146423L9.70711 4.99998L4.85355 9.85353L4.14645 9.14642L7.79289 5.49998H0V4.49998H7.79289L4.14645 0.85353L4.85355 0.146423Z"></path>
+            </svg>
+          </LightButtonLink>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MessageFromAdam() {
+  return (
+    <div className="line-y mt-24 bg-gray-950/5 p-2 sm:-mx-px sm:p-[calc(--spacing(2)+1px)] dark:bg-white/10">
+      <div className="relative">
+        <div className="absolute inset-0 z-10 rounded-4xl dark:inset-ring dark:inset-ring-white/20"></div>
+        <section className="relative isolate overflow-hidden rounded-4xl bg-gray-950 p-10 md:p-20 lg:p-16 xl:p-32">
+          <Image
+            src={AdamTeachingImage}
+            alt="Adam Wathan"
+            width={1000}
+            height={1000}
+            className="absolute inset-x-0 top-0 mask-b-from-30% object-cover lg:left-auto lg:h-full lg:w-2/3 lg:mask-l-from-30%"
+          />
+          <div className="relative text-white max-xl:max-w-2xl max-lg:mx-auto max-lg:mt-60 lg:max-w-lg xl:max-w-2xl">
+            <p className="text-2xl/10">
+              Tailwind CSS exists because a passionate community believes in building better software together. By
+              becoming a Tailwind Insider or Partner you can directly support that mission—so we can keep shipping tools
+              you love, with no strings attached.
+            </p>
+            <p className="mt-8 text-base/8 font-medium">Adam Wathan</p>
+            <p className="text-gray-400">Creator of Tailwind CSS</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+}
+
+function FeaturedPartners() {
+  return (
+    <section>
+      <div className="relative mt-4">
+        <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="border-r border-gray-950/5 dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-lg:hidden xl:border-x dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-xl:hidden dark:border-white/10"></div>
+        </div>
+        <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
+          {partners.map((partner, index) => (
+            <div
+              key={index}
+              className="grid place-content-center max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y"
+            >
+              <a href={partner.url} target="_blank">
+                <partner.logo className="w-full max-w-80" aria-label={`${partner.name} logo`} />
+              </a>
+            </div>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+function Insiders() {
+  return (
+    <div id="insiders" className="line-y mt-40 grid scroll-mt-24 grid-cols-1 gap-10 xl:grid-cols-2">
+      <div className="border-r border-gray-950/5 px-4 py-2 sm:px-2 dark:border-white/10">
+        <p className="font-mono text-[0.8125rem]/6 font-medium tracking-widest text-pretty text-sky-500 uppercase">
+          <a href="#insiders">Insiders</a>
+        </p>
+        <h2 className="max-w-3xl text-3xl font-medium tracking-tight text-pretty md:text-[2.5rem]/14">
+          Support as an individual
+        </h2>
+        <p className="mt-4 max-w-2xl text-base/7 text-gray-600 dark:text-gray-400">
+          Join a community of enthusiasts who get early access to new features, internal tooling we've built for
+          Tailwind, and direct connection with the team — all while supporting the project you love.
+        </p>
+      </div>
+      <div className="grid grid-cols-1 gap-2 bg-gray-950/5 py-[calc(--spacing(2)+1px)] max-xl:-mx-px max-xl:px-[calc(--spacing(2)+1px)] sm:grid-cols-2 xl:-mr-px xl:border-l xl:border-gray-950/5 xl:pr-[calc(--spacing(2)+1px)] xl:pl-2 dark:bg-white/10 dark:xl:border-white/10">
+        <div className="@container rounded-2xl bg-white p-6 sm:rounded-4xl sm:p-10 dark:bg-gray-950/80 dark:outline dark:outline-white/10">
+          <p className="font-mono text-[0.8125rem]/6 font-medium tracking-widest text-pretty text-gray-600 uppercase dark:text-gray-400">
+            Monthly
+          </p>
+          <div className="mt-6">
+            <div className="flex flex-wrap items-start gap-6 @max-md:flex-col @md:items-center @md:justify-between">
+              <div className="flex items-center gap-x-4">
+                <p className="text-5xl/12 font-medium first-letter:font-light">$12</p>
+                <div>
+                  <p className="text-sm/6 font-semibold">per month</p>
+                  <p className="text-sm/6 text-gray-600 dark:text-gray-400">plus tax</p>
+                </div>
+              </div>
+              <LightButtonLink href="https://buy.polar.sh/polar_cl_Nz5rJ2PfhRopgT4nR7KHVWN8Nfdhdta6OdH7c2YiJhM">
+                Sponsor monthly
+              </LightButtonLink>
+            </div>
+          </div>
+        </div>
+        <div className="@container rounded-2xl bg-white p-6 sm:rounded-4xl sm:p-10 dark:bg-gray-950/80 dark:outline dark:outline-white/10">
+          <p className="font-mono text-[0.8125rem]/6 font-medium tracking-widest text-pretty text-gray-600 uppercase dark:text-gray-400">
+            Annually
+          </p>
+          <div className="mt-6">
+            <div className="flex flex-wrap items-start gap-6 @max-md:flex-col @md:items-center @md:justify-between">
+              <div className="flex items-center gap-x-4">
+                <p className="text-5xl/12 font-medium first-letter:font-light">$120</p>
+                <div>
+                  <p className="text-sm/6 font-semibold">per year</p>
+                  <p className="text-sm/6 text-gray-600 dark:text-gray-400">plus tax</p>
+                </div>
+              </div>
+              <DarkButtonLink href="https://buy.polar.sh/polar_cl_sdvKSPOnjtdElmQ57la4wv3C91Io5vGZpJmC71jdFXv">
+                Sponsor annually
+              </DarkButtonLink>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function InsiderPerks() {
+  return (
+    <section className="mt-16">
+      <h2 className="px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Insider perks</h2>
+      <div className="relative mt-4">
+        <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-1 gap-2 max-sm:hidden sm:grid-cols-2 sm:gap-x-5 sm:gap-y-10 md:gap-10 lg:grid-cols-3">
+          <div className="border-r border-gray-950/5 dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-lg:hidden dark:border-white/10"></div>
+        </div>
+        <ul className="grid-cols-1 gap-2 max-sm:line-y max-sm:overflow-x-auto max-sm:px-2 sm:grid sm:grid-cols-2 sm:gap-x-5 sm:gap-y-10 md:gap-10 lg:grid-cols-3">
+          <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
+            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
+              <strong className="font-semibold text-gray-950 dark:text-white">
+                Access to private insiders area in Discord
+              </strong>{" "}
+              — where Tailwind insiders share tips, play with upcoming features, and connect directly with the core
+              team.
+            </p>
+          </li>
+          <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
+            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
+              <strong className="font-semibold text-gray-950 dark:text-white">Adam Wathan’s AGENT.md rules</strong> —
+              Adam's personal ruleset for working with AI coding assistants, straight from the Tailwind founder's own
+              development setup.
+            </p>
+          </li>
+          <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
+            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
+              <strong className="font-semibold text-gray-950 dark:text-white">
+                Early documentation for pre-release builds
+              </strong>{" "}
+              — preview documentation for unreleased Tailwind features and start experimenting with tomorrow's CSS
+              utilities today.
+            </p>
+          </li>
+          <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
+            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
+              <strong className="font-semibold text-gray-950 dark:text-white">VS Code themes</strong> — get the VS Code
+              themes built and battle-tested by the Tailwind team, crafted with the same attention to detail we put into
+              Tailwind CSS itself
+            </p>
+          </li>
+          <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
+            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
+              <strong className="font-semibold text-gray-950 dark:text-white">Source code + Figma files</strong> —
+              download the source code from our feature demos, that usually never see the light of day, to learn exactly
+              how we prototype ideas with Tailwind.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+function Partners() {
+  return (
+    <div id="partners" className="line-y mt-40 scroll-mt-24">
+      <div className="px-4 py-2 sm:px-2">
+        <p className="font-mono text-[0.8125rem]/6 font-medium tracking-widest text-pretty text-pink-500 uppercase">
+          <a href="#partners">Partners</a>
+        </p>
+        <h2 className="max-w-3xl text-3xl font-medium tracking-tight text-pretty md:text-[2.5rem]/14">
+          Support as a company
+        </h2>
+        <p className="mt-4 max-w-2xl text-base/7 text-gray-600 dark:text-gray-400">
+          Become a Tailwind CSS partner to put your brand in front of 10 million developers a month, give your team
+          early access to new features and our roadmap, and get direct access to the Tailwind CSS core team — all while
+          helping ensure Tailwind stays around for the long haul.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function PartnerPerks() {
+  return (
+    <section className="mt-16">
+      <h2 className="px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Why become a partner?</h2>
+      <div className="relative mt-4">
+        <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-1 gap-2 max-sm:hidden sm:grid-cols-2 sm:gap-x-5 sm:gap-y-10 md:gap-10 lg:grid-cols-3">
+          <div className="border-r border-gray-950/5 dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-lg:hidden dark:border-white/10"></div>
+        </div>
+        <ul className="grid-cols-1 gap-2 text-sm/7 text-gray-600 max-sm:line-y max-sm:overflow-x-auto max-sm:px-2 sm:grid sm:grid-cols-2 sm:gap-x-5 sm:gap-y-10 md:gap-10 lg:grid-cols-3">
+          <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
+            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
+              <strong className="font-semibold text-gray-950 dark:text-white">Your logo in front of millions</strong> —
+              put your brand in front of millions of developers while showing your commitment to the open source tools
+              that power modern development.
+            </p>
+          </li>
+          <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
+            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
+              <strong className="font-semibold text-gray-950 dark:text-white">Insiders team access</strong> — get all
+              the perks of the Insiders tier for everyone in your team, including early access to new features,
+              specialized tooling, and more.
+            </p>
+          </li>
+          <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
+            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
+              <strong className="font-semibold text-gray-950 dark:text-white">Tailwind Plus team access</strong> —
+              access to Tailwind Plus for your whole team, including the React UI Kit, expertly crafted templates, and
+              500+ thoughtfully designed components.
+            </p>
+          </li>
+          <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
+            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
+              <strong className="font-semibold text-gray-950 dark:text-white">
+                Expedited bug fixes and issue resolution
+              </strong>{" "}
+              — priority support for any issues your team encounters, with a direct line to the Tailwind CSS core team.
+            </p>
+          </li>
+          <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
+            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
+              <strong className="font-semibold text-gray-950 dark:text-white">Website in the showcase</strong> — show
+              off your company’s website with a featured spot in the Tailwind CSS showcase, reaching a wide audience of
+              developers.
+            </p>
+          </li>
+          <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
+            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
+              <strong className="font-semibold text-gray-950 dark:text-white">Support Tailwind CSS</strong> — sleep easy
+              knowing that you’re supporting the development of Tailwind CSS to ensure that it stays around for the long
+              haul.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+function CheckmarkIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 22 22" className="h-7 w-5.5">
+      <path
+        className="fill-sky-400/25"
+        d="M22 11c0 6.075-4.925 11-11 11S0 17.075 0 11 4.925 0 11 0s11 4.925 11 11Z"
+      ></path>
+      <path
+        className="fill-sky-400/25"
+        d="M11 21c5.523 0 10-4.477 10-10S16.523 1 11 1 1 5.477 1 11s4.477 10 10 10Zm0 1c6.075 0 11-4.925 11-11S17.075 0 11 0 0 4.925 0 11s4.925 11 11 11Z"
+        clipRule="evenodd"
+        fillRule="evenodd"
+      ></path>
+      <path
+        className="fill-sky-400"
+        d="m14.684 7.82-4.079 6.992L7.293 11.5 8 10.793l2.395 2.395 3.425-5.872.864.504Z"
+        clipRule="evenodd"
+        fillRule="evenodd"
+      ></path>
+    </svg>
+  );
+}
+
+function PartnerPlans() {
+  const plans = [
+    {
+      name: "Supporter",
+      price: "$250",
+      url: "https://buy.polar.sh/polar_cl_som3lU3ZaBEFOr4nZlkoAuRBhRbFDMoFzJUC04Jn1Sc",
+      description: "For companies who want to support Tailwind while getting some extra exposure.",
+      features: [
+        { name: "Logo on the sponsors page", description: "your logo proudly displayed on the sponsors page." },
+        { name: "Insiders team access", description: "all the perks of the Insiders tier for everyone in your team." },
+        {
+          name: "Support Tailwind CSS",
+          description: "sleep easy knowing that you’re supporting the development of Tailwind CSS.",
+        },
+      ],
+    },
+    {
+      name: "Ambassador",
+      price: "$1,000",
+      url: "https://buy.polar.sh/polar_cl_TqBd09tnOwN7SQf7YpOcUZnDwxMVQB58Snhas2cdEDL",
+      description: "For companies looking to boost visibility and credibility with the Tailwind community.",
+      features: [
+        {
+          name: "Logo on the Tailwind homepage",
+          description: "your logo displayed in a rotating spot on the homepage.",
+        },
+        {
+          name: "Featured in the launch",
+          description: "your company will be featured as part of the launch blog and media.",
+        },
+        { name: "Website in the showcase", description: "a spot on the showcase page for your company’s website." },
+        { name: "Insiders team access", description: "all the perks of the Insiders tier for everyone in your team." },
+        {
+          name: "Tailwind Plus team access",
+          description: "access to the UI Kit, templates, and 500+ components for your team.",
+        },
+        {
+          name: "Support Tailwind CSS",
+          description: "sleep easy knowing that you’re supporting the development of Tailwind CSS.",
+        },
+      ],
+    },
+    {
+      name: "Partner",
+      price: "$2,500",
+      url: "https://buy.polar.sh/polar_cl_Ae2EFQATomRTUPq3DVTqzjOCAEsI7m7GNrmoh1n6ZRk",
+      description: "For companies who want increased exposure and easy access to the Tailwind team",
+      features: [
+        {
+          name: "Permanent logo on the Tailwind homepage",
+          description: "your logo permanently displayed on the homepage.",
+        },
+        {
+          name: "Priority logo placement on sponsors page",
+          description: "your logo will appear at the top of the sponsors page.",
+        },
+        {
+          name: "Featured spot in the Showcase",
+          description: "a featured spot on the showcase page for your website.",
+        },
+        {
+          name: "Expedited bug fixes and issue resolution",
+          description: "issues brought up by your team will get priority in triage.",
+        },
+        { name: "Insiders team access", description: "all the perks of the Insiders tier for everyone in your team." },
+        {
+          name: "Tailwind Plus team access",
+          description: "access to the UI Kit, templates, and 500+ components for your team.",
+        },
+        {
+          name: "Support Tailwind CSS",
+          description: "sleep easy knowing that you’re supporting the development of Tailwind CSS.",
+        },
+      ],
+    },
+  ];
+
+  return (
+    <section className="line-y mt-16 grid grid-cols-1 lg:gap-10 xl:grid-cols-3">
+      {plans.map((plan) => (
+        <div
+          key={plan.name}
+          className="bg-gray-950/5 py-[calc(--spacing(2)+1px)] max-lg:-mx-px max-lg:px-[calc(--spacing(2)+1px)] not-first:max-lg:pt-0 lg:-mx-px lg:border-gray-950/5 lg:pr-2 lg:pl-[calc(--spacing(2)+1px)] lg:not-first:border-l lg:not-last:border-r dark:bg-white/10 dark:lg:border-white/10"
+        >
+          <div className="flex h-full flex-col gap-y-6 rounded-2xl bg-white p-6 sm:rounded-4xl sm:p-10 xl:p-8 2xl:p-10 dark:bg-gray-950/80 dark:outline dark:outline-white/10">
+            <p className="font-mono text-[0.8125rem]/6 font-medium tracking-widest text-pretty text-gray-600 uppercase dark:text-gray-400">
+              {plan.name}
+            </p>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-x-4">
+                <p className="text-5xl font-medium first-letter:font-light">{plan.price}</p>
+                <div>
+                  <p className="text-sm/6 font-semibold">per month</p>
+                  <p className="text-sm/6 text-gray-600 dark:text-gray-400">plus tax</p>
+                </div>
+              </div>
+
+              <DarkButtonLink className="max-sm:hidden xl:hidden" href={plan.url}>
+                Become {plan.name.toLowerCase().match(/^[aeiou]/i) ? "an" : "a"} {plan.name.toLowerCase()}
+              </DarkButtonLink>
+            </div>
+            <p className="max-w-2xl text-sm/7 text-gray-600 dark:text-gray-400">{plan.description}</p>
+            <hr className="border-gray-950/5 dark:border-white/10" />
+            <div className="@container">
+              <ul
+                className="group grid grid-cols-1 gap-x-10 gap-y-6 text-sm/7 text-gray-600 @3xl:grid-cols-2 dark:text-gray-300"
+                role="list"
+              >
+                {plan.features.map((feature) => (
+                  <li key={feature.name} className="grid max-w-2xl grid-cols-[auto_1fr] gap-6">
+                    <CheckmarkIcon />
+                    <p className="text-pretty">
+                      <strong className="font-semibold text-gray-950 dark:text-white">{feature.name}</strong> —{" "}
+                      {feature.description}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <DarkButtonLink className="mt-auto sm:max-xl:hidden" href={plan.url}>
+              Become {plan.name.toLowerCase().match(/^[aeiou]/i) ? "an" : "a"} {plan.name.toLowerCase()}
+            </DarkButtonLink>
+          </div>
+        </div>
+      ))}
+    </section>
+  );
+}
+
+export default async function Sponsor() {
+  return (
+    <div className="mt-24">
+      <Header />
+      <div className="isolate">
+        <MessageFromAdam />
+        <FeaturedPartners />
+        <Insiders />
+        <InsiderPerks />
+        <Partners />
+        <PartnerPerks />
+        <PartnerPlans />
+        <FooterMeta className="px-4 md:px-6 lg:px-8" />
+      </div>
+    </div>
+  );
+}

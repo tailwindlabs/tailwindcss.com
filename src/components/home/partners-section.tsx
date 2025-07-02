@@ -1,0 +1,65 @@
+import GridContainer from "../grid-container";
+import CategoryHeader from "./category-header";
+import { partners } from "@/app/sponsor/page";
+
+export default function WhyTailwindCssSection() {
+  return (
+    <div className="relative max-w-full">
+      <div
+        aria-hidden="true"
+        className="hidden h-4 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 2xl:visible 2xl:flex dark:text-white/25"
+      >
+        text-4xl <span className="inline dark:hidden">text-gray-950</span>
+        <span className="hidden dark:inline">text-white</span> tracking-tighter text-balance
+      </div>
+
+      <GridContainer className="2xl:before:hidden 2xl:after:hidden">
+        <CategoryHeader className="text-sky-500 dark:text-sky-400">Sponsors</CategoryHeader>
+      </GridContainer>
+
+      <GridContainer>
+        <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4 2xl:mt-0">
+          Supported by the best.
+        </h2>
+      </GridContainer>
+
+      <div
+        aria-hidden="true"
+        className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 sm:h-10 dark:text-white/25"
+      >
+        text-base <span className="inline dark:hidden">text-gray-950</span>
+        <span className="hidden dark:inline">text-white</span>
+      </div>
+
+      <GridContainer>
+        <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-gray-600 max-sm:px-4 dark:text-gray-400">
+          Tailwind is supported by incredible partners and sponsors who make it possible for a team of talented
+          designers and engineers to maintain the framework full-time.
+        </p>
+      </GridContainer>
+
+      <section>
+        <div className="relative mt-16">
+          <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="border-r border-gray-950/5 dark:border-white/10"></div>
+            <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
+            <div className="border-l border-gray-950/5 max-lg:hidden xl:border-x dark:border-white/10"></div>
+            <div className="border-l border-gray-950/5 max-xl:hidden dark:border-white/10"></div>
+          </div>
+          <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
+            {partners.map((partner, index) => (
+              <div
+                key={index}
+                className="grid place-content-center max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y"
+              >
+                <a href={partner.url} target="_blank">
+                  <partner.logo className="w-full max-w-80" aria-label={`${partner.name} logo`} />
+                </a>
+              </div>
+            ))}
+          </ul>
+        </div>
+      </section>
+    </div>
+  );
+}

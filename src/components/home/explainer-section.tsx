@@ -111,7 +111,7 @@ export default function ExplainerSection() {
       </div>
 
       <GridContainer className="2xl:before:hidden 2xl:after:hidden">
-        <CategoryHeader className="text-pink-500 dark:text-pink-400">How it works</CategoryHeader>
+        <CategoryHeader className="text-sky-500 dark:text-sky-400">How it works</CategoryHeader>
       </GridContainer>
 
       <GridContainer>
