@@ -11,7 +11,6 @@ export const metadata: Metadata = {
     type: "article",
     title: "Sponsor - Tailwind CSS",
     description: "Help keep Tailwind CSS sustainable long term by supporting the project individually or as a company.",
-    images: "https://tailwindcss.com/api/og?path=/sponsor",
     url: "https://tailwindcss.com/sponsor",
   },
 };
