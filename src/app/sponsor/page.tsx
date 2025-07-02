@@ -215,14 +215,14 @@ function FeaturedPartners() {
         </div>
         <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
           {partners.map((partner, index) => (
-            <div
+            <a
               key={index}
-              className="grid place-content-center max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y"
+              href={partner.url}
+              target="_blank"
+              className="grid place-content-center transition-colors hover:bg-gray-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y dark:hover:bg-white/2.5"
             >
-              <a href={partner.url} target="_blank">
-                <partner.logo className="w-full max-w-80" aria-label={`${partner.name} logo`} />
-              </a>
-            </div>
+              <partner.logo className="w-full max-w-80" aria-label={`${partner.name} logo`} />
+            </a>
           ))}
         </ul>
       </div>
