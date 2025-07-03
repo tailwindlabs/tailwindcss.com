@@ -332,6 +332,12 @@ function InsiderPerks() {
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
+              <strong className="font-semibold text-gray-950 dark:text-white">Raycast extension</strong> — instantly
+              find the nearest Tailwind theme value for any color or size, or see the generated CSS output of any class.
+            </p>
+          </li>
+          <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
+            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
               <strong className="font-semibold text-gray-950 dark:text-white">Source code + Figma files</strong> —
               download the source code from our feature demos, that usually never see the light of day, to learn exactly
               how we prototype ideas with Tailwind.
