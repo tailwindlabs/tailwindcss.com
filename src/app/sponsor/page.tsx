@@ -1,8 +1,11 @@
 import { FooterMeta } from "@/components/footer";
-import clsx from "clsx";
+import { MinusIcon, PlusIcon } from "@heroicons/react/16/solid";
+import { clsx } from "clsx";
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import AdamTeachingImage from "./adam-teaching.jpg";
+import { Breadcrumb } from "@/components/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Sponsor",
@@ -134,13 +137,39 @@ function LightButtonLink({ className, ...props }: React.ComponentProps<"a">) {
   );
 }
 
+export function Eyebrow({
+  as = "p",
+  className,
+  color = "gray",
+  ...props
+}: {
+  as?: React.ElementType;
+  className?: string;
+  color?: "gray" | "sky" | "pink" | "fuchsia";
+  children: React.ReactNode;
+}) {
+  const Component = as;
+
+  return (
+    <Component
+      className={clsx(
+        className,
+        "font-mono text-[0.8125rem]/6 font-medium tracking-widest text-pretty uppercase",
+        color === "gray" && "text-gray-600 dark:text-gray-500",
+        color === "sky" && "text-sky-500",
+        color === "pink" && "text-pink-500",
+        color === "fuchsia" && "text-fuchsia-500 dark:text-fuchsia-400",
+      )}
+      {...props}
+    />
+  );
+}
+
 function Header() {
   return (
     <div className="line-y mt-12 grid gap-x-10 sm:mt-20 lg:mt-24 lg:grid-cols-[3fr_2fr]">
       <div className="px-4 py-2 max-lg:line-b sm:px-2 lg:border-r lg:border-gray-950/5 dark:lg:border-white/10">
-        <p className="font-mono text-[0.8125rem]/6 font-medium tracking-widest text-pretty text-gray-600 uppercase dark:text-gray-500">
-          Sponsor
-        </p>
+        <Eyebrow>Sponsor</Eyebrow>
         <h1 className="mt-2 text-6xl tracking-tighter text-pretty sm:text-8xl">Support the future of Tailwind CSS</h1>
       </div>
       <div className="@container grid grid-cols-1 grid-rows-[1fr_auto] lg:border-l lg:border-gray-950/5 dark:lg:border-white/10">
@@ -232,12 +261,12 @@ function Insiders() {
   return (
     <div id="insiders" className="line-y mt-40 grid scroll-mt-24 grid-cols-1 gap-10 xl:grid-cols-2">
       <div className="border-r border-gray-950/5 px-4 py-2 sm:px-2 dark:border-white/10">
-        <p className="font-mono text-[0.8125rem]/6 font-medium tracking-widest text-pretty text-sky-500 uppercase">
+        <Eyebrow as="h2" color="sky">
           <a href="#insiders">Insiders</a>
-        </p>
-        <h2 className="max-w-3xl text-3xl font-medium tracking-tight text-pretty md:text-[2.5rem]/14">
+        </Eyebrow>
+        <p className="max-w-3xl text-3xl font-medium tracking-tight text-pretty md:text-[2.5rem]/14">
           Support as an individual
-        </h2>
+        </p>
         <p className="mt-4 max-w-2xl text-base/7 text-gray-600 dark:text-gray-400">
           Join a community of enthusiasts who get early access to new features, internal tooling we've built for
           Tailwind, and direct connection with the team — all while supporting the project you love.
@@ -257,9 +286,9 @@ function Insiders() {
                   <p className="text-sm/6 text-gray-600 dark:text-gray-400">plus tax</p>
                 </div>
               </div>
-              <LightButtonLink href="https://buy.polar.sh/polar_cl_Nz5rJ2PfhRopgT4nR7KHVWN8Nfdhdta6OdH7c2YiJhM">
+              <DarkButtonLink href="https://buy.polar.sh/polar_cl_Nz5rJ2PfhRopgT4nR7KHVWN8Nfdhdta6OdH7c2YiJhM">
                 Sponsor monthly
-              </LightButtonLink>
+              </DarkButtonLink>
             </div>
           </div>
         </div>
@@ -276,9 +305,9 @@ function Insiders() {
                   <p className="text-sm/6 text-gray-600 dark:text-gray-400">plus tax</p>
                 </div>
               </div>
-              <DarkButtonLink href="https://buy.polar.sh/polar_cl_sdvKSPOnjtdElmQ57la4wv3C91Io5vGZpJmC71jdFXv">
+              <LightButtonLink href="https://buy.polar.sh/polar_cl_sdvKSPOnjtdElmQ57la4wv3C91Io5vGZpJmC71jdFXv">
                 Sponsor annually
-              </DarkButtonLink>
+              </LightButtonLink>
             </div>
           </div>
         </div>
@@ -309,7 +338,7 @@ function InsiderPerks() {
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Adam Wathan’s AGENT.md rules</strong> —
+              <strong className="font-semibold text-gray-950 dark:text-white">Cursor/Claude/AGENTS.md rules</strong> —
               Adam's personal ruleset for working with AI coding assistants, straight from the Tailwind founder's own
               development setup.
             </p>
@@ -353,12 +382,12 @@ function Partners() {
   return (
     <div id="partners" className="line-y mt-40 scroll-mt-24">
       <div className="px-4 py-2 sm:px-2">
-        <p className="font-mono text-[0.8125rem]/6 font-medium tracking-widest text-pretty text-pink-500 uppercase">
+        <Eyebrow as="h2" color="pink">
           <a href="#partners">Partners</a>
-        </p>
-        <h2 className="max-w-3xl text-3xl font-medium tracking-tight text-pretty md:text-[2.5rem]/14">
+        </Eyebrow>
+        <p className="max-w-3xl text-3xl font-medium tracking-tight text-pretty md:text-[2.5rem]/14">
           Support as a company
-        </h2>
+        </p>
         <p className="mt-4 max-w-2xl text-base/7 text-gray-600 dark:text-gray-400">
           Become a Tailwind CSS partner to put your brand in front of 10 million developers a month, give your team
           early access to new features and our roadmap, and get direct access to the Tailwind CSS core team — all while
@@ -537,9 +566,7 @@ function PartnerPlans() {
           className="bg-gray-950/5 py-[calc(--spacing(2)+1px)] max-lg:-mx-px max-lg:px-[calc(--spacing(2)+1px)] not-first:max-lg:pt-0 lg:-mx-px lg:border-gray-950/5 lg:pr-2 lg:pl-[calc(--spacing(2)+1px)] lg:not-first:border-l lg:not-last:border-r dark:bg-white/10 dark:lg:border-white/10"
         >
           <div className="flex h-full flex-col gap-y-6 rounded-2xl bg-white p-6 sm:rounded-4xl sm:p-10 xl:p-8 2xl:p-10 dark:bg-gray-950/80 dark:outline dark:outline-white/10">
-            <p className="font-mono text-[0.8125rem]/6 font-medium tracking-widest text-pretty text-gray-600 uppercase dark:text-gray-400">
-              {plan.name}
-            </p>
+            <Eyebrow as="h3">{plan.name}</Eyebrow>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-x-4">
                 <p className="text-5xl font-medium first-letter:font-light">{plan.price}</p>
@@ -581,6 +608,114 @@ function PartnerPlans() {
   );
 }
 
+export function FaqGroup({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="group">
+      <Eyebrow as="h3" className="px-4 py-2 sm:px-2">
+        {title}
+      </Eyebrow>
+      <dl>{children}</dl>
+    </div>
+  );
+}
+
+export function Faq({ question, children }: { question: string; children: React.ReactNode }) {
+  let id =
+    "faq-" +
+    question
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .trim()
+      .replace(/\s+/g, "-");
+
+  return (
+    <details className="group border-t border-gray-950/5 px-4 py-3 sm:px-2 dark:border-white/5">
+      <summary
+        id={id}
+        className="flex w-full cursor-pointer justify-between gap-4 select-none group-open:text-sky-500 [&::-webkit-details-marker]:hidden"
+      >
+        <div className="text-left text-sm/7 font-semibold text-pretty">{question}</div>
+        <PlusIcon className="h-7 w-4 group-open:hidden" />
+        <MinusIcon className="h-7 w-4 not-group-open:hidden" />
+      </summary>
+      <div className="prose mt-4">{children}</div>
+    </details>
+  );
+}
+
+function Faqs() {
+  return (
+    <section className="line-y mt-30 grid grid-cols-1 gap-10 lg:grid-cols-2" id="faqs">
+      <div className="lg:border-r lg:border-gray-950/5 dark:lg:border-white/5">
+        <div className="grid grid-cols-1 gap-y-2 px-4 py-2 max-lg:line-b sm:px-2 lg:line-b/half">
+          <Eyebrow as="h2" color="fuchsia">
+            Frequently asked questions
+          </Eyebrow>
+          <p className="text-[2.5rem]/none font-medium tracking-tight text-pretty">Everything you need to know.</p>
+        </div>
+      </div>
+      <div className="lg:border-l lg:border-gray-950/5 dark:lg:border-white/5">
+        <div className="grid grid-cols-1 gap-10">
+          <FaqGroup title="General">
+            <Faq question="Who can I contact about a sponsorship?">
+              <p>
+                If you have any questions about sponsoring, reach out to us at{" "}
+                <a href="mailto:support@tailwindcss.com">support@tailwindcss.com</a> and we'll be happy to help.
+              </p>
+            </Faq>
+            <Faq question="How are the sponsor perks delivered?">
+              <p>
+                After you check out via Polar, you'll get access to a Polar customer portal where you can manage your
+                sponsorship and access any perks that come with it.
+              </p>
+              <p>
+                If you're sponsoring as a company, we'll follow up to coordinate how to feature you on the Tailwind CSS
+                website as well as how to give your team <strong>Tailwind Insider</strong> access.
+              </p>
+            </Faq>
+            <Faq question="How are the sponsor perks licensed?">
+              <p>Sponsor perks are provided under a custom commercial license.</p>
+              <p>
+                They’re licensed for personal or internal use by active Tailwind CSS Insiders sponsors only.
+                Redistribution, sublicensing, or public sharing of the perks — such as the VS Code theme, Raycast
+                extension, or Cursor/Claude/AGENTS.md rules — is not permitted.
+              </p>
+            </Faq>
+          </FaqGroup>
+          <FaqGroup title="Support">
+            <Faq question="Do you offer technical support for sponsor perks?">
+              <p>
+                No — we don't offer technical support for sponsor perks. These perks are a bonus for supporters who want
+                to give back to the project, but they're provided as-is.
+              </p>
+              <p>
+                That said, the <strong>Insiders Discord</strong> is a great place to ask for help with anything related
+                to the perks.
+              </p>
+            </Faq>
+            <Faq question="How do I cancel my sponsorship?">
+              <p>
+                You can cancel your sponsorship at any time through the Polar customer portal. Once you cancel, your
+                perks will remain active until the end of your current billing period.
+              </p>
+            </Faq>
+            <Faq question="What happens if I stop sponsoring?">
+              <p>
+                If your sponsorship ends, you'll lose access to any perks like the Insiders Discord server,
+                Cursor/Claude/AGENTS.md rules, and pre-release documentation. These are only available while you're
+                actively sponsoring.
+              </p>
+            </Faq>
+            <Faq question="What is your refund policy?">
+              <p>Sponsorships are non-refundable, but of course you can cancel your sponsorship at any time.</p>
+            </Faq>
+          </FaqGroup>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default async function Sponsor() {
   return (
     <div className="mt-24">
@@ -593,6 +728,7 @@ export default async function Sponsor() {
         <Partners />
         <PartnerPerks />
         <PartnerPlans />
+        <Faqs />
         <FooterMeta className="px-4 md:px-6 lg:px-8" />
       </div>
     </div>
