@@ -518,6 +518,7 @@ function PartnerPlans() {
           name: "Logo on the Tailwind homepage",
           description: "your logo displayed in a rotating spot on the homepage.",
         },
+        { name: "Logo on the sponsors page", description: "your logo proudly displayed on the sponsors page." },
         { name: "Website in the showcase", description: "a spot on the showcase page for your company’s website." },
         { name: "Insiders team access", description: "all the perks of the Insiders tier for everyone in your team." },
         {
@@ -545,7 +546,7 @@ function PartnerPlans() {
           description: "your logo will appear at the top of the sponsors page.",
         },
         {
-          name: "Featured spot in the Showcase",
+          name: "Featured spot in the showcase",
           description: "a featured spot on the showcase page for your website.",
         },
         {
