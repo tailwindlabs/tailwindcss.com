@@ -49,17 +49,6 @@ export const partners = [
     },
   },
   {
-    name: "Bento",
-    url: "https://bentonow.com/",
-    logo: function (props: React.SVGProps<SVGSVGElement>) {
-      return (
-        <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
-          <path d="M234.33 54.47h-2.853l3.377-7.17h2.853l-3.377 7.17Zm19.025-13.081h-28.57c-1.936 0-4.032 1.118-4.681 2.496l-7.816 16.58c-.65 1.378.393 2.496 2.33 2.496h28.569c1.937 0 4.033-1.118 4.682-2.496l7.816-16.58c.65-1.378-.393-2.496-2.33-2.496ZM87.277 54.47h-2.853l3.378-7.17h2.853l-3.378 7.17Zm19.026-13.081H90.592l-4.017-8.304H70.211l4.016 8.304L64.06 62.961h32.075c1.937 0 4.033-1.117 4.682-2.496l7.816-16.58c.65-1.378-.394-2.496-2.33-2.496ZM125.22 47.3h4.885l-.884 1.877h-4.885l.884-1.877Zm-3.377 7.17.884-1.878h20.233l4.107-8.707c.65-1.378-.394-2.496-2.33-2.496h-28.57c-1.936 0-4.032 1.118-4.681 2.496l-7.817 16.58c-.649 1.379.395 2.496 2.331 2.496h32.075l4.001-8.491h-20.233ZM183.172 41.389h-28.57c-1.936 0-4.032 1.118-4.682 2.496l-8.992 19.076h16.365l7.378-15.661h2.853l-7.378 15.661h16.364l8.992-19.076c.649-1.378-.394-2.496-2.33-2.496ZM199.728 54.47l3.378-7.17h12.531l2.79-5.911h-12.532l4.078-8.304h-16.364l-13.07 27.38c-.65 1.378.393 2.496 2.33 2.496h25.39l4.001-8.492h-12.532Z" />
-        </svg>
-      );
-    },
-  },
-  {
     name: "Cal.com",
     url: "https://cal.com/",
     logo: function (props: React.SVGProps<SVGSVGElement>) {
@@ -121,6 +110,39 @@ export const partners = [
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
           <path d="M54.394 52.497C51.949 52.497 50 50.47 50 48c0-2.47 1.98-4.497 4.394-4.497 2.413 0 4.394 2.027 4.394 4.497 0 2.47-1.98 4.497-4.394 4.497Zm44.062-8.994c-2.445 0-4.394 2.027-4.394 4.497 0 2.47 1.98 4.497 4.394 4.497 2.413 0 4.394-2.027 4.394-4.497 0-2.47-1.981-4.497-4.394-4.497ZM56.714 59.052c-1.856 1.615-2.104 4.433-.556 6.365 1.578 1.9 4.331 2.153 6.219.57 1.857-1.615 2.104-4.434.557-6.365-1.578-1.9-4.332-2.154-6.22-.57Zm39.421-22.104c1.857-1.615 2.104-4.433.557-6.365-1.578-1.9-4.332-2.153-6.22-.57-1.856 1.615-2.103 4.434-.556 6.365 1.578 1.9 4.332 2.154 6.219.57Zm-33.758-6.903c-1.857-1.615-4.641-1.362-6.22.57-1.577 1.9-1.33 4.75.558 6.365 1.856 1.615 4.64 1.362 6.219-.57 1.578-1.9 1.33-4.75-.557-6.365Zm33.758 29.007c-1.857-1.615-4.641-1.362-6.22.57-1.577 1.9-1.33 4.75.558 6.365 1.856 1.615 4.64 1.361 6.219-.57 1.578-1.9 1.33-4.75-.557-6.365Zm-11.263-9.69c-1.856-1.615-4.641-1.362-6.22.57-1.578 1.9-1.33 4.75.558 6.365 1.856 1.615 4.64 1.361 6.219-.57 1.578-1.9 1.33-4.75-.557-6.365ZM73.64 39.703c-1.857-1.615-4.641-1.361-6.22.57-1.578 1.9-1.33 4.75.558 6.365 1.856 1.615 4.64 1.362 6.219-.57 1.578-1.9 1.33-4.75-.557-6.365ZM138.309 32.8h3.775v30.495h-4.332L127.541 44.96c-.556-1.013-1.701-3.293-3.434-6.84h-.031c.062 1.298.093 2.723.155 4.275.062 1.552.062 2.692.062 3.452v17.448h-3.775V32.8h4.239l10.211 18.113c.526.919 1.454 2.692 2.784 5.352l.743 1.457h.031c-.062-1.172-.093-2.502-.155-4.022-.062-1.52-.062-2.723-.062-3.642V32.8Zm22.279 20.963c0 4.529-1.826 6.809-5.477 6.809-3.651 0-1.547-.064-2.135-.222-.619-.158-1.176-.507-1.733-1.045-.402-.38-.68-.855-.866-1.362a5.273 5.273 0 0 1-.309-1.52 34.19 34.19 0 0 1-.062-2.121V41.508h-3.961v13.015c0 1.014.031 1.9.093 2.66.062.76.216 1.489.464 2.249a5.19 5.19 0 0 0 1.145 1.963c.773.823 1.671 1.457 2.692 1.837 1.021.38 2.228.601 3.62.601s2.847-.316 3.992-.981c1.144-.665 1.98-1.584 2.568-2.819v3.262h3.837V41.508h-3.837v12.224l-.031.031Zm15.316-18.303h-3.775v6.048h-4.455v3.262h4.455v13.142c0 1.963.526 3.388 1.548 4.275 1.052.886 2.722 1.298 5.012 1.298 2.29 0 1.176 0 1.733-.095a9.966 9.966 0 0 0 1.423-.253l-.093-3.579c-1.083.254-1.98.38-2.753.38-.774 0-1.424-.063-1.857-.19-.433-.126-.743-.348-.959-.665-.186-.316-.31-.76-.31-1.33V44.738h6.034v-3.261h-6.034v-6.08l.031.063Zm17.019 7.093c-1.362.824-2.228 1.837-2.63 3.072V41.54h-3.837v21.787h3.837v-9.975c0-2.28.34-4.054.99-5.352.649-1.267 1.578-2.153 2.692-2.628 1.145-.475 2.506-.697 4.146-.697 1.64 0 1.083 0 1.33.063l.093-3.736c-.928 0-1.485 0-1.732.031-1.888.19-3.528.697-4.889 1.52Zm37.718 6.08c.31 1.299.464 2.629.464 4.022v.918h-16.151c.031 2.407.557 4.18 1.547 5.352.99 1.172 2.506 1.742 4.486 1.742 1.981 0 3.187-.412 4.208-1.204.991-.791 1.64-2.026 1.888-3.673l3.682.285c-.464 2.533-1.547 4.465-3.187 5.763-1.64 1.299-3.837 1.964-6.56 1.964-2.723 0-5.817-1.077-7.642-3.199-1.733-1.995-2.6-4.75-2.6-8.265 0-3.515.217-3.135.681-4.528.464-1.393 1.114-2.565 2.011-3.578a9.001 9.001 0 0 1 3.311-2.439c1.269-.57 2.692-.823 4.208-.823 1.517 0 3.311.38 4.796 1.108a8.229 8.229 0 0 1 3.497 3.199c.557.95 1.021 2.058 1.33 3.325l.031.031Zm-3.465 1.774c0-.634-.124-1.299-.341-2.027-.216-.728-.464-1.33-.804-1.837-.557-.823-1.207-1.425-2.042-1.805-.805-.38-1.795-.57-2.971-.57-1.176 0-2.166.222-3.063.634-.866.411-1.516 1.013-1.949 1.741a6.282 6.282 0 0 0-.774 1.9c-.155.697-.247 1.33-.247 1.964h12.191Zm25.094-5.004c-.248-.76-.619-1.425-1.114-1.963-.773-.823-1.671-1.457-2.692-1.837-1.021-.38-2.228-.601-3.651-.601-3.249 0-5.446 1.298-6.56 3.863V41.54h-3.837v21.787h3.837V51.293c0-2.723.588-4.591 1.733-5.573 1.145-.982 2.413-1.457 3.837-1.457 1.423 0 1.485.064 2.073.222.588.158 1.176.507 1.702 1.045.402.38.68.855.866 1.362.186.506.31 1.013.34 1.551.031.507.062 1.235.062 2.154v12.73h3.961v-12.92c0-1.045 0-1.932-.093-2.692a9.934 9.934 0 0 0-.464-2.28v-.032Zm17.699-.601V41.54h-6.034v-6.048h-3.775v6.048h-4.455v3.262h4.455v13.141c0 1.964.526 3.389 1.547 4.275 1.052.887 2.723 1.299 5.013 1.299s1.176 0 1.733-.095a9.953 9.953 0 0 0 1.423-.254l-.093-3.578c-1.083.253-1.98.38-2.753.38-.774 0-1.424-.063-1.857-.19-.433-.127-.743-.348-.959-.665-.186-.317-.31-.76-.31-1.33V44.77h6.034l.031.032ZM203.35 63.327h3.837V41.572h-3.837v21.786-.031Zm1.919-31.16c-1.547 0-2.785 1.266-2.785 2.85 0 1.583 1.238 2.85 2.785 2.85 1.547 0 2.784-1.267 2.784-2.85 0-1.584-1.237-2.85-2.784-2.85Z" />
+        </svg>
+      );
+    },
+  },
+];
+
+export const ambassadors = [
+  {
+    name: "Bento",
+    url: "https://bentonow.com/",
+    logo: function (props: React.SVGProps<SVGSVGElement>) {
+      return (
+        <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
+          <path d="M234.33 54.47h-2.853l3.377-7.17h2.853l-3.377 7.17Zm19.025-13.081h-28.57c-1.936 0-4.032 1.118-4.681 2.496l-7.816 16.58c-.65 1.378.393 2.496 2.33 2.496h28.569c1.937 0 4.033-1.118 4.682-2.496l7.816-16.58c.65-1.378-.393-2.496-2.33-2.496ZM87.277 54.47h-2.853l3.378-7.17h2.853l-3.378 7.17Zm19.026-13.081H90.592l-4.017-8.304H70.211l4.016 8.304L64.06 62.961h32.075c1.937 0 4.033-1.117 4.682-2.496l7.816-16.58c.65-1.378-.394-2.496-2.33-2.496ZM125.22 47.3h4.885l-.884 1.877h-4.885l.884-1.877Zm-3.377 7.17.884-1.878h20.233l4.107-8.707c.65-1.378-.394-2.496-2.33-2.496h-28.57c-1.936 0-4.032 1.118-4.681 2.496l-7.817 16.58c-.649 1.379.395 2.496 2.331 2.496h32.075l4.001-8.491h-20.233ZM183.172 41.389h-28.57c-1.936 0-4.032 1.118-4.682 2.496l-8.992 19.076h16.365l7.378-15.661h2.853l-7.378 15.661h16.364l8.992-19.076c.649-1.378-.394-2.496-2.33-2.496ZM199.728 54.47l3.378-7.17h12.531l2.79-5.911h-12.532l4.078-8.304h-16.364l-13.07 27.38c-.65 1.378.393 2.496 2.33 2.496h25.39l4.001-8.492h-12.532Z" />
+        </svg>
+      );
+    },
+  },
+];
+
+export const supporters = [
+  {
+    name: "NativePHP",
+    url: "https://nativephp.com/",
+    logo: function (props: React.SVGProps<SVGSVGElement>) {
+      return (
+        <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
+          <path fill="#000" d="M47.422 63.488H38V32.384h9.422v31.104ZM68.883 63.488h-9.421V32.384h9.421v31.104Z" />
+          <path fill="#000" fillOpacity={0.5} d="M68.883 63.488H47.421V32.384l21.462 31.104Z" />
+          <path
+            fill="#000"
+            d="M70.768 49.44c0-1.984.415-3.776 1.309-5.344.862-1.6 2.14-2.816 3.8-3.712 1.661-.896 3.641-1.344 5.94-1.344.352 0 .895.032 1.662.096 1.564.128 2.906.416 3.992.896a10.335 10.335 0 0 1 2.906 1.888v-2.304h8.24V63.52h-8.24v-2.304c-.798.832-1.788 1.472-3.002 1.952-1.214.48-2.523.768-3.865.832-.287.032-.734.032-1.309.032-2.3 0-4.28-.448-6.004-1.312-1.725-.864-3.034-2.112-3.96-3.68-.926-1.568-1.374-3.36-1.374-5.312V49.44h-.095Zm8.24 3.008c0 2.944 1.884 4.416 5.652 4.416 3.769 0 5.653-1.472 5.653-4.416v-1.792c0-2.976-1.884-4.48-5.653-4.48-3.768 0-5.653 1.504-5.653 4.48v1.792Zm25.517 11.04V47.04h-4.088v-7.456l4.088-.064v-7.136h8.272l.032 7.168h5.844v7.488h-5.876v16.448m16.959 0h-8.272V39.552h8.272v23.936Zm20.344 0h-8.304l-9.901-23.936h8.304l5.749 14.208 5.748-14.24h8.272L150.1 63.488Zm33.182-3.456c-1.309 1.344-2.81 2.336-4.503 2.976-1.693.64-3.768.928-6.228.928-2.555 0-4.822-.448-6.802-1.344-1.98-.896-3.545-2.144-4.695-3.712-1.118-1.6-1.693-3.392-1.693-5.44v-3.968c0-2.08.543-3.904 1.661-5.472 1.086-1.568 2.619-2.784 4.535-3.616 1.916-.864 4.056-1.28 6.388-1.28 2.555 0 4.79.48 6.77 1.376 1.948.928 3.481 2.24 4.599 3.968 1.086 1.728 1.661 3.712 1.661 5.984 0 .544-.064 1.344-.224 2.464l-17.31.032v.672c0 1.312.479 2.336 1.406 3.008.926.704 2.203 1.024 3.768 1.024 1.469 0 2.715-.192 3.769-.576 1.022-.384 2.044-1.12 3.002-2.176l3.896 5.152Zm-6.547-11.584c0-.992-.447-1.76-1.341-2.272-.894-.512-2.044-.768-3.449-.768-1.406 0-2.523.256-3.354.768-.83.512-1.213 1.28-1.213 2.272h9.357Zm10.092 15.04V32.384h17.885c3.162 0 5.685.608 7.569 1.792 1.884 1.184 3.194 2.624 3.897 4.256.734 1.632 1.085 3.232 1.085 4.8 0 1.536-.383 3.104-1.117 4.704-.735 1.6-2.044 2.944-3.897 4.096-1.852 1.152-4.375 1.728-7.569 1.728h-9.645v9.76h-8.208v-.032Zm17.885-17.216c2.874 0 4.344-1.056 4.344-3.168 0-2.208-1.47-3.296-4.376-3.296h-9.613v6.464h9.645Zm22.675 17.216h-8.239V32.384h8.239v12.16h14.021v-12.16h8.24v31.104h-8.24v-12.32h-14.021v12.32Zm24.145 0V32.384h17.885c3.162 0 5.685.608 7.569 1.792 1.884 1.184 3.194 2.624 3.896 4.256.735 1.632 1.086 3.232 1.086 4.8 0 1.536-.383 3.104-1.118 4.704-.734 1.6-2.044 2.944-3.896 4.096-1.852 1.152-4.375 1.728-7.569 1.728h-9.645v9.76h-8.208v-.032Zm17.885-17.216c2.874 0 4.343-1.056 4.343-3.168 0-2.208-1.469-3.296-4.375-3.296h-9.613v6.464h9.645Zm-138.448-7.808H120.27V32h10.699v6.464Z"
+          />
         </svg>
       );
     },
@@ -838,6 +860,96 @@ function Faqs() {
   );
 }
 
+function Sponsors() {
+  return (
+    <div>
+      <div id="sponsors" className="line-y mt-40 grid scroll-mt-24 grid-cols-1 gap-10 xl:grid-cols-2">
+        <div className="px-4 py-2 sm:px-2">
+          <Eyebrow as="h2" color="pink">
+            <a href="#sponsors">Sponsors</a>
+          </Eyebrow>
+          <p className="max-w-3xl text-3xl font-medium tracking-tight text-pretty md:text-[2.5rem]/14">
+            Thank you to our sponsors.
+          </p>
+          <p className="mt-4 max-w-2xl text-base/7 text-gray-600 dark:text-gray-400">
+            We are super grateful to all the following sponsors for supporting the ongoing development and maintenance
+            of Tailwind CSS.
+          </p>
+        </div>
+      </div>
+      <h2 className="mt-16 px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Partners</h2>
+      <div className="relative mt-4">
+        <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="border-r border-gray-950/5 dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-lg:hidden xl:border-x dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-xl:hidden dark:border-white/10"></div>
+        </div>
+        <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
+          {partners.map((company, index) => (
+            <a
+              key={index}
+              href={company.url}
+              target="_blank"
+              className="grid place-content-center transition-colors hover:bg-gray-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y dark:hover:bg-white/2.5"
+            >
+              <company.logo className="w-full max-w-80" aria-label={`${company.name} logo`} />
+            </a>
+          ))}
+        </ul>
+      </div>
+      <h2 className="mt-16 px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Ambassadors</h2>
+      <div className="relative mt-4">
+        <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-4 xl:grid-cols-6">
+          <div className="border-r border-gray-950/5 dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-lg:hidden lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-xl:hidden xl:border-x dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-xl:hidden xl:border-x dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-lg:hidden dark:border-white/10"></div>
+        </div>
+        <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-4 xl:grid-cols-6">
+          {ambassadors.map((company, index) => (
+            <a
+              key={index}
+              href={company.url}
+              target="_blank"
+              className="grid place-content-center transition-colors hover:bg-gray-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[4n+1]:line-y xl:nth-[6n+1]:line-y dark:hover:bg-white/2.5"
+            >
+              <company.logo className="w-full max-w-80" aria-label={`${company.name} logo`} />
+            </a>
+          ))}
+        </ul>
+      </div>
+      <h2 className="mt-16 px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Supporters</h2>
+      <div className="relative mt-4">
+        <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-6 xl:grid-cols-8">
+          <div className="border-r border-gray-950/5 dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-lg:hidden lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-lg:hidden lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-lg:hidden lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-xl:hidden xl:border-x dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-xl:hidden xl:border-x dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-lg:hidden dark:border-white/10"></div>
+        </div>
+        <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-6 xl:grid-cols-8">
+          {supporters.map((company, index) => (
+            <a
+              key={index}
+              href={company.url}
+              target="_blank"
+              className="grid place-content-center transition-colors hover:bg-gray-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[6n+1]:line-y xl:nth-[8n+1]:line-y dark:hover:bg-white/2.5"
+            >
+              <company.logo className="w-full max-w-80" aria-label={`${company.name} logo`} />
+            </a>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
 export default async function Sponsor() {
   return (
     <div className="mt-24">
@@ -852,6 +964,7 @@ export default async function Sponsor() {
         <PartnerPerks />
         <PartnerPlans />
         <Faqs />
+        <Sponsors />
         <FooterMeta className="px-4 md:px-6 lg:px-8" />
       </div>
     </div>
