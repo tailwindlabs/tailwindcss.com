@@ -423,8 +423,8 @@ function PartnerPerks() {
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
               <strong className="font-semibold text-gray-950 dark:text-white">Your logo in front of millions</strong> —
-              put your brand in front of millions of developers while showing your commitment to the open source tools
-              that power modern development.
+              the Tailwind CSS website gets over 10 million visitors per month, and your brand will be featured on the
+              homepage as a partner.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
@@ -446,21 +446,22 @@ function PartnerPerks() {
               <strong className="font-semibold text-gray-950 dark:text-white">
                 Expedited bug fixes and issue resolution
               </strong>{" "}
-              — priority support for any issues your team encounters, with a direct line to the Tailwind CSS core team.
+              — we’ll work to address issues you run into on an expedited schedule, even if normally they would be lower
+              priority due to their limited impact on the user base.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Website in the showcase</strong> — show
-              off your company’s website with a featured spot in the Tailwind CSS showcase, reaching a wide audience of
-              developers.
+              <strong className="font-semibold text-gray-950 dark:text-white">Website in the showcase</strong> — your
+              website will feature prominently in our showcase, bringing more attention to your brand when new Tailwind
+              users go to see what is possible with the framework.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Support Tailwind CSS</strong> — sleep easy
-              knowing that you’re supporting the development of Tailwind CSS to ensure that it stays around for the long
-              haul.
+              <strong className="font-semibold text-gray-950 dark:text-white">Support Tailwind CSS</strong> — you’ll be
+              helping contribute to the sustainability of the framework, giving you peace of mind that a core technology
+              in your stack will continue to function smoothly.
             </p>
           </li>
         </ul>
@@ -551,7 +552,7 @@ function PartnerPlans() {
         },
         {
           name: "Expedited bug fixes and issue resolution",
-          description: "issues brought up by your team will get priority in triage.",
+          description: "we’ll address issues you run into on an expedited schedule.",
         },
         { name: "Insiders team access", description: "all the perks of the Insiders tier for everyone in your team." },
         {
