@@ -604,6 +604,7 @@ function PartnerPlans() {
           description: "sleep easy knowing that you’re supporting the development of Tailwind CSS.",
         },
       ],
+      remaining: null,
     },
     {
       name: "Ambassador",
@@ -627,6 +628,7 @@ function PartnerPlans() {
           description: "sleep easy knowing that you’re supporting the development of Tailwind CSS.",
         },
       ],
+      remaining: 23,
     },
     {
       name: "Partner",
@@ -660,6 +662,7 @@ function PartnerPlans() {
           description: "sleep easy knowing that you’re supporting the development of Tailwind CSS.",
         },
       ],
+      remaining: 5,
     },
   ];
 
@@ -671,7 +674,21 @@ function PartnerPlans() {
           className="bg-gray-950/5 py-[calc(--spacing(2)+1px)] max-lg:-mx-px max-lg:px-[calc(--spacing(2)+1px)] not-first:max-lg:pt-0 lg:-mx-px lg:border-gray-950/5 lg:pr-2 lg:pl-[calc(--spacing(2)+1px)] lg:not-first:border-l lg:not-last:border-r dark:bg-white/10 dark:lg:border-white/10"
         >
           <div className="flex h-full flex-col gap-y-6 rounded-2xl bg-white p-6 sm:rounded-4xl sm:p-10 xl:p-8 2xl:p-10 dark:bg-gray-950/80 dark:outline dark:outline-white/10">
-            <Eyebrow as="h3">{plan.name}</Eyebrow>
+            <div className="flex items-center justify-between gap-4">
+              <Eyebrow as="h3">{plan.name}</Eyebrow>
+              {plan.remaining && (
+                <p
+                  className={clsx(
+                    "rounded-full px-2 py-0.5 text-[0.6875rem]/4 font-semibold",
+                    plan.remaining < 10
+                      ? "bg-pink-400/25 text-pink-700 dark:text-pink-400"
+                      : "bg-sky-400/25 text-sky-700 dark:text-sky-400",
+                  )}
+                >
+                  {plan.remaining} spots left
+                </p>
+              )}
+            </div>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-x-4">
                 <p className="text-5xl font-medium first-letter:font-light">{plan.price}</p>
