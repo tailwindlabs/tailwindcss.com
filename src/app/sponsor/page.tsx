@@ -1,14 +1,13 @@
 import { FooterMeta } from "@/components/footer";
-import { MinusIcon, PlusIcon, LockClosedIcon } from "@heroicons/react/16/solid";
+import { LockClosedIcon, MinusIcon, PlusIcon } from "@heroicons/react/16/solid";
 import { clsx } from "clsx";
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import AdamTeachingImage from "./adam-teaching.jpg";
-import TailwindCSSVsCodeThemeImage from "./tailwindcss-vs-theme.png";
-import InsidersGitHubRepositoryImage from "./insiders-github-repository.png";
 import InsidersGitHubRepositoryDarkImage from "./insiders-github-repository-dark.png";
+import InsidersGitHubRepositoryImage from "./insiders-github-repository.png";
 import TailwindcssRaycastExtensionImage from "./tailwindcss-raycast-extension.png";
+import TailwindCSSVsCodeThemeImage from "./tailwindcss-vs-theme.png";
 
 export const metadata: Metadata = {
   title: "Sponsor",
