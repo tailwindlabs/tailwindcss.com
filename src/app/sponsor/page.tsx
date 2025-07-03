@@ -1,11 +1,13 @@
 import { FooterMeta } from "@/components/footer";
-import { MinusIcon, PlusIcon } from "@heroicons/react/16/solid";
+import { MinusIcon, PlusIcon, LockClosedIcon } from "@heroicons/react/16/solid";
 import { clsx } from "clsx";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import AdamTeachingImage from "./adam-teaching.jpg";
-import { Breadcrumb } from "@/components/breadcrumb";
+import TailwindCSSVsCodeThemeImage from "./tailwindcss-vs-theme.png";
+import InsidersGitHubRepositoryImage from "./insiders-github-repository.png";
+import TailwindcssRaycastExtensionImage from "./tailwindcss-raycast-extension.png";
 
 export const metadata: Metadata = {
   title: "Sponsor",
@@ -389,6 +391,94 @@ function InsiderPerks() {
   );
 }
 
+function InsiderPerkScreenshots() {
+  return (
+    <div className="line-y mt-10 grid grid-rows-1 gap-2 p-2 md:h-130 md:grid-rows-2 lg:grid-cols-3">
+      <div className="relative overflow-hidden rounded-xl bg-gray-200 pt-9 pl-9 outline -outline-offset-1 outline-gray-950/5 max-md:aspect-[5/2] md:col-start-1 md:row-start-1 md:max-lg:col-span-2 lg:row-span-2 dark:outline-white/5">
+        <p className="absolute right-4 bottom-4 flex items-center gap-2 rounded-full border border-white/20 bg-black/80 pr-4 pl-2 font-mono text-xs/7 font-medium text-white outline outline-black backdrop-blur-sm lg:right-6 lg:bottom-6">
+          <svg fill="#D97757" viewBox="0 0 16 16" className="size-4">
+            <path d="m3.137 10.637 3.145-1.765.052-.154-.052-.085h-.154l-.526-.032-1.797-.048-1.559-.065-1.51-.081-.38-.081L0 7.856l.036-.234.32-.215.458.04 1.011.07 1.518.105 1.101.064 1.631.17h.26l.036-.105-.09-.065-.068-.064-1.57-1.065-1.7-1.125-.89-.648-.483-.328-.242-.307-.106-.672.438-.482.586.04.15.041.595.458 1.271.983 1.66 1.222.242.203.098-.07.012-.048-.11-.182-.902-1.63-.964-1.66-.429-.689-.113-.412a1.982 1.982 0 0 1-.069-.486l.498-.676L4.46 0l.664.09.28.242.412.943.668 1.485L7.52 4.78l.304.6.162.554.06.17h.106v-.097l.085-1.138.158-1.396.153-1.797.053-.506.251-.607.498-.328.388.186.32.457-.044.296-.19 1.234-.373 1.935-.243 1.295h.142l.162-.162.655-.87 1.101-1.376.486-.546.567-.604.364-.287h.688l.506.753-.226.777-.709.899-.587.76-.842 1.134-.526.907.049.072.125-.012 1.902-.405 1.029-.186 1.226-.21.555.259.06.263-.218.538-1.312.324-1.538.308-2.29.542-.03.02.033.04 1.033.098.44.024h1.081l2.012.15.526.348.316.425-.053.324-.81.413-1.092-.26-2.55-.606-.874-.219h-.122v.073l.729.712 1.336 1.206 1.671 1.555.085.384-.214.304-.227-.033-1.47-1.105-.566-.498-1.283-1.08h-.085v.113l.295.433 1.563 2.348.08.72-.113.235-.404.142-.446-.081-.914-1.283-.943-1.445-.761-1.296-.093.053-.45 4.837-.21.247L7.58 16l-.405-.308-.214-.498.214-.983.26-1.283.21-1.02.19-1.267.113-.42-.008-.03-.093.013-.955 1.311-1.453 1.963-1.15 1.23-.275.11-.477-.247.044-.441.267-.393 1.59-2.023.96-1.255.62-.725-.005-.105h-.036l-4.226 2.744-.753.098-.323-.304.04-.498.154-.162 1.27-.874-.003.004Z" />
+          </svg>
+          <svg fill="none" viewBox="0 0 17 16" className="size-4">
+            <path fill="#444" d="M1.988 4v8h14V4l-7-4" />
+            <path fill="#939393" d="M8.988 8V0l-7 4 14 8-7 4-7-4" />
+            <path fill="#E3E3E3" d="M15.988 4h-7v12" />
+            <path fill="#fff" d="M1.988 4h14l-7 4" />
+          </svg>
+          AGENTS.md file
+        </p>
+        <Image
+          src={InsidersGitHubRepositoryImage}
+          alt="Tailwind CSS VS Code Theme"
+          className="w-[800px] max-w-none rounded-tl-xl outline outline-gray-950/10"
+        />
+      </div>
+      <div className="relative overflow-hidden rounded-xl bg-[#F66969] pt-9 pl-9 inset-ring inset-ring-gray-950/10 max-md:aspect-[5/2] md:row-start-1 md:max-lg:col-start-3 lg:col-start-2">
+        <p className="absolute right-4 bottom-4 flex items-center gap-2 rounded-full border border-white/20 bg-black/80 pr-4 pl-2 font-mono text-xs/7 font-medium text-white outline outline-black backdrop-blur-sm lg:right-6 lg:bottom-6">
+          <svg fill="#FF6363" viewBox="0 0 16 16" className="size-4">
+            <path
+              d="M4 10.33V12L0 8l.834-.834L4 10.331ZM5.67 12H4l4.001 4 .834-.834L5.67 12Zm9.495-3.165L16 8 7.999 0l-.833.837 3.165 3.165H8.418l-2.21-2.205-.833.834 1.373 1.374h-.96v6.21h6.21v-.96l1.374 1.373.834-.833-2.208-2.21V5.672l3.167 3.163ZM4.418 3.586l-.838.835.897.896.834-.835-.893-.896Zm7.105 7.104-.835.835.895.896.836-.835-.896-.896ZM2.626 5.377l-.835.836L4 8.421v-1.67L2.625 5.377Zm6.628 6.626h-1.67l2.209 2.21.835-.836-1.374-1.374Z"
+              clipRule="evenodd"
+              fillRule="evenodd"
+            />
+          </svg>
+          Raycast Extension
+        </p>
+        <Image
+          src={TailwindcssRaycastExtensionImage}
+          alt="Tailwind CSS VS Code Theme"
+          className="w-[600px] max-w-none rounded-tl-xl outline outline-gray-950/10"
+        />
+      </div>
+      <div className="relative flex items-center justify-center rounded-xl bg-[#5865F2] inset-ring inset-ring-gray-950/10 max-md:aspect-[5/2] md:row-start-2 md:max-lg:col-start-1 lg:col-start-2">
+        <p className="absolute right-4 bottom-4 flex items-center gap-2 rounded-full border border-white/20 bg-black/80 pr-4 pl-2 font-mono text-xs/7 font-medium text-white outline outline-black backdrop-blur-sm lg:right-6 lg:bottom-6">
+          <LockClosedIcon className="size-4 fill-white/75" />
+          Private Community
+        </p>
+        <svg fill="#E0E3FF" viewBox="0 0 127 96" className="w-1/4">
+          <path d="M81.15 0a73.745 73.745 0 0 0-3.36 6.794 97.867 97.867 0 0 0-28.994 0A67.876 67.876 0 0 0 45.437 0a105.544 105.544 0 0 0-26.14 8.057C2.779 32.53-1.691 56.373.53 79.887a105.038 105.038 0 0 0 32.05 16.088 76.912 76.912 0 0 0 6.87-11.063c-3.737-1.389-7.35-3.131-10.81-5.152.91-.657 1.794-1.339 2.653-1.995a75.255 75.255 0 0 0 64.075 0c.86.707 1.743 1.389 2.652 1.995a68.772 68.772 0 0 1-10.835 5.178A76.903 76.903 0 0 0 94.056 96a104.99 104.99 0 0 0 32.051-16.063c2.626-27.277-4.496-50.917-18.817-71.855A103.922 103.922 0 0 0 81.175.051L81.15 0ZM42.28 65.414c-6.238 0-11.416-5.657-11.416-12.653s4.976-12.679 11.391-12.679 11.517 5.708 11.416 12.679c-.101 6.97-5.026 12.653-11.39 12.653Zm42.078 0c-6.264 0-11.391-5.657-11.391-12.653s4.975-12.679 11.39-12.679c6.416 0 11.492 5.708 11.391 12.679-.1 6.97-5.026 12.653-11.39 12.653Z" />
+        </svg>
+      </div>
+      <div className="relative overflow-hidden rounded-xl bg-gray-200 pt-9 pl-9 outline -outline-offset-1 outline-gray-950/5 max-md:aspect-[5/2] md:max-lg:col-span-2 md:max-lg:col-start-2 md:max-lg:row-start-2 lg:col-start-3 lg:row-span-2 lg:row-start-1 dark:outline-white/5">
+        <p className="absolute right-4 bottom-4 flex items-center gap-2 rounded-full border border-white/20 bg-black/80 pr-4 pl-2 font-mono text-xs/7 font-medium text-white outline outline-black backdrop-blur-sm lg:right-6 lg:bottom-6">
+          <svg fill="none" viewBox="0 0 16 16" className="size-4">
+            <path
+              fill="#0065A9"
+              d="M15.434 1.727 12.137.14A.996.996 0 0 0 11 .333L.208 10.173a.666.666 0 0 0 0 .986l.882.801a.666.666 0 0 0 .851.038l12.997-9.86A.662.662 0 0 1 16 2.667v-.038a1 1 0 0 0-.566-.9Z"
+            />
+            <path
+              fill="#007ACC"
+              d="m15.434 14.272-3.297 1.587A.996.996 0 0 1 11 15.666L.208 5.826a.667.667 0 0 1 0-.986l.882-.801A.666.666 0 0 1 1.941 4l12.997 9.86A.662.662 0 0 0 16 13.332v.038a1 1 0 0 1-.566.901Z"
+            />
+            <path
+              fill="#1F9CF0"
+              d="M12.137 15.86A.997.997 0 0 1 11 15.666a.586.586 0 0 0 1-.414V.747a.586.586 0 0 0-1-.414.998.998 0 0 1 1.137-.194l3.296 1.586a1 1 0 0 1 .567.9v10.749a1 1 0 0 1-.567.9l-3.296 1.586Z"
+            />
+            <path
+              d="M11.336 15.89a.996.996 0 0 0 .794-.03l3.294-1.585a1 1 0 0 0 .566-.902V2.626a1 1 0 0 0-.566-.902L12.13.14a.996.996 0 0 0-1.137.193L4.687 6.086 1.94 4.001a.666.666 0 0 0-.85.038l-.882.801a.667.667 0 0 0 0 .986L2.59 8 .208 10.173a.666.666 0 0 0 0 .986l.881.801a.666.666 0 0 0 .851.038l2.747-2.085 6.306 5.753a1 1 0 0 0 .343.224Zm.657-11.523L7.208 8l4.785 3.632V4.367Z"
+              clipRule="evenodd"
+              fillRule="evenodd"
+              opacity=".25"
+            />
+          </svg>
+          <svg fill="none" viewBox="0 0 17 16" className="size-4">
+            <path fill="#444" d="M1.988 4v8h14V4l-7-4" />
+            <path fill="#939393" d="M8.988 8V0l-7 4 14 8-7 4-7-4" />
+            <path fill="#E3E3E3" d="M15.988 4h-7v12" />
+            <path fill="#fff" d="M1.988 4h14l-7 4" />
+          </svg>
+          Editor Themes
+        </p>
+        <Image
+          src={TailwindCSSVsCodeThemeImage}
+          alt="Tailwind CSS VS Code Theme"
+          className="w-[800px] max-w-none rounded-tl-xl"
+        />
+      </div>
+    </div>
+  );
+}
+
 function Partners() {
   return (
     <div id="partners" className="line-y mt-40 scroll-mt-24">
@@ -734,6 +824,7 @@ export default async function Sponsor() {
         <FeaturedPartners />
         <Insiders />
         <InsiderPerks />
+        <InsiderPerkScreenshots />
         <Partners />
         <PartnerPerks />
         <PartnerPlans />
