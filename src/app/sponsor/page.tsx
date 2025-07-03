@@ -189,8 +189,8 @@ function MessageFromAdam() {
           <div className="relative text-white max-xl:max-w-2xl max-lg:mx-auto max-lg:mt-60 lg:max-w-lg xl:max-w-2xl">
             <p className="text-2xl/10">
               Tailwind CSS exists because a passionate community believes in building better software together. By
-              becoming a Tailwind Insider or Partner you can directly support that mission—so we can keep shipping tools
-              you love, with no strings attached.
+              becoming a Tailwind Insider or Partner you can directly support that mission — so we can keep shipping
+              tools you love, with no strings attached.
             </p>
             <p className="mt-8 text-base/8 font-medium">Adam Wathan</p>
             <p className="text-gray-400">Creator of Tailwind CSS</p>
