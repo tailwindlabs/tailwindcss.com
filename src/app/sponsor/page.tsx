@@ -428,7 +428,7 @@ function InsiderPerkScreenshots() {
               fillRule="evenodd"
             />
           </svg>
-          Raycast Extension
+          Raycast extension
         </p>
         <Image
           src={TailwindcssRaycastExtensionImage}
@@ -439,7 +439,7 @@ function InsiderPerkScreenshots() {
       <div className="relative flex items-center justify-center rounded-xl bg-[#5865F2] inset-ring inset-ring-gray-950/10 max-md:aspect-[4/3] md:row-start-2 md:max-lg:col-start-1 lg:col-start-2">
         <p className="absolute right-4 bottom-4 flex items-center gap-2 rounded-full border border-white/20 bg-black/80 pr-4 pl-2 font-mono text-xs/7 font-medium text-white outline outline-black backdrop-blur-sm lg:right-6 lg:bottom-6">
           <LockClosedIcon className="size-4 fill-white/75" />
-          Private Community
+          Private community
         </p>
         <svg fill="#E0E3FF" viewBox="0 0 127 96" className="w-1/4">
           <path d="M81.15 0a73.745 73.745 0 0 0-3.36 6.794 97.867 97.867 0 0 0-28.994 0A67.876 67.876 0 0 0 45.437 0a105.544 105.544 0 0 0-26.14 8.057C2.779 32.53-1.691 56.373.53 79.887a105.038 105.038 0 0 0 32.05 16.088 76.912 76.912 0 0 0 6.87-11.063c-3.737-1.389-7.35-3.131-10.81-5.152.91-.657 1.794-1.339 2.653-1.995a75.255 75.255 0 0 0 64.075 0c.86.707 1.743 1.389 2.652 1.995a68.772 68.772 0 0 1-10.835 5.178A76.903 76.903 0 0 0 94.056 96a104.99 104.99 0 0 0 32.051-16.063c2.626-27.277-4.496-50.917-18.817-71.855A103.922 103.922 0 0 0 81.175.051L81.15 0ZM42.28 65.414c-6.238 0-11.416-5.657-11.416-12.653s4.976-12.679 11.391-12.679 11.517 5.708 11.416 12.679c-.101 6.97-5.026 12.653-11.39 12.653Zm42.078 0c-6.264 0-11.391-5.657-11.391-12.653s4.975-12.679 11.39-12.679c6.416 0 11.492 5.708 11.391 12.679-.1 6.97-5.026 12.653-11.39 12.653Z" />
@@ -473,7 +473,7 @@ function InsiderPerkScreenshots() {
             <path fill="#E3E3E3" d="M15.988 4h-7v12" />
             <path fill="#fff" d="M1.988 4h14l-7 4" />
           </svg>
-          Editor Themes
+          Editor themes
         </p>
         <Image
           src={TailwindCSSVsCodeThemeImage}
