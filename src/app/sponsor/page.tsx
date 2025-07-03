@@ -450,7 +450,7 @@ function PartnerPlans() {
   const plans = [
     {
       name: "Supporter",
-      price: "$250",
+      price: "$500",
       url: "https://buy.polar.sh/polar_cl_som3lU3ZaBEFOr4nZlkoAuRBhRbFDMoFzJUC04Jn1Sc",
       description: "For companies who want to support Tailwind while getting some extra exposure.",
       features: [
@@ -464,7 +464,7 @@ function PartnerPlans() {
     },
     {
       name: "Ambassador",
-      price: "$1,000",
+      price: "$2,500",
       url: "https://buy.polar.sh/polar_cl_TqBd09tnOwN7SQf7YpOcUZnDwxMVQB58Snhas2cdEDL",
       description: "For companies looking to boost visibility and credibility with the Tailwind community.",
       features: [
@@ -490,9 +490,9 @@ function PartnerPlans() {
     },
     {
       name: "Partner",
-      price: "$2,500",
+      price: "$5,000",
       url: "https://buy.polar.sh/polar_cl_Ae2EFQATomRTUPq3DVTqzjOCAEsI7m7GNrmoh1n6ZRk",
-      description: "For companies who want increased exposure and easy access to the Tailwind team",
+      description: "For companies who want increased exposure and easy access to the Tailwind team.",
       features: [
         {
           name: "Permanent logo on the Tailwind homepage",
