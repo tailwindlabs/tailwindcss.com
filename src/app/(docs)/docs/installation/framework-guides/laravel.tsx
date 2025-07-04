@@ -130,15 +130,19 @@ export let steps: Step[] = [
     body: (
       <p>
         Add an <code>@import</code> to <code>./resources/css/app.css</code> that imports Tailwind CSS. Additionally,
-        tell Tailwind CSS to scan your <code>resources/views</code> directory for utilities.
+        tell Tailwind CSS to scan some directories for utilities.
       </p>
     ),
     code: {
       name: "app.css",
       lang: "css",
       code: css`
-        @import "tailwindcss";
-        @source "../views";
+        @import 'tailwindcss';
+
+        @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+        @source '../../storage/framework/views/*.php';
+        @source '../**/*.blade.php';
+        @source '../**/*.js';
       `,
     },
   },
