@@ -128,13 +128,13 @@ const showcase = [
     video: "/showcase-videos/loom.com.mp4",
     description: "SaaS marketing website",
   },
-  // {
-  //   name: "Mux",
-  //   url: "https://mux.com/",
-  //   thumbnail: require("./img/mux.com.png").default,
-  //   video: "/showcase-videos/mux.com.mp4",
-  //   description: "Video platform marketing website",
-  // },
+  {
+    name: "Mux",
+    url: "https://mux.com/",
+    thumbnail: require("./img/mux.com.png").default,
+    video: "/showcase-videos/mux.com.mp4",
+    description: "Video platform marketing website",
+  },
   {
     name: "Nutrient",
     url: "https://www.nutrient.io/sdk/web",
