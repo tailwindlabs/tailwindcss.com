@@ -413,7 +413,7 @@ function InsiderPerks() {
 function InsiderPerkScreenshots() {
   return (
     <div className="line-y mt-10 grid grid-rows-1 gap-2 p-2 md:h-130 md:grid-rows-2 lg:grid-cols-3">
-      <div className="relative overflow-hidden rounded-xl bg-gray-200 pt-9 pl-9 outline -outline-offset-1 outline-gray-950/5 max-md:aspect-[4/3] md:col-start-1 md:row-start-1 md:max-lg:col-span-2 lg:row-span-2 dark:bg-gray-900 dark:outline-white/5">
+      <div className="relative overflow-hidden rounded-xl bg-gray-200 pt-9 pl-9 outline -outline-offset-1 outline-gray-950/5 max-md:aspect-[4/3] md:col-start-1 md:row-start-1 md:max-lg:col-span-2 md:max-lg:pt-5 md:max-lg:pl-5 lg:row-span-2 dark:bg-gray-900 dark:outline-white/5">
         <p className="absolute right-4 bottom-4 flex items-center gap-2 rounded-full border border-white/20 bg-black/80 pr-4 pl-2 font-mono text-xs/7 font-medium text-white outline outline-black backdrop-blur-sm lg:right-6 lg:bottom-6">
           <svg fill="#D97757" viewBox="0 0 16 16" className="size-4">
             <path d="m3.137 10.637 3.145-1.765.052-.154-.052-.085h-.154l-.526-.032-1.797-.048-1.559-.065-1.51-.081-.38-.081L0 7.856l.036-.234.32-.215.458.04 1.011.07 1.518.105 1.101.064 1.631.17h.26l.036-.105-.09-.065-.068-.064-1.57-1.065-1.7-1.125-.89-.648-.483-.328-.242-.307-.106-.672.438-.482.586.04.15.041.595.458 1.271.983 1.66 1.222.242.203.098-.07.012-.048-.11-.182-.902-1.63-.964-1.66-.429-.689-.113-.412a1.982 1.982 0 0 1-.069-.486l.498-.676L4.46 0l.664.09.28.242.412.943.668 1.485L7.52 4.78l.304.6.162.554.06.17h.106v-.097l.085-1.138.158-1.396.153-1.797.053-.506.251-.607.498-.328.388.186.32.457-.044.296-.19 1.234-.373 1.935-.243 1.295h.142l.162-.162.655-.87 1.101-1.376.486-.546.567-.604.364-.287h.688l.506.753-.226.777-.709.899-.587.76-.842 1.134-.526.907.049.072.125-.012 1.902-.405 1.029-.186 1.226-.21.555.259.06.263-.218.538-1.312.324-1.538.308-2.29.542-.03.02.033.04 1.033.098.44.024h1.081l2.012.15.526.348.316.425-.053.324-.81.413-1.092-.26-2.55-.606-.874-.219h-.122v.073l.729.712 1.336 1.206 1.671 1.555.085.384-.214.304-.227-.033-1.47-1.105-.566-.498-1.283-1.08h-.085v.113l.295.433 1.563 2.348.08.72-.113.235-.404.142-.446-.081-.914-1.283-.943-1.445-.761-1.296-.093.053-.45 4.837-.21.247L7.58 16l-.405-.308-.214-.498.214-.983.26-1.283.21-1.02.19-1.267.113-.42-.008-.03-.093.013-.955 1.311-1.453 1.963-1.15 1.23-.275.11-.477-.247.044-.441.267-.393 1.59-2.023.96-1.255.62-.725-.005-.105h-.036l-4.226 2.744-.753.098-.323-.304.04-.498.154-.162 1.27-.874-.003.004Z" />
@@ -429,15 +429,15 @@ function InsiderPerkScreenshots() {
         <Image
           src={InsidersGitHubRepositoryImage}
           alt="Insiders GitHub repository"
-          className="w-[850px] max-w-none rounded-tl-xl bg-white outline outline-gray-950/10 dark:hidden"
+          className="w-212 max-w-none rounded-tl-xl bg-white outline outline-gray-950/10 dark:hidden"
         />
         <Image
           src={InsidersGitHubRepositoryDarkImage}
           alt="Insiders GitHub repository"
-          className="not-dark:hidden w-[850px] max-w-none rounded-tl-xl bg-[#0F1116] outline outline-gray-950/10 dark:outline dark:outline-white/10"
+          className="hidden w-212 max-w-none rounded-tl-xl bg-[#0F1116] outline outline-gray-950/10 dark:block dark:outline dark:outline-white/10"
         />
       </div>
-      <div className="relative overflow-hidden rounded-xl bg-[#F66969] pt-9 pl-9 inset-ring inset-ring-gray-950/10 max-md:aspect-[4/3] md:row-start-1 md:max-lg:col-start-3 lg:col-start-2">
+      <div className="relative overflow-hidden rounded-xl bg-[#F66969] pt-9 pl-9 inset-ring inset-ring-gray-950/10 max-md:aspect-[4/3] md:row-start-1 md:max-lg:col-start-3 md:max-lg:pt-5 md:max-lg:pl-5 lg:col-start-2">
         <p className="absolute right-4 bottom-4 flex items-center gap-2 rounded-full border border-white/20 bg-black/80 pr-4 pl-2 font-mono text-xs/7 font-medium text-white outline outline-black backdrop-blur-sm lg:right-6 lg:bottom-6">
           <svg fill="#FF6363" viewBox="0 0 16 16" className="size-4">
             <path
@@ -451,7 +451,7 @@ function InsiderPerkScreenshots() {
         <Image
           src={TailwindcssRaycastExtensionImage}
           alt="Tailwind CSS Raycast Extension"
-          className="w-[600px] max-w-none rounded-tl-xl bg-[#1B1B1C] outline outline-gray-950/10"
+          className="w-180 max-w-none rounded-tl-xl border border-black bg-[#1B1B1C] outline -outline-offset-2 outline-white/30 sm:w-200 md:w-150"
         />
       </div>
       <div className="relative flex items-center justify-center rounded-xl bg-[#5865F2] inset-ring inset-ring-gray-950/10 max-md:aspect-[4/3] md:row-start-2 md:max-lg:col-start-1 lg:col-start-2">
@@ -463,7 +463,7 @@ function InsiderPerkScreenshots() {
           <path d="M81.15 0a73.745 73.745 0 0 0-3.36 6.794 97.867 97.867 0 0 0-28.994 0A67.876 67.876 0 0 0 45.437 0a105.544 105.544 0 0 0-26.14 8.057C2.779 32.53-1.691 56.373.53 79.887a105.038 105.038 0 0 0 32.05 16.088 76.912 76.912 0 0 0 6.87-11.063c-3.737-1.389-7.35-3.131-10.81-5.152.91-.657 1.794-1.339 2.653-1.995a75.255 75.255 0 0 0 64.075 0c.86.707 1.743 1.389 2.652 1.995a68.772 68.772 0 0 1-10.835 5.178A76.903 76.903 0 0 0 94.056 96a104.99 104.99 0 0 0 32.051-16.063c2.626-27.277-4.496-50.917-18.817-71.855A103.922 103.922 0 0 0 81.175.051L81.15 0ZM42.28 65.414c-6.238 0-11.416-5.657-11.416-12.653s4.976-12.679 11.391-12.679 11.517 5.708 11.416 12.679c-.101 6.97-5.026 12.653-11.39 12.653Zm42.078 0c-6.264 0-11.391-5.657-11.391-12.653s4.975-12.679 11.39-12.679c6.416 0 11.492 5.708 11.391 12.679-.1 6.97-5.026 12.653-11.39 12.653Z" />
         </svg>
       </div>
-      <div className="relative overflow-hidden rounded-xl bg-gray-200 pt-9 pl-9 outline -outline-offset-1 outline-gray-950/5 max-md:aspect-[4/3] md:max-lg:col-span-2 md:max-lg:col-start-2 md:max-lg:row-start-2 lg:col-start-3 lg:row-span-2 lg:row-start-1 dark:bg-gray-900 dark:outline-white/5">
+      <div className="relative overflow-hidden rounded-xl bg-gray-200 pt-9 pl-9 outline -outline-offset-1 outline-gray-950/5 max-md:aspect-[4/3] md:max-lg:col-span-2 md:max-lg:col-start-2 md:max-lg:row-start-2 md:max-lg:pt-5 md:max-lg:pl-5 lg:col-start-3 lg:row-span-2 lg:row-start-1 dark:bg-gray-900 dark:outline-white/5">
         <p className="absolute right-4 bottom-4 flex items-center gap-2 rounded-full border border-white/20 bg-black/80 pr-4 pl-2 font-mono text-xs/7 font-medium text-white outline outline-black backdrop-blur-sm lg:right-6 lg:bottom-6">
           <svg fill="none" viewBox="0 0 16 16" className="size-4">
             <path
@@ -496,7 +496,7 @@ function InsiderPerkScreenshots() {
         <Image
           src={TailwindCSSVsCodeThemeImage}
           alt="Tailwind CSS VS Code Theme"
-          className="w-[800px] max-w-none rounded-tl-xl bg-[#21293A] dark:outline dark:outline-white/10"
+          className="w-195 max-w-none rounded-tl-xl bg-[#21293A] dark:outline dark:outline-white/10"
         />
       </div>
     </div>
