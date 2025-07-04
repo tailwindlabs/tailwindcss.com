@@ -94,7 +94,7 @@ const showcase = [
     description: "Fintech marketing website",
   },
   {
-    name: "Tip Tap",
+    name: "TipTap",
     url: "https://tiptap.dev",
     thumbnail: require("./img/tiptap.dev.png").default,
     video: "/showcase-videos/tiptap.dev.mp4",
