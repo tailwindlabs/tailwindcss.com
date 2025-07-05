@@ -4,8 +4,7 @@ import GridContainer from "../grid-container";
 import CategoryHeader from "./category-header";
 
 export default function WhyTailwindCssSection() {
-  const randomAmbassador = ambassadors[Math.floor(Math.random() * ambassadors.length)];
-  const sponsors = [...partners, randomAmbassador];
+  const sponsors = [...partners, ...ambassadors];
 
   return (
     <div className="relative max-w-full">
