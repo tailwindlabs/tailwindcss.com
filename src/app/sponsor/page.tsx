@@ -71,7 +71,7 @@ export const partners = [
   },
   {
     name: "Resend",
-    url: "https://resend.com/",
+    url: "https://go.resend.com/tailwind",
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>

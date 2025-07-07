@@ -54,7 +54,7 @@ const showcase = [
   // Partners
   {
     name: "Resend",
-    url: "https://resend.com",
+    url: "https://go.resend.com/tailwind",
     thumbnail: require("./img/resend.com.png").default,
     video: "/showcase-videos/resend.com.mp4",
     description: "Email platform website",
