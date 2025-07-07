@@ -148,13 +148,6 @@ const showcase = [
     description: "Conference website",
   },
   {
-    name: "Lemon Squeezy",
-    url: "https://app.lemonsqueezy.com",
-    thumbnail: require("./img/app.lemonsqueezy.com.png").default,
-    video: "/showcase-videos/app.lemonsqueezy.com.mp4",
-    description: "SaaS application",
-  },
-  {
     name: "Turbo",
     url: "https://turbo.build",
     thumbnail: require("./img/turbo.build.png").default,
@@ -259,13 +252,6 @@ const showcase = [
     },
   },
   {
-    name: "Dizzie",
-    url: "https://getdizzie.com",
-    thumbnail: require("./img/getdizzie.com.png").default,
-    video: "/showcase-videos/getdizzie.com.mp4",
-    description: "E-commerce store",
-  },
-  {
     name: "Google I/O",
     url: "https://io.google",
     thumbnail: require("./img/io.google.png").default,
@@ -353,17 +339,6 @@ const showcase = [
     thumbnail: require("./img/opalcamera.com.png").default,
     video: "/showcase-videos/opalcamera.com.mp4",
     description: "Product marketing website",
-  },
-  {
-    name: "Coinbase NFT",
-    url: "https://nft.coinbase.com",
-    thumbnail: require("./img/nft.coinbase.com.png").default,
-    video: "/showcase-videos/nft.coinbase.com.mp4",
-    description: "Online marketplace",
-    dark: {
-      thumbnail: require("./img/nft.coinbase.com-dark.png").default,
-      video: "/showcase-videos/nft.coinbase.com-dark.mp4",
-    },
   },
   {
     name: "Primer",
