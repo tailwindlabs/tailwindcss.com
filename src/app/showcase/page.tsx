@@ -57,14 +57,14 @@ const showcase = [
     url: "https://resend.com",
     thumbnail: require("./img/resend.com.png").default,
     video: "/showcase-videos/resend.com.mp4",
-    description: "SaaS application",
+    description: "Email platform website",
   },
   {
     name: "Polar",
     url: "https://polar.sh",
     thumbnail: require("./img/polar.sh.png").default,
     video: "/showcase-videos/polar.sh.mp4",
-    description: "SaaS application",
+    description: "Payment platform website",
   },
   {
     name: "Cal.com",
@@ -101,7 +101,7 @@ const showcase = [
     url: "https://bentonow.com/",
     thumbnail: require("./img/bentonow.com.png").default,
     video: "/showcase-videos/bentonow.com.mp4",
-    description: "SaaS application",
+    description: "Email platform website",
   },
 
   // Others
