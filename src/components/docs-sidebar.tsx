@@ -90,16 +90,20 @@ function TopNav() {
         </TopNavLink>
       </li>
       <li className="flex items-center gap-3">
-        <TopNavLink href="/build-uis-that-dont-suck">
+        <TopNavLink href="/sponsor#insiders">
           <svg viewBox="0 0 16 16" fill="none">
-            <path data-highlight d="M8 2 1 6l7 4 7-4-7-4Z" />
             <path
               data-outline
-              strokeLinecap="round"
-              d="M3.5 7.429V13A7.466 7.466 0 0 0 8 14.5a7.466 7.466 0 0 0 4.5-1.5V7.43m-9 0L8 10l4.5-2.571m-9 0-2-1.143m11 1.143L15 6 8 2 1 6l.5.286m0 5.214V6.286"
+              d="M5.5 4.5h-3a2 2 0 00-2 2v4c0 1.1.9 2 2 2h1v3l3-3h2a2 2 0 002-2v-1m0 0l2 2v-3h1a2 2 0 002-2v-4a2 2 0 00-2-2h-6a2 2 0 00-2 2v4c0 1.1.9 2 2 2h2l1 1z"
+              strokeLinejoin="round"
+            />
+            <path
+              data-highlight
+              d="M13.5 1c.83 0 1.5.67 1.5 1.5v4c0 .83-.67 1.5-1.5 1.5h-1a.5.5 0 00-.5.5v1.8L9.85 8.14A.5.5 0 009.5 8h-2A1.5 1.5 0 016 6.5v-4C6 1.67 6.67 1 7.5 1h6z"
             />
           </svg>
-          <span>Course</span>
+
+          <span>Community</span>
           <span className="relative px-1.5 font-mono text-[0.625rem]/[1.125rem] font-medium tracking-widest text-sky-800 uppercase dark:text-sky-300">
             <span className="absolute inset-0 border border-dashed border-sky-300/60 bg-sky-400/10 group-hover:bg-sky-400/15 dark:border-sky-300/30" />
             New

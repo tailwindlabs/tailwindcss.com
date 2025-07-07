@@ -173,7 +173,7 @@ function Community() {
           </Link>
         </li>
         <li>
-          <Link href="https://tailwindcss.com/discord" className="hover:underline">
+          <Link href="/sponsor#insiders" className="hover:underline">
             Discord
           </Link>
         </li>

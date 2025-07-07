@@ -878,6 +878,30 @@ function Faqs() {
                 <a href="mailto:support@tailwindcss.com">support@tailwindcss.com</a> and we'll be happy to help.
               </p>
             </Faq>
+            <Faq question="Can any company sponsor?">
+              <p>
+                We’re excited to have support from all kinds of companies who use Tailwind CSS, but we do have a few
+                guidelines:
+              </p>
+              <ul>
+                <li>
+                  <strong>
+                    We typically don’t accept sponsorships from companies that sell commercial Tailwind UI kits,
+                    templates, or component libraries
+                  </strong>
+                  , since that directly overlaps with our own product offerings and can create confusion about what is
+                  officially endorsed.
+                </li>
+                <li>
+                  <strong>
+                    We also reserve the right to decline sponsorships from companies or services that we feel could
+                    reflect poorly on the project
+                  </strong>
+                  , for example products that are low-quality or deceptive.
+                </li>
+              </ul>
+              <p>If you're unsure whether your company qualifies, feel free to reach out — we're happy to chat.</p>
+            </Faq>
             <Faq question="How are the sponsor perks delivered?">
               <p>
                 After you check out via Polar, you'll get access to a Polar customer portal where you can manage your
