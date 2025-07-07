@@ -51,19 +51,66 @@ export default async function Showcase() {
 }
 
 const showcase = [
+  // Partners
   {
-    name: "OpenAI / ChatGPT",
-    url: "https://openai.com",
-    thumbnail: require("./img/openai.com.png").default,
-    video: "/showcase-videos/openai.com.mp4",
-    description: "Marketing website & chat interface",
+    name: "Resend",
+    url: "https://resend.com",
+    thumbnail: require("./img/resend.com.png").default,
+    video: "/showcase-videos/resend.com.mp4",
+    description: "SaaS application",
+  },
+  {
+    name: "Polar",
+    url: "https://polar.sh",
+    thumbnail: require("./img/polar.sh.png").default,
+    video: "/showcase-videos/polar.sh.mp4",
+    description: "SaaS application",
   },
   {
     name: "Cal.com",
     url: "https://cal.com",
     thumbnail: require("./img/cal.com.png").default,
     video: "/showcase-videos/cal.com.mp4",
-    description: "Marketing website & scheduling application",
+    description: "SaaS application",
+  },
+  {
+    name: "Namespace",
+    url: "https://namespace.so/",
+    thumbnail: require("./img/namespace.so.png").default,
+    video: "/showcase-videos/namespace.so.mp4",
+    description: "SaaS application",
+  },
+  {
+    name: "Tiptap",
+    url: "https://tiptap.dev",
+    thumbnail: require("./img/tiptap.dev.png").default,
+    video: "/showcase-videos/tiptap.dev.mp4",
+    description: "Developer tool website",
+  },
+  {
+    name: "Mux",
+    url: "https://mux.com/",
+    thumbnail: require("./img/mux.com.png").default,
+    video: "/showcase-videos/mux.com.mp4",
+    description: "SaaS application",
+  },
+
+  // Ambassadors
+  {
+    name: "Bento",
+    url: "https://bentonow.com/",
+    thumbnail: require("./img/bentonow.com.png").default,
+    video: "/showcase-videos/bentonow.com.mp4",
+    description: "SaaS application",
+  },
+
+  // Others
+  {
+    name: "OpenAI / ChatGPT",
+    url: "https://openai.com",
+    thumbnail: require("./img/openai.com.png").default,
+    video: "/showcase-videos/openai.com.mp4",
+    description: "Marketing website & chat interface",
   },
   {
     name: "Shopify",
@@ -73,20 +120,6 @@ const showcase = [
     description: "Ecommerce platform website",
   },
   {
-    name: "Polar",
-    url: "https://polar.sh",
-    thumbnail: require("./img/polar.sh.png").default,
-    video: "/showcase-videos/polar.sh.mp4",
-    description: "Marketing website & payments application",
-  },
-  {
-    name: "Resend",
-    url: "https://resend.com",
-    thumbnail: require("./img/resend.com.png").default,
-    video: "/showcase-videos/resend.com.mp4",
-    description: "SaaS marketing website & application",
-  },
-  {
     name: "Wealthfront",
     url: "https://wealthfront.com",
     thumbnail: require("./img/wealthfront.com.png").default,
@@ -94,53 +127,11 @@ const showcase = [
     description: "Fintech marketing website",
   },
   {
-    name: "TipTap",
-    url: "https://tiptap.dev",
-    thumbnail: require("./img/tiptap.dev.png").default,
-    video: "/showcase-videos/tiptap.dev.mp4",
-    description: "Devtools marketing website",
-  },
-  {
-    name: "Bento",
-    url: "https://bentonow.com/",
-    thumbnail: require("./img/bentonow.com.png").default,
-    video: "/showcase-videos/bentonow.com.mp4",
-    description: "SaaS marketing website",
-  },
-  {
-    name: "Namespace",
-    url: "https://namespace.so/",
-    thumbnail: require("./img/namespace.so.png").default,
-    video: "/showcase-videos/namespace.so.mp4",
-    description: "SaaS marketing website and application",
-  },
-  // {
-  //   name: "Netflix Global Top 10",
-  //   url: "https://top10.netflix.com",
-  //   thumbnail: require("./img/top10.netflix.com.png").default,
-  //   video: "/showcase-videos/top10.netflix.com.mp4",
-  //   description: "Microsite",
-  // },
-  {
     name: "Loom",
     url: "https://www.loom.com",
     thumbnail: require("./img/loom.com.png").default,
     video: "/showcase-videos/loom.com.mp4",
     description: "SaaS marketing website",
-  },
-  {
-    name: "Mux",
-    url: "https://mux.com/",
-    thumbnail: require("./img/mux.com.png").default,
-    video: "/showcase-videos/mux.com.mp4",
-    description: "Video platform marketing website",
-  },
-  {
-    name: "Nutrient",
-    url: "https://www.nutrient.io/sdk/web",
-    thumbnail: require("./img/nutrient.io.png").default,
-    video: "/showcase-videos/nutrient.io.mp4",
-    description: "Online PDF editor",
   },
   {
     name: "The Verge",
@@ -266,13 +257,6 @@ const showcase = [
       thumbnail: require("./img/spotlight.tailwindui.com-dark.png").default,
       video: "/showcase-videos/spotlight.tailwindui.com-dark.mp4",
     },
-  },
-  {
-    name: "Clearbit",
-    url: "https://clearbit.com",
-    thumbnail: require("./img/clearbit.com.png").default,
-    video: "/showcase-videos/clearbit.com.mp4",
-    description: "SaaS marketing website",
   },
   {
     name: "Dizzie",
