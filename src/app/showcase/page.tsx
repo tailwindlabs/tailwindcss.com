@@ -206,8 +206,8 @@ const showcase = [
   {
     name: "Algolia Docs",
     url: "https://www.algolia.com/doc",
-    thumbnail: require("./img/algolia.com.png").default,
-    video: "/showcase-videos/algolia.com.mp4",
+    thumbnail: require("./img/algolia-docs.com.png").default,
+    video: "/showcase-videos/algolia-docs.com.mp4",
     description: "Documentation website",
   },
   {
@@ -223,6 +223,13 @@ const showcase = [
     thumbnail: require("./img/jpl.nasa.gov.png").default,
     video: "/showcase-videos/jpl.nasa.gov.mp4",
     description: "Space laboratory website",
+  },
+  {
+    name: "Algolia",
+    url: "https://www.algolia.com",
+    thumbnail: require("./img/algolia.com.png").default,
+    video: "/showcase-videos/algolia.com.mp4",
+    description: "Documentation website",
   },
   {
     name: "Salient",
