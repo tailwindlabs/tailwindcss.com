@@ -141,10 +141,10 @@ const showcase = [
     description: "News website",
   },
   {
-    name: "Laracon Online",
-    url: "https://laracon.net",
-    thumbnail: require("./img/laracon.net.png").default,
-    video: "/showcase-videos/laracon.net.mp4",
+    name: "Laracon 2025",
+    url: "https://laracon.us",
+    thumbnail: require("./img/laracon.us.png").default,
+    video: "/showcase-videos/laracon.us.mp4",
     description: "Conference website",
   },
   {
