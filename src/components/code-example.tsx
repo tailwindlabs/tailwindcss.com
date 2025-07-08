@@ -50,9 +50,17 @@ export async function CodeExample({
   className?: string;
 }) {
   return (
-    <CodeExampleWrapper className={clsx("relative", className)}>
+    <CodeExampleWrapper className={clsx("group/code-block relative", className)}>
       {filename ? <CodeExampleFilename filename={filename} /> : null}
-      <CopyButton className="absolute top-2 right-4 z-10 text-stone-400" value={stripShikiComments(example.code)} />
+      <CopyButton
+        className={clsx(
+          "absolute z-10 transition duration-150 group-hover/code-block:opacity-100",
+          filename
+            ? "top-0 right-2 text-white/50 hover:text-white/75"
+            : "top-2 right-2 rounded border border-black/15 bg-black/50 text-white/75 opacity-0 backdrop-blur-md hover:text-white",
+        )}
+        value={stripShikiComments(example.code)}
+      />
       <HighlightedCode example={example} />
     </CodeExampleWrapper>
   );
