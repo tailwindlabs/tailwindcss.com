@@ -257,10 +257,6 @@ const showcase = [
     thumbnail: require("./img/io.google.png").default,
     video: "/showcase-videos/io.google.mp4",
     description: "Conference website",
-    dark: {
-      thumbnail: require("./img/io.google-dark.png").default,
-      video: "/showcase-videos/io.google-dark.mp4",
-    },
   },
   {
     name: "Keynote",
