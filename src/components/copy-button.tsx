@@ -2,33 +2,26 @@
 
 import clsx from "clsx";
 import { useState } from "react";
-import { unshiki } from "./code-example";
 
-export function CopyButton({
-  value,
-  className = "",
-}: {
-  value: string;
-  className?: string;
-}) {
+export function CopyButton({ value, className }: { value: string; className?: string }) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
     if (copied) return;
 
     try {
-      await navigator.clipboard.writeText(unshiki(value));
+      await navigator.clipboard.writeText(value);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error("Failed to copy:", err);
     }
-  }
+  };
 
   return (
     <button
       onClick={handleCopy}
-      className={clsx("flex items-center rounded-lg transition-colors hover:text-white cursor-pointer", className)}
+      className={clsx("flex cursor-pointer items-center rounded-lg transition-colors hover:text-white", className)}
       title="Copy to clipboard"
     >
       <span className="relative inset-0">
@@ -38,11 +31,10 @@ export function CopyButton({
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="absolute inset-0 size-4 text-green-400"
-          style={{
-            opacity: copied ? 1 : 0,
-            transition: "opacity 0.3s ease-in-out",
-          }}
+          className={clsx(
+            "absolute inset-0 size-4 text-green-400 transition-opacity duration-300 ease-in-out",
+            !copied && "opacity-0",
+          )}
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
         </svg>
@@ -52,11 +44,7 @@ export function CopyButton({
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="size-4"
-          style={{
-            opacity: copied ? 0 : 1,
-            transition: "opacity 0.3s ease-in-out",
-          }}
+          className={clsx("size-4 transition-opacity duration-300 ease-in-out", copied && "opacity-0")}
         >
           <path
             strokeLinecap="round"
@@ -66,5 +54,5 @@ export function CopyButton({
         </svg>
       </span>
     </button>
-  )
+  );
 }
