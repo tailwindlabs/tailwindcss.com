@@ -1,48 +1,60 @@
-const commentRegex = /\/\*\s*.*?\s*\*\/|\/\/\s*.*|<!--\s*.*?\s*-->|#\s*.*/g;
-const codeTagRegex = /\[!code\s+([^\]]+)\]/;
+const commentPattern = /\/\*\s*(?=\[!)(.*?)\s*\*\/\s*$|<!--\s*(?=\[!)(.*?)\s*-->\s*$|(?:#|\/\/)\s*(?=\[!)(.*)\s*$/g;
+const controlPattern = /^\[!code\s+([^:]+)(?::(.*))?\]$/;
 
 export function stripShikiComments(code: string): string {
+  if (!code.includes("[!code ")) return code;
+
   let lines = code.split("\n");
-  let result: string[] = [];
-  let skip = 0;
+  let result = "";
 
   for (let i = 0; i < lines.length; i++) {
-    // skip lines if a remove directive is active
-    if (skip > 0) {
-      skip--;
-      continue;
-    }
-
     let line = lines[i];
-    let comments = [...line.matchAll(commentRegex)];
-
     let removed = false;
+    let changed = false;
 
-    // process comments to detect [!code ...] directives
-    for (let c of comments) {
-      let match = c[0].match(codeTagRegex);
+    for (let c of line.matchAll(commentPattern)) {
+      let content = c[1] ?? c[2] ?? c[3];
+
+      let match = content.match(controlPattern);
       if (!match) continue;
 
-      // check if directive to remove next N lines
-      let spec = match[1];
-      let removeMatch = spec.match(/^--:(\d+)$/);
-      if (removeMatch) {
-        // set lines to skip
-        skip = parseInt(removeMatch[1], 10) - 1;
-        // current line removed (important if the line is not just a comment but also valid code)
+      let kind = match[1];
+      let params = match[2];
+
+      // If we see a `[!code --]` or `[!code --:N]` directive it means we need
+      // to remove N lines starting at the current line
+      if (kind === "--") {
+        if (!params) continue;
+
+        // Remove the line containing the `[!code --]` directive
         removed = true;
+
+        // Remove the remaining N-1 lines after the current line (if specified)
+        let count = parseInt(params, 10) - 1;
+        if (isNaN(count)) continue;
+        i += count;
+
         break;
       }
 
-      // remove comment if it's not a remove directive
-      line = line.slice(0, c.index) + line.slice(c.index! + c[0].length);
+      // Remove the comment from the current line
+      //
+      // NOTE: This has an implicit assumption that the line MUST end with a
+      // control comment. Processing multiple comments on one line would
+      // mangle the code. This is enforced by the regex patterns above.
+      line = line.slice(0, c.index) + line.slice(c.index + c[0].length);
+      changed = true;
     }
 
-    // add line if not removed and line is not empty or has no comments
-    if (!removed && (comments.length === 0 || line.trim() !== "")) {
-      result.push(line);
-    }
+    // The current line was removed so we can skip it
+    if (removed) continue;
+
+    // This line only contained control comments which have been removed
+    if (changed && line.trim() === "") continue;
+
+    result += line;
+    result += "\n";
   }
 
-  return result.join("\n").trim();
+  return result.trim();
 }
