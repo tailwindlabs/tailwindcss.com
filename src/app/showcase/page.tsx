@@ -111,6 +111,10 @@ const showcase = [
     thumbnail: require("./img/openai.com.png").default,
     video: "/showcase-videos/openai.com.mp4",
     description: "Marketing website & chat interface",
+    dark: {
+      thumbnail: require("./img/dark-openai.com.png").default,
+      video: "/showcase-videos/dark-openai.com.mp4",
+    },
   },
   {
     name: "Shopify",
