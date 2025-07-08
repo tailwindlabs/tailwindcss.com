@@ -24,13 +24,11 @@ export function stripShikiComments(code: string): string {
       // If we see a `[!code --]` or `[!code --:N]` directive it means we need
       // to remove N lines starting at the current line
       if (kind === "--") {
-        if (!params) continue;
-
         // Remove the line containing the `[!code --]` directive
         removed = true;
 
         // Remove the remaining N-1 lines after the current line (if specified)
-        let count = parseInt(params, 10) - 1;
+        let count = parseInt(params ?? "1", 10) - 1;
         if (isNaN(count)) continue;
         i += count;
 
