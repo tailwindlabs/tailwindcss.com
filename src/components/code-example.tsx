@@ -109,7 +109,7 @@ export function CodeExampleGroup({
         <div className="rounded-xl bg-gray-950 in-[figure]:-mx-1 in-[figure]:-mb-1">
           <div
             className={clsx(
-              "rounded-xl p-1 text-sm scheme-dark dark:bg-white/5 dark:inset-ring dark:inset-ring-white/10",
+              "relative rounded-xl p-1 text-sm scheme-dark dark:bg-white/5 dark:inset-ring dark:inset-ring-white/10",
               className,
             )}
           >
@@ -134,6 +134,13 @@ export function CodeExampleGroup({
 export function CodeBlock({ example }: { example: { lang: string; code: string } }) {
   return (
     <TabPanel>
+      <CopyButton
+        className={clsx(
+          "absolute z-10 transition duration-150 group-hover/code-block:opacity-100",
+          "top-0 right-0 z-10 text-white/50 hover:text-white/75",
+        )}
+        value={stripShikiComments(example.code)}
+      />
       <HighlightedCode example={example} />
     </TabPanel>
   );
