@@ -111,6 +111,10 @@ const showcase = [
     thumbnail: require("./img/openai.com.png").default,
     video: "/showcase-videos/openai.com.mp4",
     description: "Marketing website & chat interface",
+    dark: {
+      thumbnail: require("./img/dark-openai.com.png").default,
+      video: "/showcase-videos/dark-openai.com.mp4",
+    },
   },
   {
     name: "Shopify",
@@ -141,10 +145,10 @@ const showcase = [
     description: "News website",
   },
   {
-    name: "Laracon Online",
-    url: "https://laracon.net",
-    thumbnail: require("./img/laracon.net.png").default,
-    video: "/showcase-videos/laracon.net.mp4",
+    name: "Laracon 2025",
+    url: "https://laracon.us",
+    thumbnail: require("./img/laracon.us.png").default,
+    video: "/showcase-videos/laracon.us.mp4",
     description: "Conference website",
   },
   {
@@ -197,11 +201,25 @@ const showcase = [
     description: "SaaS marketing website",
   },
   {
+    name: "Slate Auto",
+    url: "https://slate.auto",
+    thumbnail: require("./img/slate.auto.png").default,
+    video: "/showcase-videos/slate.auto.mp4",
+    description: "Automotive website",
+  },
+  {
     name: "Algolia Docs",
-    url: "https://www.algolia.com/doc",
-    thumbnail: require("./img/algolia.com.png").default,
-    video: "/showcase-videos/algolia.com.mp4",
+    url: "https://www.algolia.com/doc/",
+    thumbnail: require("./img/algolia-docs.com.png").default,
+    video: "/showcase-videos/algolia-docs.com.mp4",
     description: "Documentation website",
+  },
+  {
+    name: "React Email",
+    url: "https://www.react.email",
+    thumbnail: require("./img/react.email.png").default,
+    video: "/showcase-videos/react.email.mp4",
+    description: "Developer tool website",
   },
   {
     name: "MrBeast Feastables",
@@ -209,6 +227,13 @@ const showcase = [
     thumbnail: require("./img/feastables.com.png").default,
     video: "/showcase-videos/feastables.com.mp4",
     description: "Direct-to-consumer store",
+  },
+  {
+    name: "Algolia",
+    url: "https://www.algolia.com",
+    thumbnail: require("./img/algolia.com.png").default,
+    video: "/showcase-videos/algolia.com.mp4",
+    description: "SaaS marketing website",
   },
   {
     name: "NASA Jet Propulsion Laboratory",
@@ -257,10 +282,6 @@ const showcase = [
     thumbnail: require("./img/io.google.png").default,
     video: "/showcase-videos/io.google.mp4",
     description: "Conference website",
-    dark: {
-      thumbnail: require("./img/io.google-dark.png").default,
-      video: "/showcase-videos/io.google-dark.mp4",
-    },
   },
   {
     name: "Keynote",
@@ -299,13 +320,6 @@ const showcase = [
     video: "/showcase-videos/pocket.tailwindui.com.mp4",
     description: "Mobile app marketing website",
     isTemplate: true,
-  },
-  {
-    name: "Modern Treasury",
-    url: "https://moderntreasury.com",
-    thumbnail: require("./img/moderntreasury.com.png").default,
-    video: "/showcase-videos/moderntreasury.com.mp4",
-    description: "Fintech marketing website",
   },
   {
     name: "National Park Foundation",
