@@ -21,15 +21,15 @@ export function CopyButton({ value, className }: { value: string; className?: st
   return (
     <button
       onClick={handleCopy}
-      className={clsx("absolute inset-y-0 grid text-white/50 transition-colors hover:text-white/75", className)}
+      className={clsx("absolute inset-y-0 grid size-4 text-white/33 transition-colors hover:text-white/75", className)}
       title="Copy to clipboard"
     >
-      <div className="absolute -inset-2"></div>
+      <div className="absolute -inset-2.5"></div>
       <svg
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         className={clsx(
-          "col-start-1 row-start-1 size-4 fill-none stroke-current text-sky-400 transition-opacity duration-300 ease-in-out",
+          "col-start-1 row-start-1 fill-none stroke-current text-sky-400 transition-opacity duration-300 ease-in-out",
           !copied && "opacity-0",
         )}
       >
@@ -39,7 +39,7 @@ export function CopyButton({ value, className }: { value: string; className?: st
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         className={clsx(
-          "col-start-1 row-start-1 size-4 fill-none stroke-current transition-opacity duration-300 ease-in-out",
+          "col-start-1 row-start-1 fill-none stroke-current transition-opacity duration-300 ease-in-out",
           copied && "opacity-0",
         )}
       >
