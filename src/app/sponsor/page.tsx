@@ -353,6 +353,7 @@ function FeaturedPartners() {
               key={index}
               href={partner.url}
               target="_blank"
+              rel="noopener sponsored"
               className="grid place-content-center transition-colors hover:bg-gray-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y dark:hover:bg-white/2.5"
             >
               <partner.logo className="w-full max-w-80" aria-label={`${partner.name} logo`} />
@@ -986,6 +987,7 @@ function Sponsors() {
               key={index}
               href={company.url}
               target="_blank"
+              rel="noopener sponsored"
               className="grid place-content-center transition-colors hover:bg-gray-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y dark:hover:bg-white/2.5"
             >
               <company.logo className="w-full max-w-80" aria-label={`${company.name} logo`} />
@@ -1009,6 +1011,7 @@ function Sponsors() {
               key={index}
               href={company.url}
               target="_blank"
+              rel="noopener sponsored"
               className="grid place-content-center transition-colors hover:bg-gray-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[4n+1]:line-y xl:nth-[6n+1]:line-y dark:hover:bg-white/2.5"
             >
               <company.logo className="w-full max-w-80" aria-label={`${company.name} logo`} />
@@ -1034,6 +1037,7 @@ function Sponsors() {
               key={index}
               href={company.url}
               target="_blank"
+              rel="noopener sponsored"
               className="grid place-content-center transition-colors hover:bg-gray-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[6n+1]:line-y xl:nth-[8n+1]:line-y dark:hover:bg-white/2.5"
             >
               <company.logo className="w-full max-w-80" aria-label={`${company.name} logo`} />
