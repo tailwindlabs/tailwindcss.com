@@ -6,6 +6,7 @@ import ExplainerSection from "@/components/home/explainer-section";
 import TailwindUiSection from "@/components/home/tailwind-ui-section";
 import WhyTailwindCssSection from "@/components/home/why-tailwind-css-section";
 import BuildAnythingSection from "@/components/home/build-anything-section";
+import PartnersSection from "@/components/home/partners-section";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         {/* Main content area */}
         <div className="grid gap-24 pb-24 text-gray-950 sm:gap-40 md:pb-40 dark:text-white">
           <Hero />
+          <PartnersSection />
           <WhyTailwindCssSection />
           <ExplainerSection />
           <BuildAnythingSection />

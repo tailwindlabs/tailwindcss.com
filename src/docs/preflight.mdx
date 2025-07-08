@@ -231,3 +231,50 @@ To disable Preflight, simply omit its import while keeping everything else:
 @import "tailwindcss/preflight.css" layer(base); /* [!code --] */
 @import "tailwindcss/utilities.css" layer(utilities);
 ```
+
+When importing Tailwind CSS' files individually, features like `source()`, `theme()`, and `prefix()` should go on their respective imports.
+
+For example, source detection affects generated utilities, so `source(…)` should be added to the `utilities.css` import:
+
+```css
+/* [!code filename:CSS] */
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities); /* [!code --] */
+@import "tailwindcss/utilities.css" layer(utilities) source(none); /* [!code ++] */
+```
+
+The same goes for `important`, which also affects utilities:
+
+```css
+/* [!code filename:CSS] */
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities); /* [!code --] */
+@import "tailwindcss/utilities.css" layer(utilities) important; /* [!code ++] */
+```
+
+Similarly, `theme(static)` and `theme(inline)` affect the generated theme variables and should be placed on the `theme.css` import:
+
+```css
+/* [!code filename:CSS] */
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme); /* [!code --] */
+@import "tailwindcss/theme.css" layer(theme) theme(static); /* [!code ++] */
+@import "tailwindcss/utilities.css" layer(utilities);
+```
+
+Finally, using a prefix with `prefix(tw)` affects the utilities and variables, so it should go on both imports:
+
+```css
+/* [!code filename:CSS] */
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme); /* [!code --] */
+@import "tailwindcss/utilities.css" layer(utilities); /* [!code --] */
+@import "tailwindcss/theme.css" layer(theme) prefix(tw); /* [!code ++] */
+@import "tailwindcss/utilities.css" layer(utilities) prefix(tw); /* [!code ++] */
+```
