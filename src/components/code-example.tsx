@@ -50,17 +50,19 @@ export async function CodeExample({
   className?: string;
 }) {
   return (
-    <CodeExampleWrapper className={clsx("group/code-block relative", className)}>
-      {filename ? <CodeExampleFilename filename={filename} /> : null}
-      <CopyButton
-        className={clsx(
-          "absolute z-10 transition duration-150 group-hover/code-block:opacity-100",
-          filename
-            ? "top-0 right-2 text-white/50 hover:text-white/75"
-            : "top-2 right-2 rounded border border-black/15 bg-black/50 text-white/75 opacity-0 backdrop-blur-md hover:text-white",
-        )}
-        value={stripShikiComments(example.code)}
-      />
+    <CodeExampleWrapper className={className}>
+      <div className="relative">
+        {filename ? <CodeExampleFilename filename={filename} /> : null}
+        <CopyButton
+          className={clsx(
+            "absolute z-10 transition duration-150 group-hover/code-block:opacity-100",
+            filename
+              ? "-top-1 right-0 text-white/50 hover:text-white/75"
+              : "top-2 right-2 rounded border border-black/15 bg-black/50 text-white/75 opacity-0 backdrop-blur-md hover:text-white",
+          )}
+          value={stripShikiComments(example.code)}
+        />
+      </div>
       <HighlightedCode example={example} />
     </CodeExampleWrapper>
   );
@@ -72,6 +74,7 @@ export function CodeExampleWrapper({ className, children }: { className?: string
       <div
         className={clsx(
           "rounded-xl p-1 text-sm scheme-dark in-data-stack:rounded-none dark:bg-white/5 dark:inset-ring dark:inset-ring-white/10 in-data-stack:dark:inset-ring-0",
+          "group/code-block",
           className,
         )}
       >
