@@ -211,6 +211,13 @@ const showcase = [
     description: "Documentation website",
   },
   {
+    name: "React Email",
+    url: "https://www.react.email",
+    thumbnail: require("./img/react.email.png").default,
+    video: "/showcase-videos/react.email.mp4",
+    description: "Developer tool website",
+  },
+  {
     name: "MrBeast Feastables",
     url: "https://feastables.com",
     thumbnail: require("./img/feastables.com.png").default,
