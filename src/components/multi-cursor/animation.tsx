@@ -2,6 +2,7 @@
 
 import clsx from "clsx";
 import { createContext, useContext, useEffect, useState } from "react";
+import { CopyButton } from "../copy-button";
 
 export interface AnimationContextBag {
   /** Where the cursor is at */
@@ -249,4 +250,18 @@ export function TypingAnimation(props: Record<string, any>) {
       )}
     </span>
   ));
+}
+
+export function AnimationCopyButton({ code }: { code: string }) {
+  let { className } = useContext(AnimationContext);
+
+  return (
+    <CopyButton
+      className={clsx(
+        "absolute z-10 transition duration-150 group-hover/code-block:opacity-100",
+        "top-2 right-2 rounded border border-black/15 bg-black/50 text-white/75 opacity-0 backdrop-blur-md hover:text-white",
+      )}
+      value={code.replaceAll("__CLASS__", className)}
+    />
+  );
 }
