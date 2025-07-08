@@ -197,6 +197,13 @@ const showcase = [
     description: "SaaS marketing website",
   },
   {
+    name: "Slate Auto",
+    url: "https://slate.auto",
+    thumbnail: require("./img/slate.auto.png").default,
+    video: "/showcase-videos/slate.auto.mp4",
+    description: "Automotive website",
+  },
+  {
     name: "Algolia Docs",
     url: "https://www.algolia.com/doc",
     thumbnail: require("./img/algolia.com.png").default,
@@ -295,13 +302,6 @@ const showcase = [
     video: "/showcase-videos/pocket.tailwindui.com.mp4",
     description: "Mobile app marketing website",
     isTemplate: true,
-  },
-  {
-    name: "Modern Treasury",
-    url: "https://moderntreasury.com",
-    thumbnail: require("./img/moderntreasury.com.png").default,
-    video: "/showcase-videos/moderntreasury.com.mp4",
-    description: "Fintech marketing website",
   },
   {
     name: "National Park Foundation",
