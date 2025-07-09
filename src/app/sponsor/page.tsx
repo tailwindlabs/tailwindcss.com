@@ -367,8 +367,8 @@ function FeaturedPartners() {
 
 function Insiders() {
   return (
-    <div id="insiders" className="line-y mt-40 grid scroll-mt-24 grid-cols-1 gap-10 xl:grid-cols-2">
-      <div className="border-r border-gray-950/5 px-4 py-2 sm:px-2 dark:border-white/10">
+    <div id="insiders" className="line-y mt-40 grid scroll-mt-24 grid-cols-1 gap-10 lg:grid-cols-3 xl:grid-cols-5">
+      <div className="border-r border-gray-950/5 px-4 py-2 sm:px-2 lg:col-span-2 xl:col-span-3 dark:border-white/10">
         <Eyebrow as="h2" color="sky">
           <a href="#insiders">Insiders</a>
         </Eyebrow>
@@ -380,29 +380,10 @@ function Insiders() {
           Tailwind, and direct connection with the team — all while supporting the project you love.
         </p>
       </div>
-      <div className="grid grid-cols-1 gap-2 bg-gray-950/5 py-[calc(--spacing(2)+1px)] max-xl:-mx-px max-xl:px-[calc(--spacing(2)+1px)] sm:grid-cols-2 xl:-mr-px xl:border-l xl:border-gray-950/5 xl:pr-[calc(--spacing(2)+1px)] xl:pl-2 dark:bg-white/10 dark:xl:border-white/10">
+      <div className="grid grid-cols-1 gap-2 bg-gray-950/5 py-[calc(--spacing(2)+1px)] max-xl:-mx-px max-xl:px-[calc(--spacing(2)+1px)] xl:col-span-2 xl:-mr-px xl:border-l xl:border-gray-950/5 xl:pr-[calc(--spacing(2)+1px)] xl:pl-2 dark:bg-white/10 dark:xl:border-white/10">
         <div className="@container rounded-2xl bg-white p-6 sm:rounded-4xl sm:p-10 dark:bg-gray-950/80 dark:outline dark:outline-white/10">
           <p className="font-mono text-[0.8125rem]/6 font-medium tracking-widest text-pretty text-gray-600 uppercase dark:text-gray-400">
-            Monthly
-          </p>
-          <div className="mt-6">
-            <div className="flex flex-wrap items-start gap-6 @max-md:flex-col @md:items-center @md:justify-between">
-              <div className="flex items-center gap-x-4">
-                <p className="text-5xl/12 font-medium first-letter:font-light">$12</p>
-                <div>
-                  <p className="text-sm/6 font-semibold">per month</p>
-                  <p className="text-sm/6 text-gray-600 dark:text-gray-400">plus tax</p>
-                </div>
-              </div>
-              <DarkButtonLink href="https://buy.polar.sh/polar_cl_Nz5rJ2PfhRopgT4nR7KHVWN8Nfdhdta6OdH7c2YiJhM">
-                Sponsor monthly
-              </DarkButtonLink>
-            </div>
-          </div>
-        </div>
-        <div className="@container rounded-2xl bg-white p-6 sm:rounded-4xl sm:p-10 dark:bg-gray-950/80 dark:outline dark:outline-white/10">
-          <p className="font-mono text-[0.8125rem]/6 font-medium tracking-widest text-pretty text-gray-600 uppercase dark:text-gray-400">
-            Annually
+            Sponsor
           </p>
           <div className="mt-6">
             <div className="flex flex-wrap items-start gap-6 @max-md:flex-col @md:items-center @md:justify-between">
@@ -413,9 +394,9 @@ function Insiders() {
                   <p className="text-sm/6 text-gray-600 dark:text-gray-400">plus tax</p>
                 </div>
               </div>
-              <LightButtonLink href="https://buy.polar.sh/polar_cl_sdvKSPOnjtdElmQ57la4wv3C91Io5vGZpJmC71jdFXv">
-                Sponsor annually
-              </LightButtonLink>
+              <DarkButtonLink href="https://buy.polar.sh/polar_cl_sdvKSPOnjtdElmQ57la4wv3C91Io5vGZpJmC71jdFXv">
+                Become an Insider
+              </DarkButtonLink>
             </div>
           </div>
         </div>
