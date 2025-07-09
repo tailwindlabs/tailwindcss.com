@@ -216,7 +216,7 @@ const showcase = [
   },
   {
     name: "React Email",
-    url: "https://www.react.email",
+    url: "https://react.email/",
     thumbnail: require("./img/react.email.png").default,
     video: "/showcase-videos/react.email.mp4",
     description: "Developer tool website",
