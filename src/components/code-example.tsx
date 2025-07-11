@@ -8,11 +8,13 @@ import { clsx } from "clsx";
 import dedent from "dedent";
 import { createHighlighter } from "shiki";
 import theme from "./syntax-highlighter/theme.json";
+import { CopyButton } from "./copy-button";
 
 import { highlightClasses } from "./highlight-classes";
 import atApplyInjection from "./syntax-highlighter/at-apply.json";
 import atRulesInjection from "./syntax-highlighter/at-rules.json";
 import themeFnInjection from "./syntax-highlighter/theme-fn.json";
+import { stripShikiComments } from "./shiki";
 
 export function js(strings: TemplateStringsArray, ...args: any[]) {
   return { lang: "js", code: dedent(strings, ...args) };
@@ -49,7 +51,18 @@ export async function CodeExample({
 }) {
   return (
     <CodeExampleWrapper className={className}>
-      {filename ? <CodeExampleFilename filename={filename} /> : null}
+      <div className="relative">
+        {filename ? <CodeExampleFilename filename={filename} /> : null}
+        <CopyButton
+          className={clsx(
+            "absolute z-10 transition duration-150 group-hover/code-block:opacity-100",
+            filename
+              ? "-top-1 right-0 text-white/50 hover:text-white/75"
+              : "top-2 right-2 rounded border border-black/15 bg-black/50 text-white/75 opacity-0 backdrop-blur-md hover:text-white",
+          )}
+          value={stripShikiComments(example.code)}
+        />
+      </div>
       <HighlightedCode example={example} />
     </CodeExampleWrapper>
   );
@@ -61,6 +74,7 @@ export function CodeExampleWrapper({ className, children }: { className?: string
       <div
         className={clsx(
           "rounded-xl p-1 text-sm scheme-dark in-data-stack:rounded-none dark:bg-white/5 dark:inset-ring dark:inset-ring-white/10 in-data-stack:dark:inset-ring-0",
+          "group/code-block",
           className,
         )}
       >
@@ -95,7 +109,7 @@ export function CodeExampleGroup({
         <div className="rounded-xl bg-gray-950 in-[figure]:-mx-1 in-[figure]:-mb-1">
           <div
             className={clsx(
-              "rounded-xl p-1 text-sm scheme-dark dark:bg-white/5 dark:inset-ring dark:inset-ring-white/10",
+              "relative rounded-xl p-1 text-sm scheme-dark dark:bg-white/5 dark:inset-ring dark:inset-ring-white/10",
               className,
             )}
           >
@@ -120,6 +134,13 @@ export function CodeExampleGroup({
 export function CodeBlock({ example }: { example: { lang: string; code: string } }) {
   return (
     <TabPanel>
+      <CopyButton
+        className={clsx(
+          "absolute z-10 transition duration-150 group-hover/code-block:opacity-100",
+          "top-0 right-0 z-10 text-white/50 hover:text-white/75",
+        )}
+        value={stripShikiComments(example.code)}
+      />
       <HighlightedCode example={example} />
     </TabPanel>
   );
@@ -192,7 +213,7 @@ function CodeExampleFilename({ filename }: { filename: string }) {
   return <div className="px-3 pt-0.5 pb-1.5 text-xs/5 text-gray-400 dark:text-white/50">{filename}</div>;
 }
 
-const highlighter = await createHighlighter({
+let highlighter = await createHighlighter({
   themes: [theme],
   langs: [
     atApplyInjection as any,
