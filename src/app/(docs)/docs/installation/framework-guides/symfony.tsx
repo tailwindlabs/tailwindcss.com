@@ -109,7 +109,7 @@ export let steps: Step[] = [
     title: "Import Tailwind CSS",
     body: (
       <p>
-        Add an <code>@import</code> to <code>./assets/styles/app.css</code> that imports Tailwind CSS, and <code>@source not "../../public";</code> to prevent infinite recompilation in watch mode
+        Add an <code>@import</code> to <code>./assets/styles/app.css</code> that imports Tailwind CSS, and <code>@source not "../../public";</code> to prevent compilation loops in watch mode.
       </p>
     ),
     code: {
