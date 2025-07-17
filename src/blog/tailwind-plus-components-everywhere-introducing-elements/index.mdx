@@ -1,0 +1,144 @@
+import { philippspiess } from "@/app/blog/authors";
+import card from "./card.jpg";
+import Image from "next/image";
+import placeholder from "./placeholder.png";
+
+export const meta = {
+  title: "Tailwind Plus Components, Everywhere: Introducing Elements",
+  description:
+    "Introducing Elements - universal UI components that work in any framework with native web platform features.",
+  date: "2025-07-22T18:00:00.000Z",
+  authors: [philippspiess],
+  image: card,
+  excerpt: (
+    <>
+      What if every component worked in any framework, with full interactivity? Today we're introducing Elements -
+      universal UI components that harness the power of the modern web platform to work everywhere.
+    </>
+  ),
+};
+
+This is an exciting week at Tailwind Labs: We're shipping something that fundamentally changes how you can use Tailwind Plus.
+
+Here's the thing: we've been building UI components for years now, but there's always been this awkward dance. You love Tailwind Plus, but you're building with Rails/Laravel/SvelteKit or one of the many other web frameworks and every time you try to use a more complicated component, you'd have to either manually wire up JavaScript or just... not have interactivity.
+
+Well, today, that dance is over.
+
+## Introducing Elements
+
+Tailwind Plus Elements is our new library for building accessible, interactive UI components that work in any framework and is built on top of the web platform. It's a love letter to the modern web that leverages native features like `<dialog>`, the `popover` property, command invokers, and more.
+
+<Image alt="" src={placeholder} />
+
+### The Problem We Set Out to Solve
+
+- History of Tailwind Plus: started with static HTML/CSS examples
+- Evolution to Headless UI for React/Vue
+- The persistent gap: many developers work in Rails, Laravel, Phoenix, or other environments
+- The dream: components that adapt to your architecture (ERB, Blade, Vue, React, etc.)
+
+### Rethinking UI Building Blocks
+
+- Most common UI patterns have surprisingly few interactive requirements
+- The complexity trap: modern frameworks often over-engineer simple interactions
+- Our realization: the web platform has quietly become incredibly powerful
+
+## Embracing the Platform
+
+### The Good: Native Web Features That Changed Everything
+
+- [popover] attribute: built-in overlay management
+- `<dialog>` element: native modals with focus trapping
+- Invoker commands: declarative interactivity
+- Native ARIA attributes: accessibility baked in
+- Top-layer rendering: no more z-index battles
+- Performance: blazingly fast because it's native
+
+### The Challenges We Had to Solve
+
+- Missing pieces: closing dialogs on outside click, escape key handling
+- Exit transitions for `<dialog>` and [popover], especially backdrops
+- Limitations in native controls (e.g., customizable select behavior)
+- The dreaded FOUC (Flash of Unstyled Content)
+
+## Web Components Without the Pain
+
+### Learning from Others' Mistakes
+
+- Why most web component libraries feel clunky
+- The shadow DOM trap (and why we avoid it)
+- SSR challenges and how we solved them
+
+### Our Approach: Custom Elements, Native Feel
+
+- No shadow DOM = full styling control
+- Form association that actually works
+- Using `<dialog>` and [popover] strategically to prevent FOUC
+- Exposing the right attributes to userland
+
+## The Technical Deep Dive
+
+### Naming Is Hard
+
+[Screenshot from the combobox page showing our naming evolution]
+How we arrived at our final API design
+
+### Composition Over Configuration
+
+- Learning from Headless UI: fewer data- attributes, more composition
+- Example: ui-dropdown component architecture
+- Making it feel like native HTML elements
+
+## Introducing Tailwind Plus Elements
+
+### What's Included
+
+- Overview of the component library
+- Showcase one detailed example with code snippets across frameworks
+- Available exclusively in Tailwind Plus (for now)
+
+### Framework Compatibility
+
+Tested and working in:
+
+- Rails with ERB
+- Laravel with Blade
+- LiveWire
+- Phoenix LiveView
+- Nuxt
+- SvelteKit
+- Next.js/React
+- [Any other frameworks]
+
+### The Developer Experience
+
+- Drop-in components that just work
+- Progressive enhancement by default
+- Full TypeScript support where applicable
+- Comprehensive documentation for each framework
+
+## Looking Forward
+
+### The Future of the Web Platform
+
+- Upcoming features we're excited about (anchor positioning?)
+- Our hope: browsers will adopt more of these patterns natively
+- Our commitment: we'll delete code as the platform improves
+
+### This Is the Last UI Framework You'll Need
+
+- Not because it's perfect, but because it's deletable
+- As browsers improve, our library gets smaller
+- Your code stays the same
+
+## Acknowledgments
+
+- Huge shoutout to Open UI for their incredible research and advocacy
+- Thanks to the browser vendors pushing the platform forward
+- Our community for patience and feedback
+
+## Call to Action
+
+- Try Elements today in Tailwind Plus
+- Check out the interactive examples
+- Let us know what you build
