@@ -126,48 +126,51 @@ Since `<el-autocomplete>` enhances a regular `<input type="text">` field (simila
 </form>
 ```
 
-### Listboxes in Laravel Livewire
+### Listboxes in Rails
 
-`<el-listbox>` implements a form-associated custom element and fires `change` events (just like regular `<select>` element). This allows you to wire it up just like any other input field in Livewire:
+`<el-listbox>` implements a form-associated custom element, so accessing it's value in a submitted form works just like native `<select>` elements:
 
-```php
-<?php
+```rb
+class OrdersController < ApplicationController
+  def new
+    @cars = Car.all
+    @selected_car = @cars.first
+  end
 
-namespace App\Livewire;
-
-use Livewire\Component;
-
-class Listbox extends Component {
-  public $option = 'banana';
-  public $options = [
-    'banana' => 'Banana',
-    'strawberry' => 'Strawberry',
-    'apple' => 'Apple',
-    'orange' => 'Orange',
-  ];
-
-  public function render() {
-    return view('livewire.listbox');
-  }
-}
+  def create
+    car = Car.find(params[:car_id])
+    flash[:notice] = "Selected car: #{car.name}"
+    redirect_to root_path
+  end
+end
 ```
 
-```blade
-<el-listbox name="my-list" wire:model.change="option">
-  <button>
-    <el-selectedcontent>
-      {{ $options[$option] }}
-    </el-selectedcontent>
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M15.75 19.5L8.25 12l7.5-7.5" />
-    </svg>
-  </button>
-  <el-options anchor="bottom" popover="">
-    @foreach ($options as $key => $value)
-      <el-option value="{{ $key }}">{{ $value }}</el-option>
-    @endforeach
-  </el-options>
-</el-listbox>
+```erb
+<%= form_with do |form| %>
+  <%= form.label :car_id, "Choose your favorite sports car:" %>
+
+  <el-listbox name="car_id" id="car_id" value="<%= @selected_car.id %>">
+    <button type="button">
+      <el-selectedcontent>
+        <%= @selected_car.name %>
+      </el-selectedcontent>
+
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M15.75 19.5L8.25 12l7.5-7.5" />
+      </svg>
+    </button>
+
+    <el-options anchor="bottom end" popover="">
+      <% @cars.each do |car| %>
+        <el-option value="<%= car.id %>">
+          <%= car.name %>
+        </el-option>
+      <% end %>
+    </el-options>
+  </el-listbox>
+
+  <%= form.submit "Order my sports car" %>
+<% end %>
 ```
 
 ### Dropdown menus in Next.js
