@@ -25,7 +25,7 @@ export let steps: Step[] = [
       name: "Terminal",
       lang: "shell",
       code: shell`
-        npx nuxi init my-project
+        npm create nuxt my-project
         cd my-project
       `,
     },
