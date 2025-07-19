@@ -60,7 +60,7 @@ export let steps: Step[] = [
         import tailwindcss from "@tailwindcss/vite";
 
         export default defineNuxtConfig({
-          compatibilityDate: "2024-11-01",
+          compatibilityDate: "2025-07-15",
           devtools: { enabled: true },
           vite: {
             plugins: [
@@ -76,7 +76,7 @@ export let steps: Step[] = [
     title: "Import Tailwind CSS",
     body: (
       <p>
-        Create an <code>./assets/css/main.css</code> file and add an <code>@import</code> that imports Tailwind CSS.
+        Create an <code>./app/assets/css/main.css</code> file and add an <code>@import</code> that imports Tailwind CSS.
       </p>
     ),
     code: {
@@ -91,7 +91,7 @@ export let steps: Step[] = [
     title: "Add the CSS file globally",
     body: (
       <p>
-        Add your newly-created <code>./assets/css/main.css</code> to the <code>css</code> array in your{" "}
+        Add your newly-created <code>./app/assets/css/main.css</code> to the <code>css</code> array in your{" "}
         <code>nuxt.config.ts</code> file.
       </p>
     ),
@@ -102,7 +102,7 @@ export let steps: Step[] = [
         import tailwindcss from "@tailwindcss/vite";
 
         export default defineNuxtConfig({
-          compatibilityDate: "2024-11-01",
+          compatibilityDate: "2025-07-15",
           devtools: { enabled: true },
           // [!code highlight:2]
           css: ['~/assets/css/main.css'],
