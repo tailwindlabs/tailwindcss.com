@@ -17,8 +17,8 @@ export let steps: Step[] = [
     title: "Create your project",
     body: (
       <p>
-        Start by creating a new Nuxt project if you don’t have one set up already. The most common approach is to use
-        the <a href="https://nuxt.com/docs/getting-started/installation">Nuxt Command Line Interface</a>.
+        Start by creating a new Nuxt project if you don’t have one set up already. The most common approach is to use{" "}
+        <a href="https://nuxt.com/docs/4.x/getting-started/installation#new-project">Create Nuxt</a>.
       </p>
     ),
     code: {
