@@ -199,7 +199,7 @@ We designed Elements in a way that allows you to fully control this initial rend
 
 - Tabs have a `hidden` attribute on unselected tab panels, ensuring that only the default selected tab panel will be visible.
 - Dropdown menus, select inputs, popovers, and other components add an explicit `popover` attribute to the HTML snippet, hiding the content on initial load.
-- Dialogs include a `<dialog>` element inside the markup for the same reason (the content of a `<dialog>` is hidden by default).
+- Dialogs include a `<dialog>` element inside the markup as the browser knows not to show these by default.
 - `<el-selectedcontent>`, an element that is used to render the currently selected content inside the trigger of a select, can be initialized with static HTML to render on the initial load.
 
 ## Using with frameworks
