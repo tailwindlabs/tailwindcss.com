@@ -193,7 +193,7 @@ There are some additional platform APIs that we're pretty excited about but have
 
 ## Server-side rendering
 
-One of the biggest issues when working with fully declarative APIs in HTML is the lack of control over the server-side rendered output. When you include both a dropdown button _and it's_ content in the initial HTML payload, the first render would include the content of both elements before the JavaScript associated can hide it leading to flashes of unstyled content (FOUC). Frontend libraries can get away with this by changing the DOM at runtime but we wanted elements to work even if you only use a server-side rendered framework.
+One of the biggest differences when working with fully declarative APIs in HTML is the lack of control over the server-side rendered output. When you include both a dropdown button _and it's_ content in the initial HTML payload, the first render would include the content of both elements before the JavaScript associated can hide it leading to flashes of unstyled content (FOUC). Frontend libraries can get away with this by adding the content to the DOM at runtime but we wanted elements to work even if you only use a server-side rendered framework.
 
 We designed Elements in a way that allows you to fully control this initial rendering experience and our Tailwind Plus components come with the required properties. Here are some examples:
 
