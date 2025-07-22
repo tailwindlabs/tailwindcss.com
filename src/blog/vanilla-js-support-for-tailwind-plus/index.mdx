@@ -7,13 +7,21 @@ import commandPalette from "./command-palette.png";
 
 export const meta = {
   title: "Vanilla JavaScript support for Tailwind Plus",
-  description: "",
+  description:
+    "We're shipping something that people have been asking for _forever_: Vanilla JavaScript support for our HTML components",
   date: "2025-07-22T18:00:00.000Z",
   authors: [philippspiess],
   image: card,
-  excerpt: <>We've been building UI components for years now, but there's always been this awkward dance. You love Tailwind Plus, but you're building with Rails/Laravel/SvelteKit or one of the many other web frameworks and every time you try to use a more complicated component, you'd have to either manually wire up JavaScript or just... not have interactivity.
-
-Well, today, that dance is over.</>,
+  excerpt: (
+    <>
+      When we first launched Tailwind UI back in 2020, we didn't ship any JavaScript with our components at all — they
+      were just plain HTML snippets. However, anyone building anything real knows that you need at least some JavaScript
+      for things like dropdown menus, dialogs, popovers, and other components like that. Which is why in 2021 we added
+      support for React and Vue to our components, using our Headless UI library to power them. But, our plain HTML
+      components remained the same — you still had to manually wire up your own JavaScript, and for anyone using
+      Rails/Laravel/Svelte etc., that was a real pain.
+    </>
+  ),
 };
 
 This is an exciting week at Tailwind Labs: Not only is it my first anniversary, but we're also shipping something that people have been asking for _forever_: Vanilla JavaScript support for our HTML components.
@@ -170,31 +178,33 @@ This is just a brief example of some of the components, but as of today, every T
 
 ## Embracing the platform
 
-When building Elements, we've decided early on that we want to lean heavily into the web platform. This allows us to avoid a lot of complexity that regular UI libraries need to carry around (e.g. by implementing custom focus management) but also to make a library that _will get smaller as the web evolves_ and we have to include fewer polyfills.
+When building Elements, we've decided early on that we want to lean heavily into the web platform. This allows us to avoid a lot of complexity that's typically required for UI libraries like this in the past. For example: implementing modal dialogs requires managing focus so that you can not target elements behind the dialog — This is something that native `<dialog>` elements can do for free.
 
-Here's an overview of some of the modern browser features that Element builds on:
+Here's an overview of some of the modern browser features that Elements is built on:
 
 - The [`popover` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/popover) to manage overlays and popovers with automatic top-layer rendering together with [the `beforetoggle` event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/beforetoggle_event) to control transitions.
 - Modal [`<dialog>` elements](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement) for the implementation of focus trapping and top-layer rendering.
 - [Invoker commands](https://developer.mozilla.org/en-US/docs/Web/API/Invoker_Commands_API) to declaratively manage interactive elements (like toggling a custom disclosure).
-- [Custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements) (a way to extend HTML elements with custom behavior) for a declarative APIs and [`ElementInternals`](https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals) to manage form association.
+- [Custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements) (a way to extend HTML elements with custom behavior) for declarative APIs and [`ElementInternals`](https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals) to manage form association.
 
-While building on those standards, Elements extends these APIS with features that you expect from a modern UI library like being able to control when a popover closes by adding popover groups, selecting a menu item in one mouse interaction, or fully supporting exit transitions for dialogs on every browser, to name a few.
+We also make sure that appropriate polyfills for these features are added and target [the same browsers that Tailwind CSS v4 supports](https://tailwindcss.com/docs/compatibility#browser-support). In theory, this also means Elements should _only get smaller_ as the web continues to evolve and we have to include fewer polyfills.
 
-There are some additional platform APIs that we're desperately awaiting but haven't made it into Elements yet. One example is [CSS anchor positioning](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning) where the require polyfill would be too limiting so we've decided to use a more established solution for now.
+There are some additional platform APIs that we're pretty excited about but haven't made it into Elements _yet_. One example is [CSS anchor positioning](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning) where the required polyfill would unfortunately be too limiting right now so we've decided to use a more established third-party library ([Floating UI](https://floating-ui.com/)) for now.
 
 ## Server-side rendering
 
-One of the biggest issues when dealing with declarative APIs in HTML is the lack of control over server-side rendered HTML. The JavaScript associated with custom elements is only loaded once the page has been parsed, which can lead to a flash of unstyled content (FOUC) when the page is first loaded. To mitigate this, our Tailwind Plus components now come with additional properties to control the initial page loading experience:
+One of the biggest issues when working with fully declarative APIs in HTML is the lack of control over the server-side rendered output. When you include both a dropdown button _and it's_ content in the initial HTML payload, the first render would include the content of both elements before the JavaScript associated can hide it leading to flashes of unstyled content (FOUC). Frontend libraries can get away with this by changing the DOM at runtime but we wanted elements to work even if you only use a server-side rendered framework.
 
-- Tabs have a `hidden` attribute on unselected tab panels. In fact, the way we detect the default tab panel is by checking for the first panel that is not `hidden`.
-- All popovers require you to add a `popover` attribute to the element that triggers the popover behavior (making it hidden on initial load).
-- Dialogs require you to include a `<dialog>` element for the same reason.
-- `<el-selectedcontent>`, an element that is used to render the currently selected content inside the button of a select, can be initialized with static HTML to render in the initial load.
+We designed Elements in a way that allows you to fully control this initial rendering experience and our Tailwind Plus components come with the required properties. Here are some examples:
+
+- Tabs have a `hidden` attribute on unselected tab panels, ensuring that only the default selected tab panel will be visible.
+- Dropdown menus, select inputs, popovers, and other components add an explicit `popover` attribute to the HTML snippet, hiding the content on initial load.
+- Dialogs include a `<dialog>` element inside the markup for the same reason (the content of a `<dialog>` is hidden by default).
+- `<el-selectedcontent>`, an element that is used to render the currently selected content inside the trigger of a select, can be initialized with static HTML to render on the initial load.
 
 ## Using with frameworks
 
-One benefit of the custom elements API is that it works, [no matter the framework you use](https://custom-elements-everywhere.com/). This allows you to move between frameworks without having to worry about bringing another UI library ever again.
+One benefit of the custom elements API is that it works not only in plain HTML, but also with [almost every modern web frameworks](https://custom-elements-everywhere.com/). This allows you to move between frameworks without having to worry about bringing another UI library ever again.
 
 Let's look at some examples of how to use Elements in different frameworks.
 
@@ -278,7 +288,7 @@ end
 
 ### Dropdown menus in Next.js
 
-Of course, you can also use Elements in the community's favorite: React. Because everything is built on standard web technology, you can even use a Next.js `<Link />` components inside `<el-dropdown>` and it just _works_:
+Of course, you can also use Elements in the most popular framework: React. Because everything is built on standard web technology, you can even use a Next.js `<Link />` components inside `<el-dropdown>` and it just _works_:
 
 ```jsx
 import Link from "next/link";
