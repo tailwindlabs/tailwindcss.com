@@ -3,6 +3,7 @@ import card from "./card.jpg";
 import Image from "next/image";
 import select from "./select.png";
 import popover from "./popover.png";
+import { Video } from "@/components/media";
 import commandPalette from "./command-palette.png";
 
 export const meta = {
@@ -44,7 +45,7 @@ Let's take a look at some examples.
 
 Our new custom select component behaves like a native `<select>` tag, including the form association, but allows for much more control over styling. It's inspired by the upcoming [customizable select](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Customizable_select) APIs making it easy to remove in the future.
 
-<Image src={select} alt="Select" />
+<Video src="https://assets.tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus/select.mp4" alt="Select" />
 
 ```html
 <el-select name="selected" value="published">
@@ -80,7 +81,7 @@ Our new custom select component behaves like a native `<select>` tag, including 
 
 Our popover element builds upon native the `popover` attribute but adds additional features you'd expect like being able to control that the popover is closing only when the focus leaves a designated popover group.
 
-<Image src={popover} alt="Popover" />
+<Video src="https://assets.tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus/popover.mp4" alt="Popover" />
 
 ```html
 <header>
@@ -120,7 +121,10 @@ Our popover element builds upon native the `popover` attribute but adds addition
 
 One of the trickier components to convert in Tailwind Plus was the command palette examples because of the many interactive pieces. We are pleasantly surprised how nicely a declarative API came together for it:
 
-<Image src={commandPalette} alt="Command Palette" />
+<Video
+  src="https://assets.tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus/command-palette.mp4"
+  alt="Command Palette"
+/>
 
 ```html
 <button command="show-modal" commandfor="dialog" class="rounded-md ...">Open command palette</button>
