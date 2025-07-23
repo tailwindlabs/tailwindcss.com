@@ -29,13 +29,11 @@ This is an exciting week at Tailwind Labs: Not only is it my first anniversary, 
 
 When we first launched Tailwind UI back in 2020, we didn't ship any JavaScript with our components at all — they were just plain HTML snippets. However, anyone building anything real knows that you need at least some JavaScript for things like dropdown menus, dialogs, popovers, and other components like that. Which is why in 2021 we added support for React and Vue to our components, using our Headless UI library to power them.
 
-But, our plain HTML components remained the same — you still had to manually wire up your own JavaScript, and for anyone using Rails/Laravel/Svelte etc., that was a real pain.
+But, even though one fourth of all Tailwind Plus components requires some form of interactivity, our plain HTML components remained the same — you still had to manually wire up your own JavaScript, and for anyone using Rails/Laravel/Svelte etc., that was a real pain.
 
 Well, as of today, that's no longer the case.
 
 ## Tailwind Plus, without React or Vue
-
-About one fourth of all Tailwind Plus components require some form of interactivity. This includes things like dropdown menus, dialogs, customized selects, and more. If you've been looking at the `HTML`-only version of our snippets in the past, you'd often see instructions on how to manually wire up JavaScript to make these components interactive but no working code. This is changing today.
 
 You can now use all Tailwind Plus components, with full interactivity, without using React or Vue. To do this, we're introducing Tailwind Plus Elements, a new UI library that can be installed by only adding a single script tag to your website.
 
@@ -43,7 +41,7 @@ Let's take a look at some examples.
 
 ### Select
 
-Our new custom select component behaves like a native `<select>` tag, including the form association, but allows for much more control over styling. It's inspired by the upcoming [customizable select](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Customizable_select) APIs making it easy to remove in the future.
+Our new custom select component behaves like a native `<select>` tag, including the form association, but allows for much more control over styling. It's inspired by the upcoming [customizable select](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Customizable_select) APIs making it easy to remove in the future as they become more widely available.
 
 <Video src="https://assets.tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus/select.mp4" alt="Select" />
 
@@ -79,7 +77,7 @@ Our new custom select component behaves like a native `<select>` tag, including 
 
 ### Popover
 
-Our popover element builds upon native the `popover` attribute but adds additional features you'd expect like being able to control that the popover is closing only when the focus leaves a designated popover group.
+Our popover element builds upon the native `popover` attribute but adds additional features you'd expect like being able to control that the popover is closing only when the focus leaves a designated popover group.
 
 <Video src="https://assets.tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus/popover.mp4" alt="Popover" />
 
@@ -178,7 +176,7 @@ One of the trickier components to convert in Tailwind Plus was the command palet
 
 ### And so many more
 
-This is just a brief example of some of the components, but as of today, every Tailwind Plus component is now available with full interactivity, regardless the framework you're using.
+This is just a brief example of some of the components, but as of today, every Tailwind Plus component is now available with full interactivity, regardless of the framework you're using.
 
 ## Embracing the platform
 
@@ -193,11 +191,11 @@ Here's an overview of some of the modern browser features that Elements is built
 
 We also make sure that appropriate polyfills for these features are added and target [the same browsers that Tailwind CSS v4 supports](https://tailwindcss.com/docs/compatibility#browser-support). In theory, this also means Elements should _only get smaller_ as the web continues to evolve and we have to include fewer polyfills.
 
-There are some additional platform APIs that we're pretty excited about but haven't made it into Elements _yet_. One example is [CSS anchor positioning](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning) where the required polyfill would unfortunately be too limiting right now so we've decided to use a more established third-party library ([Floating UI](https://floating-ui.com/)) for now.
+There are some additional platform APIs that we're pretty excited about but haven't made it into Elements _yet_. One example is [CSS anchor positioning](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning) where the required polyfill would unfortunately be too limiting currently so we've decided to use a more established third-party library ([Floating UI](https://floating-ui.com/)) for now.
 
 ## Server-side rendering
 
-One of the biggest differences when working with fully declarative APIs in HTML is the lack of control over the server-side rendered output. When you include both a dropdown button _and it's_ content in the initial HTML payload, the first render would include the content of both elements before the JavaScript associated can hide it leading to flashes of unstyled content (FOUC). Frontend libraries can get away with this by adding the content to the DOM at runtime but we wanted elements to work even if you only use a server-side rendered framework.
+One of the biggest differences when working with fully declarative APIs in HTML is the lack of control over the server-side rendered output. When you include both a dropdown button _and its content_ in the initial HTML payload, the first render would include the content of both elements before the JavaScript associated can hide it leading to flashes of unstyled content (FOUC). Frontend libraries can get away with this by adding the content to the DOM at runtime but we wanted elements to work even if you only use a server-side rendered framework.
 
 We designed Elements in a way that allows you to fully control this initial rendering experience and our Tailwind Plus components come with the required properties. Here are some examples:
 
@@ -208,7 +206,7 @@ We designed Elements in a way that allows you to fully control this initial rend
 
 ## Using with frameworks
 
-One benefit of the custom elements API is that it works not only in plain HTML, but also with [almost every modern web frameworks](https://custom-elements-everywhere.com/). This allows you to move between frameworks without having to worry about bringing another UI library ever again.
+One benefit of the custom elements API is that it works not only in plain HTML, but also with [almost every modern web framework](https://custom-elements-everywhere.com/). This allows you to move between frameworks without having to worry about bringing another UI library ever again.
 
 Let's look at some examples of how to use Elements in different frameworks.
 
@@ -245,7 +243,7 @@ Since `<el-autocomplete>` enhances a regular `<input type="text">` field (simila
 
 ### Customizeable selects in Rails
 
-`<el-select>` implements a form-associated custom element, so accessing it's value in a submitted form works just like native `<select>` elements:
+`<el-select>` implements a form-associated custom element, so accessing its value in a submitted form works just like native `<select>` elements:
 
 ```rb
 class OrdersController < ApplicationController
