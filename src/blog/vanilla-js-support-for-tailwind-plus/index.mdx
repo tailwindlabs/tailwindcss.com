@@ -3,8 +3,12 @@ import card from "./card.jpg";
 import Image from "next/image";
 import select from "./select.png";
 import popover from "./popover.png";
-import { Video } from "@/components/media";
+import { YouTubeVideo, Video } from "@/components/media";
 import commandPalette from "./command-palette.png";
+import { Figure } from "@/components/figure";
+import { Example } from "@/components/example";
+import { CodeExampleStack } from "@/components/code-example";
+
 
 export const meta = {
   title: "Vanilla JavaScript support for Tailwind Plus",
@@ -25,6 +29,91 @@ export const meta = {
   ),
 };
 
+
+
+<YouTubeVideo id="HTFHoA12MJk" />
+
+There are a lot of UI blocks in Tailwind Plus that need JavaScript to really be useful, like dialogs, dropdowns, command palettes, and more. And unless you're a React or Vue user, using those UI blocks meant writing all of that JavaScript yourself.
+
+Well today that finally changes — **every UI block in Tailwind Plus is now fully functional, accessible, and interactive**, including the plain HTML examples.
+
+<Video src="https://assets.tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus/intro-video.mp4" videoClasses="aspect-[1536/804] object-cover"/>
+
+```html
+<el-dropdown class="relative inline-block text-left">
+  <button class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50">
+    Options
+    <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="-mr-1 size-5 text-gray-400">
+      <path d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
+    </svg>
+  </button>
+
+  <el-menu anchor="bottom end" popover class="w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 transition transition-discrete [--anchor-gap:--spacing(2)] focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
+    <div class="py-1">
+      <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">Account settings</a>
+      <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">Support</a>
+      <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">License</a>
+      <form action="#" method="POST">
+        <button type="submit" class="block w-full px-4 py-2 text-left text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">Sign out</button>
+      </form>
+    </div>
+  </el-menu>
+</el-dropdown>
+```
+
+Now you can use any [dropdown](https://tailwindcss.com/plus/ui-blocks/application-ui/elements/dropdowns), [command palette](https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/command-palettes), [dialog](https://tailwindcss.com/plus/ui-blocks/application-ui/overlays/modal-dialogs), [drawer](https://tailwindcss.com/plus/ui-blocks/application-ui/overlays/drawers), and more in any project you're working on — no JavaScript framework required.
+
+
+## No framework required
+
+To pull this off, we built `@tailwindplus/elements` — a library we're releasing exclusively for Tailwind Plus customers.
+
+Elements is a collection of headless [custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements) that wrap up all of the complex behavior needed to build custom interactive UIs and can be styled any way you like using utility classes or custom CSS.
+
+Instead of being coupled to a specific JavaScript framework, these custom elements work anywhere you can use a `<script>` tag:
+
+```html
+/* [!code filename:index.html] */
+<script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
+```
+
+Or you can install them via npm if your project has a build pipeline:
+
+<CodeExampleStack>
+
+```sh
+/* [!code filename:Shell] */
+npm i @tailwindplus/elements
+```
+
+```js
+/* [!code filename:app.js] */
+import '@tailwindplus/elements';
+```
+
+</CodeExampleStack>
+
+
+## Leveraging the modern web
+
+- Using new/upcoming platform features (with polyfills) to write as little custom JS as possible
+  - No portals, native dialogs, native popover behavior, etc.
+
+## Components that work everywhere
+
+- Show examples of using these comopnents in Rails, Svelte, even React
+
+## Try it out today
+
+- Explain how this is available to all Tailwind Plus customers
+- Link to docs again
+
+
+---
+
+
+{/*
+
 This is an exciting week at Tailwind Labs: Not only is it my first anniversary, but we're also shipping something that people have been asking for _forever_: Vanilla JavaScript support for our HTML components.
 
 When we first launched Tailwind UI back in 2020, we didn't ship any JavaScript with our components at all — they were just plain HTML snippets. However, anyone building anything real knows that you need at least some JavaScript for things like dropdown menus, dialogs, popovers, and other components like that. Which is why in 2021 we added support for React and Vue to our components, using our Headless UI library to power them.
@@ -33,13 +122,26 @@ But, even though one fourth of all Tailwind Plus components requires some form o
 
 Well, as of today, that's no longer the case.
 
+*/}
+
+## Look mom, no framework!
+
+To pull this off, we built a library of headless [custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements) that wrap up all of the necessary behavior and can be styled any way you like using utility classes or custom CSS.
+
+_Explain adding the library via CDN or npm._
+
+Here's what a few of these interactive UI blocks look like in Tailwind Plus, no React, Vue, Svelte, Solid, or Angular needed — just a script tag at the top of your website and some simple, declarative HTML.
+
+{/*
 ## Tailwind Plus, without React or Vue
 
 You can now use all Tailwind Plus components, with full interactivity, without using React or Vue. To do this, we're introducing Tailwind Plus Elements, a new UI library that can be installed by only adding a single script tag to your website.
 
 Let's take a look at some examples.
+*/}
 
-### Select
+
+### Custom select
 
 Our new custom select component behaves like a native `<select>` tag, including the form association, but allows for much more control over styling. It's inspired by the upcoming [customizable select](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Customizable_select) APIs making it easy to remove in the future as they become more widely available.
 
