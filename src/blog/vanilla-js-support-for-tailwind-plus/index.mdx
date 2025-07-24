@@ -1,4 +1,4 @@
-import { philippspiess } from "@/app/blog/authors";
+import { adamwathan, philippspiess } from "@/app/blog/authors";
 import card from "./card.jpg";
 import Image from "next/image";
 import select from "./select.png";
@@ -13,23 +13,18 @@ import { CodeExampleStack } from "@/components/code-example";
 export const meta = {
   title: "Vanilla JavaScript support for Tailwind Plus",
   description:
-    "We're shipping something that people have been asking for _forever_: Vanilla JavaScript support for our HTML components",
-  date: "2025-07-22T18:00:00.000Z",
-  authors: [philippspiess],
+    "Every UI block in Tailwind Plus is now fully functional, accessible, and interactive, even if you don't use a framework like React or Vue.",
+  date: "2025-07-24T20:00:00.000Z",
+  authors: [philippspiess, adamwathan],
   image: card,
   excerpt: (
     <>
-      When we first launched Tailwind UI back in 2020, we didn't ship any JavaScript with our components at all — they
-      were just plain HTML snippets. However, anyone building anything real knows that you need at least some JavaScript
-      for things like dropdown menus, dialogs, popovers, and other components like that. Which is why in 2021 we added
-      support for React and Vue to our components, using our Headless UI library to power them. But, our plain HTML
-      components remained the same — you still had to manually wire up your own JavaScript, and for anyone using
-      Rails/Laravel/Svelte etc., that was a real pain.
+     There are a lot of UI blocks in Tailwind Plus that need JavaScript to really be useful, like dialogs, dropdowns, command palettes, and more. And unless you're a React or Vue user, using those UI blocks has always meant writing all of that tricky JavaScript yourself. Well today that finally changes — every UI block in Tailwind Plus is now fully functional, accessible, and interactive, including the plain HTML examples.
     </>
   ),
 };
 
-There are a lot of UI blocks in Tailwind Plus that need JavaScript to really be useful, like dialogs, dropdowns, command palettes, and more. And unless you're a React or Vue user, using those UI blocks meant writing all of that JavaScript yourself.
+There are a lot of UI blocks in Tailwind Plus that need JavaScript to really be useful, like dialogs, dropdowns, command palettes, and more. And unless you're a React or Vue user, using those UI blocks has always meant writing all of that tricky JavaScript yourself.
 
 Well today that finally changes — **every UI block in Tailwind Plus is now fully functional, accessible, and interactive**, including the plain HTML examples.
 
@@ -59,6 +54,7 @@ Well today that finally changes — **every UI block in Tailwind Plus is now ful
 
 Now you can use any [dropdown](https://tailwindcss.com/plus/ui-blocks/application-ui/elements/dropdowns), [command palette](https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/command-palettes), [dialog](https://tailwindcss.com/plus/ui-blocks/application-ui/overlays/modal-dialogs), [drawer](https://tailwindcss.com/plus/ui-blocks/application-ui/overlays/drawers), and more in any project you're working on — no JavaScript framework required.
 
+---
 
 ## No framework required
 
@@ -225,6 +221,8 @@ To support all of the UI blocks in Tailwind Plus, we're shipping the following p
 
 If you're a Tailwind Plus customer, head over to the brand new [Elements documentation](https://tailwindcss.com/plus/ui-blocks/documentation/elements) to learn more about how everything works and check out some examples.
 
+---
+
 ## Leveraging the modern web
 
 We leaned on a lot of modern platform features to keep Elements as light and native as a possible.
@@ -236,6 +234,8 @@ We leaned on a lot of modern platform features to keep Elements as light and nat
 - [`ElementInternals`](https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals) to make our custom form controls work like native form controls.
 
 We also bundle any necessary polyfills for these features to make sure that Elements works in all of the same [browsers supported by Tailwind CSS v4.0](https://tailwindcss.com/docs/compatibility#browser-support). This means Elements will only get smaller as these modern platform features become more widely available.
+
+---
 
 ## Components that work everywhere
 
@@ -272,6 +272,8 @@ Here's one of our [Combobox](https://tailwindcss.com/plus/ui-blocks/application-
 
 Or here's a custom select in [Rails](https://rubyonrails.org/) that's included in form submissions, just like a native form control:
 
+<CodeExampleStack>
+
 ```rb
 // [!code filename:app/controllers/orders_controller.rb]
 class OrdersController < ApplicationController
@@ -291,60 +293,73 @@ end
 ```erb
 // [!code filename:app/views/orders/new.html.erb]
 <%= form_with do |form| %>
-  <%= form.label :car_id, "Choose your favorite sports car:" %>
+  <%= form.label :car_id, "Select model:" %>
 
   <el-select name="car_id" id="car_id" value="<%= @selected_car.id %>">
-    <button type="button">
-      <el-selectedcontent>
+    <button type="button" class="grid w-full cursor-default grid-cols-1 ...">
+      <el-selectedcontent class="col-start-1 row-start-1 truncate pr-6">
         <%= @selected_car.name %>
       </el-selectedcontent>
-
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M15.75 19.5L8.25 12l7.5-7.5" />
+      <svg viewBox="0 0 16 16" aria-hidden="true" class="col-start-1 row-start-1 size-5 ...">
+        <path d="M5.22 10.22a.75.75 ..." clip-rule="evenodd" fill-rule="evenodd" />
       </svg>
     </button>
 
     <el-options anchor="bottom end" popover="">
       <% @cars.each do |car| %>
         <el-option value="<%= car.id %>">
-          <%= car.name %>
+          <span class="block truncate font-normal group-aria-selected/option:font-semibold">
+            <%= car.name %>
+          </span>
+          <span class="flex group-not-aria-selected/option:hidden group-focus/option:text-white in-[el-selectedcontent]:hidden ...">
+            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5">
+              <path d="M16.704 4.153a.75.75 0 ..." clip-rule="evenodd" fill-rule="evenodd" />
+            </svg>
+          </span>
         </el-option>
       <% end %>
     </el-options>
   </el-select>
 
-  <%= form.submit "Order my sports car" %>
+  <%= form.submit "Place order" %>
 <% end %>
 ```
+
+</CodeExampleStack>
 
 You can even use Elements in [React](https://react.dev/) instead of using a React-only library like Headless UI or React Aria if you want:
 
 ```jsx
 import Link from "next/link";
 
-export default function Home() {
+export function Menu() {
   return (
-    <el-dropdown>
-      <button>Menu</button>
-      <el-menu anchor="bottom start" popover>
-        <Link href="/">Home</Link>
-        <Link href="/about">About</Link>
-        <Link href="/faq">FAQ</Link>
+    <el-dropdown className="relative inline-block text-left">
+      <button className="inline-flex w-full justify-center ...">
+        Menu
+        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="-mr-1 size-5 text-gray-400">
+          <path d="M5.22 8.22a.75.75 ..." clip-rule="evenodd" fill-rule="evenodd" />
+        </svg>
+      </button>
+
+      <el-menu anchor="bottom end" popover className="transition transition-discrete [--anchor-gap:--spacing(2)] focus:outline-hidden data-closed:scale-95 ...">
+        <div className="py-1">
+          <Link href="/" className="block px-4 py-2 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden ...">Home</Link>
+          <Link href="/about" className="block px-4 py-2 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden ...">About</Link>
+          <Link href="/faq" className="block px-4 py-2 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden ...">FAQ</Link>
+        </div>
       </el-menu>
     </el-dropdown>
   );
 }
 ```
 
+---
+
 ## Try it out today
 
-- Explain how this is available to all Tailwind Plus customers
-- Link to docs again
+All of the updated UI blocks and the new Elements library are available now to all [Tailwind Plus](https://tailwindcss.com/plus) customers.
 
+Check out UI block categories like [Dropdowns](https://tailwindcss.com/plus/ui-blocks/application-ui/elements/dropdowns) and [Command Palettes](https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/command-palettes) to play with these updated interactive examples yourself, and explore the new [Elements documentation](https://tailwindcss.com/plus/ui-blocks/documentation/elements) to learn how it all works and how to customize things for your projects.
 
-
-Tailwind Plus Elements is available for all [Tailwind Plus customers](https://tailwindcss.com/plus) starting today and we've updated all of our current components to make full use of it. You can learn more about how to install Tailwind Plus Elements [in our new docs](https://tailwindcss.com/plus/ui-blocks/documentation/elements-api-reference).
-
-With Elements, we now have a way to make all of our Tailwind Plus components work in _any_ framework, designed to become lighter as the web platform itself matures.
-
-We can't wait to see what you'll build with it!
+We can't wait to see what you'll build with this stuff!
