@@ -29,8 +29,6 @@ export const meta = {
   ),
 };
 
-<YouTubeVideo id="HTFHoA12MJk" />
-
 There are a lot of UI blocks in Tailwind Plus that need JavaScript to really be useful, like dialogs, dropdowns, command palettes, and more. And unless you're a React or Vue user, using those UI blocks meant writing all of that JavaScript yourself.
 
 Well today that finally changes — **every UI block in Tailwind Plus is now fully functional, accessible, and interactive**, including the plain HTML examples.
@@ -81,15 +79,19 @@ Here's what it looks like to build a [custom select](https://tailwindcss.com/plu
 
 ```html
 <label for="select" class="block text-sm/6 font-medium text-gray-900">Assigned to</label>
+<!-- [!code highlight:2] -->
 <el-select id="select" name="selected" value="4" class="mt-2 block">
   <button type="button" class="grid w-full cursor-default grid-cols-1 ...">
+    <!-- [!code highlight:2] -->
     <el-selectedcontent></el-selectedcontent>
     <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" class="col-start-1 row-start-1 ...">
       <!-- ... -->
     </svg>
   </button>
 
+  <!-- [!code highlight:2] -->
   <el-options anchor="bottom start" popover class="max-h-60 w-(--button-width) [--anchor-gap:--spacing(1)] ...">
+      <!-- [!code highlight:2] -->
     <el-option value="1" class="group/option relative block focus:bg-indigo-600 ...">
       <div class="flex items-center">
         <span aria-hidden="true" class="inline-block size-2 shrink-0 ..."></span>
@@ -103,9 +105,12 @@ Here's what it looks like to build a [custom select](https://tailwindcss.com/plu
             <!-- ... -->
         </svg>
       </span>
+      <!-- [!code highlight:2] -->
     </el-option>
     <!-- ... -->
+    <!-- [!code highlight:2] -->
   </el-options>
+  <!-- [!code highlight:2] -->
 </el-select>
 ```
 
@@ -113,14 +118,19 @@ See those custom HTML elements like `<el-select>` and `<el-options>`? Those are 
 
 You can even build something as sophisticated as a custom [command palette](https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/command-palettes#component-5e859372042e1b3b308dc51f3ac8bad6) with Elements, without having to write any of your own JavaScript:
 
+<Video src="https://assets.tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus/command-palette-demo.mp4" videoClasses="aspect-[1536/912] object-cover"/>
+
+
 ```html
 <button command="show-modal" commandfor="dialog" class="rounded-md bg-white/80 px-2.5 py-1.5 text-sm font-semibold text-gray-900 hover:bg-white/90">Open command palette</button>
 
+<!-- [!code highlight:2] -->
 <el-dialog class="group/dialog">
   <dialog id="dialog" class="backdrop:bg-transparent">
     <div class="fixed inset-0 bg-gray-500/25 transition-opacity group-data-closed/dialog:opacity-0 group-data-enter/dialog:duration-300 group-data-enter/dialog:ease-out group-data-leave/dialog:duration-200 group-data-leave/dialog:ease-in"></div>
 
     <div tabindex="0" class="fixed inset-0 w-screen overflow-y-auto p-4 focus:outline-none sm:p-6 md:p-20">
+      <!-- [!code highlight:3] -->
       <el-dialog-panel class="mx-auto block max-w-3xl transform overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black/5 transition-all group-data-closed/dialog:scale-95 group-data-closed/dialog:opacity-0 group-data-enter/dialog:duration-300 group-data-enter/dialog:ease-out group-data-leave/dialog:duration-200 group-data-leave/dialog:ease-in">
         <el-command-palette class="divide-y divide-gray-100">
           <div class="grid grid-cols-1">
@@ -132,6 +142,7 @@ You can even build something as sophisticated as a custom [command palette](http
 
           <div class="flex transform-gpu divide-x divide-gray-100">
             <div class="max-h-96 min-w-0 flex-auto scroll-py-4 overflow-y-auto px-6 py-4">
+              <!-- [!code highlight:3] -->
               <el-command-list class="-mx-2 block text-sm text-gray-700">
                 <el-defaults>
                   <h2 class="mx-2 mt-2 mb-4 text-xs font-semibold text-gray-500">Recent searches</h2>
@@ -145,8 +156,9 @@ You can even build something as sophisticated as a custom [command palette](http
                     </a>
                    <!-- ... -->
                   </div>
+                  <!-- [!code highlight:2] -->
                 </el-defaults>
-
+                <!-- [!code highlight:2] -->
                 <el-command-group hidden class="sm:h-96">
                   <a id="person-1" href="#" hidden class="group flex cursor-default items-center rounded-md p-2 select-none focus:outline-hidden aria-selected:bg-gray-100 aria-selected:text-gray-900">
                     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-6 flex-none rounded-full" />
@@ -156,18 +168,20 @@ You can even build something as sophisticated as a custom [command palette](http
                     </svg>
                   </a>
                   <!-- ... -->
+                  <!-- [!code highlight:4] -->
                 </el-command-group>
               </el-command-list>
-
               <el-no-results hidden class="block px-6 py-14 text-center text-sm sm:px-14">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="mx-auto size-6 text-gray-400">
                   <path d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
                 <p class="mt-4 font-semibold text-gray-900">No people found</p>
                 <p class="mt-2 text-gray-500">We couldn't find anything with that term. Please try again.</p>
+                <!-- [!code highlight:2] -->
               </el-no-results>
             </div>
 
+            <!-- [!code highlight:2] -->
             <el-command-preview for="person-1" hidden class="h-96 w-1/2 flex-none flex-col divide-y divide-gray-100 overflow-y-auto sm:flex">
               <div class="flex-none p-6 text-center">
                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="mx-auto size-16 rounded-full" />
@@ -185,239 +199,52 @@ You can even build something as sophisticated as a custom [command palette](http
                 </dl>
                 <button type="button" class="mt-6 w-full rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Send message</button>
               </div>
+              <!-- [!code highlight:2] -->
             </el-command-preview>
             <!-- ... -->
           </div>
+          <!-- [!code highlight:3] -->
         </el-command-palette>
       </el-dialog-panel>
     </div>
   </dialog>
+  <!-- [!code highlight:2] -->
 </el-dialog>
 ```
+
+To support all of the UI blocks in Tailwind Plus, we're shipping the following primitives in this first release of Elements:
+
+- [Autocomplete](https://tailwindcss.com/plus/ui-blocks/documentation/autocomplete) — for building things like custom [Comboboxes](https://tailwindcss.com/plus/ui-blocks/application-ui/forms/comboboxes).
+- [Command palette](https://tailwindcss.com/plus/ui-blocks/documentation/command-palette) — for building custom [Command Palettes](https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/command-palettes).
+- [Dialog](https://tailwindcss.com/plus/ui-blocks/documentation/dialog) — for building custom [Modal Dialogs](https://tailwindcss.com/plus/ui-blocks/application-ui/overlays/modal-dialogs), [Drawers](https://tailwindcss.com/plus/ui-blocks/application-ui/overlays/drawers), and more.
+- [Disclosure](https://tailwindcss.com/plus/ui-blocks/documentation/disclosure) — for building collapsible [FAQs](https://tailwindcss.com/plus/ui-blocks/marketing/sections/faq-sections#component-8699d80b13ef524eb573e54b4d4b89d1), mobile menus in [Navbars](https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/navbars), and more.
+- [Dropdown menu](https://tailwindcss.com/plus/ui-blocks/documentation/dropdown-menu) — for building custom [Dropdowns](https://tailwindcss.com/plus/ui-blocks/application-ui/elements/dropdowns), of course.
+- [Popover](https://tailwindcss.com/plus/ui-blocks/documentation/popover) — for building custom [Flyout Menus](https://tailwindcss.com/plus/ui-blocks/marketing/elements/flyout-menus) and more.
+- [Select](https://tailwindcss.com/plus/ui-blocks/documentation/select) — for building custom [Select Menus](https://tailwindcss.com/plus/ui-blocks/application-ui/forms/select-menus#component-8298198b136afab3bb19391ae716077f).
+- [Tabs](https://tailwindcss.com/plus/ui-blocks/documentation/tabs) — for building custom tabs, like we use in custom [Textareas](https://tailwindcss.com/plus/ui-blocks/application-ui/forms/textareas#component-532d35bcb49664c16a4f877d71658b12) and [Product Overviews](https://tailwindcss.com/plus/ui-blocks/ecommerce/components/product-overviews#component-13a89c2dc50a31afd66541dc28fa3c13).
+
+If you're a Tailwind Plus customer, head over to the brand new [Elements documentation](https://tailwindcss.com/plus/ui-blocks/documentation/elements) to learn more about how everything works and check out some examples.
 
 ## Leveraging the modern web
 
-- Using new/upcoming platform features (with polyfills) to write as little custom JS as possible
-  - No portals, native dialogs, native popover behavior, etc.
+We leaned on a lot of modern platform features to keep Elements as light and native as a possible.
+
+- [Custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements) as a cross-platform component abstraction.
+- [The `popover` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/popover) to manage overlays and popovers with automatic top-layer rendering together with [`beforetoggle`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/beforetoggle_event) to control transitions.
+- [Native `<dialog>` elements](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement) for focus trapping and top-layer rendering.
+- [Invoker commands](https://developer.mozilla.org/en-US/docs/Web/API/Invoker_Commands_API) to declaratively manage interactive elements, like toggling a custom disclosure.
+- [`ElementInternals`](https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals) to make our custom form controls work like native form controls.
+
+We also bundle any necessary polyfills for these features to make sure that Elements works in all of the same [browsers supported by Tailwind CSS v4.0](https://tailwindcss.com/docs/compatibility#browser-support). This means Elements will only get smaller as these modern platform features become more widely available.
 
 ## Components that work everywhere
 
-- Show examples of using these comopnents in Rails, Svelte, even React
+Since HTML is the lowest common denominator between all web frameworks, Elements makes it possible for all of HTML-only UI blocks in Tailwind Plus to work literally anywhere.
 
-## Try it out today
-
-- Explain how this is available to all Tailwind Plus customers
-- Link to docs again
-
-
----
-
-
-{/*
-
-This is an exciting week at Tailwind Labs: Not only is it my first anniversary, but we're also shipping something that people have been asking for _forever_: Vanilla JavaScript support for our HTML components.
-
-When we first launched Tailwind UI back in 2020, we didn't ship any JavaScript with our components at all — they were just plain HTML snippets. However, anyone building anything real knows that you need at least some JavaScript for things like dropdown menus, dialogs, popovers, and other components like that. Which is why in 2021 we added support for React and Vue to our components, using our Headless UI library to power them.
-
-But, even though one fourth of all Tailwind Plus components requires some form of interactivity, our plain HTML components remained the same — you still had to manually wire up your own JavaScript, and for anyone using Rails/Laravel/Svelte etc., that was a real pain.
-
-Well, as of today, that's no longer the case.
-
-*/}
-
-## Look mom, no framework!
-
-To pull this off, we built a library of headless [custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements) that wrap up all of the necessary behavior and can be styled any way you like using utility classes or custom CSS.
-
-_Explain adding the library via CDN or npm._
-
-Here's what a few of these interactive UI blocks look like in Tailwind Plus, no React, Vue, Svelte, Solid, or Angular needed — just a script tag at the top of your website and some simple, declarative HTML.
-
-{/*
-## Tailwind Plus, without React or Vue
-
-You can now use all Tailwind Plus components, with full interactivity, without using React or Vue. To do this, we're introducing Tailwind Plus Elements, a new UI library that can be installed by only adding a single script tag to your website.
-
-Let's take a look at some examples.
-*/}
-
-
-### Custom select
-
-Our new custom select component behaves like a native `<select>` tag, including the form association, but allows for much more control over styling. It's inspired by the upcoming [customizable select](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Customizable_select) APIs making it easy to remove in the future as they become more widely available.
-
-<Video src="https://assets.tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus/select.mp4" alt="Select" />
+Here's one of our [Combobox](https://tailwindcss.com/plus/ui-blocks/application-ui/forms/comboboxes) examples wired up with two-way binding in [Svelte](https://svelte.dev/):
 
 ```html
-<el-select name="selected" value="published">
-  <div class="flex ...">
-    <el-selectedcontent class="text-sm">Published</el-selectedcontent>
-    <button type="button" aria-label="Change published status" class="inline-flex items-center ...">⌄</button>
-  </div>
-
-  <el-options anchor="bottom end" popover class="w-72 ...">
-    <el-option value="published" class="group/option ...">
-      <div class="flex justify-between">
-        <p>Published</p>
-        <span class="group-not-aria-selected/option:hidden in-[el-selectedcontent]:hidden">✓</span>
-      </div>
-      <p class="mt-2 text-gray-500 group-focus/option:text-indigo-200 in-[el-selectedcontent]:hidden">
-        This job posting can be viewed by anyone who has the link.
-      </p>
-    </el-option>
-    <el-option value="draft" class="group/option ...">
-      <div class="flex justify-between">
-        <p>Draft</p>
-        <span class="group-not-aria-selected/option:hidden in-[el-selectedcontent]:hidden">✓</span>
-      </div>
-      <p class="mt-2 text-gray-500 group-focus/option:text-indigo-200 in-[el-selectedcontent]:hidden">
-        This job posting will no longer be publicly accessible.
-      </p>
-    </el-option>
-  </el-options>
-</el-select>
-```
-
-### Popover
-
-Our popover element builds upon the native `popover` attribute but adds additional features you'd expect like being able to control that the popover is closing only when the focus leaves a designated popover group.
-
-<Video src="https://assets.tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus/popover.mp4" alt="Popover" />
-
-```html
-<header>
-  <nav aria-label="Global" class="mx-auto flex max-w-6xl ...">
-    <el-popover-group class="hidden lg:flex lg:gap-x-12">
-      <div class="relative">
-        <button popovertarget="desktop-menu-product" class="flex ...">Product</button>
-        <el-popover
-          id="desktop-menu-product"
-          anchor="bottom"
-          popover
-          class="w-screen max-w-md transition transition-discrete ..."
-        >
-          <div class="p-4">
-            <div class="group relative flex items-center ...">
-              <div class="flex-auto">
-                <a href="#" class="text-gray-900">Analytics</a>
-                <p class="mt-1 text-gray-600">Get a better understanding of your traffic</p>
-              </div>
-            </div>
-            <!-- ... -->
-          </div>
-        </el-popover>
-      </div>
-      <a href="#" class="text-sm/6 text-gray-900">Features</a>
-      <a href="#" class="text-sm/6 text-gray-900">Marketplace</a>
-      <a href="#" class="text-sm/6 text-gray-900">Company</a>
-    </el-popover-group>
-    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-      <a href="#" class="text-sm/6 text-gray-900">Log in <span aria-hidden="true">→</span></a>
-    </div>
-  </nav>
-</header>
-```
-
-### Command palette
-
-One of the trickier components to convert in Tailwind Plus was the command palette examples because of the many interactive pieces. We are pleasantly surprised how nicely a declarative API came together for it:
-
-<Video
-  src="https://assets.tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus/command-palette.mp4"
-  alt="Command Palette"
-/>
-
-```html
-<button command="show-modal" commandfor="dialog" class="rounded-md ...">Open command palette</button>
-
-<el-dialog class="group/dialog">
-  <dialog id="dialog" class="backdrop:bg-transparent">
-    <div class="fixed inset-0 bg-gray-500/25 ..."></div>
-
-    <div tabindex="0" class="fixed inset-0 w-screen ...">
-      <el-dialog-panel class="mx-auto transition group-data-closed/dialog:scale-95 ...">
-        <el-command-palette>
-          <input type="text" autofocus placeholder="Search..." />
-
-          <el-command-list>
-            <el-defaults>
-              <h2 class="mt-4 text-gray-500">Recent searches</h2>
-              <div class="text-sm text-gray-700">
-                <a href="#" class="group flex rounded-md ...">
-                  <span class="ml-3 truncate">Workflow Inc. / Website Redesign</span>
-                </a>
-              </div>
-
-              <div class="p-2">
-                <h2 class="sr-only">Quick actions</h2>
-                <div class="text-sm text-gray-700">
-                  <a href="#" class="group flex rounded-md ...">
-                    <span class="ml-3 truncate">Add new file...</span>
-                  </a>
-                  <!-- ... -->
-                </div>
-              </div>
-            </el-defaults>
-
-            <el-command-group hidden class="block p-2 text-sm text-gray-700">
-              <a href="#" hidden class="group flex rounded-md ...">
-                <span class="ml-3 truncate">Workflow Inc. / Website Redesign</span>
-              </a>
-              <!-- ... -->
-            </el-command-group>
-          </el-command-list>
-
-          <el-no-results hidden class="text-center">
-            We couldn't find any projects with that term. Please try again.
-          </el-no-results>
-        </el-command-palette>
-      </el-dialog-panel>
-    </div>
-  </dialog>
-</el-dialog>
-```
-
-### And so many more
-
-This is just a brief example of some of the components, but as of today, every Tailwind Plus component is now available with full interactivity, regardless of the framework you're using.
-
-## Embracing the platform
-
-When building Elements, we've decided early on that we want to lean heavily into the web platform. This allows us to avoid a lot of complexity that's typically required for UI libraries like this in the past. For example: implementing modal dialogs requires managing focus so that you can not target elements behind the dialog — This is something that native `<dialog>` elements can do for free.
-
-Here's an overview of some of the modern browser features that Elements is built on:
-
-- The [`popover` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/popover) to manage overlays and popovers with automatic top-layer rendering together with [the `beforetoggle` event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/beforetoggle_event) to control transitions.
-- Modal [`<dialog>` elements](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement) for the implementation of focus trapping and top-layer rendering.
-- [Invoker commands](https://developer.mozilla.org/en-US/docs/Web/API/Invoker_Commands_API) to declaratively manage interactive elements (like toggling a custom disclosure).
-- [Custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements) (a way to extend HTML elements with custom behavior) for declarative APIs and [`ElementInternals`](https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals) to manage form association.
-
-We also make sure that appropriate polyfills for these features are added and target [the same browsers that Tailwind CSS v4 supports](https://tailwindcss.com/docs/compatibility#browser-support). In theory, this also means Elements should _only get smaller_ as the web continues to evolve and we have to include fewer polyfills.
-
-There are some additional platform APIs that we're pretty excited about but haven't made it into Elements _yet_. One example is [CSS anchor positioning](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning) where the required polyfill would unfortunately be too limiting currently so we've decided to use a more established third-party library ([Floating UI](https://floating-ui.com/)) for now.
-
-## Server-side rendering
-
-One of the biggest differences when working with fully declarative APIs in HTML is the lack of control over the server-side rendered output. When you include both a dropdown button _and its content_ in the initial HTML payload, the first render would include the content of both elements before the JavaScript associated can hide it leading to flashes of unstyled content (FOUC). Frontend libraries can get away with this by adding the content to the DOM at runtime but we wanted elements to work even if you only use a server-side rendered framework.
-
-We designed Elements in a way that allows you to fully control this initial rendering experience and our Tailwind Plus components come with the required properties. Here are some examples:
-
-- Tabs have a `hidden` attribute on unselected tab panels, ensuring that only the default selected tab panel will be visible.
-- Dropdown menus, select inputs, popovers, and other components add an explicit `popover` attribute to the HTML snippet, hiding the content on initial load.
-- Dialogs include a `<dialog>` element inside the markup as the browser knows not to show these by default.
-- `<el-selectedcontent>`, an element that is used to render the currently selected content inside the trigger of a select, can be initialized with static HTML to render on the initial load.
-
-## Using with frameworks
-
-One benefit of the custom elements API is that it works not only in plain HTML, but also with [almost every modern web framework](https://custom-elements-everywhere.com/). This allows you to move between frameworks without having to worry about bringing another UI library ever again.
-
-Let's look at some examples of how to use Elements in different frameworks.
-
-### Autocomplete in Svelte
-
-Since `<el-autocomplete>` enhances a regular `<input type="text">` field (similar to a [`<datalist>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/datalist) component), you can use your regular two-way bindings while still getting all the customizability and accessibility you expect in 2025:
-
-```svelte
+<!-- [!code filename:Combobox.svelte] -->
 <script>
   let input = $state("");
   function handleSubmit() {
@@ -426,29 +253,27 @@ Since `<el-autocomplete>` enhances a regular `<input type="text">` field (simila
 </script>
 
 <form onsubmit={handleSubmit}>
-  <el-autocomplete>
-    <input bind:value={input} name="selected" placeholder="Type to search..." />
-    <button aria-label="Show options">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M15.75 19.5L8.25 12l7.5-7.5" />
+  <label for="autocomplete" class="block text-sm/6 font-medium text-gray-900">Assigned to</label>
+  <el-autocomplete class="relative mt-2 block">
+    <input bind:value={input} id="autocomplete" type="text" class="block w-full rounded-md ..." />
+    <button type="button" class="absolute inset-y-0 right-0 flex ...">
+      <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="size-5 text-gray-400">
+        <path d="M5.22 8.22a.75.75 ..." clip-rule="evenodd" fill-rule="evenodd" />
       </svg>
     </button>
-    <el-options transition popover anchor="bottom start">
-      <el-option value="Wade Cooper">Wade Cooper</el-option>
-      <el-option value="Tom Cooper">Tom Cooper</el-option>
-      <el-option value="Jane doe">Jane Doe</el-option>
+
+    <el-options anchor="bottom end" popover class="max-h-60 w-(--input-width) [--anchor-gap:--spacing(1)] ...">
+      <el-option value="Leslie Alexander" class="block truncate aria-selected:bg-indigo-600 aria-selected:text-white ...">Leslie Alexander</el-option>
     </el-options>
   </el-autocomplete>
-
   <button type="submit">Submit</button>
 </form>
 ```
 
-### Customizeable selects in Rails
-
-`<el-select>` implements a form-associated custom element, so accessing its value in a submitted form works just like native `<select>` elements:
+Or here's a custom select in [Rails](https://rubyonrails.org/) that's included in form submissions, just like a native form control:
 
 ```rb
+// [!code filename:app/controllers/orders_controller.rb]
 class OrdersController < ApplicationController
   def new
     @cars = Car.all
@@ -464,6 +289,7 @@ end
 ```
 
 ```erb
+// [!code filename:app/views/orders/new.html.erb]
 <%= form_with do |form| %>
   <%= form.label :car_id, "Choose your favorite sports car:" %>
 
@@ -491,9 +317,7 @@ end
 <% end %>
 ```
 
-### Dropdown menus in Next.js
-
-Of course, you can also use Elements in the most popular framework: React. Because everything is built on standard web technology, you can even use a Next.js `<Link />` components inside `<el-dropdown>` and it just _works_:
+You can even use Elements in [React](https://react.dev/) instead of using a React-only library like Headless UI or React Aria if you want:
 
 ```jsx
 import Link from "next/link";
@@ -512,7 +336,12 @@ export default function Home() {
 }
 ```
 
-## Looking forward
+## Try it out today
+
+- Explain how this is available to all Tailwind Plus customers
+- Link to docs again
+
+
 
 Tailwind Plus Elements is available for all [Tailwind Plus customers](https://tailwindcss.com/plus) starting today and we've updated all of our current components to make full use of it. You can learn more about how to install Tailwind Plus Elements [in our new docs](https://tailwindcss.com/plus/ui-blocks/documentation/elements-api-reference).
 
