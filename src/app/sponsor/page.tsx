@@ -126,7 +126,7 @@ export const partners = [
   },
   {
     name: "Clerk",
-    url: "https://clerk.com/",
+    url: "https://go.clerk.com/tailwind",
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
