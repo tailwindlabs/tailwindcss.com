@@ -295,27 +295,35 @@ Or here's a custom select in [Rails](https://rubyonrails.org/) that's included i
 // [!code filename:app/controllers/orders_controller.rb]
 class OrdersController < ApplicationController
   def new
-    @cars = Car.all
-    @selected_car = @cars.first
+    @order = Order.new
   end
 
   def create
-    car = Car.find(params[:car_id])
-    flash[:notice] = "Selected car: #{car.name}"
-    redirect_to root_path
+    @order = Order.new(order_params)
+
+    if @order.save
+      redirect_to @order, notice: "Order was successfully created."
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
+
+  private
+    def order_params
+      params.expect(order: [ :car_id ])
+    end
 end
 ```
 
 ```erb
 // [!code filename:app/views/orders/new.html.erb]
-<%= form_with do |form| %>
+<%= form_with model: @order do |form| %>
   <%= form.label :car_id, "Select model:" %>
 
-  <el-select name="car_id" id="car_id" value="<%= @selected_car.id %>">
+  <el-select name="order[car_id]" id="order_car_id" value="<%= form.object.car_id %>">
     <button type="button" class="grid w-full cursor-default grid-cols-1 ...">
       <el-selectedcontent class="col-start-1 row-start-1 truncate pr-6">
-        <%= @selected_car.name %>
+        <%= form.object.car&.name %>
       </el-selectedcontent>
       <svg viewBox="0 0 16 16" aria-hidden="true" class="col-start-1 row-start-1 size-5 ...">
         <path d="M5.22 10.22a.75.75 ..." clip-rule="evenodd" fill-rule="evenodd" />
@@ -323,7 +331,7 @@ end
     </button>
 
     <el-options anchor="bottom end" popover="">
-      <% @cars.each do |car| %>
+      <% Car.all.each do |car| %>
         <el-option value="<%= car.id %>">
           <span class="block truncate font-normal group-aria-selected/option:font-semibold">
             <%= car.name %>
