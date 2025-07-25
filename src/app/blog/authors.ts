@@ -5,6 +5,7 @@ import reininkAvatar from "./img/reinink.jpg";
 import robinmalfaitAvatar from "./img/robinmalfait.jpg";
 import simonswissAvatar from "./img/simonswiss.jpg";
 import danhollickAvatar from "./img/danhollick.jpg";
+import philippspiessAvatar from "./img/philippspiess.jpg";
 
 export interface Author {
   name: string;
@@ -52,4 +53,10 @@ export const danhollick = {
   name: "Dan Hollick",
   twitter: "DanHollick",
   avatar: danhollickAvatar.src,
+} satisfies Author;
+
+export const philippspiess = {
+  name: "Philipp Spiess",
+  twitter: "PhilippSpiess",
+  avatar: philippspiessAvatar.src,
 } satisfies Author;
