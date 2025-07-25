@@ -280,7 +280,7 @@ export const supporters = [
   },
   {
     name: "Zed",
-    url: "https://zed.com/",
+    url: "https://zed.dev/",
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
