@@ -1,11 +1,10 @@
 import { adamwathan, philippspiess } from "@/app/blog/authors";
 import card from "./card.jpg";
-import Image from "next/image";
-import { YouTubeVideo, Video } from "@/components/media";
+import hero from "./hero.jpg";
+import { YouTubeVideo, Video, Image } from "@/components/media";
 import { Figure } from "@/components/figure";
 import { Example } from "@/components/example";
 import { CodeExampleStack } from "@/components/code-example";
-
 
 export const meta = {
   title: "Vanilla JavaScript support for Tailwind Plus",
@@ -16,38 +15,19 @@ export const meta = {
   image: card,
   excerpt: (
     <>
-     There are a lot of UI blocks in Tailwind Plus that need JavaScript to really be useful, like dialogs, dropdowns, command palettes, and more. And unless you're a React or Vue user, using those UI blocks has always meant writing all of that tricky JavaScript yourself. Well today that finally changes — every UI block in Tailwind Plus is now fully functional, accessible, and interactive, including the plain HTML examples.
+      There are a lot of UI blocks in Tailwind Plus that need JavaScript to really be useful, like dialogs, dropdowns,
+      command palettes, and more. And unless you're a React or Vue user, using those UI blocks has always meant writing
+      all of that tricky JavaScript yourself. Well today that finally changes — every UI block in Tailwind Plus is now
+      fully functional, accessible, and interactive, including the plain HTML examples.
     </>
   ),
 };
 
+<Image src={hero} alt="Tailwind Plus Elements" />
+
 There are a lot of UI blocks in Tailwind Plus that need JavaScript to really be useful, like dialogs, dropdowns, command palettes, and more. And unless you're a React or Vue user, using those UI blocks has always meant writing all of that tricky JavaScript yourself.
 
 Well today that finally changes — **every UI block in Tailwind Plus is now fully functional, accessible, and interactive**, including the plain HTML examples.
-
-<Video src="https://assets.tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus/intro-video.mp4" videoClasses="aspect-[1536/804] object-cover"/>
-
-```html
-<el-dropdown class="relative inline-block text-left">
-  <button class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50">
-    Options
-    <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="-mr-1 size-5 text-gray-400">
-      <path d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
-    </svg>
-  </button>
-
-  <el-menu anchor="bottom end" popover class="w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 transition transition-discrete [--anchor-gap:--spacing(2)] focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
-    <div class="py-1">
-      <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">Account settings</a>
-      <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">Support</a>
-      <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">License</a>
-      <form action="#" method="POST">
-        <button type="submit" class="block w-full px-4 py-2 text-left text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">Sign out</button>
-      </form>
-    </div>
-  </el-menu>
-</el-dropdown>
-```
 
 Now you can use any [dropdown](https://tailwindcss.com/plus/ui-blocks/application-ui/elements/dropdowns), [command palette](https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/command-palettes), [dialog](https://tailwindcss.com/plus/ui-blocks/application-ui/overlays/modal-dialogs), [drawer](https://tailwindcss.com/plus/ui-blocks/application-ui/overlays/drawers), and more in any project you're working on — no JavaScript framework required.
 
@@ -66,56 +46,83 @@ Instead of being coupled to a specific JavaScript framework, these custom elemen
 <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
 ```
 
-Here's what it looks like to build a [custom select](https://tailwindcss.com/plus/ui-blocks/application-ui/forms/select-menus#component-e0f6280e5501d69e188768909fda485e) with Elements:
+Here's what it look like to build a custom dropdown menu with Elements:
 
-<Video src="https://assets.tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus/select.mp4" alt="Select" />
+<Video
+  src="https://assets.tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus/intro-video.mp4"
+  videoClasses="aspect-[1536/804] object-cover"
+/>
 
+{/* prettier-ignore */}
 ```html
-<label for="select" class="block text-sm/6 font-medium text-gray-900">Assigned to</label>
 <!-- [!code highlight:2] -->
-<el-select id="select" name="selected" value="4" class="mt-2 block">
-  <button type="button" class="grid w-full cursor-default grid-cols-1 ...">
-    <!-- [!code highlight:2] -->
-    <el-selectedcontent></el-selectedcontent>
-    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" class="col-start-1 row-start-1 ...">
-      <!-- ... -->
+<el-dropdown class="relative inline-block text-left">
+  <button class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50">
+    Options
+    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="-mr-1 size-5 text-gray-400">
+      <path d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
     </svg>
   </button>
 
   <!-- [!code highlight:2] -->
-  <el-options anchor="bottom start" popover class="max-h-60 w-(--button-width) [--anchor-gap:--spacing(1)] ...">
-      <!-- [!code highlight:2] -->
-    <el-option value="1" class="group/option relative block focus:bg-indigo-600 ...">
-      <div class="flex items-center">
-        <span aria-hidden="true" class="inline-block size-2 shrink-0 ..."></span>
-        <span class="ml-3 block group-aria-selected/option:font-semibold ...">
-          Wade Cooper
-          <span class="sr-only"> is online</span>
-        </span>
-      </div>
-      <span class="group-not-aria-selected/option:hidden group-focus/option:text-white in-[el-selectedcontent]:hidden ...">
-        <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5">
-            <!-- ... -->
-        </svg>
-      </span>
-      <!-- [!code highlight:2] -->
-    </el-option>
-    <!-- ... -->
-    <!-- [!code highlight:2] -->
-  </el-options>
+  <el-menu anchor="bottom end" popover class="w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 transition transition-discrete [--anchor-gap:--spacing(2)] focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
+    <div class="py-1">
+      <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">Account settings</a>
+      <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">Support</a>
+      <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">License</a>
+      <form action="#" method="POST">
+        <button type="submit" class="block w-full px-4 py-2 text-left text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">Sign out</button>
+      </form>
+    </div>
+  <!-- [!code highlight:3] -->
+  </el-menu>
+</el-dropdown>
+```
+
+And here's what it looks like to build a [custom select](https://tailwindcss.com/plus/ui-blocks/application-ui/forms/select-menus#component-e0f6280e5501d69e188768909fda485e):
+
+<Video src="https://assets.tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus/select.mp4" alt="Select" />
+
+{/* prettier-ignore */}
+```html
+<!-- [!code highlight:2] -->
+<el-dropdown class="relative inline-block text-left">
+  <button class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50">
+    Options
+    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="-mr-1 size-5 text-gray-400">
+      <path d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
+    </svg>
+  </button>
+
   <!-- [!code highlight:2] -->
-</el-select>
+  <el-menu anchor="bottom end" popover class="w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 transition transition-discrete [--anchor-gap:--spacing(2)] focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
+    <div class="py-1">
+      <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">Account settings</a>
+      <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">Support</a>
+      <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">License</a>
+      <form action="#" method="POST">
+        <button type="submit" class="block w-full px-4 py-2 text-left text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">Sign out</button>
+      </form>
+    </div>
+    <!-- [!code highlight:3] -->
+  </el-menu>
+</el-dropdown>
 ```
 
 See those custom HTML elements like `<el-select>` and `<el-options>`? Those are the secret sauce that make everything work, including automatic ARIA attribute management, focus handling, keyboard support, and more.
 
 You can even build something as sophisticated as a custom [command palette](https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/command-palettes#component-5e859372042e1b3b308dc51f3ac8bad6) with Elements, without having to write any of your own JavaScript:
 
-<Video src="https://assets.tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus/command-palette-demo.mp4" videoClasses="aspect-[1536/912] object-cover"/>
+<Video
+  src="https://assets.tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus/command-palette-demo.mp4"
+  videoClasses="aspect-[1536/912] object-cover"
+/>
 
-
+{/* prettier-ignore */}
 ```html
-<button command="show-modal" commandfor="dialog" class="rounded-md bg-white/80 px-2.5 py-1.5 text-sm font-semibold text-gray-900 hover:bg-white/90">Open command palette</button>
+<button command="show-modal" commandfor="dialog" class="rounded-md bg-white/80 px-2.5 py-1.5 text-sm font-semibold text-gray-900 hover:bg-white/90">
+  Open command palette
+</button>
 
 <!-- [!code highlight:2] -->
 <el-dialog class="group/dialog">
@@ -128,7 +135,7 @@ You can even build something as sophisticated as a custom [command palette](http
         <el-command-palette class="divide-y divide-gray-100">
           <div class="grid grid-cols-1">
             <input type="text" autofocus placeholder="Search..." class="col-start-1 row-start-1 h-12 w-full pr-4 pl-11 text-base text-gray-900 outline-hidden placeholder:text-gray-400 sm:text-sm" />
-            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="pointer-events-none col-start-1 row-start-1 ml-4 size-5 self-center text-gray-400">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="pointer-events-none col-start-1 row-start-1 ml-4 size-5 self-center text-gray-400">
               <path d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd" fill-rule="evenodd" />
             </svg>
           </div>
@@ -143,7 +150,7 @@ You can even build something as sophisticated as a custom [command palette](http
                     <a id="person-suggestion-6" href="#" class="group flex cursor-default items-center rounded-md p-2 select-none focus:outline-hidden aria-selected:bg-gray-100 aria-selected:text-gray-900">
                       <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-6 flex-none rounded-full" />
                       <span class="ml-3 flex-auto truncate">Tom Cook</span>
-                      <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="ml-3 hidden size-5 flex-none text-gray-400 group-aria-selected:block">
+                      <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="ml-3 hidden size-5 flex-none text-gray-400 group-aria-selected:block">
                         <path d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
                       </svg>
                     </a>
@@ -156,7 +163,7 @@ You can even build something as sophisticated as a custom [command palette](http
                   <a id="person-1" href="#" hidden class="group flex cursor-default items-center rounded-md p-2 select-none focus:outline-hidden aria-selected:bg-gray-100 aria-selected:text-gray-900">
                     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-6 flex-none rounded-full" />
                     <span class="ml-3 flex-auto truncate">Leslie Alexander</span>
-                    <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="ml-3 hidden size-5 flex-none text-gray-400 group-aria-selected:block">
+                    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="ml-3 hidden size-5 flex-none text-gray-400 group-aria-selected:block">
                       <path d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
                     </svg>
                   </a>
@@ -165,7 +172,7 @@ You can even build something as sophisticated as a custom [command palette](http
                 </el-command-group>
               </el-command-list>
               <el-no-results hidden class="block px-6 py-14 text-center text-sm sm:px-14">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="mx-auto size-6 text-gray-400">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" class="mx-auto size-6 text-gray-400">
                   <path d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
                 <p class="mt-4 font-semibold text-gray-900">No people found</p>
@@ -240,6 +247,7 @@ Since HTML is the lowest common denominator between all web frameworks, Elements
 
 Here's one of our [Combobox](https://tailwindcss.com/plus/ui-blocks/application-ui/forms/comboboxes) examples wired up with two-way binding in [Svelte](https://svelte.dev/):
 
+{/* prettier-ignore */}
 ```html
 <!-- [!code filename:Combobox.svelte] -->
 <script>
@@ -309,7 +317,7 @@ end
             <%= car.name %>
           </span>
           <span class="flex group-not-aria-selected/option:hidden group-focus/option:text-white in-[el-selectedcontent]:hidden ...">
-            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="size-5">
               <path d="M16.704 4.153a.75.75 0 ..." clip-rule="evenodd" fill-rule="evenodd" />
             </svg>
           </span>
@@ -326,6 +334,7 @@ end
 
 You can even use Elements in [React](https://react.dev/) instead of using a React-only library like Headless UI or React Aria if you want:
 
+{/* prettier-ignore */}
 ```jsx
 import Link from "next/link";
 
