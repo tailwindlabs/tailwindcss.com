@@ -45,7 +45,7 @@ function LightButtonLink({ className, ...props }: React.ComponentProps<"a">) {
   );
 }
 
-export function Eyebrow({
+function Eyebrow({
   as = "p",
   className,
   color = "gray",
@@ -606,7 +606,7 @@ function PartnerPlans() {
   );
 }
 
-export function FaqGroup({ title, children }: { title: string; children: React.ReactNode }) {
+function FaqGroup({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="group">
       <Eyebrow as="h3" className="px-4 py-2 sm:px-2">
@@ -617,7 +617,7 @@ export function FaqGroup({ title, children }: { title: string; children: React.R
   );
 }
 
-export function Faq({ question, children }: { question: string; children: React.ReactNode }) {
+function Faq({ question, children }: { question: string; children: React.ReactNode }) {
   let id =
     "faq-" +
     question
