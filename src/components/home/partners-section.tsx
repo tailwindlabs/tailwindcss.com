@@ -1,10 +1,28 @@
-import { partners, ambassadors } from "@/app/sponsor/page";
+"use client";
+
+import { partners, ambassadors } from "@/app/sponsor/sponsors";
 import Link from "next/link";
 import GridContainer from "../grid-container";
 import CategoryHeader from "./category-header";
+import { useState, useEffect } from "react";
 
 export default function WhyTailwindCssSection() {
-  const sponsors = [...partners, ...ambassadors];
+  const [displayedSponsors, setDisplayedSponsors] = useState(partners);
+
+  useEffect(() => {
+    const totalLogos = 12;
+
+    if (partners.length >= totalLogos) {
+      setDisplayedSponsors(partners.slice(0, totalLogos));
+    } else {
+      const remainingSlots = totalLogos - partners.length;
+
+      const shuffledAmbassadors = [...ambassadors].sort(() => Math.random() - 0.5);
+      const selectedAmbassadors = shuffledAmbassadors.slice(0, remainingSlots);
+
+      setDisplayedSponsors([...partners, ...selectedAmbassadors]);
+    }
+  }, []);
 
   return (
     <div className="relative max-w-full">
@@ -64,7 +82,7 @@ export default function WhyTailwindCssSection() {
             <div className="border-l border-gray-950/5 max-xl:hidden dark:border-white/10"></div>
           </div>
           <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
-            {sponsors.map((company, index) => (
+            {displayedSponsors.map((company, index) => (
               <a
                 key={index}
                 href={company.url}
