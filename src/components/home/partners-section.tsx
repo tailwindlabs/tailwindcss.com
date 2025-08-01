@@ -74,7 +74,7 @@ export default function WhyTailwindCssSection() {
       </GridContainer>
 
       <section>
-        <div className="relative mt-16">
+        <div className="relative isolate mt-16">
           <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
             <div className="border-r border-gray-950/5 dark:border-white/10"></div>
             <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
