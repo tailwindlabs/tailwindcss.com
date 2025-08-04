@@ -144,16 +144,28 @@ export function Header(props: React.PropsWithChildren) {
               Ctrl&nbsp;K
             </kbd>
           </SearchButton>
-          <Link href="/docs" className="text-sm/6 text-gray-950 dark:text-white">
+          <Link
+            href="/docs"
+            className="text-sm/6 text-gray-950 transition-colors duration-150 hover:text-sky-500 dark:text-white dark:hover:text-sky-400"
+          >
             Docs
           </Link>
-          <Link href="/blog" className="text-sm/6 text-gray-950 dark:text-white">
+          <Link
+            href="/blog"
+            className="text-sm/6 text-gray-950 transition-colors duration-150 hover:text-sky-500 dark:text-white dark:hover:text-sky-400"
+          >
             Blog
           </Link>
-          <Link href="/showcase" className="text-sm/6 text-gray-950 dark:text-white">
+          <Link
+            href="/showcase"
+            className="text-sm/6 text-gray-950 transition-colors duration-150 hover:text-sky-500 dark:text-white dark:hover:text-sky-400"
+          >
             Showcase
           </Link>
-          <Link href="/sponsor" className="text-sm/6 text-gray-950 dark:text-white">
+          <Link
+            href="/sponsor"
+            className="text-sm/6 text-gray-950 transition-colors duration-150 hover:text-sky-500 dark:text-white dark:hover:text-sky-400"
+          >
             Sponsor
           </Link>
           <a href="/plus?ref=top" className="group relative px-1.5 text-sm/6 text-sky-800 dark:text-sky-300">
@@ -194,7 +206,7 @@ export function Header(props: React.PropsWithChildren) {
           </a>
 
           <Link href="https://github.com/tailwindlabs/tailwindcss" aria-label="GitHub repository">
-            <GitHubLogo className="size-5 fill-black/40 dark:fill-gray-400" />
+            <GitHubLogo className="size-5 fill-black/40 transition-all duration-150 hover:fill-black dark:fill-gray-400 dark:hover:fill-white" />
           </Link>
         </div>
         <div className="flex items-center gap-2.5 md:hidden">
