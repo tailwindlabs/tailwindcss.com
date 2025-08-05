@@ -538,7 +538,7 @@ function PartnerPlans() {
           description: "sleep easy knowing that you’re supporting the development of Tailwind CSS.",
         },
       ],
-      remaining: 2,
+      remaining: 1,
     },
   ];
 
