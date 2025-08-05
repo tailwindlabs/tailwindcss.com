@@ -561,7 +561,7 @@ function PartnerPlans() {
                       : "bg-sky-400/25 text-sky-700 dark:text-sky-400",
                   )}
                 >
-                  {plan.remaining} spots left
+                  {plan.remaining} {plan.remaining === 1 ? 'spot' : 'spots'} left
                 </p>
               )}
             </div>
