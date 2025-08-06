@@ -500,6 +500,10 @@ function PartnerPlans() {
           description: "access to the UI Kit, templates, and 500+ components for your team.",
         },
         {
+          name: "Access to sponsor Discord",
+          description: "A private Discord channel for sponsors to talk to the Tailwind team.",
+        },
+        {
           name: "Support Tailwind CSS",
           description: "sleep easy knowing that you’re supporting the development of Tailwind CSS.",
         },
