@@ -1,5 +1,5 @@
-import { css, html, js, Page, shell, Step, Tab, Tile } from "./utils";
 import Logo from "@/docs/img/guides/rspack.react.svg";
+import { css, html, js, Page, shell, Step, Tab, Tile } from "./utils";
 
 export let tile: Tile = {
   title: "Rspack",
@@ -69,19 +69,20 @@ export let steps: Step[] = [
       lang: "ts",
       code: js`
         export default defineConfig({
-          // ...
-          module: {
-            rules: [
-              // [!code highlight:6]
-              {
-                test: /\.css$/,
-                use: ["postcss-loader"],
-                type: "css",
+          tools: {
+            plugins: {
+              // ...  rsbuild 1.4.13
+              module: {
+                rules: [
+                  // [!code highlight:6]
+                  {
+                    test: /\.css$/,
+                    use: ["postcss-loader"],
+                  },
+                  // ...
+                ],
               },
-              // ...
-            ],
-          },
-        }
+            },
       `,
     },
   },
