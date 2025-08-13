@@ -94,6 +94,13 @@ const showcase = [
     video: "/showcase-videos/mux.com.mp4",
     description: "SaaS application",
   },
+  {
+    name: "Clerk",
+    url: "https://clerk.com/",
+    thumbnail: require("./img/clerk.com.png").default,
+    video: "/showcase-videos/clerk.com.mp4",
+    description: "Authentication platform website",
+  },
 
   // Ambassadors
   {
