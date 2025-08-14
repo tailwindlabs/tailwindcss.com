@@ -53,32 +53,39 @@ export default async function Showcase() {
 const showcase = [
   // Partners
   {
+    name: "Clerk",
+    url: "https://go.clerk.com/tailwind",
+    thumbnail: require("./img/clerk.com.png").default,
+    video: "/showcase-videos/clerk.com.mp4",
+    description: "Developer tool website",
+  },
+  {
     name: "Resend",
     url: "https://go.resend.com/tailwind",
     thumbnail: require("./img/resend.com.png").default,
     video: "/showcase-videos/resend.com.mp4",
-    description: "Email platform website",
+    description: "SaaS application website",
   },
   {
     name: "Polar",
     url: "https://polar.sh",
     thumbnail: require("./img/polar.sh.png").default,
     video: "/showcase-videos/polar.sh.mp4",
-    description: "Payment platform website",
+    description: "Fintech application website",
   },
   {
     name: "Cal.com",
     url: "https://cal.com",
     thumbnail: require("./img/cal.com.png").default,
     video: "/showcase-videos/cal.com.mp4",
-    description: "SaaS application",
+    description: "SaaS application website",
   },
   {
     name: "Namespace",
     url: "https://namespace.so/",
     thumbnail: require("./img/namespace.so.png").default,
     video: "/showcase-videos/namespace.so.mp4",
-    description: "SaaS application",
+    description: "Developer tool website",
   },
   {
     name: "Tiptap",
@@ -92,14 +99,7 @@ const showcase = [
     url: "https://mux.com/",
     thumbnail: require("./img/mux.com.png").default,
     video: "/showcase-videos/mux.com.mp4",
-    description: "SaaS application",
-  },
-  {
-    name: "Clerk",
-    url: "https://clerk.com/",
-    thumbnail: require("./img/clerk.com.png").default,
-    video: "/showcase-videos/clerk.com.mp4",
-    description: "Authentication platform website",
+    description: "SaaS application website",
   },
 
   // Ambassadors
@@ -108,7 +108,7 @@ const showcase = [
     url: "https://bentonow.com/",
     thumbnail: require("./img/bentonow.com.png").default,
     video: "/showcase-videos/bentonow.com.mp4",
-    description: "Email platform website",
+    description: "SaaS application website",
   },
 
   // Others
