@@ -10,13 +10,52 @@ import CategoryHeader from "./category-header";
 import templatesCol1 from "./templates-col-1.png";
 import templatesCol2 from "./templates-col-2.png";
 import templatesCol3 from "./templates-col-3.png";
-import uiBlocksCol1 from "./ui-blocks-col-1.png";
-import uiBlocksCol2 from "./ui-blocks-col-2.png";
-import uiBlocksCol3 from "./ui-blocks-col-3.png";
-import uiBlocksCol4 from "./ui-blocks-col-4.png";
 import uiKitCol1 from "./ui-kit-col-1.png";
+import uiKitCol1Dark from "./ui-kit-col-1-dark.png";
 import uiKitCol2 from "./ui-kit-col-2.png";
+import uiKitCol2Dark from "./ui-kit-col-2-dark.png";
 import uiKitCol3 from "./ui-kit-col-3.png";
+import uiKitCol3Dark from "./ui-kit-col-3-dark.png";
+import uiBlocksCol1Row1 from "./ui-blocks-col-1-row-1.png";
+import uiBlocksCol1Row1Dark from "./ui-blocks-col-1-row-1-dark.png";
+import uiBlocksCol1Row2 from "./ui-blocks-col-1-row-2.png";
+import uiBlocksCol1Row2Dark from "./ui-blocks-col-1-row-2-dark.png";
+import uiBlocksCol1Row3 from "./ui-blocks-col-1-row-3.png";
+import uiBlocksCol1Row3Dark from "./ui-blocks-col-1-row-3-dark.png";
+import uiBlocksCol1Row4 from "./ui-blocks-col-1-row-4.png";
+import uiBlocksCol1Row4Dark from "./ui-blocks-col-1-row-4-dark.png";
+import uiBlocksCol2Row1 from "./ui-blocks-col-2-row-1.png";
+import uiBlocksCol2Row1Dark from "./ui-blocks-col-2-row-1-dark.png";
+import uiBlocksCol2Row2 from "./ui-blocks-col-2-row-2.png";
+import uiBlocksCol2Row2Dark from "./ui-blocks-col-2-row-2-dark.png";
+import uiBlocksCol2Row3 from "./ui-blocks-col-2-row-3.png";
+import uiBlocksCol2Row3Dark from "./ui-blocks-col-2-row-3-dark.png";
+import uiBlocksCol2Row4 from "./ui-blocks-col-2-row-4.png";
+import uiBlocksCol2Row4Dark from "./ui-blocks-col-2-row-4-dark.png";
+import uiBlocksCol2Row5 from "./ui-blocks-col-2-row-5.png";
+import uiBlocksCol2Row5Dark from "./ui-blocks-col-2-row-5-dark.png";
+import uiBlocksCol2Row6 from "./ui-blocks-col-2-row-6.png";
+import uiBlocksCol2Row6Dark from "./ui-blocks-col-2-row-6-dark.png";
+import uiBlocksCol3Row1 from "./ui-blocks-col-3-row-1.png";
+import uiBlocksCol3Row1Dark from "./ui-blocks-col-3-row-1-dark.png";
+import uiBlocksCol3Row2 from "./ui-blocks-col-3-row-2.png";
+import uiBlocksCol3Row2Dark from "./ui-blocks-col-3-row-2-dark.png";
+import uiBlocksCol3Row3 from "./ui-blocks-col-3-row-3.png";
+import uiBlocksCol3Row3Dark from "./ui-blocks-col-3-row-3-dark.png";
+import uiBlocksCol3Row4 from "./ui-blocks-col-3-row-4.png";
+import uiBlocksCol3Row4Dark from "./ui-blocks-col-3-row-4-dark.png";
+import uiBlocksCol3Row5 from "./ui-blocks-col-3-row-5.png";
+import uiBlocksCol3Row5Dark from "./ui-blocks-col-3-row-5-dark.png";
+import uiBlocksCol3Row6 from "./ui-blocks-col-3-row-6.png";
+import uiBlocksCol3Row6Dark from "./ui-blocks-col-3-row-6-dark.png";
+import uiBlocksCol3Row7 from "./ui-blocks-col-3-row-7.png";
+import uiBlocksCol3Row7Dark from "./ui-blocks-col-3-row-7-dark.png";
+import uiBlocksCol4Row1 from "./ui-blocks-col-4-row-1.png";
+import uiBlocksCol4Row1Dark from "./ui-blocks-col-4-row-1-dark.png";
+import uiBlocksCol4Row2 from "./ui-blocks-col-4-row-2.png";
+import uiBlocksCol4Row2Dark from "./ui-blocks-col-4-row-2-dark.png";
+import uiBlocksCol4Row3 from "./ui-blocks-col-4-row-3.png";
+import uiBlocksCol4Row3Dark from "./ui-blocks-col-4-row-3-dark.png";
 
 export default function TailwindUiSection() {
   return (
@@ -328,8 +367,8 @@ export default function TailwindUiSection() {
 
         <GridContainer className="mt-4">
           <TabPanels>
-            <TabPanel className="bg-gray-950/5 p-2 dark:bg-white/10">
-              <BentoItem className="relative isolate h-148 w-full overflow-hidden bg-white/75! p-0!">
+            <TabPanel className="bg-gray-950/5 p-2 dark:bg-white/10 dark:opacity-40">
+              <BentoItem className="relative isolate h-148 w-full overflow-hidden bg-white/75! p-0! dark:bg-gray-950! dark:ring dark:ring-white/10">
                 <div className="absolute -left-[300%] h-150 w-380 min-[500px]:-left-[250%] sm:-left-[200%] md:-left-[150%] lg:-left-[100%] xl:-left-[80%] 2xl:-left-[65%]">
                   <div className="grid origin-top-left scale-120 rotate-x-55 rotate-y-0 -rotate-z-45 grid-cols-3 transform-3d">
                     <motion.img
@@ -364,59 +403,343 @@ export default function TailwindUiSection() {
               </BentoItem>
             </TabPanel>
 
-            <TabPanel className="bg-gray-950/5 p-2 dark:bg-white/10">
-              <BentoItem className="relative isolate h-148 w-full overflow-hidden bg-white/75! p-0!">
-                <div className="absolute -left-[300%] h-150 w-380 min-[500px]:-left-[250%] sm:-left-[200%] md:-left-[150%] lg:-left-[100%] xl:-left-[80%] 2xl:-left-[65%]">
-                  <div className="grid origin-top-left scale-120 rotate-x-55 rotate-y-0 -rotate-z-45 grid-cols-4 gap-4 transform-3d">
-                    <motion.img
-                      initial={{ y: 500 }}
-                      viewport={{ once: true }}
-                      whileInView={{ y: 850, transition: { duration: 120 } }}
-                      src={uiBlocksCol2.src}
-                      width={487.5}
-                      height={1587}
-                      alt=""
-                    />
+            <TabPanel className="bg-gray-950/5 p-2 dark:bg-white/5">
+              <BentoItem className="relative isolate h-148 w-full overflow-hidden bg-white/75! p-0! dark:bg-gray-950!">
+                <div className="size-430 shrink-0 scale-50 sm:scale-75 lg:scale-100 dark:bg-white/5">
+                  <div className="relative top-(--top,0) right-(--right,54%) grid size-full origin-top-left rotate-x-55 rotate-y-0 -rotate-z-45 grid-cols-4 gap-8 transform-3d">
                     <motion.div
-                      initial={{ y: 350 }}
+                      className="flex flex-col gap-8"
+                      initial={{ translateY: 1000 }}
                       viewport={{ once: true }}
-                      whileInView={{ y: 0, transition: { duration: 120 } }}
+                      whileInView={{ translateY: 750, transition: { duration: 40 } }}
                     >
-                      <img src={uiBlocksCol1.src} width={487.5} height={1858} alt="" />
-                      <img src={uiBlocksCol1.src} width={487.5} height={1858} alt="" />
+                      <img
+                        src={uiBlocksCol1Row1.src}
+                        className="aspect-970/580 ring ring-gray-950/5 dark:hidden"
+                        width={970}
+                        height={580}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol1Row1Dark.src}
+                        className="aspect-970/580 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
+                        width={970}
+                        height={580}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol1Row2.src}
+                        className="aspect-971/582 ring ring-gray-950/5 dark:hidden"
+                        width={971}
+                        height={582}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol1Row2Dark.src}
+                        className="aspect-971/582 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
+                        width={971}
+                        height={582}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol1Row3.src}
+                        className="aspect-971/820 ring ring-gray-950/5 dark:hidden"
+                        width={971}
+                        height={820}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol1Row3Dark.src}
+                        className="aspect-971/820 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
+                        width={971}
+                        height={820}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol1Row4.src}
+                        className="aspect-970/508 ring ring-gray-950/5 dark:hidden"
+                        width={970}
+                        height={508}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol1Row4Dark.src}
+                        className="aspect-970/508 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
+                        width={970}
+                        height={508}
+                        alt=""
+                      />
                     </motion.div>
-
                     <motion.div
-                      initial={{ y: 600 }}
+                      className="flex flex-col gap-8"
+                      initial={{ translateY: 500 }}
                       viewport={{ once: true }}
-                      whileInView={{ y: 950, transition: { duration: 120 } }}
+                      whileInView={{ translateY: 750, transition: { duration: 40 } }}
                     >
-                      <img src={uiBlocksCol3.src} width={487.5} height={1676.5} alt="" />
-                      <img src={uiBlocksCol3.src} width={487.5} height={1676.5} alt="" />
+                      <img
+                        src={uiBlocksCol2Row1.src}
+                        className="aspect-970/436 ring ring-gray-950/5 dark:hidden"
+                        width={970}
+                        height={436}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol2Row1Dark.src}
+                        className="aspect-970/436 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
+                        width={970}
+                        height={436}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol2Row2.src}
+                        className="aspect-970/700 ring ring-gray-950/5 dark:hidden"
+                        width={970}
+                        height={700}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol2Row2Dark.src}
+                        className="aspect-970/700 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
+                        width={970}
+                        height={700}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol2Row3.src}
+                        className="aspect-971/879 ring ring-gray-950/5 dark:hidden"
+                        width={971}
+                        height={879}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol2Row3Dark.src}
+                        className="aspect-971/879 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
+                        width={971}
+                        height={879}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol2Row4.src}
+                        className="aspect-970/557 ring ring-gray-950/5 dark:hidden"
+                        width={970}
+                        height={557}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol2Row4Dark.src}
+                        className="aspect-970/557 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
+                        width={970}
+                        height={557}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol2Row5.src}
+                        className="aspect-970/763 ring ring-gray-950/5 dark:hidden"
+                        width={970}
+                        height={763}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol2Row5Dark.src}
+                        className="aspect-970/763 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
+                        width={970}
+                        height={763}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol2Row6.src}
+                        className="aspect-970/922 ring ring-gray-950/5 dark:hidden"
+                        width={970}
+                        height={922}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol2Row6Dark.src}
+                        className="aspect-970/922 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
+                        width={970}
+                        height={922}
+                        alt=""
+                      />
                     </motion.div>
-                    <motion.img
-                      initial={{ y: 600 }}
+                    <motion.div
+                      className="flex flex-col gap-8"
+                      initial={{ translateY: 1000 }}
                       viewport={{ once: true }}
-                      whileInView={{ y: 250, transition: { duration: 120 } }}
-                      src={uiBlocksCol4.src}
-                      width={487}
-                      height={1747.5}
-                      alt=""
-                    />
+                      whileInView={{ translateY: 750, transition: { duration: 40 } }}
+                    >
+                      <img
+                        src={uiBlocksCol3Row1.src}
+                        className="aspect-970/580 ring ring-gray-950/5 dark:hidden"
+                        width={970}
+                        height={580}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol3Row1Dark.src}
+                        className="aspect-970/580 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
+                        width={970}
+                        height={580}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol3Row2.src}
+                        className="aspect-971/395 ring ring-gray-950/5 dark:hidden"
+                        width={971}
+                        height={395}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol3Row2Dark.src}
+                        className="aspect-971/395 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
+                        width={971}
+                        height={395}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol3Row3.src}
+                        className="aspect-971/349 ring ring-gray-950/5 dark:hidden"
+                        width={971}
+                        height={349}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol3Row3Dark.src}
+                        className="aspect-971/349 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
+                        width={971}
+                        height={349}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol3Row4.src}
+                        className="aspect-970/975 ring ring-gray-950/5 dark:hidden"
+                        width={970}
+                        height={975}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol3Row4Dark.src}
+                        className="aspect-970/975 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
+                        width={970}
+                        height={975}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol3Row5.src}
+                        className="aspect-970/381 ring ring-gray-950/5 dark:hidden"
+                        width={970}
+                        height={381}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol3Row5Dark.src}
+                        className="aspect-970/381 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
+                        width={970}
+                        height={381}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol3Row6.src}
+                        className="aspect-970/782 ring ring-gray-950/5 dark:hidden"
+                        width={970}
+                        height={782}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol3Row6Dark.src}
+                        className="aspect-970/782 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
+                        width={970}
+                        height={782}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol3Row7.src}
+                        className="aspect-970/426 ring ring-gray-950/5 dark:hidden"
+                        width={970}
+                        height={426}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol3Row7Dark.src}
+                        className="aspect-970/426 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
+                        width={970}
+                        height={426}
+                        alt=""
+                      />
+                    </motion.div>
+                    <motion.div
+                      className="flex flex-col gap-8"
+                      initial={{ translateY: 1150 }}
+                      viewport={{ once: true }}
+                      whileInView={{ translateY: 1400, transition: { duration: 40 } }}
+                    >
+                      <img
+                        src={uiBlocksCol4Row1.src}
+                        className="aspect-970/600 ring ring-gray-950/5 dark:hidden"
+                        width={970}
+                        height={600}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol4Row1Dark.src}
+                        className="aspect-970/600 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
+                        width={970}
+                        height={600}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol4Row2.src}
+                        className="aspect-972/854 ring ring-gray-950/5 dark:hidden"
+                        width={972}
+                        height={854}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol4Row2Dark.src}
+                        className="aspect-972/854 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
+                        width={972}
+                        height={854}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol4Row3.src}
+                        className="aspect-971/725 ring ring-gray-950/5 dark:hidden"
+                        width={971}
+                        height={725}
+                        alt=""
+                      />
+                      <img
+                        src={uiBlocksCol4Row3Dark.src}
+                        className="aspect-971/725 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
+                        width={971}
+                        height={725}
+                        alt=""
+                      />
+                    </motion.div>
                   </div>
                 </div>
               </BentoItem>
             </TabPanel>
 
-            <TabPanel className="bg-gray-950/5 p-2 dark:bg-white/10">
-              <BentoItem className="relative isolate h-148 w-full overflow-hidden bg-white/75! p-0!">
+            <TabPanel className="bg-gray-950/5 p-2 dark:bg-white/5">
+              <BentoItem className="relative isolate h-148 w-full overflow-hidden bg-white/75! p-0! dark:bg-gray-950!">
                 <div className="absolute -left-[300%] h-150 w-380 min-[500px]:-left-[250%] sm:-left-[200%] md:-left-[150%] lg:-left-[100%] xl:-left-[80%] 2xl:-left-[65%]">
-                  <div className="flex origin-top-left scale-100 rotate-x-55 rotate-y-0 -rotate-z-45 grid-cols-3 flex-row gap-4 transform-3d">
+                  <div className="flex origin-top-left scale-100 rotate-x-55 rotate-y-0 -rotate-z-45 grid-cols-3 flex-row gap-4 transform-3d dark:bg-white/5">
                     <motion.img
                       initial={{ y: 700 }}
                       viewport={{ once: true }}
                       whileInView={{ y: 350, transition: { duration: 120 } }}
                       src={uiKitCol1.src}
+                      className="ring ring-gray-950/5 dark:hidden"
+                      width={399}
+                      height={2019.5}
+                      alt=""
+                    />
+                    <motion.img
+                      initial={{ y: 700 }}
+                      viewport={{ once: true }}
+                      whileInView={{ y: 350, transition: { duration: 120 } }}
+                      src={uiKitCol1Dark.src}
+                      className="ring ring-white/10 not-dark:hidden"
                       width={399}
                       height={2019.5}
                       alt=""
@@ -426,6 +749,17 @@ export default function TailwindUiSection() {
                       viewport={{ once: true }}
                       whileInView={{ y: 850, transition: { duration: 120 } }}
                       src={uiKitCol2.src}
+                      className="ring ring-gray-950/5 dark:hidden"
+                      width={822}
+                      height={2019.5}
+                      alt=""
+                    />
+                    <motion.img
+                      initial={{ y: 500 }}
+                      viewport={{ once: true }}
+                      whileInView={{ y: 850, transition: { duration: 120 } }}
+                      src={uiKitCol2Dark.src}
+                      className="ring ring-white/10 not-dark:hidden"
                       width={822}
                       height={2019.5}
                       alt=""
@@ -435,6 +769,17 @@ export default function TailwindUiSection() {
                       viewport={{ once: true }}
                       whileInView={{ y: 450, transition: { duration: 120 } }}
                       src={uiKitCol3.src}
+                      className="ring ring-gray-950/5 dark:hidden"
+                      width={504}
+                      height={1378.5}
+                      alt=""
+                    />
+                    <motion.img
+                      initial={{ y: 800 }}
+                      viewport={{ once: true }}
+                      whileInView={{ y: 450, transition: { duration: 120 } }}
+                      src={uiKitCol3Dark.src}
+                      className="ring ring-white/10 not-dark:hidden"
                       width={504}
                       height={1378.5}
                       alt=""
