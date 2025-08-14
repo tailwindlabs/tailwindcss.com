@@ -422,7 +422,7 @@ export default function TailwindUiSection() {
                       />
                       <img
                         src={uiBlocksCol1Row1Dark.src}
-                        className="not-dark:hidden aspect-970/580 ring ring-gray-950/5 dark:ring-white/10"
+                        className="aspect-970/580 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
                         width={970}
                         height={580}
                         alt=""
@@ -436,7 +436,7 @@ export default function TailwindUiSection() {
                       />
                       <img
                         src={uiBlocksCol1Row2Dark.src}
-                        className="not-dark:hidden aspect-971/582 ring ring-gray-950/5 dark:ring-white/10"
+                        className="aspect-971/582 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
                         width={971}
                         height={582}
                         alt=""
@@ -450,7 +450,7 @@ export default function TailwindUiSection() {
                       />
                       <img
                         src={uiBlocksCol1Row3Dark.src}
-                        className="not-dark:hidden aspect-971/820 ring ring-gray-950/5 dark:ring-white/10"
+                        className="aspect-971/820 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
                         width={971}
                         height={820}
                         alt=""
@@ -464,7 +464,7 @@ export default function TailwindUiSection() {
                       />
                       <img
                         src={uiBlocksCol1Row4Dark.src}
-                        className="not-dark:hidden aspect-970/508 ring ring-gray-950/5 dark:ring-white/10"
+                        className="aspect-970/508 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
                         width={970}
                         height={508}
                         alt=""
@@ -485,7 +485,7 @@ export default function TailwindUiSection() {
                       />
                       <img
                         src={uiBlocksCol2Row1Dark.src}
-                        className="not-dark:hidden aspect-970/436 ring ring-gray-950/5 dark:ring-white/10"
+                        className="aspect-970/436 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
                         width={970}
                         height={436}
                         alt=""
@@ -499,7 +499,7 @@ export default function TailwindUiSection() {
                       />
                       <img
                         src={uiBlocksCol2Row2Dark.src}
-                        className="not-dark:hidden aspect-970/700 ring ring-gray-950/5 dark:ring-white/10"
+                        className="aspect-970/700 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
                         width={970}
                         height={700}
                         alt=""
@@ -513,7 +513,7 @@ export default function TailwindUiSection() {
                       />
                       <img
                         src={uiBlocksCol2Row3Dark.src}
-                        className="not-dark:hidden aspect-971/879 ring ring-gray-950/5 dark:ring-white/10"
+                        className="aspect-971/879 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
                         width={971}
                         height={879}
                         alt=""
@@ -527,7 +527,7 @@ export default function TailwindUiSection() {
                       />
                       <img
                         src={uiBlocksCol2Row4Dark.src}
-                        className="not-dark:hidden aspect-970/557 ring ring-gray-950/5 dark:ring-white/10"
+                        className="aspect-970/557 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
                         width={970}
                         height={557}
                         alt=""
@@ -541,7 +541,7 @@ export default function TailwindUiSection() {
                       />
                       <img
                         src={uiBlocksCol2Row5Dark.src}
-                        className="not-dark:hidden aspect-970/763 ring ring-gray-950/5 dark:ring-white/10"
+                        className="aspect-970/763 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
                         width={970}
                         height={763}
                         alt=""
@@ -555,7 +555,7 @@ export default function TailwindUiSection() {
                       />
                       <img
                         src={uiBlocksCol2Row6Dark.src}
-                        className="not-dark:hidden aspect-970/922 ring ring-gray-950/5 dark:ring-white/10"
+                        className="aspect-970/922 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
                         width={970}
                         height={922}
                         alt=""
@@ -576,7 +576,7 @@ export default function TailwindUiSection() {
                       />
                       <img
                         src={uiBlocksCol3Row1Dark.src}
-                        className="not-dark:hidden aspect-970/580 ring ring-gray-950/5 dark:ring-white/10"
+                        className="aspect-970/580 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
                         width={970}
                         height={580}
                         alt=""
@@ -590,7 +590,7 @@ export default function TailwindUiSection() {
                       />
                       <img
                         src={uiBlocksCol3Row2Dark.src}
-                        className="not-dark:hidden aspect-971/395 ring ring-gray-950/5 dark:ring-white/10"
+                        className="aspect-971/395 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
                         width={971}
                         height={395}
                         alt=""
@@ -604,7 +604,7 @@ export default function TailwindUiSection() {
                       />
                       <img
                         src={uiBlocksCol3Row3Dark.src}
-                        className="not-dark:hidden aspect-971/349 ring ring-gray-950/5 dark:ring-white/10"
+                        className="aspect-971/349 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
                         width={971}
                         height={349}
                         alt=""
@@ -618,7 +618,7 @@ export default function TailwindUiSection() {
                       />
                       <img
                         src={uiBlocksCol3Row4Dark.src}
-                        className="not-dark:hidden aspect-970/975 ring ring-gray-950/5 dark:ring-white/10"
+                        className="aspect-970/975 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
                         width={970}
                         height={975}
                         alt=""
@@ -632,7 +632,7 @@ export default function TailwindUiSection() {
                       />
                       <img
                         src={uiBlocksCol3Row5Dark.src}
-                        className="not-dark:hidden aspect-970/381 ring ring-gray-950/5 dark:ring-white/10"
+                        className="aspect-970/381 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
                         width={970}
                         height={381}
                         alt=""
@@ -646,7 +646,7 @@ export default function TailwindUiSection() {
                       />
                       <img
                         src={uiBlocksCol3Row6Dark.src}
-                        className="not-dark:hidden aspect-970/782 ring ring-gray-950/5 dark:ring-white/10"
+                        className="aspect-970/782 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
                         width={970}
                         height={782}
                         alt=""
@@ -660,7 +660,7 @@ export default function TailwindUiSection() {
                       />
                       <img
                         src={uiBlocksCol3Row7Dark.src}
-                        className="not-dark:hidden aspect-970/426 ring ring-gray-950/5 dark:ring-white/10"
+                        className="aspect-970/426 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
                         width={970}
                         height={426}
                         alt=""
@@ -681,7 +681,7 @@ export default function TailwindUiSection() {
                       />
                       <img
                         src={uiBlocksCol4Row1Dark.src}
-                        className="not-dark:hidden aspect-970/600 ring ring-gray-950/5 dark:ring-white/10"
+                        className="aspect-970/600 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
                         width={970}
                         height={600}
                         alt=""
@@ -695,7 +695,7 @@ export default function TailwindUiSection() {
                       />
                       <img
                         src={uiBlocksCol4Row2Dark.src}
-                        className="not-dark:hidden aspect-972/854 ring ring-gray-950/5 dark:ring-white/10"
+                        className="aspect-972/854 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
                         width={972}
                         height={854}
                         alt=""
@@ -709,7 +709,7 @@ export default function TailwindUiSection() {
                       />
                       <img
                         src={uiBlocksCol4Row3Dark.src}
-                        className="not-dark:hidden aspect-971/725 ring ring-gray-950/5 dark:ring-white/10"
+                        className="aspect-971/725 ring ring-gray-950/5 dark:ring-white/10 not-dark:hidden"
                         width={971}
                         height={725}
                         alt=""
@@ -739,7 +739,7 @@ export default function TailwindUiSection() {
                       viewport={{ once: true }}
                       whileInView={{ y: 350, transition: { duration: 120 } }}
                       src={uiKitCol1Dark.src}
-                      className="not-dark:hidden ring ring-white/10"
+                      className="ring ring-white/10 not-dark:hidden"
                       width={399}
                       height={2019.5}
                       alt=""
@@ -759,7 +759,7 @@ export default function TailwindUiSection() {
                       viewport={{ once: true }}
                       whileInView={{ y: 850, transition: { duration: 120 } }}
                       src={uiKitCol2Dark.src}
-                      className="not-dark:hidden ring ring-white/10"
+                      className="ring ring-white/10 not-dark:hidden"
                       width={822}
                       height={2019.5}
                       alt=""
@@ -779,7 +779,7 @@ export default function TailwindUiSection() {
                       viewport={{ once: true }}
                       whileInView={{ y: 450, transition: { duration: 120 } }}
                       src={uiKitCol3Dark.src}
-                      className="not-dark:hidden ring ring-white/10"
+                      className="ring ring-white/10 not-dark:hidden"
                       width={504}
                       height={1378.5}
                       alt=""
