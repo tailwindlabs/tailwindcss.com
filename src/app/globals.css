@@ -40,8 +40,21 @@
   &:where(.dark, .dark *) {
     @slot;
   }
+
   @media (prefers-color-scheme: dark) {
     &:where(.system, .system *) {
+      @slot;
+    }
+  }
+}
+
+@variant not-dark {
+  &:not(:where(.dark, .dark *)) {
+    @media not (prefers-color-scheme: dark) {
+      @slot;
+    }
+
+    &:not(:where(.system, .system *)) {
       @slot;
     }
   }
