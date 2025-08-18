@@ -103,13 +103,6 @@ const showcase = [
   },
 
   // Ambassadors
-  {
-    name: "Bento",
-    url: "https://bentonow.com/",
-    thumbnail: require("./img/bentonow.com.png").default,
-    video: "/showcase-videos/bentonow.com.mp4",
-    description: "SaaS application website",
-  },
 
   // Others
   {
