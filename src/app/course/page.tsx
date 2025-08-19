@@ -99,16 +99,16 @@ export default async function Course() {
             alt="Adam Wathan"
           /> */}
           <DotGridImage
-            height={600}
-            width={400}
             darkMode={true}
-            className="grid aspect-[600/400] items-center justify-center overflow-hidden object-cover max-sm:w-full sm:aspect-[291/340] sm:h-[320px] not-dark:hidden"
+            width={472}
+            height={667}
+            className="grid items-center justify-center object-cover sm:aspect-[472/667] sm:h-[320px] not-dark:hidden"
           />
           <DotGridImage
-            height={600}
-            width={400}
             darkMode={false}
-            className="grid aspect-[600/400] items-center justify-center overflow-hidden object-cover max-sm:w-full sm:aspect-[291/340] sm:h-[320px] dark:hidden"
+            width={472}
+            height={667}
+            className="grid items-center justify-center object-cover sm:aspect-[472/667] sm:h-[320px] dark:hidden"
           />
           <Signature className="absolute bottom-0 mx-auto -translate-x-2/4 fill-gray-900 sm:hidden dark:fill-white" />
         </div>
