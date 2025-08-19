@@ -1,6 +1,7 @@
 import GridContainer from "@/components/grid-container";
 import Image from "next/image";
 import type { Metadata } from "next";
+
 import adam from "./adam.png";
 import form_example_01 from "./form-example-01.png";
 import form_example_02 from "./form-example-02.png";
@@ -14,6 +15,38 @@ import music_player_example_03 from "./music-player-example-03.png";
 import hero_example_01 from "./hero-example-01.png";
 import hero_example_02 from "./hero-example-02.png";
 import hero_example_03 from "./hero-example-03.png";
+import DotGridImage from "./dot-grid-image";
+
+// function DotGridImageWithTheme(props: any) {
+//   const [darkMode, setDarkMode] = useState(false);
+
+//   useEffect(() => {
+//     // Check for dark mode preference
+//     const checkDarkMode = () => {
+//       const isDark = document.documentElement.classList.contains('dark') ||
+//                     window.matchMedia('(prefers-color-scheme: dark)').matches;
+//       setDarkMode(isDark);
+//     };
+
+//     // Initial check
+//     checkDarkMode();
+
+//     // Listen for theme changes
+//     const observer = new MutationObserver(checkDarkMode);
+//     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+//     // Listen for system theme changes
+//     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+//     mediaQuery.addEventListener('change', checkDarkMode);
+
+//     return () => {
+//       observer.disconnect();
+//       mediaQuery.removeEventListener('change', checkDarkMode);
+//     };
+//   }, []);
+
+//   return <DotGridImage {...props} darkMode={darkMode} />;
+// }
 
 // TODO: add og image
 // import card from "./card.jpg";
@@ -58,12 +91,24 @@ export default async function Course() {
       <div className="col-start-2 row-span-full row-start-1 grid border-x border-black/5 max-sm:hidden dark:border-white/10"></div>
       <GridContainer className="col-span-full col-start-1 row-start-1 my-16 grid sm:my-30 sm:grid-cols-3 sm:gap-x-6 lg:gap-x-12">
         <div className="grid-span-1 relative flex items-center justify-center p-2 after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-black/5 max-sm:px-4 dark:after:bg-white/10">
-          <Image
+          {/* <Image
             src={adam.src}
             height={291}
             width={340}
             className="aspect-[291/340] h-[320px] object-contain"
             alt="Adam Wathan"
+          /> */}
+          <DotGridImage
+            height={600}
+            width={400}
+            darkMode={true}
+            className="grid aspect-[600/400] items-center justify-center overflow-hidden object-cover max-sm:w-full sm:aspect-[291/340] sm:h-[320px] not-dark:hidden"
+          />
+          <DotGridImage
+            height={600}
+            width={400}
+            darkMode={false}
+            className="grid aspect-[600/400] items-center justify-center overflow-hidden object-cover max-sm:w-full sm:aspect-[291/340] sm:h-[320px] dark:hidden"
           />
           <Signature className="absolute bottom-0 mx-auto -translate-x-2/4 fill-gray-900 sm:hidden dark:fill-white" />
         </div>
