@@ -11,6 +11,9 @@ import landing_page_example_03 from "./landing-page-example-03.png";
 import music_player_example_01 from "./music-player-example-01.png";
 import music_player_example_02 from "./music-player-example-02.png";
 import music_player_example_03 from "./music-player-example-03.png";
+import hero_example_01 from "./hero-example-01.png";
+import hero_example_02 from "./hero-example-02.png";
+import hero_example_03 from "./hero-example-03.png";
 
 // TODO: add og image
 // import card from "./card.jpg";
@@ -51,10 +54,10 @@ export const metadata: Metadata = {
 
 export default async function Course() {
   return (
-    <div className="grid grid-cols-[1fr_--spacing(12)_1fr_--spacing(12)_1fr]">
-      <div className="col-start-2 row-span-full row-start-1 grid border-x border-black/5 dark:border-white/10"></div>
-      <GridContainer className="col-span-full col-start-1 row-start-1 my-30 grid grid-cols-3 gap-x-12">
-        <div className="grid-span-1 relative flex items-center justify-center after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-black/5 dark:after:bg-white/10">
+    <div className="grid sm:grid-cols-[1fr_--spacing(6)_1fr_--spacing(6)_1fr] lg:grid-cols-[1fr_--spacing(12)_1fr_--spacing(12)_1fr]">
+      <div className="col-start-2 row-span-full row-start-1 grid border-x border-black/5 max-sm:hidden dark:border-white/10"></div>
+      <GridContainer className="col-span-full col-start-1 row-start-1 my-16 grid sm:my-30 sm:grid-cols-3 sm:gap-x-6 lg:gap-x-12">
+        <div className="grid-span-1 relative flex items-center justify-center p-2 after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-black/5 max-sm:px-4 dark:after:bg-white/10">
           <Image
             src={adam.src}
             height={291}
@@ -62,17 +65,18 @@ export default async function Course() {
             className="aspect-[291/340] h-[320px] object-contain"
             alt="Adam Wathan"
           />
+          <Signature className="absolute bottom-0 mx-auto -translate-x-2/4 fill-gray-900 sm:hidden dark:fill-white" />
         </div>
-        <div className="relative col-span-2 grid content-between">
-          <div className="border-b border-black/5 p-2 dark:border-white/10">
+        <div className="relative grid content-between border-black/5 max-sm:mt-10 max-sm:border-t sm:col-span-2 dark:border-white/10">
+          <div className="border-b border-black/5 p-2 max-sm:px-4 dark:border-white/10">
             <p className="font-mono text-sm font-medium text-gray-700 uppercase dark:text-gray-400">
               By the creator of Tailwind CSS
             </p>
-            <h1 className="mt-2 text-5xl tracking-tighter text-balance text-gray-900 sm:text-8xl dark:text-white">
+            <h1 className="mt-2 text-6xl tracking-tighter text-balance text-gray-900 md:text-7xl lg:text-8xl dark:text-white">
               Tailwind CSS by Example
             </h1>
           </div>
-          <div className="mt-8 border-t border-black/5 p-2 dark:border-white/10">
+          <div className="mt-8 border-t border-black/5 p-2 max-sm:border-y max-sm:px-4 dark:border-white/10">
             <p className="text-sm/6 text-gray-600 dark:text-gray-400">
               Join the waitlist to get early access, free chapters and sneak peaks.
             </p>
@@ -81,14 +85,14 @@ export default async function Course() {
             </div>
           </div>
         </div>
-        <div className="relative col-span-3 py-5 pl-16 font-mono text-xs font-medium text-gray-700 uppercase after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-gray-950/5 dark:text-gray-400 dark:after:bg-white/10">
+        <div className="relative py-5 pl-16 font-mono text-xs font-medium text-gray-700 uppercase after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-gray-950/5 max-sm:hidden sm:col-span-3 dark:text-gray-400 dark:after:bg-white/10">
           <p>
             Adam Wathan, <br />
             Wrestling enthusiast
           </p>
           <Signature className="absolute mx-auto -translate-x-1/4 -translate-y-[110%] fill-gray-900 dark:fill-white" />
         </div>
-        <div className="prose col-span-2 col-start-2 grid max-w-2xl p-2">
+        <div className="prose grid max-w-2xl border-black/5 p-2 max-sm:mt-10 max-sm:border-t max-sm:px-4 sm:col-span-2 sm:col-start-2 dark:border-white/10">
           <p className="text-xl/7 text-gray-600 dark:text-gray-300">
             A video course that teaches you how to build beautiful, responsive UIs—without writing a single line of
             custom CSS. Learn by doing, with real-world examples that take you from simple layouts to fully polished
@@ -130,8 +134,8 @@ export default async function Course() {
             </li>
           </ol>
         </div>
-        <GridContainer className="col-span-3 mt-10 grid grid-cols-3 gap-x-12">
-          <div className="grid grid-cols-2 gap-4 p-1">
+        <GridContainer className="mt-10 grid grid-cols-2 gap-2 sm:col-span-3 sm:grid-cols-3 sm:gap-x-6 lg:gap-x-12">
+          <div className="grid grid-cols-2 gap-2 p-1 lg:gap-4">
             <Image
               src={form_example_01.src}
               alt="Tailwind CSS by Example preview"
@@ -156,7 +160,7 @@ export default async function Course() {
               className="aspect-180/149 h-full w-full rounded-lg object-cover outline -outline-offset-1 outline-black/5 dark:outline-white/10"
             />
           </div>
-          <div className="grid grid-cols-2 gap-4 p-1">
+          <div className="grid grid-cols-2 gap-2 p-1 lg:gap-4">
             <Image
               src={landing_page_example_01.src}
               alt="Tailwind CSS by Example preview"
@@ -181,7 +185,7 @@ export default async function Course() {
               className="aspect-180/149 h-full w-full rounded-lg object-cover outline -outline-offset-1 outline-black/5 dark:outline-white/10"
             />
           </div>
-          <div className="grid grid-cols-2 gap-4 p-1">
+          <div className="grid grid-cols-2 gap-2 p-1 lg:gap-4">
             <Image
               src={music_player_example_01.src}
               alt="Tailwind CSS by Example preview"
@@ -206,8 +210,33 @@ export default async function Course() {
               className="aspect-180/149 h-full w-full rounded-lg object-cover outline -outline-offset-1 outline-black/5 dark:outline-white/10"
             />
           </div>
+          <div className="grid grid-cols-2 gap-2 p-1 sm:hidden lg:gap-4">
+            <Image
+              src={hero_example_01.src}
+              alt="Tailwind CSS by Example preview"
+              width={375}
+              height={228}
+              className="col-span-2 aspect-375/228 h-full w-full rounded-lg object-cover outline -outline-offset-1 outline-black/5 dark:outline-white/10"
+            />
+            <Image
+              src={hero_example_02.src}
+              alt="Tailwind CSS by Example preview 1"
+              // layout="fill"
+              width={180}
+              height={149}
+              className="aspect-180/149 h-full w-full rounded-lg object-cover outline -outline-offset-1 outline-black/5 dark:outline-white/10"
+            />
+            <Image
+              src={hero_example_03.src}
+              alt="Tailwind CSS by Example preview 2"
+              // layout="fill"
+              width={180}
+              height={149}
+              className="aspect-180/149 h-full w-full rounded-lg object-cover outline -outline-offset-1 outline-black/5 dark:outline-white/10"
+            />
+          </div>
         </GridContainer>
-        <div className="prose col-span-2 col-start-2 mt-10 grid max-w-2xl p-2">
+        <div className="prose mt-10 grid max-w-2xl p-2 max-sm:px-4 sm:col-span-2 sm:col-start-2">
           <h3 className="text-xl/7 font-medium tracking-tighter text-gray-900 dark:text-white">Who is it for?</h3>
           <p className="text-sm/7 text-gray-900 dark:text-white">
             Whether you're brand new to Tailwind CSS or looking to level up your skills, this course gives you a deep
@@ -224,6 +253,7 @@ export default async function Course() {
             If this sounds like something you’d be interested, sign up to the waitlist to get early access, free
             chapters and sneak peaks at the course content.
           </p>
+          <Signature className="w-36 fill-gray-900 dark:fill-white" />
           <p className="text-sm/7 font-semibold text-gray-900 dark:text-white">- Adam</p>
         </div>
       </GridContainer>
