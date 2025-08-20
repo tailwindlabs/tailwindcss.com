@@ -21,8 +21,7 @@ import { Signature } from "./signature";
 
 function SignUpForm() {
   return (
-    // TODO: replace with real url
-    <form className="relative" method="POST" action="https://app.kit.com/forms/7712177/subscriptions">
+    <form className="relative" method="POST" action="https://app.kit.com/forms/8458453/subscriptions">
       <input
         required
         type="email"

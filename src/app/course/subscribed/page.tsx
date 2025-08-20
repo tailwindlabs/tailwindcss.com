@@ -21,7 +21,7 @@ export default async function Subscribed() {
           <div className="grid border-y border-black/5 p-2 max-md:border-t-0 max-sm:justify-center max-sm:px-4 dark:border-white/10">
             <Logo className="h-7" />
           </div>
-          <div className="mt-4 border-y border-black/5 p-2 max-sm:px-4 dark:border-white/10">
+          <div className="mt-2 border-y border-black/5 p-2 max-sm:px-4 dark:border-white/10">
             <p className="font-mono text-sm font-medium text-gray-700 uppercase max-sm:text-center dark:text-gray-400">
               Tailwind CSS by Example
             </p>
@@ -29,7 +29,7 @@ export default async function Subscribed() {
               Check your email.
             </h1>
           </div>
-          <div className="mt-6 border-y border-black/5 p-2 max-md:border-b-0 max-sm:px-4 dark:border-white/10">
+          <div className="mt-4 border-y border-black/5 p-2 max-md:border-b-0 max-sm:px-4 dark:border-white/10">
             <p className="max-w-xl text-lg/7 font-medium text-pretty text-gray-500 max-sm:text-center dark:text-gray-400">
               You should get a confirmation email any minute —{" "}
               <strong className="font-medium text-gray-900 dark:text-white">open it up</strong> and{" "}
