@@ -263,7 +263,7 @@ void main() {
 function createShader(gl: WebGLRenderingContext, type: number, source: string): WebGLShader | null {
   const shader = gl.createShader(type);
   if (!shader) return null;
-  
+
   gl.shaderSource(shader, source);
   gl.compileShader(shader);
 
@@ -276,10 +276,14 @@ function createShader(gl: WebGLRenderingContext, type: number, source: string): 
   return shader;
 }
 
-function createProgram(gl: WebGLRenderingContext, vertexShader: WebGLShader, fragmentShader: WebGLShader): WebGLProgram | null {
+function createProgram(
+  gl: WebGLRenderingContext,
+  vertexShader: WebGLShader,
+  fragmentShader: WebGLShader,
+): WebGLProgram | null {
   const program = gl.createProgram();
   if (!program) return null;
-  
+
   gl.attachShader(program, vertexShader);
   gl.attachShader(program, fragmentShader);
   gl.linkProgram(program);
@@ -296,7 +300,7 @@ function createProgram(gl: WebGLRenderingContext, vertexShader: WebGLShader, fra
 function loadTexture(gl: WebGLRenderingContext, url: string): WebGLTexture | null {
   const texture = gl.createTexture();
   if (!texture) return null;
-  
+
   gl.bindTexture(gl.TEXTURE_2D, texture);
 
   gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([0, 0, 0, 0]));
@@ -351,8 +355,8 @@ export default function DotGridImage({
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    // Set canvas size to match device pixel ratio for crisp rendering
-    const dpr = window.devicePixelRatio || 1;
+    // Set canvas size to match device pixel ratio capped at 2
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = canvas.width * dpr;
     canvas.height = canvas.height * dpr;
 
@@ -560,7 +564,7 @@ export default function DotGridImage({
   return (
     <canvas
       ref={canvasRef}
-      className={className}
+      className={`pointer-coarse:pointer-events-none ${className}`}
       width={width}
       height={height}
       style={{
