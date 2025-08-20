@@ -17,41 +17,10 @@ import hero_example_02 from "./hero-example-02.png";
 import hero_example_03 from "./hero-example-03.png";
 import DotGridImage from "./dot-grid-image";
 
-// function DotGridImageWithTheme(props: any) {
-//   const [darkMode, setDarkMode] = useState(false);
-
-//   useEffect(() => {
-//     // Check for dark mode preference
-//     const checkDarkMode = () => {
-//       const isDark = document.documentElement.classList.contains('dark') ||
-//                     window.matchMedia('(prefers-color-scheme: dark)').matches;
-//       setDarkMode(isDark);
-//     };
-
-//     // Initial check
-//     checkDarkMode();
-
-//     // Listen for theme changes
-//     const observer = new MutationObserver(checkDarkMode);
-//     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-
-//     // Listen for system theme changes
-//     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-//     mediaQuery.addEventListener('change', checkDarkMode);
-
-//     return () => {
-//       observer.disconnect();
-//       mediaQuery.removeEventListener('change', checkDarkMode);
-//     };
-//   }, []);
-
-//   return <DotGridImage {...props} darkMode={darkMode} />;
-// }
-
 // TODO: add og image
 // import card from "./card.jpg";
 
-export function SignUpForm() {
+function SignUpForm() {
   return (
     // ToDO: replace with real url
     <form className="relative" method="POST" action="https://app.kit.com/forms/7712177/subscriptions">
@@ -102,7 +71,7 @@ export default async function Course() {
             darkMode={true}
             width={472}
             height={667}
-            className="grid items-center justify-center object-cover sm:aspect-[472/667] sm:h-[320px] not-dark:hidden"
+            className="bg-red grid items-center justify-center object-cover sm:aspect-[472/667] sm:h-[320px] not-dark:hidden"
           />
           <DotGridImage
             darkMode={false}
@@ -110,7 +79,7 @@ export default async function Course() {
             height={667}
             className="grid items-center justify-center object-cover sm:aspect-[472/667] sm:h-[320px] dark:hidden"
           />
-          <Signature className="absolute bottom-0 mx-auto -translate-x-2/4 fill-gray-900 sm:hidden dark:fill-white" />
+          <Signature className="pointer-events-noneabsolute bottom-0 mx-auto -translate-x-2/4 fill-gray-900 sm:hidden dark:fill-white" />
         </div>
         <div className="relative grid content-between border-black/5 max-sm:mt-10 max-sm:border-t sm:col-span-2 dark:border-white/10">
           <div className="border-b border-black/5 p-2 max-sm:px-4 dark:border-white/10">
@@ -135,7 +104,7 @@ export default async function Course() {
             Adam Wathan, <br />
             Wrestling enthusiast
           </p>
-          <Signature className="absolute mx-auto -translate-x-1/4 -translate-y-[110%] fill-gray-900 dark:fill-white" />
+          <Signature className="pointer-events-none absolute mx-auto -translate-x-1/4 -translate-y-[110%] fill-gray-900 dark:fill-white" />
         </div>
         <div className="prose grid max-w-2xl border-black/5 p-2 max-sm:mt-10 max-sm:border-t max-sm:px-4 sm:col-span-2 sm:col-start-2 dark:border-white/10">
           <p className="text-xl/7 text-gray-600 dark:text-gray-300">
