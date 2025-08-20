@@ -260,8 +260,10 @@ void main() {
 }
 `;
 
-function createShader(gl, type, source) {
+function createShader(gl: WebGLRenderingContext, type: number, source: string): WebGLShader | null {
   const shader = gl.createShader(type);
+  if (!shader) return null;
+  
   gl.shaderSource(shader, source);
   gl.compileShader(shader);
 
@@ -274,8 +276,10 @@ function createShader(gl, type, source) {
   return shader;
 }
 
-function createProgram(gl, vertexShader, fragmentShader) {
+function createProgram(gl: WebGLRenderingContext, vertexShader: WebGLShader, fragmentShader: WebGLShader): WebGLProgram | null {
   const program = gl.createProgram();
+  if (!program) return null;
+  
   gl.attachShader(program, vertexShader);
   gl.attachShader(program, fragmentShader);
   gl.linkProgram(program);
@@ -289,8 +293,10 @@ function createProgram(gl, vertexShader, fragmentShader) {
   return program;
 }
 
-function loadTexture(gl, url) {
+function loadTexture(gl: WebGLRenderingContext, url: string): WebGLTexture | null {
   const texture = gl.createTexture();
+  if (!texture) return null;
+  
   gl.bindTexture(gl.TEXTURE_2D, texture);
 
   gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([0, 0, 0, 0]));
@@ -315,6 +321,15 @@ function loadTexture(gl, url) {
   return texture;
 }
 
+interface DotGridImageProps {
+  darkSrc?: string;
+  lightSrc?: string;
+  className?: string;
+  darkMode?: boolean;
+  width?: number;
+  height?: number;
+}
+
 export default function DotGridImage({
   darkSrc = adamDark.src,
   lightSrc = adamLight.src,
@@ -322,9 +337,9 @@ export default function DotGridImage({
   darkMode = false,
   width = 472,
   height = 667,
-}) {
-  const canvasRef = useRef(null);
-  const animationRef = useRef(null);
+}: DotGridImageProps) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animationRef = useRef<number | null>(null);
   const mouseRef = useRef({ x: 0.5, y: 0.5 });
   const mouseVelocityRef = useRef({ x: 0, y: 0 });
   const mouseActiveRef = useRef(0); // 0 = not over canvas, 1 = over canvas
@@ -341,7 +356,7 @@ export default function DotGridImage({
     canvas.width = canvas.width * dpr;
     canvas.height = canvas.height * dpr;
 
-    const gl = canvas.getContext("webgl");
+    const gl = canvas.getContext("webgl") as WebGLRenderingContext | null;
     if (!gl) {
       console.error("WebGL not supported");
       return;
@@ -435,7 +450,7 @@ export default function DotGridImage({
     const texture = loadTexture(gl, darkMode ? darkSrc : lightSrc);
 
     // Render function
-    function render(time) {
+    function render(time: number) {
       // Update lagged mouse position with smooth interpolation
       const lagFactor = 0.15; // Lower = more lag (0.01-0.1 range)
       laggedMouseRef.current = {
@@ -448,43 +463,43 @@ export default function DotGridImage({
       const targetActivation = mouseActiveRef.current;
       mouseActivationRef.current += (targetActivation - mouseActivationRef.current) * activationSpeed;
 
-      gl.viewport(0, 0, canvas.width, canvas.height);
-      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl!.viewport(0, 0, canvas!.width, canvas!.height);
+      gl!.clear(gl!.COLOR_BUFFER_BIT);
 
-      gl.useProgram(program);
+      gl!.useProgram(program!);
 
       // Set position attribute
-      gl.enableVertexAttribArray(positionAttributeLocation);
-      gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-      gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
+      gl!.enableVertexAttribArray(positionAttributeLocation);
+      gl!.bindBuffer(gl!.ARRAY_BUFFER, positionBuffer!);
+      gl!.vertexAttribPointer(positionAttributeLocation, 2, gl!.FLOAT, false, 0, 0);
 
       // Set texture coordinate attribute
-      gl.enableVertexAttribArray(texCoordAttributeLocation);
-      gl.bindBuffer(gl.ARRAY_BUFFER, texCoordBuffer);
-      gl.vertexAttribPointer(texCoordAttributeLocation, 2, gl.FLOAT, false, 0, 0);
+      gl!.enableVertexAttribArray(texCoordAttributeLocation);
+      gl!.bindBuffer(gl!.ARRAY_BUFFER, texCoordBuffer!);
+      gl!.vertexAttribPointer(texCoordAttributeLocation, 2, gl!.FLOAT, false, 0, 0);
 
       // Set uniforms
-      gl.uniform2f(resolutionUniformLocation, canvas.width, canvas.height);
-      gl.uniform1f(timeUniformLocation, time * 0.001);
-      gl.uniform1f(darkModeUniformLocation, darkMode ? 1.0 : 0.0);
-      gl.uniform2f(mouseVelocityUniformLocation, mouseVelocityRef.current.x, mouseVelocityRef.current.y);
-      gl.uniform1f(mouseActiveUniformLocation, mouseActiveRef.current);
-      gl.uniform1f(mouseActivationUniformLocation, mouseActivationRef.current);
-      gl.uniform2f(laggedMouseUniformLocation, laggedMouseRef.current.x, laggedMouseRef.current.y);
+      gl!.uniform2f(resolutionUniformLocation, canvas!.width, canvas!.height);
+      gl!.uniform1f(timeUniformLocation, time * 0.001);
+      gl!.uniform1f(darkModeUniformLocation, darkMode ? 1.0 : 0.0);
+      gl!.uniform2f(mouseVelocityUniformLocation, mouseVelocityRef.current.x, mouseVelocityRef.current.y);
+      gl!.uniform1f(mouseActiveUniformLocation, mouseActiveRef.current);
+      gl!.uniform1f(mouseActivationUniformLocation, mouseActivationRef.current);
+      gl!.uniform2f(laggedMouseUniformLocation, laggedMouseRef.current.x, laggedMouseRef.current.y);
 
       // Bind texture
-      gl.activeTexture(gl.TEXTURE0);
-      gl.bindTexture(gl.TEXTURE_2D, texture);
-      gl.uniform1i(textureUniformLocation, 0);
+      gl!.activeTexture(gl!.TEXTURE0);
+      gl!.bindTexture(gl!.TEXTURE_2D, texture!);
+      gl!.uniform1i(textureUniformLocation, 0);
 
       // Draw using indexed triangles
-      gl.drawElements(gl.TRIANGLES, indexCount, gl.UNSIGNED_SHORT, 0);
+      gl!.drawElements(gl!.TRIANGLES, indexCount, gl!.UNSIGNED_SHORT, 0);
 
-      animationRef.current = requestAnimationFrame(render);
+      animationRef.current = requestAnimationFrame(render) as any;
     }
 
     // Mouse move handler with velocity calculation
-    const handleMouseMove = (event) => {
+    const handleMouseMove = (event: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
       const newMouse = {
         x: (event.clientX - rect.left) / rect.width,
