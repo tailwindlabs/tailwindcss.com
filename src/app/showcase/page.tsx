@@ -53,6 +53,13 @@ export default async function Showcase() {
 const showcase = [
   // Partners
   {
+    name: "Graphite",
+    url: "https://graphite.dev",
+    thumbnail: require("./img/graphite.dev.png").default,
+    video: "/showcase-videos/graphite.dev.mp4",
+    description: "Developer tool website",
+  },
+  {
     name: "Clerk",
     url: "https://go.clerk.com/tailwind",
     thumbnail: require("./img/clerk.com.png").default,
@@ -103,6 +110,13 @@ const showcase = [
   },
 
   // Ambassadors
+  {
+    name: "Sanity",
+    url: "https://sanity.io",
+    thumbnail: require("./img/sanity.io.png").default,
+    video: "/showcase-videos/sanity.io.mp4",
+    description: "CMS platform website",
+  },
 
   // Others
   {
