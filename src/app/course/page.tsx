@@ -57,7 +57,7 @@ export default async function Course() {
     <div className="grid md:grid-cols-[1fr_--spacing(6)_1fr_--spacing(6)_1fr] lg:grid-cols-[1fr_--spacing(12)_1fr_--spacing(12)_1fr]">
       <div className="col-start-2 row-span-full row-start-1 grid border-x border-black/5 max-md:hidden dark:border-white/10"></div>
       <GridContainer className="col-span-full col-start-1 row-start-1 mt-12 mb-16 grid md:my-36 md:grid-cols-3 md:gap-x-6 lg:gap-x-12">
-        <div className="grid-span-1 relative grid items-center justify-center p-2 after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-black/5 max-md:px-4 dark:after:bg-white/10">
+        <div className="grid-span-1 relative grid grid-cols-1 items-center justify-center justify-self-center after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-black/5 max-sm:px-4 sm:grid-cols-[1fr_1fr] sm:pl-16 md:grid-cols-1 md:p-2 md:pl-0 dark:after:bg-white/10">
           <DotGridImage
             darkMode={true}
             width={472}
@@ -70,7 +70,13 @@ export default async function Course() {
             height={667}
             className="aspect-[472/667] w-full max-w-[226px] dark:hidden"
           />
-          <Signature className="pointer-events-none absolute inset-x-0 -bottom-8 mx-auto -translate-x-1/4 fill-gray-900 md:hidden dark:fill-gray-200" />
+          <div className="relative font-mono text-xs font-medium text-gray-700 uppercase sm:translate-y-1/2 sm:py-5 md:hidden dark:text-gray-400">
+            <p className="max-sm:hidden">
+              Adam Wathan, <br />
+              Wrestling enthusiast
+            </p>
+            <Signature className="pointer-events-none absolute -translate-y-3/4 fill-gray-900 max-sm:inset-x-0 max-sm:mx-auto sm:-translate-x-1/4 sm:-translate-y-[110%] dark:fill-gray-200" />
+          </div>
         </div>
         <div className="relative grid content-between border-black/5 max-md:mt-10 max-md:border-t md:col-span-2 dark:border-white/10">
           <div className="border-b border-black/5 p-2 max-md:px-4 dark:border-white/10">
@@ -97,7 +103,7 @@ export default async function Course() {
           </p>
           <Signature className="pointer-events-none absolute mx-auto -translate-x-1/4 -translate-y-[110%] fill-gray-900 dark:fill-gray-200" />
         </div>
-        <div className="prose grid max-w-2xl border-black/5 p-2 max-md:mt-10 max-md:border-t max-md:px-4 md:col-span-2 md:col-start-2 dark:border-white/10">
+        <div className="prose grid border-black/5 p-2 max-md:mt-10 max-md:border-t max-md:px-4 md:col-span-2 md:col-start-2 dark:border-white/10 [&>p,&>h3,&>ul]:max-w-2xl">
           <p className="text-xl/7">
             A video course that teaches you how to build beautiful, responsive UIs—without writing a single line of
             custom CSS. Learn by doing, with real-world examples that take you from simple layouts to fully polished
@@ -124,7 +130,7 @@ export default async function Course() {
             like marketing pages, checkout flows, and full dashboards—step by step, alongside the creator of Tailwind
             CSS himself.
           </p>
-          <ol className="not-prose mt-12 text-sm/7">
+          <ul className="not-prose mt-12 text-sm/7">
             <li className="grid grid-cols-[auto_repeat(5,minmax(0,1fr))] gap-x-6 xl:gap-y-10">
               <div className="grid size-7 grid-cols-1 grid-rows-1 place-content-center border-1 border-gray-700/50 font-mono text-[10px]/7 font-medium text-gray-950 dark:border-white/50 dark:text-white">
                 <div className="col-start-1 row-start-1 grid place-content-center">
@@ -151,7 +157,7 @@ export default async function Course() {
                 responsive designs.
               </div>
             </li>
-          </ol>
+          </ul>
         </div>
         <GridContainer className="mt-10 grid grid-cols-2 gap-2 md:col-span-3 md:grid-cols-3 md:gap-x-6 lg:gap-x-12">
           <ImageGrid images={[form_example_01, form_example_02, form_example_03]} />
@@ -159,7 +165,7 @@ export default async function Course() {
           <ImageGrid images={[music_player_example_01, music_player_example_02, music_player_example_03]} />
           <ImageGrid images={[hero_example_01, hero_example_02, hero_example_03]} />
         </GridContainer>
-        <div className="prose mt-10 grid max-w-2xl p-2 max-md:px-4 md:col-span-2 md:col-start-2">
+        <div className="prose mt-10 grid p-2 max-md:px-4 md:col-span-2 md:col-start-2 [&>p,&>h3,&>ul]:max-w-2xl">
           <h3 className="text-xl/7 font-medium tracking-tighter">Who is it for?</h3>
           <p className="text-sm/7">
             Whether you're brand new to Tailwind CSS or looking to level up your skills, this course gives you a deep
