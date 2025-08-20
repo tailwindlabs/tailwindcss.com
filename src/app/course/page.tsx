@@ -54,10 +54,10 @@ export const metadata: Metadata = {
 
 export default async function Course() {
   return (
-    <div className="grid sm:grid-cols-[1fr_--spacing(6)_1fr_--spacing(6)_1fr] lg:grid-cols-[1fr_--spacing(12)_1fr_--spacing(12)_1fr]">
-      <div className="col-start-2 row-span-full row-start-1 grid border-x border-black/5 max-sm:hidden dark:border-white/10"></div>
-      <GridContainer className="col-span-full col-start-1 row-start-1 mt-12 mb-16 grid sm:my-36 sm:grid-cols-3 sm:gap-x-6 lg:gap-x-12">
-        <div className="grid-span-1 relative grid items-center justify-center p-2 after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-black/5 max-sm:px-4 dark:after:bg-white/10">
+    <div className="grid md:grid-cols-[1fr_--spacing(6)_1fr_--spacing(6)_1fr] lg:grid-cols-[1fr_--spacing(12)_1fr_--spacing(12)_1fr]">
+      <div className="col-start-2 row-span-full row-start-1 grid border-x border-black/5 max-md:hidden dark:border-white/10"></div>
+      <GridContainer className="col-span-full col-start-1 row-start-1 mt-12 mb-16 grid md:my-36 md:grid-cols-3 md:gap-x-6 lg:gap-x-12">
+        <div className="grid-span-1 relative grid items-center justify-center p-2 after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-black/5 max-md:px-4 dark:after:bg-white/10">
           <DotGridImage
             darkMode={true}
             width={472}
@@ -70,10 +70,10 @@ export default async function Course() {
             height={667}
             className="aspect-[472/667] w-full max-w-[226px] dark:hidden"
           />
-          <Signature className="pointer-events-none absolute -bottom-8 mx-auto translate-x-1/4 fill-gray-900 sm:hidden dark:fill-gray-200" />
+          <Signature className="pointer-events-none absolute inset-x-0 -bottom-8 mx-auto -translate-x-1/4 fill-gray-900 md:hidden dark:fill-gray-200" />
         </div>
-        <div className="relative grid content-between border-black/5 max-sm:mt-10 max-sm:border-t sm:col-span-2 dark:border-white/10">
-          <div className="border-b border-black/5 p-2 max-sm:px-4 dark:border-white/10">
+        <div className="relative grid content-between border-black/5 max-md:mt-10 max-md:border-t md:col-span-2 dark:border-white/10">
+          <div className="border-b border-black/5 p-2 max-md:px-4 dark:border-white/10">
             <p className="font-mono text-sm font-medium text-gray-700 uppercase dark:text-gray-400">
               By the creator of Tailwind CSS
             </p>
@@ -81,7 +81,7 @@ export default async function Course() {
               Tailwind CSS by Example
             </h1>
           </div>
-          <div className="mt-8 border-t border-black/5 p-2 max-sm:border-y max-sm:px-4 dark:border-white/10">
+          <div className="mt-8 border-t border-black/5 p-2 max-md:border-y max-md:px-4 dark:border-white/10">
             <p className="text-sm/6 text-gray-600 dark:text-gray-400">
               Join the waitlist to get early access, free chapters and sneak peaks.
             </p>
@@ -90,68 +90,82 @@ export default async function Course() {
             </div>
           </div>
         </div>
-        <div className="relative py-5 pl-16 font-mono text-xs font-medium text-gray-700 uppercase after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-gray-950/5 max-sm:hidden sm:col-span-3 dark:text-gray-400 dark:after:bg-white/10">
+        <div className="relative py-5 pl-16 font-mono text-xs font-medium text-gray-700 uppercase after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-gray-950/5 max-md:hidden md:col-span-3 dark:text-gray-400 dark:after:bg-white/10">
           <p>
             Adam Wathan, <br />
             Wrestling enthusiast
           </p>
           <Signature className="pointer-events-none absolute mx-auto -translate-x-1/4 -translate-y-[110%] fill-gray-900 dark:fill-gray-200" />
         </div>
-        <div className="prose grid max-w-2xl border-black/5 p-2 max-sm:mt-10 max-sm:border-t max-sm:px-4 sm:col-span-2 sm:col-start-2 dark:border-white/10">
-          <p className="text-xl/7 text-gray-600 dark:text-gray-300">
+        <div className="prose grid max-w-2xl border-black/5 p-2 max-md:mt-10 max-md:border-t max-md:px-4 md:col-span-2 md:col-start-2 dark:border-white/10">
+          <p className="text-xl/7">
             A video course that teaches you how to build beautiful, responsive UIs—without writing a single line of
             custom CSS. Learn by doing, with real-world examples that take you from simple layouts to fully polished
             components.
           </p>
-          <h3 className="text-xl/7 font-medium tracking-tighter text-gray-900 dark:text-white">
-            Why are we making a course?
-          </h3>
-          <p className="text-sm/7 text-gray-900 dark:text-white">
+          <h3 className="text-xl/7 font-medium tracking-tighter">Why are we making a course?</h3>
+          <p className="text-sm/7">
             The thing that makes Tailwind so powerful is that it’s relatively un-opinionated. Sure, it has a lot of
             sensible defaults like the color palette or the spacing scale, but they are fairly low level. How you use
             them is up to you.
           </p>
-          <p className="text-sm/7 text-gray-900 dark:text-white">
+          <p className="text-sm/7">
             But it turns out, some people like opinions. Over the past 8 years of building everything we make with
             Tailwind, we’ve developed a style of using it. This course is about showing you that style, through building
             beautiful, real-world, examples.
           </p>
-          <h3 className="text-xl/7 font-medium tracking-tighter text-gray-900 dark:text-white">What you’ll learn</h3>
-          <p className="text-sm/7 text-gray-900 dark:text-white">
+          <h3 className="text-xl/7 font-medium tracking-tighter">What you’ll learn</h3>
+          <p className="text-sm/7">
             In the first half, you'll learn the core concepts behind Tailwind—like working with utility classes,
             managing hover and focus states, customizing themes, and building responsive designs with ease.
           </p>
-          <p className="text-sm/7 text-gray-900 dark:text-white">
+          <p className="text-sm/7">
             Then, in the "By Example" section, you'll see how it all comes together by building real-world UI components
             like marketing pages, checkout flows, and full dashboards—step by step, alongside the creator of Tailwind
             CSS himself.
           </p>
-          <ol className="text-sm/7 text-gray-900 dark:text-white">
-            <li>
-              <span className="font-semibold">Core Concepts:</span> - The fundamental concepts of Tailwind CSS,
-              including how to use utility classes, manage hover and focus states, customize themes, and build
-              responsive designs.
+          <ol className="not-prose mt-12 text-sm/7">
+            <li className="grid grid-cols-[auto_repeat(5,minmax(0,1fr))] gap-x-6 xl:gap-y-10">
+              <div className="grid size-7 grid-cols-1 grid-rows-1 place-content-center border-1 border-gray-700/50 font-mono text-[10px]/7 font-medium text-gray-950 dark:border-white/50 dark:text-white">
+                <div className="col-start-1 row-start-1 grid place-content-center">
+                  <div className="h-7 w-5 bg-white dark:bg-gray-950" />
+                </div>
+                <div className="col-start-1 row-start-1 grid place-content-center tracking-widest">1</div>
+              </div>
+              <div className="col-span-5">
+                <span className="font-semibold">Core Concepts:</span> - The fundamental concepts of Tailwind CSS,
+                including how to use utility classes, manage hover and focus states, customize themes, and build
+                responsive designs.
+              </div>
             </li>
-            <li>
-              <span className="font-semibold">By Example:</span> - Build real-world UI components using the concepts
-              learned in the first half. You’ll see all the tricks and techniques we use to create beautiful, responsive
-              designs.
+            <li className="mt-6 grid grid-cols-[auto_repeat(5,minmax(0,1fr))] gap-x-6 xl:gap-y-10">
+              <div className="grid size-7 grid-cols-1 grid-rows-1 place-content-center border-1 border-gray-700/50 font-mono text-[10px]/7 font-medium text-gray-950 dark:border-white/50 dark:text-white">
+                <div className="col-start-1 row-start-1 grid place-content-center">
+                  <div className="h-7 w-5 bg-white dark:bg-gray-950" />
+                </div>
+                <div className="col-start-1 row-start-1 grid place-content-center tracking-widest">2</div>
+              </div>
+              <div className="col-span-5">
+                <span className="font-semibold">By Example:</span> - Build real-world UI components using the concepts
+                learned in the first half. You’ll see all the tricks and techniques we use to create beautiful,
+                responsive designs.
+              </div>
             </li>
           </ol>
         </div>
-        <GridContainer className="mt-10 grid grid-cols-2 gap-2 sm:col-span-3 sm:grid-cols-3 sm:gap-x-6 lg:gap-x-12">
+        <GridContainer className="mt-10 grid grid-cols-2 gap-2 md:col-span-3 md:grid-cols-3 md:gap-x-6 lg:gap-x-12">
           <ImageGrid images={[form_example_01, form_example_02, form_example_03]} />
           <ImageGrid images={[landing_page_example_01, landing_page_example_02, landing_page_example_03]} />
           <ImageGrid images={[music_player_example_01, music_player_example_02, music_player_example_03]} />
           <ImageGrid images={[hero_example_01, hero_example_02, hero_example_03]} />
         </GridContainer>
-        <div className="prose mt-10 grid max-w-2xl p-2 max-sm:px-4 sm:col-span-2 sm:col-start-2">
-          <h3 className="text-xl/7 font-medium tracking-tighter text-gray-900 dark:text-white">Who is it for?</h3>
-          <p className="text-sm/7 text-gray-900 dark:text-white">
+        <div className="prose mt-10 grid max-w-2xl p-2 max-md:px-4 md:col-span-2 md:col-start-2">
+          <h3 className="text-xl/7 font-medium tracking-tighter">Who is it for?</h3>
+          <p className="text-sm/7">
             Whether you're brand new to Tailwind CSS or looking to level up your skills, this course gives you a deep
             understanding of how to build beautiful, responsive interfaces with utility-first CSS.
           </p>
-          <p className="text-sm/7 text-gray-900 dark:text-white">
+          <p className="text-sm/7">
             If you’re just starting out with Tailwind, you’ll learn the fundamentals and how to use it effectively. If
             you’re already familiar with Tailwind, you’ll see how we use it in practice to build real-world components
             and layouts.
@@ -159,12 +173,12 @@ export default async function Course() {
           <div className="not-prose relative mt-10 max-w-md">
             <SignUpForm />
           </div>
-          <p className="mt-10 text-sm/7 text-gray-900 dark:text-white">
+          <p className="mt-10 text-sm/7">
             If this sounds like something you’d be interested in, sign up to the waitlist to get early access, free
             chapters and sneak peaks at the course content.
           </p>
           <Signature className="w-36 fill-gray-900 dark:fill-gray-200" />
-          <p className="text-sm/7 font-semibold text-gray-900 dark:text-white">- Adam</p>
+          <p className="text-sm/7 font-semibold">- Adam</p>
         </div>
       </GridContainer>
     </div>
@@ -172,7 +186,7 @@ export default async function Course() {
 }
 
 const ImageGrid = ({ images }: { images: { src: string }[] }) => (
-  <div className="grid grid-cols-2 gap-2 p-1 sm:last:hidden lg:gap-4">
+  <div className="grid grid-cols-2 gap-2 p-1 md:last:hidden lg:gap-4">
     <Image
       src={images[0].src}
       alt="Hero section preview for Tailwind CSS by Example"
@@ -187,7 +201,7 @@ const ImageGrid = ({ images }: { images: { src: string }[] }) => (
       width={360}
       height={298}
       quality={100}
-      className="aspect-180/149 w-full rounded-lg object-cover outline -outline-offset-1 outline-black/5 max-sm:hidden dark:outline-white/10"
+      className="aspect-180/149 w-full rounded-lg object-cover outline -outline-offset-1 outline-black/5 max-md:hidden dark:outline-white/10"
     />
     <Image
       src={images[2].src}
@@ -195,7 +209,7 @@ const ImageGrid = ({ images }: { images: { src: string }[] }) => (
       width={360}
       height={298}
       quality={100}
-      className="aspect-180/149 w-full rounded-lg object-cover outline -outline-offset-1 outline-black/5 max-sm:hidden dark:outline-white/10"
+      className="aspect-180/149 w-full rounded-lg object-cover outline -outline-offset-1 outline-black/5 max-md:hidden dark:outline-white/10"
     />
   </div>
 );
