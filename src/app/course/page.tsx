@@ -176,22 +176,25 @@ const ImageGrid = ({ images }: { images: { src: string }[] }) => (
     <Image
       src={images[0].src}
       alt="Hero section preview for Tailwind CSS by Example"
-      width={375}
-      height={228}
+      width={750}
+      height={456}
+      quality={100}
       className="col-span-2 aspect-375/228 w-full rounded-lg object-cover outline -outline-offset-1 outline-black/5 dark:outline-white/10"
     />
     <Image
       src={images[1].src}
       alt="Hero section preview for Tailwind CSS by Example"
-      width={180}
-      height={149}
+      width={360}
+      height={298}
+      quality={100}
       className="aspect-180/149 w-full rounded-lg object-cover outline -outline-offset-1 outline-black/5 max-sm:hidden dark:outline-white/10"
     />
     <Image
       src={images[2].src}
       alt="Hero section preview for Tailwind CSS by Example"
-      width={180}
-      height={149}
+      width={360}
+      height={298}
+      quality={100}
       className="aspect-180/149 w-full rounded-lg object-cover outline -outline-offset-1 outline-black/5 max-sm:hidden dark:outline-white/10"
     />
   </div>
