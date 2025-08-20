@@ -275,7 +275,7 @@ export default async function Course() {
   );
 }
 
-const Signature = ({ className }) => (
+const Signature = ({ className }: { className?: string }) => (
   <svg
     width="184"
     className={className}
