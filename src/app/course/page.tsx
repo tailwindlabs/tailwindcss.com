@@ -56,15 +56,20 @@ export default async function Course() {
   return (
     <div className="grid sm:grid-cols-[1fr_--spacing(6)_1fr_--spacing(6)_1fr] lg:grid-cols-[1fr_--spacing(12)_1fr_--spacing(12)_1fr]">
       <div className="col-start-2 row-span-full row-start-1 grid border-x border-black/5 max-sm:hidden dark:border-white/10"></div>
-      <GridContainer className="col-span-full col-start-1 row-start-1 mb-16 grid sm:my-36 sm:grid-cols-3 sm:gap-x-6 lg:gap-x-12">
+      <GridContainer className="col-span-full col-start-1 row-start-1 mt-12 mb-16 grid sm:my-36 sm:grid-cols-3 sm:gap-x-6 lg:gap-x-12">
         <div className="grid-span-1 relative grid items-center justify-center p-2 after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-black/5 max-sm:px-4 dark:after:bg-white/10">
           <DotGridImage
             darkMode={true}
             width={472}
             height={667}
-            className="aspect-[472/667] h-[320px] not-dark:hidden"
+            className="aspect-[472/667] w-full max-w-[226px] not-dark:hidden"
           />
-          <DotGridImage darkMode={false} width={472} height={667} className="aspect-[472/667] h-[320px] dark:hidden" />
+          <DotGridImage
+            darkMode={false}
+            width={472}
+            height={667}
+            className="aspect-[472/667] w-full max-w-[226px] dark:hidden"
+          />
           <Signature className="pointer-events-none absolute -bottom-8 mx-auto translate-x-1/4 fill-gray-900 sm:hidden dark:fill-gray-200" />
         </div>
         <div className="relative grid content-between border-black/5 max-sm:mt-10 max-sm:border-t sm:col-span-2 dark:border-white/10">
