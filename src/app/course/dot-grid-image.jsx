@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-// import adam from "./adam-raw.jpg";
-import adam from "./adam-cutout.png";
+import adamLight from "./adam-light.jpg";
+import adamDark from "./adam-dark.jpg";
 
 const vertexShaderSource = `
 precision mediump float;
@@ -48,8 +48,8 @@ void main() {
     float edgeDistance = min(edgeDistanceX, edgeDistanceY); // Distance from closest edge
     
     // Edge falloff (no effect at edges, full effect away from edges)
-    float edgeFalloff = smoothstep(0.0, 0.3, edgeDistance); // Ramp up over 30% from edge
-    
+  float edgeFalloff = edgeDistance > 0.05 ? smoothstep(0.05, 0.2, edgeDistance) : 0.0;
+
     // Combine all falloffs
     influence = influence * displacementStrength * radiusFalloff * edgeFalloff * u_mouseActivation;
     
@@ -182,14 +182,14 @@ void main() {
     
     // Calculate velocity-enhanced radius
     float velocityMagnitude = length(u_mouseVelocity);
-    float baseRadius = 200.0; // Base influence radius
-    float velocityRadius = velocityMagnitude * 40.0; // Velocity extends radius
+    float baseRadius = 400.0; // Base influence radius
+    float velocityRadius = velocityMagnitude * 20.0; // Velocity extends radius
     float totalRadius = baseRadius + velocityRadius;
     
     // Calculate mouse influence for hiding with hard cutoff
     float mouseInfluence = 0.0;
     if (mouseDistance < totalRadius && u_mouseActive > 0.5) {
-      mouseInfluence = 1.0 - (mouseDistance / totalRadius); // Linear falloff within radius
+      mouseInfluence = 0.75 - (mouseDistance / totalRadius); // Linear falloff within radius
     }
     
     // Use dot position for consistent randomness
@@ -315,7 +315,14 @@ function loadTexture(gl, url) {
   return texture;
 }
 
-export default function DotGridImage({ src = adam.src, className = "", darkMode = false, width = 472, height = 667 }) {
+export default function DotGridImage({
+  darkSrc = adamDark.src,
+  lightSrc = adamLight.src,
+  className = "",
+  darkMode = false,
+  width = 472,
+  height = 667,
+}) {
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
   const mouseRef = useRef({ x: 0.5, y: 0.5 });
@@ -323,7 +330,7 @@ export default function DotGridImage({ src = adam.src, className = "", darkMode 
   const mouseActiveRef = useRef(0); // 0 = not over canvas, 1 = over canvas
   const mouseActivationRef = useRef(0); // Smooth activation factor 0-1
   const laggedMouseRef = useRef({ x: 0.5, y: 0.5 }); // Lagged mouse position
-  const lastMouseTimeRef = useRef(Date.now());
+  const lastMouseTimeRef = useRef(performance.now());
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -425,12 +432,12 @@ export default function DotGridImage({ src = adam.src, className = "", darkMode 
     const indexCount = indices.length;
 
     // Load texture
-    const texture = loadTexture(gl, src);
+    const texture = loadTexture(gl, darkMode ? darkSrc : lightSrc);
 
     // Render function
     function render(time) {
       // Update lagged mouse position with smooth interpolation
-      const lagFactor = 0.05; // Lower = more lag (0.01-0.1 range)
+      const lagFactor = 0.15; // Lower = more lag (0.01-0.1 range)
       laggedMouseRef.current = {
         x: laggedMouseRef.current.x + (mouseRef.current.x - laggedMouseRef.current.x) * lagFactor,
         y: laggedMouseRef.current.y + (mouseRef.current.y - laggedMouseRef.current.y) * lagFactor,
@@ -484,8 +491,8 @@ export default function DotGridImage({ src = adam.src, className = "", darkMode 
         y: (event.clientY - rect.top) / rect.height,
       };
 
-      // Calculate velocity
-      const now = Date.now();
+      // Calculate velocity using performance.now() for higher precision
+      const now = performance.now();
       const deltaTime = Math.max(now - lastMouseTimeRef.current, 1); // Avoid division by zero
       const deltaX = newMouse.x - mouseRef.current.x;
       const deltaY = newMouse.y - mouseRef.current.y;
@@ -533,7 +540,7 @@ export default function DotGridImage({ src = adam.src, className = "", darkMode 
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [src, darkMode]);
+  }, [darkSrc, lightSrc, darkMode]);
 
   return (
     <canvas
