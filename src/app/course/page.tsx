@@ -15,9 +15,22 @@ import hero_example_02 from "./hero-example-02.png";
 import hero_example_03 from "./hero-example-03.png";
 import DotGridImage from "./dot-grid-image";
 import { Signature } from "./signature";
+import card from "./card.jpg";
 
 // TODO: add og image
-// import card from "./card.jpg";
+export const metadata: Metadata = {
+  title: "Tailwind CSS by Example",
+  description:
+    "A video course that teaches you how to build beautiful, responsive UIs—without writing a single line of custom CSS.",
+  openGraph: {
+    type: "website",
+    title: "Tailwind CSS by Example",
+    description:
+      "A video course that teaches you how to build beautiful, responsive UIs—without writing a single line of custom CSS.",
+    images: card.src,
+    url: "https://tailwindcss.com/tailwind-css-by-example",
+  },
+};
 
 function SignUpForm() {
   return (
@@ -37,20 +50,6 @@ function SignUpForm() {
     </form>
   );
 }
-
-export const metadata: Metadata = {
-  title: "Tailwind CSS by Example",
-  description:
-    "A video course that teaches you how to build beautiful, responsive UIs—without writing a single line of custom CSS.",
-  openGraph: {
-    type: "website",
-    title: "Tailwind CSS by Example",
-    description:
-      "A video course that teaches you how to build beautiful, responsive UIs—without writing a single line of custom CSS.",
-    // images: card.src,
-    url: "https://tailwindcss.com/tailwind-css-by-example",
-  },
-};
 
 export default async function Course() {
   return (
