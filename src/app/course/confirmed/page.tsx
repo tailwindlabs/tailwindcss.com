@@ -31,8 +31,7 @@ export default async function Subscribed() {
           </div>
           <div className="mt-4 border-y border-black/5 p-2 max-md:border-b-0 max-sm:px-4 dark:border-white/10">
             <p className="max-w-xl text-lg/7 font-medium text-pretty text-gray-500 max-sm:text-center dark:text-gray-400">
-              We'll be in touch soon with more details on the course. Stay tuned for sneak peaks, free chapters and
-              early access.
+              Stay tuned for sneak peaks, early video previews, and behind-the-scenes updates soon.
             </p>
           </div>
         </div>

@@ -83,12 +83,12 @@ export default async function Course() {
               By the creator of Tailwind CSS
             </p>
             <h1 className="mt-2 text-6xl tracking-tighter text-balance text-gray-900 md:text-7xl lg:text-8xl dark:text-white">
-              Tailwind CSS by Example
+              Tailwind CSS by Example.
             </h1>
           </div>
           <div className="mt-8 border-t border-black/5 p-2 max-md:border-y max-md:px-4 dark:border-white/10">
             <p className="text-sm/6 text-gray-600 dark:text-gray-400">
-              Join the waitlist for early video previews and behind-the-scenes updates.
+              Join the waitlist for early previews and behind-the-scenes updates.
             </p>
             <div className="relative mt-2 max-w-md">
               <SignUpForm />
@@ -104,36 +104,43 @@ export default async function Course() {
         </div>
         <div className="prose grid max-w-2xl border-black/5 p-2 max-md:mt-10 max-md:border-t max-md:px-4 md:col-span-2 md:col-start-2 dark:border-white/10">
           <p className="text-lg/7">
-            Learn how the creator of Tailwind CSS uses it to build beautiful, robust user interfaces that are a joy to
+            Learn how the creator of Tailwind CSS rapidly builds beautiful, robust user interfaces that are a joy to
             maintain.
           </p>
-          {/*<p className="text-lg/7">
-            Go behind the scenes with the creator of Tailwind CSS and see exactly how it's used to build fast,
-            beautiful, and maintainable interfaces.
-          </p>*/}
           <p className="text-sm/7">
-            In this course, you'll watch complete UIs come together step by step. Every decision is explained along the
-            way—why it's made, what the trade-offs are, and the best practices that keep projects clean and scalable.
+            In this course, you'll watch <strong>complete UIs come together step-by-step</strong>, with every decision
+            and trade-off explained along the way. No simplified examples, just <strong>real-world designs</strong> with
+            real-world challenges like the things you work on every day.
           </p>
-          <h3 className="text-xl/7 font-medium tracking-tighter">Why this course?</h3>
+          <h3 className="text-xl/7 font-medium tracking-tighter">What you'll learn</h3>
           <p className="text-sm/7">
-            Most Tailwind tutorials make it look easy. Drop a few classes on a button, add{" "}
-            <code className="text-xs">hover:bg-blue-500</code>, and you're done.
+            We'll speedrun the fundamentals to make sure you know your way around the framework, but after that it's all
+            about turning <strong>complex, modern UI designs into bullet-proof, maintainable code</strong>.
           </p>
-          <p className="text-sm/7">But when you try to build something real, the questions start piling up:</p>
-          <ul className="text-sm/7">
-            <li className="italic">How do I keep layouts consistent across dozens of pages?</li>
-            <li className="italic">What's the best way to organize code so it stays maintainable?</li>
-            <li className="italic">Should I extract components, or just keep everything inline?</li>
-            <li className="italic">How do I avoid the "giant unreadable class string" problem?</li>
-            <li className="italic">Am I even using Tailwind the way it was intended?</li>
+          <p className="text-sm/7">We'll dig in to topics like:</p>
+          <ul>
+            <li>
+              <strong>Breaking down designs into composable pieces</strong> that avoid coupling and duplication
+            </li>
+            <li>
+              Approaching layout and spacing in a way that makes things <strong>resilient to unexpected content</strong>
+            </li>
+            <li>
+              <strong>Using modern CSS features</strong> to reduce the need for complex JavaScript
+            </li>
+            <li>
+              Handling dynamic, database-driven styles in <strong>user-themeable applications</strong>
+            </li>
+            <li>
+              When to write <strong>custom CSS</strong> and how to approach it
+            </li>
+            <li>
+              <strong>How to design component APIs</strong> when using utility-first CSS
+            </li>
           </ul>
           <p className="text-sm/7">
-            Simple examples are fine for learning the basics, but they don't prepare you for building a real product
-            that's going to live for years.
-          </p>
-          <p className="text-sm/7">
-            This course is where those questions finally get answered — straight from the person who built Tailwind CSS.
+            And tons more, over the course of building a bunch of expertly designed, custom interfaces from complete
+            scratch.
           </p>
         </div>
         <GridContainer className="mt-10 grid grid-cols-2 gap-2 md:col-span-3 md:grid-cols-3 md:gap-x-6 lg:gap-x-12">
@@ -143,51 +150,22 @@ export default async function Course() {
           <ImageGrid images={[hero_example_01, hero_example_02, hero_example_03]} />
         </GridContainer>
         <div className="prose mt-10 grid max-w-2xl p-2 max-md:px-4 md:col-span-2 md:col-start-2">
-          <h3 className="text-xl/7 font-medium tracking-tighter">What you'll learn</h3>
           <p className="text-sm/7">
-            This course isn't a checklist of framework features. It's a hands-on series where everything is taught in
-            the context of building real user interfaces — the way Tailwind was designed to be used.
-          </p>
-          <p className="text-sm/7">Along the way, you'll pick up things like:</p>
-          <ul>
-            <li>How to think in utility classes instead of writing custom CSS</li>
-            <li>Practical techniques for handling states (hover, focus, active) without clutter</li>
-            <li>Responsive layout patterns that actually scale</li>
-            <li>Strategies for customizing themes without creating maintenance headaches</li>
-            <li>Proven approaches for structuring components and pages that stay maintainable as projects grow</li>
-            <li>Workflows, shortcuts, and trade-offs that only come from building with Tailwind at scale</li>
-          </ul>
-          <p className="text-sm/7">
-            By the end, you'll not only know <em>what</em> to do with Tailwind, but{" "}
-            <em>how the person who created it</em> approaches real-world projects.
-          </p>
-          <h3 className="text-xl/7 font-medium tracking-tighter">Who it's for</h3>
-          <p className="text-sm/7">
-            This course is for anyone who wants to use Tailwind more confidently and effectively.
-          </p>
-          <ul className="text-sm/7">
-            <li>
-              <strong>If you're new to Tailwind:</strong> You'll get a clear, practical foundation that goes beyond the
-              docs and shows you how to actually ship projects.
-            </li>
-            <li>
-              <strong>If you're already experienced:</strong> You'll see how the creator of Tailwind uses it in
-              practice, picking up patterns, workflows, and best practices you won't find anywhere else.
-            </li>
-          </ul>
-          <p className="text-sm/7">
-            Wherever you are in your Tailwind journey, you'll walk away with the confidence that you're building UIs the
-            right way.
+            Sign up for the waitlist to get early preview videos and behind-the-scenes updates as the course comes
+            together.
           </p>
           <div className="not-prose relative mt-10 max-w-md">
             <SignUpForm />
           </div>
           <p className="mt-10 text-sm/7">
-            Sign up for the waitlist to get early access, free sample lessons, and behind-the-scenes updates as the
-            course comes together.
+            Wherever you are in your Tailwind journey, after this course you'll walk away with the confidence that
+            you're building UIs the right way.
           </p>
+        </div>
+        <div className="mt-10 grid max-w-2xl p-2 max-md:px-4 md:col-span-2 md:col-start-2">
           <Signature className="w-36 fill-gray-900 dark:fill-gray-200" />
-          <p className="text-sm/7 font-semibold">– Adam Wathan, creator of Tailwind CSS</p>
+          <p className="text-sm/6 font-semibold">Adam Wathan</p>
+          <p className="text-sm/6 text-gray-700 dark:text-gray-400">Creator of Tailwind CSS</p>
         </div>
       </GridContainer>
     </div>
