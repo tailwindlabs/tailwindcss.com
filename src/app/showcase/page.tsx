@@ -53,6 +53,13 @@ export default async function Showcase() {
 const showcase = [
   // Partners
   {
+    name: "Base UI",
+    url: "https://base-ui.com",
+    thumbnail: require("./img/base-ui.com.png").default,
+    video: "/showcase-videos/base-ui.com.mp4",
+    description: "Documentation website",
+  },
+  {
     name: "Graphite",
     url: "https://graphite.dev",
     thumbnail: require("./img/graphite.dev.png").default,
