@@ -27,7 +27,7 @@ export function CopyButton({ value, className }: { value: string; className?: st
       <div className="grid size-4">
         <svg
           viewBox="0 0 16 16"
-          strokeWidth={1.5}
+          strokeWidth={1}
           className={clsx(
             "col-start-1 row-start-1 fill-none stroke-current text-sky-400 transition-opacity duration-300 ease-in-out",
             !copied && "opacity-0",
@@ -38,7 +38,7 @@ export function CopyButton({ value, className }: { value: string; className?: st
 
         <svg
           viewBox="0 0 16 16"
-          strokeWidth={1.5}
+          strokeWidth={1}
           className={clsx(
             "col-start-1 row-start-1 fill-none stroke-current transition-opacity duration-300 ease-in-out",
             copied && "opacity-0",
