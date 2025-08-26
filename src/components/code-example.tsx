@@ -134,13 +134,6 @@ export function CodeExampleGroup({
 export function CodeBlock({ example }: { example: { lang: string; code: string } }) {
   return (
     <TabPanel>
-      <CopyButton
-        className={clsx(
-          "absolute z-10 transition duration-150 group-hover/code-block:opacity-100",
-          "top-0 right-0 z-10 text-white/50 hover:text-white/75",
-        )}
-        value={stripShikiComments(example.code)}
-      />
       <HighlightedCode example={example} />
     </TabPanel>
   );
