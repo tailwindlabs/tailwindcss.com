@@ -44,24 +44,28 @@ export async function CodeExample({
   example,
   filename,
   className = "",
+  copyable = false,
 }: {
   example: { lang: string; code: string };
   filename?: string;
   className?: string;
+  copyable?: boolean;
 }) {
   return (
     <CodeExampleWrapper className={className}>
       <div className="relative">
         {filename ? <CodeExampleFilename filename={filename} /> : null}
-        <CopyButton
-          className={clsx(
-            "absolute z-10 transition duration-150 group-hover/code-block:opacity-100",
-            filename
-              ? "-top-1 right-0 text-white/50 hover:text-white/75"
-              : "top-2 right-2 rounded border border-black/15 bg-black/50 text-white/75 opacity-0 backdrop-blur-md hover:text-white",
-          )}
-          value={stripShikiComments(example.code)}
-        />
+        {copyable && (
+          <CopyButton
+            className={clsx(
+              "absolute z-10 transition duration-150 group-hover/code-block:opacity-100",
+              filename
+                ? "-top-1 right-0 text-white/50 hover:text-white/75"
+                : "top-2 right-2 rounded border border-black/15 bg-black/50 text-white/75 opacity-0 backdrop-blur-md hover:text-white",
+            )}
+            value={stripShikiComments(example.code)}
+          />
+        )}
       </div>
       <HighlightedCode example={example} />
     </CodeExampleWrapper>
