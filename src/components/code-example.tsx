@@ -78,7 +78,6 @@ export function CodeExampleWrapper({ className, children }: { className?: string
       <div
         className={clsx(
           "rounded-xl p-1 text-sm scheme-dark in-data-stack:rounded-none dark:bg-white/5 dark:inset-ring dark:inset-ring-white/10 in-data-stack:dark:inset-ring-0",
-          "group/code-block",
           className,
         )}
       >
@@ -113,7 +112,7 @@ export function CodeExampleGroup({
         <div className="rounded-xl bg-gray-950 in-[figure]:-mx-1 in-[figure]:-mb-1">
           <div
             className={clsx(
-              "relative rounded-xl p-1 text-sm scheme-dark dark:bg-white/5 dark:inset-ring dark:inset-ring-white/10",
+              "rounded-xl p-1 text-sm scheme-dark dark:bg-white/5 dark:inset-ring dark:inset-ring-white/10",
               className,
             )}
           >
@@ -210,7 +209,7 @@ function CodeExampleFilename({ filename }: { filename: string }) {
   return <div className="px-3 pt-0.5 pb-1.5 text-xs/5 text-gray-400 dark:text-white/50">{filename}</div>;
 }
 
-let highlighter = await createHighlighter({
+const highlighter = await createHighlighter({
   themes: [theme],
   langs: [
     atApplyInjection as any,
