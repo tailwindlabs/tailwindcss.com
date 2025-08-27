@@ -2,15 +2,27 @@ const commentPattern = /\/\*\s*(?=\[!)(.*?)\s*\*\/\s*$|<!--\s*(?=\[!)(.*?)\s*-->
 const controlPattern = /^\[!code\s+([^:]+)(?::(.*))?\]$/;
 
 export function stripShikiComments(code: string): string {
-  if (!code.includes("[!code ")) return code;
+  if (!code.includes("[!code ") && !code.includes("prettier-ignore")) return code;
 
   let lines = code.split("\n");
   let result = "";
 
   for (let i = 0; i < lines.length; i++) {
     let line = lines[i];
+    let trimmed = line.trim();
     let removed = false;
     let changed = false;
+
+    // Skip lines that are meant to control Prettier
+    if (trimmed === "<!-- prettier-ignore -->") {
+      continue;
+    } else if (trimmed === "# prettier-ignore") {
+      continue;
+    } else if (trimmed === "// prettier-ignore") {
+      continue;
+    } else if (trimmed === "/* prettier-ignore */") {
+      continue;
+    }
 
     for (let c of line.matchAll(commentPattern)) {
       let content = c[1] ?? c[2] ?? c[3];

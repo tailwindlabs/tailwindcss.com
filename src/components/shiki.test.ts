@@ -40,6 +40,23 @@ describe("comment removal", () => {
       `,
     );
   });
+
+  test("on separate lines (prettier)", (t) => {
+    let input = dedent`
+      # prettier-ignore
+      /* prettier-ignore */
+      // prettier-ignore
+      <!-- prettier-ignore -->
+      <div class="flex"></div>
+    `;
+
+    t.assert.equal(
+      stripShikiComments(input),
+      dedent`
+        <div class="flex"></div>
+      `,
+    );
+  });
 });
 
 // [!code --] and [!code --:N] handling
