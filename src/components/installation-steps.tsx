@@ -38,6 +38,7 @@ export function Steps({ steps }: { steps: Step[] }) {
             data-tabs={step.tabs?.join(" ") ?? null}
           >
             <CodeExample
+              copyable
               filename={step.code.name}
               example={{
                 lang: step.code.lang,

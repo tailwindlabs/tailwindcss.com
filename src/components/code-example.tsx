@@ -8,11 +8,13 @@ import { clsx } from "clsx";
 import dedent from "dedent";
 import { createHighlighter } from "shiki";
 import theme from "./syntax-highlighter/theme.json";
+import { CopyButton } from "./copy-button";
 
 import { highlightClasses } from "./highlight-classes";
 import atApplyInjection from "./syntax-highlighter/at-apply.json";
 import atRulesInjection from "./syntax-highlighter/at-rules.json";
 import themeFnInjection from "./syntax-highlighter/theme-fn.json";
+import { stripShikiComments } from "./shiki";
 
 export function js(strings: TemplateStringsArray, ...args: any[]) {
   return { lang: "js", code: dedent(strings, ...args) };
@@ -42,14 +44,29 @@ export async function CodeExample({
   example,
   filename,
   className = "",
+  copyable = false,
 }: {
   example: { lang: string; code: string };
   filename?: string;
   className?: string;
+  copyable?: boolean;
 }) {
   return (
     <CodeExampleWrapper className={className}>
-      {filename ? <CodeExampleFilename filename={filename} /> : null}
+      <div className="relative">
+        {filename ? <CodeExampleFilename filename={filename} /> : null}
+        {copyable && (
+          <CopyButton
+            className={clsx(
+              "absolute z-10 transition duration-150 group-hover/code-block:opacity-100",
+              filename
+                ? "-top-1 right-0 text-white/50 hover:text-white/75"
+                : "top-2 right-2 rounded border border-black/15 bg-black/50 text-white/75 opacity-0 backdrop-blur-md hover:text-white",
+            )}
+            value={stripShikiComments(example.code)}
+          />
+        )}
+      </div>
       <HighlightedCode example={example} />
     </CodeExampleWrapper>
   );
