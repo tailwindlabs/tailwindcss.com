@@ -8,7 +8,7 @@ export function FooterSitemap({ className }: { className?: string }) {
       <div className={clsx("flex gap-4 p-4 md:hidden", className)}>
         <div className="flex flex-1 flex-col gap-10">
           <div>
-            <Learn />
+            <TailwindCSS />
           </div>
           <div>
             <Resources />
@@ -30,7 +30,7 @@ export function FooterSitemap({ className }: { className?: string }) {
         )}
       >
         <div className="border-x border-b border-gray-950/5 py-10 pl-2 not-md:border-0 md:border-b-0 dark:border-white/10">
-          <Learn />
+          <TailwindCSS />
         </div>
         <div className="border-x border-b border-gray-950/5 py-10 pl-2 not-md:border-0 md:border-b-0 dark:border-white/10">
           <TailwindPlus />
@@ -68,10 +68,10 @@ export function FooterMeta({ className }: { className?: string }) {
   );
 }
 
-function Learn() {
+function TailwindCSS() {
   return (
     <>
-      <h3 className="font-semibold">Learn</h3>
+      <h3 className="font-semibold">Tailwind CSS</h3>
       <ul className="mt-4 grid gap-4">
         <li>
           <Link href="/docs" className="hover:underline">
@@ -79,8 +79,8 @@ function Learn() {
           </Link>
         </li>
         <li>
-          <Link href="/showcase" className="hover:underline">
-            Showcase
+          <Link href="https://play.tailwindcss.com/" className="hover:underline">
+            Playground
           </Link>
         </li>
         <li>
@@ -89,8 +89,13 @@ function Learn() {
           </Link>
         </li>
         <li>
-          <Link href="https://play.tailwindcss.com/" className="hover:underline">
-            Playground
+          <Link href="/showcase" className="hover:underline">
+            Showcase
+          </Link>
+        </li>
+        <li>
+          <Link href="/sponsor" className="hover:underline">
+            Sponsor
           </Link>
         </li>
       </ul>
@@ -168,7 +173,7 @@ function Community() {
           </Link>
         </li>
         <li>
-          <Link href="https://tailwindcss.com/discord" className="hover:underline">
+          <Link href="/sponsor#insiders" className="hover:underline">
             Discord
           </Link>
         </li>

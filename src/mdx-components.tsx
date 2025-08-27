@@ -72,6 +72,10 @@ const components = {
   h6: createHeading(6),
 
   a(props) {
+    if (props.href?.startsWith("/plus") || props.href?.startsWith("https://tailwindcss.com/plus")) {
+      return <a {...props} />;
+    }
+
     return <Link {...(props as React.ComponentProps<typeof Link>)} />;
   },
 

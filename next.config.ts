@@ -461,6 +461,13 @@ const nextConfig = {
         permanent: false,
       },
 
+      // Sponsors
+      {
+        source: "/sponsors",
+        destination: "/sponsor",
+        permanent: false,
+      },
+
       // Tailwind UI
       {
         source: "/components",

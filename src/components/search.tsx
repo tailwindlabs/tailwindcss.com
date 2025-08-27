@@ -247,7 +247,7 @@ function Hit({ hit, children }: { hit: any; children: React.ReactNode }) {
       >
         {children}
       </a>
-    )
+    );
   }
 
   return (

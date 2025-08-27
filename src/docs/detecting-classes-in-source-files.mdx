@@ -135,6 +135,7 @@ As long as you always use complete class names in your code, Tailwind will gener
 Tailwind will scan every file in your project for class names, except in the following cases:
 
 - Files that are in your `.gitignore` file
+- Files in the `node_modules` directory
 - Binary files like images, videos, or zip files
 - CSS files
 - Common package manager lock files
@@ -211,7 +212,7 @@ If you need to make sure Tailwind generates certain class names that don’t exi
 ```css
 /* [!code filename:Generated CSS] */
 .underline {
-  text-decoration: underline;
+  text-decoration-line: underline;
 }
 ```
 
@@ -232,16 +233,16 @@ You can also use `@source inline()` to generate classes with variants. For examp
 ```css
 /* [!code filename:Generated CSS] */
 .underline {
-  text-decoration: underline;
+  text-decoration-line: underline;
 }
 @media (hover: hover) {
   .hover\:underline:hover {
-    text-decoration: underline;
+    text-decoration-line: underline;
   }
 }
 @media (focus: focus) {
   .focus\:underline:focus {
-    text-decoration: underline;
+    text-decoration-line: underline;
   }
 }
 ```
