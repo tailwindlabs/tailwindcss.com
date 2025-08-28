@@ -43,21 +43,23 @@ export function ZeroTooltip({ color, tooltip, shadeIdx }: { color: string; toolt
     tooltip.style.top = `${top}px`;
   };
 
-  /* hover handlers */
-  const handleEnter = (e: React.MouseEvent<HTMLDivElement>) => {
+  /* hover handlers — use Pointer Events to ignore touch */
+  const handlePointerEnter = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType !== "mouse") return;
     set("on", { scope: e.currentTarget });
     position();
   };
 
-  const handleLeave = () => {
+  const handlePointerLeave = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType !== "mouse") return;
     set("off", { scope: anchorRef.current! });
   };
 
   return (
     <div
       ref={anchorRef}
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
+      onPointerEnter={handlePointerEnter}
+      onPointerLeave={handlePointerLeave}
       className="group relative"
       /* Initial attribute value. Zero-UI's build step normally injects this. */
       data-tooltip="off"
