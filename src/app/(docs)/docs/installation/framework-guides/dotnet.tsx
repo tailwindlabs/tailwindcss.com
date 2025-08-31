@@ -1,6 +1,7 @@
 import { shell, Page, Step, Tile, css, html } from "./utils";
 import Logo from "@/docs/img/guides/dotnet.react.svg";
 import LogoDark from "@/docs/img/guides/dotnet-white.react.svg";
+import Link from "next/link";
 
 export let tile: Tile = {
     title: ".NET",
@@ -65,6 +66,7 @@ export let steps: Step[] = [
             <>
                 <p>Add a file called <code>Tailwind.targets</code> at the root of the project.</p>
                 <p>This file declares MSBuild targets that download the Tailwind CLI, and build the stylesheets as part of <code>dotnet build</code>.</p>
+                <p>If you prefer a NuGet package, see <Link href="https://github.com/marshalhayes/Tailwind.Standalone">marshalhayes/Tailwind.Standalone</Link>.</p>
             </>
         ),
         code: {
@@ -78,6 +80,8 @@ export let steps: Step[] = [
   <!-- TailwindOutputStyleSheetPath: The path to the output stylesheet. -->
   <!-- TailwindOptimizeOutputStyleSheet: Whether to optimize the output stylesheet. This property is optional, and defaults to false. -->
   <!-- TailwindMinifyOutputStyleSheet: Whether to minify the output stylesheet. This property is optional, and defaults to false when Configuration is Debug, and true when Configuration is Release. -->
+  <!-- TailwindGenerateSourceMap: Whether to generate a source map for the output stylesheet. This property is optional. -->
+  <!-- TailwindOutputSourceMapPath: The path to where to write the generated source map file. This property is optional, and when not specified, inline source maps are generated. Requires TailwindGenerateSourceMap to be true. -->
   <!-- TailwindDownloadUrl: The URL to the Tailwind Standalone CLI. This property is optional, and defaults to downloading the specified version from GitHub. -->
 
   <!-- To override these properties, create a PropertyGroup in the csproj file -->
@@ -126,11 +130,30 @@ export let steps: Step[] = [
     <Watch Include="$(TailwindInputStyleSheetPath)"/>
   </ItemGroup>
 
+  <!-- Detect whether the system is using glibc or musl -->
+  <Target Name="DetectLddVersion" BeforeTargets="DownloadTailwind" Condition="$([System.OperatingSystem]::IsLinux())">
+    <Exec Command="ldd --version"
+          ConsoleToMsBuild="true"
+          EchoOff="true"
+          IgnoreExitCode="true"
+          StandardOutputImportance="Low"
+          StandardErrorImportance="Low">
+      <Output TaskParameter="ConsoleOutput" PropertyName="LddVersion" />
+    </Exec>
+
+    <PropertyGroup>
+      <IsMusl Condition="'$(LddVersion)' != '' And $(LddVersion.Contains('musl'))">true</IsMusl>
+    </PropertyGroup>
+  </Target>
+
   <Target Name="DownloadTailwind">
     <PropertyGroup>
       <!-- Determine which version of Tailwind to use based on the current OS & architecture -->
-      <TailwindReleaseName Condition="$([System.OperatingSystem]::IsLinux()) And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == X64">tailwindcss-linux-x64</TailwindReleaseName>
-      <TailwindReleaseName Condition="$([System.OperatingSystem]::IsLinux()) And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == Armv7">tailwindcss-linux-armv7</TailwindReleaseName>
+      <TailwindReleaseName Condition="$([System.OperatingSystem]::IsLinux()) And '$(IsMusl)' == '' And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == X64">tailwindcss-linux-x64</TailwindReleaseName>
+      <TailwindReleaseName Condition="$([System.OperatingSystem]::IsLinux()) And '$(IsMusl)' == '' And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == Arm64">tailwindcss-linux-arm64</TailwindReleaseName>
+
+      <TailwindReleaseName Condition="$([System.OperatingSystem]::IsLinux()) And '$(IsMusl)' == 'true' And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == X64">tailwindcss-linux-x64-musl</TailwindReleaseName>
+      <TailwindReleaseName Condition="$([System.OperatingSystem]::IsLinux()) And '$(IsMusl)' == 'true' And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == Arm64">tailwindcss-linux-arm64-musl</TailwindReleaseName>
 
       <TailwindReleaseName Condition="$([System.OperatingSystem]::IsMacOS()) And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == X64">tailwindcss-macos-x64</TailwindReleaseName>
       <TailwindReleaseName Condition="$([System.OperatingSystem]::IsMacOS()) And $([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == Arm64">tailwindcss-macos-arm64</TailwindReleaseName>
@@ -140,19 +163,27 @@ export let steps: Step[] = [
 
       <TailwindDownloadUrl Condition="'$(TailwindDownloadUrl)' == '' And $(TailwindVersion) != 'latest'">https://github.com/tailwindlabs/tailwindcss/releases/download/$(TailwindVersion)/$(TailwindReleaseName)</TailwindDownloadUrl>
       <TailwindDownloadUrl Condition="'$(TailwindDownloadUrl)' == '' And $(TailwindVersion) == 'latest'">https://github.com/tailwindlabs/tailwindcss/releases/latest/download/$(TailwindReleaseName)</TailwindDownloadUrl>
+
+      <TailwindDestinationFolder>$([System.IO.Path]::Combine('$(TailwindDownloadPath)', 'Tailwind', '$(TailwindVersion)'))</TailwindDestinationFolder>
+
+      <TailwindCliPath>$([System.IO.Path]::Combine('$(TailwindDestinationFolder)', '$(TailwindReleaseName)'))</TailwindCliPath>
     </PropertyGroup>
 
-    <!-- Download the file -->
-    <DownloadFile DestinationFolder="$([System.IO.Path]::Combine('$(TailwindDownloadPath)', 'Tailwind', '$(TailwindVersion)'))"
+    <!-- Download the file if it hasn't been already -->
+    <!-- Note: Using latest will always reach out to GitHub to see if a new version is available -->
+    <DownloadFile DestinationFolder="$(TailwindDestinationFolder)"
                   DestinationFileName="$(TailwindReleaseName)"
                   SourceUrl="$(TailwindDownloadUrl)"
                   SkipUnchangedFiles="true"
-                  Retries="3">
+                  Retries="3"
+                  Condition="'$(TailwindVersion)' == 'latest' Or !Exists('$(TailwindCliPath)')">
       <Output TaskParameter="DownloadedFile" PropertyName="TailwindCliPath"/>
     </DownloadFile>
 
     <!-- On unix systems, make the file executable -->
-    <Exec Condition="Exists('$(TailwindCliPath)') And ($([System.OperatingSystem]::IsLinux()) Or $([System.OperatingSystem]::IsMacOS()))" Command="chmod +x '$(TailwindCliPath)'"/>
+    <Exec Condition="Exists('$(TailwindCliPath)') And ($([System.OperatingSystem]::IsLinux()) Or $([System.OperatingSystem]::IsMacOS()))"
+          Command="chmod +x '$(TailwindCliPath)'"
+          EchoOff="true"/>
   </Target>
 
   <!-- When building the project, run the Tailwind CLI -->
@@ -164,6 +195,7 @@ export let steps: Step[] = [
       <TailwindCliPath>$([MSBuild]::NormalizePath('$(TailwindCliPath)'))</TailwindCliPath>
       <TailwindInputStyleSheetPath>$([MSBuild]::NormalizePath('$(TailwindInputStyleSheetPath)'))</TailwindInputStyleSheetPath>
       <TailwindOutputStyleSheetPath>$([MSBuild]::NormalizePath('$(TailwindOutputStyleSheetPath)'))</TailwindOutputStyleSheetPath>
+      <TailwindOutputSourceMapPath Condition="'$(TailwindOutputSourceMapPath)' != ''">$([MSBuild]::NormalizePath('$(TailwindOutputSourceMapPath)'))</TailwindOutputSourceMapPath>
 
       <TailwindBuildCommand>"$(TailwindCliPath)" -i "$(TailwindInputStyleSheetPath)" -o "$(TailwindOutputStyleSheetPath)"</TailwindBuildCommand>
 
@@ -172,9 +204,24 @@ export let steps: Step[] = [
 
       <!-- Add minify flag if specified -->
       <TailwindBuildCommand Condition="'$(TailwindMinifyOutputStyleSheet)' == 'true'">$(TailwindBuildCommand) --minify</TailwindBuildCommand>
+
+      <!-- Add map flag if specified -->
+      <TailwindBuildCommand Condition="'$(TailwindGenerateSourceMap)' == 'true' And '$(TailwindOutputSourceMapPath)' == ''">$(TailwindBuildCommand) --map</TailwindBuildCommand>
+
+      <!-- Add map flag with output path if specified -->
+      <TailwindBuildCommand Condition="'$(TailwindGenerateSourceMap)' == 'true' And '$(TailwindOutputSourceMapPath)' != ''">$(TailwindBuildCommand) --map "$(TailwindOutputSourceMapPath)"</TailwindBuildCommand>
     </PropertyGroup>
 
-    <Exec Command="$(TailwindBuildCommand)"/>
+    <Exec Command="$(TailwindBuildCommand)" EchoOff="true"/>
+  </Target>
+
+  <!-- Delete the generated files when cleaning the project -->
+  <Target Name="CleanTailwindOutput" AfterTargets="Clean">
+    <!-- Delete the output stylesheet -->
+    <Delete Files="$(TailwindOutputStyleSheetPath)"/>
+
+    <!-- Delete external source map file if specified -->
+    <Delete Files="$(TailwindOutputSourceMapPath)" Condition="'$(TailwindOutputSourceMapPath)' != ''"/>
   </Target>
 </Project>`
         }
