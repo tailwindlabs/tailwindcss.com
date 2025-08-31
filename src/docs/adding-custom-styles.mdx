@@ -264,8 +264,8 @@ Traditionally these would be classes like `card`, `btn`, `badge` — that kind o
 @layer components {
   .card {
     background-color: var(--color-white);
-    border-radius: var(--rounded-lg);
-    padding: var(--spacing-6);
+    border-radius: var(--radius-lg);
+    padding: --spacing(6);
     box-shadow: var(--shadow-xl);
   }
   /* [!code highlight:2] */
@@ -469,7 +469,7 @@ To support literal values, use the `--value('literal')` syntax (notice the quote
 ```css
 /* [!code filename:CSS] */
 @utility tab-* {
-  tab-size: --value('inherit', 'initial', 'unset');
+  tab-size: --value("inherit", "initial", "unset");
 }
 ```
 
@@ -548,12 +548,14 @@ To support negative values, register separate positive and negative utilities in
 ```css
 /* [!code filename:CSS] */
 @utility inset-* {
-  inset: calc(var(--spacing) * --value([percentage], [length]));
+  inset: --spacing(--value(integer));
+  inset: --value([percentage], [length]);
 }
 
 /* [!code highlight:4] */
 @utility -inset-* {
-  inset: calc(var(--spacing) * --value([percentage], [length]) * -1);
+  inset: --spacing(--value(integer) * -1);
+  inset: calc(--value([percentage], [length]) * -1);
 }
 ```
 

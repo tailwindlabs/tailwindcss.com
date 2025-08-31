@@ -14,6 +14,7 @@ const guides: Guide[] = await create({
   nuxt: () => import("./nuxtjs"),
   solidjs: () => import("./solidjs"),
   sveltekit: () => import("./sveltekit"),
+  gatsby: () => import("./gatsby"),
   angular: () => import("./angular"),
   dotnet: () => import("./dotnet"),
   "ruby-on-rails": () => import("./ruby-on-rails"),

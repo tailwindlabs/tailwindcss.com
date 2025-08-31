@@ -216,5 +216,7 @@ const highlighter = await createHighlighter({
     "twig",
     "vue",
     "md",
+    "erb",
+    "rb",
   ],
 });

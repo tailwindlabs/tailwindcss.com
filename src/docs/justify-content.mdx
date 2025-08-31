@@ -285,7 +285,7 @@ Use the `justify-evenly` utility to justify items along the container's main axi
 
 ### Stretch
 
-Use the `justify-stretch` utility to allow content items to fill the available space along the container's main axis:
+Use the `justify-stretch` utility to allow auto-sized content items to fill the available space along the container's main axis:
 
 <Figure>
 
@@ -293,7 +293,7 @@ Use the `justify-stretch` utility to allow content items to fill the available s
   {
     <div className="grid grid-cols-1">
       <Stripes border className="col-start-1 row-start-1 rounded-lg" />
-      <div className="col-start-1 row-start-1 grid grid-flow-col justify-stretch gap-4 rounded-lg font-mono text-sm leading-6 font-bold text-white">
+      <div className="col-start-1 row-start-1 grid grid-cols-[4rem_auto_4rem] justify-stretch gap-4 rounded-lg font-mono text-sm leading-6 font-bold text-white">
         <div className="flex h-14 items-center justify-center rounded-lg bg-fuchsia-500">01</div>
         <div className="flex h-14 items-center justify-center rounded-lg bg-fuchsia-500">02</div>
         <div className="flex h-14 items-center justify-center rounded-lg bg-fuchsia-500">03</div>
@@ -304,7 +304,7 @@ Use the `justify-stretch` utility to allow content items to fill the available s
 
 ```html
 <!-- [!code classes:justify-stretch] -->
-<div class="flex justify-stretch ...">
+<div class="grid grid-cols-[4rem_auto_4rem] justify-stretch ...">
   <div>01</div>
   <div>02</div>
   <div>03</div>
