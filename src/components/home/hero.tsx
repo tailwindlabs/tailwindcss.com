@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
     <div>
       <div
         aria-hidden="true"
-        className="flex h-16 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 sm:h-24 dark:text-white/25"
+        className="flex h-16 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/55 max-sm:px-4 sm:h-24 dark:text-white/50"
       >
         <span className="hidden max-sm:inline">text-4xl </span>
         <span className="hidden sm:max-md:inline">text-5xl </span>
@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
       </GridContainer>
       <div
         aria-hidden="true"
-        className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 sm:h-10 dark:text-white/25"
+        className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/55 max-sm:px-4 sm:h-10 dark:text-white/50"
       >
         text-lg <span className="inline dark:hidden">text-gray-950</span>
         <span className="hidden dark:inline">text-white</span> font-medium

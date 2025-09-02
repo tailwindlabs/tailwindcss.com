@@ -49,7 +49,7 @@ export default function WhyTailwindCssSection() {
     <div className="relative max-w-full">
       <div
         aria-hidden="true"
-        className="hidden h-4 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 2xl:visible 2xl:flex dark:text-white/25"
+        className="hidden h-4 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/55 max-sm:px-4 2xl:visible 2xl:flex dark:text-white/50"
       >
         text-4xl <span className="inline dark:hidden">text-gray-950</span>
         <span className="hidden dark:inline">text-white</span> tracking-tighter text-balance
@@ -67,7 +67,7 @@ export default function WhyTailwindCssSection() {
 
       <div
         aria-hidden="true"
-        className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 sm:h-10 dark:text-white/25"
+        className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/55 max-sm:px-4 sm:h-10 dark:text-white/50"
       >
         text-base <span className="inline dark:hidden">text-gray-950</span>
         <span className="hidden dark:inline">text-white</span>
