@@ -1,9 +1,11 @@
 "use client";
 
 import { useLayoutEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 export function DocsSidebarAutoscroll({ children }: { children: React.ReactNode }) {
   let ref = useRef<HTMLDivElement>(null);
+  let pathname = usePathname();
 
   useLayoutEffect(() => {
     let element = ref.current;
@@ -17,7 +19,7 @@ export function DocsSidebarAutoscroll({ children }: { children: React.ReactNode 
     } else {
       activeLink.scrollIntoView();
     }
-  }, []);
+  }, [pathname]);
 
   return <div ref={ref}>{children}</div>;
 }
