@@ -22,7 +22,7 @@ const steps: Step[] = [
     body: (
       <p>
         Start by creating a new Vite project if you don’t have one set up already. The most common approach is to use{" "}
-        <a href="https://vite.dev/guide/#scaffolding-your-first-vite-project">Create Vite</a>.
+        <a href="https://vite.dev/guide/#scaffolding-your-first-vite-project">Create Vite</a>. Be sure to select the <strong>Vanilla</strong> template when asked. 
       </p>
     ),
     code: {
