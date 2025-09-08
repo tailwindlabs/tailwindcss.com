@@ -52,7 +52,7 @@ export const description = "Utilities for controlling an element's mask image.";
     ],
     [
       "mask-linear-from-<number>",
-      "mask-image: linear-gradient(var(--tw-mask-linear-position), black calc(var(--spacing * <number>)), transparent var(--tw-mask-linear-to));",
+      "mask-image: linear-gradient(var(--tw-mask-linear-position), black calc(var(--spacing) * <number>), transparent var(--tw-mask-linear-to));",
     ],
     [
       "mask-linear-from-<percentage>",
@@ -72,7 +72,7 @@ export const description = "Utilities for controlling an element's mask image.";
     ],
     [
       "mask-linear-to-<number>",
-      "mask-image: linear-gradient(var(--tw-mask-linear-position), black var(--tw-mask-linear-from), transparent calc(var(--spacing * <number>)));",
+      "mask-image: linear-gradient(var(--tw-mask-linear-position), black var(--tw-mask-linear-from), transparent calc(var(--spacing) * <number>));",
     ],
     [
       "mask-linear-to-<percentage>",
@@ -92,7 +92,7 @@ export const description = "Utilities for controlling an element's mask image.";
     ],
     [
       "mask-t-from-<number>",
-      "mask-image: linear-gradient(to top, black calc(var(--spacing * <number>)), transparent var(--tw-mask-top-to));",
+      "mask-image: linear-gradient(to top, black calc(var(--spacing) * <number>), transparent var(--tw-mask-top-to));",
     ],
     [
       "mask-t-from-<percentage>",
@@ -109,7 +109,7 @@ export const description = "Utilities for controlling an element's mask image.";
     ["mask-t-from-[<value>]", "mask-image: linear-gradient(to top, black <value>, transparent var(--tw-mask-top-to));"],
     [
       "mask-t-to-<number>",
-      "mask-image: linear-gradient(to top, black var(--tw-mask-top-from), transparent calc(var(--spacing * <number>));",
+      "mask-image: linear-gradient(to top, black var(--tw-mask-top-from), transparent calc(var(--spacing) * <number>));",
     ],
     [
       "mask-t-to-<percentage>",
@@ -126,7 +126,7 @@ export const description = "Utilities for controlling an element's mask image.";
     ["mask-t-to-[<value>]", "mask-image: linear-gradient(to top, black var(--tw-mask-top-from), transparent <value>);"],
     [
       "mask-r-from-<number>",
-      "mask-image: linear-gradient(to right, black calc(var(--spacing * <number>)), transparent var(--tw-mask-right-to));",
+      "mask-image: linear-gradient(to right, black calc(var(--spacing) * <number>), transparent var(--tw-mask-right-to));",
     ],
     [
       "mask-r-from-<percentage>",
@@ -146,7 +146,7 @@ export const description = "Utilities for controlling an element's mask image.";
     ],
     [
       "mask-r-to-<number>",
-      "mask-image: linear-gradient(to right, black var(--tw-mask-right-from), transparent calc(var(--spacing * <number>));",
+      "mask-image: linear-gradient(to right, black var(--tw-mask-right-from), transparent calc(var(--spacing) * <number>));",
     ],
     [
       "mask-r-to-<percentage>",
@@ -166,7 +166,7 @@ export const description = "Utilities for controlling an element's mask image.";
     ],
     [
       "mask-b-from-<number>",
-      "mask-image: linear-gradient(to bottom, black calc(var(--spacing * <number>)), transparent var(--tw-mask-bottom-to));",
+      "mask-image: linear-gradient(to bottom, black calc(var(--spacing) * <number>), transparent var(--tw-mask-bottom-to));",
     ],
     [
       "mask-b-from-<percentage>",
@@ -186,7 +186,7 @@ export const description = "Utilities for controlling an element's mask image.";
     ],
     [
       "mask-b-to-<number>",
-      "mask-image: linear-gradient(to bottom, black var(--tw-mask-bottom-from), transparent calc(var(--spacing * <number>));",
+      "mask-image: linear-gradient(to bottom, black var(--tw-mask-bottom-from), transparent calc(var(--spacing) * <number>));",
     ],
     [
       "mask-b-to-<percentage>",
@@ -206,7 +206,7 @@ export const description = "Utilities for controlling an element's mask image.";
     ],
     [
       "mask-l-from-<number>",
-      "mask-image: linear-gradient(to left, black calc(var(--spacing * <number>)), transparent var(--tw-mask-left-to));",
+      "mask-image: linear-gradient(to left, black calc(var(--spacing) * <number>), transparent var(--tw-mask-left-to));",
     ],
     [
       "mask-l-from-<percentage>",
@@ -226,7 +226,7 @@ export const description = "Utilities for controlling an element's mask image.";
     ],
     [
       "mask-l-to-<number>",
-      "mask-image: linear-gradient(to left, black var(--tw-mask-left-from), transparent calc(var(--spacing * <number>));",
+      "mask-image: linear-gradient(to left, black var(--tw-mask-left-from), transparent calc(var(--spacing) * <number>));",
     ],
     [
       "mask-l-to-<percentage>",
@@ -247,7 +247,7 @@ export const description = "Utilities for controlling an element's mask image.";
     [
       "mask-y-from-<number>",
       dedent`
-        mask-image: linear-gradient(to top, black calc(var(--spacing * <number>)), transparent var(--tw-mask-top-to)), linear-gradient(to bottom, black calc(var(--spacing * <number>)), transparent var(--tw-mask-bottom-to));
+        mask-image: linear-gradient(to top, black calc(var(--spacing) * <number>), transparent var(--tw-mask-top-to)), linear-gradient(to bottom, black calc(var(--spacing) * <number>), transparent var(--tw-mask-bottom-to));
         mask-composite: intersect;`,
     ],
     [
@@ -277,7 +277,7 @@ export const description = "Utilities for controlling an element's mask image.";
     [
       "mask-y-to-<number>",
       dedent`
-        mask-image: linear-gradient(to top, black var(--tw-mask-top-from), transparent calc(var(--spacing * <number>)), linear-gradient(to bottom, black var(--tw-mask-bottom-from), transparent calc(var(--spacing * <number>));
+        mask-image: linear-gradient(to top, black var(--tw-mask-top-from), transparent calc(var(--spacing) * <number>)), linear-gradient(to bottom, black var(--tw-mask-bottom-from), transparent calc(var(--spacing) * <number>));
         mask-composite: intersect;`,
     ],
     [
@@ -307,7 +307,7 @@ export const description = "Utilities for controlling an element's mask image.";
     [
       "mask-x-from-<number>",
       dedent`
-        mask-image: linear-gradient(to right, black calc(var(--spacing * <number>)), transparent var(--tw-mask-right-to)), linear-gradient(to left, black calc(var(--spacing * <number>)), transparent var(--tw-mask-left-to));
+        mask-image: linear-gradient(to right, black calc(var(--spacing) * <number>), transparent var(--tw-mask-right-to)), linear-gradient(to left, black calc(var(--spacing) * <number>), transparent var(--tw-mask-left-to));
         mask-composite: intersect;`,
     ],
     [
@@ -337,7 +337,7 @@ export const description = "Utilities for controlling an element's mask image.";
     [
       "mask-x-to-<number>",
       dedent`
-        mask-image: linear-gradient(to right, black var(--tw-mask-right-from), transparent calc(var(--spacing * <number>)), linear-gradient(to left, black var(--tw-mask-left-from), transparent calc(var(--spacing * <number>));
+        mask-image: linear-gradient(to right, black var(--tw-mask-right-from), transparent calc(var(--spacing) * <number>)), linear-gradient(to left, black var(--tw-mask-left-from), transparent calc(var(--spacing) * <number>));
         mask-composite: intersect;`,
     ],
     [
@@ -369,7 +369,7 @@ export const description = "Utilities for controlling an element's mask image.";
     ["mask-radial-[<size>_<size>]", "--tw-mask-radial-size: <size> <size>;"],
     [
       "mask-radial-from-<number>",
-      "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black calc(var(--spacing * <number>)), transparent var(--tw-mask-radial-to));",
+      "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black calc(var(--spacing) * <number>), transparent var(--tw-mask-radial-to));",
     ],
     [
       "mask-radial-from-<percentage>",
@@ -389,7 +389,7 @@ export const description = "Utilities for controlling an element's mask image.";
     ],
     [
       "mask-radial-to-<number>",
-      "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black var(--tw-mask-radial-from), transparent calc(var(--spacing * <number>)));",
+      "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black var(--tw-mask-radial-from), transparent calc(var(--spacing) * <number>));",
     ],
     [
       "mask-radial-to-<percentage>",
@@ -417,7 +417,7 @@ export const description = "Utilities for controlling an element's mask image.";
     ["mask-radial-at-top", "--tw-mask-radial-position: top;"],
     ["mask-radial-at-top-right", "--tw-mask-radial-position: top right;"],
     ["mask-radial-at-left", "--tw-mask-radial-position: left;"],
-    ["mask-radial-at-center", "--tw-mask-radial-position:center;"],
+    ["mask-radial-at-center", "--tw-mask-radial-position: center;"],
     ["mask-radial-at-right", "--tw-mask-radial-position: right;"],
     ["mask-radial-at-bottom-left", "--tw-mask-radial-position: bottom left;"],
     ["mask-radial-at-bottom", "--tw-mask-radial-position: bottom;"],
@@ -432,7 +432,7 @@ export const description = "Utilities for controlling an element's mask image.";
     ],
     [
       "mask-conic-from-<number>",
-      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black calc(var(--spacing * <number>)), transparent var(--tw-mask-conic-to));",
+      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black calc(var(--spacing) * <number>), transparent var(--tw-mask-conic-to));",
     ],
     [
       "mask-conic-from-<percentage>",
@@ -452,7 +452,7 @@ export const description = "Utilities for controlling an element's mask image.";
     ],
     [
       "mask-conic-to-<number>",
-      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black var(--tw-mask-conic-from), transparent calc(var(--spacing * <number>));",
+      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black var(--tw-mask-conic-from), transparent calc(var(--spacing) * <number>));",
     ],
     [
       "mask-conic-to-<percentage>",
