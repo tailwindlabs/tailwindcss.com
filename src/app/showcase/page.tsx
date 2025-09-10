@@ -53,6 +53,13 @@ export default async function Showcase() {
 const showcase = [
   // Partners
   {
+    name: "PostHog",
+    url: "https://posthog.com",
+    thumbnail: require("./img/posthog.com.png").default,
+    video: "/showcase-videos/posthog.com.mp4",
+    description: "SaaS application website",
+  },
+  {
     name: "Base UI",
     url: "https://base-ui.com",
     thumbnail: require("./img/base-ui.com.png").default,
