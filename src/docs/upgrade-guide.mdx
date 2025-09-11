@@ -564,6 +564,10 @@ If you still want dialogs to be centered by default, add this CSS to your projec
 }
 ```
 
+#### Hidden attribute takes priority
+
+Display classes like `block` or `flex` no longer take priority over the `hidden` attribute on an element. Remove the `hidden` attribute if you want an element to be visible to the user. Note that this does not apply to `hidden="until-found"`.
+
 ### Using a prefix
 
 Prefixes now look like variants and are always at the beginning of the class name:

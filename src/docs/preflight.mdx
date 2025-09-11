@@ -181,6 +181,17 @@ This prevents them from overflowing their containers and makes them responsive b
 <img class="max-w-none" src="..." alt="..." />
 ```
 
+#### Elements with a `hidden` attribute stay hidden
+
+```css
+/* [!code filename:CSS] */
+[hidden]:where(:not([hidden='until-found'])) {
+  display: none !important;
+}
+```
+
+This enforces that elements with a `hidden` attribute stay invisible unless using `hidden="until-found"`. Remove the `hidden` attribute if you want an element to be visible to the user.
+
 ## Extending Preflight
 
 If you'd like to add your own base styles on top of Preflight, add them to the `base` CSS layer in your CSS using `@layer base`:
