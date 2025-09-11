@@ -118,7 +118,7 @@ const showcase = [
 
   // Ambassadors
   {
-    name: "Posthog",
+    name: "PostHog",
     url: "https://posthog.com/",
     thumbnail: require("./img/posthog.com.png").default,
     video: "/showcase-videos/posthog.com.mp4",
