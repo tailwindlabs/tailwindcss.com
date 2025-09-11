@@ -118,6 +118,13 @@ const showcase = [
 
   // Ambassadors
   {
+    name: "Posthog",
+    url: "https://posthog.com/",
+    thumbnail: require("./img/posthog.com.png").default,
+    video: "/showcase-videos/posthog.com.mp4",
+    description: "SaaS application website",
+  },
+  {
     name: "Sanity",
     url: "https://sanity.io",
     thumbnail: require("./img/sanity.io.png").default,
