@@ -2,6 +2,7 @@ import { ApiTable } from "@/components/api-table.tsx";
 import { CustomizingYourTheme, ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
+import { CodeExample } from "@/components/code-example.tsx";
 
 export const title = "font-weight";
 export const description = "Utilities for controlling the font weight of an element.";
@@ -80,7 +81,14 @@ Use utilities like `font-thin` and `font-bold` to set the font weight of an elem
 
 ### Using a custom value
 
-<UsingACustomValue element="p" utility="font" value="1000" name="font weight" variable="font-weight" />
+<UsingACustomValue
+  element="p"
+  utility="font"
+  value="1000"
+  name="font weight"
+  variable="font-weight"
+  dataType="weight"
+/>
 
 ### Responsive design
 
