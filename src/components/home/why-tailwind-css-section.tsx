@@ -42,7 +42,7 @@ import responsive2 from "./why-tailwind-css-section/responsive-2.png";
 import responsive3 from "./why-tailwind-css-section/responsive-3.png";
 import responsive4 from "./why-tailwind-css-section/responsive-4.png";
 import responsive5 from "./why-tailwind-css-section/responsive-5.png";
-import { ZeroTooltip } from "./zero-ui-tooltip";
+import { ColorTooltip } from "./color-tooltip";
 
 export default function WhyTailwindCssSection() {
   return (
@@ -454,7 +454,7 @@ export default function WhyTailwindCssSection() {
                             {colors.map((color) => {
                               let value = colorValues[`${color}-${shade}`];
                               return (
-                                <ZeroTooltip
+                                <ColorTooltip
                                   key={color}
                                   color={`${color}-${shade}`}
                                   tooltip={value}
