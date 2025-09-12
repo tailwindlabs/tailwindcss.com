@@ -4,7 +4,6 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 import { CodeExample } from "@/components/code-example.tsx";
 
-
 export const title = "font-weight";
 export const description = "Utilities for controlling the font weight of an element.";
 
@@ -82,25 +81,14 @@ Use utilities like `font-thin` and `font-bold` to set the font weight of an elem
 
 ### Using a custom value
 
-<UsingACustomValue element="p" utility="font" value="1000" name="font weight" variable="font-weight" />
-
-If you want a child element (like a <code>&lt;th&gt;</code>) to inherit its font weight from a parent, use the <code>font-[weight:inherit]</code> syntax to avoid ambiguity:
-
-<div className="not-prose">
-  <CodeExample
-    example={{
-      lang: "html",
-      code: `<table class="font-bold">
-  <tbody>
-    <tr>
-      <th class="font-[weight:inherit]">Lorem ipsum dolor sit amet...</th>
-      <td>Lorem ipsum dolor sit amet...</td>
-    </tr>
-  </tbody>
-</table>`,
-    }}
-  />
-</div>
+<UsingACustomValue
+  element="p"
+  utility="font"
+  value="1000"
+  name="font weight"
+  variable="font-weight"
+  dataType="weight"
+/>
 
 ### Responsive design
 
