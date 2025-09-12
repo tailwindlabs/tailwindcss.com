@@ -462,6 +462,8 @@ To resolve the value as a bare value, use the `--value({type})` syntax, where `{
 
 This will match utilities like `tab-1` and `tab-76`.
 
+Available bare value data types are: `number`, `integer`, `ratio`, and `percentage`.
+
 #### Literal values
 
 To support literal values, use the `--value('literal')` syntax (notice the quotes):
@@ -486,7 +488,9 @@ To support arbitrary values, use the `--value([{type}])` syntax (notice the squa
 }
 ```
 
-This will match utilities like `tab-[1]` and `tab-[76]`. If you want to support any data type, you can use `--value([*])`.
+This will match utilities like `tab-[1]` and `tab-[76]`.
+
+Available arbitrary value data types are: `absolute-size`, `angle`, `bg-size`, `color`, `family-name`, `generic-name`, `image`, `integer`, `length`, `line-width`, `number`, `percentage`, `position`, `ratio`, `relative-size`, `url`, `vector`, and `*`.
 
 #### Supporting theme, bare, and arbitrary values together
 
