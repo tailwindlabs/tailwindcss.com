@@ -1,10 +1,12 @@
 import { css, js, Page, shell, Step, Tile } from "./utils";
 import Logo from "@/docs/img/guides/tanstack.react.svg";
+import LogoDark from "@/docs/img/guides/tanstack-white.react.svg";
 
 export let tile: Tile = {
   title: "TanStack Start",
-  description: "Full-stack React and Solid framework powered by TanStack Router.",
+  description: "Full-stack Framework powered by TanStack Router for React and Solid.",
   Logo,
+  LogoDark,
 };
 
 export let page: Page = {
@@ -17,21 +19,16 @@ export let steps: Step[] = [
     title: "Create project",
     body: (
       <p>
-        Start by creating a new TanStack Start project by following the{" "}
-        <a href="https://tanstack.com/start/latest/docs/framework/react/build-from-scratch">
-          Build a Project from Scratch
-        </a>{" "}
-        guide on the TanStack Start website.
+        Start by creating a new TanStack Start project if you don’t have one set up already. The most common approach is
+        to use <a href="https://tanstack.com/start/latest/docs/framework/react/overview">Create Start App</a>.
       </p>
     ),
     code: {
       name: "Terminal",
       lang: "shell",
       code: shell`
-        mkdir myApp
-        cd myApp
-        npm init -y
-        # Follow instructions in the "Build a Project from Scratch" guide
+        npx create-start-app@latest my-project
+        cd my-project
       `,
     },
   },
@@ -54,28 +51,26 @@ export let steps: Step[] = [
     title: "Configure Vite Plugin",
     body: (
       <p>
-        Add the <code>@tailwindcss/vite</code> plugin to your Vite plugins in your Vite config file.
+        Add the <code>@tailwindcss/vite</code> plugin to your Vite configuration.
       </p>
     ),
     code: {
       name: "vite.config.ts",
       lang: "ts",
       code: js`
+        import { tanstackStart } from '@tanstack/react-start/plugin/vite';
         import { defineConfig } from 'vite';
         import tsConfigPaths from 'vite-tsconfig-paths';
-        import { tanstackStart } from '@tanstack/react-start/plugin/vite';
-        // ...
-
         // [!code highlight:2]
         import tailwindcss from '@tailwindcss/vite'
 
         export default defineConfig({
           plugins: [
             // [!code highlight:2]
-            tailwindcss(),
-            tsConfigPaths(),
+            tailwindcss()
             tanstackStart(),
-          ],
+            tsConfigPaths(),
+          ]
         });
       `,
     },
@@ -84,11 +79,11 @@ export let steps: Step[] = [
     title: "Import Tailwind CSS",
     body: (
       <p>
-        Create a <code>./src/styles/app.css</code> file and add an <code>@import</code> for Tailwind CSS.
+        Add an <code>@import</code> to <code>./src/styles.css</code> that imports Tailwind CSS.
       </p>
     ),
     code: {
-      name: "src/styles/app.css",
+      name: "src/styles.css",
       lang: "css",
       code: css`
         @import "tailwindcss";
@@ -96,35 +91,29 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import CSS file in the root component",
+    title: "Import the CSS file in your root route",
     body: (
-      <p>Add the triple-slash directive on top of the file and import the CSS file with the right query parameter.</p>
+      <p>
+        Import the CSS file in your <code>__root.tsx</code> file with the <code>?url</code> query.
+      </p>
     ),
     code: {
       name: "src/routes/__root.tsx",
       lang: "tsx",
       code: js`
-        // [!code highlight:2]
-        /// <reference types="vite/client" />
-        import type { ReactNode } from 'react'
-        import { createRootRoute, Outlet } from '@tanstack/react-router'
-        import { Meta, Scripts } from '@tanstack/start'
+        // other imports...
 
         // [!code highlight:2]
-        import appCss from '../styles/app.css?url'
+        import appCss from '../styles.css?url'
 
         export const Route = createRootRoute({
           head: () => ({
             meta: [
-              // ...
+              // your meta tags and site config
             ],
-            // [!code highlight:7]
-            links: [
-              {
-                rel: 'stylesheet',
-                href: appCss,
-              },
-            ],
+            // [!code highlight:2]
+            links: [{ rel: 'stylesheet', href: appCss }],
+            // other head config
           }),
           component: RootComponent,
         })
@@ -132,38 +121,19 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start your build process",
-    body: (
-      <p>
-        Run your build process with <code>npm run dev</code>.
-      </p>
-    ),
-    code: {
-      name: "Terminal",
-      lang: "shell",
-      code: shell`
-        npm run dev
-      `,
-    },
-  },
-  {
     title: "Start using Tailwind in your project",
-    body: (
-      <p>
-        Start using Tailwind's utility classes to style your content while making sure to import the newly created CSS
-        file.
-      </p>
-    ),
+    body: <p>Start using Tailwind’s utility classes to style your content.</p>,
     code: {
       name: "src/routes/index.tsx",
       lang: "tsx",
       code: js`
         import { createFileRoute } from '@tanstack/react-router'
+
         export const Route = createFileRoute('/')({
-          component: Home,
+          component: App,
         })
 
-        function Home() {
+        function App() {
           return (
             // [!code highlight:4]
             <h1 class="text-3xl font-bold underline">
