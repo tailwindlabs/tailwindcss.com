@@ -18,6 +18,7 @@ const guides: Guide[] = await create({
   angular: () => import("./angular"),
   "ruby-on-rails": () => import("./ruby-on-rails"),
   "react-router": () => import("./react-router"),
+  "tanstack-start": () => import("./tanstack-start"),
   phoenix: () => import("./phoenix"),
   parcel: () => import("./parcel"),
   symfony: () => import("./symfony"),
