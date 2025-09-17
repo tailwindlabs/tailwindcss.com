@@ -384,7 +384,7 @@ export default function WhyTailwindCssSection() {
                 </BentoDescription>
               </div>
             </BentoHeader>
-            <BentoBody className="relative h-112">
+            <BentoBody className="h-112">
               <TooltipRuntime
                 disableOnTouchDevice={true}
                 reactiveContent={false}
@@ -474,7 +474,7 @@ export default function WhyTailwindCssSection() {
 
                                   <div
                                     style={{ "--color": `var(--color-${color}-${shade})` } as CSSProperties}
-                                    className="h-(--height) w-(--width) bg-(--color) inset-ring inset-ring-gray-950/10 transition-opacity group-hover:opacity-75 hover:opacity-100 dark:inset-ring-white/10"
+                                    className="h-(--height) w-(--width) bg-(--color) inset-ring inset-ring-gray-950/10 transition-opacity group-hover:opacity-75 group-data-[tooltip-hover=true]:opacity-100 dark:inset-ring-white/10"
                                   />
                                 </TooltipTrigger>
                               );

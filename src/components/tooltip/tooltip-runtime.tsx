@@ -45,8 +45,8 @@ type TooltipState = {
  * <TooltipRuntime />
  *
  * // Then use anywhere via data attributes
- * <button data-tooltip-trigger data-tooltip-content="Save document">
- *   <SaveIcon />
+ * <button data-tooltip-trigger data-tooltip-content="Save document" className="group">
+ *   <SaveIcon  data-[tooltip-hover=true]:opacity-100 /> // for extra styles on children
  * </button>
  *
  * // Or with the TooltipTrigger component
@@ -152,14 +152,18 @@ export function TooltipRuntime({
       state.contentObserver = null;
 
       // Remove active state
-      state.active = null;
-      state.tooltip?.removeAttribute("data-show");
+      if (state.active) {
+        delete state.active.dataset.tooltipHover;
+        state.active = null;
+        state.tooltip?.removeAttribute("data-show");
+      }
     };
 
     // Show tooltip for trigger and setup content observer
     const show = (trigger: HTMLElement) => {
       // Swap active + clean up content observer
       hide();
+      trigger.dataset.tooltipHover = "true"; // necessary for safari scroll mouse event blocking
       state.active = trigger;
 
       if (state.tooltip) {
