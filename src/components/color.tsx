@@ -296,7 +296,7 @@ const hexColors = {
 
 export function Color({ name, shade, value }: { name: string; shade: string; value: string }) {
   let useShift = useShiftKey();
-  let [copied, setCopied] = useState<boolean>(false);
+  let [copied, setCopied] = useState<"color" | "hex" | false>(false);
 
   let colorVariableName = `--color-${name}-${shade}`;
   let hexValue = hexColors[name]?.[shade];
@@ -307,18 +307,25 @@ export function Color({ name, shade, value }: { name: string; shade: string; val
 
     if (e.shiftKey) {
       navigator.clipboard.writeText(hexColors[name][shade]);
+      setCopied("hex");
     } else {
       navigator.clipboard.writeText(value);
+      setCopied("color");
     }
 
-    setCopied(true);
     setTimeout(() => setCopied(false), 1300);
   }
 
-  let tooltip = copied ? "Copied to clipboard!" : value;
+  let tooltip: string;
 
-  if (useShift) {
-    tooltip = copied ? "Copied hex value!" : hexValue;
+  if (copied === "color") {
+    tooltip = "Copied to clipboard!";
+  } else if (copied === "hex") {
+    tooltip = "Copied hex value!";
+  } else if (useShift) {
+    tooltip = hexValue;
+  } else {
+    tooltip = value;
   }
 
   return (
