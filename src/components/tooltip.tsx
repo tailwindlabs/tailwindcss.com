@@ -54,6 +54,8 @@ export function SharedTooltip({ id, padding = 0, marginTop = 0, offsetY = 0, cla
     activeTrigger: null,
   });
 
+  let hideTimer = useRef<number>(0);
+
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -81,9 +83,11 @@ export function SharedTooltip({ id, padding = 0, marginTop = 0, offsetY = 0, cla
       state.activeTrigger = trigger;
 
       if (!trigger) {
-        el.removeAttribute("data-show");
+        hideTimer.current = window.setTimeout(() => el.removeAttribute("data-show"), 100);
         return;
       }
+
+      hideTimer.current && window.clearTimeout(hideTimer.current);
 
       // Set text first to measure intrinsic width
       el.textContent = content;
