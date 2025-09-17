@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import { useEffect, useRef } from "react";
 
 export interface TooltipOptions {
@@ -172,10 +173,9 @@ export function SharedTooltip({ id, padding = 0, marginTop = 0, offsetY = 0, cla
     <div
       ref={tooltipRef}
       id={id}
-      className={className}
       role="tooltip"
       aria-hidden="true"
-      style={{ position: "absolute", pointerEvents: "none" }}
+      className={clsx(className, "pointer-events-none absolute")}
     ></div>
   );
 }
