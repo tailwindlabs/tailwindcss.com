@@ -63,9 +63,15 @@ export function SharedTooltip({ id, padding = 0, marginTop = 0, offsetY = 0, cla
     // Disable on touch devices
     if (window.matchMedia("(pointer: coarse)").matches) return;
 
+    let contentObserver = new MutationObserver(() => {
+      if (!state.activeTrigger) return;
+
+      update(state.activeTrigger, true);
+    });
+
     let state = stateRef.current;
 
-    function update(trigger: HTMLElement | null) {
+    function update(trigger: HTMLElement | null, observation: boolean = false) {
       let el = tooltipRef.current;
       if (!el || !el.parentElement) return;
 
@@ -74,7 +80,9 @@ export function SharedTooltip({ id, padding = 0, marginTop = 0, offsetY = 0, cla
       if (!content) trigger = null;
 
       // The trigger hasn't changed so nothing to update
-      if (trigger === state.activeTrigger) return;
+      if (trigger === state.activeTrigger) {
+        if (!observation) return;
+      }
 
       // Mark the current trigger as inactive
       state.activeTrigger?.removeAttribute("data-tooltip-hover");
@@ -89,6 +97,15 @@ export function SharedTooltip({ id, padding = 0, marginTop = 0, offsetY = 0, cla
       }
 
       hideTimer.current && window.clearTimeout(hideTimer.current);
+
+      // Monitor this trigger for changes
+      if (trigger && !observation) {
+        contentObserver.disconnect();
+        contentObserver.observe(trigger, {
+          attributes: true,
+          attributeFilter: ["data-tooltip-content"],
+        });
+      }
 
       // Set text first to measure intrinsic width
       el.textContent = content;
