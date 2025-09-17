@@ -384,13 +384,14 @@ export default function WhyTailwindCssSection() {
                 </BentoDescription>
               </div>
             </BentoHeader>
-            <BentoBody className="h-112">
+            <BentoBody className="relative h-112">
               <TooltipRuntime
                 disableOnTouchDevice={true}
                 reactiveContent={false}
                 marginTop={86}
                 altPositionOffsetY={-18}
                 offsetY={-22}
+                paddingX={6}
               />
 
               {(() => {
