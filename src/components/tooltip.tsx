@@ -80,9 +80,10 @@ export function SharedTooltip({ id, padding = 0, marginTop = 0, offsetY = 0, cla
       if (!content) trigger = null;
 
       // The trigger hasn't changed so nothing to update
-      if (trigger === state.activeTrigger) {
-        if (!observation) return;
-      }
+      //
+      // We skip this if we're called from an observer because that means the
+      // tooltip text changed which may need to be repositioned
+      if (trigger === state.activeTrigger && !observation) return;
 
       // Mark the current trigger as inactive
       state.activeTrigger?.removeAttribute("data-tooltip-hover");
@@ -152,7 +153,7 @@ export function SharedTooltip({ id, padding = 0, marginTop = 0, offsetY = 0, cla
       state.mouseX = e.clientX;
       state.mouseY = e.clientY;
 
-      // check if active or target is a trigger and schedule update
+      // Schedule update if we may need to update the tooltip
       let target = e.target as Element;
       if (state.activeTrigger || target?.closest("[data-tooltip-trigger]")) {
         checkTooltipState();
