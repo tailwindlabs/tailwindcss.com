@@ -154,8 +154,8 @@ export function SharedTooltip({ id, padding = 0, marginTop = 0, offsetY = 0, cla
       state.mouseY = e.clientY;
 
       // Schedule update if we may need to update the tooltip
-      let target = e.target as Element;
-      if (state.activeTrigger || target?.closest("[data-tooltip-trigger]")) {
+      let target = e.target as Element | Document | null;
+      if (state.activeTrigger || (target && "closest" in target && target.closest("[data-tooltip-trigger]"))) {
         checkTooltipState();
       }
     }
