@@ -216,7 +216,10 @@ export function Faqs() {
           <ul className="flex-col pr-6 pl-0">
             {teamPricing.map((option) => (
               <li key={option.seats} className="mt-0 flex items-center p-0">
-                <p className="grow">Up to {option.seats} seats </p> <a href="#" className="m-0">${option.price} -></a>
+                <p className="grow">Up to {option.seats} seats </p>{" "}
+                <a href="#" className="m-0">
+                  ${option.price} →
+                </a>
               </li>
             ))}
           </ul>
