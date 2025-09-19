@@ -1,6 +1,7 @@
 import React from "react";
 import GridContainer from "@/components/grid-container";
 import heroBackground from "./hero-background.jpg";
+import Link from "next/link";
 import LinkButton from "@/components/home/link-button";
 
 const LogoMark = ({ className }: { className?: string }) => (
@@ -25,7 +26,9 @@ export function HeroSection() {
         />
       </div>
       <div className="relative max-w-xl p-2">
-        <LogoMark className="mt-7 h-8" />
+        <Link href="/">
+          <LogoMark className="mt-7 h-8" />
+        </Link>
         <GridContainer className="mt-18 py-2">
           <p className="font-mono text-xs font-semibold tracking-wider text-gray-600 uppercase dark:text-gray-300">
             By the creator of Tailwind CSS
