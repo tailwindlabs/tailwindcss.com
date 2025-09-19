@@ -67,8 +67,8 @@ export function PricingFeatures({
 export function Pricing() {
   return (
     <section className="mt-50" id="pricing">
-      <GridContainer className="grid items-stretch sm:grid-cols-2 sm:gap-6">
-        <div className="relative grid justify-between gap-y-4 after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-gray-950/5 dark:after:bg-white/10">
+      <GridContainer className="grid items-stretch lg:grid-cols-2 lg:gap-6">
+        <div className="relative grid gap-y-4 after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-gray-950/5 lg:justify-between dark:after:bg-white/10">
           <div>
             <div className="relative grid grid-cols-1 gap-y-2 px-4 py-2 after:absolute after:right-0 after:bottom-0 after:h-px after:w-[200vw] after:bg-gray-950/5 sm:px-2 dark:after:bg-white/10">
               <h2 className="text-[2.5rem]/none tracking-tight text-pretty">Get Tailwind CSS by Example</h2>
@@ -102,26 +102,26 @@ export function Pricing() {
                     href="#"
                     aria-label={`Buy the essentials package for ${packages.essentials.price}`}
                   >
-                    Buy Essentials
+                    Buy Essentials Package
                   </LinkButton>
-                  <p className="text-sm/6 dark:text-gray-300">For individuals working on their next big idea.</p>
                 </div>
-                <div className="h-px w-full bg-gray-950/5" />
-                <PricingFeatures
-                  items={[
-                    {
-                      name: "Over 500+ UI blocks",
-                      description:
-                        "everything you need to build beautiful marketing sites, application UIs, ecommerce stores, and more.",
-                    },
-                    {
-                      name: "Every site template",
-                      description:
-                        "beautifully designed, expertly crafted website templates built with modern technologies like React and Next.js.",
-                    },
-                  ]}
-                />
+                <p className="text-sm/7 dark:text-gray-300">For individuals working on their next big idea.</p>
               </div>
+              <div className="h-px w-full bg-gray-950/5" />
+              <PricingFeatures
+                items={[
+                  {
+                    name: "Modules 1 & 2",
+                    description:
+                      "everything you need to build beautiful marketing sites, application UIs, ecommerce stores, and more.",
+                  },
+                  {
+                    name: "Source code",
+                    description:
+                      "beautifully designed, expertly crafted website templates built with modern technologies like React and Next.js.",
+                  },
+                ]}
+              />
             </div>
             {/* Complete */}
           </div>
@@ -158,21 +158,21 @@ export function Pricing() {
               dark
               items={[
                 {
-                  name: "Over 500+ UI blocks",
+                  name: "The whole course",
                   description:
                     "everything you need to build beautiful marketing sites, application UIs, ecommerce stores, and more.",
                 },
                 {
-                  name: "Every site template",
+                  name: "Source code for every lesson",
                   description:
                     "beautifully designed, expertly crafted website templates built with modern technologies like React and Next.js.",
                 },
                 {
-                  name: "Catalyst UI kit",
+                  name: "Figma design files",
                   description: "a starter kit for building your own component systems with React and Tailwind CSS.",
                 },
                 {
-                  name: "Every site template",
+                  name: "Downloadable videos",
                   description:
                     "beautifully designed, expertly crafted website templates built with modern technologies like React and Next.js.",
                 },
