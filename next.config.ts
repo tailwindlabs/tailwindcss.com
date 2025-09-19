@@ -6,6 +6,9 @@ const nextConfig = {
   outputFileTracingIncludes: {
     "/**/*": ["./src/docs/*.mdx"],
   },
+  images: {
+    domains: ["images.unsplash.com"],
+  },
   experimental: {
     mdxRs: true,
     turbo: {
