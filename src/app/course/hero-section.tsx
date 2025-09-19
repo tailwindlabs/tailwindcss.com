@@ -35,7 +35,7 @@ export function HeroSection() {
           </p>
           <h1 className="mt-2 text-6xl tracking-tight text-balance md:text-8xl"> Tailwind CSS by Example</h1>
         </GridContainer>
-        <GridContainer className="mt-8 py-2">
+        <GridContainer className="mt-8 py-1">
           <p className="text-base/7 text-gray-700 dark:text-gray-300">
             A video course that teaches you how to build beautiful, responsive UIs—without writing a single line of
             custom CSS. Learn by doing, with real-world examples that take you from simple layouts to fully polished
@@ -44,7 +44,7 @@ export function HeroSection() {
         </GridContainer>
         <GridContainer className="mt-6 flex gap-x-4 py-2">
           <LinkButton href="#"> Get the course</LinkButton>
-          <button className="inline-flex justify-center gap-x-1 rounded-full px-4 py-2 text-sm/6 font-semibold text-gray-950 ring-1 ring-gray-950/10 hover:ring-gray-950/20 dark:bg-white/5 dark:text-white dark:ring-white/10 dark:hover:ring-white/20">
+          <button className="inline-flex cursor-pointer justify-center gap-x-1 rounded-full px-4 py-2 text-sm/6 font-semibold text-gray-950 ring-1 ring-gray-950/10 hover:ring-gray-950/20 dark:bg-white/5 dark:text-white dark:ring-white/10 dark:hover:ring-white/20">
             <svg
               className="size-6 stroke-gray-950 dark:stroke-white"
               viewBox="0 0 24 24"
