@@ -88,13 +88,6 @@ const showcase = [
     description: "Fintech application website",
   },
   {
-    name: "Cal.com",
-    url: "https://cal.com",
-    thumbnail: require("./img/cal.com.png").default,
-    video: "/showcase-videos/cal.com.mp4",
-    description: "SaaS application website",
-  },
-  {
     name: "Namespace",
     url: "https://namespace.so/",
     thumbnail: require("./img/namespace.so.png").default,
