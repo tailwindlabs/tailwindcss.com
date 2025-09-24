@@ -88,7 +88,7 @@ export function Testimonials({ from = ["Alex MacCaw", "Ben Barbersmith"] }: { fr
           .filter((testimonial) => from.includes(testimonial.name))
           .map((testimonial) => (
             <figure
-              className="group row-span-2 grid max-lg:mx-auto max-lg:max-w-3xl max-lg:gap-y-5 lg:grid-rows-subgrid lg:border-gray-950/5 lg:first:border-r lg:last:border-l"
+              className="group row-span-2 grid max-lg:mx-auto max-lg:max-w-3xl max-lg:gap-y-5 lg:grid-rows-subgrid lg:border-gray-950/5 lg:first:border-r lg:last:border-l dark:lg:border-white/10"
               key={testimonial.name}
             >
               <blockquote className="mx-auto flex items-center px-8 py-2 text-xl/9 font-medium tracking-tight max-lg:line-y sm:px-16 sm:text-2xl/10 lg:group-first:line-y">
@@ -106,7 +106,7 @@ export function Testimonials({ from = ["Alex MacCaw", "Ben Barbersmith"] }: { fr
                 />
                 <div className="text-sm/7">
                   <p className="font-medium">{testimonial.name}</p>
-                  <p className="prose text-gray-600 dark:text-gray-400">{testimonial.bio}</p>
+                  <p className="prose text-gray-600 dark:text-gray-300">{testimonial.bio}</p>
                 </div>
               </figcaption>
             </figure>

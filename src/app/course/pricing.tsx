@@ -66,26 +66,25 @@ export function PricingFeatures({
 
 export function Pricing() {
   return (
-    <section className="mt-50" id="pricing">
+    <section className="mt-30" id="pricing">
       <GridContainer className="grid items-stretch lg:grid-cols-2 lg:gap-6">
         <div className="relative grid gap-y-4 after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-gray-950/5 lg:justify-between dark:after:bg-white/10">
           <div>
             <div className="relative grid grid-cols-1 gap-y-2 px-4 py-2 after:absolute after:right-0 after:bottom-0 after:h-px after:w-[200vw] after:bg-gray-950/5 sm:px-2 dark:after:bg-white/10">
               <h2 className="text-[2.5rem]/none tracking-tight text-pretty">Get Tailwind CSS by Example</h2>
             </div>
-            <GridContainer direction="to-left" className="mt-6 px-4 py-2 sm:px-2">
-              <p className="max-w-2xl text-sm/7">
-                A video course that teaches you how to build beautiful, responsive UIs—without writing a single line of
-                custom CSS.
+            <GridContainer direction="to-left" className="mt-4 px-4 py-2 sm:px-2">
+              <p className="max-w-2xl text-base/7">
+                Learn how to build modern, dynamic interfaces with Tailwind CSS directly from the person who created it.
               </p>
             </GridContainer>
           </div>
+          {/* Essentials */}
           <div className="relative self-end bg-gray-950/5 p-2 before:absolute before:top-0 before:right-0 before:h-px before:w-[200vw] before:bg-gray-950/5 dark:bg-white/5 dark:before:bg-white/10">
-            {/* Essentials */}
             <div className="grid gap-6 rounded-2xl bg-white p-6 outline-1 -outline-offset-1 outline-gray-950/10 sm:rounded-4xl sm:p-10 dark:bg-transparent dark:outline-white/10">
               <div className="grid gap-4">
                 <p className="font-mono text-[0.8125rem]/6 font-medium tracking-widest text-pretty text-gray-600 uppercase dark:text-gray-300">
-                  The basics
+                  The essentials
                 </p>
                 <div className="flex flex-wrap items-center justify-between gap-6">
                   <div className="flex items-center gap-x-4">
@@ -102,30 +101,32 @@ export function Pricing() {
                     href="#"
                     aria-label={`Buy the essentials package for ${packages.essentials.price}`}
                   >
-                    Buy Essentials Package
+                    Get the Essentials
                   </LinkButton>
                 </div>
-                <p className="text-sm/7 dark:text-gray-300">For individuals working on their next big idea.</p>
+                <p className="text-sm/7 dark:text-gray-300">
+                  Perfect if you’re just getting started with Tailwind CSS.{" "}
+                </p>
               </div>
               <div className="h-px w-full bg-gray-950/5" />
               <PricingFeatures
                 items={[
                   {
-                    name: "Modules 1 & 2",
+                    name: "The first 10 lessons",
                     description:
-                      "everything you need to build beautiful marketing sites, application UIs, ecommerce stores, and more.",
+                      "includes all of “Patterns and Practices” as well as the first three “By Example” lessons.",
                   },
                   {
                     name: "Source code",
                     description:
-                      "beautifully designed, expertly crafted website templates built with modern technologies like React and Next.js.",
+                      "get the completed source code for the lessons included in the package, to use however you want.",
                   },
                 ]}
               />
             </div>
-            {/* Complete */}
           </div>
         </div>
+        {/* Complete */}
         <div className="grid border-l border-gray-950/5 bg-gray-950/5 p-2 dark:border-white/10 dark:bg-white/5">
           <div className="grid gap-6 self-stretch rounded-2xl bg-gray-950 p-6 outline-1 -outline-offset-1 outline-white/10 sm:rounded-4xl sm:p-10">
             <div className="grid gap-4">
@@ -151,30 +152,30 @@ export function Pricing() {
                   Buy Complete Package
                 </LinkButton>
               </div>
-              <p className="text-sm/7 text-gray-300">For product teams and agencies.</p>
+              <p className="text-sm/7 text-gray-300">
+                Get the whole course, as well as source code and design files for everything.
+              </p>
             </div>
             <div className="h-px w-full bg-white/10" />
             <PricingFeatures
               dark
               items={[
                 {
-                  name: "The whole course",
-                  description:
-                    "everything you need to build beautiful marketing sites, application UIs, ecommerce stores, and more.",
+                  name: "The entire course",
+                  description: " includes all three sections with 19 video lessons, totalling ~7 hours of content.",
                 },
                 {
                   name: "Source code for every lesson",
-                  description:
-                    "beautifully designed, expertly crafted website templates built with modern technologies like React and Next.js.",
+                  description: "get the completed source code for every example, to use however you want.",
+                },
+                {
+                  name: "Offline videos",
+                  description: "download video files for every lesson, so you can watch them anytime, anywhere.",
                 },
                 {
                   name: "Figma design files",
-                  description: "a starter kit for building your own component systems with React and Tailwind CSS.",
-                },
-                {
-                  name: "Downloadable videos",
                   description:
-                    "beautifully designed, expertly crafted website templates built with modern technologies like React and Next.js.",
+                    " grab the design files for every example, free for you to remix into your own projects.",
                 },
               ]}
             />

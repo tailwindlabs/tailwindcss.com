@@ -109,11 +109,13 @@ export async function CourseContent() {
             understanding of how to build beautiful, responsive interfaces with utility-first CSS.
           </p>
           <p className="mt-6 text-sm/7 text-gray-700 dark:text-gray-300">
-            In the first half, you'll learn the core concepts behind Tailwind—like working with utility classes,
-            managing hover and focus states, customizing themes, and building responsive designs with ease. Then, in the
-            "By Example" section, you'll see how it all comes together by building real-world UI components like
-            marketing pages, checkout flows, and full dashboards—step by step, alongside the creator of Tailwind CSS
-            himself.
+            In the <span className="font-semibold text-gray-950 dark:text-white">Patterns & Practices</span> section,
+            you'll learn the core techniques you need to build modern, dynamic interfaces with ease. Then, in the{" "}
+            <span className="font-semibold text-gray-950 dark:text-white">By Example</span> section, you’ll apply those
+            techniques by building isolated real-world UI components like command palettes, checkout flows, and
+            dashboards. Lastly, you'll see how it all comes together in{" "}
+            <span className="font-semibold text-gray-950 dark:text-white">Walkthroughs</span> by building entire
+            layouts—from start to finish, alongside the creator of Tailwind CSS himself.
           </p>
         </GridContainer>
       </div>
