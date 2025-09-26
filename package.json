@@ -13,7 +13,6 @@
     "@docsearch/react": "^3.9.0",
     "@headlessui/react": "0.0.0-insiders.b6f355d1",
     "@heroicons/react": "^2.2.0",
-    "@mux/mux-player-react": "^3.6.0",
     "@next/mdx": "15.3.0-canary.23",
     "@shikijs/transformers": "^1.29.2",
     "@tailwindcss/postcss": "^4.1.11",

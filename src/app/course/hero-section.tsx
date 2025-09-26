@@ -3,7 +3,6 @@ import GridContainer from "@/components/grid-container";
 import heroBackground from "./hero-background.jpg";
 import Link from "next/link";
 import LinkButton from "@/components/home/link-button";
-import VideoLightbox from "./video-player";
 
 const LogoMark = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 48 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,7 +18,6 @@ const LogoMark = ({ className }: { className?: string }) => (
 export function HeroSection() {
   return (
     <section className="relative" id="hero">
-      <VideoLightbox />
       <div className="absolute inset-1 h-1/2 overflow-hidden rounded-t-2xl mask-b-from-40% sm:h-2/3 md:h-full">
         <img
           alt=""
@@ -46,10 +44,7 @@ export function HeroSection() {
         </GridContainer>
         <GridContainer className="mt-6 flex gap-x-4 py-2">
           <LinkButton href="#"> Get the course</LinkButton>
-          <button
-            popoverTarget="video-popover"
-            className="inline-flex cursor-pointer justify-center gap-x-1 rounded-full px-4 py-2 text-sm/6 font-semibold text-gray-950 ring-1 ring-gray-950/10 hover:ring-gray-950/20 dark:text-white dark:ring-white/10 dark:hover:ring-white/20"
-          >
+          <button className="inline-flex cursor-pointer justify-center gap-x-1 rounded-full px-4 py-2 text-sm/6 font-semibold text-gray-950 ring-1 ring-gray-950/10 hover:ring-gray-950/20 dark:text-white dark:ring-white/10 dark:hover:ring-white/20">
             <svg
               className="size-6 stroke-gray-950 dark:stroke-white"
               viewBox="0 0 24 24"
