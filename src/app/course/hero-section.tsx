@@ -2,7 +2,7 @@ import React from "react";
 import GridContainer from "@/components/grid-container";
 import heroBackground from "./hero-background.jpg";
 import Link from "next/link";
-import LinkButton from "@/components/home/link-button";
+import { CallToAction } from "./call-to-action";
 
 const LogoMark = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 48 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -42,28 +42,8 @@ export function HeroSection() {
             components.
           </p>
         </GridContainer>
-        <GridContainer className="mt-6 flex gap-x-4 py-2">
-          <LinkButton href="#"> Get the course</LinkButton>
-          <button className="inline-flex cursor-pointer justify-center gap-x-1 rounded-full px-4 py-2 text-sm/6 font-semibold text-gray-950 ring-1 ring-gray-950/10 hover:ring-gray-950/20 dark:text-white dark:ring-white/10 dark:hover:ring-white/20">
-            <svg
-              className="size-6 stroke-gray-950 dark:stroke-white"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M21 12C21 13.1819 20.7672 14.3522 20.3149 15.4442C19.8626 16.5361 19.1997 17.5282 18.364 18.364C17.5282 19.1997 16.5361 19.8626 15.4442 20.3149C14.3522 20.7672 13.1819 21 12 21C10.8181 21 9.64778 20.7672 8.55585 20.3149C7.46392 19.8626 6.47177 19.1997 5.63604 18.364C4.80031 17.5282 4.13738 16.5361 3.68508 15.4442C3.23279 14.3522 3 13.1819 3 12C3 9.61305 3.94821 7.32387 5.63604 5.63604C7.32387 3.94821 9.61305 3 12 3C14.3869 3 16.6761 3.94821 18.364 5.63604C20.0518 7.32387 21 9.61305 21 12Z"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M15.91 11.6716C15.9686 11.7041 16.0174 11.7516 16.0513 11.8093C16.0853 11.867 16.1032 11.9327 16.1032 11.9996C16.1032 12.0666 16.0853 12.1323 16.0513 12.19C16.0174 12.2477 15.9686 12.2952 15.91 12.3276L10.307 15.4406C10.2499 15.4723 10.1855 15.4886 10.1202 15.4877C10.0549 15.4869 9.99099 15.469 9.93472 15.4359C9.87845 15.4028 9.8318 15.3555 9.79941 15.2988C9.76701 15.2421 9.74998 15.1779 9.75 15.1126V8.88663C9.75 8.60063 10.057 8.42063 10.307 8.55963L15.91 11.6716Z"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            Watch intro video
-          </button>
+        <GridContainer className="mt-6 py-2">
+          <CallToAction />
         </GridContainer>
         <GridContainer className="mt-16 py-2">
           <div className="flex">

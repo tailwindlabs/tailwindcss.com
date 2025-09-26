@@ -71,7 +71,7 @@ export function Pricing() {
         <div className="relative grid gap-y-4 after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-gray-950/5 lg:justify-between dark:after:bg-white/10">
           <div>
             <div className="relative grid grid-cols-1 gap-y-2 px-4 py-2 after:absolute after:right-0 after:bottom-0 after:h-px after:w-[200vw] after:bg-gray-950/5 sm:px-2 dark:after:bg-white/10">
-              <h2 className="text-[2.5rem]/none tracking-tight text-pretty">Get Tailwind CSS by Example</h2>
+              <h2 className="text-[2.5rem]/none tracking-tight text-balance">Get Tailwind CSS by Example</h2>
             </div>
             <GridContainer direction="to-left" className="mt-4 px-4 py-2 sm:px-2">
               <p className="max-w-2xl text-base/7">
