@@ -74,7 +74,7 @@ export let steps: Step[] = [
     title: "Import Tailwind CSS",
     body: (
       <p>
-        Add an <code>@import</code> to <code>./src/styles.css</code> that imports Tailwind CSS.
+        Add an <code>@import</code> to <code>./src/styles.css</code> that imports Tailwind CSS. (Make sure it install it below any other import statements)
       </p>
     ),
     code: {
