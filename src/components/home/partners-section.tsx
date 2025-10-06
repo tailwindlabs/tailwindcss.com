@@ -10,7 +10,7 @@ export default function WhyTailwindCssSection() {
   const [displayedSponsors, setDisplayedSponsors] = useState(partners);
 
   useEffect(() => {
-    const totalLogos = 16;
+    const totalLogos = 12;
 
     if (partners.length >= totalLogos) {
       setDisplayedSponsors(partners.slice(0, totalLogos));
