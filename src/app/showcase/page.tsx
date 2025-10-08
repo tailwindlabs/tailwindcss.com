@@ -53,6 +53,20 @@ export default async function Showcase() {
 const showcase = [
   // Partners
   {
+    name: "CodeRabbit",
+    url: "https://www.coderabbit.ai/",
+    thumbnail: require("./img/coderabbit.ai.png").default,
+    video: "/showcase-videos/coderabbit.ai.mp4",
+    description: "Developer tool website",
+  },
+  {
+    name: "Shopify",
+    url: "https://shopify.com",
+    thumbnail: require("./img/shopify.com.png").default,
+    video: "/showcase-videos/shopify.com.mp4",
+    description: "Ecommerce platform website",
+  },
+  {
     name: "Base UI",
     url: "https://base-ui.com",
     thumbnail: require("./img/base-ui.com.png").default,
@@ -136,13 +150,6 @@ const showcase = [
       thumbnail: require("./img/dark-openai.com.png").default,
       video: "/showcase-videos/dark-openai.com.mp4",
     },
-  },
-  {
-    name: "Shopify",
-    url: "https://shopify.com",
-    thumbnail: require("./img/shopify.com.png").default,
-    video: "/showcase-videos/shopify.com.mp4",
-    description: "Ecommerce platform website",
   },
   {
     name: "Wealthfront",
