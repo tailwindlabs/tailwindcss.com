@@ -88,7 +88,7 @@ export let steps: Step[] = [
       </p>
     ),
     code: {
-      name: "app.css",
+      name: "global.css",
       lang: "css",
       code: css`
         @import "tailwindcss";
