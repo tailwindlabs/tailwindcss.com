@@ -11,7 +11,7 @@ export let tile: Tile = {
 
 export let page: Page = {
   title: "Install Tailwind CSS with Ruby on Rails",
-  description: "Setting up Tailwind CSS in Ruby on Rails v7+ project.",
+  description: "Setting up Tailwind CSS in Ruby on Rails v8+ project.",
 
   // NOTE: This intro is not used currently but is here for reference as we'll want to bring it back once the rails gem is updated for a stable v4 release.
   intro: (
@@ -39,7 +39,7 @@ export let steps: Step[] = [
       name: "Terminal",
       lang: "shell",
       code: shell`
-        rails new my-project
+        rails new my-project --css=tailwind
         cd my-project
       `,
     },
@@ -48,7 +48,7 @@ export let steps: Step[] = [
     title: "Install Tailwind CSS",
     body: (
       <p>
-        Install the <code>tailwindcss-ruby</code> and <code>tailwindcss-rails</code> gems, and then run the install
+        Alternatively, you can nstall the <code>tailwindcss-rails</code> gem, and then run the install
         command to set up Tailwind CSS in your project.
       </p>
     ),
@@ -57,8 +57,7 @@ export let steps: Step[] = [
       name: "Terminal",
       lang: "shell",
       code: shell`
-        ./bin/bundle add tailwindcss-ruby
-        ./bin/bundle add tailwindcss-rails
+        bundle add tailwindcss-rails
         ./bin/rails tailwindcss:install
       `,
     },
