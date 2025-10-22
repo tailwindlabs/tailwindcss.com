@@ -125,6 +125,13 @@ const showcase = [
 
   // Ambassadors
   {
+    name: "Zed",
+    url: "https://zed.dev/?utm_source=tailwind",
+    thumbnail: require("./img/zed.dev.png").default,
+    video: "/showcase-videos/zed.dev.mp4",
+    description: "Code editor website",
+  },
+  {
     name: "PostHog",
     url: "https://posthog.com/",
     thumbnail: require("./img/posthog.com.png").default,
