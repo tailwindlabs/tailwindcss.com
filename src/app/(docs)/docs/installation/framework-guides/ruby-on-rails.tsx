@@ -39,7 +39,7 @@ export let steps: Step[] = [
       name: "Terminal",
       lang: "shell",
       code: shell`
-        rails new my-project --css=tailwind
+        rails new my-project
         cd my-project
       `,
     },
@@ -48,8 +48,8 @@ export let steps: Step[] = [
     title: "Install Tailwind CSS",
     body: (
       <p>
-        Alternatively, you can nstall the <code>tailwindcss-rails</code> gem, and then run the install
-        command to set up Tailwind CSS in your project.
+        Install the <code>tailwindcss-rails</code> gem then run the install command to set up Tailwind CSS in your
+        project.
       </p>
     ),
 
