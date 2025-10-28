@@ -135,6 +135,35 @@ const steps: Step[] = [
       `,
     },
   },
+  {
+    title: "(Optional) Configure compatibility",
+    body: (
+      <p>
+        Add the <code>build.cssTarget</code> property to your Vite configuration to follow our{" "}
+        <a href="/docs/compatibility#browser-support">compatibility browser support</a>.
+      </p>
+    ),
+    code: {
+      name: "vite.config.ts",
+      lang: "js",
+      code: dedent`
+        import { defineConfig } from 'vite'        
+        import tailwindcss from '@tailwindcss/vite'
+
+        export default defineConfig({
+          // [!code highlight:2]
+          build: { 
+            // [!code highlight:2]
+            cssTarget: ['firefox128', 'chrome111', 'safari16.4'] 
+            // [!code highlight:2]
+          },
+          plugins: [
+            tailwindcss(),
+          ],
+        })
+      `,
+    },
+  },
 ];
 
 export default function Page() {
