@@ -178,6 +178,37 @@ If you’re just using the default theme with no customizations (e.g. by using t
 </style>
 ```
 
+### Subpath Imports
+
+When using the CLI, Vite, or PostCSS the directives `@import`, `@reference`, `@plugin`, and `@config` all support [subpath imports](https://nodejs.org/api/packages.html#subpath-imports) which work similarly to bundler and TypeScript path aliases:
+
+```json
+// [!code filename:package.json]
+{
+  // ...
+  "imports": {
+    /* [!code highlight:2] */
+    "#app.css": "./src/css/app.css"
+  }
+}
+```
+
+```html
+<!-- [!code filename:Vue] -->
+<template>
+  <h1>Hello world!</h1>
+</template>
+
+<style>
+  /* [!code highlight:2] */
+  @reference "#app.css";
+
+  h1 {
+    @apply text-2xl font-bold text-red-500;
+  }
+</style>
+```
+
 ## Functions
 
 Tailwind provides the following build-time functions to make working with colors and the spacing scale easier.
