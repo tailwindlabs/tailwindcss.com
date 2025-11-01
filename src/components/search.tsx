@@ -56,7 +56,8 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
 
   const onClose = useCallback(() => {
     setIsOpen(false);
-  }, [setIsOpen]);
+    setInitialQuery("");
+  }, [setIsOpen, setInitialQuery]);
 
   const onInput = useCallback(
     (e: any) => {
@@ -87,6 +88,19 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
       } catch {}
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    const searchParams = new URL(window.location.href).searchParams;
+    const query = searchParams.get("q");
+
+    if (query) {
+      setInitialQuery(query);
+      setIsOpen(true);
+
+      // Clear the query param to avoid persistent query-param/UX mismatch
+      router.replace(window.location.pathname);
+    }
+  }, [router]);
 
   let searchContext = useMemo(
     () => ({
