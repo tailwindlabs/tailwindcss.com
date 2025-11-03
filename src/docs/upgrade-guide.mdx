@@ -690,6 +690,20 @@ To update your project for this change, replace usage of the old variable shorth
 <div class="bg-(--brand-color)"></div>
 ```
 
+### Arbitrary values in grid and object-position utilities
+
+Commas were previously replaced with spaces in the `grid-cols-*`, `grid-rows-*`, and `object-*` utilities inside arbitrary values. This special behavior existed in Tailwind CSS v3 for compatibility with v2. This compatibility no longer exists in v4.0 and underscores must be used to represent spaces.
+
+To update your project for this change, replace usage of commas that were intended to be spaces with underscores:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code --:2] -->
+<div class="grid-cols-[max-content,auto]"></div>
+<!-- [!code ++:2] -->
+<div class="grid-cols-[max-content_auto]"></div>
+```
+
 ### Hover styles on mobile
 
 In v4 we've updated the `hover` variant to only apply when the primary input device supports hover:
