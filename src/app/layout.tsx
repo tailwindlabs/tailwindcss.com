@@ -157,6 +157,7 @@ export default async function RootLayout({
         <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feeds/feed.xml" />
         <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/feeds/atom.xml" />
         <link rel="alternate" type="application/json" title="JSON Feed" href="/feeds/feed.json" />
+        <link rel="search" type="application/opensearchdescription+xml" title="Tailwind CSS" href="/opensearch.xml" />
         <meta name="apple-mobile-web-app-title" content="Tailwind CSS" />
         <meta name="application-name" content="Tailwind CSS" />
         <meta name="msapplication-TileColor" content="#38bdf8" />
