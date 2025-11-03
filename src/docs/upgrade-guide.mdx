@@ -690,6 +690,20 @@ To update your project for this change, replace usage of the old variable shorth
 <div class="bg-(--brand-color)"></div>
 ```
 
+### Arbitrary values in grid and object-position utilities
+
+In v2, in JIT mode, you used a comma (`,`) to separate keywords in the `grid-cols-*`, `grid-rows-*`, and `object-*` utilities when using arbitrary values and they'd be replaced with spaces. In v3 underscores could be used instead since they're always replaced with spaces and work in all utilities. However, we still supported the old syntax for these utilities to maintain backwards compatibility. This compatibility behavior no longer exists in v4 and spaces must be used instead.
+
+To update your project for this change, replace the commas with underscores when using these utilities:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code --:2] -->
+<div class="grid-cols-[max-content,auto]"></div>
+<!-- [!code ++:2] -->
+<div class="grid-cols-[max-content_auto]"></div>
+```
+
 ### Hover styles on mobile
 
 In v4 we've updated the `hover` variant to only apply when the primary input device supports hover:
