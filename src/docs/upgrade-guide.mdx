@@ -692,7 +692,7 @@ To update your project for this change, replace usage of the old variable shorth
 
 ### Arbitrary values in grid and object-position utilities
 
-In v2, in JIT mode, you used a comma (`,`) to separate keywords in the `grid-cols-*`, `grid-rows-*`, and `object-*` utilities when using arbitrary values and they'd be replaced with spaces. In v3 underscores could be used instead since they're always replaced with spaces and work in all utilities. However, we still supported the old syntax for these utilities to maintain backwards compatibility. This compatibility behavior no longer exists in v4 and spaces must be used instead.
+In v2, in JIT mode, you used a comma (`,`) to separate keywords in the `grid-cols-*`, `grid-rows-*`, and `object-*` utilities when using arbitrary values and they'd be replaced with spaces. Tailwind CSS v3 changed this to replace underscores with spaces which works in all utilities. However, we still supported the old syntax for these utilities to maintain backwards compatibility. This compatibility behavior no longer exists in v4 and spaces must be used instead.
 
 To update your project for this change, replace the commas with underscores when using these utilities:
 
