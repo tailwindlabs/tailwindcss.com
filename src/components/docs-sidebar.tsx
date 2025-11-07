@@ -90,7 +90,7 @@ function TopNav() {
         </TopNavLink>
       </li>
       <li className="flex items-center gap-3">
-        <TopNavLink href="/course">
+        <TopNavLink href="/build-uis-that-dont-suck">
           <svg viewBox="0 0 16 16" fill="none">
             <path data-highlight d="M8 2 1 6l7 4 7-4-7-4Z" />
             <path
