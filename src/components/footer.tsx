@@ -4,7 +4,7 @@ import ThemeToggle from "./theme-toggle";
 
 export function FooterSitemap({ className }: { className?: string }) {
   return (
-    <footer className="bg-white text-sm/loose text-gray-950 dark:bg-gray-950 dark:text-white">
+    <footer className="bg-white text-sm/loose text-neutral-950 dark:bg-neutral-950 dark:text-white">
       <div className={clsx("flex gap-4 p-4 md:hidden", className)}>
         <div className="flex flex-1 flex-col gap-10">
           <div>
@@ -29,16 +29,16 @@ export function FooterSitemap({ className }: { className?: string }) {
           className,
         )}
       >
-        <div className="border-x border-b border-gray-950/5 py-10 pl-2 not-md:border-0 md:border-b-0 dark:border-white/10">
+        <div className="border-x border-b border-neutral-950/5 py-10 pl-2 not-md:border-0 md:border-b-0 dark:border-white/10">
           <TailwindCSS />
         </div>
-        <div className="border-x border-b border-gray-950/5 py-10 pl-2 not-md:border-0 md:border-b-0 dark:border-white/10">
+        <div className="border-x border-b border-neutral-950/5 py-10 pl-2 not-md:border-0 md:border-b-0 dark:border-white/10">
           <TailwindPlus />
         </div>
-        <div className="border-x border-b border-gray-950/5 py-10 pl-2 not-md:border-0 sm:border-b-0 dark:border-white/10">
+        <div className="border-x border-b border-neutral-950/5 py-10 pl-2 not-md:border-0 sm:border-b-0 dark:border-white/10">
           <Resources />
         </div>
-        <div className="border-x border-gray-950/5 py-10 pl-2 not-md:border-0 dark:border-white/10">
+        <div className="border-x border-neutral-950/5 py-10 pl-2 not-md:border-0 dark:border-white/10">
           <Community />
         </div>
       </div>
@@ -56,7 +56,7 @@ export function FooterMeta({ className }: { className?: string }) {
         )}
       >
         <ThemeToggle />
-        <div className="flex flex-col gap-4 text-sm/6 text-gray-700 sm:flex-row sm:gap-2 sm:pr-4 dark:text-gray-400">
+        <div className="flex flex-col gap-4 text-sm/6 text-neutral-700 sm:flex-row sm:gap-2 sm:pr-4 dark:text-neutral-400">
           <span>Copyright ©&nbsp;2025&nbsp;Tailwind Labs Inc.</span>
           <span className="max-sm:hidden">&middot;</span>
           <Link href="/brand" className="hover:underline">

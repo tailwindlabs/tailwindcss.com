@@ -176,12 +176,12 @@ export function MultiCursorPreview() {
   let { className } = useContext(AnimationContext);
 
   return (
-    <div className="not-prose rounded border border-gray-950/10 px-4 py-2 dark:border-white/5">
+    <div className="not-prose rounded border border-neutral-950/10 px-4 py-2 dark:border-white/5">
       <nav className="flex justify-center space-x-4">
         <a
           href="#/dashboard"
           className={clsx(
-            "rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-950/50 dark:hover:text-white",
+            "rounded-lg px-3 py-2 text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-950/50 dark:hover:text-white",
             className,
           )}
         >
@@ -190,7 +190,7 @@ export function MultiCursorPreview() {
         <a
           href="#/team"
           className={clsx(
-            "rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-950/50 dark:hover:text-white",
+            "rounded-lg px-3 py-2 text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-950/50 dark:hover:text-white",
             className,
           )}
         >
@@ -199,7 +199,7 @@ export function MultiCursorPreview() {
         <a
           href="#/projects"
           className={clsx(
-            "rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-950/50 dark:hover:text-white",
+            "rounded-lg px-3 py-2 text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-950/50 dark:hover:text-white",
             className,
           )}
         >
@@ -208,7 +208,7 @@ export function MultiCursorPreview() {
         <a
           href="#/reports"
           className={clsx(
-            "rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-950/50 dark:hover:text-white",
+            "rounded-lg px-3 py-2 text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-950/50 dark:hover:text-white",
             className,
           )}
         >

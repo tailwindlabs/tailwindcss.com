@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default async function Showcase() {
   return (
     <div className="mt-24">
-      <div className="mx-2 font-mono text-sm/7 font-medium tracking-widest text-gray-500 uppercase">Showcase</div>
+      <div className="mx-2 font-mono text-sm/7 font-medium tracking-widest text-neutral-500 uppercase">Showcase</div>
       <GridContainer>
         <h1 className="mx-2 text-4xl tracking-tighter text-balance sm:text-5xl lg:text-6xl xl:text-8xl">
           You can build anything with Tailwind CSS.
@@ -27,7 +27,7 @@ export default async function Showcase() {
       </GridContainer>
 
       <GridContainer className="mt-10">
-        <p className="prose mx-2 max-w-(--breakpoint-md) text-lg leading-8 text-gray-600 dark:text-gray-400">
+        <p className="prose mx-2 max-w-(--breakpoint-md) text-lg leading-8 text-neutral-600 dark:text-neutral-400">
           Well not quite <em>anything</em>, like you can't build a spaceship with it. But you can definitely build the
           website for the spaceship —{" "}
           <a href="https://www.jpl.nasa.gov/" target="_blank" rel="noopener noreferrer">

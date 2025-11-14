@@ -8,16 +8,16 @@ export function MultiCursorCode() {
   let code = html`
     <nav class="flex justify-center space-x-4">
       <!-- prettier-ignore -->
-      <a href="/dashboard" class="__CLASS__ rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+      <a href="/dashboard" class="__CLASS__ rounded-lg px-3 py-2 text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900">
         Home
       </a>
-      <a href="/team" class="__CLASS__ rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+      <a href="/team" class="__CLASS__ rounded-lg px-3 py-2 text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900">
         Team
       </a>
-      <a href="/projects" class="__CLASS__ rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+      <a href="/projects" class="__CLASS__ rounded-lg px-3 py-2 text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900">
         Projects
       </a>
-      <a href="/reports" class="__CLASS__ rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+      <a href="/reports" class="__CLASS__ rounded-lg px-3 py-2 text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900">
         Reports
       </a>
     </nav>

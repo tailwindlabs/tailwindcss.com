@@ -41,7 +41,7 @@ function SignUpForm() {
         id="email"
         name="email_address"
         aria-label="Email address"
-        className="w-full rounded-full bg-black/2.5 px-4 py-2 text-sm/6 text-gray-950 outline -outline-offset-1 outline-black/5 placeholder:text-gray-500 dark:bg-white"
+        className="w-full rounded-full bg-black/2.5 px-4 py-2 text-sm/6 text-neutral-950 outline -outline-offset-1 outline-black/5 placeholder:text-neutral-500 dark:bg-white"
         placeholder="Enter your email"
       />
       <button className="absolute inset-y-0.5 right-0.5 ml-2 rounded-full bg-black px-4 text-sm font-medium text-white hover:bg-black/80 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-black">
@@ -69,25 +69,25 @@ export default async function Course() {
             height={667}
             className="aspect-[472/667] w-full max-w-[226px] dark:hidden"
           />
-          <div className="relative font-mono text-xs font-medium text-gray-700 uppercase sm:translate-y-1/2 sm:py-5 md:hidden dark:text-gray-400">
+          <div className="relative font-mono text-xs font-medium text-neutral-700 uppercase sm:translate-y-1/2 sm:py-5 md:hidden dark:text-neutral-400">
             <p className="max-sm:hidden">
               Adam Wathan, <br />
               Creator of Tailwind CSS
             </p>
-            <Signature className="pointer-events-none absolute -translate-y-3/4 fill-gray-900 max-sm:inset-x-0 max-sm:mx-auto sm:-translate-x-1/4 sm:-translate-y-[110%] dark:fill-gray-200" />
+            <Signature className="pointer-events-none absolute -translate-y-3/4 fill-neutral-900 max-sm:inset-x-0 max-sm:mx-auto sm:-translate-x-1/4 sm:-translate-y-[110%] dark:fill-neutral-200" />
           </div>
         </div>
         <div className="relative grid content-between border-black/5 max-md:mt-10 max-md:border-t md:col-span-2 dark:border-white/10">
           <div className="border-b border-black/5 p-2 max-md:px-4 dark:border-white/10">
-            <p className="font-mono text-sm font-medium text-gray-500 uppercase dark:text-gray-400">
+            <p className="font-mono text-sm font-medium text-neutral-500 uppercase dark:text-neutral-400">
               By the creator of Tailwind CSS
             </p>
-            <h1 className="mt-2 text-6xl tracking-tighter text-balance text-gray-900 md:text-7xl lg:text-8xl dark:text-white">
+            <h1 className="mt-2 text-6xl tracking-tighter text-balance text-neutral-900 md:text-7xl lg:text-8xl dark:text-white">
               Tailwind CSS by Example.
             </h1>
           </div>
           <div className="mt-8 border-t border-black/5 p-2 max-md:border-y max-md:px-4 dark:border-white/10">
-            <p className="text-sm/6 text-gray-600 dark:text-gray-400">
+            <p className="text-sm/6 text-neutral-600 dark:text-neutral-400">
               Join the waitlist for early previews and behind-the-scenes updates.
             </p>
             <div className="relative mt-2 max-w-md">
@@ -95,12 +95,12 @@ export default async function Course() {
             </div>
           </div>
         </div>
-        <div className="relative py-5 pl-16 font-mono text-xs font-medium text-gray-700 uppercase after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-gray-950/5 max-md:hidden md:col-span-3 dark:text-gray-400 dark:after:bg-white/10">
+        <div className="relative py-5 pl-16 font-mono text-xs font-medium text-neutral-700 uppercase after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-neutral-950/5 max-md:hidden md:col-span-3 dark:text-neutral-400 dark:after:bg-white/10">
           <p>
             Adam Wathan, <br />
             Creator of Tailwind CSS
           </p>
-          <Signature className="pointer-events-none absolute mx-auto -translate-x-1/4 -translate-y-[110%] fill-gray-900 dark:fill-gray-200" />
+          <Signature className="pointer-events-none absolute mx-auto -translate-x-1/4 -translate-y-[110%] fill-neutral-900 dark:fill-neutral-200" />
         </div>
         <div className="prose grid max-w-2xl border-black/5 p-2 max-md:mt-10 max-md:border-t max-md:px-4 md:col-span-2 md:col-start-2 dark:border-white/10">
           <p className="text-lg/7">
@@ -163,9 +163,9 @@ export default async function Course() {
           </p>
         </div>
         <div className="mt-10 grid max-w-2xl p-2 max-md:px-4 md:col-span-2 md:col-start-2">
-          <Signature className="w-36 fill-gray-900 dark:fill-gray-200" />
+          <Signature className="w-36 fill-neutral-900 dark:fill-neutral-200" />
           <p className="text-sm/6 font-semibold">Adam Wathan</p>
-          <p className="text-sm/6 text-gray-700 dark:text-gray-400">Creator of Tailwind CSS</p>
+          <p className="text-sm/6 text-neutral-700 dark:text-neutral-400">Creator of Tailwind CSS</p>
         </div>
       </GridContainer>
     </div>

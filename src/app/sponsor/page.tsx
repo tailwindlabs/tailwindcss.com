@@ -26,7 +26,7 @@ function DarkButtonLink({ className, ...props }: React.ComponentProps<"a">) {
     <a
       className={clsx(
         className,
-        "rounded-4xl bg-black px-4 py-2 text-center text-sm/6 font-semibold text-white hover:bg-gray-800 dark:bg-white dark:text-gray-950 dark:hover:bg-white/90",
+        "rounded-4xl bg-black px-4 py-2 text-center text-sm/6 font-semibold text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-950 dark:hover:bg-white/90",
       )}
       {...props}
     />
@@ -38,7 +38,7 @@ function LightButtonLink({ className, ...props }: React.ComponentProps<"a">) {
     <a
       className={clsx(
         className,
-        "rounded-full px-4 py-2 text-center text-sm/6 font-semibold text-gray-950 ring-1 ring-gray-950/10 hover:ring-gray-950/20 dark:bg-white/5 dark:text-gray-100 dark:ring-white/15 dark:hover:ring-white/20",
+        "rounded-full px-4 py-2 text-center text-sm/6 font-semibold text-neutral-950 ring-1 ring-neutral-950/10 hover:ring-neutral-950/20 dark:bg-white/5 dark:text-neutral-100 dark:ring-white/15 dark:hover:ring-white/20",
       )}
       {...props}
     />
@@ -63,7 +63,7 @@ function Eyebrow({
       className={clsx(
         className,
         "font-mono text-[0.8125rem]/6 font-medium tracking-widest text-pretty uppercase",
-        color === "gray" && "text-gray-600 dark:text-gray-500",
+        color === "gray" && "text-neutral-600 dark:text-neutral-500",
         color === "sky" && "text-sky-500",
         color === "pink" && "text-pink-500",
         color === "fuchsia" && "text-fuchsia-500 dark:text-fuchsia-400",
@@ -76,17 +76,17 @@ function Eyebrow({
 function Header() {
   return (
     <div className="line-y mt-12 grid gap-x-10 sm:mt-20 lg:mt-24 lg:grid-cols-[3fr_2fr]">
-      <div className="px-4 py-2 max-lg:line-b sm:px-2 lg:border-r lg:border-gray-950/5 dark:lg:border-white/10">
+      <div className="px-4 py-2 max-lg:line-b sm:px-2 lg:border-r lg:border-neutral-950/5 dark:lg:border-white/10">
         <Eyebrow>Sponsor</Eyebrow>
         <h1 className="mt-2 text-6xl tracking-tighter text-pretty sm:text-8xl">Support the future of Tailwind CSS</h1>
       </div>
-      <div className="@container grid grid-cols-1 grid-rows-[1fr_auto] lg:border-l lg:border-gray-950/5 dark:lg:border-white/10">
+      <div className="@container grid grid-cols-1 grid-rows-[1fr_auto] lg:border-l lg:border-neutral-950/5 dark:lg:border-white/10">
         <div className="flex items-center px-4 py-2 max-lg:line-y max-lg:mt-6 sm:px-2">
-          <p className="max-w-2xl text-lg/7 font-medium text-pretty text-gray-600 dark:text-gray-400">
+          <p className="max-w-2xl text-lg/7 font-medium text-pretty text-neutral-600 dark:text-neutral-400">
             Help keep Tailwind CSS sustainable long term by supporting the project individually or as a company.
           </p>
         </div>
-        <div className="flex gap-4 px-4 py-2 whitespace-nowrap max-lg:line-t max-lg:mt-6 sm:px-2 lg:border-t lg:border-gray-950/5 @max-md:flex-col dark:lg:border-white/10">
+        <div className="flex gap-4 px-4 py-2 whitespace-nowrap max-lg:line-t max-lg:mt-6 sm:px-2 lg:border-t lg:border-neutral-950/5 @max-md:flex-col dark:lg:border-white/10">
           <DarkButtonLink href="#insiders" className="inline-flex items-center justify-center gap-2">
             Support as an individual
             <svg fill="currentColor" aria-hidden="true" viewBox="0 0 10 10" className="-mr-0.5 w-2.5">
@@ -99,7 +99,7 @@ function Header() {
               fill="currentColor"
               aria-hidden="true"
               viewBox="0 0 10 10"
-              className="-mr-0.5 w-2.5 fill-gray-600 dark:fill-gray-400"
+              className="-mr-0.5 w-2.5 fill-neutral-600 dark:fill-neutral-400"
             >
               <path d="M4.85355 0.146423L9.70711 4.99998L4.85355 9.85353L4.14645 9.14642L7.79289 5.49998H0V4.49998H7.79289L4.14645 0.85353L4.85355 0.146423Z"></path>
             </svg>
@@ -112,10 +112,10 @@ function Header() {
 
 function MessageFromAdam() {
   return (
-    <div className="line-y mt-24 bg-gray-950/5 p-2 sm:-mx-px sm:p-[calc(--spacing(2)+1px)] dark:bg-white/10">
+    <div className="line-y mt-24 bg-neutral-950/5 p-2 sm:-mx-px sm:p-[calc(--spacing(2)+1px)] dark:bg-white/10">
       <div className="relative">
         <div className="absolute inset-0 z-10 rounded-4xl dark:inset-ring dark:inset-ring-white/20"></div>
-        <section className="relative isolate overflow-hidden rounded-4xl bg-gray-950 p-10 md:p-20 lg:p-16 xl:p-32">
+        <section className="relative isolate overflow-hidden rounded-4xl bg-neutral-950 p-10 md:p-20 lg:p-16 xl:p-32">
           <Image
             src={AdamTeachingImage}
             alt="Adam Wathan"
@@ -130,7 +130,7 @@ function MessageFromAdam() {
               tools you love, with no strings attached.
             </p>
             <p className="mt-8 text-base/8 font-medium">Adam Wathan</p>
-            <p className="text-gray-400">Creator of Tailwind CSS</p>
+            <p className="text-neutral-400">Creator of Tailwind CSS</p>
           </div>
         </section>
       </div>
@@ -143,10 +143,10 @@ function FeaturedPartners() {
     <section>
       <div className="relative mt-4">
         <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
-          <div className="border-r border-gray-950/5 dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-lg:hidden xl:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-xl:hidden dark:border-white/10"></div>
+          <div className="border-r border-neutral-950/5 dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 max-lg:hidden xl:border-x dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 max-xl:hidden dark:border-white/10"></div>
         </div>
         <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
           {partners.map((partner, index) => (
@@ -155,7 +155,7 @@ function FeaturedPartners() {
               href={partner.url}
               target="_blank"
               rel="noopener sponsored"
-              className="grid place-content-center transition-colors hover:bg-gray-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y dark:hover:bg-white/2.5"
+              className="grid place-content-center transition-colors hover:bg-neutral-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y dark:hover:bg-white/2.5"
             >
               <partner.logo className="w-full max-w-80" aria-label={`${partner.name} logo`} />
             </a>
@@ -169,21 +169,21 @@ function FeaturedPartners() {
 function Insiders() {
   return (
     <div id="insiders" className="line-y mt-40 grid scroll-mt-24 grid-cols-1 gap-10 lg:grid-cols-3 xl:grid-cols-5">
-      <div className="border-r border-gray-950/5 px-4 py-2 sm:px-2 lg:col-span-2 xl:col-span-3 dark:border-white/10">
+      <div className="border-r border-neutral-950/5 px-4 py-2 sm:px-2 lg:col-span-2 xl:col-span-3 dark:border-white/10">
         <Eyebrow as="h2" color="sky">
           <a href="#insiders">Insiders</a>
         </Eyebrow>
         <p className="max-w-3xl text-3xl font-medium tracking-tight text-pretty md:text-[2.5rem]/14">
           Support as an individual
         </p>
-        <p className="mt-4 max-w-2xl text-base/7 text-gray-600 dark:text-gray-400">
+        <p className="mt-4 max-w-2xl text-base/7 text-neutral-600 dark:text-neutral-400">
           Join a community of enthusiasts who get early access to new features, internal tooling we've built for
           Tailwind, and direct connection with the team — all while supporting the project you love.
         </p>
       </div>
-      <div className="grid grid-cols-1 gap-2 bg-gray-950/5 py-[calc(--spacing(2)+1px)] max-xl:-mx-px max-xl:px-[calc(--spacing(2)+1px)] xl:col-span-2 xl:-mr-px xl:border-l xl:border-gray-950/5 xl:pr-[calc(--spacing(2)+1px)] xl:pl-2 dark:bg-white/10 dark:xl:border-white/10">
-        <div className="@container rounded-2xl bg-white p-6 sm:rounded-4xl sm:p-10 dark:bg-gray-950/80 dark:outline dark:outline-white/10">
-          <p className="font-mono text-[0.8125rem]/6 font-medium tracking-widest text-pretty text-gray-600 uppercase dark:text-gray-400">
+      <div className="grid grid-cols-1 gap-2 bg-neutral-950/5 py-[calc(--spacing(2)+1px)] max-xl:-mx-px max-xl:px-[calc(--spacing(2)+1px)] xl:col-span-2 xl:-mr-px xl:border-l xl:border-neutral-950/5 xl:pr-[calc(--spacing(2)+1px)] xl:pl-2 dark:bg-white/10 dark:xl:border-white/10">
+        <div className="@container rounded-2xl bg-white p-6 sm:rounded-4xl sm:p-10 dark:bg-neutral-950/80 dark:outline dark:outline-white/10">
+          <p className="font-mono text-[0.8125rem]/6 font-medium tracking-widest text-pretty text-neutral-600 uppercase dark:text-neutral-400">
             Sponsor
           </p>
           <div className="mt-6">
@@ -192,7 +192,7 @@ function Insiders() {
                 <p className="text-5xl/12 font-medium first-letter:font-light">$120</p>
                 <div>
                   <p className="text-sm/6 font-semibold">per year</p>
-                  <p className="text-sm/6 text-gray-600 dark:text-gray-400">plus tax</p>
+                  <p className="text-sm/6 text-neutral-600 dark:text-neutral-400">plus tax</p>
                 </div>
               </div>
               <DarkButtonLink href="https://buy.polar.sh/polar_cl_sdvKSPOnjtdElmQ57la4wv3C91Io5vGZpJmC71jdFXv">
@@ -212,14 +212,14 @@ function InsiderPerks() {
       <h2 className="px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Insider perks</h2>
       <div className="relative mt-4">
         <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-1 gap-2 max-sm:hidden sm:grid-cols-2 sm:gap-x-5 sm:gap-y-10 md:gap-10 lg:grid-cols-3">
-          <div className="border-r border-gray-950/5 dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-lg:hidden dark:border-white/10"></div>
+          <div className="border-r border-neutral-950/5 dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 max-lg:hidden dark:border-white/10"></div>
         </div>
         <ul className="grid-cols-1 gap-2 max-sm:line-y max-sm:overflow-x-auto max-sm:px-2 sm:grid sm:grid-cols-2 sm:gap-x-5 sm:gap-y-10 md:gap-10 lg:grid-cols-3">
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
-            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">
+            <p className="text-sm/7 text-neutral-600 dark:text-neutral-400">
+              <strong className="font-semibold text-neutral-950 dark:text-white">
                 Access to private insiders area in Discord
               </strong>{" "}
               — where Tailwind insiders share tips, play with upcoming features, and connect directly with the core
@@ -227,15 +227,15 @@ function InsiderPerks() {
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
-            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Cursor/Claude/AGENTS.md rules</strong> —
+            <p className="text-sm/7 text-neutral-600 dark:text-neutral-400">
+              <strong className="font-semibold text-neutral-950 dark:text-white">Cursor/Claude/AGENTS.md rules</strong> —
               Adam's personal ruleset for working with AI coding assistants, straight from the Tailwind founder's own
               development setup.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
-            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">
+            <p className="text-sm/7 text-neutral-600 dark:text-neutral-400">
+              <strong className="font-semibold text-neutral-950 dark:text-white">
                 Early documentation for pre-release builds
               </strong>{" "}
               — preview documentation for unreleased Tailwind features and start experimenting with tomorrow's CSS
@@ -243,21 +243,21 @@ function InsiderPerks() {
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
-            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">VS Code themes</strong> — get the VS Code
+            <p className="text-sm/7 text-neutral-600 dark:text-neutral-400">
+              <strong className="font-semibold text-neutral-950 dark:text-white">VS Code themes</strong> — get the VS Code
               themes built and battle-tested by the Tailwind team, crafted with the same attention to detail we put into
               Tailwind CSS itself
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
-            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Raycast extension</strong> — instantly
+            <p className="text-sm/7 text-neutral-600 dark:text-neutral-400">
+              <strong className="font-semibold text-neutral-950 dark:text-white">Raycast extension</strong> — instantly
               find the nearest Tailwind theme value for any color or size, or see the generated CSS output of any class.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
-            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Source code + Figma files</strong> —
+            <p className="text-sm/7 text-neutral-600 dark:text-neutral-400">
+              <strong className="font-semibold text-neutral-950 dark:text-white">Source code + Figma files</strong> —
               download the source code from our feature demos, that usually never see the light of day, to learn exactly
               how we prototype ideas with Tailwind.
             </p>
@@ -271,7 +271,7 @@ function InsiderPerks() {
 function InsiderPerkScreenshots() {
   return (
     <div className="line-y mt-10 grid grid-rows-1 gap-2 p-2 md:h-130 md:grid-rows-2 lg:grid-cols-3">
-      <div className="relative overflow-hidden rounded-xl bg-gray-200 pt-9 pl-9 outline -outline-offset-1 outline-gray-950/5 max-md:aspect-[4/3] md:col-start-1 md:row-start-1 md:max-lg:col-span-2 md:max-lg:pt-5 md:max-lg:pl-5 lg:row-span-2 dark:bg-gray-900 dark:outline-white/5">
+      <div className="relative overflow-hidden rounded-xl bg-neutral-200 pt-9 pl-9 outline -outline-offset-1 outline-neutral-950/5 max-md:aspect-[4/3] md:col-start-1 md:row-start-1 md:max-lg:col-span-2 md:max-lg:pt-5 md:max-lg:pl-5 lg:row-span-2 dark:bg-neutral-900 dark:outline-white/5">
         <p className="absolute right-4 bottom-4 flex items-center gap-2 rounded-full border border-white/20 bg-black/80 pr-4 pl-2 font-mono text-xs/7 font-medium text-white outline outline-black backdrop-blur-sm lg:right-6 lg:bottom-6">
           <svg fill="#D97757" viewBox="0 0 16 16" className="size-4">
             <path d="m3.137 10.637 3.145-1.765.052-.154-.052-.085h-.154l-.526-.032-1.797-.048-1.559-.065-1.51-.081-.38-.081L0 7.856l.036-.234.32-.215.458.04 1.011.07 1.518.105 1.101.064 1.631.17h.26l.036-.105-.09-.065-.068-.064-1.57-1.065-1.7-1.125-.89-.648-.483-.328-.242-.307-.106-.672.438-.482.586.04.15.041.595.458 1.271.983 1.66 1.222.242.203.098-.07.012-.048-.11-.182-.902-1.63-.964-1.66-.429-.689-.113-.412a1.982 1.982 0 0 1-.069-.486l.498-.676L4.46 0l.664.09.28.242.412.943.668 1.485L7.52 4.78l.304.6.162.554.06.17h.106v-.097l.085-1.138.158-1.396.153-1.797.053-.506.251-.607.498-.328.388.186.32.457-.044.296-.19 1.234-.373 1.935-.243 1.295h.142l.162-.162.655-.87 1.101-1.376.486-.546.567-.604.364-.287h.688l.506.753-.226.777-.709.899-.587.76-.842 1.134-.526.907.049.072.125-.012 1.902-.405 1.029-.186 1.226-.21.555.259.06.263-.218.538-1.312.324-1.538.308-2.29.542-.03.02.033.04 1.033.098.44.024h1.081l2.012.15.526.348.316.425-.053.324-.81.413-1.092-.26-2.55-.606-.874-.219h-.122v.073l.729.712 1.336 1.206 1.671 1.555.085.384-.214.304-.227-.033-1.47-1.105-.566-.498-1.283-1.08h-.085v.113l.295.433 1.563 2.348.08.72-.113.235-.404.142-.446-.081-.914-1.283-.943-1.445-.761-1.296-.093.053-.45 4.837-.21.247L7.58 16l-.405-.308-.214-.498.214-.983.26-1.283.21-1.02.19-1.267.113-.42-.008-.03-.093.013-.955 1.311-1.453 1.963-1.15 1.23-.275.11-.477-.247.044-.441.267-.393 1.59-2.023.96-1.255.62-.725-.005-.105h-.036l-4.226 2.744-.753.098-.323-.304.04-.498.154-.162 1.27-.874-.003.004Z" />
@@ -287,15 +287,15 @@ function InsiderPerkScreenshots() {
         <Image
           src={InsidersGitHubRepositoryImage}
           alt="Insiders GitHub repository"
-          className="w-212 max-w-none rounded-tl-xl bg-white outline outline-gray-950/10 dark:hidden"
+          className="w-212 max-w-none rounded-tl-xl bg-white outline outline-neutral-950/10 dark:hidden"
         />
         <Image
           src={InsidersGitHubRepositoryDarkImage}
           alt="Insiders GitHub repository"
-          className="hidden w-212 max-w-none rounded-tl-xl bg-[#0F1116] outline outline-gray-950/10 dark:block dark:outline dark:outline-white/10"
+          className="hidden w-212 max-w-none rounded-tl-xl bg-[#0F1116] outline outline-neutral-950/10 dark:block dark:outline dark:outline-white/10"
         />
       </div>
-      <div className="relative overflow-hidden rounded-xl bg-[#F66969] pt-9 pl-9 inset-ring inset-ring-gray-950/10 max-md:aspect-[4/3] md:row-start-1 md:max-lg:col-start-3 md:max-lg:pt-5 md:max-lg:pl-5 lg:col-start-2">
+      <div className="relative overflow-hidden rounded-xl bg-[#F66969] pt-9 pl-9 inset-ring inset-ring-neutral-950/10 max-md:aspect-[4/3] md:row-start-1 md:max-lg:col-start-3 md:max-lg:pt-5 md:max-lg:pl-5 lg:col-start-2">
         <p className="absolute right-4 bottom-4 flex items-center gap-2 rounded-full border border-white/20 bg-black/80 pr-4 pl-2 font-mono text-xs/7 font-medium text-white outline outline-black backdrop-blur-sm lg:right-6 lg:bottom-6">
           <svg fill="#FF6363" viewBox="0 0 16 16" className="size-4">
             <path
@@ -312,7 +312,7 @@ function InsiderPerkScreenshots() {
           className="w-180 max-w-none rounded-tl-xl border border-black bg-[#1B1B1C] outline -outline-offset-2 outline-white/30 sm:w-200 md:w-150"
         />
       </div>
-      <div className="relative flex items-center justify-center rounded-xl bg-[#5865F2] inset-ring inset-ring-gray-950/10 max-md:aspect-[4/3] md:row-start-2 md:max-lg:col-start-1 lg:col-start-2">
+      <div className="relative flex items-center justify-center rounded-xl bg-[#5865F2] inset-ring inset-ring-neutral-950/10 max-md:aspect-[4/3] md:row-start-2 md:max-lg:col-start-1 lg:col-start-2">
         <p className="absolute right-4 bottom-4 flex items-center gap-2 rounded-full border border-white/20 bg-black/80 pr-4 pl-2 font-mono text-xs/7 font-medium text-white outline outline-black backdrop-blur-sm lg:right-6 lg:bottom-6">
           <LockClosedIcon className="size-4 fill-white/75" />
           Private community
@@ -321,7 +321,7 @@ function InsiderPerkScreenshots() {
           <path d="M81.15 0a73.745 73.745 0 0 0-3.36 6.794 97.867 97.867 0 0 0-28.994 0A67.876 67.876 0 0 0 45.437 0a105.544 105.544 0 0 0-26.14 8.057C2.779 32.53-1.691 56.373.53 79.887a105.038 105.038 0 0 0 32.05 16.088 76.912 76.912 0 0 0 6.87-11.063c-3.737-1.389-7.35-3.131-10.81-5.152.91-.657 1.794-1.339 2.653-1.995a75.255 75.255 0 0 0 64.075 0c.86.707 1.743 1.389 2.652 1.995a68.772 68.772 0 0 1-10.835 5.178A76.903 76.903 0 0 0 94.056 96a104.99 104.99 0 0 0 32.051-16.063c2.626-27.277-4.496-50.917-18.817-71.855A103.922 103.922 0 0 0 81.175.051L81.15 0ZM42.28 65.414c-6.238 0-11.416-5.657-11.416-12.653s4.976-12.679 11.391-12.679 11.517 5.708 11.416 12.679c-.101 6.97-5.026 12.653-11.39 12.653Zm42.078 0c-6.264 0-11.391-5.657-11.391-12.653s4.975-12.679 11.39-12.679c6.416 0 11.492 5.708 11.391 12.679-.1 6.97-5.026 12.653-11.39 12.653Z" />
         </svg>
       </div>
-      <div className="relative overflow-hidden rounded-xl bg-gray-200 pt-9 pl-9 outline -outline-offset-1 outline-gray-950/5 max-md:aspect-[4/3] md:max-lg:col-span-2 md:max-lg:col-start-2 md:max-lg:row-start-2 md:max-lg:pt-5 md:max-lg:pl-5 lg:col-start-3 lg:row-span-2 lg:row-start-1 dark:bg-gray-900 dark:outline-white/5">
+      <div className="relative overflow-hidden rounded-xl bg-neutral-200 pt-9 pl-9 outline -outline-offset-1 outline-neutral-950/5 max-md:aspect-[4/3] md:max-lg:col-span-2 md:max-lg:col-start-2 md:max-lg:row-start-2 md:max-lg:pt-5 md:max-lg:pl-5 lg:col-start-3 lg:row-span-2 lg:row-start-1 dark:bg-neutral-900 dark:outline-white/5">
         <p className="absolute right-4 bottom-4 flex items-center gap-2 rounded-full border border-white/20 bg-black/80 pr-4 pl-2 font-mono text-xs/7 font-medium text-white outline outline-black backdrop-blur-sm lg:right-6 lg:bottom-6">
           <svg fill="none" viewBox="0 0 16 16" className="size-4">
             <path
@@ -371,7 +371,7 @@ function Partners() {
         <p className="max-w-3xl text-3xl font-medium tracking-tight text-pretty md:text-[2.5rem]/14">
           Support as a company
         </p>
-        <p className="mt-4 max-w-2xl text-base/7 text-gray-600 dark:text-gray-400">
+        <p className="mt-4 max-w-2xl text-base/7 text-neutral-600 dark:text-neutral-400">
           Become a Tailwind CSS partner to put your brand in front of 10 million developers a month, give your team
           early access to new features and our roadmap, and get direct access to the Tailwind CSS core team — all while
           helping ensure Tailwind stays around for the long haul.
@@ -387,35 +387,35 @@ function PartnerPerks() {
       <h2 className="px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Why become a partner?</h2>
       <div className="relative mt-4">
         <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-1 gap-2 max-sm:hidden sm:grid-cols-2 sm:gap-x-5 sm:gap-y-10 md:gap-10 lg:grid-cols-3">
-          <div className="border-r border-gray-950/5 dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-lg:hidden dark:border-white/10"></div>
+          <div className="border-r border-neutral-950/5 dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 max-lg:hidden dark:border-white/10"></div>
         </div>
-        <ul className="grid-cols-1 gap-2 text-sm/7 text-gray-600 max-sm:line-y max-sm:overflow-x-auto max-sm:px-2 sm:grid sm:grid-cols-2 sm:gap-x-5 sm:gap-y-10 md:gap-10 lg:grid-cols-3">
+        <ul className="grid-cols-1 gap-2 text-sm/7 text-neutral-600 max-sm:line-y max-sm:overflow-x-auto max-sm:px-2 sm:grid sm:grid-cols-2 sm:gap-x-5 sm:gap-y-10 md:gap-10 lg:grid-cols-3">
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
-            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Your logo in front of millions</strong> —
+            <p className="text-sm/7 text-neutral-600 dark:text-neutral-400">
+              <strong className="font-semibold text-neutral-950 dark:text-white">Your logo in front of millions</strong> —
               the Tailwind CSS website gets over 10 million visitors per month, and your brand will be featured on the
               homepage as a partner.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
-            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Insiders team access</strong> — get all
+            <p className="text-sm/7 text-neutral-600 dark:text-neutral-400">
+              <strong className="font-semibold text-neutral-950 dark:text-white">Insiders team access</strong> — get all
               the perks of the Insiders tier for everyone in your team, including early access to new features,
               specialized tooling, and more.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
-            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Tailwind Plus team access</strong> —
+            <p className="text-sm/7 text-neutral-600 dark:text-neutral-400">
+              <strong className="font-semibold text-neutral-950 dark:text-white">Tailwind Plus team access</strong> —
               access to Tailwind Plus for your whole team, including the React UI Kit, expertly crafted templates, and
               500+ thoughtfully designed components.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
-            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">
+            <p className="text-sm/7 text-neutral-600 dark:text-neutral-400">
+              <strong className="font-semibold text-neutral-950 dark:text-white">
                 Expedited bug fixes and issue resolution
               </strong>{" "}
               — we’ll work to address issues you run into on an expedited schedule, even if normally they would be lower
@@ -423,15 +423,15 @@ function PartnerPerks() {
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
-            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Website in the showcase</strong> — your
+            <p className="text-sm/7 text-neutral-600 dark:text-neutral-400">
+              <strong className="font-semibold text-neutral-950 dark:text-white">Website in the showcase</strong> — your
               website will feature prominently in our showcase, bringing more attention to your brand when new Tailwind
               users go to see what is possible with the framework.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
-            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Support Tailwind CSS</strong> — you’ll be
+            <p className="text-sm/7 text-neutral-600 dark:text-neutral-400">
+              <strong className="font-semibold text-neutral-950 dark:text-white">Support Tailwind CSS</strong> — you’ll be
               helping contribute to the sustainability of the framework, giving you peace of mind that a core technology
               in your stack will continue to function smoothly.
             </p>
@@ -551,9 +551,9 @@ function PartnerPlans() {
       {plans.map((plan) => (
         <div
           key={plan.name}
-          className="bg-gray-950/5 py-[calc(--spacing(2)+1px)] max-lg:-mx-px max-lg:px-[calc(--spacing(2)+1px)] not-first:max-lg:pt-0 lg:-mx-px lg:border-gray-950/5 lg:pr-2 lg:pl-[calc(--spacing(2)+1px)] lg:not-first:border-l lg:not-last:border-r dark:bg-white/10 dark:lg:border-white/10"
+          className="bg-neutral-950/5 py-[calc(--spacing(2)+1px)] max-lg:-mx-px max-lg:px-[calc(--spacing(2)+1px)] not-first:max-lg:pt-0 lg:-mx-px lg:border-neutral-950/5 lg:pr-2 lg:pl-[calc(--spacing(2)+1px)] lg:not-first:border-l lg:not-last:border-r dark:bg-white/10 dark:lg:border-white/10"
         >
-          <div className="flex h-full flex-col gap-y-6 rounded-2xl bg-white p-6 sm:rounded-4xl sm:p-10 xl:p-8 2xl:p-10 dark:bg-gray-950/80 dark:outline dark:outline-white/10">
+          <div className="flex h-full flex-col gap-y-6 rounded-2xl bg-white p-6 sm:rounded-4xl sm:p-10 xl:p-8 2xl:p-10 dark:bg-neutral-950/80 dark:outline dark:outline-white/10">
             <div className="flex items-center justify-between gap-4">
               <Eyebrow as="h3">{plan.name}</Eyebrow>
               {plan.remaining !== null && (
@@ -574,7 +574,7 @@ function PartnerPlans() {
                 <p className="text-5xl font-medium first-letter:font-light">{plan.price}</p>
                 <div>
                   <p className="text-sm/6 font-semibold">per month</p>
-                  <p className="text-sm/6 text-gray-600 dark:text-gray-400">plus tax</p>
+                  <p className="text-sm/6 text-neutral-600 dark:text-neutral-400">plus tax</p>
                 </div>
               </div>
 
@@ -582,18 +582,18 @@ function PartnerPlans() {
                 {`Become ${plan.name.toLowerCase().match(/^[aeiou]/i) ? "an" : "a"} ${plan.name.toLowerCase()}`}
               </DarkButtonLink>
             </div>
-            <p className="max-w-2xl text-sm/7 text-gray-600 dark:text-gray-400">{plan.description}</p>
-            <hr className="border-gray-950/5 dark:border-white/10" />
+            <p className="max-w-2xl text-sm/7 text-neutral-600 dark:text-neutral-400">{plan.description}</p>
+            <hr className="border-neutral-950/5 dark:border-white/10" />
             <div className="@container">
               <ul
-                className="group grid grid-cols-1 gap-x-10 gap-y-6 text-sm/7 text-gray-600 @3xl:grid-cols-2 dark:text-gray-300"
+                className="group grid grid-cols-1 gap-x-10 gap-y-6 text-sm/7 text-neutral-600 @3xl:grid-cols-2 dark:text-neutral-300"
                 role="list"
               >
                 {plan.features.map((feature) => (
                   <li key={feature.name} className="grid max-w-2xl grid-cols-[auto_1fr] gap-6">
                     <CheckmarkIcon />
                     <p className="text-pretty">
-                      <strong className="font-semibold text-gray-950 dark:text-white">{feature.name}</strong> —{" "}
+                      <strong className="font-semibold text-neutral-950 dark:text-white">{feature.name}</strong> —{" "}
                       {feature.description}
                     </p>
                   </li>
@@ -631,7 +631,7 @@ function Faq({ question, children }: { question: string; children: React.ReactNo
       .replace(/\s+/g, "-");
 
   return (
-    <details className="group border-t border-gray-950/5 px-4 py-3 sm:px-2 dark:border-white/5">
+    <details className="group border-t border-neutral-950/5 px-4 py-3 sm:px-2 dark:border-white/5">
       <summary
         id={id}
         className="flex w-full cursor-pointer justify-between gap-4 select-none group-open:text-sky-500 [&::-webkit-details-marker]:hidden"
@@ -648,7 +648,7 @@ function Faq({ question, children }: { question: string; children: React.ReactNo
 function Faqs() {
   return (
     <section className="line-y mt-30 grid grid-cols-1 gap-10 lg:grid-cols-2" id="faqs">
-      <div className="lg:border-r lg:border-gray-950/5 dark:lg:border-white/5">
+      <div className="lg:border-r lg:border-neutral-950/5 dark:lg:border-white/5">
         <div className="grid grid-cols-1 gap-y-2 px-4 py-2 max-lg:line-b sm:px-2 lg:line-b/half">
           <Eyebrow as="h2" color="fuchsia">
             Frequently asked questions
@@ -656,7 +656,7 @@ function Faqs() {
           <p className="text-[2.5rem]/none font-medium tracking-tight text-pretty">Everything you need to know.</p>
         </div>
       </div>
-      <div className="lg:border-l lg:border-gray-950/5 dark:lg:border-white/5">
+      <div className="lg:border-l lg:border-neutral-950/5 dark:lg:border-white/5">
         <div className="grid grid-cols-1 gap-10">
           <FaqGroup title="General">
             <Faq question="Who can I contact about a sponsorship?">
@@ -753,7 +753,7 @@ function Sponsors() {
           <p className="max-w-3xl text-3xl font-medium tracking-tight text-pretty md:text-[2.5rem]/14">
             Thank you to our sponsors.
           </p>
-          <p className="mt-4 max-w-2xl text-base/7 text-gray-600 dark:text-gray-400">
+          <p className="mt-4 max-w-2xl text-base/7 text-neutral-600 dark:text-neutral-400">
             We are super grateful to all the following sponsors for supporting the ongoing development and maintenance
             of Tailwind CSS.
           </p>
@@ -762,10 +762,10 @@ function Sponsors() {
       <h2 className="mt-16 px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Partners</h2>
       <div className="relative mt-4">
         <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
-          <div className="border-r border-gray-950/5 dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-lg:hidden xl:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-xl:hidden dark:border-white/10"></div>
+          <div className="border-r border-neutral-950/5 dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 max-lg:hidden xl:border-x dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 max-xl:hidden dark:border-white/10"></div>
         </div>
         <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
           {partners.map((company, index) => (
@@ -774,7 +774,7 @@ function Sponsors() {
               href={company.url}
               target="_blank"
               rel="noopener sponsored"
-              className="grid place-content-center transition-colors hover:bg-gray-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y dark:hover:bg-white/2.5"
+              className="grid place-content-center transition-colors hover:bg-neutral-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y dark:hover:bg-white/2.5"
             >
               <company.logo className="w-full max-w-80" aria-label={`${company.name} logo`} />
             </a>
@@ -784,12 +784,12 @@ function Sponsors() {
       <h2 className="mt-16 px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Ambassadors</h2>
       <div className="relative mt-4">
         <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-4 xl:grid-cols-6">
-          <div className="border-r border-gray-950/5 dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-lg:hidden lg:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-xl:hidden xl:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-xl:hidden xl:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-lg:hidden dark:border-white/10"></div>
+          <div className="border-r border-neutral-950/5 dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 max-lg:hidden lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 max-xl:hidden xl:border-x dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 max-xl:hidden xl:border-x dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 max-lg:hidden dark:border-white/10"></div>
         </div>
         <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-4 xl:grid-cols-6">
           {ambassadors.map((company, index) => (
@@ -798,7 +798,7 @@ function Sponsors() {
               href={company.url}
               target="_blank"
               rel="noopener sponsored"
-              className="grid place-content-center transition-colors hover:bg-gray-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[4n+1]:line-y xl:nth-[6n+1]:line-y dark:hover:bg-white/2.5"
+              className="grid place-content-center transition-colors hover:bg-neutral-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[4n+1]:line-y xl:nth-[6n+1]:line-y dark:hover:bg-white/2.5"
             >
               <company.logo className="w-full max-w-80" aria-label={`${company.name} logo`} />
             </a>
@@ -808,14 +808,14 @@ function Sponsors() {
       <h2 className="mt-16 px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Supporters</h2>
       <div className="relative mt-4">
         <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-6 xl:grid-cols-8">
-          <div className="border-r border-gray-950/5 dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-lg:hidden lg:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-lg:hidden lg:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-lg:hidden lg:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-xl:hidden xl:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-xl:hidden xl:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-lg:hidden dark:border-white/10"></div>
+          <div className="border-r border-neutral-950/5 dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 max-lg:hidden lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 max-lg:hidden lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 max-lg:hidden lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 max-xl:hidden xl:border-x dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 max-xl:hidden xl:border-x dark:border-white/10"></div>
+          <div className="border-l border-neutral-950/5 max-lg:hidden dark:border-white/10"></div>
         </div>
         <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-6 xl:grid-cols-8">
           {supporters.map((company, index) => (
@@ -824,7 +824,7 @@ function Sponsors() {
               href={company.url}
               target="_blank"
               rel="noopener sponsored"
-              className="grid place-content-center transition-colors hover:bg-gray-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[6n+1]:line-y xl:nth-[8n+1]:line-y dark:hover:bg-white/2.5"
+              className="grid place-content-center transition-colors hover:bg-neutral-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[6n+1]:line-y xl:nth-[8n+1]:line-y dark:hover:bg-white/2.5"
             >
               <company.logo className="w-full max-w-80" aria-label={`${company.name} logo`} />
             </a>

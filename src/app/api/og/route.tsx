@@ -72,10 +72,10 @@ export async function GET(req: NextRequest) {
         }}
       >
         <div tw="absolute flex h-full w-full flex-col justify-between p-[32px] pt-[394px] pr-[40px]">
-          <div tw="flex flex-col h-full border-1 border-t border-gray-800 p-8">
+          <div tw="flex flex-col h-full border-1 border-t border-neutral-800 p-8">
             {section && (
               <div
-                tw="flex text-[20px] leading-[20px] font-medium tracking-[2px] text-gray-400"
+                tw="flex text-[20px] leading-[20px] font-medium tracking-[2px] text-neutral-400"
                 style={{
                   fontFamily: "Geist Mono",
                 }}
@@ -94,7 +94,7 @@ export async function GET(req: NextRequest) {
             </div>
             {description && (
               <div
-                tw="mt-4 text-[24px] leading-[40px] font-medium text-gray-400"
+                tw="mt-4 text-[24px] leading-[40px] font-medium text-neutral-400"
                 style={{
                   display: "block",
                   lineClamp: 1,

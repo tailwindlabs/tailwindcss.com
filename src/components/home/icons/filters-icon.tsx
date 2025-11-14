@@ -2,7 +2,7 @@ export function FiltersIcon() {
   return (
     <>
       <svg
-        className="text-gray-950 [--site-background:var(--color-white)] dark:text-white dark:[--site-background:var(--color-gray-950)]"
+        className="text-neutral-950 [--site-background:var(--color-white)] dark:text-white dark:[--site-background:var(--color-neutral-950)]"
         width={112}
         height={72}
         viewBox="0 0 112 72"

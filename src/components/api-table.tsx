@@ -17,7 +17,7 @@ function highlight(input: string) {
         } else if (part?.startsWith("/*") && part.endsWith("*/")) {
           // Comments
           return (
-            <span key={i} className="text-gray-400 italic">
+            <span key={i} className="text-neutral-400 italic">
               {part}
             </span>
           );
@@ -70,14 +70,14 @@ export function ApiTable({ rows }: { rows: [string, string][] }) {
   return (
     <div id="quick-reference" className="not-prose relative isolate scroll-mt-16">
       <div className="w-full overflow-x-auto whitespace-nowrap">
-        <table className="grid w-full grid-cols-[auto_auto] border-b border-gray-900/10 dark:border-white/10">
+        <table className="grid w-full grid-cols-[auto_auto] border-b border-neutral-900/10 dark:border-white/10">
           <thead className="col-span-2 grid grid-cols-subgrid">
             <tr className="col-span-2 grid grid-cols-subgrid">
-              <th className="px-2 py-2.5 text-left text-sm/7 font-semibold text-gray-950 dark:text-white">Class</th>
-              <th className="px-2 py-2.5 text-left text-sm/7 font-semibold text-gray-950 dark:text-white">Styles</th>
+              <th className="px-2 py-2.5 text-left text-sm/7 font-semibold text-neutral-950 dark:text-white">Class</th>
+              <th className="px-2 py-2.5 text-left text-sm/7 font-semibold text-neutral-950 dark:text-white">Styles</th>
             </tr>
           </thead>
-          <tbody className="col-span-2 grid grid-cols-subgrid border-t border-gray-900/10 dark:border-white/10">
+          <tbody className="col-span-2 grid grid-cols-subgrid border-t border-neutral-900/10 dark:border-white/10">
             {aboveTheFold.map(([utility, styles], i) => (
               <ApiTableRow key={i} utility={utility} styles={styles} />
             ))}
@@ -94,12 +94,12 @@ export function ApiTable({ rows }: { rows: [string, string][] }) {
       {isExpandable && (
         <div
           className={clsx(
-            "z-10 flex justify-center bg-linear-to-t from-white to-white/40 text-gray-950 hover:text-gray-950/70 dark:from-gray-950 dark:to-gray-950/40 dark:text-white dark:hover:text-white/70",
+            "z-10 flex justify-center bg-linear-to-t from-white to-white/40 text-neutral-950 hover:text-neutral-950/70 dark:from-neutral-950 dark:to-neutral-950/40 dark:text-white dark:hover:text-white/70",
             isExpanded ? "sticky bottom-0 h-12 to-white/80 py-1" : "absolute bottom-0 h-26 w-full translate-y-1/2 py-8",
           )}
         >
           <button
-            className="rounded-full border border-gray-950 bg-gray-950 px-3 py-1 font-mono text-xs/7 font-medium tracking-widest text-white uppercase dark:border-gray-700 dark:bg-gray-700"
+            className="rounded-full border border-neutral-950 bg-neutral-950 px-3 py-1 font-mono text-xs/7 font-medium tracking-widest text-white uppercase dark:border-neutral-700 dark:bg-neutral-700"
             onClick={() => setIsExpanded(!isExpanded)}
           >
             {isExpanded ? "Show less" : "Show more"}
@@ -122,7 +122,7 @@ function ApiTableRow({
   return (
     <tr
       className={clsx(
-        "col-span-2 grid grid-cols-subgrid not-last:border-b not-last:border-gray-950/5 dark:not-last:border-white/5",
+        "col-span-2 grid grid-cols-subgrid not-last:border-b not-last:border-neutral-950/5 dark:not-last:border-white/5",
         className,
       )}
     >

@@ -99,18 +99,18 @@ export default function Page({ children }: { children: React.ReactNode }) {
         <div className="px-4 sm:px-6">
           <p
             data-section="true"
-            className="font-mono text-xs/6 font-medium tracking-widest text-gray-600 uppercase dark:text-gray-400"
+            className="font-mono text-xs/6 font-medium tracking-widest text-neutral-600 uppercase dark:text-neutral-400"
           >
             Installation
           </p>
-          <h1 className="mt-2 text-3xl font-medium tracking-tight text-gray-950 dark:text-white">
+          <h1 className="mt-2 text-3xl font-medium tracking-tight text-neutral-950 dark:text-white">
             Get started with Tailwind CSS
           </h1>
-          <p data-description="true" className="mt-6 text-base/7 text-gray-700 dark:text-gray-300">
+          <p data-description="true" className="mt-6 text-base/7 text-neutral-700 dark:text-neutral-300">
             Tailwind CSS works by scanning all of your HTML files, JavaScript components, and any other templates for
             class names, generating the corresponding styles and then writing them to a static CSS file.
           </p>
-          <p className="mt-4 text-base/7 text-gray-700 dark:text-gray-300">
+          <p className="mt-4 text-base/7 text-neutral-700 dark:text-neutral-300">
             It's fast, flexible, and reliable — with zero-runtime.
           </p>
 
@@ -119,7 +119,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
               <div className="relative z-10">
                 <h2
                   data-docsearch-ignore
-                  className="mb-6 text-lg font-semibold tracking-tight text-gray-950 dark:text-white"
+                className="mb-6 text-lg font-semibold tracking-tight text-neutral-950 dark:text-white"
                 >
                   Installation
                 </h2>

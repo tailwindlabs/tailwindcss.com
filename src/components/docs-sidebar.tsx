@@ -11,12 +11,12 @@ export function TopNavLink(props: { href: string } & React.ComponentPropsWithout
     <Component
       className={clsx(
         "group",
-        "inline-flex items-center gap-3 text-base/8 text-gray-600 sm:text-sm/7 dark:text-gray-300",
-        "**:data-outline:stroke-gray-400 dark:**:data-outline:stroke-gray-500 **:[svg]:first:size-5 **:[svg]:first:sm:size-4",
-        "hover:text-gray-950 hover:**:data-highlight:fill-gray-300 hover:**:data-outline:stroke-gray-950",
-        "dark:hover:text-white dark:hover:**:data-highlight:fill-gray-600 dark:hover:**:data-outline:stroke-white",
-        "aria-[current]:font-semibold aria-[current]:text-gray-950 aria-[current]:**:data-highlight:fill-gray-300 aria-[current]:**:data-outline:stroke-gray-950",
-        "dark:aria-[current]:text-white dark:aria-[current]:**:data-highlight:fill-gray-600 dark:aria-[current]:**:data-outline:stroke-white",
+        "inline-flex items-center gap-3 text-base/8 text-neutral-600 sm:text-sm/7 dark:text-neutral-300",
+        "**:data-outline:stroke-neutral-400 dark:**:data-outline:stroke-neutral-500 **:[svg]:first:size-5 **:[svg]:first:sm:size-4",
+        "hover:text-neutral-950 hover:**:data-highlight:fill-neutral-300 hover:**:data-outline:stroke-neutral-950",
+        "dark:hover:text-white dark:hover:**:data-highlight:fill-neutral-600 dark:hover:**:data-outline:stroke-white",
+        "aria-[current]:font-semibold aria-[current]:text-neutral-950 aria-[current]:**:data-highlight:fill-neutral-300 aria-[current]:**:data-outline:stroke-neutral-950",
+        "dark:aria-[current]:text-white dark:aria-[current]:**:data-highlight:fill-neutral-600 dark:aria-[current]:**:data-outline:stroke-white",
       )}
       {...props}
     />
