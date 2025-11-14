@@ -72,16 +72,16 @@ export default async function DocPage(props: Props) {
         <div className="px-4 pt-10 pb-24 sm:px-6 xl:pr-0">
           {sectionAndTitle ? (
             <p
-              className="flex items-center gap-2 font-mono text-xs/6 font-medium tracking-widest text-gray-600 uppercase dark:text-gray-400"
+            className="flex items-center gap-2 font-mono text-xs/6 font-medium tracking-widest text-neutral-600 uppercase dark:text-neutral-400"
               data-section="true"
             >
               {sectionAndTitle.section}
             </p>
           ) : null}
-          <h1 data-title="true" className="mt-2 text-3xl font-medium tracking-tight text-gray-950 dark:text-white">
+          <h1 data-title="true" className="mt-2 text-3xl font-medium tracking-tight text-neutral-950 dark:text-white">
             {post.title}
           </h1>
-          <p data-description="true" className="mt-6 text-base/7 text-gray-700 dark:text-gray-400">
+          <p data-description="true" className="mt-6 text-base/7 text-neutral-700 dark:text-neutral-400">
             {post.description}
           </p>
 

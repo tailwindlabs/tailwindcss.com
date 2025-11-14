@@ -14,7 +14,7 @@ export function TransitionsSection() {
     <div className="flex h-full flex-col justify-between px-6 py-10 sm:p-10">
       <div className="grid grid-cols-[auto_1fr] gap-8 sm:gap-11">
         <svg
-          className="size-16 rounded-lg bg-white text-gray-800 shadow-sm sm:size-18 dark:bg-gray-900 dark:text-white dark:inset-ring dark:inset-ring-white/5"
+          className="size-16 rounded-lg bg-white text-neutral-800 shadow-sm sm:size-18 dark:bg-neutral-900 dark:text-white dark:inset-ring dark:inset-ring-white/5"
           viewBox="0 0 65 65"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -34,9 +34,9 @@ export function TransitionsSection() {
           />
         </svg>
         <div className="flex w-full min-w-0 flex-col justify-between pt-1 pb-4">
-          <p className="flex font-mono text-xs text-nowrap text-clip text-gray-700 dark:text-gray-200">
+          <p className="flex font-mono text-xs text-nowrap text-clip text-neutral-700 dark:text-neutral-200">
             <span className="hidden sm:visible">transition duration-750</span>
-            <span className="font-medium text-gray-950 dark:text-white">linear</span>
+            <span className="font-medium text-neutral-950 dark:text-white">linear</span>
           </p>
           <div className="@container relative grid grid-cols-[auto_1fr_auto] items-center px-4 sm:px-5">
             <motion.div
@@ -45,16 +45,16 @@ export function TransitionsSection() {
               animate="end"
               transition={{ ease: "linear", repeat: Infinity, duration: 0.75, repeatDelay: 1.5, repeatType: "mirror" }}
             />
-            <div className="size-2 rounded-full border border-gray-950/20 dark:border-gray-700" />
-            <div className="h-px w-full bg-gray-950/20 dark:bg-gray-700" />
-            <div className="size-2 rounded-full border border-gray-950/20 dark:border-gray-700" />
+            <div className="size-2 rounded-full border border-neutral-950/20 dark:border-neutral-700" />
+            <div className="h-px w-full bg-neutral-950/20 dark:bg-neutral-700" />
+            <div className="size-2 rounded-full border border-neutral-950/20 dark:border-neutral-700" />
           </div>
         </div>
       </div>
 
       <div className="grid grid-cols-[auto_1fr] gap-8 sm:gap-11">
         <svg
-          className="size-16 rounded-lg bg-white text-gray-800 shadow-sm sm:size-18 dark:bg-gray-900 dark:text-white dark:inset-ring dark:inset-ring-white/5"
+          className="size-16 rounded-lg bg-white text-neutral-800 shadow-sm sm:size-18 dark:bg-neutral-900 dark:text-white dark:inset-ring dark:inset-ring-white/5"
           viewBox="0 0 65 65"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -74,9 +74,9 @@ export function TransitionsSection() {
           />
         </svg>
         <div className="flex w-full min-w-0 flex-col justify-between pt-1 pb-4">
-          <p className="flex font-mono text-xs text-nowrap text-clip text-gray-700 dark:text-gray-200">
+          <p className="flex font-mono text-xs text-nowrap text-clip text-neutral-700 dark:text-neutral-200">
             <span className="hidden sm:visible">transition duration-750</span>
-            <span className="font-medium text-gray-950 dark:text-white">ease-out</span>
+            <span className="font-medium text-neutral-950 dark:text-white">ease-out</span>
           </p>
           <div className="@container relative grid max-w-full grid-cols-[auto_1fr_auto] items-center px-4 sm:px-5">
             <motion.div
@@ -91,15 +91,15 @@ export function TransitionsSection() {
                 repeatType: "mirror",
               }}
             />
-            <div className="size-2 rounded-full border border-gray-950/20 dark:border-gray-700" />
-            <div className="h-px w-full bg-gray-950/20 dark:bg-gray-700" />
-            <div className="size-2 rounded-full border border-gray-950/20 dark:border-gray-700" />
+            <div className="size-2 rounded-full border border-neutral-950/20 dark:border-neutral-700" />
+            <div className="h-px w-full bg-neutral-950/20 dark:bg-neutral-700" />
+            <div className="size-2 rounded-full border border-neutral-950/20 dark:border-neutral-700" />
           </div>
         </div>
       </div>
       <div className="grid grid-cols-[auto_1fr] gap-8 sm:gap-11">
         <svg
-          className="size-16 rounded-lg bg-white text-gray-800 shadow-sm sm:size-18 dark:bg-gray-900 dark:text-white dark:inset-ring dark:inset-ring-white/5"
+          className="size-16 rounded-lg bg-white text-neutral-800 shadow-sm sm:size-18 dark:bg-neutral-900 dark:text-white dark:inset-ring dark:inset-ring-white/5"
           viewBox="0 0 65 65"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -119,9 +119,9 @@ export function TransitionsSection() {
           />
         </svg>
         <div className="flex w-full min-w-0 flex-col justify-between pt-1 pb-4">
-          <p className="flex-1 font-mono text-xs text-nowrap text-clip text-gray-700 dark:text-gray-200">
+          <p className="flex-1 font-mono text-xs text-nowrap text-clip text-neutral-700 dark:text-neutral-200">
             <span className="hidden sm:visible">transition duration-750</span>
-            <span className="font-medium text-gray-950 dark:text-white">ease-in-out</span>
+            <span className="font-medium text-neutral-950 dark:text-white">ease-in-out</span>
           </p>
           <div className="@container relative grid grid-cols-[auto_1fr_auto] items-center px-4 sm:px-5">
             <motion.div
@@ -136,15 +136,15 @@ export function TransitionsSection() {
                 repeatType: "mirror",
               }}
             />
-            <div className="size-2 rounded-full border border-gray-950/20 dark:border-gray-700" />
-            <div className="h-px w-full bg-gray-950/20 dark:bg-gray-700" />
-            <div className="size-2 rounded-full border border-gray-950/20 dark:border-gray-700" />
+            <div className="size-2 rounded-full border border-neutral-950/20 dark:border-neutral-700" />
+            <div className="h-px w-full bg-neutral-950/20 dark:bg-neutral-700" />
+            <div className="size-2 rounded-full border border-neutral-950/20 dark:border-neutral-700" />
           </div>
         </div>
       </div>
       <div className="grid grid-cols-[auto_1fr] gap-8 sm:gap-11">
         <svg
-          className="size-16 rounded-lg bg-white text-gray-800 shadow-sm sm:size-18 dark:bg-gray-900 dark:text-white dark:inset-ring dark:inset-ring-white/5"
+          className="size-16 rounded-lg bg-white text-neutral-800 shadow-sm sm:size-18 dark:bg-neutral-900 dark:text-white dark:inset-ring dark:inset-ring-white/5"
           viewBox="0 0 65 65"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -164,9 +164,9 @@ export function TransitionsSection() {
           />
         </svg>
         <div className="flex w-full min-w-0 flex-col justify-between pt-1 pb-4">
-          <p className="flex font-mono text-xs text-nowrap text-clip text-gray-700 dark:text-gray-200">
+          <p className="flex font-mono text-xs text-nowrap text-clip text-neutral-700 dark:text-neutral-200">
             <span className="hidden sm:visible">transition duration-750</span>
-            <span className="font-medium text-gray-950 dark:text-white">ease-in</span>
+            <span className="font-medium text-neutral-950 dark:text-white">ease-in</span>
           </p>
           <div className="@container relative grid grid-cols-[auto_1fr_auto] items-center px-4 sm:px-5">
             <motion.div
@@ -182,9 +182,9 @@ export function TransitionsSection() {
               }}
             />
 
-            <div className="size-2 rounded-full border border-gray-950/20 dark:border-gray-700" />
-            <div className="h-px w-full bg-gray-950/20 dark:bg-gray-700" />
-            <div className="size-2 rounded-full border border-gray-950/20 dark:border-gray-700" />
+            <div className="size-2 rounded-full border border-neutral-950/20 dark:border-neutral-700" />
+            <div className="h-px w-full bg-neutral-950/20 dark:bg-neutral-700" />
+            <div className="size-2 rounded-full border border-neutral-950/20 dark:border-neutral-700" />
           </div>
         </div>
       </div>

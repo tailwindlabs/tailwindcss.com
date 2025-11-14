@@ -17,7 +17,7 @@ export default async function Course() {
             </h1>
           </GridContainer>
           <GridContainer>
-            <p className="mx-auto max-w-xl text-center text-lg/7 font-medium text-pretty text-gray-400">
+            <p className="mx-auto max-w-xl text-center text-lg/7 font-medium text-pretty text-neutral-400">
               You should get a confirmation email any minute —{" "}
               <strong className="font-medium text-white">open it up</strong> and{" "}
               <strong className="font-medium text-white">confirm your email</strong> and I'll send you the first video.

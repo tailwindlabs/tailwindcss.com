@@ -12,9 +12,9 @@ export default function Pagination({ slug }: { slug: string }) {
 
   return (
     <footer className="mt-16 text-sm leading-6">
-      <div className="flex items-center justify-between gap-2 text-gray-700 dark:text-gray-200">
+      <div className="flex items-center justify-between gap-2 text-neutral-700 dark:text-neutral-200">
         {prev ? (
-          <Link className="group flex items-center gap-2 hover:text-gray-900 dark:hover:text-white" href={prev[1]}>
+          <Link className="group flex items-center gap-2 hover:text-neutral-900 dark:hover:text-white" href={prev[1]}>
             <svg viewBox="0 0 16 16" fill="currentColor" className="size-4">
               <path
                 fillRule="evenodd"
@@ -28,7 +28,7 @@ export default function Pagination({ slug }: { slug: string }) {
         ) : null}
 
         {next ? (
-          <Link className="group flex items-center gap-2 hover:text-gray-900 dark:hover:text-white" href={next[1]}>
+          <Link className="group flex items-center gap-2 hover:text-neutral-900 dark:hover:text-white" href={next[1]}>
             <span>{next[0]}</span>
             <svg viewBox="0 0 16 16" fill="currentColor" className="size-4">
               <path
