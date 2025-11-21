@@ -613,6 +613,19 @@ The generated CSS variables _will_ include a prefix to avoid conflicts with any 
 }
 ```
 
+### The important modifier
+
+In v3 you could mark a utility as important by placing a `!` at the beginning of the utility name (but after any variants). In v4 you should place the `!` at the very end of the class name instead:
+
+```html
+<!-- [!code classes:bg-red-500!,flex!,hover:bg-red-600/50!] -->
+<div class="flex! bg-red-500! hover:bg-red-600/50!">
+  <!-- ... -->
+</div>
+```
+
+The old way is still supported for compatibility but is deprecated.
+
 ### Adding custom utilities
 
 In v3, any custom classes you defined within `@layer utilities` or `@layer components` would get picked up by Tailwind as a true utility class and would automatically work with variants like `hover`, `focus`, or `lg` with the difference being that `@layer components` would always come first in the generated stylesheet.
