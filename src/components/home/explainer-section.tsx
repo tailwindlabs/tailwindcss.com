@@ -106,7 +106,7 @@ export default function ExplainerSection() {
         aria-hidden="true"
         className="hidden h-4 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 2xl:visible 2xl:flex dark:text-white/25"
       >
-        text-4xl <span className="inline dark:hidden">text-gray-950</span>
+        text-4xl <span className="inline dark:hidden">text-neutral-950</span>
         <span className="hidden dark:inline">text-white</span> tracking-tighter text-balance
       </div>
 
@@ -121,12 +121,12 @@ export default function ExplainerSection() {
       </GridContainer>
 
       <div className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 sm:h-10 dark:text-white/25">
-        text-base <span className="inline dark:hidden">text-gray-950</span>
+        text-base <span className="inline dark:hidden">text-neutral-950</span>
         <span className="hidden dark:inline">text-white</span>
       </div>
 
       <GridContainer>
-        <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-gray-600 max-sm:px-4 dark:text-gray-400">
+        <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-neutral-600 max-sm:px-4 dark:text-neutral-400">
           Tailwind automatically removes all unused CSS when building for production, which means your final CSS bundle
           is the smallest it could possibly be. In fact, most Tailwind projects ship less than 10kB of CSS to the
           client.
@@ -134,9 +134,9 @@ export default function ExplainerSection() {
       </GridContainer>
 
       <GridContainer className="mt-16">
-        <div className="w-full bg-gray-950/5 p-2 dark:bg-white/10">
+        <div className="w-full bg-neutral-950/5 p-2 dark:bg-white/10">
           <div className="not-prose">
-            <div className="@container rounded-xl bg-gray-950 in-[figure]:-mx-1 in-[figure]:-mb-1">
+            <div className="@container rounded-xl bg-neutral-950 in-[figure]:-mx-1 in-[figure]:-mb-1">
               <div
                 className={clsx(
                   "rounded-xl p-1 text-sm scheme-dark dark:bg-white/5 dark:inset-ring dark:inset-ring-white/10",

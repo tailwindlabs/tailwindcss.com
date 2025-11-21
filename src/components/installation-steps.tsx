@@ -18,9 +18,9 @@ export function Steps({ steps }: { steps: Step[] }) {
       {steps.map((step, stepIdx) => (
         <Fragment key={stepIdx}>
           <div data-tabs={step.tabs?.join(" ") ?? null}>
-            <div className="grid size-7 grid-cols-1 grid-rows-1 place-content-center border-1 border-gray-700/50 font-mono text-[10px]/7 font-medium text-gray-950 dark:border-white/50 dark:text-white">
+            <div className="grid size-7 grid-cols-1 grid-rows-1 place-content-center border-1 border-neutral-700/50 font-mono text-[10px]/7 font-medium text-neutral-950 dark:border-white/50 dark:text-white">
               <div className="col-start-1 row-start-1 grid place-content-center">
-                <div className="h-7 w-5 bg-white dark:bg-gray-950" />
+                <div className="h-7 w-5 bg-white dark:bg-neutral-950" />
               </div>
               <div className="col-start-1 row-start-1 grid place-content-center tracking-widest">
                 {(stepIdx + 1).toString().padStart(2, "0")}

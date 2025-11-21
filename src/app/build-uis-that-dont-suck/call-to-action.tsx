@@ -14,11 +14,11 @@ export function SignUpForm() {
           type="email"
           id="email"
           name="email_address"
-          className="w-3xs min-w-0 shrink grow rounded-full bg-transparent px-4 py-2 text-sm/6 text-gray-950 focus:outline-none"
+          className="w-3xs min-w-0 shrink grow rounded-full bg-transparent px-4 py-2 text-sm/6 text-neutral-950 focus:outline-none"
           placeholder="Enter your email"
           aria-label="Email address"
         />
-        <button className="mr-0.5 shrink-0 overflow-hidden rounded-full bg-gray-950 px-3 py-1.5 text-sm/6 font-semibold text-nowrap text-white hover:bg-gray-950/85">
+        <button className="mr-0.5 shrink-0 overflow-hidden rounded-full bg-neutral-950 px-3 py-1.5 text-sm/6 font-semibold text-nowrap text-white hover:bg-neutral-950/85">
           Get the course
         </button>
       </div>
@@ -93,13 +93,13 @@ export function HeroActions({
                   onBlur={handleBlur}
                   type="email"
                   name="email_address"
-                  className="w-3xs rounded-full bg-transparent px-4 py-2 text-sm/6 text-gray-950 focus:outline-none"
+                  className="w-3xs rounded-full bg-transparent px-4 py-2 text-sm/6 text-neutral-950 focus:outline-none"
                   placeholder="Enter your email"
                   aria-label="Email address"
                 />
                 <button
                   type="submit"
-                  className="mr-0.5 shrink-0 overflow-hidden rounded-full bg-gray-950 px-3 py-1.5 text-sm/6 font-semibold text-nowrap text-white hover:bg-gray-950/85"
+                  className="mr-0.5 shrink-0 overflow-hidden rounded-full bg-neutral-950 px-3 py-1.5 text-sm/6 font-semibold text-nowrap text-white hover:bg-neutral-950/85"
                 >
                   Sign up
                 </button>
@@ -114,7 +114,7 @@ export function HeroActions({
                   setSignUpState("open");
                 }}
                 type="button"
-                className="inline-flex rounded-full bg-transparent px-4 py-2 text-sm/6 font-semibold text-gray-950 hover:bg-gray-100 focus:outline-none focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-white focus-visible:outline-solid"
+                className="inline-flex rounded-full bg-transparent px-4 py-2 text-sm/6 font-semibold text-neutral-950 hover:bg-neutral-100 focus:outline-none focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-white focus-visible:outline-solid"
                 exit={{
                   opacity: 0,
                   transition: {

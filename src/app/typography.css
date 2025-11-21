@@ -1,42 +1,42 @@
 .prose {
-  --prose-color: var(--color-gray-700);
-  --prose-heading-color: var(--color-gray-950);
-  --prose-strong-color: var(--color-gray-950);
-  --prose-link-color: var(--color-gray-950);
-  --prose-code-color: var(--color-gray-950);
-  --prose-marker-color: color-mix(in oklab, var(--color-gray-700) 25%, transparent);
+  --prose-color: var(--color-neutral-700);
+  --prose-heading-color: var(--color-neutral-950);
+  --prose-strong-color: var(--color-neutral-950);
+  --prose-link-color: var(--color-neutral-950);
+  --prose-code-color: var(--color-neutral-950);
+  --prose-marker-color: color-mix(in oklab, var(--color-neutral-700) 25%, transparent);
   --prose-link-underline-color: var(--color-sky-400);
-  --prose-th-borders: var(--color-gray-300);
-  --prose-td-borders: var(--color-gray-200);
-  --prose-hr-color: color-mix(in oklab, var(--color-gray-950) 5%, transparent);
-  --prose-blockquote-border-color: var(--color-gray-300);
+  --prose-th-borders: var(--color-neutral-300);
+  --prose-td-borders: var(--color-neutral-200);
+  --prose-hr-color: color-mix(in oklab, var(--color-neutral-950) 5%, transparent);
+  --prose-blockquote-border-color: var(--color-neutral-300);
 
   &:where(.dark, .dark *) {
-    --prose-color: var(--color-gray-300);
+    --prose-color: var(--color-neutral-300);
     --prose-heading-color: var(--color-white);
     --prose-strong-color: var(--color-white);
     --prose-link-color: var(--color-white);
     --prose-code-color: var(--color-white);
-    --prose-marker-color: color-mix(in oklab, var(--color-gray-300) 35%, transparent);
+    --prose-marker-color: color-mix(in oklab, var(--color-neutral-300) 35%, transparent);
     --prose-link-underline-color: var(--color-sky-400);
-    --prose-th-borders: var(--color-gray-600);
-    --prose-td-borders: var(--color-gray-700);
+    --prose-th-borders: var(--color-neutral-600);
+    --prose-td-borders: var(--color-neutral-700);
     --prose-hr-color: color-mix(in oklab, var(--color-white) 10%, transparent);
-    --prose-blockquote-border-color: var(--color-gray-600);
+    --prose-blockquote-border-color: var(--color-neutral-600);
   }
   @media (prefers-color-scheme: dark) {
     &:where(.system, .system *) {
-      --prose-color: var(--color-gray-300);
+      --prose-color: var(--color-neutral-300);
       --prose-heading-color: var(--color-white);
       --prose-strong-color: var(--color-white);
       --prose-link-color: var(--color-white);
       --prose-code-color: var(--color-white);
-      --prose-marker-color: color-mix(in oklab, var(--color-gray-300) 35%, transparent);
+      --prose-marker-color: color-mix(in oklab, var(--color-neutral-300) 35%, transparent);
       --prose-link-underline-color: var(--color-sky-400);
-      --prose-th-borders: var(--color-gray-600);
-      --prose-td-borders: var(--color-gray-700);
+      --prose-th-borders: var(--color-neutral-600);
+      --prose-td-borders: var(--color-neutral-700);
       --prose-hr-color: color-mix(in oklab, var(--color-white) 10%, transparent);
-      --prose-blockquote-border-color: var(--color-gray-600);
+      --prose-blockquote-border-color: var(--color-neutral-600);
     }
   }
 

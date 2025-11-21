@@ -51,7 +51,7 @@ export default function WhyTailwindCssSection() {
         aria-hidden="true"
         className="hidden h-4 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 2xl:visible 2xl:flex dark:text-white/25"
       >
-        text-4xl <span className="inline dark:hidden">text-gray-950</span>
+        text-4xl <span className="inline dark:hidden">text-neutral-950</span>
         <span className="hidden dark:inline">text-white</span> tracking-tighter text-balance
       </div>
 
@@ -69,19 +69,19 @@ export default function WhyTailwindCssSection() {
         aria-hidden="true"
         className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 sm:h-10 dark:text-white/25"
       >
-        text-base <span className="inline dark:hidden">text-gray-950</span>
+        text-base <span className="inline dark:hidden">text-neutral-950</span>
         <span className="hidden dark:inline">text-white</span>
       </div>
 
       <GridContainer>
-        <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-gray-600 max-sm:px-4 dark:text-gray-400">
+        <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-neutral-600 max-sm:px-4 dark:text-neutral-400">
           Tailwind is unapologetically modern, and takes advantage of all the latest and greatest CSS features to make
           the developer experience as enjoyable as possible.
         </p>
       </GridContainer>
 
       <GridContainer className="mt-16">
-        <div className="grid w-full grid-flow-dense grid-cols-30 gap-2 bg-gray-950/5 p-2 dark:bg-white/10">
+        <div className="grid w-full grid-flow-dense grid-cols-30 gap-2 bg-neutral-950/5 p-2 dark:bg-white/10">
           <BentoItem className="col-span-full">
             <BentoHeader>
               <BentoIcon>
@@ -99,31 +99,31 @@ export default function WhyTailwindCssSection() {
               <div className="group flex flex-col gap-2">
                 <div className="flex justify-start not-sm:hidden">
                   <div className="flex w-10 shrink-0 grow-0 gap-2">
-                    <div className="h-8 w-px shrink-0 bg-gray-950/20 dark:bg-white/30"></div>
-                    <span className="text-gray-950 dark:text-white">
+                    <div className="h-8 w-px shrink-0 bg-neutral-950/20 dark:bg-white/30"></div>
+                    <span className="text-neutral-950 dark:text-white">
                       <Code>Mobile</Code>
                     </span>
                   </div>
                   <div className="ml-150 flex w-32 shrink-0 grow-0 gap-2">
-                    <div className="h-8 w-px shrink-0 bg-gray-950/20 not-group-has-data-sm:bg-gray-950/5 dark:bg-white/30 dark:not-group-has-data-sm:bg-white/10"></div>
+                    <div className="h-8 w-px shrink-0 bg-neutral-950/20 not-group-has-data-sm:bg-neutral-950/5 dark:bg-white/30 dark:not-group-has-data-sm:bg-white/10"></div>
                     <span className="not-group-has-data-sm:opacity-40">
                       <Code>sm</Code>
                     </span>
                   </div>
                   <div className="flex w-64 shrink-0 grow-0 gap-2">
-                    <div className="h-8 w-px shrink-0 bg-gray-950/20 not-group-has-data-md:bg-gray-950/5 dark:bg-white/30 dark:not-group-has-data-md:bg-white/10"></div>
+                    <div className="h-8 w-px shrink-0 bg-neutral-950/20 not-group-has-data-md:bg-neutral-950/5 dark:bg-white/30 dark:not-group-has-data-md:bg-white/10"></div>
                     <span className="not-group-has-data-md:opacity-40">
                       <Code>md</Code>
                     </span>
                   </div>
                   <div className="flex w-64 shrink-0 grow-0 gap-2">
-                    <div className="h-8 w-px shrink-0 bg-gray-950/20 not-group-has-data-lg:bg-gray-950/5 dark:bg-white/30 dark:not-group-has-data-lg:bg-white/10"></div>
+                    <div className="h-8 w-px shrink-0 bg-neutral-950/20 not-group-has-data-lg:bg-neutral-950/5 dark:bg-white/30 dark:not-group-has-data-lg:bg-white/10"></div>
                     <span className="not-group-has-data-lg:opacity-40">
                       <Code>lg</Code>
                     </span>
                   </div>
                   <div className="flex w-64 shrink-0 grow-0 gap-2">
-                    <div className="h-8 w-px shrink-0 bg-gray-950/20 not-group-has-data-xl:bg-gray-950/5 dark:bg-white/30 dark:not-group-has-data-xl:bg-white/10"></div>
+                    <div className="h-8 w-px shrink-0 bg-neutral-950/20 not-group-has-data-xl:bg-neutral-950/5 dark:bg-white/30 dark:not-group-has-data-xl:bg-white/10"></div>
                     <span className="not-group-has-data-xl:opacity-40">
                       <Code>xl</Code>
                     </span>
@@ -131,42 +131,42 @@ export default function WhyTailwindCssSection() {
                 </div>
                 <Resizable>
                   <ResizablePanel className="@container max-sm:mr-0!">
-                    <div className="relative grid gap-10 rounded-t-2xl bg-white p-6 pb-10 ring ring-gray-950/5 @min-[theme(--breakpoint-lg)]:grid-cols-2 @min-[theme(--breakpoint-lg)]:px-20 @min-[theme(--breakpoint-lg)]:py-8 @min-[theme(--breakpoint-lg)]:pb-10 dark:bg-gray-950 dark:ring-white/10">
+                    <div className="relative grid gap-10 rounded-t-2xl bg-white p-6 pb-10 ring ring-neutral-950/5 @min-[theme(--breakpoint-lg)]:grid-cols-2 @min-[theme(--breakpoint-lg)]:px-20 @min-[theme(--breakpoint-lg)]:py-8 @min-[theme(--breakpoint-lg)]:pb-10 dark:bg-neutral-950 dark:ring-white/10">
                       <div className="flex flex-1 flex-col">
                         <div className="relative mb-4 overflow-hidden rounded-lg @max-[theme(--breakpoint-xl)]:-mx-4 @max-[theme(--breakpoint-xl)]:-mt-4 @min-[theme(--breakpoint-lg)]:hidden">
                           <div className="grid grid-cols-1 gap-2 @min-[theme(--breakpoint-sm)]:grid-cols-4">
                             <img
                               alt=""
                               src={responsive1.src}
-                              className="h-48 w-full rounded-lg bg-gray-950/5 object-cover @min-[theme(--breakpoint-sm)]:col-span-2 @min-[theme(--breakpoint-sm)]:h-40"
+                              className="h-48 w-full rounded-lg bg-neutral-950/5 object-cover @min-[theme(--breakpoint-sm)]:col-span-2 @min-[theme(--breakpoint-sm)]:h-40"
                             />
 
                             <img
                               alt=""
                               src={responsive2.src}
-                              className="col-span-2 h-48 w-full rounded-lg bg-gray-950/5 object-cover @max-[theme(--breakpoint-sm)]:hidden @min-[theme(--breakpoint-md)]:col-span-1 @min-[theme(--breakpoint-sm)]:h-40"
+                              className="col-span-2 h-48 w-full rounded-lg bg-neutral-950/5 object-cover @max-[theme(--breakpoint-sm)]:hidden @min-[theme(--breakpoint-md)]:col-span-1 @min-[theme(--breakpoint-sm)]:h-40"
                             />
 
                             <img
                               alt=""
                               src={responsive3.src}
-                              className="h-48 w-full rounded-lg bg-gray-950/5 object-cover @max-[theme(--breakpoint-md)]:hidden @min-[theme(--breakpoint-sm)]:h-40"
+                              className="h-48 w-full rounded-lg bg-neutral-950/5 object-cover @max-[theme(--breakpoint-md)]:hidden @min-[theme(--breakpoint-sm)]:h-40"
                             />
                           </div>
 
-                          <div className="absolute inset-0 flex flex-col justify-end gap-2 bg-linear-to-b from-transparent via-transparent to-gray-950 p-6 @min-[theme(--breakpoint-sm)]:hidden">
+                          <div className="absolute inset-0 flex flex-col justify-end gap-2 bg-linear-to-b from-transparent via-transparent to-neutral-950 p-6 @min-[theme(--breakpoint-sm)]:hidden">
                             <span className="text-sm/6 font-semibold text-white/80">Entire house</span>
                             <span className="text-xl/6 font-semibold text-white">Beach House on Lake Huron</span>
                           </div>
                         </div>
 
-                        <span className="font-medium text-gray-500 @max-[theme(--breakpoint-sm)]:hidden dark:text-gray-500">
+                        <span className="font-medium text-neutral-500 @max-[theme(--breakpoint-sm)]:hidden dark:text-neutral-500">
                           Entire house
                         </span>
 
                         <div className="grid grid-cols-1 gap-4 @min-[theme(--breakpoint-sm)]:grid-cols-[1fr_auto] @min-[theme(--breakpoint-xl)]:grid-cols-1">
                           <div>
-                            <span className="mt-2 text-3xl font-semibold text-gray-950 @max-[theme(--breakpoint-sm)]:hidden dark:text-white">
+                            <span className="mt-2 text-3xl font-semibold text-neutral-950 @max-[theme(--breakpoint-sm)]:hidden dark:text-white">
                               Beach House on Lake Huron
                             </span>
 
@@ -175,8 +175,8 @@ export default function WhyTailwindCssSection() {
                                 <StarIcon className="size-4" />
                                 <span className="text-sm/6 font-medium">2.66</span>
                               </span>
-                              <span className="text-sm/6 text-gray-500">(128 reviews)</span>
-                              <span className="text-pink-300 dark:text-gray-600">&middot;</span>
+                              <span className="text-sm/6 text-neutral-500">(128 reviews)</span>
+                              <span className="text-pink-300 dark:text-neutral-600">&middot;</span>
                               <span className="text-sm/6 font-medium text-pink-600 dark:text-pink-500">
                                 Bayfield, ON
                               </span>
@@ -194,7 +194,7 @@ export default function WhyTailwindCssSection() {
                         </div>
 
                         <div>
-                          <p className="mt-4 line-clamp-2 text-sm/6 text-gray-600 @min-[theme(--breakpoint-xl)]:max-w-md dark:text-gray-400">
+                          <p className="mt-4 line-clamp-2 text-sm/6 text-neutral-600 @min-[theme(--breakpoint-xl)]:max-w-md dark:text-neutral-400">
                             This sunny and spacious room is for those traveling light and looking for a comfy and cozy
                             place to lay their head for a night...{" "}
                             <span className="hidden font-bold text-pink-600 before:text-white sm:@max-[theme(--breakpoint-sm)]:inline-block dark:text-pink-500">
@@ -220,28 +220,28 @@ export default function WhyTailwindCssSection() {
                         <img
                           alt=""
                           src={responsive1.src}
-                          className="col-span-4 h-[150px] w-full rounded-lg bg-gray-950/5 object-cover @min-[theme(--breakpoint-xl)]:col-span-2 @min-[theme(--breakpoint-xl)]:row-span-2 @min-[theme(--breakpoint-xl)]:aspect-square @min-[theme(--breakpoint-xl)]:h-[308px]"
+                          className="col-span-4 h-[150px] w-full rounded-lg bg-neutral-950/5 object-cover @min-[theme(--breakpoint-xl)]:col-span-2 @min-[theme(--breakpoint-xl)]:row-span-2 @min-[theme(--breakpoint-xl)]:aspect-square @min-[theme(--breakpoint-xl)]:h-[308px]"
                         />
                         <img
                           alt=""
                           src={responsive2.src}
-                          className="col-span-2 h-[150px] w-full rounded-lg bg-gray-950/5 @max-[theme(--breakpoint-xl)]:aspect-square @min-[theme(--breakpoint-xl)]:col-span-1"
+                          className="col-span-2 h-[150px] w-full rounded-lg bg-neutral-950/5 @max-[theme(--breakpoint-xl)]:aspect-square @min-[theme(--breakpoint-xl)]:col-span-1"
                         />
                         <img
                           alt=""
                           src={responsive3.src}
-                          className="col-span-2 h-[150px] w-full rounded-lg bg-gray-950/5 @max-[theme(--breakpoint-xl)]:aspect-square @min-[theme(--breakpoint-xl)]:col-span-1"
+                          className="col-span-2 h-[150px] w-full rounded-lg bg-neutral-950/5 @max-[theme(--breakpoint-xl)]:aspect-square @min-[theme(--breakpoint-xl)]:col-span-1"
                         />
                         <div className="contents @max-[theme(--breakpoint-xl)]:hidden">
                           <img
                             alt=""
                             src={responsive4.src}
-                            className="aspect-square size-[150px] rounded-lg bg-gray-950/5"
+                            className="aspect-square size-[150px] rounded-lg bg-neutral-950/5"
                           />
                           <img
                             alt=""
                             src={responsive5.src}
-                            className="aspect-square size-[150px] rounded-lg bg-gray-950/5"
+                            className="aspect-square size-[150px] rounded-lg bg-neutral-950/5"
                           />
                         </div>
                       </div>
@@ -290,7 +290,7 @@ export default function WhyTailwindCssSection() {
                     return (
                       <div key={name} data-target className="flex snap-center snap-always flex-col items-center gap-2">
                         <Code>{name}</Code>
-                        <div className="shadow ring inset-ring ring-gray-950/10 inset-ring-white/20">
+                        <div className="shadow ring inset-ring ring-neutral-950/10 inset-ring-white/20">
                           <div className={clsx("size-(--size) bg-white/15", className)} />
                         </div>
                       </div>
@@ -303,7 +303,7 @@ export default function WhyTailwindCssSection() {
                 </Autoscroll>
 
                 <div className="absolute inset-0 mt-8 flex items-center justify-center">
-                  <img alt="" src={filtersImg.src} className="size-64 inset-ring inset-ring-gray-950/10" />
+                  <img alt="" src={filtersImg.src} className="size-64 inset-ring inset-ring-neutral-950/10" />
                 </div>
               </div>
             </BentoBody>
@@ -318,7 +318,7 @@ export default function WhyTailwindCssSection() {
                 <BentoTitle>Dark mode</BentoTitle>
                 <BentoDescription>
                   If you’re not a fan of burning your retinas, just stick{" "}
-                  <code className="font-medium text-gray-950 dark:text-white">dark:</code> in front of any color to
+                  <code className="font-medium text-neutral-950 dark:text-white">dark:</code> in front of any color to
                   apply it in dark mode.
                 </BentoDescription>
               </div>
@@ -375,7 +375,7 @@ export default function WhyTailwindCssSection() {
             marginTop={56}
             offsetY={-4}
             padding={8}
-            className="pointer-events-none absolute top-0 left-0 z-10 rounded-full border border-gray-950 bg-gray-950/90 py-0.5 pr-2 pb-1 pl-3 text-center font-mono text-xs/6 font-medium whitespace-nowrap text-white opacity-0 inset-ring inset-ring-white/10 will-change-[transform,opacity] data-show:opacity-100 data-show:transition-opacity data-show:delay-100 data-show:duration-200"
+            className="pointer-events-none absolute top-0 left-0 z-10 rounded-full border border-neutral-950 bg-neutral-950/90 py-0.5 pr-2 pb-1 pl-3 text-center font-mono text-xs/6 font-medium whitespace-nowrap text-white opacity-0 inset-ring inset-ring-white/10 will-change-[transform,opacity] data-show:opacity-100 data-show:transition-opacity data-show:delay-100 data-show:duration-200"
           />
 
           <BentoItem className="col-span-full xl:col-span-18">
@@ -454,7 +454,7 @@ export default function WhyTailwindCssSection() {
                         return (
                           <Fragment key={shade}>
                             <div className="relative">
-                              <div className="absolute -mt-1 w-screen border-t border-gray-950/5 dark:border-white/10"></div>
+                              <div className="absolute -mt-1 w-screen border-t border-neutral-950/5 dark:border-white/10"></div>
                               <div className="flex h-(--height) w-(--width) items-center">
                                 <Code>{shade}</Code>
                               </div>
@@ -465,14 +465,14 @@ export default function WhyTailwindCssSection() {
                                 <TooltipTrigger key={value} content={value} className="group relative">
                                   {shadeIdx === 0 && (
                                     <>
-                                      <div className="pointer-events-none absolute -top-1 -left-1 h-screen border-l border-gray-950/5 dark:border-white/10"></div>
-                                      <div className="pointer-events-none absolute -top-1 -left-1 h-16 origin-top-left translate-px rotate-225 border-l border-gray-950/5 sm:h-24 dark:border-white/10"></div>
+                                      <div className="pointer-events-none absolute -top-1 -left-1 h-screen border-l border-neutral-950/5 dark:border-white/10"></div>
+                                      <div className="pointer-events-none absolute -top-1 -left-1 h-16 origin-top-left translate-px rotate-225 border-l border-neutral-950/5 sm:h-24 dark:border-white/10"></div>
                                     </>
                                   )}
 
                                   <div
                                     style={{ "--color": `var(--color-${color}-${shade})` } as CSSProperties}
-                                    className="h-(--height) w-(--width) bg-(--color) inset-ring inset-ring-gray-950/10 transition-opacity group-hover:opacity-75 group-data-[tooltip-hover=true]:opacity-100 dark:inset-ring-white/10"
+                                    className="h-(--height) w-(--width) bg-(--color) inset-ring inset-ring-neutral-950/10 transition-opacity group-hover:opacity-75 group-data-[tooltip-hover=true]:opacity-100 dark:inset-ring-white/10"
                                   />
                                 </TooltipTrigger>
                               );
@@ -502,31 +502,31 @@ export default function WhyTailwindCssSection() {
             <BentoBody className="h-112">
               <div className="-mr-16 -mb-8 [--size:--spacing(48)] lg:flex lg:justify-center xl:block">
                 <div className="-mt-18 sm:-mt-26">
-                  <div className="bg-white p-6 ring ring-gray-950/5 sm:p-16 dark:bg-gray-950 dark:ring-white/10">
-                    <h3 className="text-base/6 font-semibold text-gray-950 dark:text-white">Browse properties</h3>
+                  <div className="bg-white p-6 ring ring-neutral-950/5 sm:p-16 dark:bg-neutral-950 dark:ring-white/10">
+                    <h3 className="text-base/6 font-semibold text-neutral-950 dark:text-white">Browse properties</h3>
                     <div className="mt-6 grid grid-cols-[repeat(2,var(--size))] grid-rows-[repeat(3,var(--size))] gap-2 sm:grid-cols-[repeat(3,var(--size))] sm:grid-rows-[repeat(2,var(--size))]">
                       <div className="relative col-span-2 row-span-1 overflow-hidden rounded-t-2xl sm:col-span-1 sm:row-span-2 sm:rounded-none sm:rounded-l-2xl dark:outline dark:outline-white/10">
                         <img alt="" className="not-sm:hidden" src={cssGrid1.src} />
                         <img alt="" className="sm:hidden" src={cssGrid1Mobile.src} />
-                        <div className="absolute inset-0 flex items-end bg-linear-to-b from-transparent via-transparent to-gray-950">
+                        <div className="absolute inset-0 flex items-end bg-linear-to-b from-transparent via-transparent to-neutral-950">
                           <span className="p-4 text-sm/5 font-semibold text-white">Treehouses</span>
                         </div>
                       </div>
                       <div className="relative dark:outline dark:outline-white/10">
                         <img alt="" src={cssGrid2.src} />
-                        <div className="absolute inset-0 flex items-end bg-linear-to-b from-transparent via-transparent to-gray-950">
+                        <div className="absolute inset-0 flex items-end bg-linear-to-b from-transparent via-transparent to-neutral-950">
                           <span className="p-4 text-sm/5 font-semibold text-white">Mansions</span>
                         </div>
                       </div>
                       <div className="relative overflow-hidden sm:rounded-tr-2xl dark:outline dark:outline-white/10">
                         <img alt="" src={cssGrid3.src} />
-                        <div className="absolute inset-0 flex items-end bg-linear-to-b from-transparent via-transparent to-gray-950">
+                        <div className="absolute inset-0 flex items-end bg-linear-to-b from-transparent via-transparent to-neutral-950">
                           <span className="p-4 text-sm/5 font-semibold text-white">Lakefront cottages</span>
                         </div>
                       </div>
                       <div className="relative col-span-2 overflow-hidden rounded-b-2xl sm:rounded-bl-none dark:outline dark:outline-white/10">
                         <img alt="" className="aspect-2/1" src={cssGrid4.src} />
-                        <div className="absolute inset-0 flex items-end bg-linear-to-b from-transparent via-transparent to-gray-950">
+                        <div className="absolute inset-0 flex items-end bg-linear-to-b from-transparent via-transparent to-neutral-950">
                           <span className="p-4 text-sm/5 font-semibold text-white">Designer homes</span>
                         </div>
                       </div>
@@ -622,7 +622,7 @@ export default function WhyTailwindCssSection() {
                 </div>
               </div>
               <div className="@container relative isolate flex h-full items-center justify-center">
-                <div className="absolute bottom-12 -left-2 z-1 w-[60cqw] shrink-0 divide-y divide-gray-950/5 rounded-xl bg-white shadow-2xl inset-ring inset-ring-gray-950/5 dark:divide-white/5 dark:bg-gray-800 dark:inset-ring-white/5">
+                <div className="absolute bottom-12 -left-2 z-1 w-[60cqw] shrink-0 divide-y divide-neutral-950/5 rounded-xl bg-white shadow-2xl inset-ring inset-ring-neutral-950/5 dark:divide-white/5 dark:bg-neutral-800 dark:inset-ring-white/5">
                   {[
                     { src: avatar4.src, name: "Will Winton", role: "Director of Operations" },
                     { src: avatar5.src, name: "Kristin Yardly", role: "Marketing Coordinator" },
@@ -635,18 +635,18 @@ export default function WhyTailwindCssSection() {
                           <img
                             alt=""
                             src={user.src}
-                            className="size-12 shrink-0 rounded-full bg-gray-950/5 outline -outline-offset-1 outline-gray-950/10 dark:outline-white/10"
+                            className="size-12 shrink-0 rounded-full bg-neutral-950/5 outline -outline-offset-1 outline-neutral-950/10 dark:outline-white/10"
                           />
                         </div>
                         <div className="flex flex-col truncate">
-                          <span className="text-sm/6 font-medium text-gray-950 dark:text-white">{user.name}</span>
-                          <span className="truncate text-sm/6 text-gray-500 dark:text-gray-400">{user.role}</span>
+                          <span className="text-sm/6 font-medium text-neutral-950 dark:text-white">{user.name}</span>
+                          <span className="truncate text-sm/6 text-neutral-500 dark:text-neutral-400">{user.role}</span>
                         </div>
                       </div>
                     );
                   })}
                 </div>
-                <div className="absolute -right-3 bottom-12 w-[50cqw] shrink-0 divide-y divide-gray-950/5 rounded-xl bg-white shadow-2xl inset-ring inset-ring-gray-950/5 dark:divide-white/5 dark:bg-gray-800 dark:inset-ring-white/5">
+                <div className="absolute -right-3 bottom-12 w-[50cqw] shrink-0 divide-y divide-neutral-950/5 rounded-xl bg-white shadow-2xl inset-ring inset-ring-neutral-950/5 dark:divide-white/5 dark:bg-neutral-800 dark:inset-ring-white/5">
                   {[
                     { src: avatar1.src, name: "سارة أحمد", role: "مديرة مشاريع" },
                     { src: avatar2.src, name: "علي محمد", role: "مطور برمجيات" },
@@ -658,12 +658,12 @@ export default function WhyTailwindCssSection() {
                           <img
                             alt=""
                             src={user.src}
-                            className="size-12 shrink-0 rounded-full bg-gray-950/5 outline -outline-offset-1 outline-gray-950/10 dark:outline-white/10"
+                            className="size-12 shrink-0 rounded-full bg-neutral-950/5 outline -outline-offset-1 outline-neutral-950/10 dark:outline-white/10"
                           />
                         </div>
                         <div className="flex flex-col truncate">
-                          <span className="text-sm/6 font-medium text-gray-950 dark:text-white">{user.name}</span>
-                          <span className="truncate text-sm/6 text-gray-500 dark:text-gray-400">{user.role}</span>
+                          <span className="text-sm/6 font-medium text-neutral-950 dark:text-white">{user.name}</span>
+                          <span className="truncate text-sm/6 text-neutral-500 dark:text-neutral-400">{user.role}</span>
                         </div>
                       </div>
                     );
@@ -735,15 +735,15 @@ export default function WhyTailwindCssSection() {
               </div>
             </BentoHeader>
             <BentoBody className="h-112">
-              <div className="-mt-27 -mr-124 -mb-8 bg-white px-6 py-16 ring ring-gray-950/5 md:px-16 xl:-mr-26 dark:bg-gray-950 dark:ring-white/10">
+              <div className="-mt-27 -mr-124 -mb-8 bg-white px-6 py-16 ring ring-neutral-950/5 md:px-16 xl:-mr-26 dark:bg-neutral-950 dark:ring-white/10">
                 <div className="flex flex-col gap-2">
-                  <span className="text-sm/7 font-medium text-gray-950/75 dark:text-white/75">
+                  <span className="text-sm/7 font-medium text-neutral-950/75 dark:text-white/75">
                     Power Meets Precision
                   </span>
-                  <h3 className="text-4xl/12 font-semibold text-gray-950 dark:text-white">
+                  <h3 className="text-4xl/12 font-semibold text-neutral-950 dark:text-white">
                     Redefining real-time performance
                   </h3>
-                  <p className="text-lg/7 font-medium text-gray-950/75 dark:text-white/75">
+                  <p className="text-lg/7 font-medium text-neutral-950/75 dark:text-white/75">
                     Our next-generation rendering engine delivers unmatched speed and efficiency, empowering creators to
                     push boundaries like never before.
                   </p>
@@ -751,30 +751,30 @@ export default function WhyTailwindCssSection() {
                 <div className="mt-10 flex flex-col gap-10">
                   <div className="flex gap-6">
                     <div className="flex flex-1 flex-col gap-2.5">
-                      <span className="text-base/7 font-medium text-gray-950 dark:text-white">
+                      <span className="text-base/7 font-medium text-neutral-950 dark:text-white">
                         Render time performance
                       </span>
-                      <div className="h-2.5 w-full rounded-full bg-linear-to-r from-emerald-500 to-sky-400 ring-1 ring-gray-950/10 ring-inset dark:from-emerald-400 dark:ring-white/10"></div>
+                      <div className="h-2.5 w-full rounded-full bg-linear-to-r from-emerald-500 to-sky-400 ring-1 ring-neutral-950/10 ring-inset dark:from-emerald-400 dark:ring-white/10"></div>
                     </div>
-                    <span className="text-3xl/12 font-semibold text-gray-950 dark:text-white">6.4x</span>
+                    <span className="text-3xl/12 font-semibold text-neutral-950 dark:text-white">6.4x</span>
                   </div>
                   <div className="flex gap-6">
                     <div className="flex flex-1 flex-col gap-2.5">
-                      <span className="text-base/7 font-medium text-gray-950 dark:text-white">
+                      <span className="text-base/7 font-medium text-neutral-950 dark:text-white">
                         Real-time frame rate
                       </span>
-                      <div className="h-2.5 w-3/4 rounded-full bg-linear-to-r from-pink-600 to-amber-300 ring-1 ring-gray-950/10 ring-inset dark:from-pink-500 dark:to-amber-200 dark:ring-white/10"></div>
+                      <div className="h-2.5 w-3/4 rounded-full bg-linear-to-r from-pink-600 to-amber-300 ring-1 ring-neutral-950/10 ring-inset dark:from-pink-500 dark:to-amber-200 dark:ring-white/10"></div>
                     </div>
-                    <span className="text-3xl/12 font-semibold text-gray-950 dark:text-white">4.2x</span>
+                    <span className="text-3xl/12 font-semibold text-neutral-950 dark:text-white">4.2x</span>
                   </div>
                   <div className="flex gap-6">
                     <div className="flex flex-1 flex-col gap-2.5">
-                      <span className="text-base/7 font-medium text-gray-950 dark:text-white">
+                      <span className="text-base/7 font-medium text-neutral-950 dark:text-white">
                         Multi-platform build time
                       </span>
-                      <div className="h-2.5 w-1/2 rounded-full bg-linear-to-r from-purple-600 to-cyan-400 ring-1 ring-gray-950/10 ring-inset dark:from-purple-500 dark:ring-white/10"></div>
+                      <div className="h-2.5 w-1/2 rounded-full bg-linear-to-r from-purple-600 to-cyan-400 ring-1 ring-neutral-950/10 ring-inset dark:from-purple-500 dark:ring-white/10"></div>
                     </div>
-                    <span className="text-3xl/12 font-semibold text-gray-950 dark:text-white">2.7x</span>
+                    <span className="text-3xl/12 font-semibold text-neutral-950 dark:text-white">2.7x</span>
                   </div>
                 </div>
               </div>
@@ -805,5 +805,5 @@ export default function WhyTailwindCssSection() {
 }
 
 function Code({ children }: { children: ReactNode }) {
-  return <div className="font-mono text-[13px]/7 text-gray-950 dark:text-white">{children}</div>;
+  return <div className="font-mono text-[13px]/7 text-neutral-950 dark:text-white">{children}</div>;
 }

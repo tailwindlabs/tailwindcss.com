@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 export function TabButtonContainer({ children }: { children: React.ReactNode }) {
   return (
-    <TabList className="grid grid-cols-[repeat(auto-fit,calc(var(--spacing)*42))] overflow-x-auto text-gray-950 dark:text-white">
+    <TabList className="grid grid-cols-[repeat(auto-fit,calc(var(--spacing)*42))] overflow-x-auto text-neutral-950 dark:text-white">
       {children}
     </TabList>
   );
@@ -46,7 +46,7 @@ export function TabButton(
   return (
     <Tab
       className={clsx(
-        "group grid place-items-center gap-4 border-r border-r-gray-950/10 p-6 font-mono text-sm/7 focus:outline-none dark:border-r-white/10",
+        "group grid place-items-center gap-4 border-r border-r-neutral-950/10 p-6 font-mono text-sm/7 focus:outline-none dark:border-r-white/10",
         activeStyles,
       )}
       {...props}
@@ -62,5 +62,5 @@ export function TabButton(
 }
 
 export function TabPanelContent({ children }: { children: React.ReactNode }) {
-  return <TabPanel className="h-213 w-full bg-gray-950/5 dark:bg-white/10">{children}</TabPanel>;
+  return <TabPanel className="h-213 w-full bg-neutral-950/5 dark:bg-white/10">{children}</TabPanel>;
 }

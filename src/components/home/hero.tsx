@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
         <span className="hidden sm:max-md:inline">text-5xl </span>
         <span className="hidden lg:max-xl:inline">text-6xl </span>
         <span className="hidden xl:inline">text-8xl </span>
-        <span className="inline dark:hidden">text-gray-950 </span>
+        <span className="inline dark:hidden">text-neutral-950 </span>
         <span className="hidden dark:inline">text-white </span>tracking-tighter{" "}
         <span className="max-sm:hidden">text-balance</span>
       </div>
@@ -70,11 +70,11 @@ const Hero: React.FC = () => {
         aria-hidden="true"
         className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 sm:h-10 dark:text-white/25"
       >
-        text-lg <span className="inline dark:hidden">text-gray-950</span>
+        text-lg <span className="inline dark:hidden">text-neutral-950</span>
         <span className="hidden dark:inline">text-white</span> font-medium
       </div>
       <GridContainer>
-        <p className="max-w-(--breakpoint-md) px-2 text-lg/7 font-medium text-gray-600 max-sm:px-4 dark:text-gray-400">
+        <p className="max-w-(--breakpoint-md) px-2 text-lg/7 font-medium text-neutral-600 max-sm:px-4 dark:text-neutral-400">
           A utility-first CSS framework packed with classes like{" "}
           <span className="font-mono text-[1.0625rem] text-sky-500 dark:text-sky-400">flex</span>,{" "}
           <span className="font-mono text-[1.0625rem] text-sky-500 dark:text-sky-400">pt-4</span>,{" "}
@@ -93,11 +93,11 @@ const Hero: React.FC = () => {
           <LinkButton href="docs/installation" className="z-1 max-sm:hidden">
             Get started
           </LinkButton>
-          <SearchButton className="grid w-full grid-cols-[auto_1fr_auto] items-center gap-1 rounded-full px-4 py-2 text-left text-sm/6 text-gray-950/50 inset-ring inset-ring-gray-950/8 sm:w-80 dark:bg-white/5 dark:text-white/50 dark:inset-ring-white/15">
+          <SearchButton className="grid w-full grid-cols-[auto_1fr_auto] items-center gap-1 rounded-full px-4 py-2 text-left text-sm/6 text-neutral-950/50 inset-ring inset-ring-neutral-950/8 sm:w-80 dark:bg-white/5 dark:text-white/50 dark:inset-ring-white/15">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
-              className="-ml-0.5 size-4 fill-gray-600 dark:fill-gray-500"
+              className="-ml-0.5 size-4 fill-neutral-600 dark:fill-neutral-500"
             >
               <path
                 fillRule="evenodd"
@@ -106,10 +106,10 @@ const Hero: React.FC = () => {
               />
             </svg>
             Quick search
-            <kbd className="hidden font-sans text-xs/4 text-gray-500 dark:text-gray-400 [.os-macos_&]:block">
+            <kbd className="hidden font-sans text-xs/4 text-neutral-500 dark:text-neutral-400 [.os-macos_&]:block">
               <span className="opacity-60">⌘</span>K
             </kbd>
-            <kbd className="hidden font-sans text-xs/4 text-gray-500 not-[.os-macos_&]:block dark:text-gray-400">
+            <kbd className="hidden font-sans text-xs/4 text-neutral-500 not-[.os-macos_&]:block dark:text-neutral-400">
               <span className="opacity-60">Ctrl</span>&nbsp;K
             </kbd>
           </SearchButton>
@@ -117,7 +117,7 @@ const Hero: React.FC = () => {
       </GridContainer>
       <GridContainer className="mt-24">
         <div className="grid grid-cols-1 lg:grid-cols-3">
-          <div className="bg-gray-950/5 p-2 lg:col-span-2 lg:-mx-px dark:bg-white/10">
+          <div className="bg-neutral-950/5 p-2 lg:col-span-2 lg:-mx-px dark:bg-white/10">
             <Editor>
               <div
                 className={clsx(
@@ -290,7 +290,7 @@ const Hero: React.FC = () => {
                           "flex
                           <TypeWord
                             isTyping={isTyping}
-                            word=" gap-2 font-medium text-gray-600 dark:text-gray-400"
+                            word=" gap-2 font-medium text-neutral-600 dark:text-neutral-400"
                             step={4}
                             currentStep={step}
                             onNextStep={nextStep}
@@ -380,7 +380,7 @@ function Example({ step }: { step: number }) {
     >
       <motion.div
         className={clsx(
-          "relative flex w-full flex-col rounded-2xl bg-white outline outline-black/5 dark:bg-gray-950",
+          "relative flex w-full flex-col rounded-2xl bg-white outline outline-black/5 dark:bg-neutral-950",
           step > 0 ? "p-7" : null,
           step > 6 ? "gap-6" : null,
           step > 5 ? "items-center" : null,
@@ -435,7 +435,7 @@ function Example({ step }: { step: number }) {
             layout="position"
             transition={TRANSITION}
             className={clsx(
-              "text-gray-950 transition-[font-size] duration-350 dark:text-white",
+              "text-neutral-950 transition-[font-size] duration-350 dark:text-white",
               step > 2 ? "text-2xl font-medium" : null,
             )}
           >
@@ -445,7 +445,7 @@ function Example({ step }: { step: number }) {
             transition={TRANSITION}
             layout="position"
             className={clsx(
-              "text-gray-950 transition-colors duration-350 dark:text-white",
+              "text-neutral-950 transition-colors duration-350 dark:text-white",
               step > 3 ? "font-medium text-sky-500!" : null,
             )}
           >
@@ -455,8 +455,8 @@ function Example({ step }: { step: number }) {
             layout="position"
             transition={TRANSITION}
             className={clsx(
-              "flex text-gray-950 transition-colors duration-350 dark:text-white",
-              step > 4 ? "gap-2 font-medium text-gray-600! dark:text-gray-400!" : null,
+              "flex text-neutral-950 transition-colors duration-350 dark:text-white",
+              step > 4 ? "gap-2 font-medium text-neutral-600! dark:text-neutral-400!" : null,
             )}
           >
             <motion.span layout="position" transition={TRANSITION}>

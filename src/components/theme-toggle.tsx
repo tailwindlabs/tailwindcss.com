@@ -38,7 +38,7 @@ function onChange(theme: Theme, setTheme: (theme: Theme) => void) {
 function ThemeToggleButton(props: React.ComponentProps<typeof Radio>) {
   return (
     <Radio
-      className="rounded-full p-1.5 *:size-7 data-checked:bg-white data-checked:ring data-checked:inset-ring data-checked:ring-gray-950/10 data-checked:inset-ring-white/10 sm:p-0 dark:data-checked:bg-gray-700 dark:data-checked:text-white dark:data-checked:ring-transparent"
+      className="rounded-full p-1.5 *:size-7 data-checked:bg-white data-checked:ring data-checked:inset-ring data-checked:ring-neutral-950/10 data-checked:inset-ring-white/10 sm:p-0 dark:data-checked:bg-neutral-700 dark:data-checked:text-white dark:data-checked:ring-transparent"
       {...props}
     />
   );
@@ -50,7 +50,7 @@ export default function ThemeToggle() {
     <RadioGroup
       value={theme}
       onChange={(value) => onChange(value, setTheme)}
-      className="relative z-0 inline-grid grid-cols-3 gap-0.5 rounded-full bg-gray-950/5 p-0.75 text-gray-950 dark:bg-white/10 dark:text-white"
+      className="relative z-0 inline-grid grid-cols-3 gap-0.5 rounded-full bg-neutral-950/5 p-0.75 text-neutral-950 dark:bg-white/10 dark:text-white"
     >
       <ThemeToggleButton aria-label="System theme" value="system">
         <svg viewBox="0 0 28 28" fill="none">
