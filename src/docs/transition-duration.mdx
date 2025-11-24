@@ -69,3 +69,15 @@ Use utilities like `duration-150` and `duration-700` to set the transition durat
   defaultClass="duration-0"
   featuredClass="duration-150"
 />
+
+### Supporting reduced motion
+
+For situations where the user has specified that they prefer reduced motion, you can conditionally apply transition-duration using the `motion-safe` and `motion-reduce` variants:
+
+```html
+<!-- [!code classes:motion-reduce:duration-0] -->
+<!-- prettier-ignore -->
+<button class="duration-300 motion-reduce:duration-0 ...">
+  <!-- ... -->
+</button>
+```
