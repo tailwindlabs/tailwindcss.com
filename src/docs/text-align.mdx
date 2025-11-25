@@ -142,6 +142,43 @@ Use the `rtl` variant to conditionally add styles in right-to-left and left-to-r
 
 Alternatively, you can use the `text-start` and `text-end` logical utilities, to align the text either the left or right side based on the writing direction:
 
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-2 place-items-center gap-x-4">
+      <div className="flex flex-col gap-y-4" dir="ltr">
+        <p className="text-sm font-medium">Left-to-right</p>
+        <div className="font-mono text-sm font-bold text-white text-start">start</div>
+        <div className="font-mono text-sm font-bold text-white text-center">center</div>
+        <div className="font-mono text-sm font-bold text-white text-end">end</div>
+      </div>
+      <div className="flex flex-col gap-y-4" dir="rtl">
+        <p className="text-sm font-medium">Right-to-left</p>
+        <div className="font-mono text-sm font-bold text-white text-start">start</div>
+        <div className="font-mono text-sm font-bold text-white text-center">center</div>
+        <div className="font-mono text-sm font-bold text-white text-end">end</div>
+      </div>
+    </div>
+  }
+</Example>
+
 ```html
-<p class="text-start">So I started to walk into the water...</p>
+<!-- [!code classes:text-start,text-end] -->
+<!-- [!code word:dir="ltr"] -->
+<!-- [!code word:dir="rtl"] -->
+<div>
+  <div dir="ltr">
+    <div class="text-start ...">start</div>
+    <div class="text-center ...">center</div>
+    <div class="text-end ...">end</div>
+  </div>
+  <div dir="rtl">
+    <div class="text-start ...">start</div>
+    <div class="text-center ...">center</div>
+    <div class="text-end ...">end</div>
+  </div>
+</div>
 ```
+
+</Figure>
