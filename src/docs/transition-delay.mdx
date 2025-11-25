@@ -56,6 +56,17 @@ Use utilities like `delay-150` and `delay-700` to set the transition delay of an
 
 </Figure>
 
+### Supporting reduced motion
+
+For situations where the user has specified that they prefer reduced motion, you can conditionally apply animations and transitions using the `motion-safe` and `motion-reduce` variants:
+
+```html
+<!-- [!code classes:motion-reduce:delay-0] -->
+<button type="button" class="delay-300 motion-reduce:delay-0 ...">
+  <!-- ... -->
+</button>
+```
+
 ### Using a custom value
 
 <UsingACustomValue element="button" utility="delay" value="1s,250ms" name="transition delay" />
@@ -63,15 +74,3 @@ Use utilities like `delay-150` and `delay-700` to set the transition delay of an
 ### Responsive design
 
 <ResponsiveDesign element="button" property="transition-delay" defaultClass="delay-150" featuredClass="delay-300" />
-
-### Supporting reduced motion
-
-For situations where the user has specified that they prefer reduced motion, you can conditionally apply transition-delay using the `motion-safe` and `motion-reduce` variants:
-
-```html
-<!-- [!code classes:motion-reduce:delay-0] -->
-<!-- prettier-ignore -->
-<button class="delay-300 motion-reduce:delay-0 ...">
-  <!-- ... -->
-</button>
-```
