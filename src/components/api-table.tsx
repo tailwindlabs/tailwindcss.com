@@ -73,8 +73,8 @@ export function ApiTable({ rows }: { rows: [string, string][] }) {
         <table className="grid w-full grid-cols-[auto_auto] border-b border-gray-900/10 dark:border-white/10">
           <thead className="col-span-2 grid grid-cols-subgrid">
             <tr className="col-span-2 grid grid-cols-subgrid">
-              <th className="px-2 py-2.5 text-left text-sm/7 font-semibold text-gray-950 dark:text-white">Class</th>
-              <th className="px-2 py-2.5 text-left text-sm/7 font-semibold text-gray-950 dark:text-white">Styles</th>
+              <th className="px-2 py-2.5 text-start text-sm/7 font-semibold text-gray-950 dark:text-white">Class</th>
+              <th className="px-2 py-2.5 text-start text-sm/7 font-semibold text-gray-950 dark:text-white">Styles</th>
             </tr>
           </thead>
           <tbody className="col-span-2 grid grid-cols-subgrid border-t border-gray-900/10 dark:border-white/10">
