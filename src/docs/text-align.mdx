@@ -127,47 +127,20 @@ Use the `text-justify` utility to justify the text of an element:
 
 </Figure>
 
-### Text alignment with Directions (LTR and RTL)
+### Using logical properties
 
-Use the `text-start` utility to align text to the start of HTML element, regardless or the direction (LTR or RTL):
+Use the `text-start` and `text-end` utilities, which use [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts) to map to either the left or right side based on the text direction:
 
 <Figure>
 
 <Example padding={false}>
   {
-    <div className="px-4 sm:px-0">
-      <div className="mx-auto max-w-lg p-8 text-sm/6 text-gray-900 dark:text-gray-200">
-        <p className="text-start">
-          EN text align start
-        </p>
-        <p className="text-start" dir="rtl" lang="ar">
-          نص عربي في بداية السطر
-        </p>
-      </div>
-    </div>
-  }
-</Example>
-
-```html
-<!-- [!code classes:text-justify] -->
-<p class="text-start">So I started to walk into the water...</p>
-<p class="text-start" dir="rtl" lang="ar">هنا يبدأ النص...</p>
-```
-
-</Figure>
-
-and use the `text-end` utility to align text to the end of HTML element, regardless or the direction (LTR or RTL), 
-<Figure>
-
-<Example padding={false}>
-  {
-    <div className="px-4 sm:px-0">
+    <div className="px-4 sm:px-0" dir="rtl" lang="ar">
       <div className="mx-auto max-w-lg p-8 text-sm/6 text-gray-900 dark:text-gray-200">
         <p className="text-end">
-          EN text align end
-        </p>
-        <p className="text-end" dir="rtl" lang="ar">
-          نص عربي في نهاية السطر
+          بدأتُ أسير نحو الماء. لن أكذب عليكم يا رفاق، كنتُ مرعوبًا. لكنني واصلتُ المسير، وبينما كنتُ أشق طريقي عبر
+          الأمواج، غمرني هدوءٌ غريب. لا أعلم إن كان ذلك تدخّلًا إلهيًا أم صلة قرابة بين جميع الكائنات الحية، لكنني أقول
+          لك يا جيري، في تلك اللحظة، كنتُ عالم أحياء بحرية.
         </p>
       </div>
     </div>
@@ -175,9 +148,8 @@ and use the `text-end` utility to align text to the end of HTML element, regardl
 </Example>
 
 ```html
-<!-- [!code classes:text-justify] -->
-<p class="text-end">So I started to walk into the water...</p>
-<p class="text-end" dir="rtl" lang="ar">هنا يبدأ النص...</p>
+<!-- [!code classes:text-end] -->
+<p class="text-end">فبدأت بالسير نحو الماء...</p>
 ```
 
 </Figure>
