@@ -127,6 +127,36 @@ Use the `text-justify` utility to justify the text of an element:
 
 </Figure>
 
+### Using logical properties
+
+Use the `text-start` and `text-end` utilities, which use [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts) to map to either the left or right side based on the text direction:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="px-4 sm:px-0" dir="rtl" lang="ar">
+      <div className="mx-auto max-w-lg p-8 text-sm/6 text-gray-900 dark:text-gray-200">
+        <p className="text-end">
+          بدأتُ أسير نحو الماء. لن أكذب عليكم يا رفاق، كنتُ مرعوبًا. لكنني واصلتُ المسير، وبينما كنتُ أشق طريقي عبر
+          الأمواج، غمرني هدوءٌ غريب. لا أعلم إن كان ذلك تدخّلًا إلهيًا أم صلة قرابة بين جميع الكائنات الحية، لكنني أقول
+          لك يا جيري، في تلك اللحظة، كنتُ عالم أحياء بحرية.
+        </p>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code word:dir="rtl"] -->
+<!-- [!code classes:text-end] -->
+<div dir="rtl" lang="ar">
+  <p class="text-end">فبدأت بالسير نحو الماء...</p>
+</div>
+```
+
+</Figure>
+
 ### Responsive design
 
 <ResponsiveDesign element="p" property="text-align" defaultClass="text-left" featuredClass="text-center" />
