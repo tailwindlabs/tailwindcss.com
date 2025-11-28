@@ -83,15 +83,16 @@ export default function WhyTailwindCssSection() {
           </div>
           <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
             {displayedSponsors.map((company, index) => (
-              <a
-                key={index}
-                href={company.url}
-                target="_blank"
-                rel="noopener sponsored"
-                className="grid place-content-center transition-colors hover:bg-gray-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y dark:hover:bg-white/2.5"
-              >
-                <company.logo className="w-full max-w-80" aria-label={`${company.name} logo`} />
-              </a>
+              <li key={index} className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y">
+                <a
+                  href={company.url}
+                  target="_blank"
+                  rel="noopener sponsored"
+                  className="grid place-content-center transition-colors hover:bg-gray-950/2.5 sm:px-2 sm:py-4 dark:hover:bg-white/2.5"
+                >
+                  <company.logo className="w-full max-w-80" aria-label={`${company.name} logo`} />
+                </a>
+              </li>
             ))}
           </ul>
         </div>
