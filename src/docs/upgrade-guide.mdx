@@ -412,6 +412,25 @@ If this change causes any issues in your project, we recommend migrating to a fl
 </div>
 ```
 
+### Divide selector
+
+We've changed the selector used by the [`divide-x-*` and `divide-y-*` utilities](/docs/border-width#between-children) to address serious performance issues on large pages:
+
+```css
+/* [!code filename:CSS] */
+/* Before */
+.divide-y-4 > :not([hidden]) ~ :not([hidden]) {
+  border-top-width: 4px;
+}
+
+/* Now */
+.divide-y-4 > :not(:last-child) {
+  border-bottom-width: 4px;
+}
+```
+
+You might see changes in your project if you were ever using these utilities with inline elements, if you were adding other margins/padding to child elements to tweak their spacing, or adjusting the borders of specific child elements.
+
 ### Using variants with gradients
 
 In v3, overriding part of a gradient with a variant would "reset" the entire gradient, so in this example the `to-*` color would be transparent in dark mode instead of yellow:
