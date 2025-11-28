@@ -31,10 +31,10 @@ export function BookPromo() {
       <p className="text-[0.815rem]/6 font-semibold text-sky-500 dark:text-sky-400">
         From the creators of Tailwind CSS
       </p>
-      <p className="mt-1.5 text-[0.9375rem]/5 font-semibold text-gray-950 dark:text-white">
+      <p className="mt-1.5 text-[0.9375rem]/5 font-semibold text-neutral-950 dark:text-white">
         Make your ideas look awesome, without relying on a designer.
       </p>
-      <blockquote className="mt-6 border-l border-black/5 pl-4 text-gray-600 dark:border-white/10 dark:text-gray-400">
+      <blockquote className="mt-6 border-l border-black/5 pl-4 text-neutral-600 dark:border-white/10 dark:text-neutral-400">
         <p className="text-[0.8125rem]/5 [hanging-punctuation:first_last]">
           “This is the survival kit I wish I had when I started building apps.”
         </p>
@@ -73,8 +73,8 @@ export function CoursePromo() {
         </div>
       </div>
       <p className="text-[0.8125rem]/6 font-semibold text-sky-500 dark:text-sky-400">5-day mini-course</p>
-      <p className="mt-1.5 text-base/5 font-semibold text-gray-950 dark:text-white">Build UIs that don’t suck.</p>
-      <p className="mt-3 text-[0.8125rem]/5 text-gray-600 dark:text-gray-400">
+      <p className="mt-1.5 text-base/5 font-semibold text-neutral-950 dark:text-white">Build UIs that don’t suck.</p>
+      <p className="mt-3 text-[0.8125rem]/5 text-neutral-600 dark:text-neutral-400">
         Short, tactical video lessons from the creator of Tailwind CSS, delivered directly to your inbox every day for a
         week.
       </p>
@@ -102,7 +102,7 @@ export default function LinkButton({
       href={href}
       className={clsx(
         className,
-        "inline-block rounded-4xl bg-black px-3.5 py-1.25 text-[0.8125rem]/6 font-semibold text-white hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600",
+        "inline-block rounded-4xl bg-black px-3.5 py-1.25 text-[0.8125rem]/6 font-semibold text-white hover:bg-neutral-800 dark:bg-neutral-700 dark:hover:bg-neutral-600",
       )}
     >
       {children}

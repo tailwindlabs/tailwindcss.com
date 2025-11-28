@@ -76,23 +76,23 @@ export default async function Page({ params }: Props) {
       <div className="mx-auto grid w-full max-w-2xl grid-cols-1 gap-10 pt-10 pb-24 xl:max-w-5xl">
         <div className="px-4 sm:px-6 xl:pr-0">
           <p
-            className="font-mono text-xs/6 tracking-widest text-gray-600 uppercase dark:text-gray-400"
+            className="font-mono text-xs/6 tracking-widest text-neutral-600 uppercase dark:text-neutral-400"
             data-section="true"
           >
             Installation
           </p>
-          <h1 className="mt-2 text-3xl font-medium tracking-tight text-gray-950 dark:text-white" data-title="true">
+          <h1 className="mt-2 text-3xl font-medium tracking-tight text-neutral-950 dark:text-white" data-title="true">
             {page.title}
           </h1>
-          <p className="mt-6 text-base/7 text-gray-700 dark:text-gray-400" data-description="true">
+          <p className="mt-6 text-base/7 text-neutral-700 dark:text-neutral-400" data-description="true">
             {page.description}
           </p>
 
           {page.notice ? (
-            <div className="relative my-4 overflow-hidden rounded-lg bg-gray-200 p-1">
+            <div className="relative my-4 overflow-hidden rounded-lg bg-neutral-200 p-1">
               <div className="absolute inset-0 bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 dark:[--pattern-fg:var(--color-white)]/10"></div>
 
-              <div className="relative z-10 rounded-md bg-white/75 px-4 py-3 text-sm font-medium text-gray-600 inset-ring-2 inset-ring-gray-700/25">
+              <div className="relative z-10 rounded-md bg-white/75 px-4 py-3 text-sm font-medium text-neutral-600 inset-ring-2 inset-ring-neutral-700/25">
                 {page.notice}
               </div>
             </div>

@@ -15,13 +15,13 @@ export default function NotFoundPage() {
         <div className="col-start-1 row-span-full row-start-1 hidden border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 lg:block dark:[--pattern-fg:var(--color-white)]/10"></div>
 
         {/* Main content area */}
-        <div className="text-gray-950 dark:text-white">
+        <div className="text-neutral-950 dark:text-white">
           <div className="flex h-[calc(100vh-3.5rem)] items-center justify-center">
             <div className="flex flex-auto flex-col items-center justify-center px-4 text-center sm:flex-row">
-              <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:mr-6 sm:border-r sm:border-gray-900/10 sm:pr-6 sm:text-3xl dark:text-gray-200 sm:dark:border-gray-300/10">
+              <h1 className="text-2xl font-extrabold tracking-tight text-neutral-900 sm:mr-6 sm:border-r sm:border-neutral-900/10 sm:pr-6 sm:text-3xl dark:text-neutral-200 sm:dark:border-neutral-300/10">
                 404
               </h1>
-              <h2 className="mt-2 text-gray-700 sm:mt-0 dark:text-gray-400">This page could not be found.</h2>
+              <h2 className="mt-2 text-neutral-700 sm:mt-0 dark:text-neutral-400">This page could not be found.</h2>
             </div>
           </div>
         </div>

@@ -33,10 +33,10 @@ export default async function DocPage({ children }: { children: React.ReactNode 
 
       <div className="mx-auto grid w-full max-w-2xl grid-cols-1 gap-10 xl:max-w-5xl xl:grid-cols-[minmax(0,1fr)_var(--container-2xs)]">
         <div className="px-4 pt-10 pb-24 sm:px-6 xl:pr-0">
-          <h1 data-title="true" className="mt-2 text-3xl font-medium tracking-tight text-gray-950 dark:text-white">
+          <h1 data-title="true" className="mt-2 text-3xl font-medium tracking-tight text-neutral-950 dark:text-white">
             {post.title}
           </h1>
-          <p data-description="true" className="mt-6 text-base/7 text-gray-700 dark:text-gray-400">
+          <p data-description="true" className="mt-6 text-base/7 text-neutral-700 dark:text-neutral-400">
             {post.description}
           </p>
 

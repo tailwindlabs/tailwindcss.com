@@ -145,7 +145,7 @@ export let steps: Step[] = [
           @reference "tailwindcss";
 
           :global(html) {
-            background-color: theme(--color-gray-100);
+            background-color: theme(--color-neutral-100);
           }
         </style>
       `,

@@ -26,7 +26,7 @@ export default async function Course() {
       </header>
       <main className="pt-14 pb-28">
         <GridContainer>
-          <div className="max-w-xl space-y-8 text-base/7 text-gray-400 marker:text-white/60 **:[li]:pl-2 **:[strong]:font-medium **:[strong]:text-white **:[ul]:list-[square] **:[ul]:space-y-4 **:[ul]:pl-8">
+          <div className="max-w-xl space-y-8 text-base/7 text-neutral-400 marker:text-white/60 **:[li]:pl-2 **:[strong]:font-medium **:[strong]:text-white **:[ul]:list-[square] **:[ul]:space-y-4 **:[ul]:pl-8">
             <p>
               When you build UI components that are used by <strong>tens of thousands of developers</strong>, you learn
               to really care about the details, like:

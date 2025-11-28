@@ -51,18 +51,18 @@ function VersionPicker() {
   return (
     <Menu>
       <MenuButton
-        className="flex items-center gap-0.5 rounded-2xl bg-gray-950/5 py-0.5 pr-1.5 pl-2.5 text-xs/5 font-medium text-gray-950 tabular-nums hover:bg-gray-950/7.5 data-active:bg-gray-950/7.5 dark:bg-white/10 dark:text-white dark:hover:bg-white/12.5 dark:data-active:bg-white/12.5"
+        className="flex items-center gap-0.5 rounded-2xl bg-neutral-950/5 py-0.5 pr-1.5 pl-2.5 text-xs/5 font-medium text-neutral-950 tabular-nums hover:bg-neutral-950/7.5 data-active:bg-neutral-950/7.5 dark:bg-white/10 dark:text-white dark:hover:bg-white/12.5 dark:data-active:bg-white/12.5"
         aria-label="Select version of library"
       >
         v4.1
-        <ChevronDownIcon className="size-4 fill-gray-400" />
+        <ChevronDownIcon className="size-4 fill-neutral-400" />
       </MenuButton>
       <MenuItems
         anchor="bottom start"
-        className="mt-2 w-28 rounded-xl bg-white p-1 py-1 text-xs/7 font-medium text-gray-950 tabular-nums shadow-sm ring ring-gray-950/5 [--anchor-offset:calc(var(--spacing)*-1)] dark:bg-gray-950 dark:text-white dark:ring-white/10"
+        className="mt-2 w-28 rounded-xl bg-white p-1 py-1 text-xs/7 font-medium text-neutral-950 tabular-nums shadow-sm ring ring-neutral-950/5 [--anchor-offset:calc(var(--spacing)*-1)] dark:bg-neutral-950 dark:text-white dark:ring-white/10"
       >
         <MenuItem disabled>
-          <div className="flex items-center justify-between gap-2 rounded-lg px-2.5 data-active:bg-gray-950/5 dark:data-active:bg-white/10">
+          <div className="flex items-center justify-between gap-2 rounded-lg px-2.5 data-active:bg-neutral-950/5 dark:data-active:bg-white/10">
             v4.1
             <CheckIcon className="size-4" />
           </div>
@@ -70,7 +70,7 @@ function VersionPicker() {
         <MenuItem>
           <a
             href="https://v3.tailwindcss.com"
-            className="flex items-center justify-between gap-2 rounded-lg px-2.5 data-active:bg-gray-950/5 dark:data-active:bg-white/10"
+            className="flex items-center justify-between gap-2 rounded-lg px-2.5 data-active:bg-neutral-950/5 dark:data-active:bg-white/10"
           >
             v3.4.17
           </a>
@@ -78,7 +78,7 @@ function VersionPicker() {
         <MenuItem>
           <a
             href="https://v2.tailwindcss.com"
-            className="flex items-center justify-between gap-2 rounded-lg px-2.5 data-active:bg-gray-950/5 dark:data-active:bg-white/10"
+            className="flex items-center justify-between gap-2 rounded-lg px-2.5 data-active:bg-neutral-950/5 dark:data-active:bg-white/10"
           >
             v2.2.19
           </a>
@@ -86,7 +86,7 @@ function VersionPicker() {
         <MenuItem>
           <a
             href="https://v1.tailwindcss.com"
-            className="flex items-center justify-between gap-2 rounded-lg px-2.5 data-active:bg-gray-950/5 dark:data-active:bg-white/10"
+            className="flex items-center justify-between gap-2 rounded-lg px-2.5 data-active:bg-neutral-950/5 dark:data-active:bg-white/10"
           >
             v1.9.6
           </a>
@@ -94,7 +94,7 @@ function VersionPicker() {
         <MenuItem>
           <a
             href="https://tailwindcss-v0.netlify.app"
-            className="flex items-center justify-between gap-2 rounded-lg px-2.5 data-active:bg-gray-950/5 dark:data-active:bg-white/10"
+            className="flex items-center justify-between gap-2 rounded-lg px-2.5 data-active:bg-neutral-950/5 dark:data-active:bg-white/10"
           >
             v0.7.4
           </a>
@@ -109,7 +109,7 @@ export function Header(props: React.PropsWithChildren) {
   let router = useRouter();
 
   return (
-    <div className="bg-white dark:bg-gray-950">
+    <div className="bg-white dark:bg-neutral-950">
       <div className="flex h-14 items-center justify-between gap-8 px-4 sm:px-6">
         <div className="flex items-center gap-4">
           <Link
@@ -127,11 +127,11 @@ export function Header(props: React.PropsWithChildren) {
           <BlackFriday />
         </div>
         <div className="flex items-center gap-6 max-md:hidden">
-          <SearchButton className="inline-flex items-center gap-1 rounded-full bg-gray-950/2 px-2 py-1 inset-ring inset-ring-gray-950/8 dark:bg-white/5 dark:inset-ring-white/2">
+          <SearchButton className="inline-flex items-center gap-1 rounded-full bg-neutral-950/2 px-2 py-1 inset-ring inset-ring-neutral-950/8 dark:bg-white/5 dark:inset-ring-white/2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
-              className="-ml-0.5 size-4 fill-gray-600 dark:fill-gray-500"
+              className="-ml-0.5 size-4 fill-neutral-600 dark:fill-neutral-500"
             >
               <path
                 fillRule="evenodd"
@@ -140,21 +140,21 @@ export function Header(props: React.PropsWithChildren) {
               />
             </svg>
 
-            <kbd className="hidden font-sans text-xs/4 text-gray-500 dark:text-gray-400 [.os-macos_&]:block">⌘K</kbd>
-            <kbd className="hidden font-sans text-xs/4 text-gray-500 not-[.os-macos_&]:block dark:text-gray-400">
+            <kbd className="hidden font-sans text-xs/4 text-neutral-500 dark:text-neutral-400 [.os-macos_&]:block">⌘K</kbd>
+            <kbd className="hidden font-sans text-xs/4 text-neutral-500 not-[.os-macos_&]:block dark:text-neutral-400">
               Ctrl&nbsp;K
             </kbd>
           </SearchButton>
-          <Link href="/docs" className="text-sm/6 text-gray-950 dark:text-white">
+          <Link href="/docs" className="text-sm/6 text-neutral-950 dark:text-white">
             Docs
           </Link>
-          <Link href="/blog" className="text-sm/6 text-gray-950 dark:text-white">
+          <Link href="/blog" className="text-sm/6 text-neutral-950 dark:text-white">
             Blog
           </Link>
-          <Link href="/showcase" className="text-sm/6 text-gray-950 dark:text-white">
+          <Link href="/showcase" className="text-sm/6 text-neutral-950 dark:text-white">
             Showcase
           </Link>
-          <Link href="/sponsor" className="text-sm/6 text-gray-950 dark:text-white">
+          <Link href="/sponsor" className="text-sm/6 text-neutral-950 dark:text-white">
             Sponsor
           </Link>
           <a href="/plus?ref=top" className="group relative px-1.5 text-sm/6 text-sky-800 dark:text-sky-300">
@@ -195,7 +195,7 @@ export function Header(props: React.PropsWithChildren) {
           </a>
 
           <Link href="https://github.com/tailwindlabs/tailwindcss" aria-label="GitHub repository">
-            <GitHubLogo className="size-5 fill-black/40 dark:fill-gray-400" />
+            <GitHubLogo className="size-5 fill-black/40 dark:fill-neutral-400" />
           </Link>
         </div>
         <div className="flex items-center gap-2.5 md:hidden">
@@ -218,7 +218,7 @@ export function Header(props: React.PropsWithChildren) {
           <Dialog
             open={navIsOpen}
             onClose={() => setNavIsOpen(false)}
-            className="fixed inset-0 bg-white focus:outline-none md:hidden dark:bg-gray-950"
+            className="fixed inset-0 bg-white focus:outline-none md:hidden dark:bg-neutral-950"
           >
             <DialogPanel className="size-full overflow-y-auto">
               <div className="flex h-14 items-center justify-between px-4 py-4 sm:px-6">
@@ -232,37 +232,37 @@ export function Header(props: React.PropsWithChildren) {
               <div className="grid grid-cols-1 gap-1 px-1 pb-1 sm:px-3 sm:pb-3">
                 <Link
                   href="/docs"
-                  className="rounded-lg px-3 py-2 text-xl/9 font-medium text-gray-950 data-active:bg-gray-950/5 dark:text-white dark:hover:bg-white/10"
+                  className="rounded-lg px-3 py-2 text-xl/9 font-medium text-neutral-950 data-active:bg-neutral-950/5 dark:text-white dark:hover:bg-white/10"
                 >
                   Docs
                 </Link>
                 <a
                   href="/plus/?ref=top"
-                  className="rounded-lg px-3 py-2 text-xl/9 font-medium text-gray-950 data-active:bg-gray-950/5 dark:text-white dark:hover:bg-white/10"
+                  className="rounded-lg px-3 py-2 text-xl/9 font-medium text-neutral-950 data-active:bg-neutral-950/5 dark:text-white dark:hover:bg-white/10"
                 >
                   Plus
                 </a>
                 <Link
                   href="/blog"
-                  className="rounded-lg px-3 py-2 text-xl/9 font-medium text-gray-950 data-active:bg-gray-950/5 dark:text-white dark:hover:bg-white/10"
+                  className="rounded-lg px-3 py-2 text-xl/9 font-medium text-neutral-950 data-active:bg-neutral-950/5 dark:text-white dark:hover:bg-white/10"
                 >
                   Blog
                 </Link>
                 <Link
                   href="/showcase"
-                  className="rounded-lg px-3 py-2 text-xl/9 font-medium text-gray-950 data-active:bg-gray-950/5 dark:text-white dark:hover:bg-white/10"
+                  className="rounded-lg px-3 py-2 text-xl/9 font-medium text-neutral-950 data-active:bg-neutral-950/5 dark:text-white dark:hover:bg-white/10"
                 >
                   Showcase
                 </Link>
                 <Link
                   href="/sponsor"
-                  className="rounded-lg px-3 py-2 text-xl/9 font-medium text-gray-950 data-active:bg-gray-950/5 dark:text-white dark:hover:bg-white/10"
+                  className="rounded-lg px-3 py-2 text-xl/9 font-medium text-neutral-950 data-active:bg-neutral-950/5 dark:text-white dark:hover:bg-white/10"
                 >
                   Sponsor
                 </Link>
                 <Link
                   href="https://github.com/tailwindlabs/tailwindcss"
-                  className="rounded-lg px-3 py-2 text-xl/9 font-medium text-gray-950 data-active:bg-gray-950/5 dark:text-white dark:hover:bg-white/10"
+                  className="rounded-lg px-3 py-2 text-xl/9 font-medium text-neutral-950 data-active:bg-neutral-950/5 dark:text-white dark:hover:bg-white/10"
                 >
                   GitHub
                 </Link>

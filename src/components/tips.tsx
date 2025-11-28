@@ -15,7 +15,7 @@ export function TipGood({ children }: React.PropsWithChildren<{}>) {
           />
         </svg>
       </div>
-      <p className="m-0 flex-1 text-sm font-semibold text-gray-950 dark:text-white">{children}</p>
+      <p className="m-0 flex-1 text-sm font-semibold text-neutral-950 dark:text-white">{children}</p>
     </div>
   );
 }
@@ -35,7 +35,7 @@ export function TipBad({ children }: React.PropsWithChildren<{}>) {
           />
         </svg>
       </div>
-      <p className="m-0 flex-1 text-sm font-semibold text-gray-950 dark:text-white">{children}</p>
+      <p className="m-0 flex-1 text-sm font-semibold text-neutral-950 dark:text-white">{children}</p>
     </div>
   );
 }
@@ -57,7 +57,7 @@ export function TipCompat({ children }: React.PropsWithChildren<{}>) {
 
 export function TipInfo({ children }: React.PropsWithChildren<{}>) {
   return (
-    <div className="-mb-1 flex items-center space-x-2 text-gray-700 dark:text-gray-200">
+    <div className="-mb-1 flex items-center space-x-2 text-neutral-700 dark:text-neutral-200">
       <svg fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="size-6">
         <path
           strokeLinecap="round"
@@ -66,7 +66,7 @@ export function TipInfo({ children }: React.PropsWithChildren<{}>) {
         />
       </svg>
 
-      <p className="m-0 flex-1 text-sm font-semibold text-gray-950 dark:text-white">{children}</p>
+      <p className="m-0 flex-1 text-sm font-semibold text-neutral-950 dark:text-white">{children}</p>
     </div>
   );
 }
