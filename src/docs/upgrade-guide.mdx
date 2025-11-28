@@ -753,6 +753,34 @@ This means if you were adding an outline with a custom color on focus, you will 
 <button class="outline-cyan-500 transition hover:outline-2"></button>
 ```
 
+### Individual transform properties
+
+The `rotate-*`, `scale-*`, and `translate-*` utilities are now based on the individual `rotate`, `scale`, and `translate` properties in CSS. Normally this shouldn't affect the behavior but there's a couple of cases to look out for:
+
+#### Resetting Transforms
+
+You previously would've been able to "reset" your rotate, scale, and translate utilities via `transform-none`. This no longer works and you will need to reset the individual properties instead:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code --:2] -->
+<button class="scale-150 focus:transform-none"></button>
+<!-- [!code ++:2] -->
+<button class="scale-150 focus:scale-none"></button>
+```
+
+#### Transitions
+
+If you customize the list of transitioned properties and include `transform` (e.g. by writing `transition-[opacity,transform]`) then these utilities will no longer transition. To fix this, include the individual properties in the list. For example, if you want to transition changes when using `opacity-*` and `scale-*` utilities you should use `transition-[opacity,scale]` instead.
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code --:2] -->
+<button class="hover:scale-150 transition-[opacity,transform]"></button>
+<!-- [!code ++:2] -->
+<button class="hover:scale-150 transition-[opacity,scale]"></button>
+```
+
 ### Disabling core plugins
 
 In v3 there was a `corePlugins` option you could use to completely disable certain utilities in the framework. This is no longer supported in v4.
