@@ -29,7 +29,7 @@ let steps = [
       name: 'tailwind.config.js',
       lang: 'js',
       code: `  /** @type {import('tailwindcss').Config} */
- export default {
+  export default {
 >   content: ["./src/**/*.{html,js}"],
     theme: {
       extend: {},
