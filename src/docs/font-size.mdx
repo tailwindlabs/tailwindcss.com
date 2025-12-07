@@ -182,3 +182,19 @@ You can also provide default `line-height`, `letter-spacing`, and `font-weight` 
 ```
 
 </CustomizingYourTheme>
+
+<div className="mt-8 rounded-lg border border-amber-500/20 bg-amber-50 p-4 dark:bg-amber-900/10">
+  <p className="font-semibold text-amber-900 dark:text-amber-200">Important: Line height is required</p>
+  <p className="mt-2 text-sm text-amber-800 dark:text-amber-300">
+    When adding a custom font size, you must define both the font size variable and its corresponding line height variable. If you only define the font size, your text may not have proper line spacing.
+  </p>
+  <p className="mt-3 text-sm font-mono text-amber-900 dark:text-amber-200">
+    For example, to add <code>text-md</code>:
+  </p>
+  <pre className="mt-2 overflow-x-auto rounded bg-amber-900/10 p-3 text-sm">
+{`@theme {
+  --text-md: var(--text-base);
+  --text-md--line-height: var(--text-base--line-height);
+}`}
+  </pre>
+</div>
