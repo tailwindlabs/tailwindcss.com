@@ -276,7 +276,7 @@ export default function WhyTailwindCssSection() {
               <div className="@container relative flex size-full items-center justify-center">
                 <Autoscroll className="no-scrollbar z-10 -my-1 flex snap-x snap-mandatory gap-(--gap) overflow-x-auto py-1 [--gap:--spacing(10)] [--size:--spacing(72)]">
                   <div className="flex snap-proximity snap-end">
-                    <div className="w-[calc(50cqw-(var(--size)/2)-(var(--gap)))]" />
+                    <div className="w-[calc(50vi-(var(--size)/2)-(var(--gap)))]" />
                   </div>
 
                   {[
@@ -298,7 +298,7 @@ export default function WhyTailwindCssSection() {
                   })}
 
                   <div className="flex snap-proximity snap-end">
-                    <div className="w-[calc(50cqw-(var(--size)/2)-(var(--gap)))]" />
+                    <div className="w-[calc(50vi-(var(--size)/2)-(var(--gap)))]" />
                   </div>
                 </Autoscroll>
 
