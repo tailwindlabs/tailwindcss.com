@@ -27,7 +27,7 @@
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "shiki": "^1.29.2",
-    "tailwindcss": "^4.1.17"
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
