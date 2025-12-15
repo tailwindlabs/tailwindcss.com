@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { getDocPageSlugs } from "../(docs)/docs/api";
-import { extractTextFromMDX } from "../api/llms-txt/extract-text";
+import { extractTextFromMDX } from "../api/llms-txt/ast-extract";
 import index from "../(docs)/docs/index";
 
 export const dynamic = "force-static";
@@ -125,7 +125,11 @@ async function processSlug(slug: string, title: string): Promise<string> {
 
     return pageOutput;
   } catch (error) {
-    // Skip files that can't be read
+    // Silently skip "installation" - it's a Next.js route without an MDX file
+    if (slug === "installation") {
+      return "";
+    }
+    // Log errors for other files
     console.error(`Error processing ${slug}:`, error);
     return "";
   }

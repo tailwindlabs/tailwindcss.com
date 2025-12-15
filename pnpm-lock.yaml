@@ -41,6 +41,9 @@ importers:
       framer-motion:
         specifier: ^12.20.0
         version: 12.20.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      markdown-to-jsx:
+        specifier: ^9.4.1
+        version: 9.4.1(react@19.2.3)
       motion:
         specifier: ^12.20.0
         version: 12.20.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -1724,6 +1727,24 @@ packages:
 
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
+
+  markdown-to-jsx@9.4.1:
+    resolution: {integrity: sha512-K7UCtk+t+4emmngIWviRgdc7zb8chVJbMMkYrNxXb+pX3pCuwIbIx+L2Kx4HJDhkA3ZQHRy7VBaaNoz3ekeCjw==}
+    engines: {node: '>= 18'}
+    peerDependencies:
+      react: '>= 16.0.0'
+      react-native: '*'
+      solid-js: '>=1.0.0'
+      vue: '>=3.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-native:
+        optional: true
+      solid-js:
+        optional: true
+      vue:
+        optional: true
 
   mdast-util-from-markdown@2.0.2:
     resolution: {integrity: sha512-uZhTV/8NBuw0WHkPTrCqDOl0zVe1BIng5ZtHoDk49ME1qqcjYmmLmOf0gELgcRMxN4w2iuIeVso5/6QymSrgmA==}
@@ -4029,6 +4050,10 @@ snapshots:
   magic-string@0.30.21:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
+
+  markdown-to-jsx@9.4.1(react@19.2.3):
+    optionalDependencies:
+      react: 19.2.3
 
   mdast-util-from-markdown@2.0.2:
     dependencies:

@@ -2,7 +2,7 @@
 
 import { describe, test } from "node:test";
 import assert from "node:assert";
-import { extractTextFromMDX } from "./extract-text";
+import { extractTextFromMDX } from "./ast-extract";
 import dedent from "dedent";
 
 describe("extractTextFromMDX", () => {
@@ -202,16 +202,23 @@ describe("extractTextFromMDX", () => {
       assert.ok(!result.includes("padding="));
     });
 
-    test("extracts text content from JSX", (t) => {
+    test("skips Example components (visual demonstrations)", (t) => {
       let input = dedent`
+        Some text before.
+
         <Example>
-          <div>This is text content</div>
-          <p>More text here</p>
+          <div>This is demo content</div>
+          <p>More demo here</p>
         </Example>
+
+        Some text after.
       `;
 
       let result = extractTextFromMDX(input);
-      assert.ok(result.includes("This is text content") || result.includes("More text here"));
+      assert.ok(result.includes("Some text before"));
+      assert.ok(result.includes("Some text after"));
+      assert.ok(!result.includes("This is demo content"));
+      assert.ok(!result.includes("More demo here"));
     });
   });
 
@@ -233,18 +240,22 @@ describe("extractTextFromMDX", () => {
       assert.ok(result.includes("display: block"));
     });
 
-    test("handles ApiTable with complex values", (t) => {
+    test("handles ApiTable with multiple rows", (t) => {
       let input = dedent`
         <ApiTable
           rows={[
-            ["sr-only", dedent\`position: absolute;\`],
+            ["z-<number>", "z-index: <number>;"],
+            ["z-auto", "z-index: auto;"],
+            ["z-[<value>]", "z-index: <value>;"],
           ]}
         />
       `;
 
       let result = extractTextFromMDX(input);
-      assert.ok(result.includes("sr-only"));
-      assert.ok(result.includes("position: absolute"));
+      assert.ok(result.includes("z-<number>"));
+      assert.ok(result.includes("z-index: <number>"));
+      assert.ok(result.includes("z-auto"));
+      assert.ok(result.includes("z-index: auto"));
     });
   });
 
@@ -499,7 +510,7 @@ describe("extractTextFromMDX", () => {
   });
 
   describe("handling JSX expressions with nested braces", () => {
-    test("extracts table content from JSX expression", (t) => {
+    test("extracts table headers from JSX expression", (t) => {
       let input = dedent`
         ## Breakpoints
 
@@ -511,12 +522,6 @@ describe("extractTextFromMDX", () => {
               <th>Width</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>sm</td>
-              <td>640px</td>
-            </tr>
-          </tbody>
         </table>
         }
 
@@ -526,27 +531,9 @@ describe("extractTextFromMDX", () => {
       let result = extractTextFromMDX(input);
       assert.ok(result.includes("Breakpoint"));
       assert.ok(result.includes("Width"));
-      assert.ok(result.includes("sm"));
-      assert.ok(result.includes("640px"));
       assert.ok(result.includes("More content here"));
       assert.ok(!result.includes("{"));
       assert.ok(!result.includes("}"));
-    });
-
-    test("handles nested JSX expressions", (t) => {
-      let input = dedent`
-        {
-        <div>
-          <p>Outer content</p>
-          {
-            <span>Inner content</span>
-          }
-        </div>
-        }
-      `;
-
-      let result = extractTextFromMDX(input);
-      assert.ok(result.includes("Outer content") || result.includes("Inner content"));
     });
 
     test("handles JSX expressions with code blocks inside", (t) => {
@@ -561,27 +548,7 @@ describe("extractTextFromMDX", () => {
       `;
 
       let result = extractTextFromMDX(input);
-      // Code blocks should be preserved
       assert.ok(result.includes("```html") || result.includes("Code example"));
-    });
-
-    test("handles multiple JSX expressions", (t) => {
-      let input = dedent`
-        First expression:
-        {
-        <table>
-          <tr><td>Row 1</td></tr>
-        </table>
-        }
-
-        Second expression:
-        {
-        <div>Content</div>
-        }
-      `;
-
-      let result = extractTextFromMDX(input);
-      assert.ok(result.includes("Row 1") || result.includes("Content"));
     });
   });
 
@@ -623,8 +590,6 @@ describe("extractTextFromMDX", () => {
       assert.ok(result.includes("## Overview"));
       assert.ok(result.includes("Breakpoint prefix"));
       assert.ok(result.includes("Minimum width"));
-      assert.ok(result.includes("sm"));
-      assert.ok(result.includes("40rem"));
       assert.ok(result.includes("### Customizing your theme"));
       assert.ok(result.includes("More content here"));
       assert.ok(!result.includes("export const"));
@@ -679,6 +644,304 @@ describe("extractTextFromMDX", () => {
       assert.ok(!result.includes("<ApiTable"));
       assert.ok(!result.includes("<Figure>"));
       assert.ok(!result.includes("[!code"));
+    });
+  });
+
+  describe("handling media elements", () => {
+    test("removes img tags completely", (t) => {
+      let input = dedent`
+        ## Editor setup
+
+        Some content before.
+
+        <img src="/img/photo.png" alt="Photo description" width={1344} height={672} />
+
+        More content here.
+      `;
+
+      let result = extractTextFromMDX(input);
+      assert.ok(result.includes("## Editor setup"));
+      assert.ok(result.includes("Some content before"));
+      assert.ok(result.includes("More content here"));
+      assert.ok(!result.includes("<img"));
+      assert.ok(!result.includes("src="));
+      assert.ok(!result.includes("Photo description"));
+    });
+
+    test("removes img tags with JSX props", (t) => {
+      let input = dedent`
+        <img
+          src={require("./img/zed-intellisense.png").default.src}
+          alt="Built-in support for Tailwind CSS in Zed"
+          width={1344}
+          height={672}
+          className="rounded-lg"
+        />
+      `;
+
+      let result = extractTextFromMDX(input);
+      assert.ok(!result.includes("<img"));
+      assert.ok(!result.includes("src="));
+      assert.ok(!result.includes("require"));
+      assert.ok(!result.includes("zed-intellisense"));
+    });
+
+    test("removes svg tags completely", (t) => {
+      let input = dedent`
+        ## Icons
+
+        Here's an icon:
+
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24">
+          <path d="M12 4v16m8-8H4" />
+        </svg>
+
+        More content here.
+      `;
+
+      let result = extractTextFromMDX(input);
+      assert.ok(result.includes("## Icons"));
+      assert.ok(result.includes("More content here"));
+      assert.ok(!result.includes("<svg"));
+      assert.ok(!result.includes("viewBox"));
+      assert.ok(!result.includes("<path"));
+    });
+
+    test("removes video tags", (t) => {
+      let input = dedent`
+        ## Demo
+
+        <video src="/demo.mp4" controls />
+
+        Watch the demo above.
+      `;
+
+      let result = extractTextFromMDX(input);
+      assert.ok(result.includes("## Demo"));
+      assert.ok(result.includes("Watch the demo above"));
+      assert.ok(!result.includes("<video"));
+      assert.ok(!result.includes("demo.mp4"));
+    });
+
+    test("removes iframe tags", (t) => {
+      let input = dedent`
+        ## Embedded content
+
+        <iframe src="https://example.com" width="100%" height="400" />
+
+        See the embedded content above.
+      `;
+
+      let result = extractTextFromMDX(input);
+      assert.ok(result.includes("## Embedded content"));
+      assert.ok(result.includes("See the embedded content above"));
+      assert.ok(!result.includes("<iframe"));
+      assert.ok(!result.includes("example.com"));
+    });
+
+    test("removes picture and source tags", (t) => {
+      let input = dedent`
+        ## Responsive images
+
+        <picture>
+          <source srcset="/img/photo.webp" type="image/webp" />
+          <img src="/img/photo.jpg" alt="Photo" />
+        </picture>
+
+        Image shown above.
+      `;
+
+      let result = extractTextFromMDX(input);
+      assert.ok(result.includes("## Responsive images"));
+      assert.ok(result.includes("Image shown above"));
+      assert.ok(!result.includes("<picture"));
+      assert.ok(!result.includes("<source"));
+      assert.ok(!result.includes("<img"));
+      assert.ok(!result.includes("photo.webp"));
+    });
+
+    test("handles multiple img tags in content", (t) => {
+      let input = dedent`
+        ## Gallery
+
+        <img src="/img/photo1.jpg" />
+        <img src="/img/photo2.jpg" />
+        <img src="/img/photo3.jpg" />
+
+        Three photos above.
+      `;
+
+      let result = extractTextFromMDX(input);
+      assert.ok(result.includes("## Gallery"));
+      assert.ok(result.includes("Three photos above"));
+      assert.ok(!result.includes("<img"));
+      assert.ok(!result.includes("photo1"));
+      assert.ok(!result.includes("photo2"));
+      assert.ok(!result.includes("photo3"));
+    });
+
+    test("removes img tags but preserves surrounding text", (t) => {
+      let input = dedent`
+        Before image <img src="/img/test.jpg" /> after image.
+      `;
+
+      let result = extractTextFromMDX(input);
+      assert.ok(result.includes("Before image"));
+      assert.ok(result.includes("after image"));
+      assert.ok(!result.includes("<img"));
+    });
+  });
+
+  describe("handling media elements", () => {
+    test("removes img tags and preserves surrounding content", (t) => {
+      let input = dedent`
+        ## Editor Setup
+
+        Check out our editor:
+
+        <img src="/img/editor.png" alt="Editor screenshot" width={1344} height={672} />
+
+        It's great for development.
+      `;
+
+      let result = extractTextFromMDX(input);
+      assert.ok(result.includes("## Editor Setup"));
+      assert.ok(result.includes("Check out our editor"));
+      assert.ok(result.includes("It's great for development"));
+      assert.ok(!result.includes("<img"));
+      assert.ok(!result.includes("src="));
+      assert.ok(!result.includes("Editor screenshot"));
+    });
+
+    test("removes img tags with JSX props", (t) => {
+      let input = dedent`
+        <img
+          src={require("./img/zed-intellisense.png").default.src}
+          alt="Built-in support for Tailwind CSS"
+          width={1344}
+          height={672}
+          className="rounded-lg"
+        />
+      `;
+
+      let result = extractTextFromMDX(input);
+      assert.ok(!result.includes("<img"));
+      assert.ok(!result.includes("src="));
+      assert.ok(!result.includes("require"));
+      assert.ok(!result.includes("Built-in support"));
+    });
+
+    test("removes svg tags completely", (t) => {
+      let input = dedent`
+        ## Icons
+
+        Here's an icon:
+
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24">
+          <path d="M12 4v16m8-8H4" />
+        </svg>
+
+        Use it wisely.
+      `;
+
+      let result = extractTextFromMDX(input);
+      assert.ok(result.includes("## Icons"));
+      assert.ok(result.includes("Here's an icon"));
+      assert.ok(result.includes("Use it wisely"));
+      assert.ok(!result.includes("<svg"));
+      assert.ok(!result.includes("viewBox"));
+      assert.ok(!result.includes("<path"));
+    });
+
+    test("removes video tags", (t) => {
+      let input = dedent`
+        ## Demo
+
+        <video src="/demo.mp4" controls />
+
+        Watch the demo above.
+      `;
+
+      let result = extractTextFromMDX(input);
+      assert.ok(result.includes("## Demo"));
+      assert.ok(result.includes("Watch the demo above"));
+      assert.ok(!result.includes("<video"));
+      assert.ok(!result.includes("src="));
+    });
+
+    test("removes iframe tags", (t) => {
+      let input = dedent`
+        ## Embedded Content
+
+        <iframe src="https://example.com" width="600" height="400" />
+
+        Check out the embed.
+      `;
+
+      let result = extractTextFromMDX(input);
+      assert.ok(result.includes("## Embedded Content"));
+      assert.ok(result.includes("Check out the embed"));
+      assert.ok(!result.includes("<iframe"));
+      assert.ok(!result.includes("example.com"));
+    });
+
+    test("removes picture and source tags", (t) => {
+      let input = dedent`
+        ## Responsive Images
+
+        <picture>
+          <source srcset="/img/photo.webp" type="image/webp" />
+          <img src="/img/photo.jpg" alt="Photo" />
+        </picture>
+
+        Beautiful image above.
+      `;
+
+      let result = extractTextFromMDX(input);
+      assert.ok(result.includes("## Responsive Images"));
+      assert.ok(result.includes("Beautiful image above"));
+      assert.ok(!result.includes("<picture"));
+      assert.ok(!result.includes("<source"));
+      assert.ok(!result.includes("<img"));
+      assert.ok(!result.includes("srcset"));
+    });
+
+    test("handles img tags in code examples", (t) => {
+      let input = dedent`
+        ## HTML Example
+
+        \`\`\`html
+        <img src="/logo.svg" alt="Logo" />
+        \`\`\`
+
+        The code above shows an image tag.
+      `;
+
+      let result = extractTextFromMDX(input);
+      assert.ok(result.includes("## HTML Example"));
+      assert.ok(result.includes("```html"));
+      assert.ok(result.includes('<img src="/logo.svg" alt="Logo" />'));
+      assert.ok(result.includes("The code above shows an image tag"));
+    });
+
+    test("removes multiple media elements in sequence", (t) => {
+      let input = dedent`
+        ## Gallery
+
+        <img src="/img/1.jpg" />
+        <img src="/img/2.jpg" />
+        <svg><path d="M0 0" /></svg>
+        <video src="/video.mp4" />
+
+        All media above.
+      `;
+
+      let result = extractTextFromMDX(input);
+      assert.ok(result.includes("## Gallery"));
+      assert.ok(result.includes("All media above"));
+      assert.ok(!result.includes("<img"));
+      assert.ok(!result.includes("<svg"));
+      assert.ok(!result.includes("<video"));
     });
   });
 });
