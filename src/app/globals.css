@@ -6,7 +6,7 @@
   --font-sans: var(--font-inter), system-ui;
   --font-source: var(--font-source-sans-pro), system-ui;
   --font-sans--font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  --font-mono: var(--font-plex-mono);
+  --font-mono: var(--font-plex-mono), monospace;
   --font-mono--font-feature-settings: "ss02", "zero";
   --font-ubuntu-mono: var(--font-ubuntu-mono);
 }
