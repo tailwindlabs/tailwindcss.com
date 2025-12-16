@@ -785,17 +785,15 @@ function Sponsors() {
       </div>
       <h2 className="mt-16 px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Ambassadors</h2>
       <div className="relative mt-4">
-        <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-4 xl:grid-cols-6">
+        <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
           <div className="border-r border-gray-950/5 dark:border-white/10"></div>
           <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-lg:hidden lg:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-xl:hidden xl:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-xl:hidden xl:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-lg:hidden dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-lg:hidden xl:border-x dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-xl:hidden dark:border-white/10"></div>
         </div>
-        <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-4 xl:grid-cols-6">
+        <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
           {ambassadors.map((company, index) => (
-            <li key={index} className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[4n+1]:line-y xl:nth-[6n+1]:line-y">
+            <li key={index} className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y">
               <a
                 href={company.url}
                 target="_blank"
@@ -810,19 +808,15 @@ function Sponsors() {
       </div>
       <h2 className="mt-16 px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Supporters</h2>
       <div className="relative mt-4">
-        <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-6 xl:grid-cols-8">
+        <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
           <div className="border-r border-gray-950/5 dark:border-white/10"></div>
           <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-lg:hidden lg:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-lg:hidden lg:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-lg:hidden lg:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-xl:hidden xl:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-xl:hidden xl:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-lg:hidden dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-lg:hidden xl:border-x dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-xl:hidden dark:border-white/10"></div>
         </div>
-        <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-6 xl:grid-cols-8">
+        <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
           {supporters.map((company, index) => (
-            <li key={index} className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[6n+1]:line-y xl:nth-[8n+1]:line-y">
+            <li key={index} className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y">
               <a
                 href={company.url}
                 target="_blank"
