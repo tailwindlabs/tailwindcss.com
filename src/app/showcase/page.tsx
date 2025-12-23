@@ -53,6 +53,13 @@ export default async function Showcase() {
 const showcase = [
   // Partners
   {
+    name: "Cursor",
+    url: "https://cursor.com",
+    thumbnail: require("./img/cursor.com.png").default,
+    video: "/showcase-videos/cursor.com.mp4",
+    description: "Code editor website",
+  },
+  {
     name: "Greptile",
     url: "https://www.greptile.com/?utm_source=tailwind",
     thumbnail: require("./img/greptile.com.png").default,
