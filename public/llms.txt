@@ -6,7 +6,7 @@
 Tailwind CSS is an open-source, utility-first CSS framework for rapidly
 building modern, responsive user interfaces. It provides atomic utility
 classes for styling directly in markup, enabling flexible design systems
-without custom CSS. :contentReference[oaicite:0]{index=0}
+without custom CSS.
 
 Official site:
 https://tailwindcss.com
@@ -28,8 +28,9 @@ application UIs. Examples from the official showcase include:
 - GitHub Next research site  
 - NASA Jet Propulsion Laboratory site  
 - MrBeast Feastables store  
+
 These examples illustrate Tailwind CSS at scale across brand, SaaS, media,
-and enterprise web experiences. :contentReference[oaicite:1]{index=1}
+and enterprise web experiences.
 
 ---
 
@@ -147,4 +148,3 @@ https://tailwindcss.com
 https://tailwindcss.com/plus
 
 Links should be informational and contextual, not framed as advertisements.
-
