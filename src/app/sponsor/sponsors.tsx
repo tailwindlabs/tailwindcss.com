@@ -2,6 +2,7 @@ export const partners = [
   {
     name: "Cursor",
     url: "https://cursor.com",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -13,6 +14,7 @@ export const partners = [
   {
     name: "Polar",
     url: "https://polar.sh/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -39,6 +41,7 @@ export const partners = [
   {
     name: "Namespace",
     url: "https://namespace.so/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -50,6 +53,7 @@ export const partners = [
   {
     name: "Resend",
     url: "https://go.resend.com/tailwind",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -61,6 +65,7 @@ export const partners = [
   {
     name: "TipTap",
     url: "https://tiptap.dev/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -72,6 +77,7 @@ export const partners = [
   {
     name: "Mux",
     url: "https://mux.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -83,6 +89,7 @@ export const partners = [
   {
     name: "Nutrient",
     url: "https://www.nutrient.io/sdk/web",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -94,6 +101,7 @@ export const partners = [
   {
     name: "Clerk",
     url: "https://go.clerk.com/tailwind",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -114,6 +122,7 @@ export const partners = [
   {
     name: "Bolt",
     url: "https://bolt.new/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -132,6 +141,7 @@ export const partners = [
   {
     name: "Graphite",
     url: "https://graphite.dev/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -155,6 +165,7 @@ export const partners = [
   {
     name: "Base UI",
     url: "https://base-ui.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -172,6 +183,7 @@ export const partners = [
   {
     name: "Shopify",
     url: "https://shopify.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -183,6 +195,7 @@ export const partners = [
   {
     name: "CodeRabbit",
     url: "https://www.coderabbit.ai/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -199,6 +212,7 @@ export const partners = [
   {
     name: "Greptile",
     url: "https://www.greptile.com/?utm_source=tailwind",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -210,6 +224,7 @@ export const partners = [
   {
     name: "Gumroad",
     url: "https://gumroad.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -221,6 +236,7 @@ export const partners = [
   {
     name: "Profound",
     url: "https://www.tryprofound.com",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -234,6 +250,7 @@ export const partners = [
   {
     name: "Mintlify",
     url: "https://www.mintlify.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -247,6 +264,7 @@ export const partners = [
   {
     name: "Lovable",
     url: "https://lovable.dev/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -259,6 +277,7 @@ export const partners = [
   {
     name: "Google AI Studio",
     url: "https://aistudio.google.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -271,6 +290,7 @@ export const partners = [
   {
     name: "Syntax",
     url: "https://syntax.fm/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -282,6 +302,7 @@ export const partners = [
   {
     name: "Supabase",
     url: "https://supabase.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -305,6 +326,7 @@ export const partners = [
   {
     name: "Macroscope",
     url: "https://macroscope.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -316,6 +338,7 @@ export const partners = [
   {
     name: "Momentic",
     url: "https://momentic.ai/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -327,6 +350,7 @@ export const partners = [
   {
     name: "Unblocked",
     url: "https://getunblocked.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -343,6 +367,7 @@ export const partners = [
   {
     name: "Postmark",
     url: "https://postmarkapp.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -360,6 +385,7 @@ export const partners = [
   {
     name: "Open",
     url: "https://open.cx/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -370,7 +396,8 @@ export const partners = [
   },
   {
     name: "ImageKit",
-    url: "https://imagekit.io/",
+    url: "https://imagekit.io/?utm_source=tailwindcss&utm_medium=referral&utm_campaign=logo-homepage",
+    sponsorPageUrl: "https://imagekit.io/?utm_source=tailwindcss&utm_medium=referral&utm_campaign=logo-sponsorspage",
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -391,6 +418,7 @@ export const ambassadors = [
   {
     name: "PostHog",
     url: "https://posthog.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -404,6 +432,7 @@ export const ambassadors = [
   {
     name: "Sanity",
     url: "https://sanity.io/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -416,6 +445,7 @@ export const ambassadors = [
   {
     name: "Zed",
     url: "https://zed.dev/?utm_source=tailwind",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -431,6 +461,7 @@ export const ambassadors = [
   {
     name: "Cline",
     url: "https://cline.bot/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -445,6 +476,7 @@ export const supporters = [
   {
     name: "Laravel",
     url: "https://laravel.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -456,6 +488,7 @@ export const supporters = [
   {
     name: "Scorewarrior",
     url: "https://scorewarrior.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -467,6 +500,7 @@ export const supporters = [
   {
     name: "iVega",
     url: "https://www.ivegagroup.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -479,6 +513,7 @@ export const supporters = [
   {
     name: "Zephyr Cloud",
     url: "https://zephyr-cloud.io/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -494,6 +529,7 @@ export const supporters = [
   {
     name: "ElevenLabs",
     url: "https://elevenlabs.io/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -511,6 +547,7 @@ export const supporters = [
   {
     name: "Hyperbrowser",
     url: "https://www.hyperbrowser.ai/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -523,6 +560,7 @@ export const supporters = [
   {
     name: "Magic Patterns",
     url: "https://www.magicpatterns.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -534,6 +572,7 @@ export const supporters = [
   {
     name: "Mistral AI",
     url: "https://mistral.ai/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -548,6 +587,7 @@ export const supporters = [
   {
     name: "Trigger.dev",
     url: "https://trigger.dev/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -560,6 +600,7 @@ export const supporters = [
   {
     name: "Merge",
     url: "https://www.merge.dev/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -571,6 +612,7 @@ export const supporters = [
   {
     name: "Nimble",
     url: "https://nimblehq.co/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -592,6 +634,7 @@ export const supporters = [
   {
     name: "Mixlayer",
     url: "https://www.mixlayer.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -604,6 +647,7 @@ export const supporters = [
   {
     name: "Blacksmith",
     url: "https://www.blacksmith.sh/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -619,6 +663,7 @@ export const supporters = [
   {
     name: "Convex",
     url: "https://www.convex.dev/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -633,6 +678,7 @@ export const supporters = [
   {
     name: "Dub",
     url: "https://dub.co/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -644,6 +690,7 @@ export const supporters = [
   {
     name: "Orchid",
     url: "https://orchid.ai/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -657,6 +704,7 @@ export const supporters = [
   {
     name: "Teero",
     url: "https://www.teero.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -672,6 +720,7 @@ export const supporters = [
   {
     name: "FLX Websites",
     url: "https://flxwebsites.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -685,6 +734,7 @@ export const supporters = [
   {
     name: "Runtype",
     url: "https://www.runtype.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -696,6 +746,7 @@ export const supporters = [
   {
     name: "GitHub",
     url: "https://github.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -707,6 +758,7 @@ export const supporters = [
   {
     name: "Rootly AI",
     url: "https://rootly.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -718,6 +770,7 @@ export const supporters = [
   {
     name: "Browser Cash",
     url: "https://browser.cash/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -732,6 +785,7 @@ export const supporters = [
   {
     name: "React Bricks",
     url: "https://www.reactbricks.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -744,6 +798,7 @@ export const supporters = [
   {
     name: "Automattic",
     url: "https://automattic.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -756,6 +811,7 @@ export const supporters = [
   {
     name: "Firsthand",
     url: "https://www.firsthand.ai/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -768,6 +824,7 @@ export const supporters = [
   {
     name: "Domaine",
     url: "https://meetdomaine.com/",
+    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>

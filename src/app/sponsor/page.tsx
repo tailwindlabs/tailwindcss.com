@@ -152,7 +152,7 @@ function FeaturedPartners() {
           {partners.map((company, index) => (
             <li key={index} className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y">
               <a
-                href={company.url}
+                href={company.sponsorPageUrl ?? company.url}
                 target="_blank"
                 rel="noopener sponsored"
                 className="grid place-content-center transition-colors hover:bg-gray-950/2.5 sm:px-2 sm:py-4 dark:hover:bg-white/2.5"
@@ -758,7 +758,7 @@ function Sponsors() {
           {partners.map((company, index) => (
             <li key={index} className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y">
               <a
-                href={company.url}
+                href={company.sponsorPageUrl ?? company.url}
                 target="_blank"
                 rel="noopener sponsored"
                 className="grid place-content-center transition-colors hover:bg-gray-950/2.5 sm:px-2 sm:py-4 dark:hover:bg-white/2.5"
@@ -781,7 +781,7 @@ function Sponsors() {
           {ambassadors.map((company, index) => (
             <li key={index} className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y">
               <a
-                href={company.url}
+                href={company.sponsorPageUrl ?? company.url}
                 target="_blank"
                 rel="noopener sponsored"
                 className="grid place-content-center transition-colors hover:bg-gray-950/2.5 sm:px-2 sm:py-4 dark:hover:bg-white/2.5"
@@ -804,7 +804,7 @@ function Sponsors() {
           {supporters.map((company, index) => (
             <li key={index} className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y">
               <a
-                href={company.url}
+                href={company.sponsorPageUrl ?? company.url}
                 target="_blank"
                 rel="noopener sponsored"
                 className="grid place-content-center transition-colors hover:bg-gray-950/2.5 sm:px-2 sm:py-4 dark:hover:bg-white/2.5"
