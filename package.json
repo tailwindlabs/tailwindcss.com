@@ -22,7 +22,7 @@
     "feed": "^5.1.0",
     "framer-motion": "^12.20.0",
     "motion": "^12.20.0",
-    "next": "15.3.8",
+    "next": "15.5.9",
     "open-graph-scraper-lite": "^2.1.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
