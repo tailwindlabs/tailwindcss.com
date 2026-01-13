@@ -1,9 +1,45 @@
+// We shuffle sponsors client-side because we couldn't get Next.js ISR with
+// `revalidate` to work for the homepage — the root path seems to get cached
+// indefinitely despite the revalidate setting. The /sponsor page uses ISR and
+// works fine, but for whatever reason we can't get it working here.
+"use client";
+
 import Link from "next/link";
 import GridContainer from "../grid-container";
 import CategoryHeader from "./category-header";
-import type { Sponsor } from "@/lib/sponsors";
+import { partners, ambassadors } from "@/app/sponsor/sponsors";
+import { useState, useLayoutEffect } from "react";
 
-export default function PartnersSection({ sponsors }: { sponsors: Sponsor[] }) {
+function shuffle<T>(array: T[]): T[] {
+  const result = [...array];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+function getSponsors({ shuffle: shouldShuffle }: { shuffle: boolean }) {
+  const totalLogos = 36;
+  const partnerList = shouldShuffle ? shuffle(partners) : partners;
+
+  if (partnerList.length >= totalLogos) {
+    return partnerList.slice(0, totalLogos);
+  }
+
+  const remainingSlots = totalLogos - partnerList.length;
+  const ambassadorList = shouldShuffle ? shuffle(ambassadors) : ambassadors;
+
+  return [...partnerList, ...ambassadorList.slice(0, remainingSlots)];
+}
+
+export default function PartnersSection() {
+  const [sponsors, setSponsors] = useState(() => getSponsors({ shuffle: false }));
+
+  useLayoutEffect(() => {
+    setSponsors(getSponsors({ shuffle: true }));
+  }, []);
+
   return (
     <div className="relative max-w-full">
       <div

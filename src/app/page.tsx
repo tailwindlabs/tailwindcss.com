@@ -7,12 +7,8 @@ import TailwindUiSection from "@/components/home/tailwind-ui-section";
 import WhyTailwindCssSection from "@/components/home/why-tailwind-css-section";
 import BuildAnythingSection from "@/components/home/build-anything-section";
 import PartnersSection from "@/components/home/partners-section";
-import { getHomepageSponsors } from "@/lib/sponsors";
 
-export const revalidate = 60;
-
-export default async function Home() {
-  const sponsors = getHomepageSponsors();
+export default function Home() {
   return (
     <div className="max-w-screen overflow-x-hidden">
       <div className="fixed inset-x-0 top-0 z-10 border-b border-black/5 dark:border-white/10">
@@ -25,7 +21,7 @@ export default async function Home() {
         {/* Main content area */}
         <div className="grid gap-24 pb-24 text-gray-950 sm:gap-40 md:pb-40 dark:text-white">
           <Hero />
-          <PartnersSection sponsors={sponsors} />
+          <PartnersSection />
           <WhyTailwindCssSection />
           <ExplainerSection />
           <BuildAnythingSection />
