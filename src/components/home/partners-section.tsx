@@ -35,9 +35,11 @@ function getSponsors({ shuffle: shouldShuffle }: { shuffle: boolean }) {
 
 export default function PartnersSection() {
   const [sponsors, setSponsors] = useState(() => getSponsors({ shuffle: false }));
+  const [ready, setReady] = useState(false);
 
   useLayoutEffect(() => {
     setSponsors(getSponsors({ shuffle: true }));
+    setReady(true);
   }, []);
 
   return (
@@ -106,7 +108,7 @@ export default function PartnersSection() {
                   rel="noopener sponsored"
                   className="grid place-content-center transition-colors hover:bg-gray-950/2.5 sm:px-2 sm:py-4 dark:hover:bg-white/2.5"
                 >
-                  <company.logo className="w-full max-w-80" aria-label={`${company.name} logo`} />
+                  <company.logo className={`w-full max-w-80 ${ready ? "" : "opacity-0"}`} aria-label={`${company.name} logo`} />
                 </a>
               </li>
             ))}
