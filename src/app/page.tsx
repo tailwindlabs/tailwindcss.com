@@ -11,7 +11,7 @@ import { getHomepageSponsors } from "@/lib/sponsors";
 
 export const revalidate = 60;
 
-export default function Home() {
+export default async function Home() {
   const sponsors = getHomepageSponsors();
   return (
     <div className="max-w-screen overflow-x-hidden">
