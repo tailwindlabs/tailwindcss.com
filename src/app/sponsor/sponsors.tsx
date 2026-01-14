@@ -1,7 +1,7 @@
 export const partners = [
   {
     name: "Cursor",
-    url: "https://cursor.com",
+    url: "https://cursor.com?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -13,7 +13,7 @@ export const partners = [
   },
   {
     name: "Polar",
-    url: "https://polar.sh/",
+    url: "https://polar.sh/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -40,7 +40,7 @@ export const partners = [
   },
   {
     name: "Namespace",
-    url: "https://namespace.so/",
+    url: "https://namespace.so/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -52,7 +52,7 @@ export const partners = [
   },
   {
     name: "Resend",
-    url: "https://go.resend.com/tailwind",
+    url: "https://go.resend.com/tailwind?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -64,7 +64,7 @@ export const partners = [
   },
   {
     name: "TipTap",
-    url: "https://tiptap.dev/",
+    url: "https://tiptap.dev/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -76,7 +76,7 @@ export const partners = [
   },
   {
     name: "Mux",
-    url: "https://mux.com/",
+    url: "https://mux.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -88,7 +88,7 @@ export const partners = [
   },
   {
     name: "Nutrient",
-    url: "https://www.nutrient.io/sdk/web",
+    url: "https://www.nutrient.io/sdk/web?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -100,7 +100,7 @@ export const partners = [
   },
   {
     name: "Clerk",
-    url: "https://go.clerk.com/tailwind",
+    url: "https://go.clerk.com/tailwind?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -121,7 +121,7 @@ export const partners = [
   },
   {
     name: "Bolt",
-    url: "https://bolt.new/",
+    url: "https://bolt.new/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -140,7 +140,7 @@ export const partners = [
   },
   {
     name: "Graphite",
-    url: "https://graphite.dev/",
+    url: "https://graphite.dev/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -164,7 +164,7 @@ export const partners = [
   },
   {
     name: "Base UI",
-    url: "https://base-ui.com/",
+    url: "https://base-ui.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -182,7 +182,7 @@ export const partners = [
   },
   {
     name: "Shopify",
-    url: "https://shopify.com/",
+    url: "https://shopify.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -194,7 +194,7 @@ export const partners = [
   },
   {
     name: "CodeRabbit",
-    url: "https://www.coderabbit.ai/",
+    url: "https://www.coderabbit.ai/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -211,7 +211,7 @@ export const partners = [
   },
   {
     name: "v0",
-    url: "https://v0.app/",
+    url: "https://v0.app/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -235,7 +235,7 @@ export const partners = [
   },
   {
     name: "Gumroad",
-    url: "https://gumroad.com/",
+    url: "https://gumroad.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -247,7 +247,7 @@ export const partners = [
   },
   {
     name: "Profound",
-    url: "https://www.tryprofound.com",
+    url: "https://www.tryprofound.com?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -261,7 +261,7 @@ export const partners = [
   },
   {
     name: "Mintlify",
-    url: "https://www.mintlify.com/",
+    url: "https://www.mintlify.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -275,7 +275,7 @@ export const partners = [
   },
   {
     name: "Lovable",
-    url: "https://lovable.dev/",
+    url: "https://lovable.dev/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -288,7 +288,7 @@ export const partners = [
   },
   {
     name: "Google AI Studio",
-    url: "https://aistudio.google.com/",
+    url: "https://aistudio.google.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -301,7 +301,7 @@ export const partners = [
   },
   {
     name: "Syntax",
-    url: "https://syntax.fm/",
+    url: "https://syntax.fm/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -313,7 +313,7 @@ export const partners = [
   },
   {
     name: "Supabase",
-    url: "https://supabase.com/",
+    url: "https://supabase.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -337,7 +337,7 @@ export const partners = [
   },
   {
     name: "Macroscope",
-    url: "https://macroscope.com/",
+    url: "https://macroscope.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -349,7 +349,7 @@ export const partners = [
   },
   {
     name: "Momentic",
-    url: "https://momentic.ai/",
+    url: "https://momentic.ai/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -361,7 +361,7 @@ export const partners = [
   },
   {
     name: "Unblocked",
-    url: "https://getunblocked.com/",
+    url: "https://getunblocked.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -378,7 +378,7 @@ export const partners = [
   },
   {
     name: "Postmark",
-    url: "https://postmarkapp.com/",
+    url: "https://postmarkapp.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -396,7 +396,7 @@ export const partners = [
   },
   {
     name: "Open",
-    url: "https://open.cx/",
+    url: "https://open.cx/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -426,7 +426,7 @@ export const partners = [
   },
   {
     name: "Vercel",
-    url: "https://vercel.com/",
+    url: "https://vercel.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -466,7 +466,7 @@ export const partners = [
 export const ambassadors = [
   {
     name: "PostHog",
-    url: "https://posthog.com/",
+    url: "https://posthog.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -480,7 +480,7 @@ export const ambassadors = [
   },
   {
     name: "Sanity",
-    url: "https://sanity.io/",
+    url: "https://sanity.io/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -509,7 +509,7 @@ export const ambassadors = [
   },
   {
     name: "Cline",
-    url: "https://cline.bot/",
+    url: "https://cline.bot/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -521,7 +521,7 @@ export const ambassadors = [
   },
   {
     name: "Bytebase",
-    url: "https://www.bytebase.com/",
+    url: "https://www.bytebase.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -540,7 +540,7 @@ export const ambassadors = [
   },
   {
     name: "Replit",
-    url: "https://replit.com/",
+    url: "https://replit.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -553,7 +553,7 @@ export const ambassadors = [
   },
   {
     name: "Braintrust",
-    url: "https://www.braintrust.dev/",
+    url: "https://www.braintrust.dev/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -568,7 +568,7 @@ export const ambassadors = [
 export const supporters = [
   {
     name: "Laravel",
-    url: "https://laravel.com/",
+    url: "https://laravel.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -580,7 +580,7 @@ export const supporters = [
   },
   {
     name: "Scorewarrior",
-    url: "https://scorewarrior.com/",
+    url: "https://scorewarrior.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -592,7 +592,7 @@ export const supporters = [
   },
   {
     name: "iVega",
-    url: "https://www.ivegagroup.com/",
+    url: "https://www.ivegagroup.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -605,7 +605,7 @@ export const supporters = [
   },
   {
     name: "Zephyr Cloud",
-    url: "https://zephyr-cloud.io/",
+    url: "https://zephyr-cloud.io/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -621,7 +621,7 @@ export const supporters = [
   },
   {
     name: "ElevenLabs",
-    url: "https://elevenlabs.io/",
+    url: "https://elevenlabs.io/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -639,7 +639,7 @@ export const supporters = [
   },
   {
     name: "Hyperbrowser",
-    url: "https://www.hyperbrowser.ai/",
+    url: "https://www.hyperbrowser.ai/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -652,7 +652,7 @@ export const supporters = [
   },
   {
     name: "Magic Patterns",
-    url: "https://www.magicpatterns.com/",
+    url: "https://www.magicpatterns.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -664,7 +664,7 @@ export const supporters = [
   },
   {
     name: "Mistral AI",
-    url: "https://mistral.ai/",
+    url: "https://mistral.ai/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -679,7 +679,7 @@ export const supporters = [
   },
   {
     name: "Trigger.dev",
-    url: "https://trigger.dev/",
+    url: "https://trigger.dev/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -692,7 +692,7 @@ export const supporters = [
   },
   {
     name: "Merge",
-    url: "https://www.merge.dev/",
+    url: "https://www.merge.dev/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -704,7 +704,7 @@ export const supporters = [
   },
   {
     name: "Nimble",
-    url: "https://nimblehq.co/",
+    url: "https://nimblehq.co/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -726,7 +726,7 @@ export const supporters = [
   },
   {
     name: "Mixlayer",
-    url: "https://www.mixlayer.com/",
+    url: "https://www.mixlayer.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -739,7 +739,7 @@ export const supporters = [
   },
   {
     name: "Blacksmith",
-    url: "https://www.blacksmith.sh/",
+    url: "https://www.blacksmith.sh/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -755,7 +755,7 @@ export const supporters = [
   },
   {
     name: "Convex",
-    url: "https://www.convex.dev/",
+    url: "https://www.convex.dev/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -768,7 +768,7 @@ export const supporters = [
   },
   {
     name: "Dub",
-    url: "https://dub.co/",
+    url: "https://dub.co/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -780,7 +780,7 @@ export const supporters = [
   },
   {
     name: "Orchid",
-    url: "https://orchid.ai/",
+    url: "https://orchid.ai/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -794,7 +794,7 @@ export const supporters = [
   },
   {
     name: "Teero",
-    url: "https://www.teero.com/",
+    url: "https://www.teero.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -810,7 +810,7 @@ export const supporters = [
   },
   {
     name: "FLX Websites",
-    url: "https://flxwebsites.com/",
+    url: "https://flxwebsites.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -824,7 +824,7 @@ export const supporters = [
   },
   {
     name: "Runtype",
-    url: "https://www.runtype.com/",
+    url: "https://www.runtype.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -836,7 +836,7 @@ export const supporters = [
   },
   {
     name: "GitHub",
-    url: "https://github.com/",
+    url: "https://github.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -848,7 +848,7 @@ export const supporters = [
   },
   {
     name: "Rootly AI",
-    url: "https://rootly.com/",
+    url: "https://rootly.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -860,7 +860,7 @@ export const supporters = [
   },
   {
     name: "Browser Cash",
-    url: "https://browser.cash/",
+    url: "https://browser.cash/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -875,7 +875,7 @@ export const supporters = [
   },
   {
     name: "React Bricks",
-    url: "https://www.reactbricks.com/",
+    url: "https://www.reactbricks.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -888,7 +888,7 @@ export const supporters = [
   },
   {
     name: "Automattic",
-    url: "https://automattic.com/",
+    url: "https://automattic.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -901,7 +901,7 @@ export const supporters = [
   },
   {
     name: "NitroBuilds",
-    url: "https://www.nitrobuilds.com/",
+    url: "https://www.nitrobuilds.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -913,7 +913,7 @@ export const supporters = [
   },
   {
     name: "Firsthand",
-    url: "https://www.firsthand.ai/",
+    url: "https://www.firsthand.ai/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -926,7 +926,7 @@ export const supporters = [
   },
   {
     name: "Domaine",
-    url: "https://meetdomaine.com/",
+    url: "https://meetdomaine.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -938,7 +938,7 @@ export const supporters = [
   },
   {
     name: "Harvey",
-    url: "https://www.harvey.ai/",
+    url: "https://www.harvey.ai/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -950,7 +950,7 @@ export const supporters = [
   },
   {
     name: "Anything",
-    url: "https://www.anything.com/",
+    url: "https://www.anything.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -962,7 +962,7 @@ export const supporters = [
   },
   {
     name: "Axiom",
-    url: "https://axiom.co/",
+    url: "https://axiom.co/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -974,7 +974,7 @@ export const supporters = [
   },
   {
     name: "Wrangle",
-    url: "https://wrangle.ai/",
+    url: "https://wrangle.ai/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -989,7 +989,7 @@ export const supporters = [
   },
   {
     name: "Proxyman",
-    url: "https://proxyman.com/",
+    url: "https://proxyman.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -1001,7 +1001,7 @@ export const supporters = [
   },
   {
     name: "Lander Systems",
-    url: "https://www.landersystems.com/",
+    url: "https://www.landersystems.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
@@ -1013,7 +1013,7 @@ export const supporters = [
   },
   {
     name: "GitBook",
-    url: "https://www.gitbook.com/",
+    url: "https://www.gitbook.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
