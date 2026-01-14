@@ -1025,7 +1025,7 @@ export const supporters = [
   },
   {
     name: "Dify",
-    url: "https://dify.ai/",
+    url: "https://dify.ai/?utm_source=tailwind_web&utm_campaign=sponsor",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
