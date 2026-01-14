@@ -60,7 +60,7 @@ const showcase = [
     description: "SaaS application website",
   },
   {
-    name: "V0",
+    name: "v0",
     url: "https://v0.app/",
     thumbnail: require("./img/v0.app.png").default,
     video: "/showcase-videos/v0.app.mp4",
