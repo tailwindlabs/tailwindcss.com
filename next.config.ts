@@ -7,7 +7,7 @@ const nextConfig = {
     "/**/*": ["./src/docs/*.mdx"],
   },
   experimental: {
-    mdxRs: true,
+    mdxRs: false,
   },
 
   turbopack: {
