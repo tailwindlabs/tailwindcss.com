@@ -438,7 +438,7 @@ export const partners = [
   },
   {
     name: "SerpApi",
-    url: "https://serpapi.com/",
+    url: "https://serpapi.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
