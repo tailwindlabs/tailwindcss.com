@@ -1,8 +1,9 @@
 import { compile } from "@tailwindcss/node";
+import path from "node:path";
 
 let input = `
-  @import "tailwindcss/theme" reference;
-  @import "tailwindcss/utilities" layer(utilities);
+  @import "${path.join(process.cwd(), "node_modules/tailwindcss/theme.css")}" reference;
+  @import "${path.join(process.cwd(), "node_modules/tailwindcss/utilities.css")}" layer(utilities);
 `;
 
 interface GenerateOptions {
