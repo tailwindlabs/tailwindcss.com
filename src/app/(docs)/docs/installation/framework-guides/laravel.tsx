@@ -139,10 +139,10 @@ export let steps: Step[] = [
       code: css`
         @import "tailwindcss";
 
-        @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-        @source '../../storage/framework/views/*.php';
-        @source '../**/*.blade.php';
-        @source '../**/*.js';
+        @source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
+        @source "../../storage/framework/views/*.php";
+        @source "../**/*.blade.php";
+        @source "../**/*.js";
       `,
     },
   },

@@ -78,35 +78,35 @@ const showcase = [
     url: "https://supabase.com/?utm_source=tailwindcss",
     thumbnail: require("./img/supabase.com.png").default,
     video: "/showcase-videos/supabase.com.mp4",
-    description: "Hosting platform website"
+    description: "Hosting platform website",
   },
   {
     name: "Lovable",
     url: "https://lovable.dev/?utm_source=tailwindcss",
     thumbnail: require("./img/lovable.dev.png").default,
     video: "/showcase-videos/lovable.dev.mp4",
-    description: "Developer tool website"
+    description: "Developer tool website",
   },
   {
     name: "Mintlify",
     url: "https://www.mintlify.com/?utm_source=tailwindcss",
     thumbnail: require("./img/mintlify.com.png").default,
     video: "/showcase-videos/mintlify.com.mp4",
-    description: "SaaS application website"
+    description: "SaaS application website",
   },
   {
     name: "Profound",
     url: "https://www.tryprofound.com/?utm_source=tailwindcss",
     thumbnail: require("./img/tryprofound.com.png").default,
     video: "/showcase-videos/tryprofound.com.mp4",
-    description: "SaaS application website"
+    description: "SaaS application website",
   },
   {
     name: "Gumroad",
     url: "https://gumroad.com/?utm_source=tailwindcss",
     thumbnail: require("./img/gumroad.com.png").default,
     video: "/showcase-videos/gumroad.com.mp4",
-    description: "Ecommerce platform website"
+    description: "Ecommerce platform website",
   },
   {
     name: "Cursor",
