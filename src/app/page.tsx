@@ -7,8 +7,13 @@ import TailwindUiSection from "@/components/home/tailwind-ui-section";
 import WhyTailwindCssSection from "@/components/home/why-tailwind-css-section";
 import BuildAnythingSection from "@/components/home/build-anything-section";
 import PartnersSection from "@/components/home/partners-section";
+import { getShuffledSponsors } from "@/lib/sponsors";
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+  const { partners, ambassadors } = getShuffledSponsors();
+
   return (
     <div className="max-w-screen overflow-x-hidden">
       <div className="fixed inset-x-0 top-0 z-10 border-b border-black/5 dark:border-white/10">
