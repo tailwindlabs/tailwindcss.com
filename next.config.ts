@@ -8,13 +8,14 @@ const nextConfig = {
   },
   experimental: {
     mdxRs: true,
-    turbo: {
-      rules: {
-        // Support import .svg as react components in dev builds
-        "*.react.svg": {
-          loaders: ["@svgr/webpack"],
-          as: "*.js",
-        },
+  },
+
+  turbopack: {
+    rules: {
+      // Support import .svg as react components in dev builds
+      "*.react.svg": {
+        loaders: ["@svgr/webpack"],
+        as: "*.js",
       },
     },
   },
