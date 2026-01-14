@@ -53,6 +53,62 @@ export default async function Showcase() {
 const showcase = [
   // Partners
   {
+    name: "Fin by Intercom",
+    url: "http://fin.ai/?utm_source=tailwind&utm_medium=mindshare&utm_campaign=20260109-ungated-webpage-finlogo",
+    thumbnail: require("./img/fin.ai.png").default,
+    video: "/showcase-videos/fin.ai.mp4",
+    description: "SaaS application website",
+  },
+  {
+    name: "V0",
+    url: "https://v0.app/",
+    thumbnail: require("./img/v0.app.png").default,
+    video: "/showcase-videos/v0.app.mp4",
+    description: "Developer tool website",
+  },
+  {
+    name: "Vercel",
+    url: "https://vercel.com/",
+    thumbnail: require("./img/vercel.com.png").default,
+    video: "/showcase-videos/vercel.com.mp4",
+    description: "Hosting platform website",
+  },
+  {
+    name: "Supabase",
+    url: "https://supabase.com/",
+    thumbnail: require("./img/supabase.com.png").default,
+    video: "/showcase-videos/supabase.com.mp4",
+    description: "Hosting platform website"
+  },
+  {
+    name: "Lovable",
+    url: "https://lovable.dev/",
+    thumbnail: require("./img/lovable.dev.png").default,
+    video: "/showcase-videos/lovable.dev.mp4",
+    description: "Developer tool website"
+  },
+  {
+    name: "Mintlify",
+    url: "https://www.mintlify.com/",
+    thumbnail: require("./img/mintlify.com.png").default,
+    video: "/showcase-videos/mintlify.com.mp4",
+    description: "SaaS application website"
+  },
+  {
+    name: "Profound",
+    url: "https://www.tryprofound.com/",
+    thumbnail: require("./img/tryprofound.com.png").default,
+    video: "/showcase-videos/tryprofound.com.mp4",
+    description: "SaaS application website"
+  },
+  {
+    name: "Gumroad",
+    url: "https://gumroad.com/",
+    thumbnail: require("./img/gumroad.com.png").default,
+    video: "/showcase-videos/gumroad.com.mp4",
+    description: "Ecommerce platform website"
+  },
+  {
     name: "Cursor",
     url: "https://cursor.com",
     thumbnail: require("./img/cursor.com.png").default,
@@ -138,6 +194,20 @@ const showcase = [
   },
 
   // Ambassadors
+  {
+    name: "Braintrust",
+    url: "https://www.braintrust.dev/",
+    thumbnail: require("./img/braintrust.dev.png").default,
+    video: "/showcase-videos/braintrust.dev.mp4",
+    description: "Developer tool website",
+  },
+  {
+    name: "Bytebase",
+    url: "https://www.bytebase.com/",
+    thumbnail: require("./img/bytebase.com.png").default,
+    video: "/showcase-videos/bytebase.com.mp4",
+    description: "Developer tool website",
+  },
   {
     name: "Zed",
     url: "https://zed.dev/?utm_source=tailwind",
