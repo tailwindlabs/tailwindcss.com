@@ -18,3 +18,17 @@ export function getShuffledSponsors() {
     supporters: shuffle(supporters),
   };
 }
+
+export function getHomepageSponsors() {
+  const totalLogos = 36;
+  const shuffledPartners = shuffle(partners);
+
+  if (shuffledPartners.length >= totalLogos) {
+    return shuffledPartners.slice(0, totalLogos);
+  }
+
+  const remainingSlots = totalLogos - shuffledPartners.length;
+  const shuffledAmbassadors = shuffle(ambassadors);
+
+  return [...shuffledPartners, ...shuffledAmbassadors.slice(0, remainingSlots)];
+}
