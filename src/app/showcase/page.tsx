@@ -53,7 +53,7 @@ export default async function Showcase() {
 const showcase = [
   // Partners
   {
-    name: "Fin by Intercom",
+    name: "Fin",
     url: "http://fin.ai/?utm_source=tailwind&utm_medium=mindshare&utm_campaign=20260109-ungated-webpage-finlogo",
     thumbnail: require("./img/fin.ai.png").default,
     video: "/showcase-videos/fin.ai.mp4",
