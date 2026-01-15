@@ -450,7 +450,7 @@ export async function mdxToMarkdown(mdxContent: string): Promise<string> {
       remove(tree, 'mdxjsEsm')
 
       // Remove <Example>, <ResponsiveDesign>, and visual-only components
-      const visualComponents = ['Example', 'ResponsiveDesign', 'ColorPalette', 'MultiCursorCode', 'MultiCursorPreview', 'Stripes']
+      const visualComponents = ['Example', 'ColorPalette', 'MultiCursorCode', 'MultiCursorPreview', 'Stripes', 'svg']
       remove(tree, (node) => {
         if (node.type === 'mdxJsxFlowElement' || node.type === 'mdxJsxTextElement') {
           const jsxNode = node as MdxJsxFlowElement | MdxJsxTextElement
@@ -715,10 +715,23 @@ function convertApiTableAstToMarkdown(node: MdxJsxFlowElement): Table | null {
   if (!exprString) return null
 
   try {
-    // Evaluate with colors available in scope
+    // Evaluate with colors and dedent available in scope
     const colors = getColors()
-    const evalFn = new Function('colors', `return (${exprString})`)
-    const rows = evalFn(colors) as [string, string][]
+    const dedentFn = (strings: TemplateStringsArray, ...values: any[]) => {
+      // Simple dedent implementation for template literals
+      let result = strings.reduce((acc, str, i) => acc + str + (values[i] || ''), '')
+      const lines = result.split('\n')
+      const minIndent = lines
+        .filter(line => line.trim())
+        .reduce((min, line) => {
+          const match = line.match(/^(\s*)/)
+          return match ? Math.min(min, match[1].length) : min
+        }, Infinity)
+      if (minIndent === Infinity) return result
+      return lines.map(line => line.slice(minIndent)).join('\n').trim()
+    }
+    const evalFn = new Function('colors', 'dedent', `return (${exprString})`)
+    const rows = evalFn(colors, dedentFn) as [string, string][]
     if (!Array.isArray(rows) || rows.length === 0) return null
 
     const dataRows: TableRow[] = []
