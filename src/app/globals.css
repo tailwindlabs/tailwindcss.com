@@ -2,6 +2,8 @@
 @import "./search.css";
 @import "./typography.css" layer(components);
 
+@source not "../**/*.test.ts";
+
 @theme inline {
   --font-sans: var(--font-inter), system-ui;
   --font-source: var(--font-source-sans-pro), system-ui;

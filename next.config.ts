@@ -463,16 +463,24 @@ const nextConfig = {
     ];
   },
   async rewrites() {
-    return ["plus", "plus-assets", "vendor", "nova-api"].flatMap((path) => [
+    return [
+      // Serve markdown versions of docs
       {
-        source: `/${path}`,
-        destination: `https://tailwindui.com/${path}`,
+        source: '/docs/:slug.md',
+        destination: '/api/docs-md/:slug',
       },
-      {
-        source: `/${path}/:path*`,
-        destination: `https://tailwindui.com/${path}/:path*`,
-      },
-    ]);
+      // Tailwind UI proxying
+      ...["plus", "plus-assets", "vendor", "nova-api"].flatMap((path) => [
+        {
+          source: `/${path}`,
+          destination: `https://tailwindui.com/${path}`,
+        },
+        {
+          source: `/${path}/:path*`,
+          destination: `https://tailwindui.com/${path}/:path*`,
+        },
+      ]),
+    ];
   },
 } satisfies NextConfig;
 
