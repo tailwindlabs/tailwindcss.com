@@ -4,6 +4,7 @@ import TableOfContents from "@/components/table-of-contents";
 import { notFound } from "next/navigation";
 import { Metadata } from "next/types";
 import { generateTableOfContents, getDocPageBySlug, getDocPageSlugs, getSectionAndTitleBySlug } from "../api";
+import { CopyMarkdownButton } from "./copy-markdown-button";
 
 type Props = {
   params: Promise<{
@@ -70,14 +71,17 @@ export default async function DocPage(props: Props) {
 
       <div className="mx-auto grid w-full max-w-2xl grid-cols-1 gap-10 xl:max-w-5xl xl:grid-cols-[minmax(0,1fr)_var(--container-2xs)]">
         <div className="px-4 pt-10 pb-24 sm:px-6 xl:pr-0">
-          {sectionAndTitle ? (
-            <p
-              className="flex items-center gap-2 font-mono text-xs/6 font-medium tracking-widest text-gray-600 uppercase dark:text-gray-400"
-              data-section="true"
-            >
-              {sectionAndTitle.section}
-            </p>
-          ) : null}
+          <div className="flex items-center justify-between gap-4">
+            {sectionAndTitle ? (
+              <p
+                className="flex items-center gap-2 font-mono text-xs/6 font-medium tracking-widest text-gray-600 uppercase dark:text-gray-400"
+                data-section="true"
+              >
+                {sectionAndTitle.section}
+              </p>
+            ) : <div />}
+            <CopyMarkdownButton slug={params.slug} />
+          </div>
           <h1 data-title="true" className="mt-2 text-3xl font-medium tracking-tight text-gray-950 dark:text-white">
             {post.title}
           </h1>
