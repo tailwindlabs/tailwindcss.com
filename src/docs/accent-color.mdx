@@ -21,7 +21,7 @@ export const description = "Utilities for controlling the accented color of a fo
       `accent-${name}`,
       `accent-color: var(--color-${name}); /* ${value} */`,
     ]),
-    ["accent-<custom-property>", "accent-color: var(<custom-property>);"],
+    ["accent-(<custom-property>)", "accent-color: var(<custom-property>);"],
     ["accent-[<value>]", "accent-color: <value>;"],
   ]}
 />
