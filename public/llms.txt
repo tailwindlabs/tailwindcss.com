@@ -1,0 +1,1671 @@
+# Tailwind CSS v4 Reference
+
+## Quick Start
+
+```css
+@import "tailwindcss";
+```
+
+```html
+<div class="flex items-center gap-4 p-6 bg-white rounded-xl shadow-lg">
+  <img class="size-12 rounded-full" src="..." />
+  <div class="text-lg font-medium text-gray-900">Hello World</div>
+</div>
+```
+
+---
+
+## Core Syntax
+
+| Pattern | Example | Description |
+|---------|---------|-------------|
+| `{utility}` | `flex` | Base utility |
+| `{variant}:{utility}` | `hover:bg-blue-500` | Conditional application |
+| `{utility}-{value}` | `p-4`, `text-lg` | Value from scale |
+| `{utility}-[{value}]` | `p-[13px]`, `grid-cols-[1fr_2fr]` | Arbitrary value |
+| `{utility}-(--var)` | `p-(--my-spacing)` | CSS variable shorthand |
+| `{utility}-({type}:--var)` | `text-(color:--my-var)` | Type hint + variable shorthand |
+| `{utility}-[{type}:{value}]` | `text-[color:var(--my-var)]` | Type hint for arbitrary values |
+| `{utility}/{opacity}` | `bg-black/50`, `text-white/75` | Opacity modifier |
+| `-{utility}` | `-mt-4`, `-translate-x-2` | Negative value |
+| `{utility}!` | `hidden!`, `flex!` | !important modifier |
+
+### Stacking Variants
+Variants stack left-to-right: `dark:md:hover:bg-blue-500`
+
+### Type Hints
+When a utility namespace is ambiguous (e.g., `text-*` maps to both `font-size` and `color`), use type hints:
+- `text-(length:--my-var)` or `text-[length:var(--my-var)]` → `font-size`
+- `text-(color:--my-var)` or `text-[color:var(--my-var)]` → `color`
+- `bg-(url:--my-img)` or `bg-[url:var(--my-img)]` → `background-image`
+
+---
+
+## Variants Reference
+
+### Pseudo-classes
+
+| Variant | Selector |
+|---------|----------|
+| `hover` | `:hover` |
+| `focus` | `:focus` |
+| `focus-within` | `:focus-within` |
+| `focus-visible` | `:focus-visible` |
+| `active` | `:active` |
+| `visited` | `:visited` |
+| `target` | `:target` |
+| `first` | `:first-child` |
+| `last` | `:last-child` |
+| `only` | `:only-child` |
+| `odd` | `:nth-child(odd)` |
+| `even` | `:nth-child(even)` |
+| `first-of-type` | `:first-of-type` |
+| `last-of-type` | `:last-of-type` |
+| `only-of-type` | `:only-of-type` |
+| `nth-{n}` | `:nth-child({n})` |
+| `nth-last-{n}` | `:nth-last-child({n})` |
+| `nth-of-type-{n}` | `:nth-of-type({n})` |
+| `nth-last-of-type-{n}` | `:nth-last-of-type({n})` |
+| `empty` | `:empty` |
+| `disabled` | `:disabled` |
+| `enabled` | `:enabled` |
+| `checked` | `:checked` |
+| `indeterminate` | `:indeterminate` |
+| `default` | `:default` |
+| `optional` | `:optional` |
+| `required` | `:required` |
+| `valid` | `:valid` |
+| `invalid` | `:invalid` |
+| `user-valid` | `:user-valid` |
+| `user-invalid` | `:user-invalid` |
+| `in-range` | `:in-range` |
+| `out-of-range` | `:out-of-range` |
+| `placeholder-shown` | `:placeholder-shown` |
+| `autofill` | `:autofill` |
+| `read-only` | `:read-only` |
+| `has-*` | `:has()` — e.g., `has-[:checked]`, `has-[img]`, `has-checked` |
+| `not-*` | `:not()` — e.g., `not-hover`, `not-focus`, `not-disabled` |
+
+### Pseudo-elements
+
+| Variant | Selector |
+|---------|----------|
+| `before` | `::before` (auto adds `content: ''`) |
+| `after` | `::after` (auto adds `content: ''`) |
+| `placeholder` | `::placeholder` |
+| `file` | `::file-selector-button` |
+| `marker` | `::marker` |
+| `selection` | `::selection` |
+| `first-line` | `::first-line` |
+| `first-letter` | `::first-letter` |
+| `backdrop` | `::backdrop` |
+| `details-content` | `::details-content` |
+
+### Media Queries
+
+| Variant | Media Query |
+|---------|-------------|
+| `sm` | `width >= 40rem` (640px) |
+| `md` | `width >= 48rem` (768px) |
+| `lg` | `width >= 64rem` (1024px) |
+| `xl` | `width >= 80rem` (1280px) |
+| `2xl` | `width >= 96rem` (1536px) |
+| `max-sm` | `width < 40rem` |
+| `max-md` | `width < 48rem` |
+| `max-lg` | `width < 64rem` |
+| `max-xl` | `width < 80rem` |
+| `max-2xl` | `width < 96rem` |
+| `min-[{value}]` | `width >= {value}` |
+| `max-[{value}]` | `width < {value}` |
+| `dark` | `prefers-color-scheme: dark` |
+| `light` | `prefers-color-scheme: light` |
+| `motion-safe` | `prefers-reduced-motion: no-preference` |
+| `motion-reduce` | `prefers-reduced-motion: reduce` |
+| `contrast-more` | `prefers-contrast: more` |
+| `contrast-less` | `prefers-contrast: less` |
+| `forced-colors` | `forced-colors: active` |
+| `not-forced-colors` | `forced-colors: none` |
+| `inverted-colors` | `inverted-colors: inverted` |
+| `portrait` | `orientation: portrait` |
+| `landscape` | `orientation: landscape` |
+| `print` | `print` |
+| `noscript` | `scripting: none` |
+| `pointer-fine` | `pointer: fine` |
+| `pointer-coarse` | `pointer: coarse` |
+| `pointer-none` | `pointer: none` |
+| `any-pointer-fine` | `any-pointer: fine` |
+| `any-pointer-coarse` | `any-pointer: coarse` |
+
+Negate with `not-` prefix: `not-dark`, `not-print`, `not-forced-colors`, etc.
+
+### Container Queries
+
+| Variant | Min-width |
+|---------|-----------|
+| `@3xs` | 16rem |
+| `@2xs` | 18rem |
+| `@xs` | 20rem |
+| `@sm` | 24rem |
+| `@md` | 28rem |
+| `@lg` | 32rem |
+| `@xl` | 36rem |
+| `@2xl` | 42rem |
+| `@3xl` | 48rem |
+| `@4xl` | 56rem |
+| `@5xl` | 64rem |
+| `@6xl` | 72rem |
+| `@7xl` | 80rem |
+| `@[{value}]` | `width >= {value}` |
+| `@max-[{value}]` | `width < {value}` |
+
+Container: `@container` class on parent, or `@container/{name}` for named containers.
+
+### State Variants
+
+| Variant | Description |
+|---------|-------------|
+| `open` | `<details>` or `<dialog>` is open, or `:popover-open` |
+| `inert` | Element has `inert` attribute |
+| `starting` | `@starting-style` for entry animations |
+
+### Parent/Sibling State
+
+**Group** (style based on parent):
+```html
+<div class="group">
+  <span class="group-hover:text-blue-500">...</span>
+</div>
+```
+```css
+.group-hover\:text-blue-500 { &:is(:where(.group):hover *) { color: ... } }
+```
+- `group-hover`, `group-focus`, `group-active`, etc.
+- Named: `group/{name}` → `group-hover/{name}`
+- Arbitrary: `group-[.is-active]:block`
+
+**Peer** (style based on sibling):
+```html
+<input class="peer" />
+<span class="peer-invalid:text-red-500">...</span>
+```
+```css
+.peer-invalid\:text-red-500 { &:is(:where(.peer):invalid ~ *) { color: ... } }
+```
+- `peer-hover`, `peer-focus`, `peer-invalid`, etc.
+- Named: `peer/{name}` → `peer-checked/{name}`
+- Note: peer must come BEFORE the styled element
+
+**In** (implicit group, no class needed on parent):
+- `in-hover`, `in-focus`, etc.
+
+Also: `group-has-*`, `peer-has-*` for styling based on descendants of group/peer.
+
+### Child Selectors
+
+| Variant | Description |
+|---------|-------------|
+| `*` | Direct children (`& > *`) |
+| `**` | All descendants (`& *`) |
+
+### ARIA States
+
+| Variant | Selector |
+|---------|----------|
+| `aria-busy` | `[aria-busy="true"]` |
+| `aria-checked` | `[aria-checked="true"]` |
+| `aria-disabled` | `[aria-disabled="true"]` |
+| `aria-expanded` | `[aria-expanded="true"]` |
+| `aria-hidden` | `[aria-hidden="true"]` |
+| `aria-pressed` | `[aria-pressed="true"]` |
+| `aria-readonly` | `[aria-readonly="true"]` |
+| `aria-required` | `[aria-required="true"]` |
+| `aria-selected` | `[aria-selected="true"]` |
+| `aria-[{attr}={value}]` | Arbitrary ARIA attribute |
+
+### Data Attributes
+
+- `data-{name}` → `[data-{name}]`
+- `data-[{name}={value}]` → `[data-{name}="{value}"]`
+
+### RTL/LTR
+
+| Variant | Description |
+|---------|-------------|
+| `rtl` | `[dir="rtl"]` |
+| `ltr` | `[dir="ltr"]` |
+
+### Feature Queries
+
+- `supports-[{feature}]:{utility}` → `@supports ({feature})`
+- `supports-[display:grid]:grid`
+- `not-supports-[{feature}]:{utility}`
+
+### Arbitrary Variants
+
+Custom selectors in brackets:
+- `[&.is-active]:bg-blue-500`
+- `[&_p]:mt-4` (underscore = space)
+- `[@media(min-width:900px)]:flex`
+
+---
+
+## Theme System
+
+### @theme Directive
+
+```css
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #3b82f6;
+  --font-display: "Inter", sans-serif;
+  --spacing: 0.25rem;
+}
+```
+
+### Theme Namespaces
+
+| Namespace | Generates |
+|-----------|-----------|
+| `--color-*` | Color utilities: `bg-*`, `text-*`, `border-*`, `fill-*`, `stroke-*`, etc. |
+| `--font-*` | `font-*` utilities |
+| `--text-*` | `text-*` font-size utilities |
+| `--font-weight-*` | `font-*` weight utilities |
+| `--tracking-*` | `tracking-*` letter-spacing |
+| `--leading-*` | `leading-*` line-height |
+| `--breakpoint-*` | `sm:`, `md:`, etc. variants |
+| `--container-*` | `@sm:`, `@md:`, etc. + `max-w-*`, `w-*` |
+| `--spacing` | Base spacing multiplier for `p-*`, `m-*`, `gap-*`, `w-*`, `h-*`, etc. |
+| `--radius-*` | `rounded-*` utilities |
+| `--shadow-*` | `shadow-*` utilities |
+| `--inset-shadow-*` | `inset-shadow-*` utilities |
+| `--drop-shadow-*` | `drop-shadow-*` utilities |
+| `--text-shadow-*` | `text-shadow-*` utilities |
+| `--blur-*` | `blur-*` utilities |
+| `--perspective-*` | `perspective-*` utilities |
+| `--aspect-*` | `aspect-*` utilities |
+| `--ease-*` | `ease-*` timing functions |
+| `--animate-*` | `animate-*` animations |
+
+### Overriding Defaults
+
+```css
+@theme {
+  --color-*: initial;  /* Clear all default colors */
+  --*: initial;        /* Clear entire default theme */
+
+  /* Then define your own */
+  --color-primary: #3b82f6;
+}
+```
+
+### Animation Keyframes
+
+```css
+@theme {
+  --animate-fade-in: fade-in 0.3s ease-out;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+```
+
+Defining keyframes inside `@theme` ensures they are only emitted if the animation is used.
+
+### Theme Options
+
+**inline** — Inline values directly in utilities instead of using CSS variables:
+```css
+@theme inline {
+  --color-primary: #3b82f6;
+}
+/* bg-primary outputs: background-color: #3b82f6; */
+/* instead of: background-color: var(--color-primary); */
+```
+
+**static** — Always emit CSS variables, even if not used in any utility:
+```css
+@theme static {
+  --color-primary: #3b82f6;
+}
+/* Always emits: --color-primary: #3b82f6; in :root */
+```
+
+---
+
+## Directives
+
+### @import
+Import CSS files, including Tailwind itself:
+```css
+@import "tailwindcss";
+```
+
+### @source
+Specify additional source files for class detection:
+```css
+@source "../node_modules/@my-company/ui-lib";
+```
+
+### @utility
+Define custom utilities that work with variants:
+```css
+@utility tab-4 {
+  tab-size: 4;
+}
+```
+
+### @variant
+Apply a Tailwind variant to styles in custom CSS:
+```css
+.my-element {
+  background: white;
+  @variant dark {
+    background: black;
+  }
+}
+```
+
+### @custom-variant
+Create a custom variant:
+```css
+@custom-variant theme-midnight (&:where([data-theme="midnight"] *));
+```
+Usage: `theme-midnight:bg-black`
+
+### @apply
+Inline utility classes in custom CSS:
+```css
+.select2-dropdown {
+  @apply rounded-b-lg shadow-md;
+}
+```
+
+### @reference
+Import stylesheet for reference without emitting CSS (for Vue/Svelte `<style>` blocks, CSS modules):
+```css
+@reference "../../app.css";
+```
+
+### @plugin
+Load a JavaScript plugin (v3 compatibility):
+```css
+@plugin "@tailwindcss/typography";
+```
+
+### @config
+Load a legacy JavaScript config (v3 compatibility):
+```css
+@config "../../tailwind.config.js";
+```
+
+---
+
+## Functions
+
+### --alpha()
+Adjust color opacity:
+```css
+color: --alpha(var(--color-lime-300) / 50%);
+/* Outputs: color-mix(in oklab, var(--color-lime-300) 50%, transparent) */
+```
+
+### --spacing()
+Generate spacing value from theme:
+```css
+margin: --spacing(4);
+/* Outputs: calc(var(--spacing) * 4) */
+```
+
+Useful in arbitrary values:
+```html
+<div class="py-[calc(--spacing(4)-1px)]">
+```
+
+---
+
+## Utilities Reference
+
+### Layout
+
+#### display
+`block` `inline-block` `inline` `flex` `inline-flex` `grid` `inline-grid` `contents` `flow-root` `list-item` `hidden` (none)
+`table` `inline-table` `table-caption` `table-cell` `table-column` `table-column-group` `table-footer-group` `table-header-group` `table-row-group` `table-row`
+`sr-only` (screen-reader only) `not-sr-only`
+
+#### position
+`static` `fixed` `absolute` `relative` `sticky`
+
+#### top / right / bottom / left / inset
+`{top|right|bottom|left|inset|inset-x|inset-y|start|end}-{n}` → spacing scale
+`{...}-auto` `{...}-full` (100%) `{...}-px` (1px)
+`{...}-{fraction}` → percentage (e.g., `top-1/2`)
+`{...}-[value]`
+Negative: `-{top|right|bottom|left|inset|inset-x|inset-y|start|end}-{n}`
+
+#### visibility
+`visible` `invisible` (hidden) `collapse`
+
+#### z-index
+`z-{n}` `z-auto` `z-[value]`
+
+#### float / clear
+`float-{left|right|none|start|end}`
+`clear-{left|right|both|none|start|end}`
+
+#### isolation
+`isolate` `isolation-auto`
+
+#### overflow
+`overflow-{auto|hidden|clip|visible|scroll}`
+`overflow-x-{...}` `overflow-y-{...}`
+
+#### overscroll-behavior
+`overscroll-{auto|contain|none}`
+`overscroll-x-{...}` `overscroll-y-{...}`
+
+#### object-fit
+`object-{contain|cover|fill|none|scale-down}`
+
+#### object-position
+`object-{top|bottom|left|right|center|top-left|top-right|bottom-left|bottom-right}`
+`object-[value]`
+
+#### aspect-ratio
+`aspect-auto` `aspect-square` (1/1) `aspect-video` (16/9)
+`aspect-{n}/{m}` `aspect-[value]`
+
+#### columns
+`columns-{n}` `columns-auto`
+`columns-{3xs|2xs|xs|sm|md|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl}`
+`columns-[value]`
+
+#### break-before / break-after
+`break-{before|after}-{auto|avoid|all|avoid-page|page|left|right|column}`
+
+#### break-inside
+`break-inside-{auto|avoid|avoid-page|avoid-column}`
+
+#### box-decoration-break
+`box-decoration-{clone|slice}`
+
+#### box-sizing
+`box-border` (border-box) `box-content` (content-box)
+
+---
+
+### Flexbox & Grid
+
+#### flex-direction
+`flex-row` `flex-row-reverse` `flex-col` (column) `flex-col-reverse`
+
+#### flex-wrap
+`flex-wrap` `flex-wrap-reverse` `flex-nowrap`
+
+#### flex
+`flex-{n}` `flex-{fraction}` `flex-auto` `flex-initial` `flex-none`
+`flex-[value]`
+
+#### flex-grow
+`grow` (1) `grow-{n}` `grow-[value]`
+
+#### flex-shrink
+`shrink` (1) `shrink-{n}` `shrink-[value]`
+
+#### flex-basis
+`basis-{n}` (spacing) `basis-auto` `basis-full` `basis-px`
+`basis-{fraction}` `basis-{3xs-7xl}` (container sizes)
+`basis-[value]`
+
+#### order
+`order-{n}` `-order-{n}` `order-first` (-9999) `order-last` (9999) `order-none` (0)
+`order-[value]`
+
+#### grid-template-columns
+`grid-cols-{n}` (repeat(n, minmax(0, 1fr))) `grid-cols-none` `grid-cols-subgrid`
+`grid-cols-[value]` (e.g., `grid-cols-[200px_1fr_2fr]`)
+
+#### grid-template-rows
+`grid-rows-{n}` (repeat(n, minmax(0, 1fr))) `grid-rows-none` `grid-rows-subgrid`
+`grid-rows-[value]`
+
+#### grid-column
+`col-span-{n}` `col-span-full`
+`col-start-{n}` `-col-start-{n}` `col-start-auto`
+`col-end-{n}` `-col-end-{n}` `col-end-auto`
+`col-{n}` `-col-{n}` `col-auto` `col-[value]`
+
+#### grid-row
+`row-span-{n}` `row-span-full`
+`row-start-{n}` `-row-start-{n}` `row-start-auto`
+`row-end-{n}` `-row-end-{n}` `row-end-auto`
+`row-{n}` `-row-{n}` `row-auto` `row-[value]`
+
+#### grid-auto-flow
+`grid-flow-row` `grid-flow-col` `grid-flow-dense` `grid-flow-row-dense` `grid-flow-col-dense`
+
+#### grid-auto-columns
+`auto-cols-auto` `auto-cols-min` `auto-cols-max` `auto-cols-fr` (minmax(0, 1fr))
+`auto-cols-[value]`
+
+#### grid-auto-rows
+`auto-rows-auto` `auto-rows-min` `auto-rows-max` `auto-rows-fr` (minmax(0, 1fr))
+`auto-rows-[value]`
+
+#### gap
+`gap-{n}` `gap-px` `gap-[value]`
+`gap-x-{...}` `gap-y-{...}`
+
+#### justify-content
+`justify-start` `justify-end` `justify-center` `justify-between` `justify-around` `justify-evenly` `justify-stretch`
+`justify-end-safe` `justify-center-safe` `justify-baseline` `justify-normal`
+
+#### justify-items
+`justify-items-start` `justify-items-end` `justify-items-center` `justify-items-stretch`
+`justify-items-normal`
+
+#### justify-self
+`justify-self-auto` `justify-self-start` `justify-self-end` `justify-self-center` `justify-self-stretch`
+
+#### align-content
+`content-start` `content-end` `content-center` `content-between` `content-around` `content-evenly` `content-stretch`
+`content-baseline` `content-normal`
+
+#### align-items
+`items-start` `items-end` `items-center` `items-baseline` `items-stretch`
+`items-end-safe` `items-center-safe` `items-baseline-last`
+
+#### align-self
+`self-auto` `self-start` `self-end` `self-center` `self-baseline` `self-stretch`
+`self-end-safe` `self-center-safe` `self-baseline-last`
+
+#### place-content
+`place-content-{start|end|center|between|around|evenly|stretch|baseline}`
+`place-content-center-safe` `place-content-end-safe`
+
+#### place-items
+`place-items-{start|end|center|baseline|stretch}`
+`place-items-end-safe` `place-items-center-safe`
+
+#### place-self
+`place-self-{auto|start|end|center|stretch}`
+`place-self-end-safe` `place-self-center-safe`
+
+---
+
+### Spacing
+
+#### padding
+`p-{n}` → `padding: calc(var(--spacing) * n)`
+`px-{n}` (inline) `py-{n}` (block)
+`pt-{n}` `pr-{n}` `pb-{n}` `pl-{n}`
+`ps-{n}` (inline-start) `pe-{n}` (inline-end)
+All support: `{...}-px` `{...}-[value]`
+
+#### margin
+`m-{n}` `mx-{n}` `my-{n}` `mt-{n}` `mr-{n}` `mb-{n}` `ml-{n}` `ms-{n}` `me-{n}`
+`m-auto` `mx-auto` etc.
+Negative: `-m-{n}` `-mt-{n}` etc.
+
+#### space-between
+`space-x-{n}` → `& > * + * { margin-inline-start: ... }`
+`space-y-{n}` → `& > * + * { margin-top: ... }`
+`space-x-reverse` `space-y-reverse`
+
+---
+
+### Sizing
+
+#### width
+`w-{n}` (spacing) `w-px` `w-auto` `w-full` (100%) `w-screen` (100vw)
+`w-{fraction}` (e.g., `w-1/2`, `w-2/3`)
+`w-{3xs|2xs|xs|sm|md|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl}` (container sizes)
+`w-min` `w-max` `w-fit`
+`w-dvw` `w-dvh` `w-lvw` `w-lvh` `w-svw` `w-svh` (viewport units)
+`w-[value]`
+
+#### min-width
+`min-w-{n}` `min-w-px` `min-w-auto` `min-w-full` `min-w-screen` `min-w-min` `min-w-max` `min-w-fit`
+`min-w-{fraction}` `min-w-{3xs-7xl}`
+`min-w-dvw` `min-w-dvh` `min-w-lvw` `min-w-lvh` `min-w-svw` `min-w-svh`
+`min-w-[value]`
+
+#### max-width
+`max-w-{n}` `max-w-px` `max-w-none` `max-w-full` `max-w-screen` `max-w-min` `max-w-max` `max-w-fit`
+`max-w-{fraction}` `max-w-{3xs-7xl}` `container`
+`max-w-dvw` `max-w-dvh` `max-w-lvw` `max-w-lvh` `max-w-svw` `max-w-svh`
+`max-w-[value]`
+
+#### height
+`h-{n}` `h-px` `h-auto` `h-full` `h-screen` (100vh) `h-lh` (1lh)
+`h-{fraction}` `h-min` `h-max` `h-fit`
+`h-dvh` `h-dvw` `h-lvh` `h-lvw` `h-svh` `h-svw` (viewport units)
+`h-[value]`
+
+#### min-height
+`min-h-{n}` `min-h-px` `min-h-auto` `min-h-full` `min-h-screen` `min-h-lh` `min-h-min` `min-h-max` `min-h-fit`
+`min-h-{fraction}`
+`min-h-dvh` `min-h-dvw` `min-h-lvh` `min-h-lvw` `min-h-svh` `min-h-svw`
+`min-h-[value]`
+
+#### max-height
+`max-h-{n}` `max-h-px` `max-h-none` `max-h-full` `max-h-screen` `max-h-lh` `max-h-min` `max-h-max` `max-h-fit`
+`max-h-{fraction}`
+`max-h-dvh` `max-h-dvw` `max-h-lvh` `max-h-lvw` `max-h-svh` `max-h-svw`
+`max-h-[value]`
+
+#### size (width + height)
+`size-{n}` `size-px` `size-auto` `size-full` `size-min` `size-max` `size-fit`
+`size-{fraction}` `size-[value]`
+
+---
+
+### Typography
+
+#### font-family
+`font-sans` `font-serif` `font-mono`
+`font-{custom}` (from `--font-*` theme vars)
+`font-[value]`
+
+#### font-size
+`text-{xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl}`
+Each includes line-height. Override with `text-{size}/{leading}` (e.g., `text-lg/7`)
+`text-[value]` `text-(length:--var)`
+
+#### font-weight
+`font-{thin|extralight|light|normal|medium|semibold|bold|extrabold|black}`
+(100-900)
+
+#### font-style
+`italic` `not-italic` (normal)
+
+#### font-smoothing
+`antialiased` (grayscale) `subpixel-antialiased` (auto)
+
+#### font-stretch
+`font-stretch-{ultra-condensed|extra-condensed|condensed|semi-condensed|normal|semi-expanded|expanded|extra-expanded|ultra-expanded}`
+`font-stretch-{n%}` `font-stretch-[value]`
+
+#### font-variant-numeric
+`normal-nums` `ordinal` `slashed-zero` `lining-nums` `oldstyle-nums` `proportional-nums` `tabular-nums` `diagonal-fractions` `stacked-fractions`
+
+#### letter-spacing
+`tracking-{tighter|tight|normal|wide|wider|widest}`
+`tracking-[value]`
+
+#### line-height
+`leading-none` (1) `leading-{n}` (spacing-based)
+`leading-[value]`
+Or via font-size modifier: `text-{size}/{n}` `text-{size}/[value]`
+
+#### line-clamp
+`line-clamp-{n}` `line-clamp-none`
+`line-clamp-[value]`
+
+#### list-style-type
+`list-none` `list-disc` `list-decimal`
+`list-[value]`
+
+#### list-style-position
+`list-inside` `list-outside`
+
+#### list-style-image
+`list-image-none` `list-image-[url(...)]`
+
+#### text-align
+`text-left` `text-center` `text-right` `text-justify` `text-start` `text-end`
+
+#### text-color
+`text-{color}-{shade}` (e.g., `text-blue-500`)
+`text-inherit` `text-current` `text-transparent` `text-black` `text-white`
+`text-{color}/{opacity}` (e.g., `text-black/50`)
+`text-[value]`
+
+#### text-decoration-line
+`underline` `overline` `line-through` `no-underline` (none)
+
+#### text-decoration-color
+`decoration-{color}-{shade}` `decoration-inherit` `decoration-current` `decoration-transparent`
+`decoration-[value]`
+
+#### text-decoration-style
+`decoration-solid` `decoration-double` `decoration-dotted` `decoration-dashed` `decoration-wavy`
+
+#### text-decoration-thickness
+`decoration-auto` `decoration-from-font` `decoration-{n}`
+`decoration-[value]`
+
+#### text-underline-offset
+`underline-offset-auto` `underline-offset-{n}` `-underline-offset-{n}`
+`underline-offset-[value]`
+
+#### text-transform
+`uppercase` `lowercase` `capitalize` `normal-case` (none)
+
+#### text-overflow
+`truncate` (overflow: hidden + text-overflow: ellipsis + white-space: nowrap)
+`text-ellipsis` `text-clip`
+
+#### text-wrap
+`text-wrap` `text-nowrap` `text-balance` `text-pretty`
+
+#### text-indent
+`indent-{n}` `-indent-{n}` `indent-px` `-indent-px` `indent-[value]`
+
+#### vertical-align
+`align-{baseline|top|middle|bottom|text-top|text-bottom|sub|super}`
+`align-[value]`
+
+#### white-space
+`whitespace-normal` `whitespace-nowrap` `whitespace-pre` `whitespace-pre-line` `whitespace-pre-wrap` `whitespace-break-spaces`
+
+#### word-break
+`break-normal` `break-all` `break-keep`
+
+#### overflow-wrap
+`wrap-break-word` `wrap-anywhere` `wrap-normal`
+
+#### hyphens
+`hyphens-none` `hyphens-manual` `hyphens-auto`
+
+#### content
+`content-none` `content-[value]` (e.g., `content-['hello']`)
+
+---
+
+### Backgrounds
+
+#### background-color
+`bg-{color}-{shade}` `bg-inherit` `bg-current` `bg-transparent` `bg-black` `bg-white`
+`bg-{color}/{opacity}`
+`bg-[value]`
+
+#### background-image
+`bg-none`
+`bg-linear-{to-t|to-tr|to-r|to-br|to-b|to-bl|to-l|to-tl}` (linear gradients)
+`bg-linear-[angle]` (e.g., `bg-linear-[45deg]`)
+`bg-radial` `bg-radial-[shape]`
+`bg-conic` `bg-conic-[angle]`
+`bg-[url(...)]` `bg-[value]`
+
+Gradient colors: `from-{color}` `via-{color}` `to-{color}`
+Positions: `from-{%}` `via-{%}` `to-{%}`
+
+#### background-position
+`bg-{top|bottom|left|right|center}`
+`bg-{top-left|top-right|bottom-left|bottom-right}`
+`bg-position-[value]`
+
+#### background-size
+`bg-auto` `bg-cover` `bg-contain`
+`bg-size-[value]`
+
+#### background-repeat
+`bg-repeat` `bg-no-repeat` `bg-repeat-x` `bg-repeat-y` `bg-repeat-round` `bg-repeat-space`
+
+#### background-attachment
+`bg-fixed` `bg-local` `bg-scroll`
+
+#### background-origin
+`bg-origin-border` `bg-origin-padding` `bg-origin-content`
+
+#### background-clip
+`bg-clip-border` `bg-clip-padding` `bg-clip-content` `bg-clip-text`
+
+---
+
+### Borders
+
+#### border-width
+`border` (1px all) `border-{n}`
+`border-{t|r|b|l|x|y}` `border-{t|r|b|l|x|y}-{n}`
+`border-{s|e}` (inline start/end)
+`border-[value]`
+
+#### border-color
+`border-{color}-{shade}` `border-inherit` `border-current` `border-transparent`
+`border-{t|r|b|l|x|y}-{color}` `border-{s|e}-{color}`
+`border-[value]`
+
+#### border-style
+`border-solid` `border-dashed` `border-dotted` `border-double` `border-hidden` `border-none`
+
+#### border-radius
+`rounded-{xs|sm|md|lg|xl|2xl|3xl|4xl}` `rounded-none` `rounded-full`
+`rounded-{t|r|b|l|tl|tr|br|bl|s|e|ss|se|es|ee}-{size}`
+`rounded-[value]`
+
+#### divide-width
+`divide-x` `divide-x-{n}` `divide-y` `divide-y-{n}`
+`divide-x-reverse` `divide-y-reverse`
+
+#### divide-color
+`divide-{color}-{shade}` `divide-inherit` `divide-current` `divide-transparent`
+
+#### divide-style
+`divide-solid` `divide-dashed` `divide-dotted` `divide-double` `divide-none`
+
+#### border-collapse
+`border-collapse` `border-separate`
+
+#### border-spacing
+`border-spacing-{n}` `border-spacing-x-{n}` `border-spacing-y-{n}`
+`border-spacing-px` `border-spacing-[value]`
+
+#### outline-width
+`outline-{n}` `outline` (1px)
+`outline-[value]`
+
+#### outline-color
+`outline-{color}-{shade}` `outline-inherit` `outline-current` `outline-transparent`
+`outline-[value]`
+
+#### outline-style
+`outline-none` `outline-hidden` `outline-solid` `outline-dashed` `outline-dotted` `outline-double`
+
+#### outline-offset
+`outline-offset-{n}` `-outline-offset-{n}`
+`outline-offset-[value]`
+
+#### ring (box-shadow based outline)
+`ring` (1px) `ring-{n}`
+`ring-{color}-{shade}` `ring-inherit` `ring-current` `ring-transparent`
+`ring-[value]`
+
+#### inset-ring (inset box-shadow based outline)
+`inset-ring` (1px) `inset-ring-{n}`
+`inset-ring-{color}-{shade}` `inset-ring-inherit` `inset-ring-current` `inset-ring-transparent`
+`inset-ring-[value]`
+
+---
+
+### Effects
+
+#### box-shadow
+`shadow-{2xs|xs|sm|md|lg|xl|2xl}` `shadow-none`
+`shadow-{color}-{shade}` (sets shadow color)
+`shadow-[value]`
+
+#### inset-shadow
+`inset-shadow-{2xs|xs|sm}` `inset-shadow-none`
+`inset-shadow-{color}-{shade}`
+
+#### text-shadow
+`text-shadow-{2xs|xs|sm|md|lg}` `text-shadow-none`
+`text-shadow-{color}-{shade}`
+`text-shadow-[value]`
+
+#### opacity
+`opacity-{n}` (0-100)
+`opacity-[value]`
+
+#### mix-blend-mode
+`mix-blend-{normal|multiply|screen|overlay|darken|lighten|color-dodge|color-burn|hard-light|soft-light|difference|exclusion|hue|saturation|color|luminosity|plus-darker|plus-lighter}`
+
+#### background-blend-mode
+`bg-blend-{...}` (same values as mix-blend)
+
+#### mask-image
+`mask-none` `mask-[value]`
+Linear: `mask-linear-{n}` `mask-{t|r|b|l}-from-{n|%}` `mask-{t|r|b|l}-to-{n|%}`
+Radial: `mask-radial-from-{n|%}` `mask-radial-to-{n|%}` `mask-radial-at-{position}` `mask-circle` `mask-ellipse`
+Conic: `mask-conic-{n}` `mask-conic-from-{n|%}` `mask-conic-to-{n|%}`
+
+#### mask-size
+`mask-auto` `mask-cover` `mask-contain`
+`mask-[value]`
+
+#### mask-position
+`mask-{center|top|bottom|left|right|...}`
+
+#### mask-repeat
+`mask-repeat` `mask-no-repeat` `mask-repeat-x` `mask-repeat-y` `mask-repeat-round` `mask-repeat-space`
+
+#### mask-origin
+`mask-origin-{border|padding|content}`
+
+#### mask-clip
+`mask-clip-{border|padding|content|no-clip}`
+
+#### mask-composite
+`mask-composite-{add|subtract|intersect|exclude}`
+
+#### mask-mode
+`mask-mode-{alpha|luminance|match-source}`
+
+#### mask-type
+`mask-type-{alpha|luminance}`
+
+---
+
+### Filters
+
+Filter utilities compose on the `filter` property. Reset with `filter-none`.
+
+#### blur
+`blur-{xs|sm|md|lg|xl|2xl|3xl}` `blur-none`
+`blur-[value]`
+
+#### brightness
+`brightness-{n}` (%)
+`brightness-[value]`
+
+#### contrast
+`contrast-{n}` (%)
+`contrast-[value]`
+
+#### grayscale
+`grayscale` (100%) `grayscale-{n}` (%)
+`grayscale-[value]`
+
+#### hue-rotate
+`hue-rotate-{n}`
+`-hue-rotate-{n}` (negative)
+`hue-rotate-[value]`
+
+#### invert
+`invert` (100%) `invert-{n}` (%)
+`invert-[value]`
+
+#### saturate
+`saturate-{n}` (%)
+`saturate-[value]`
+
+#### sepia
+`sepia` (100%) `sepia-{n}` (%)
+`sepia-[value]`
+
+#### drop-shadow
+`drop-shadow-{xs|sm|md|lg|xl|2xl}` `drop-shadow-none`
+`drop-shadow-{color}-{shade}`
+`drop-shadow-[value]`
+
+Backdrop filter utilities compose on `backdrop-filter`. Reset with `backdrop-filter-none`.
+
+#### backdrop-blur
+`backdrop-blur-{xs|sm|md|lg|xl|2xl|3xl}` `backdrop-blur-none`
+
+#### backdrop-brightness
+`backdrop-brightness-{n}` (%)
+
+#### backdrop-contrast
+`backdrop-contrast-{n}` (%)
+
+#### backdrop-grayscale
+`backdrop-grayscale` (100%) `backdrop-grayscale-{n}` (%)
+
+#### backdrop-hue-rotate
+`backdrop-hue-rotate-{n}`
+`-backdrop-hue-rotate-{n}` (negative)
+
+#### backdrop-invert
+`backdrop-invert` (100%) `backdrop-invert-{n}` (%)
+
+#### backdrop-opacity
+`backdrop-opacity-{n}` (0-100)
+
+#### backdrop-saturate
+`backdrop-saturate-{n}` (%)
+
+#### backdrop-sepia
+`backdrop-sepia` (100%) `backdrop-sepia-{n}` (%)
+
+---
+
+### Tables
+
+#### table-layout
+`table-auto` `table-fixed`
+
+#### caption-side
+`caption-top` `caption-bottom`
+
+---
+
+### Transitions & Animation
+
+#### transition-property
+`transition` (color, bg, border, text-decoration, fill, stroke, opacity, shadow, transform, filter, backdrop-filter)
+`transition-all` `transition-colors` `transition-opacity` `transition-shadow` `transition-transform` `transition-none`
+`transition-[value]`
+
+#### transition-behavior
+`transition-normal` `transition-discrete`
+
+#### transition-duration
+`duration-{n}` (ms)
+`duration-[value]`
+
+#### transition-timing-function
+`ease-linear` `ease-in` `ease-out` `ease-in-out`
+`ease-[value]`
+
+#### transition-delay
+`delay-{n}` (ms)
+`delay-[value]`
+
+#### animation
+`animate-none` `animate-spin` `animate-ping` `animate-pulse` `animate-bounce`
+`animate-{custom}` (from `--animate-*` theme vars)
+`animate-[value]`
+
+---
+
+### Transforms
+
+#### transform
+Transforms are composable. Each utility adds to the transform:
+`transform-gpu` `transform-cpu` `transform-none` `transform-[value]`
+
+#### scale
+`scale-{n}` (%) `-scale-{n}` `scale-none` `scale-3d`
+`scale-x-{n}` `scale-y-{n}` `scale-z-{n}`
+`scale-[value]`
+
+#### rotate
+`rotate-{n}` (degrees) `-rotate-{n}` `rotate-none`
+`rotate-x-{n}` `rotate-y-{n}` `rotate-z-{n}` (3D rotations)
+`rotate-[value]`
+
+#### translate
+`translate-{n}` (both axes) `translate-x-{n}` `translate-y-{n}` `translate-z-{n}` (spacing scale)
+`translate-{x|y}-{fraction}` `translate-{x|y}-full` `translate-{x|y}-px`
+`-translate-{...}` (negative) `translate-none`
+`translate-[value]`
+
+#### skew
+`skew-{n}` `-skew-{n}` (both axes, degrees)
+`skew-x-{n}` `skew-y-{n}` `-skew-x-{n}` `-skew-y-{n}`
+`skew-[value]`
+
+#### transform-origin
+`origin-{center|top|top-right|right|bottom-right|bottom|bottom-left|left|top-left}`
+`origin-[value]`
+
+#### transform-style
+`transform-3d` (preserve-3d) `transform-flat` (flat)
+
+#### perspective
+`perspective-{dramatic|near|normal|midrange|distant}` `perspective-none`
+(100px, 300px, 500px, 800px, 1200px)
+`perspective-[value]`
+
+#### perspective-origin
+`perspective-origin-{center|top|top-right|right|bottom-right|bottom|bottom-left|left|top-left}`
+`perspective-origin-[value]`
+
+#### backface-visibility
+`backface-visible` `backface-hidden`
+
+---
+
+### Interactivity
+
+#### accent-color
+`accent-{color}-{shade}` `accent-inherit` `accent-current` `accent-transparent`
+`accent-[value]`
+
+#### appearance
+`appearance-none` `appearance-auto`
+
+#### caret-color
+`caret-{color}-{shade}` `caret-inherit` `caret-current` `caret-transparent`
+`caret-[value]`
+
+#### color-scheme
+`scheme-normal` `scheme-light` `scheme-dark` `scheme-light-dark` `scheme-only-dark` `scheme-only-light`
+
+#### cursor
+`cursor-{auto|default|pointer|wait|text|move|help|not-allowed|none|context-menu|progress|cell|crosshair|vertical-text|alias|copy|no-drop|grab|grabbing|all-scroll|col-resize|row-resize|n-resize|e-resize|s-resize|w-resize|ne-resize|nw-resize|se-resize|sw-resize|ew-resize|ns-resize|nesw-resize|nwse-resize|zoom-in|zoom-out}`
+`cursor-[value]`
+
+#### field-sizing
+`field-sizing-fixed` `field-sizing-content`
+
+#### pointer-events
+`pointer-events-auto` `pointer-events-none`
+
+#### resize
+`resize` (both) `resize-none` `resize-x` `resize-y`
+
+#### scroll-behavior
+`scroll-auto` `scroll-smooth`
+
+#### scroll-margin
+`scroll-m-{n}` `scroll-mx-{n}` `scroll-my-{n}` `scroll-mt-{n}` `scroll-mr-{n}` `scroll-mb-{n}` `scroll-ml-{n}` `scroll-ms-{n}` `scroll-me-{n}`
+
+#### scroll-padding
+`scroll-p-{n}` `scroll-px-{n}` `scroll-py-{n}` `scroll-pt-{n}` `scroll-pr-{n}` `scroll-pb-{n}` `scroll-pl-{n}` `scroll-ps-{n}` `scroll-pe-{n}`
+
+#### scroll-snap-type
+`snap-none` `snap-x` `snap-y` `snap-both`
+`snap-mandatory` `snap-proximity` (strictness modifiers)
+
+#### scroll-snap-align
+`snap-start` `snap-end` `snap-center` `snap-align-none`
+
+#### scroll-snap-stop
+`snap-normal` `snap-always`
+
+#### touch-action
+`touch-auto` `touch-none` `touch-pan-x` `touch-pan-left` `touch-pan-right` `touch-pan-y` `touch-pan-up` `touch-pan-down` `touch-pinch-zoom` `touch-manipulation`
+
+#### user-select
+`select-none` `select-text` `select-all` `select-auto`
+
+#### will-change
+`will-change-auto` `will-change-scroll` `will-change-contents` `will-change-transform`
+`will-change-[value]`
+
+---
+
+### SVG
+
+#### fill
+`fill-{color}-{shade}` `fill-none` `fill-inherit` `fill-current` `fill-transparent`
+`fill-[value]`
+
+#### stroke
+`stroke-{color}-{shade}` `stroke-none` `stroke-inherit` `stroke-current` `stroke-transparent`
+`stroke-[value]`
+
+#### stroke-width
+`stroke-{n}` `stroke-[value]`
+
+---
+
+### Accessibility
+
+#### forced-color-adjust
+`forced-color-adjust-auto` `forced-color-adjust-none`
+
+---
+
+## Default Theme Variables
+
+### Spacing
+`--spacing: 0.25rem` (4px)
+Utilities use `calc(var(--spacing) * n)` for values like `p-4`, `m-8`, `gap-2`, etc.
+
+### Breakpoints
+| Variable | Value |
+|----------|-------|
+| `--breakpoint-sm` | 40rem (640px) |
+| `--breakpoint-md` | 48rem (768px) |
+| `--breakpoint-lg` | 64rem (1024px) |
+| `--breakpoint-xl` | 80rem (1280px) |
+| `--breakpoint-2xl` | 96rem (1536px) |
+
+### Container Sizes
+| Variable | Value |
+|----------|-------|
+| `--container-3xs` | 16rem (256px) |
+| `--container-2xs` | 18rem (288px) |
+| `--container-xs` | 20rem (320px) |
+| `--container-sm` | 24rem (384px) |
+| `--container-md` | 28rem (448px) |
+| `--container-lg` | 32rem (512px) |
+| `--container-xl` | 36rem (576px) |
+| `--container-2xl` | 42rem (672px) |
+| `--container-3xl` | 48rem (768px) |
+| `--container-4xl` | 56rem (896px) |
+| `--container-5xl` | 64rem (1024px) |
+| `--container-6xl` | 72rem (1152px) |
+| `--container-7xl` | 80rem (1280px) |
+
+### Font Sizes
+| Variable | Size | Line Height |
+|----------|------|-------------|
+| `--text-xs` | 0.75rem | 1rem |
+| `--text-sm` | 0.875rem | 1.25rem |
+| `--text-base` | 1rem | 1.5rem |
+| `--text-lg` | 1.125rem | 1.75rem |
+| `--text-xl` | 1.25rem | 1.75rem |
+| `--text-2xl` | 1.5rem | 2rem |
+| `--text-3xl` | 1.875rem | 2.25rem |
+| `--text-4xl` | 2.25rem | 2.5rem |
+| `--text-5xl` | 3rem | 1 |
+| `--text-6xl` | 3.75rem | 1 |
+| `--text-7xl` | 4.5rem | 1 |
+| `--text-8xl` | 6rem | 1 |
+| `--text-9xl` | 8rem | 1 |
+
+### Font Weights
+| Variable | Value |
+|----------|-------|
+| `--font-weight-thin` | 100 |
+| `--font-weight-extralight` | 200 |
+| `--font-weight-light` | 300 |
+| `--font-weight-normal` | 400 |
+| `--font-weight-medium` | 500 |
+| `--font-weight-semibold` | 600 |
+| `--font-weight-bold` | 700 |
+| `--font-weight-extrabold` | 800 |
+| `--font-weight-black` | 900 |
+
+### Letter Spacing
+| Variable | Value |
+|----------|-------|
+| `--tracking-tighter` | -0.05em |
+| `--tracking-tight` | -0.025em |
+| `--tracking-normal` | 0em |
+| `--tracking-wide` | 0.025em |
+| `--tracking-wider` | 0.05em |
+| `--tracking-widest` | 0.1em |
+
+### Line Height
+| Variable | Value |
+|----------|-------|
+| `--leading-none` | 1 |
+| `--leading-tight` | 1.25 |
+| `--leading-snug` | 1.375 |
+| `--leading-normal` | 1.5 |
+| `--leading-relaxed` | 1.625 |
+| `--leading-loose` | 2 |
+
+### Border Radius
+| Variable | Value |
+|----------|-------|
+| `--radius-xs` | 0.125rem |
+| `--radius-sm` | 0.25rem |
+| `--radius-md` | 0.375rem |
+| `--radius-lg` | 0.5rem |
+| `--radius-xl` | 0.75rem |
+| `--radius-2xl` | 1rem |
+| `--radius-3xl` | 1.5rem |
+| `--radius-4xl` | 2rem |
+
+### Box Shadows
+| Variable | Value |
+|----------|-------|
+| `--shadow-2xs` | 0 1px rgb(0 0 0 / 0.05) |
+| `--shadow-xs` | 0 1px 2px 0 rgb(0 0 0 / 0.05) |
+| `--shadow-sm` | 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1) |
+| `--shadow-md` | 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) |
+| `--shadow-lg` | 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) |
+| `--shadow-xl` | 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1) |
+| `--shadow-2xl` | 0 25px 50px -12px rgb(0 0 0 / 0.25) |
+
+### Inset Shadows
+| Variable | Value |
+|----------|-------|
+| `--inset-shadow-2xs` | inset 0 1px rgb(0 0 0 / 0.05) |
+| `--inset-shadow-xs` | inset 0 1px 1px rgb(0 0 0 / 0.05) |
+| `--inset-shadow-sm` | inset 0 2px 4px rgb(0 0 0 / 0.05) |
+
+### Blur
+| Variable | Value |
+|----------|-------|
+| `--blur-xs` | 4px |
+| `--blur-sm` | 8px |
+| `--blur-md` | 12px |
+| `--blur-lg` | 16px |
+| `--blur-xl` | 24px |
+| `--blur-2xl` | 40px |
+| `--blur-3xl` | 64px |
+
+### Transition Timing
+| Variable | Value |
+|----------|-------|
+| `--ease-linear` | linear |
+| `--ease-in` | cubic-bezier(0.4, 0, 1, 1) |
+| `--ease-out` | cubic-bezier(0, 0, 0.2, 1) |
+| `--ease-in-out` | cubic-bezier(0.4, 0, 0.2, 1) |
+
+### Animations
+| Variable | Value |
+|----------|-------|
+| `--animate-spin` | spin 1s linear infinite |
+| `--animate-ping` | ping 1s cubic-bezier(0, 0, 0.2, 1) infinite |
+| `--animate-pulse` | pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite |
+| `--animate-bounce` | bounce 1s infinite |
+
+### Colors (Pattern)
+Theme variables: `--color-{name}-{shade}`
+- Names: slate, gray, zinc, neutral, stone, red, orange, amber, yellow, lime, green, emerald, teal, cyan, sky, blue, indigo, violet, purple, fuchsia, pink, rose
+- Shades: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950
+- Special: `--color-black`, `--color-white`, transparent, current, inherit
+
+---
+
+## Appendix: Color Palette
+
+All colors defined as `--color-{name}-{shade}` variables (e.g., `--color-slate-50`).
+
+### Slate
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(98.4% 0.003 247.858) |
+| 100 | oklch(96.8% 0.007 247.896) |
+| 200 | oklch(92.9% 0.013 255.508) |
+| 300 | oklch(86.9% 0.022 252.894) |
+| 400 | oklch(70.4% 0.04 256.788) |
+| 500 | oklch(55.4% 0.046 257.417) |
+| 600 | oklch(44.6% 0.043 257.281) |
+| 700 | oklch(37.2% 0.044 257.287) |
+| 800 | oklch(27.9% 0.041 260.031) |
+| 900 | oklch(20.8% 0.042 265.755) |
+| 950 | oklch(12.9% 0.042 264.695) |
+
+### Gray
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(98.5% 0.002 247.839) |
+| 100 | oklch(96.7% 0.003 264.542) |
+| 200 | oklch(92.8% 0.006 264.531) |
+| 300 | oklch(87.2% 0.01 258.338) |
+| 400 | oklch(70.7% 0.022 261.325) |
+| 500 | oklch(55.1% 0.027 264.364) |
+| 600 | oklch(44.6% 0.03 256.802) |
+| 700 | oklch(37.3% 0.034 259.733) |
+| 800 | oklch(27.8% 0.033 256.848) |
+| 900 | oklch(21% 0.034 264.665) |
+| 950 | oklch(13% 0.028 261.692) |
+
+### Zinc
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(98.5% 0 0) |
+| 100 | oklch(96.7% 0.001 286.375) |
+| 200 | oklch(92% 0.004 286.32) |
+| 300 | oklch(87.1% 0.006 286.286) |
+| 400 | oklch(70.5% 0.015 286.067) |
+| 500 | oklch(55.2% 0.016 285.938) |
+| 600 | oklch(44.2% 0.017 285.786) |
+| 700 | oklch(37% 0.013 285.805) |
+| 800 | oklch(27.4% 0.006 286.033) |
+| 900 | oklch(21% 0.006 285.885) |
+| 950 | oklch(14.1% 0.005 285.823) |
+
+### Neutral
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(98.5% 0 0) |
+| 100 | oklch(97% 0 0) |
+| 200 | oklch(92.2% 0 0) |
+| 300 | oklch(87% 0 0) |
+| 400 | oklch(70.8% 0 0) |
+| 500 | oklch(55.6% 0 0) |
+| 600 | oklch(43.9% 0 0) |
+| 700 | oklch(37.1% 0 0) |
+| 800 | oklch(26.9% 0 0) |
+| 900 | oklch(20.5% 0 0) |
+| 950 | oklch(14.5% 0 0) |
+
+### Stone
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(98.5% 0.001 106.423) |
+| 100 | oklch(97% 0.001 106.424) |
+| 200 | oklch(92.3% 0.003 48.717) |
+| 300 | oklch(86.9% 0.005 56.366) |
+| 400 | oklch(70.9% 0.01 56.259) |
+| 500 | oklch(55.3% 0.013 58.071) |
+| 600 | oklch(44.4% 0.011 73.639) |
+| 700 | oklch(37.4% 0.01 67.558) |
+| 800 | oklch(26.8% 0.007 34.298) |
+| 900 | oklch(21.6% 0.006 56.043) |
+| 950 | oklch(14.7% 0.004 49.25) |
+
+### Red
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(97.1% 0.013 17.38) |
+| 100 | oklch(93.6% 0.032 17.717) |
+| 200 | oklch(88.5% 0.062 18.334) |
+| 300 | oklch(80.8% 0.114 19.571) |
+| 400 | oklch(70.4% 0.191 22.216) |
+| 500 | oklch(63.7% 0.237 25.331) |
+| 600 | oklch(57.7% 0.245 27.325) |
+| 700 | oklch(50.5% 0.213 27.518) |
+| 800 | oklch(44.4% 0.177 26.899) |
+| 900 | oklch(39.6% 0.141 25.723) |
+| 950 | oklch(25.8% 0.092 26.042) |
+
+### Orange
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(98% 0.016 73.684) |
+| 100 | oklch(95.4% 0.038 75.164) |
+| 200 | oklch(90.1% 0.076 70.697) |
+| 300 | oklch(83.7% 0.128 66.29) |
+| 400 | oklch(75% 0.183 55.934) |
+| 500 | oklch(70.5% 0.213 47.604) |
+| 600 | oklch(64.6% 0.222 41.116) |
+| 700 | oklch(55.3% 0.195 38.402) |
+| 800 | oklch(47% 0.157 37.304) |
+| 900 | oklch(40.8% 0.123 38.172) |
+| 950 | oklch(26.6% 0.079 36.259) |
+
+### Amber
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(98.7% 0.022 95.277) |
+| 100 | oklch(96.2% 0.059 95.617) |
+| 200 | oklch(92.4% 0.12 95.746) |
+| 300 | oklch(87.9% 0.169 91.605) |
+| 400 | oklch(82.8% 0.189 84.429) |
+| 500 | oklch(76.9% 0.188 70.08) |
+| 600 | oklch(66.6% 0.179 58.318) |
+| 700 | oklch(55.5% 0.163 48.998) |
+| 800 | oklch(47.3% 0.137 46.201) |
+| 900 | oklch(41.4% 0.112 45.904) |
+| 950 | oklch(27.9% 0.077 45.635) |
+
+### Yellow
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(98.7% 0.026 102.212) |
+| 100 | oklch(97.3% 0.071 103.193) |
+| 200 | oklch(94.5% 0.129 101.54) |
+| 300 | oklch(90.5% 0.182 98.111) |
+| 400 | oklch(85.2% 0.199 91.936) |
+| 500 | oklch(79.5% 0.184 86.047) |
+| 600 | oklch(68.1% 0.162 75.834) |
+| 700 | oklch(55.4% 0.135 66.442) |
+| 800 | oklch(47.6% 0.114 61.907) |
+| 900 | oklch(42.1% 0.095 57.708) |
+| 950 | oklch(28.6% 0.066 53.813) |
+
+### Lime
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(98.6% 0.031 120.757) |
+| 100 | oklch(96.7% 0.067 122.328) |
+| 200 | oklch(93.8% 0.127 124.321) |
+| 300 | oklch(89.7% 0.196 126.665) |
+| 400 | oklch(84.1% 0.238 128.85) |
+| 500 | oklch(76.8% 0.233 130.85) |
+| 600 | oklch(64.8% 0.2 131.684) |
+| 700 | oklch(53.2% 0.157 131.589) |
+| 800 | oklch(45.3% 0.124 130.933) |
+| 900 | oklch(40.5% 0.101 131.063) |
+| 950 | oklch(27.4% 0.072 132.109) |
+
+### Green
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(98.2% 0.018 155.826) |
+| 100 | oklch(96.2% 0.044 156.743) |
+| 200 | oklch(92.5% 0.084 155.995) |
+| 300 | oklch(87.1% 0.15 154.449) |
+| 400 | oklch(79.2% 0.209 151.711) |
+| 500 | oklch(72.3% 0.219 149.579) |
+| 600 | oklch(62.7% 0.194 149.214) |
+| 700 | oklch(52.7% 0.154 150.069) |
+| 800 | oklch(44.8% 0.119 151.328) |
+| 900 | oklch(39.3% 0.095 152.535) |
+| 950 | oklch(26.6% 0.065 152.934) |
+
+### Emerald
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(97.9% 0.021 166.113) |
+| 100 | oklch(95% 0.052 163.051) |
+| 200 | oklch(90.5% 0.093 164.15) |
+| 300 | oklch(84.5% 0.143 164.978) |
+| 400 | oklch(76.5% 0.177 163.223) |
+| 500 | oklch(69.6% 0.17 162.48) |
+| 600 | oklch(59.6% 0.145 163.225) |
+| 700 | oklch(50.8% 0.118 165.612) |
+| 800 | oklch(43.2% 0.095 166.913) |
+| 900 | oklch(37.8% 0.077 168.94) |
+| 950 | oklch(26.2% 0.051 172.552) |
+
+### Teal
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(98.4% 0.014 180.72) |
+| 100 | oklch(95.3% 0.051 180.801) |
+| 200 | oklch(91% 0.096 180.426) |
+| 300 | oklch(85.5% 0.138 181.071) |
+| 400 | oklch(77.7% 0.152 181.912) |
+| 500 | oklch(70.4% 0.14 182.503) |
+| 600 | oklch(60% 0.118 184.704) |
+| 700 | oklch(51.1% 0.096 186.391) |
+| 800 | oklch(43.7% 0.078 188.216) |
+| 900 | oklch(38.6% 0.063 188.416) |
+| 950 | oklch(27.7% 0.046 192.524) |
+
+### Cyan
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(98.4% 0.019 200.873) |
+| 100 | oklch(95.6% 0.045 203.388) |
+| 200 | oklch(91.7% 0.08 205.041) |
+| 300 | oklch(86.5% 0.127 207.078) |
+| 400 | oklch(78.9% 0.154 211.53) |
+| 500 | oklch(71.5% 0.143 215.221) |
+| 600 | oklch(60.9% 0.126 221.723) |
+| 700 | oklch(52% 0.105 223.128) |
+| 800 | oklch(45% 0.085 224.283) |
+| 900 | oklch(39.8% 0.07 227.392) |
+| 950 | oklch(30.2% 0.056 229.695) |
+
+### Sky
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(97.7% 0.013 236.62) |
+| 100 | oklch(95.1% 0.026 236.824) |
+| 200 | oklch(90.1% 0.058 230.902) |
+| 300 | oklch(82.8% 0.111 230.318) |
+| 400 | oklch(74.6% 0.16 232.661) |
+| 500 | oklch(68.5% 0.169 237.323) |
+| 600 | oklch(58.8% 0.158 241.966) |
+| 700 | oklch(50% 0.134 242.749) |
+| 800 | oklch(44.3% 0.11 240.79) |
+| 900 | oklch(39.1% 0.09 240.876) |
+| 950 | oklch(29.3% 0.066 243.157) |
+
+### Blue
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(97% 0.014 254.604) |
+| 100 | oklch(93.2% 0.032 255.585) |
+| 200 | oklch(88.2% 0.059 254.128) |
+| 300 | oklch(80.9% 0.105 251.813) |
+| 400 | oklch(70.7% 0.165 254.624) |
+| 500 | oklch(62.3% 0.214 259.815) |
+| 600 | oklch(54.6% 0.245 262.881) |
+| 700 | oklch(48.8% 0.243 264.376) |
+| 800 | oklch(42.4% 0.199 265.638) |
+| 900 | oklch(37.9% 0.146 265.522) |
+| 950 | oklch(28.2% 0.091 267.935) |
+
+### Indigo
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(96.2% 0.018 272.314) |
+| 100 | oklch(93% 0.034 272.788) |
+| 200 | oklch(87% 0.065 274.039) |
+| 300 | oklch(78.5% 0.115 274.713) |
+| 400 | oklch(67.3% 0.182 276.935) |
+| 500 | oklch(58.5% 0.233 277.117) |
+| 600 | oklch(51.1% 0.262 276.966) |
+| 700 | oklch(45.7% 0.24 277.023) |
+| 800 | oklch(39.8% 0.195 277.366) |
+| 900 | oklch(35.9% 0.144 278.697) |
+| 950 | oklch(25.7% 0.09 281.288) |
+
+### Violet
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(96.9% 0.016 293.756) |
+| 100 | oklch(94.3% 0.029 294.588) |
+| 200 | oklch(89.4% 0.057 293.283) |
+| 300 | oklch(81.1% 0.111 293.571) |
+| 400 | oklch(70.2% 0.183 293.541) |
+| 500 | oklch(60.6% 0.25 292.717) |
+| 600 | oklch(54.1% 0.281 293.009) |
+| 700 | oklch(49.1% 0.27 292.581) |
+| 800 | oklch(43.2% 0.232 292.759) |
+| 900 | oklch(38% 0.189 293.745) |
+| 950 | oklch(28.3% 0.141 291.089) |
+
+### Purple
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(97.7% 0.014 308.299) |
+| 100 | oklch(94.6% 0.033 307.174) |
+| 200 | oklch(90.2% 0.063 306.703) |
+| 300 | oklch(82.7% 0.119 306.383) |
+| 400 | oklch(71.4% 0.203 305.504) |
+| 500 | oklch(62.7% 0.265 303.9) |
+| 600 | oklch(55.8% 0.288 302.321) |
+| 700 | oklch(49.6% 0.265 301.924) |
+| 800 | oklch(43.8% 0.218 303.724) |
+| 900 | oklch(38.1% 0.176 304.987) |
+| 950 | oklch(29.1% 0.149 302.717) |
+
+### Fuchsia
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(97.7% 0.017 320.058) |
+| 100 | oklch(95.2% 0.037 318.852) |
+| 200 | oklch(90.3% 0.076 319.62) |
+| 300 | oklch(83.3% 0.145 321.434) |
+| 400 | oklch(74% 0.238 322.16) |
+| 500 | oklch(66.7% 0.295 322.15) |
+| 600 | oklch(59.1% 0.293 322.896) |
+| 700 | oklch(51.8% 0.253 323.949) |
+| 800 | oklch(45.2% 0.211 324.591) |
+| 900 | oklch(40.1% 0.17 325.612) |
+| 950 | oklch(29.3% 0.136 325.661) |
+
+### Pink
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(97.1% 0.014 343.198) |
+| 100 | oklch(94.8% 0.028 342.258) |
+| 200 | oklch(89.9% 0.061 343.231) |
+| 300 | oklch(82.3% 0.12 346.018) |
+| 400 | oklch(71.8% 0.202 349.761) |
+| 500 | oklch(65.6% 0.241 354.308) |
+| 600 | oklch(59.2% 0.249 0.584) |
+| 700 | oklch(52.5% 0.223 3.958) |
+| 800 | oklch(45.9% 0.187 3.815) |
+| 900 | oklch(40.8% 0.153 2.432) |
+| 950 | oklch(28.4% 0.109 3.907) |
+
+### Rose
+| Shade | Value |
+|-------|-------|
+| 50 | oklch(96.9% 0.015 12.422) |
+| 100 | oklch(94.1% 0.03 12.58) |
+| 200 | oklch(89.2% 0.058 10.001) |
+| 300 | oklch(81% 0.117 11.638) |
+| 400 | oklch(71.2% 0.194 13.428) |
+| 500 | oklch(64.5% 0.246 16.439) |
+| 600 | oklch(58.6% 0.253 17.585) |
+| 700 | oklch(51.4% 0.222 16.935) |
+| 800 | oklch(45.5% 0.188 13.697) |
+| 900 | oklch(41% 0.159 10.272) |
+| 950 | oklch(27.1% 0.105 12.094) |
+
+### Special Colors
+| Name | Value |
+|------|-------|
+| black | #000 |
+| white | #fff |
