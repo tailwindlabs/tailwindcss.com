@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import createMdx from "@next/mdx";
 
 const nextConfig = {
   serverExternalPackages: ["@tailwindcss/node"],
@@ -6,38 +7,15 @@ const nextConfig = {
   outputFileTracingIncludes: {
     "/**/*": ["./src/docs/*.mdx"],
   },
-  experimental: {
-    mdxRs: true,
-    turbo: {
-      rules: {
-        // Support import .svg as react components in dev builds
-        "*.react.svg": {
-          loaders: ["@svgr/webpack"],
-          as: "*.js",
-        },
+  turbopack: {
+    rules: {
+      // Support import .svg as react components in dev builds
+      "*.react.svg": {
+        loaders: ["@svgr/webpack"],
+        as: "*.js",
       },
     },
   },
-
-  webpack(config) {
-    // Find the existing .svg rule used by Next.js and exclude .react.svg files
-    const existingSvgRule = config.module.rules.find((rule: any) => rule.test?.test?.(".svg"));
-    existingSvgRule.exclude = /\.react\.svg$/i;
-
-    // Support import .svg as react components in production builds
-    config.module.rules.push({
-      test: /\.react\.svg$/,
-      use: ["@svgr/webpack"],
-    });
-
-    // Disable CSS minification
-    config.optimization.minimizer = config.optimization.minimizer.filter((fn: any) => {
-      return !fn.toString().includes("CssMinimizerPlugin");
-    });
-
-    return config;
-  },
-
   async redirects() {
     return [
       // Docs
@@ -498,5 +476,5 @@ const nextConfig = {
   },
 } satisfies NextConfig;
 
-const withMDX = require("@next/mdx")();
+const withMDX = createMdx();
 module.exports = withMDX(nextConfig);
