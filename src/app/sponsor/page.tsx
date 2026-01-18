@@ -8,7 +8,9 @@ import InsidersGitHubRepositoryDarkImage from "./insiders-github-repository-dark
 import InsidersGitHubRepositoryImage from "./insiders-github-repository.png";
 import TailwindcssRaycastExtensionImage from "./tailwindcss-raycast-extension.png";
 import TailwindCSSVsCodeThemeImage from "./tailwindcss-vs-theme.png";
-import { partners, ambassadors, supporters } from "./sponsors";
+import { getShuffledSponsors, type Sponsor } from "@/lib/sponsors";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Sponsor",
@@ -138,7 +140,7 @@ function MessageFromAdam() {
   );
 }
 
-function FeaturedPartners() {
+function FeaturedPartners({ partners }: { partners: Sponsor[] }) {
   return (
     <section>
       <div className="relative mt-4">
@@ -729,7 +731,15 @@ function Faqs() {
   );
 }
 
-function Sponsors() {
+function Sponsors({
+  partners,
+  ambassadors,
+  supporters,
+}: {
+  partners: Sponsor[];
+  ambassadors: Sponsor[];
+  supporters: Sponsor[];
+}) {
   return (
     <div>
       <div id="sponsors" className="line-y mt-40 grid scroll-mt-24 grid-cols-1 gap-10 xl:grid-cols-2">
@@ -820,12 +830,14 @@ function Sponsors() {
 }
 
 export default async function Sponsor() {
+  const { partners, ambassadors, supporters } = getShuffledSponsors();
+
   return (
     <div className="mt-24">
       <Header />
       <div className="isolate">
         <MessageFromAdam />
-        <FeaturedPartners />
+        <FeaturedPartners partners={partners} />
         <Insiders />
         <InsiderPerks />
         <InsiderPerkScreenshots />
@@ -833,7 +845,7 @@ export default async function Sponsor() {
         <PartnerPerks />
         <PartnerPlans />
         <Faqs />
-        <Sponsors />
+        <Sponsors partners={partners} ambassadors={ambassadors} supporters={supporters} />
         <FooterMeta className="px-4 md:px-6 lg:px-8" />
       </div>
     </div>
