@@ -20,7 +20,7 @@ export function getShuffledSponsors() {
 }
 
 export function getHomepageSponsors() {
-  const totalLogos = 36;
+  const totalLogos = 40;
   const shuffledPartners = shuffle(partners);
 
   if (shuffledPartners.length >= totalLogos) {
