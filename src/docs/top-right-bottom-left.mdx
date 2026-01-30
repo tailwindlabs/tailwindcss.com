@@ -13,8 +13,10 @@ export const description = "Utilities for controlling the placement of positione
     { prefix: "inset", property: "inset" },
     { prefix: "inset-x", property: "inset-inline" },
     { prefix: "inset-y", property: "inset-block" },
-    { prefix: "start", property: "inset-inline-start" },
-    { prefix: "end", property: "inset-inline-end" },
+    { prefix: "inset-s", property: "inset-inline-start" },
+    { prefix: "inset-e", property: "inset-inline-end" },
+    { prefix: "inset-bs", property: "inset-block-start" },
+    { prefix: "inset-be", property: "inset-block-end" },
     { prefix: "top", property: "top" },
     { prefix: "right", property: "right" },
     { prefix: "bottom", property: "bottom" },
@@ -201,7 +203,7 @@ To use a negative top/right/bottom/left value, prefix the class name with a dash
 
 ### Using logical properties
 
-Use `start-<number>` or `end-<number>` utilities like `start-0` and `end-4` to set the `inset-inline-start` and `inset-inline-end` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right side based on the text direction:
+Use `inset-s-<number>` or `inset-e-<number>` utilities like `inset-s-0` and `inset-e-4` to set the `inset-inline-start` and `inset-inline-end` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right side based on the text direction:
 
 <Figure>
 
@@ -231,15 +233,15 @@ Use `start-<number>` or `end-<number>` utilities like `start-0` and `end-4` to s
 </Example>
 
 ```html
-<!-- [!code classes:start-0] -->
+<!-- [!code classes:inset-s-0] -->
 <div dir="ltr">
   <div class="relative size-32 ...">
-    <div class="absolute start-0 top-0 size-14 ..."></div>
+    <div class="absolute inset-s-0 top-0 size-14 ..."></div>
   </div>
   <div>
     <div dir="rtl">
       <div class="relative size-32 ...">
-        <div class="absolute start-0 top-0 size-14 ..."></div>
+        <div class="absolute inset-s-0 top-0 size-14 ..."></div>
       </div>
       <div></div>
     </div>
@@ -258,7 +260,7 @@ For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus
 ### Responsive design
 
 <ResponsiveDesign
-  properties={["inset", "inset-x", "inset-y", "start", "end", "top", "left", "bottom", "right"]}
+  properties={["inset", "inset-x", "inset-y", "inset-s", "inset-e", "inset-bs", "inset-be", "top", "left", "bottom", "right"]}
   defaultClass="top-4"
   featuredClass="top-6"
 />
@@ -266,5 +268,5 @@ For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus
 ## Customizing your theme
 
 <CustomizingYourSpacingScale
-  utilities={["inset", "inset-x", "inset-y", "start", "end", "top", "left", "bottom", "right"]}
+  utilities={["inset", "inset-x", "inset-y", "inset-s", "inset-e", "inset-bs", "inset-be", "top", "left", "bottom", "right"]}
 />
