@@ -55,31 +55,27 @@ Use `max-inline-<number>` utilities like `max-inline-24` and `max-inline-64` to 
     <div className="align-start grid gap-4 text-center font-mono text-xs font-bold text-white">
       <div className="relative grid w-full rounded-lg">
         <Stripes border className="absolute inset-0 h-full rounded-lg" />
-        <div className="relative max-inline-96 rounded-lg bg-blue-500 px-4 py-2">max-inline-96</div>
+        <div className="relative rounded-lg bg-blue-500 px-4 py-2 max-inline-96">max-inline-96</div>
       </div>
       <div className="relative grid w-full rounded-lg">
         <Stripes border className="absolute inset-0 h-full rounded-lg" />
-        <div className="relative max-inline-80 rounded-lg bg-blue-500 px-4 py-2">max-inline-80</div>
+        <div className="relative rounded-lg bg-blue-500 px-4 py-2 max-inline-80">max-inline-80</div>
       </div>
       <div className="relative grid w-full rounded-lg">
         <Stripes border className="absolute inset-0 h-full rounded-lg" />
-        <div className="relative max-inline-64 rounded-lg bg-blue-500 px-4 py-2">max-inline-64</div>
+        <div className="relative rounded-lg bg-blue-500 px-4 py-2 max-inline-64">max-inline-64</div>
       </div>
       <div className="relative grid w-full rounded-lg">
         <Stripes border className="absolute inset-0 h-full rounded-lg" />
-        <div className="relative max-inline-48 rounded-lg bg-blue-500 px-4 py-2">max-inline-48</div>
+        <div className="relative rounded-lg bg-blue-500 px-4 py-2 max-inline-48">max-inline-48</div>
       </div>
       <div className="relative grid w-full rounded-lg">
         <Stripes border className="absolute inset-0 h-full rounded-lg" />
-        <div className="relative max-inline-40 rounded-lg bg-blue-500 px-4 py-2">max-inline-40</div>
+        <div className="relative rounded-lg bg-blue-500 px-4 py-2 max-inline-40">max-inline-40</div>
       </div>
       <div className="relative grid w-full rounded-lg">
         <Stripes border className="absolute inset-0 h-full rounded-lg" />
-        <div className="relative max-inline-32 rounded-lg bg-blue-500 px-4 py-2">max-inline-32</div>
-      </div>
-      <div className="relative grid w-full rounded-lg">
-        <Stripes border className="absolute inset-0 h-full rounded-lg" />
-        <div className="relative max-inline-24 rounded-lg bg-blue-500 px-4 py-2">max-inline-24</div>
+        <div className="relative rounded-lg bg-blue-500 px-4 py-2 max-inline-32">max-inline-32</div>
       </div>
     </div>
   }
@@ -93,7 +89,6 @@ Use `max-inline-<number>` utilities like `max-inline-24` and `max-inline-64` to 
 <div class="inline-full max-inline-48 ...">max-inline-48</div>
 <div class="inline-full max-inline-40 ...">max-inline-40</div>
 <div class="inline-full max-inline-32 ...">max-inline-32</div>
-<div class="inline-full max-inline-24 ...">max-inline-24</div>
 ```
 
 </Figure>
@@ -109,19 +104,27 @@ Use `max-inline-full` or `max-inline-<fraction>` utilities like `max-inline-1/2`
     <div className="align-start grid gap-4 text-center font-mono text-xs font-bold text-white">
       <div className="relative grid w-full rounded-lg">
         <Stripes border className="absolute inset-0 h-full rounded-lg" />
-        <div className="relative max-inline-9/10 truncate rounded-lg bg-indigo-500 px-4 py-2 text-nowrap">max-inline-9/10</div>
+        <div className="relative truncate rounded-lg bg-indigo-500 px-4 py-2 text-nowrap max-inline-9/10">
+          max-inline-9/10
+        </div>
       </div>
       <div className="relative grid w-full rounded-lg">
         <Stripes border className="absolute inset-0 h-full rounded-lg" />
-        <div className="relative max-inline-3/4 truncate rounded-lg bg-indigo-500 px-4 py-2 text-nowrap">max-inline-3/4</div>
+        <div className="relative truncate rounded-lg bg-indigo-500 px-4 py-2 text-nowrap max-inline-3/4">
+          max-inline-3/4
+        </div>
       </div>
       <div className="relative grid w-full rounded-lg">
         <Stripes border className="absolute inset-0 h-full rounded-lg" />
-        <div className="relative max-inline-1/2 truncate rounded-lg bg-indigo-500 px-4 py-2 text-nowrap">max-inline-1/2</div>
+        <div className="relative truncate rounded-lg bg-indigo-500 px-4 py-2 text-nowrap max-inline-1/2">
+          max-inline-1/2
+        </div>
       </div>
       <div className="relative grid w-full rounded-lg">
         <Stripes border className="absolute inset-0 h-full rounded-lg" />
-        <div className="relative max-inline-1/3 truncate rounded-lg bg-indigo-500 px-4 py-2 text-nowrap">max-inline-1/3</div>
+        <div className="relative truncate rounded-lg bg-indigo-500 px-4 py-2 text-nowrap max-inline-1/3">
+          max-inline-1/3
+        </div>
       </div>
     </div>
   }
@@ -145,7 +148,7 @@ Use utilities like `max-inline-sm` and `max-inline-xl` to set an element to a fi
 
 <Example resizable>
   {
-    <div className="dark:highlight-white/5 relative mx-auto flex max-inline-md items-center gap-6 overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-black/5 dark:bg-gray-800">
+    <div className="dark:highlight-white/5 relative mx-auto flex items-center gap-6 overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-black/5 max-inline-md dark:bg-gray-800">
       <img
         className="absolute -left-6 h-28 w-28 rounded-full"
         src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"

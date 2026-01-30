@@ -71,14 +71,11 @@ Use `max-block-<number>` utilities like `max-block-24` and `max-block-64` to set
           <div className="absolute bottom-6 w-8 -rotate-90 text-nowrap">max-block-32</div>
         </div>
       </div>
-      <div className="relative grid block-full w-8 items-end rounded-lg">
-        <Stripes border className="absolute inset-0 block-full rounded-lg" />
-        <div className="relative block-full max-block-24 w-full rounded-lg bg-blue-500">
-          <div className="absolute bottom-6 w-8 -rotate-90 text-nowrap">max-block-24</div>
-        </div>
-      </div>
+
     </div>
-  }
+
+}
+
 </Example>
 
 ```html
@@ -89,7 +86,6 @@ Use `max-block-<number>` utilities like `max-block-24` and `max-block-64` to set
   <div class="block-full max-block-48 ...">max-block-48</div>
   <div class="block-full max-block-40 ...">max-block-40</div>
   <div class="block-full max-block-32 ...">max-block-32</div>
-  <div class="block-full max-block-24 ...">max-block-24</div>
 </div>
 ```
 
@@ -103,34 +99,28 @@ Use `max-block-full` or `max-block-<fraction>` utilities like `max-block-1/2` an
 
 <Example>
   {
-    <div className="flex block-96 items-end justify-center space-x-4 text-center font-mono text-xs font-bold text-white">
-      <div className="relative grid block-full w-8 items-end rounded-lg">
-        <Stripes border className="absolute inset-0 block-full rounded-lg" />
-        <div className="relative block-full max-block-9/10 w-full rounded-lg bg-blue-500">
+    <div className="flex items-end justify-center space-x-4 text-center font-mono text-xs font-bold text-white block-96">
+      <div className="relative grid w-8 items-end rounded-lg block-full">
+        <Stripes border className="absolute inset-0 rounded-lg block-full" />
+        <div className="relative w-full rounded-lg bg-blue-500 block-full max-block-9/10">
           <div className="absolute bottom-6 w-8 -rotate-90 text-nowrap">max-block-9/10</div>
         </div>
       </div>
-      <div className="relative grid block-full w-8 items-end rounded-lg">
-        <Stripes border className="absolute inset-0 block-full rounded-lg" />
-        <div className="relative block-full max-block-3/4 w-full rounded-lg bg-blue-500">
+      <div className="relative grid w-8 items-end rounded-lg block-full">
+        <Stripes border className="absolute inset-0 rounded-lg block-full" />
+        <div className="relative w-full rounded-lg bg-blue-500 block-full max-block-3/4">
           <div className="absolute bottom-6 w-8 -rotate-90 text-nowrap">max-block-3/4</div>
         </div>
       </div>
-      <div className="relative grid block-full w-8 items-end rounded-lg">
-        <Stripes border className="absolute inset-0 block-full rounded-lg" />
-        <div className="relative block-full max-block-1/2 w-full rounded-lg bg-blue-500">
+      <div className="relative grid w-8 items-end rounded-lg block-full">
+        <Stripes border className="absolute inset-0 rounded-lg block-full" />
+        <div className="relative w-full rounded-lg bg-blue-500 block-full max-block-1/2">
           <div className="absolute bottom-6 w-8 -rotate-90 text-nowrap">max-block-1/2</div>
         </div>
       </div>
-      <div className="relative grid block-full w-8 items-end rounded-lg">
-        <Stripes border className="absolute inset-0 block-full rounded-lg" />
-        <div className="relative block-full max-block-1/4 w-full rounded-lg bg-blue-500">
-          <div className="absolute bottom-6 w-8 -rotate-90 text-nowrap">max-block-1/4</div>
-        </div>
-      </div>
-      <div className="relative grid block-full w-8 items-end rounded-lg">
-        <Stripes border className="absolute inset-0 block-full rounded-lg" />
-        <div className="relative block-full max-block-full w-full rounded-lg bg-blue-500">
+      <div className="relative grid w-8 items-end rounded-lg block-full">
+        <Stripes border className="absolute inset-0 rounded-lg block-full" />
+        <div className="relative w-full rounded-lg bg-blue-500 block-full max-block-full">
           <div className="absolute bottom-6 w-8 -rotate-90 text-nowrap">max-block-full</div>
         </div>
       </div>
@@ -144,7 +134,6 @@ Use `max-block-full` or `max-block-<fraction>` utilities like `max-block-1/2` an
   <div class="block-full max-block-9/10 ...">max-block-9/10</div>
   <div class="block-full max-block-3/4 ...">max-block-3/4</div>
   <div class="block-full max-block-1/2 ...">max-block-1/2</div>
-  <div class="block-full max-block-1/4 ...">max-block-1/4</div>
   <div class="block-full max-block-full ...">max-block-full</div>
 </div>
 ```
