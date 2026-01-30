@@ -21,6 +21,8 @@ export const description = "Utilities for controlling the color of an element's 
       ["border-y", (value) => `border-block-color: ${value}`],
       ["border-s", (value) => `border-inline-start-color: ${value}`],
       ["border-e", (value) => `border-inline-end-color: ${value}`],
+      ["border-bs", (value) => `border-block-start-color: ${value}`],
+      ["border-be", (value) => `border-block-end-color: ${value}`],
       ["border-t", (value) => `border-top-color: ${value}`],
       ["border-r", (value) => `border-right-color: ${value}`],
       ["border-b", (value) => `border-bottom-color: ${value}`],
@@ -238,6 +240,13 @@ Use utilities like `border-s-indigo-500` and `border-e-lime-100` to set the `bor
 ```
 
 </Figure>
+
+Use the `border-bs-*` and `border-be-*` utilities to set the `border-block-start-color` and `border-block-end-color` logical properties, which map to either the top or bottom border based on the writing mode:
+
+```html
+<!-- [!code classes:border-bs-indigo-500] -->
+<div class="border-bs-indigo-500 ..."></div>
+```
 
 ### Divider between children
 
