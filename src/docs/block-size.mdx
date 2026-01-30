@@ -41,13 +41,27 @@ Use `block-<number>` utilities like `block-24` and `block-64` to set an element 
 <Example>
   {
     <div className="flex items-end justify-center space-x-4 font-mono text-xs font-bold text-white">
-      <div className="flex block-96 w-8 items-end justify-center rounded-lg bg-blue-500 pb-4 [writing-mode:sideways-lr]">block-96</div>
-      <div className="flex block-80 w-8 items-end justify-center rounded-lg bg-blue-500 pb-4 [writing-mode:sideways-lr]">block-80</div>
-      <div className="flex block-64 w-8 items-end justify-center rounded-lg bg-blue-500 pb-4 [writing-mode:sideways-lr]">block-64</div>
-      <div className="flex block-48 w-8 items-end justify-center rounded-lg bg-blue-500 pb-4 [writing-mode:sideways-lr]">block-48</div>
-      <div className="flex block-40 w-8 items-end justify-center rounded-lg bg-blue-500 pb-4 [writing-mode:sideways-lr]">block-40</div>
-      <div className="flex block-32 w-8 items-end justify-center rounded-lg bg-blue-500 pb-4 [writing-mode:sideways-lr]">block-32</div>
-      <div className="flex block-24 w-8 items-end justify-center rounded-lg bg-blue-500 pb-4 [writing-mode:sideways-lr]">block-24</div>
+      <div className="relative flex block-96 w-8 items-end justify-center rounded-lg bg-blue-500">
+        <div className="mb-4 -rotate-90 text-left text-nowrap">block-96</div>
+      </div>
+      <div className="relative flex block-80 w-8 items-end justify-center rounded-lg bg-blue-500">
+        <div className="mb-4 -rotate-90 text-left text-nowrap">block-80</div>
+      </div>
+      <div className="relative flex block-64 w-8 items-end justify-center rounded-lg bg-blue-500">
+        <div className="mb-4 -rotate-90 text-left text-nowrap">block-64</div>
+      </div>
+      <div className="relative flex block-48 w-8 items-end justify-center rounded-lg bg-blue-500">
+        <div className="mb-4 -rotate-90 text-left text-nowrap">block-48</div>
+      </div>
+      <div className="relative flex block-40 w-8 items-end justify-center rounded-lg bg-blue-500">
+        <div className="mb-4 -rotate-90 text-left text-nowrap">block-40</div>
+      </div>
+      <div className="relative flex block-32 w-8 items-end justify-center rounded-lg bg-blue-500">
+        <div className="mb-4 -rotate-90 text-left text-nowrap">block-32</div>
+      </div>
+      <div className="relative flex block-24 w-8 items-end justify-center rounded-lg bg-blue-500">
+        <div className="mb-4 -rotate-90 text-left text-nowrap">block-24</div>
+      </div>
     </div>
   }
 </Example>
@@ -76,23 +90,33 @@ Use `block-full` or `block-<fraction>` utilities like `block-1/2` and `block-2/5
     <div className="flex block-96 items-end justify-center space-x-4 font-mono text-xs font-bold text-white">
       <div className="relative flex block-full items-end">
         <Stripes border className="absolute inset-0 block-full rounded-lg" />
-        <div className="relative flex block-full w-8 items-end justify-center rounded-lg bg-sky-500 pb-6 [writing-mode:sideways-lr]">block-full</div>
+        <div className="relative flex block-full w-8 items-end justify-center rounded-lg bg-sky-500">
+          <div className="mb-6 -rotate-90 text-left text-nowrap">block-full</div>
+        </div>
       </div>
       <div className="relative flex block-full items-end">
         <Stripes border className="absolute inset-0 block-full rounded-lg" />
-        <div className="relative flex block-9/10 w-8 items-end justify-center rounded-lg bg-sky-500 pb-6 [writing-mode:sideways-lr]">block-9/10</div>
+        <div className="relative flex block-9/10 w-8 items-end justify-center rounded-lg bg-sky-500">
+          <div className="mb-6 -rotate-90 text-left text-nowrap">block-9/10</div>
+        </div>
       </div>
       <div className="relative flex block-full items-end">
         <Stripes border className="absolute inset-0 block-full rounded-lg" />
-        <div className="relative flex block-3/4 w-8 items-end justify-center rounded-lg bg-sky-500 pb-6 [writing-mode:sideways-lr]">block-3/4</div>
+        <div className="relative flex block-3/4 w-8 items-end justify-center rounded-lg bg-sky-500">
+          <div className="mb-6 -rotate-90 text-left text-nowrap">block-3/4</div>
+        </div>
       </div>
       <div className="relative flex block-full items-end">
         <Stripes border className="absolute inset-0 block-full rounded-lg" />
-        <div className="relative flex block-1/2 w-8 items-end justify-center rounded-lg bg-sky-500 pb-6 [writing-mode:sideways-lr]">block-1/2</div>
+        <div className="relative flex block-1/2 w-8 items-end justify-center rounded-lg bg-sky-500">
+          <div className="mb-6 -rotate-90 text-left text-nowrap">block-1/2</div>
+        </div>
       </div>
       <div className="relative flex block-full items-end">
         <Stripes border className="absolute inset-0 block-full rounded-lg" />
-        <div className="relative flex block-1/3 w-8 items-end justify-center rounded-lg bg-sky-500 pb-6 [writing-mode:sideways-lr]">block-1/3</div>
+        <div className="relative flex block-1/3 w-8 items-end justify-center rounded-lg bg-sky-500">
+          <div className="mb-6 -rotate-90 text-left text-nowrap">block-1/3</div>
+        </div>
       </div>
     </div>
   }

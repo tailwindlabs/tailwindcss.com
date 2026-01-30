@@ -43,13 +43,27 @@ Use `min-block-<number>` utilities like `min-block-24` and `min-block-64` to set
     <div className="mx-auto flex justify-center">
       <div className="relative flex items-end space-x-4 font-mono text-xs font-bold text-white">
         <Stripes border className="absolute -inset-x-[5%] block-20 w-[110%] rounded-lg" />
-        <div className="relative flex min-block-96 w-8 items-end justify-center rounded-lg bg-blue-500 pb-8 [writing-mode:sideways-lr]">min-block-96</div>
-        <div className="relative flex min-block-80 w-8 items-end justify-center rounded-lg bg-blue-500 pb-8 [writing-mode:sideways-lr]">min-block-80</div>
-        <div className="relative flex min-block-64 w-8 items-end justify-center rounded-lg bg-blue-500 pb-8 [writing-mode:sideways-lr]">min-block-64</div>
-        <div className="relative flex min-block-48 w-8 items-end justify-center rounded-lg bg-blue-500 pb-8 [writing-mode:sideways-lr]">min-block-48</div>
-        <div className="relative flex min-block-40 w-8 items-end justify-center rounded-lg bg-blue-500 pb-8 [writing-mode:sideways-lr]">min-block-40</div>
-        <div className="relative flex min-block-32 w-8 items-end justify-center rounded-lg bg-blue-500 pb-8 [writing-mode:sideways-lr]">min-block-32</div>
-        <div className="relative flex min-block-24 w-8 items-end justify-center rounded-lg bg-blue-500 pb-8 [writing-mode:sideways-lr]">min-block-24</div>
+        <div className="relative flex block-96 w-8 items-end justify-center rounded-lg bg-blue-500">
+          <div className="mb-8 -rotate-90 text-left text-nowrap">min-block-96</div>
+        </div>
+        <div className="relative flex block-80 w-8 items-end justify-center rounded-lg bg-blue-500">
+          <div className="mb-8 -rotate-90 text-left text-nowrap">min-block-80</div>
+        </div>
+        <div className="relative flex block-64 w-8 items-end justify-center rounded-lg bg-blue-500">
+          <div className="mb-8 -rotate-90 text-left text-nowrap">min-block-64</div>
+        </div>
+        <div className="relative flex block-48 w-8 items-end justify-center rounded-lg bg-blue-500">
+          <div className="mb-8 -rotate-90 text-left text-nowrap">min-block-48</div>
+        </div>
+        <div className="relative flex block-40 w-8 items-end justify-center rounded-lg bg-blue-500">
+          <div className="mb-8 -rotate-90 text-left text-nowrap">min-block-40</div>
+        </div>
+        <div className="relative flex block-32 w-8 items-end justify-center rounded-lg bg-blue-500">
+          <div className="mb-8 -rotate-90 text-left text-nowrap">min-block-32</div>
+        </div>
+        <div className="relative flex block-24 w-8 items-end justify-center rounded-lg bg-blue-500">
+          <div className="mb-8 -rotate-90 text-left text-nowrap">min-block-24</div>
+        </div>
       </div>
     </div>
   }
@@ -80,23 +94,33 @@ Use `min-block-full` or `min-block-<fraction>` utilities like `min-block-1/2`, a
     <div className="flex block-96 items-end justify-center space-x-4 font-mono text-xs font-bold text-white">
       <div className="relative flex block-full items-end">
         <Stripes border className="absolute inset-0 block-full rounded-lg" />
-        <div className="relative flex min-block-full w-8 items-end justify-center rounded-lg bg-sky-500 pb-10 [writing-mode:sideways-lr]">min-block-full</div>
+        <div className="relative flex min-block-full w-8 items-end justify-center rounded-lg bg-sky-500">
+          <div className="mb-10 -rotate-90 text-left text-nowrap">min-block-full</div>
+        </div>
       </div>
       <div className="relative flex block-full items-end">
         <Stripes border className="absolute inset-0 block-full rounded-lg" />
-        <div className="relative flex min-block-9/10 w-8 items-end justify-center rounded-lg bg-sky-500 pb-10 [writing-mode:sideways-lr]">min-block-9/10</div>
+        <div className="relative flex min-block-9/10 w-8 items-end justify-center rounded-lg bg-sky-500">
+          <div className="mb-10 -rotate-90 text-left text-nowrap">min-block-9/10</div>
+        </div>
       </div>
       <div className="relative flex block-full items-end">
         <Stripes border className="absolute inset-0 block-full rounded-lg" />
-        <div className="relative flex min-block-3/4 w-8 items-end justify-center rounded-lg bg-sky-500 pb-10 [writing-mode:sideways-lr]">min-block-3/4</div>
+        <div className="relative flex min-block-3/4 w-8 items-end justify-center rounded-lg bg-sky-500">
+          <div className="mb-10 -rotate-90 text-left text-nowrap">min-block-3/4</div>
+        </div>
       </div>
       <div className="relative flex block-full items-end">
         <Stripes border className="absolute inset-0 block-full rounded-lg" />
-        <div className="relative flex min-block-1/2 w-8 items-end justify-center rounded-lg bg-sky-500 pb-10 [writing-mode:sideways-lr]">min-block-1/2</div>
+        <div className="relative flex min-block-1/2 w-8 items-end justify-center rounded-lg bg-sky-500">
+          <div className="mb-10 -rotate-90 text-left text-nowrap">min-block-1/2</div>
+        </div>
       </div>
       <div className="relative flex block-full items-end">
         <Stripes border className="absolute inset-0 block-full rounded-lg" />
-        <div className="relative flex min-block-1/3 w-8 items-end justify-center rounded-lg bg-sky-500 pb-10 [writing-mode:sideways-lr]">min-block-1/3</div>
+        <div className="relative flex min-block-1/3 w-8 items-end justify-center rounded-lg bg-sky-500">
+          <div className="mb-10 -rotate-90 text-left text-nowrap">min-block-1/3</div>
+        </div>
       </div>
     </div>
   }
