@@ -14,6 +14,8 @@ export const description = "Utilities for controlling an element's scroll offset
     ["scroll-py", "scroll-padding-block"],
     ["scroll-ps", "scroll-padding-inline-start"],
     ["scroll-pe", "scroll-padding-inline-end"],
+    ["scroll-pbs", "scroll-padding-block-start"],
+    ["scroll-pbe", "scroll-padding-block-end"],
     ["scroll-pt", "scroll-padding-top"],
     ["scroll-pr", "scroll-padding-right"],
     ["scroll-pb", "scroll-padding-bottom"],
@@ -201,6 +203,15 @@ Use the `scroll-ps-<number>` and `scroll-pe-<number>` utilities to set the `scro
 
 </Figure>
 
+Use the `scroll-pbs-<number>` and `scroll-pbe-<number>` utilities to set the `scroll-padding-block-start` and `scroll-padding-block-end` logical properties, which map to either the top or bottom side based on the writing mode:
+
+```html
+<!-- [!code classes:scroll-pbs-6] -->
+<div class="snap-y scroll-pbs-6 ...">
+  <!-- ... -->
+</div>
+```
+
 ### Using negative values
 
 To use a negative scroll padding value, prefix the class name with a dash to convert it to a negative value:
@@ -234,6 +245,8 @@ To use a negative scroll padding value, prefix the class name with a dash to con
     "scroll-py",
     "scroll-ps",
     "scroll-pe",
+    "scroll-pbs",
+    "scroll-pbe",
     "scroll-pt",
     "scroll-pr",
     "scroll-pb",

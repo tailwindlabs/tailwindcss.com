@@ -29,6 +29,14 @@ export const description = "Utilities for controlling the width of an element's 
     ["border-e-<number>", "border-inline-end-width: <number>px;"],
     ["border-e-(length:<custom-property>)", "border-inline-end-width: var(<custom-property>);"],
     ["border-e-[<value>]", "border-inline-end-width: <value>;"],
+    ["border-bs", "border-block-start-width: 1px;"],
+    ["border-bs-<number>", "border-block-start-width: <number>px;"],
+    ["border-bs-(length:<custom-property>)", "border-block-start-width: var(<custom-property>);"],
+    ["border-bs-[<value>]", "border-block-start-width: <value>;"],
+    ["border-be", "border-block-end-width: 1px;"],
+    ["border-be-<number>", "border-block-end-width: <number>px;"],
+    ["border-be-(length:<custom-property>)", "border-block-end-width: var(<custom-property>);"],
+    ["border-be-[<value>]", "border-block-end-width: <value>;"],
     ["border-t", "border-top-width: 1px;"],
     ["border-t-<number>", "border-top-width: <number>px;"],
     ["border-t-(length:<custom-property>)", "border-top-width: var(<custom-property>);"],
@@ -265,6 +273,13 @@ Use utilities like `border-s` and `border-e-4` to set the `border-inline-start-w
 ```
 
 </Figure>
+
+Use the `border-bs-<number>` and `border-be-<number>` utilities to set the `border-block-start-width` and `border-block-end-width` logical properties, which map to either the top or bottom border based on the writing mode:
+
+```html
+<!-- [!code classes:border-bs-4] -->
+<div class="border-bs-4 ..."></div>
+```
 
 ### Between children
 

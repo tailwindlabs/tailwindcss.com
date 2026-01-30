@@ -16,6 +16,8 @@ export const description = "Utilities for controlling an element's margin.";
       ["my", "margin-block"],
       ["ms", "margin-inline-start"],
       ["me", "margin-inline-end"],
+      ["mbs", "margin-block-start"],
+      ["mbe", "margin-block-end"],
       ["mt", "margin-top"],
       ["mr", "margin-right"],
       ["mb", "margin-bottom"],
@@ -303,6 +305,13 @@ Use `ms-<number>` or `me-<number>` utilities like `ms-4` and `me-8` to set the `
 
 </Figure>
 
+Use the `mbs-<number>` and `mbe-<number>` utilities to set the `margin-block-start` and `margin-block-end` logical properties, which map to either the top or bottom side based on the writing mode:
+
+```html
+<!-- [!code classes:mbs-8] -->
+<div class="mbs-8 ...">mbs-8</div>
+```
+
 ### Adding space between children
 
 Use `space-x-<number>` or `space-y-<number>` utilities like `space-x-4` and `space-y-8` to control the space between elements:
@@ -385,4 +394,4 @@ Additionally, the space utilities are not designed to work together with the [di
 
 ## Customizing your theme
 
-<CustomizingYourSpacingScale utilities={["m", "mx", "my", "ms", "me", "mt", "mr", "mb", "ml"]} />
+<CustomizingYourSpacingScale utilities={["m", "mx", "my", "ms", "me", "mbs", "mbe", "mt", "mr", "mb", "ml"]} />
