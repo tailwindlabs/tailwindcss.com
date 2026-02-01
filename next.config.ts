@@ -458,8 +458,6 @@ const nextConfig = {
         permanent: false,
       },
 
-      // External Links
-      { source: "/discord", destination: "https://discord.gg/7NF8GNe", permanent: false },
     ];
   },
   async rewrites() {
