@@ -53,11 +53,11 @@ export default async function Showcase() {
 const showcase = [
   // Partners
   {
-    name: "Fin",
-    url: "http://fin.ai/?utm_source=tailwind&utm_medium=mindshare&utm_campaign=20260109-ungated-webpage-finlogo",
-    thumbnail: require("./img/fin.ai.png").default,
-    video: "/showcase-videos/fin.ai.mp4",
-    description: "SaaS application website",
+    name: "Railway",
+    url: "https://railway.com/?utm_medium=sponsor&utm_source=oss&utm_campaign=tailwind",
+    thumbnail: require("./img/railway.com.png").default,
+    video: "/showcase-videos/railway.com.mp4",
+    description: "Hosting platform website",
   },
   {
     name: "v0",
@@ -65,6 +65,27 @@ const showcase = [
     thumbnail: require("./img/v0.app.png").default,
     video: "/showcase-videos/v0.app.mp4",
     description: "Developer tool website",
+  },
+  {
+    name: "Fin",
+    url: "http://fin.ai/?utm_source=tailwind&utm_medium=mindshare&utm_campaign=20260109-ungated-webpage-finlogo",
+    thumbnail: require("./img/fin.ai.png").default,
+    video: "/showcase-videos/fin.ai.mp4",
+    description: "SaaS application website",
+  },
+  {
+    name: "Lovable",
+    url: "https://lovable.dev/?utm_source=tailwindcss",
+    thumbnail: require("./img/lovable.dev.png").default,
+    video: "/showcase-videos/lovable.dev.mp4",
+    description: "Developer tool website",
+  },
+  {
+    name: "Open",
+    url: "https://www.open.cx/?utm_source=tailwindcss",
+    thumbnail: require("./img/open.cx.png").default,
+    video: "/showcase-videos/open.cx.mp4",
+    description: "SaaS application website",
   },
   {
     name: "Vercel",
@@ -79,13 +100,6 @@ const showcase = [
     thumbnail: require("./img/supabase.com.png").default,
     video: "/showcase-videos/supabase.com.mp4",
     description: "Hosting platform website",
-  },
-  {
-    name: "Lovable",
-    url: "https://lovable.dev/?utm_source=tailwindcss",
-    thumbnail: require("./img/lovable.dev.png").default,
-    video: "/showcase-videos/lovable.dev.mp4",
-    description: "Developer tool website",
   },
   {
     name: "Mintlify",
