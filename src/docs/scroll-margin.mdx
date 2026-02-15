@@ -14,6 +14,8 @@ export const description = "Utilities for controlling the scroll offset around i
     ["scroll-my", "scroll-margin-block"],
     ["scroll-ms", "scroll-margin-inline-start"],
     ["scroll-me", "scroll-margin-inline-end"],
+    ["scroll-mbs", "scroll-margin-block-start"],
+    ["scroll-mbe", "scroll-margin-block-end"],
     ["scroll-mt", "scroll-margin-top"],
     ["scroll-mr", "scroll-margin-right"],
     ["scroll-mb", "scroll-margin-bottom"],
@@ -228,6 +230,17 @@ Use the `scroll-ms-<number>` and `scroll-me-<number>` utilities to set the `scro
 
 For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus-and-other-states#rtl-support) to conditionally apply specific styles depending on the current text direction.
 
+Use the `scroll-mbs-<number>` and `scroll-mbe-<number>` utilities to set the `scroll-margin-block-start` and `scroll-margin-block-end` logical properties, which map to either the top or bottom side based on the writing mode:
+
+```html
+<!-- [!code classes:scroll-mbs-6] -->
+<div class="snap-y ...">
+  <div class="snap-start scroll-mbs-6 ...">
+    <!-- ... -->
+  </div>
+</div>
+```
+
 ### Using a custom value
 
 <UsingACustomValue utilities={["scroll-ml", "scroll-me"]} value="24rem" name="scroll margin" variable="scroll-margin" />
@@ -245,6 +258,8 @@ For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus
     "scroll-my",
     "scroll-ms",
     "scroll-me",
+    "scroll-mbs",
+    "scroll-mbe",
     "scroll-mt",
     "scroll-mr",
     "scroll-mb",
