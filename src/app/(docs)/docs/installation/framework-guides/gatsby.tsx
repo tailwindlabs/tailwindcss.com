@@ -1,4 +1,4 @@
-import { astro, css, js, Page, shell, Step, Tile } from "./utils";
+import { css, js, Page, shell, Step, Tab, Tile } from "./utils";
 import Logo from "@/docs/img/guides/gatsby.react.svg";
 
 export let tile: Tile = {
@@ -12,12 +12,23 @@ export let page: Page = {
   description: "Setting up Tailwind CSS in a Gatsby project.",
 };
 
+export let tabs: Tab[] = [
+  {
+    slug: "postcss",
+    title: "Using PostCSS",
+  },
+  {
+    slug: "webpack",
+    title: "Using webpack",
+  },
+];
+
 export let steps: Step[] = [
   {
     title: "Create your project",
     body: (
       <p>
-        Start by creating a new Gatsby project if you don’t have one set up already. The most common approach is to use{" "}
+        Start by creating a new Gatsby project if you don't have one set up already. The most common approach is to use{" "}
         <a href="https://www.gatsbyjs.com/docs/reference/gatsby-cli/#how-to-use-gatsby-cli">Gatsby CLI</a>.
       </p>
     ),
@@ -31,6 +42,7 @@ export let steps: Step[] = [
     },
   },
   {
+    tabs: ["postcss"],
     title: "Install Tailwind CSS",
     body: (
       <p>
@@ -47,6 +59,23 @@ export let steps: Step[] = [
     },
   },
   {
+    tabs: ["webpack"],
+    title: "Install Tailwind CSS",
+    body: (
+      <p>
+        Install <code>@tailwindcss/webpack</code> and its peer dependencies via npm.
+      </p>
+    ),
+    code: {
+      name: "Terminal",
+      lang: "shell",
+      code: shell`
+        npm install tailwindcss @tailwindcss/webpack
+      `,
+    },
+  },
+  {
+    tabs: ["postcss"],
     title: "Enable the Gatsby PostCSS plugin",
     body: (
       <p>
@@ -70,6 +99,7 @@ export let steps: Step[] = [
     },
   },
   {
+    tabs: ["postcss"],
     title: "Configure PostCSS Plugins",
     body: (
       <p>
@@ -87,6 +117,31 @@ export let steps: Step[] = [
             "@tailwindcss/postcss": {},
           },
         };
+      `,
+    },
+  },
+  {
+    tabs: ["webpack"],
+    title: "Configure the webpack loader",
+    body: (
+      <p>
+        Create a <code>gatsby-node.js</code> file in the root of your project (or add to the existing one) and
+        configure the <code>@tailwindcss/webpack</code> loader.
+      </p>
+    ),
+    code: {
+      name: "gatsby-node.js",
+      lang: "js",
+      code: js`
+        exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
+          const config = getConfig()
+          config.module.rules.push({
+            test: /\.css$/i,
+            // [!code highlight:2]
+            use: ['@tailwindcss/webpack'],
+          })
+          actions.replaceWebpackConfig(config)
+        }
       `,
     },
   },
@@ -109,7 +164,7 @@ export let steps: Step[] = [
     title: "Import the CSS file",
     body: (
       <p>
-        Create a <code>gatsby-browser.js</code> file at the root of your project if it doesn’t already exist, and import
+        Create a <code>gatsby-browser.js</code> file at the root of your project if it doesn't already exist, and import
         your newly-created <code>./src/styles/global.css</code> file.
       </p>
     ),
@@ -138,7 +193,7 @@ export let steps: Step[] = [
   },
   {
     title: "Start using Tailwind in your project",
-    body: <p>Start using Tailwind’s utility classes to style your content.</p>,
+    body: <p>Start using Tailwind's utility classes to style your content.</p>,
     code: {
       name: "index.js",
       lang: "js",

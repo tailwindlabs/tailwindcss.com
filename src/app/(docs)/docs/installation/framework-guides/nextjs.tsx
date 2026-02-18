@@ -1,4 +1,4 @@
-import { css, js, shell, Page, Step, Tile } from "./utils";
+import { css, js, shell, Page, Step, Tab, Tile } from "./utils";
 import Logo from "@/docs/img/guides/nextjs.react.svg";
 import LogoDark from "@/docs/img/guides/nextjs-white.react.svg";
 
@@ -14,12 +14,23 @@ export let page: Page = {
   description: "Setting up Tailwind CSS in a Next.js project.",
 };
 
+export let tabs: Tab[] = [
+  {
+    slug: "postcss",
+    title: "Using PostCSS",
+  },
+  {
+    slug: "webpack",
+    title: "Using webpack",
+  },
+];
+
 export let steps: Step[] = [
   {
     title: "Create your project",
     body: (
       <p>
-        Start by creating a new Next.js project if you don’t have one set up already. The most common approach is to use{" "}
+        Start by creating a new Next.js project if you don't have one set up already. The most common approach is to use{" "}
         <a href="https://nextjs.org/docs/api-reference/create-next-app">Create Next App</a>.
       </p>
     ),
@@ -33,6 +44,7 @@ export let steps: Step[] = [
     },
   },
   {
+    tabs: ["postcss"],
     title: "Install Tailwind CSS",
     body: (
       <p>
@@ -48,6 +60,23 @@ export let steps: Step[] = [
     },
   },
   {
+    tabs: ["webpack"],
+    title: "Install Tailwind CSS",
+    body: (
+      <p>
+        Install <code>@tailwindcss/webpack</code> via npm.
+      </p>
+    ),
+    code: {
+      name: "Terminal",
+      lang: "shell",
+      code: shell`
+        npm install tailwindcss @tailwindcss/webpack
+      `,
+    },
+  },
+  {
+    tabs: ["postcss"],
     title: "Configure PostCSS Plugins",
     body: (
       <p>
@@ -67,6 +96,34 @@ export let steps: Step[] = [
         };
 
         export default config;
+      `,
+    },
+  },
+  {
+    tabs: ["webpack"],
+    title: "Configure the webpack loader",
+    body: (
+      <p>
+        Add the <code>@tailwindcss/webpack</code> loader to your <code>next.config.mjs</code> file.
+      </p>
+    ),
+    code: {
+      name: "next.config.mjs",
+      lang: "js",
+      code: js`
+        /** @type {import('next').NextConfig} */
+        const nextConfig = {
+          // [!code highlight:9]
+          webpack(config) {
+            config.module.rules.push({
+              test: /\.css$/i,
+              use: ['@tailwindcss/webpack'],
+            })
+            return config
+          },
+        }
+
+        export default nextConfig
       `,
     },
   },
@@ -102,7 +159,7 @@ export let steps: Step[] = [
   },
   {
     title: "Start using Tailwind in your project",
-    body: <p>Start using Tailwind’s utility classes to style your content.</p>,
+    body: <p>Start using Tailwind's utility classes to style your content.</p>,
     code: {
       name: "page.tsx",
       lang: "jsx",
