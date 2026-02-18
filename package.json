@@ -42,7 +42,7 @@
     "eslint-config-next": "16.1.6",
     "hast-util-to-jsx-runtime": "^2.3.6",
     "prettier-plugin-svelte": "^3.4.0",
-    "prettier-plugin-tailwindcss": "0.6.13",
+    "prettier-plugin-tailwindcss": "0.7.2",
     "typescript": "^5.8.3"
   },
   "prettier": {
