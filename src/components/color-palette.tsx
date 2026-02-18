@@ -25,7 +25,23 @@ for (let line of styles.split("\n")) {
   }
 }
 
+let grayHueOrder = ["slate", "gray", "zinc", "neutral", "stone", "taupe", "mauve", "mist", "olive"];
+
 export function ColorPalette() {
+  let colorEntries = Object.entries(colors);
+  let colorEntryIndex = new Map(colorEntries.map(([name], index) => [name, index]));
+
+  let sortedColors = [...colorEntries].sort(([a], [b]) => {
+    let aGrayIndex = grayHueOrder.indexOf(a);
+    let bGrayIndex = grayHueOrder.indexOf(b);
+
+    if (aGrayIndex !== -1 && bGrayIndex !== -1) {
+      return aGrayIndex - bGrayIndex;
+    }
+
+    return (colorEntryIndex.get(a) ?? 0) - (colorEntryIndex.get(b) ?? 0);
+  });
+
   return (
     <>
       <SharedTooltip
@@ -51,7 +67,7 @@ export function ColorPalette() {
           <div>900</div>
           <div>950</div>
         </div>
-        {Object.entries(colors).map(([key, shades]) => (
+        {sortedColors.map(([key, shades]) => (
           <React.Fragment key={key}>
             <p className="font-medium text-gray-950 capitalize sm:pr-12 dark:text-white">{key}</p>
             <div className="grid grid-cols-11 gap-1.5 sm:gap-4">
