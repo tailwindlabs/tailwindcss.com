@@ -16,12 +16,12 @@ export let page: Page = {
 
 export let tabs: Tab[] = [
   {
-    slug: "postcss",
-    title: "Using PostCSS",
-  },
-  {
     slug: "webpack",
     title: "Using webpack",
+  },
+  {
+    slug: "postcss",
+    title: "Using PostCSS",
   },
 ];
 
