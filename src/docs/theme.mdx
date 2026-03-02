@@ -407,6 +407,37 @@ When you do this, all of the default utilities that use that namespace _(like `b
 
 Learn more about how theme variables map to different utility classes and variants in the [theme variable namespaces](#theme-variable-namespaces) documentation.
 
+### Overriding the default values
+
+There are several variables that allow to define a global default for a small set of values, bypassing the need to use a utility class for the corresponding properties:
+
+- `--default-font-family`
+- `--default-mono-font-family`
+- `--default-transition-duration`
+- `--default-transition-timing-function`
+
+For example, to customize the default `font-family`, simply set the `--default-font-family` variable:
+
+```css
+/* [!code filename:app.css] */
+@import "tailwindcss";
+
+@theme {
+  --font-poppins: Poppins, sans-serif;
+  /* [!code highlight:2] */
+  --default-font-family: var(--font-poppins, initial);
+}
+```
+
+No need for a font-family utility class anymore:
+
+```html
+<!-- [!code filename:HTML] -->
+<h1 className="...">This headline will use Poppins.</h1>
+```
+
+Learn more about default theme variables in the [default theme variable reference](#default-theme-variable-reference) documentation.
+
 ### Using a custom theme
 
 To completely disable the default theme and use only custom values, set the global theme variable namespace to `initial`:
@@ -659,6 +690,13 @@ For reference, here's a complete list of the theme variables included by default
   --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --default-font-family: --theme(--font-sans, initial);
+  --default-font-feature-settings: --theme(--font-sans--font-feature-settings, initial);
+  --default-font-variation-settings: --theme(--font-sans--font-variation-settings, initial);
+  --default-mono-font-family: --theme(--font-mono, initial);
+  --default-mono-font-feature-settings: --theme(--font-mono--font-feature-settings, initial);
+  --default-mono-font-variation-settings: --theme(--font-mono--font-variation-settings, initial);
 
   --color-red-50: oklch(97.1% 0.013 17.38);
   --color-red-100: oklch(93.6% 0.032 17.717);
@@ -1105,6 +1143,9 @@ For reference, here's a complete list of the theme variables included by default
   --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
   --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animate-bounce: bounce 1s infinite;
+
+  --default-transition-duration: 150ms;
+  --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   @keyframes spin {
     to {
