@@ -29,7 +29,7 @@ Use `transform-3d` to position children in 3D space:
           transform-flat
         </p>
         <div className="size-40 p-10">
-          <div className="size-20 rotate-[0.75_1_0.75_45deg] transform-flat *:backface-visible">
+          <div className="size-20 rotate-[0.75_1_0.75_45deg] transform-flat *:backface-visible relative">
             <div className="absolute inset-0 translate-z-12 rotate-x-0 bg-sky-300/75 text-center text-4xl leading-20 font-bold text-sky-900 dark:bg-sky-400/85 dark:text-white">
               1
             </div>
@@ -54,7 +54,7 @@ Use `transform-3d` to position children in 3D space:
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">transform-3d</p>
         <div className="size-40 p-10">
-          <div className="size-20 rotate-[0.75_1_0.75_45deg] transform-3d *:backface-visible">
+          <div className="size-20 rotate-[0.75_1_0.75_45deg] transform-3d *:backface-visible relative">
             <div className="absolute inset-0 translate-z-12 rotate-x-0 bg-sky-300/75 text-center text-4xl leading-20 font-bold text-sky-900 dark:bg-sky-400/85 dark:text-white">
               1
             </div>
