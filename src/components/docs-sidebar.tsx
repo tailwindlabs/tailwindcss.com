@@ -140,7 +140,7 @@ function TopNav() {
         </TopNavLink>
       </li>
       <li className="flex items-center gap-3">
-        <TopNavLink href="/sponsor#insiders">
+        <TopNavLink href="/insiders">
           <svg viewBox="0 0 16 16" fill="none">
             <path
               data-outline
