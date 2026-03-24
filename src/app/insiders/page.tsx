@@ -285,6 +285,52 @@ function Faq({ question, children }: { question: string; children: React.ReactNo
   );
 }
 
+function BecomeAnInsider() {
+  return (
+    <div className="line-y mt-24 grid grid-cols-1 gap-10 lg:grid-cols-3 xl:grid-cols-5">
+      <div className="border-r border-gray-950/5 px-4 py-2 sm:px-2 lg:col-span-2 xl:col-span-3 dark:border-white/10">
+        <Eyebrow as="h2" color="sky">
+          Insiders
+        </Eyebrow>
+        <p className="max-w-3xl text-3xl font-medium tracking-tight text-pretty md:text-[2.5rem]/14">
+          Become a Tailwind Insider
+        </p>
+        <p className="mt-4 max-w-2xl text-base/7 text-gray-600 dark:text-gray-400">
+          Join a community of enthusiasts who get early access to new features, insider perks, and direct connection
+          with the team — all while supporting the project you love.
+        </p>
+      </div>
+      <div className="grid grid-cols-1 gap-2 bg-gray-950/5 py-[calc(--spacing(2)+1px)] max-xl:-mx-px max-xl:px-[calc(--spacing(2)+1px)] xl:col-span-2 xl:-mr-px xl:border-l xl:border-gray-950/5 xl:pr-[calc(--spacing(2)+1px)] xl:pl-2 dark:bg-white/10 dark:xl:border-white/10">
+        <div className="@container rounded-2xl bg-white p-6 sm:rounded-4xl sm:p-10 dark:bg-gray-950/80 dark:outline dark:outline-white/10">
+          <p className="font-mono text-[0.8125rem]/6 font-medium tracking-widest text-pretty text-gray-600 uppercase dark:text-gray-400">
+            Insider
+          </p>
+          <div className="mt-6">
+            <div className="flex flex-wrap items-start gap-6 @max-md:flex-col @md:items-center @md:justify-between">
+              <div className="flex items-center gap-x-4">
+                <p className="text-5xl/12 font-medium first-letter:font-light">$120</p>
+                <div>
+                  <p className="text-sm/6 font-semibold">per year</p>
+                  <p className="text-sm/6 text-gray-600 dark:text-gray-400">plus tax</p>
+                </div>
+              </div>
+              <DarkButtonLink
+                href="https://buy.polar.sh/polar_cl_sdvKSPOnjtdElmQ57la4wv3C91Io5vGZpJmC71jdFXv"
+                className="inline-flex items-center justify-center gap-2"
+              >
+                Become an Insider
+                <svg fill="currentColor" aria-hidden="true" viewBox="0 0 10 10" className="-mr-0.5 w-2.5">
+                  <path d="M4.85355 0.146423L9.70711 4.99998L4.85355 9.85353L4.14645 9.14642L7.79289 5.49998H0V4.49998H7.79289L4.14645 0.85353L4.85355 0.146423Z"></path>
+                </svg>
+              </DarkButtonLink>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Faqs() {
   return (
     <section className="line-y mt-30 grid grid-cols-1 gap-10 lg:grid-cols-2" id="faqs">
@@ -394,6 +440,7 @@ export default async function InsidersPage() {
         <InsiderPerks />
         <InsiderPerkScreenshots />
         <MessageFromAdam />
+        <BecomeAnInsider />
         <Faqs />
         <FooterMeta className="px-4 md:px-6 lg:px-8" />
       </div>
