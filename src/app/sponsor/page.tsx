@@ -2,8 +2,6 @@ import { FooterMeta } from "@/components/footer";
 import { MinusIcon, PlusIcon } from "@heroicons/react/16/solid";
 import { clsx } from "clsx";
 import type { Metadata } from "next";
-import Image from "next/image";
-import AdamTeachingImage from "./adam-teaching.jpg";
 import { getShuffledSponsors, type Sponsor } from "@/lib/sponsors";
 
 export const revalidate = 60;
@@ -25,6 +23,18 @@ function DarkButtonLink({ className, ...props }: React.ComponentProps<"a">) {
       className={clsx(
         className,
         "rounded-4xl bg-black px-4 py-2 text-center text-sm/6 font-semibold text-white hover:bg-gray-800 dark:bg-white dark:text-gray-950 dark:hover:bg-white/90",
+      )}
+      {...props}
+    />
+  );
+}
+
+function LightButtonLink({ className, ...props }: React.ComponentProps<"a">) {
+  return (
+    <a
+      className={clsx(
+        className,
+        "rounded-full px-4 py-2 text-center text-sm/6 font-semibold text-gray-950 ring-1 ring-gray-950/10 hover:ring-gray-950/20 dark:bg-white/5 dark:text-gray-100 dark:ring-white/15 dark:hover:ring-white/20",
       )}
       {...props}
     />
@@ -69,7 +79,7 @@ function Header() {
       <div className="@container grid grid-cols-1 grid-rows-[1fr_auto] lg:border-l lg:border-gray-950/5 dark:lg:border-white/10">
         <div className="flex items-center px-4 py-2 max-lg:line-y max-lg:mt-6 sm:px-2">
           <p className="max-w-2xl text-lg/7 font-medium text-pretty text-gray-600 dark:text-gray-400">
-            Become a Tailwind CSS partner to support the project and get your brand in front of millions of developers.
+            Become a Tailwind CSS partner to support the project, get your brand in front of millions of developers, and get direct access to the Tailwind CSS team.
           </p>
         </div>
         <div className="flex gap-4 px-4 py-2 whitespace-nowrap max-lg:line-t max-lg:mt-6 sm:px-2 lg:border-t lg:border-gray-950/5 @max-md:flex-col dark:lg:border-white/10">
@@ -79,44 +89,28 @@ function Header() {
               <path d="M4.85355 0.146423L9.70711 4.99998L4.85355 9.85353L4.14645 9.14642L7.79289 5.49998H0V4.49998H7.79289L4.14645 0.85353L4.85355 0.146423Z"></path>
             </svg>
           </DarkButtonLink>
+          <LightButtonLink href="/insiders" className="inline-flex items-center justify-center gap-2">
+            Support as an individual
+            <svg
+              fill="currentColor"
+              aria-hidden="true"
+              viewBox="0 0 10 10"
+              className="-mr-0.5 w-2.5 fill-gray-600 dark:fill-gray-400"
+            >
+              <path d="M4.85355 0.146423L9.70711 4.99998L4.85355 9.85353L4.14645 9.14642L7.79289 5.49998H0V4.49998H7.79289L4.14645 0.85353L4.85355 0.146423Z"></path>
+            </svg>
+          </LightButtonLink>
         </div>
       </div>
     </div>
   );
 }
 
-function MessageFromAdam() {
-  return (
-    <div className="line-y mt-24 bg-gray-950/5 p-2 sm:-mx-px sm:p-[calc(--spacing(2)+1px)] dark:bg-white/10">
-      <div className="relative">
-        <div className="absolute inset-0 z-10 rounded-4xl dark:inset-ring dark:inset-ring-white/20"></div>
-        <section className="relative isolate overflow-hidden rounded-4xl bg-gray-950 p-10 md:p-20 lg:p-16 xl:p-32">
-          <Image
-            src={AdamTeachingImage}
-            alt="Adam Wathan"
-            width={1000}
-            height={1000}
-            className="absolute inset-x-0 top-0 mask-b-from-30% object-cover lg:left-auto lg:h-full lg:w-2/3 lg:mask-l-from-30%"
-          />
-          <div className="relative text-white max-xl:max-w-2xl max-lg:mx-auto max-lg:mt-60 lg:max-w-lg xl:max-w-2xl">
-            <p className="text-2xl/10">
-              Tailwind CSS exists because a passionate community believes in building better software together. By
-              becoming a Tailwind CSS partner you can directly support that mission — so we can keep shipping tools you
-              love, with no strings attached.
-            </p>
-            <p className="mt-8 text-base/8 font-medium">Adam Wathan</p>
-            <p className="text-gray-400">Creator of Tailwind CSS</p>
-          </div>
-        </section>
-      </div>
-    </div>
-  );
-}
 
 function FeaturedPartners({ partners }: { partners: Sponsor[] }) {
   return (
     <section>
-      <div className="relative mt-4">
+      <div className="relative mt-40">
         <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
           <div className="border-r border-gray-950/5 dark:border-white/10"></div>
           <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
@@ -614,7 +608,6 @@ export default async function Sponsor() {
     <div className="mt-24">
       <Header />
       <div className="isolate">
-        <MessageFromAdam />
         <FeaturedPartners partners={partners} />
         <Partners />
         <PartnerPerks />
