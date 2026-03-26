@@ -2,7 +2,8 @@ import { FooterMeta } from "@/components/footer";
 import { MinusIcon, PlusIcon } from "@heroicons/react/16/solid";
 import { clsx } from "clsx";
 import type { Metadata } from "next";
-import { getShuffledSponsors, type Sponsor } from "@/lib/sponsors";
+import { getShuffledSponsors, getDirectorySponsors, type Sponsor, type DirectorySponsor } from "@/lib/sponsors";
+import { PartnerDirectory } from "./partner-directory";
 
 export const revalidate = 60;
 
@@ -136,82 +137,137 @@ function FeaturedPartners({ partners }: { partners: Sponsor[] }) {
   );
 }
 
-function Partners() {
+function MegaphoneIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <div id="partners" className="line-y mt-40 scroll-mt-24">
-      <div className="px-4 py-2 sm:px-2">
-        <Eyebrow as="h2" color="pink">
-          <a href="#partners">Partners</a>
-        </Eyebrow>
-        <p className="max-w-3xl text-3xl font-medium tracking-tight text-pretty md:text-[2.5rem]/14">
-          Support as a company
-        </p>
-        <p className="mt-4 max-w-2xl text-base/7 text-gray-600 dark:text-gray-400">
-          Become a Tailwind CSS partner to put your brand in front of 10 million developers a month, give your team
-          early access to new features and our roadmap, and get direct access to the Tailwind CSS core team — all while
-          helping ensure Tailwind stays around for the long haul.
-        </p>
+    <svg viewBox="0 0 24 24" fill="none" strokeWidth={1.5} stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38a.813.813 0 0 1-1.084-.293c-.757-1.3-1.321-2.726-1.646-4.232m3.755-10.08a22.09 22.09 0 0 1 4.41-1.582A1.876 1.876 0 0 1 18 5.671v12.658a1.876 1.876 0 0 1-2.245 1.84 22.098 22.098 0 0 1-5.415-1.93m0-9.48a22.09 22.09 0 0 0 0 9.48m0-9.48v9.48"
+      />
+    </svg>
+  );
+}
+
+function UsersIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" strokeWidth={1.5} stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"
+      />
+    </svg>
+  );
+}
+
+function RocketIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" strokeWidth={1.5} stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
+      />
+    </svg>
+  );
+}
+
+function WhyPartner() {
+  const features = [
+    {
+      icon: MegaphoneIcon,
+      name: "Get your brand promoted",
+      description:
+        "The Tailwind CSS website gets over 10 million visitors per month. Your logo will be featured on the homepage and sponsors page, and your website will get a spot in the showcase — putting your brand directly in front of the developers who matter most.",
+    },
+    {
+      icon: UsersIcon,
+      name: "Work directly with the Tailwind CSS team",
+      description:
+        "Get direct access to the core team through a private Discord channel, expedited bug fixes and issue resolution, and early access to new features and our roadmap — so you’re always ahead of the curve.",
+    },
+    {
+      icon: RocketIcon,
+      name: "Support the future of the project",
+      description:
+        "Your sponsorship directly funds the ongoing development and maintenance of Tailwind CSS. You’ll have peace of mind knowing that a core technology in your stack will continue to evolve, stay maintained, and function smoothly for years to come.",
+    },
+  ];
+
+  return (
+    <div id="partners" className="scroll-mt-24">
+      <div className="line-y mt-40">
+        <div className="px-4 py-2 sm:px-2">
+          <Eyebrow as="h2" color="pink">
+            <a href="#partners">Why become a partner?</a>
+          </Eyebrow>
+          <p className="mt-2 max-w-3xl text-3xl font-medium tracking-tight text-pretty md:text-[2.5rem]/14">
+            More than a sponsorship — it’s a partnership.
+          </p>
+        </div>
+      </div>
+      <div className="relative mt-10">
+        <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-1 max-sm:hidden sm:grid-cols-3">
+          <div className="border-r border-gray-950/5 dark:border-white/10"></div>
+          <div className="border-x border-gray-950/5 dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 dark:border-white/10"></div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3">
+          {features.map((feature, index) => (
+            <div
+              key={feature.name}
+              className={clsx("p-6 sm:p-8", index === 0 && "max-sm:line-y sm:line-y", index > 0 && "max-sm:line-t")}
+            >
+              <feature.icon className="size-8 text-sky-500" />
+              <h3 className="mt-4 text-lg/7 font-semibold">{feature.name}</h3>
+              <p className="mt-2 text-sm/7 text-gray-600 dark:text-gray-400">{feature.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
 }
 
-function PartnerPerks() {
+function Testimonials() {
   return (
-    <section className="mt-16">
-      <h2 className="px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Why become a partner?</h2>
-      <div className="relative mt-4">
-        <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-1 gap-2 max-sm:hidden sm:grid-cols-2 sm:gap-x-5 sm:gap-y-10 md:gap-10 lg:grid-cols-3">
+    <section className="mt-24">
+      <div className="relative">
+        <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-1 max-sm:hidden sm:grid-cols-2">
           <div className="border-r border-gray-950/5 dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-lg:hidden dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 dark:border-white/10"></div>
         </div>
-        <ul className="grid-cols-1 gap-2 text-sm/7 text-gray-600 max-sm:line-y max-sm:overflow-x-auto max-sm:px-2 sm:grid sm:grid-cols-2 sm:gap-x-5 sm:gap-y-10 md:gap-10 lg:grid-cols-3">
-          <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
-            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Your logo in front of millions</strong> —
-              the Tailwind CSS website gets over 10 million visitors per month, and your brand will be featured on the
-              homepage as a partner.
-            </p>
-          </li>
-          <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
-            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Insiders team access</strong> — get all
-              the perks of the Insiders tier for everyone in your team, including early access to new features,
-              specialized tooling, and more.
-            </p>
-          </li>
-          <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
-            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Tailwind Plus team access</strong> —
-              access to Tailwind Plus for your whole team, including the React UI Kit, expertly crafted templates, and
-              500+ thoughtfully designed components.
-            </p>
-          </li>
-          <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
-            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">
-                Expedited bug fixes and issue resolution
-              </strong>{" "}
-              — we’ll work to address issues you run into on an expedited schedule, even if normally they would be lower
-              priority due to their limited impact on the user base.
-            </p>
-          </li>
-          <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
-            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Website in the showcase</strong> — your
-              website will feature prominently in our showcase, bringing more attention to your brand when new Tailwind
-              users go to see what is possible with the framework.
-            </p>
-          </li>
-          <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
-            <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Support Tailwind CSS</strong> — you’ll be
-              helping contribute to the sustainability of the framework, giving you peace of mind that a core technology
-              in your stack will continue to function smoothly.
-            </p>
-          </li>
-        </ul>
+        <div className="grid grid-cols-1 sm:grid-cols-2">
+          <div className="line-y p-6 sm:p-8">
+            <blockquote>
+              <p className="text-base/7 font-medium text-pretty italic text-gray-600 dark:text-gray-300">
+                "Working with the Tailwind team through the partner program was a game-changer for us. They helped us get
+                custom utility classes we needed added to the framework, which saved our team months of workarounds."
+              </p>
+              <footer className="mt-6 flex items-center gap-4">
+                <div>
+                  <p className="text-sm/6 font-semibold">Engineering Team</p>
+                  <p className="text-sm/6 text-gray-500">Netflix</p>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
+          <div className="line-y p-6 sm:p-8">
+            <blockquote>
+              <p className="text-base/7 font-medium text-pretty italic text-gray-600 dark:text-gray-300">
+                "Having expedited access to the Tailwind CSS team means we can move faster without worrying about getting
+                blocked by framework-level issues. The partner program pays for itself."
+              </p>
+              <footer className="mt-6 flex items-center gap-4">
+                <div>
+                  <p className="text-sm/6 font-semibold">Engineering Team</p>
+                  <p className="text-sm/6 text-gray-500">Shopify</p>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -503,117 +559,76 @@ function Faqs() {
   );
 }
 
-function Sponsors({
-  partners,
-  ambassadors,
-  supporters,
-}: {
-  partners: Sponsor[];
-  ambassadors: Sponsor[];
-  supporters: Sponsor[];
-}) {
+function TierBadge({ tier }: { tier: string }) {
   return (
-    <div>
-      <div id="sponsors" className="line-y mt-40 grid scroll-mt-24 grid-cols-1 gap-10 xl:grid-cols-2">
-        <div className="px-4 py-2 sm:px-2">
-          <Eyebrow as="h2" color="pink">
-            <a href="#sponsors">Sponsors</a>
-          </Eyebrow>
-          <p className="max-w-3xl text-3xl font-medium tracking-tight text-pretty md:text-[2.5rem]/14">
-            Thank you to our sponsors.
-          </p>
-          <p className="mt-4 max-w-2xl text-base/7 text-gray-600 dark:text-gray-400">
-            We are super grateful to all the following sponsors for supporting the ongoing development and maintenance
-            of Tailwind CSS.
-          </p>
-        </div>
-      </div>
-      <h2 className="mt-16 px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Partners</h2>
-      <div className="relative mt-4">
-        <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
-          <div className="border-r border-gray-950/5 dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-lg:hidden xl:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-xl:hidden dark:border-white/10"></div>
-        </div>
-        <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
-          {partners.map((company, index) => (
-            <li key={index} className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y">
-              <a
-                href={company.sponsorPageUrl ?? company.url}
-                target="_blank"
-                rel="noopener sponsored"
-                className="grid place-content-center transition-colors hover:bg-gray-950/2.5 sm:px-2 sm:py-4 dark:hover:bg-white/2.5"
-              >
-                <company.logo className="w-full max-w-80" aria-label={`${company.name} logo`} />
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <h2 className="mt-16 px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Ambassadors</h2>
-      <div className="relative mt-4">
-        <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
-          <div className="border-r border-gray-950/5 dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-lg:hidden xl:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-xl:hidden dark:border-white/10"></div>
-        </div>
-        <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
-          {ambassadors.map((company, index) => (
-            <li key={index} className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y">
-              <a
-                href={company.sponsorPageUrl ?? company.url}
-                target="_blank"
-                rel="noopener sponsored"
-                className="grid place-content-center transition-colors hover:bg-gray-950/2.5 sm:px-2 sm:py-4 dark:hover:bg-white/2.5"
-              >
-                <company.logo className="w-full max-w-80" aria-label={`${company.name} logo`} />
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <h2 className="mt-16 px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Supporters</h2>
-      <div className="relative mt-4">
-        <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
-          <div className="border-r border-gray-950/5 dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-lg:hidden xl:border-x dark:border-white/10"></div>
-          <div className="border-l border-gray-950/5 max-xl:hidden dark:border-white/10"></div>
-        </div>
-        <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
-          {supporters.map((company, index) => (
-            <li key={index} className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y">
-              <a
-                href={company.sponsorPageUrl ?? company.url}
-                target="_blank"
-                rel="noopener sponsored"
-                className="grid place-content-center transition-colors hover:bg-gray-950/2.5 sm:px-2 sm:py-4 dark:hover:bg-white/2.5"
-              >
-                <company.logo className="w-full max-w-80" aria-label={`${company.name} logo`} />
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <span
+      className={clsx(
+        "rounded-full px-2.5 py-0.5 text-[0.6875rem]/5 font-medium",
+        tier === "partner" && "bg-sky-400/10 text-sky-500",
+        tier === "ambassador" && "bg-pink-400/10 text-pink-500",
+        tier === "supporter" && "bg-gray-400/10 text-gray-500 dark:bg-white/5 dark:text-gray-400",
+      )}
+    >
+      {tier.charAt(0).toUpperCase() + tier.slice(1)}
+    </span>
+  );
+}
+
+function DirectoryItems({ sponsors }: { sponsors: DirectorySponsor[] }) {
+  return (
+    <ul role="list">
+      {sponsors.map((sponsor) => (
+        <li
+          key={sponsor.name}
+          data-tier={sponsor.tier}
+          data-categories={sponsor.categories.join(",")}
+          className="border-t border-gray-950/5 dark:border-white/10"
+        >
+          <a
+            href={sponsor.sponsorPageUrl ?? sponsor.url}
+            target="_blank"
+            rel="noopener sponsored"
+            className="grid grid-cols-[auto_1fr_auto] items-center gap-4 py-3 pl-6 pr-4 transition-colors hover:bg-gray-950/2.5 sm:grid-cols-[auto_1fr_auto_auto] sm:pl-4 sm:pr-2 dark:hover:bg-white/2.5"
+          >
+            <div className="flex items-center gap-3">
+              <sponsor.icon className="h-5 w-auto max-w-24 shrink-0 opacity-50 dark:opacity-60" aria-label={`${sponsor.name} logo`} />
+              <span className="text-sm/6 font-semibold">{sponsor.name}</span>
+            </div>
+            <div className="flex items-center gap-3 max-sm:hidden">
+              <TierBadge tier={sponsor.tier} />
+              <span className="text-sm/6 text-gray-500 dark:text-gray-400">
+                {sponsor.categories.join(", ")}
+              </span>
+            </div>
+            <span className="inline-flex items-center gap-1.5 text-sm/6 font-medium text-gray-400 whitespace-nowrap dark:text-gray-500">
+              Visit site
+              <svg fill="currentColor" aria-hidden="true" viewBox="0 0 10 10" className="-mr-0.5 w-2.5 -rotate-45">
+                <path d="M4.85355 0.146423L9.70711 4.99998L4.85355 9.85353L4.14645 9.14642L7.79289 5.49998H0V4.49998H7.79289L4.14645 0.85353L4.85355 0.146423Z" />
+              </svg>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
   );
 }
 
 export default async function Sponsor() {
-  const { partners, ambassadors, supporters } = getShuffledSponsors();
+  const { partners } = getShuffledSponsors();
+  const directorySponsors = getDirectorySponsors();
 
   return (
     <div className="mt-24">
       <Header />
       <div className="isolate">
         <FeaturedPartners partners={partners} />
-        <Partners />
-        <PartnerPerks />
+        <WhyPartner />
+        <Testimonials />
         <PartnerPlans />
         <Faqs />
-        <Sponsors partners={partners} ambassadors={ambassadors} supporters={supporters} />
+        <PartnerDirectory>
+          <DirectoryItems sponsors={directorySponsors} />
+        </PartnerDirectory>
         <FooterMeta className="px-4 md:px-6 lg:px-8" />
       </div>
     </div>

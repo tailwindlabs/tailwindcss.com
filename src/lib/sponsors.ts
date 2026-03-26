@@ -2,6 +2,10 @@ import { partners, ambassadors, supporters } from "@/app/sponsor/sponsors";
 
 export type Sponsor = (typeof partners)[number];
 
+export type DirectorySponsor = Sponsor & {
+  tier: "partner" | "ambassador" | "supporter";
+};
+
 function shuffle<T>(array: T[]): T[] {
   const result = [...array];
   for (let i = result.length - 1; i > 0; i--) {
@@ -31,4 +35,16 @@ export function getHomepageSponsors() {
   const shuffledAmbassadors = shuffle(ambassadors);
 
   return [...shuffledPartners, ...shuffledAmbassadors.slice(0, remainingSlots)];
+}
+
+export const directoryCategories = ["Featured", "Developer Tools", "AI", "Infrastructure", "Design", "SaaS"] as const;
+
+export function getDirectorySponsors(): DirectorySponsor[] {
+  const tierOrder = { partner: 0, ambassador: 1, supporter: 2 };
+  const all: DirectorySponsor[] = [
+    ...partners.filter((s) => s.directory).map((s) => ({ ...s, tier: "partner" as const })),
+    ...ambassadors.filter((s) => s.directory).map((s) => ({ ...s, tier: "ambassador" as const })),
+    ...supporters.filter((s) => s.directory).map((s) => ({ ...s, tier: "supporter" as const })),
+  ];
+  return all.sort((a, b) => tierOrder[a.tier] - tierOrder[b.tier]);
 }
