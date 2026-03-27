@@ -591,7 +591,7 @@ function DirectoryItems({ sponsors }: { sponsors: DirectorySponsor[] }) {
             className="grid grid-cols-[auto_1fr_auto] items-center gap-4 py-3 pl-6 pr-4 transition-colors hover:bg-gray-950/2.5 sm:grid-cols-[auto_1fr_auto_auto] sm:pl-4 sm:pr-2 dark:hover:bg-white/2.5"
           >
             <div className="flex items-center gap-3">
-              <sponsor.icon className="h-5 w-auto max-w-24 shrink-0 opacity-50 dark:opacity-60" aria-label={`${sponsor.name} logo`} />
+              <sponsor.icon className="size-5 shrink-0 opacity-50 dark:opacity-60" aria-label={`${sponsor.name} logo`} />
               <span className="text-sm/6 font-semibold">{sponsor.name}</span>
             </div>
             <div className="flex items-center gap-3 max-sm:hidden">
