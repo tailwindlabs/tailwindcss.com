@@ -595,7 +595,7 @@ function DirectoryItems({ sponsors }: { sponsors: DirectorySponsor[] }) {
           >
             <div className="flex items-center gap-3">
               <sponsor.icon
-                className="h-5 w-auto max-w-24 shrink-0 opacity-50 dark:opacity-60"
+                className="size-5 shrink-0 opacity-50 dark:opacity-60"
                 aria-label={`${sponsor.name} logo`}
               />
               <span className="text-sm/6 font-semibold">{sponsor.name}</span>
