@@ -75,7 +75,7 @@ function Header() {
     <div className="line-y mt-12 grid gap-x-10 sm:mt-20 lg:mt-24 lg:grid-cols-[3fr_2fr]">
       <div className="px-4 py-2 max-lg:line-b sm:px-2 lg:border-r lg:border-gray-950/5 dark:lg:border-white/10">
         <Eyebrow>Sponsor</Eyebrow>
-        <h1 className="mt-2 text-6xl tracking-tighter text-pretty sm:text-8xl">Support the future of Tailwind CSS</h1>
+        <h1 className="mt-2 text-6xl tracking-tighter text-pretty sm:text-8xl">Become part of the Tailwind ecosystem</h1>
       </div>
       <div className="@container grid grid-cols-1 grid-rows-[1fr_auto] lg:border-l lg:border-gray-950/5 dark:lg:border-white/10">
         <div className="flex items-center px-4 py-2 max-lg:line-y max-lg:mt-6 sm:px-2">
@@ -161,13 +161,25 @@ function UsersIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-function RocketIcon(props: React.SVGProps<SVGSVGElement>) {
+function SparklesIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" strokeWidth={1.5} stroke="currentColor" {...props}>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
+        d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"
+      />
+    </svg>
+  );
+}
+
+function HeartIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" strokeWidth={1.5} stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
       />
     </svg>
   );
@@ -177,21 +189,27 @@ function WhyPartner() {
   const features = [
     {
       icon: MegaphoneIcon,
-      name: "Get your brand promoted",
+      name: "Your brand in front of millions of developers",
       description:
-        "The Tailwind CSS website gets over 10 million visitors per month. Your logo will be featured on the homepage and sponsors page, and your website will get a spot in the showcase — putting your brand directly in front of the developers who matter most.",
+        "Tailwind CSS is used by tens of millions of developers. The website alone gets over 10 million visits per month. As a Tailwind CSS partner, your logo goes on the homepage, you get a spot in the partner directory, and we feature your website in the website showcase. Your brand becomes associated with one of the most widely used tools in the frontend ecosystem.",
     },
     {
       icon: UsersIcon,
-      name: "Work directly with the Tailwind CSS team",
+      name: "Direct access to the Tailwind CSS team",
       description:
-        "Get direct access to the core team through a private Discord channel, expedited bug fixes and issue resolution, and early access to new features and our roadmap — so you’re always ahead of the curve.",
+        "As a Tailwind CSS partner, your team gets a direct line to the people who build Tailwind. We’ll work with you in Slack or hop on a call if needed. If you hit a bug, we’ll prioritize the fix. If you’re stuck on a complex implementation, we’ll help you figure it out. Your team will never be stuck waiting on a Tailwind issue again.",
     },
     {
-      icon: RocketIcon,
-      name: "Support the future of the project",
+      icon: SparklesIcon,
+      name: "Tailored partnership opportunities",
       description:
-        "Your sponsorship directly funds the ongoing development and maintenance of Tailwind CSS. You’ll have peace of mind knowing that a core technology in your stack will continue to evolve, stay maintained, and function smoothly for years to come.",
+        "We work with every partner to help them get the most out of the partnership. That might mean a featured placement in the docs, a co-built integration, or something we haven’t thought of yet. These opportunities are only available to partners. Talk to us to brainstorm ideas for your product.",
+    },
+    {
+      icon: HeartIcon,
+      name: "Support the future of Tailwind CSS",
+      description:
+        "Tailwind CSS is one of the few foundational web technologies that isn’t owned by a big tech company. Your sponsorship directly funds the small team that builds and maintains the tool your developers use every day. The support we get from partners is what keeps Tailwind sustainable.",
     },
   ];
 
@@ -208,16 +226,15 @@ function WhyPartner() {
         </div>
       </div>
       <div className="relative mt-10">
-        <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-1 max-sm:hidden sm:grid-cols-3">
+        <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-1 max-sm:hidden sm:grid-cols-2">
           <div className="border-r border-gray-950/5 dark:border-white/10"></div>
-          <div className="border-x border-gray-950/5 dark:border-white/10"></div>
           <div className="border-l border-gray-950/5 dark:border-white/10"></div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2">
           {features.map((feature, index) => (
             <div
               key={feature.name}
-              className={clsx("p-6 sm:p-8", index === 0 && "max-sm:line-y sm:line-y", index > 0 && "max-sm:line-t")}
+              className={clsx("p-6 sm:p-8", index < 2 ? "max-sm:line-y sm:line-y" : "max-sm:line-t sm:line-t")}
             >
               <feature.icon className="size-8 text-sky-500" />
               <h3 className="mt-4 text-lg/7 font-semibold">{feature.name}</h3>
