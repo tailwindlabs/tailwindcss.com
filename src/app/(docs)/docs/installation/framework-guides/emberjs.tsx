@@ -23,6 +23,8 @@ export let steps: Step[] = [
           Ember CLI
         </a>
         .
+
+        (note that newer ember-cli versions will generate a vite project for you by default)
       </p>
     ),
     code: {
