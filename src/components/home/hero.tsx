@@ -57,9 +57,13 @@ const Hero: React.FC = () => {
         <span className="hidden sm:max-md:inline">text-5xl </span>
         <span className="hidden lg:max-xl:inline">text-6xl </span>
         <span className="hidden xl:inline">text-8xl </span>
-        <span className="inline dark:hidden">text-gray-950 </span>
-        <span className="hidden dark:inline">text-white </span>tracking-tighter{" "}
-        <span className="max-sm:hidden">text-balance</span>
+        {/* Color classes */}
+        <span className="inline dark:hidden text-gray-950">text-gray-950 </span>
+        <span className="dark:inline not-dark:hidden text-white!">text-white </span>
+        {/* Typography classes */}
+        <span className="inline">tracking-tighter </span>
+        <span className="max-sm:hidden">text-balance </span>
+
       </div>
       <GridContainer>
         <h1 className="px-2 text-4xl tracking-tighter text-balance max-lg:font-medium max-sm:px-4 sm:text-5xl lg:text-6xl xl:text-8xl">
@@ -70,8 +74,9 @@ const Hero: React.FC = () => {
         aria-hidden="true"
         className="flex h-6 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 sm:h-10 dark:text-white/25"
       >
-        text-lg <span className="inline dark:hidden">text-gray-950</span>
-        <span className="hidden dark:inline">text-white</span> font-medium
+        <span className="inline">text-lg </span>
+        <span className="inline dark:hidden">text-gray-950 </span>
+        <span className="inline dark:hidden">font-medium</span>
       </div>
       <GridContainer>
         <p className="max-w-(--breakpoint-md) px-2 text-lg/7 font-medium text-gray-600 max-sm:px-4 dark:text-gray-400">
@@ -106,11 +111,11 @@ const Hero: React.FC = () => {
               />
             </svg>
             Quick search
-            <kbd className="hidden font-sans text-xs/4 text-gray-500 dark:text-gray-400 [.os-macos_&]:block">
-              <span className="opacity-60">⌘</span>K
+            <kbd className="hidden font-sans text-xs/4 text-gray-500 dark:text-gray-400 in-[.os-macos]:block">
+              <span className="opacity-60">⌘</span>&nbsp;+&nbsp;K
             </kbd>
-            <kbd className="hidden font-sans text-xs/4 text-gray-500 not-[.os-macos_&]:block dark:text-gray-400">
-              <span className="opacity-60">Ctrl</span>&nbsp;K
+            <kbd className="hidden font-sans text-xs/4 text-gray-500 not-[.os-macos]:block dark:text-gray-400">
+              <span className="opacity-60">Ctrl</span>&nbsp;+&nbsp;K
             </kbd>
           </SearchButton>
         </div>
@@ -122,7 +127,7 @@ const Hero: React.FC = () => {
               <div
                 className={clsx(
                   "*:flex *:*:max-w-none *:*:shrink-0 *:*:grow *:overflow-auto *:rounded-lg *:bg-white/10! *:p-5 dark:*:bg-white/5!",
-                  "**:[.line]:isolate **:[.line]:block **:[.line]:not-last:min-h-[1lh]",
+                  "**:[.line]:isolate **:[.line]:block **:[.line]:not-last:min-h-lh",
                   "*:inset-ring *:inset-ring-white/10 dark:*:inset-ring-white/5",
                 )}
               >
