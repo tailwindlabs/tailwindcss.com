@@ -2,14 +2,14 @@ import { css, handlebars, js, Page, shell, Step, Tile } from "./utils";
 import Logo from "@/docs/img/guides/ember.react.svg";
 
 export let tile: Tile = {
-  title: "Ember.js",
+  title: "Ember.js (without Vite)",
   description: "A JavaScript framework for ambitious web developers.",
   Logo,
 };
 
 export let page: Page = {
-  title: "Install Tailwind CSS with Ember.js",
-  description: "Setting up Tailwind CSS in an Ember.js project.",
+  title: "Install Tailwind CSS with Ember.js (without Vite)",
+  description: "Setting up Tailwind CSS in an Ember.js project that doesn't use Vite. For Ember + Vite, follow the Vite guide.",
 };
 
 export let steps: Step[] = [
@@ -23,6 +23,8 @@ export let steps: Step[] = [
           Ember CLI
         </a>
         .
+
+        (note that newer ember-cli versions will generate a vite project for you by default)
       </p>
     ),
     code: {
