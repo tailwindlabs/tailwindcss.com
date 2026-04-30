@@ -209,13 +209,6 @@ const showcase = [
     description: "Developer tool website",
   },
   {
-    name: "Bytebase",
-    url: "https://www.bytebase.com/?utm_source=tailwindcss",
-    thumbnail: require("./img/bytebase.com.png").default,
-    video: "/showcase-videos/bytebase.com.mp4",
-    description: "Developer tool website",
-  },
-  {
     name: "Zed",
     url: "https://zed.dev/?utm_source=tailwind",
     thumbnail: require("./img/zed.dev.png").default,
