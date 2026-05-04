@@ -1,6 +1,5 @@
 import { ApiTable } from "@/components/api-table.tsx";
-import { CodeExample } from "@/components/code-example.tsx";
-import { ResponsiveDesign, TargetingSpecificStates } from "@/components/content.tsx";
+import { CustomizingYourThemeColors, ResponsiveDesign, TargetingSpecificStates } from "@/components/content.tsx";
 import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 import colors from "./utils/colors";
@@ -191,30 +190,4 @@ For CSS variables, you can also use the `scrollbar-thumb-(<custom-property>)` an
 
 ## Customizing your theme
 
-Use the `--scrollbar-thumb-color-*` and `--scrollbar-track-color-*` theme variables to customize the scrollbar color
-utilities in your project:
-
-<div>
-  <div className="not-prose">
-    <CodeExample
-      example={{
-        lang: "css",
-        code: `@theme {
-  --scrollbar-thumb-color-brand: #0f766e; /* [!code highlight] */
-  --scrollbar-track-color-brand: #ccfbf1; /* [!code highlight] */
-}`,
-      }}
-    />
-  </div>
-</div>
-
-Now utilities like `scrollbar-thumb-brand` and `scrollbar-track-brand` can be used in your markup:
-
-```html
-<!-- [!code classes:scrollbar-thumb-brand,scrollbar-track-brand] -->
-<div class="scrollbar-thumb-brand scrollbar-track-brand ...">
-  <!-- ... -->
-</div>
-```
-
-These utilities also support your existing color palette using the `--color-*` theme variables.
+<CustomizingYourThemeColors utilities={["scrollbar-thumb", "scrollbar-track"]} />
