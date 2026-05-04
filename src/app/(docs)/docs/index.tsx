@@ -219,6 +219,8 @@ export default {
     ["pointer-events", "/docs/pointer-events"],
     ["resize", "/docs/resize"],
     ["scroll-behavior", "/docs/scroll-behavior"],
+    ["scrollbar-color", "/docs/scrollbar-color"],
+    ["scrollbar-width", "/docs/scrollbar-width"],
     ["scroll-margin", "/docs/scroll-margin"],
     ["scroll-padding", "/docs/scroll-padding"],
     ["scroll-snap-align", "/docs/scroll-snap-align"],
