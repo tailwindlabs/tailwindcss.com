@@ -328,7 +328,7 @@ Use the `@variant` directive to apply a Tailwind variant within custom CSS:
 
 </CodeExampleStack>
 
-If you need to apply multiple variants at the same time, use nesting:
+If you need to apply multiple variants at the same time, stack them using the same syntax you would in HTML:
 
 <CodeExampleStack>
 
@@ -337,11 +337,9 @@ If you need to apply multiple variants at the same time, use nesting:
 .my-element {
   background: white;
 
-  /* [!code highlight:6] */
-  @variant dark {
-    @variant hover {
-      background: black;
-    }
+  /* [!code highlight:4] */
+  @variant hover:focus {
+    background: black;
   }
 }
 ```
@@ -351,13 +349,49 @@ If you need to apply multiple variants at the same time, use nesting:
 .my-element {
   background: white;
 
-  /* [!code highlight:7] */
-  @media (prefers-color-scheme: dark) {
-    &:hover {
-      @media (hover: hover) {
+  /* [!code highlight:8] */
+  &:hover {
+    @media (hover: hover) {
+      &:focus {
         background: black;
       }
     }
+  }
+}
+```
+
+</CodeExampleStack>
+
+To apply the same styles for multiple variants, separate each variant with a comma:
+
+<CodeExampleStack>
+
+```css
+/* [!code filename:app.css] */
+.my-element {
+  background: white;
+
+  /* [!code highlight:4] */
+  @variant hover, focus {
+    background: black;
+  }
+}
+```
+
+```css
+/* [!code filename:Compiled CSS] */
+.my-element {
+  background: white;
+
+  /* [!code highlight:10] */
+  &:hover {
+    @media (hover: hover) {
+      background: black;
+    }
+  }
+
+  &:focus {
+    background: black;
   }
 }
 ```
