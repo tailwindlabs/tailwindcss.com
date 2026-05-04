@@ -73,15 +73,18 @@ function Eyebrow({
 
 function Header() {
   return (
-    <div className="mt-28 sm:mt-32 lg:mt-40">
-      <div>
-        <p className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest uppercase text-gray-950 dark:bg-white/10 dark:text-white">Sponsor</p>
-        <p className="mt-6 max-w-[40ch] text-[2.5rem]/[2.75rem] tracking-tight sm:text-[3.5rem]/[3.75rem] text-pretty">
-          <strong className="font-normal text-gray-950 dark:text-white">Become part of the Tailwind ecosystem.</strong>{" "}
-          <span className="text-gray-500 dark:text-gray-400">Partner with Tailwind CSS to support the project, get your brand in front of millions of developers, and get direct access to the team.</span>
-        </p>
+    <div className="line-y mt-12 grid gap-x-10 sm:mt-20 lg:mt-24 lg:grid-cols-[3fr_2fr]">
+      <div className="px-4 py-2 max-lg:line-b sm:px-2 lg:border-r lg:border-gray-950/5 dark:lg:border-white/10">
+        <Eyebrow>Sponsor</Eyebrow>
+        <h1 className="mt-2 text-6xl tracking-tighter text-pretty sm:text-8xl">Become part of the Tailwind ecosystem</h1>
       </div>
-      <div className="mt-14 flex gap-4 whitespace-nowrap max-sm:flex-col">
+      <div className="@container grid grid-cols-1 grid-rows-[1fr_auto] lg:border-l lg:border-gray-950/5 dark:lg:border-white/10">
+        <div className="flex items-center px-4 py-2 max-lg:line-y max-lg:mt-6 sm:px-2">
+          <p className="max-w-2xl text-lg/7 font-medium text-pretty text-gray-600 dark:text-gray-400">
+            Become a Tailwind CSS partner to support the project, get your brand in front of millions of developers, and get direct access to the Tailwind CSS team.
+          </p>
+        </div>
+        <div className="flex gap-4 px-4 py-2 whitespace-nowrap max-lg:line-t max-lg:mt-6 sm:px-2 lg:border-t lg:border-gray-950/5 @max-md:flex-col dark:lg:border-white/10">
           <DarkButtonLink href="#partners" className="inline-flex items-center justify-center gap-2">
             Become a partner
             <svg fill="currentColor" aria-hidden="true" viewBox="0 0 10 10" className="-mr-0.5 w-2.5">
@@ -100,6 +103,7 @@ function Header() {
             </svg>
           </LightButtonLink>
         </div>
+      </div>
     </div>
   );
 }
@@ -108,17 +112,23 @@ function Header() {
 function FeaturedPartners({ partners }: { partners: Sponsor[] }) {
   return (
     <section>
-      <div className="mt-40">
-        <ul className="grid grid-cols-2 gap-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="relative mt-40">
+        <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="border-r border-gray-950/5 dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-lg:hidden xl:border-x dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 max-xl:hidden dark:border-white/10"></div>
+        </div>
+        <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
           {partners.map((company, index) => (
-            <li key={index}>
+            <li key={index} className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y">
               <a
                 href={company.sponsorPageUrl ?? company.url}
                 target="_blank"
                 rel="noopener sponsored"
-                className="grid place-content-center rounded-xl bg-white px-2 py-8 transition-colors hover:bg-gray-50 dark:bg-white/5 dark:hover:bg-white/10"
+                className="grid place-content-center transition-colors hover:bg-gray-950/2.5 sm:px-2 sm:py-4 dark:hover:bg-white/2.5"
               >
-                <company.logo className="mx-auto w-4/5 max-w-64" aria-label={`${company.name} logo`} />
+                <company.logo className="w-4/5 max-w-64" aria-label={`${company.name} logo`} />
               </a>
             </li>
           ))}
@@ -134,7 +144,7 @@ function MegaphoneIcon(props: React.SVGProps<SVGSVGElement>) {
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 0 1-1.44-4.282m3.102.069a18.03 18.03 0 0 1-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 0 1 8.835 2.535M10.34 6.66a23.847 23.847 0 0 0 8.835-2.535m0 0A23.74 23.74 0 0 0 18.795 3m.38 1.125a23.91 23.91 0 0 1 1.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 0 0 1.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 0 1 0 3.46"
+        d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38a.813.813 0 0 1-1.084-.293c-.757-1.3-1.321-2.726-1.646-4.232m3.755-10.08a22.09 22.09 0 0 1 4.41-1.582A1.876 1.876 0 0 1 18 5.671v12.658a1.876 1.876 0 0 1-2.245 1.84 22.098 22.098 0 0 1-5.415-1.93m0-9.48a22.09 22.09 0 0 0 0 9.48m0-9.48v9.48"
       />
     </svg>
   );
@@ -146,7 +156,7 @@ function UsersIcon(props: React.SVGProps<SVGSVGElement>) {
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"
+        d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"
       />
     </svg>
   );
@@ -164,13 +174,13 @@ function SparklesIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-function RocketIcon(props: React.SVGProps<SVGSVGElement>) {
+function HeartIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" strokeWidth={1.5} stroke="currentColor" {...props}>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
+        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
       />
     </svg>
   );
@@ -276,7 +286,7 @@ function WhyPartner() {
       },
     },
     {
-      icon: RocketIcon,
+      icon: HeartIcon,
       name: "Support the future of Tailwind CSS",
       description:
         "Tailwind CSS isn't owned by a big tech company. Your sponsorship directly funds the small team building the tool your developers use every day.",
@@ -292,39 +302,64 @@ function WhyPartner() {
 
   return (
     <div id="partners" className="scroll-mt-24">
-      <div className="mt-40">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[3fr_7fr] lg:items-start lg:gap-20">
-          <div>
-            <p className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest uppercase text-gray-950 dark:bg-white/10 dark:text-white">
-              <a href="#partners">02 / Why become a partner?</a>
-            </p>
-            <p className="mt-8 text-lg/7 font-medium tracking-tight text-pretty">
-              <strong className="font-medium text-gray-950 dark:text-white">More than a sponsorship — it’s a partnership.</strong>{" "}
-              <span className="text-gray-500 dark:text-gray-400">Get your brand in front of millions of developers, direct access to the team behind Tailwind CSS, and help shape the future of the framework.</span>
-            </p>
-          </div>
-          <div>
-            <div className="grid grid-cols-1 gap-2 lg:grid-cols-2">
-              {features.map((feature) => (
-                <div key={feature.name} className="flex h-[448px] flex-col bg-white p-8 dark:bg-white/5 dark:border-white/10">
-                  <h3 className="text-lg/7 font-semibold text-gray-950 dark:text-white" style={{ fontVariationSettings: '"opsz" 32' }}>{feature.name}</h3>
-                  <p className="mt-2 text-sm/6 text-gray-700 dark:text-gray-400">{feature.description}</p>
-                  <blockquote className="mt-auto">
-                    <p className="max-w-[65ch] text-sm/6 text-pretty text-gray-500 dark:text-gray-400" style={{ hangingPunctuation: "first last" }}>
-                      &ldquo;{feature.testimonial.quote}&rdquo;
-                    </p>
-                    <footer className="mt-4 flex items-center justify-between">
-                      <div>
-                        <p className="text-sm/6 font-semibold">{feature.testimonial.name}</p>
-                        <p className="text-sm/6 text-gray-500">{feature.testimonial.title}</p>
+      <div className="line-t mt-40">
+        <div className="px-4 py-2 sm:px-2">
+          <Eyebrow as="h2" color="pink">
+            <a href="#partners">Why become a partner?</a>
+          </Eyebrow>
+          <p className="mt-2 max-w-3xl text-3xl font-medium tracking-tight text-pretty md:text-[2.5rem]/14">
+            More than a sponsorship — it’s a partnership.
+          </p>
+          <p className="mt-4 max-w-2xl text-base/7 text-gray-600 dark:text-gray-400">
+            Get your brand in front of millions of developers, direct access to the team behind Tailwind CSS, and help shape the future of the framework.
+          </p>
+        </div>
+      </div>
+      <div className="relative mt-10">
+        <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-1 gap-10 max-lg:hidden lg:grid-cols-2">
+          <div className="border-r border-gray-950/5 dark:border-white/10"></div>
+          <div className="border-l border-gray-950/5 dark:border-white/10"></div>
+        </div>
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
+          {Array.from({ length: Math.ceil(features.length / 2) }, (_, rowIndex) => {
+            const pair = features.slice(rowIndex * 2, rowIndex * 2 + 2);
+            return (
+              <div key={rowIndex} className="col-span-full grid grid-cols-1 grid-rows-[auto_1fr_auto_auto_auto] gap-x-10 lg:grid-cols-2">
+                {pair.map((feature, i) => {
+                  const index = rowIndex * 2 + i;
+                  return (
+                    <div
+                      key={feature.name}
+                      className={clsx(
+                        "row-span-5 bg-gray-950/5 p-2 dark:bg-white/10",
+                        "max-lg:line-y",
+                        index % 2 === 0 && "lg:line-y",
+                      )}
+                    >
+                      <div className="grid h-full grid-rows-subgrid row-span-5 rounded-2xl bg-white p-6 lg:rounded-4xl lg:p-10 dark:bg-gray-950/80 dark:outline dark:outline-white/10">
+                        <FeatureIllustration index={index} />
+                        <p className="mt-6 self-start text-2xl/8 font-medium text-pretty" style={{ fontVariationSettings: '"opsz" 32' }}>
+                          <strong className="font-medium text-gray-950 dark:text-white">{feature.name}.</strong>{" "}
+                          <span className="text-gray-500 dark:text-gray-400">{feature.description}</span>
+                        </p>
+                        <hr className="mt-10 self-end border-gray-950/5 dark:border-white/10" />
+                        <p className="mt-10 max-w-[65ch] text-sm/7 text-pretty text-gray-500 dark:text-gray-400" style={{ hangingPunctuation: "first last" }}>
+                          &ldquo;{feature.testimonial.quote}&rdquo;
+                        </p>
+                        <footer className="mt-6 flex items-center justify-between">
+                          <div>
+                            <p className="text-sm/7 font-semibold">{feature.testimonial.name}</p>
+                            <p className="text-sm/7 text-gray-500">{feature.testimonial.title}</p>
+                          </div>
+                          <TestimonialLogo company={feature.testimonial.company} className={clsx("w-auto", feature.testimonial.company === "Vercel" ? "h-5" : "h-7")} />
+                        </footer>
                       </div>
-                      <TestimonialLogo company={feature.testimonial.company} className={clsx("w-auto", feature.testimonial.company === "Vercel" ? "h-5" : "h-7")} />
-                    </footer>
-                  </blockquote>
-                </div>
-              ))}
-            </div>
-          </div>
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
@@ -334,8 +369,23 @@ function WhyPartner() {
 
 function CheckmarkIcon() {
   return (
-    <svg aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" className="mt-1 size-4 shrink-0 text-gray-950 dark:text-white">
-      <path fillRule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clipRule="evenodd" />
+    <svg aria-hidden="true" viewBox="0 0 22 22" className="h-7 w-5.5">
+      <path
+        className="fill-sky-400/25"
+        d="M22 11c0 6.075-4.925 11-11 11S0 17.075 0 11 4.925 0 11 0s11 4.925 11 11Z"
+      ></path>
+      <path
+        className="fill-sky-400/25"
+        d="M11 21c5.523 0 10-4.477 10-10S16.523 1 11 1 1 5.477 1 11s4.477 10 10 10Zm0 1c6.075 0 11-4.925 11-11S17.075 0 11 0 0 4.925 0 11s4.925 11 11 11Z"
+        clipRule="evenodd"
+        fillRule="evenodd"
+      ></path>
+      <path
+        className="fill-sky-400"
+        d="m14.684 7.82-4.079 6.992L7.293 11.5 8 10.793l2.395 2.395 3.425-5.872.864.504Z"
+        clipRule="evenodd"
+        fillRule="evenodd"
+      ></path>
     </svg>
   );
 }
@@ -423,56 +473,64 @@ function PartnerPlans() {
 
   return (
     <section id="pricing" className="mt-40 scroll-mt-24">
-      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[3fr_7fr] lg:items-start lg:gap-20">
-        <div>
-          <p className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest uppercase text-gray-950 dark:bg-white/10 dark:text-white">
-            <a href="#pricing">03 / Pricing</a>
+      <div className="line-y">
+        <div className="px-4 py-2 sm:px-2">
+          <Eyebrow as="h2" color="sky">
+            <a href="#pricing">Pricing</a>
+          </Eyebrow>
+          <p className="mt-2 max-w-3xl text-3xl font-medium tracking-tight text-pretty md:text-[2.5rem]/14">
+            Choose the right plan for your team.
           </p>
-          <p className="mt-8 text-lg/7 font-medium tracking-tight text-pretty">
-            <strong className="font-medium text-gray-950 dark:text-white">Choose the right plan for your team.</strong>{" "}
-            <span className="text-gray-500 dark:text-gray-400">Whether you're looking for visibility, direct access to the team, or just want to support the project, there's a plan for you.</span>
+          <p className="mt-4 max-w-2xl text-base/7 text-gray-600 dark:text-gray-400">
+            Whether you're looking for visibility, direct access to the team, or just want to support the project, there's a plan for you.
           </p>
         </div>
-        <div>
-          <div className="grid grid-cols-1 gap-2 xl:grid-cols-3">
-            {plans.map((plan) => (
-              <div
-                key={plan.name}
-                className="flex h-full flex-col gap-y-6 bg-white p-8 dark:bg-white/5"
-              >
-                <Eyebrow as="h3">{plan.name}</Eyebrow>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-x-4">
-                    <p className="text-5xl font-medium first-letter:font-light">{plan.price}</p>
-                    <div>
-                      <p className="text-sm/6 font-semibold">per month</p>
-                      <p className="text-sm/6 text-gray-600 dark:text-gray-400">plus tax</p>
-                    </div>
-                  </div>
-                  <DarkButtonLink className="max-sm:hidden xl:hidden" href={plan.url}>
-                    {`Become ${plan.name.toLowerCase().match(/^[aeiou]/i) ? "an" : "a"} ${plan.name.toLowerCase()}`}
-                  </DarkButtonLink>
+      </div>
+      <div className="mt-10 grid grid-cols-1 lg:gap-10 xl:grid-cols-3">
+      {plans.map((plan) => (
+        <div
+          key={plan.name}
+          className="bg-gray-950/5 py-[calc(--spacing(2)+1px)] max-lg:-mx-px max-lg:px-[calc(--spacing(2)+1px)] not-first:max-lg:pt-0 lg:-mx-px lg:border-gray-950/5 lg:pr-2 lg:pl-[calc(--spacing(2)+1px)] lg:not-first:border-l lg:not-last:border-r dark:bg-white/10 dark:lg:border-white/10"
+        >
+          <div className="flex h-full flex-col gap-y-6 rounded-2xl bg-white p-6 sm:rounded-4xl sm:p-10 xl:p-8 2xl:p-10 dark:bg-gray-950/80 dark:outline dark:outline-white/10">
+            <Eyebrow as="h3">{plan.name}</Eyebrow>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-x-4">
+                <p className="text-5xl font-medium first-letter:font-light">{plan.price}</p>
+                <div>
+                  <p className="text-sm/6 font-semibold">per month</p>
+                  <p className="text-sm/6 text-gray-600 dark:text-gray-400">plus tax</p>
                 </div>
-                <p className="max-w-2xl text-sm/7 text-gray-600 dark:text-gray-400">{plan.description}</p>
-                <hr className="border-gray-950/5 dark:border-white/10" />
-                <ul role="list" className="grid grid-cols-1 gap-y-5 text-[0.8125rem]/6 text-gray-600 dark:text-gray-300">
-                  {plan.features.map((feature) => (
-                    <li key={feature.name} className="grid grid-cols-[auto_1fr] gap-3">
-                      <CheckmarkIcon />
-                      <p className="text-pretty">
-                        <strong className="font-semibold text-gray-950 dark:text-white">{feature.name}</strong> —{" "}
-                        {feature.description}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-                <DarkButtonLink className="mt-auto sm:max-xl:hidden" href={plan.url}>
-                  {`Become ${plan.name.toLowerCase().match(/^[aeiou]/i) ? "an" : "a"} ${plan.name.toLowerCase()}`}
-                </DarkButtonLink>
               </div>
-            ))}
+
+              <DarkButtonLink className="max-sm:hidden xl:hidden" href={plan.url}>
+                {`Become ${plan.name.toLowerCase().match(/^[aeiou]/i) ? "an" : "a"} ${plan.name.toLowerCase()}`}
+              </DarkButtonLink>
+            </div>
+            <p className="max-w-2xl text-sm/7 text-gray-600 dark:text-gray-400">{plan.description}</p>
+            <hr className="border-gray-950/5 dark:border-white/10" />
+            <div className="@container">
+              <ul
+                className="group grid grid-cols-1 gap-x-10 gap-y-6 text-sm/7 text-gray-600 @3xl:grid-cols-2 dark:text-gray-300"
+                role="list"
+              >
+                {plan.features.map((feature) => (
+                  <li key={feature.name} className="grid max-w-2xl grid-cols-[auto_1fr] gap-6">
+                    <CheckmarkIcon />
+                    <p className="text-pretty">
+                      <strong className="font-semibold text-gray-950 dark:text-white">{feature.name}</strong> —{" "}
+                      {feature.description}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <DarkButtonLink className="mt-auto sm:max-xl:hidden" href={plan.url}>
+              {`Become ${plan.name.toLowerCase().match(/^[aeiou]/i) ? "an" : "a"} ${plan.name.toLowerCase()}`}
+            </DarkButtonLink>
           </div>
         </div>
+      ))}
       </div>
     </section>
   );
@@ -481,10 +539,10 @@ function PartnerPlans() {
 function FaqGroup({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="group">
-      <Eyebrow as="h3">
+      <Eyebrow as="h3" className="px-4 py-2 sm:px-2">
         {title}
       </Eyebrow>
-      <dl className="mt-6">{children}</dl>
+      <dl>{children}</dl>
     </div>
   );
 }
@@ -499,7 +557,7 @@ function Faq({ question, children }: { question: string; children: React.ReactNo
       .replace(/\s+/g, "-");
 
   return (
-    <details className="group border-t border-gray-950/5 py-3 dark:border-white/5">
+    <details className="group border-t border-gray-950/5 px-4 py-3 sm:px-2 dark:border-white/5">
       <summary
         id={id}
         className="flex w-full cursor-pointer justify-between gap-4 select-none group-open:text-sky-500 [&::-webkit-details-marker]:hidden"
@@ -515,17 +573,16 @@ function Faq({ question, children }: { question: string; children: React.ReactNo
 
 function Faqs() {
   return (
-    <section className="mt-40" id="faqs">
-      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[3fr_7fr] lg:items-start lg:gap-20">
-        <div>
-          <p className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest uppercase text-gray-950 dark:bg-white/10 dark:text-white">
-            04 / FAQ
-          </p>
-          <p className="mt-8 text-lg/7 font-medium tracking-tight text-pretty">
-            <strong className="font-medium text-gray-950 dark:text-white">Everything you need to know.</strong>{" "}
-            <span className="text-gray-500 dark:text-gray-400">Common questions about partnering with Tailwind CSS.</span>
-          </p>
+    <section className="line-y mt-30 grid grid-cols-1 gap-10 lg:grid-cols-2" id="faqs">
+      <div className="lg:border-r lg:border-gray-950/5 dark:lg:border-white/5">
+        <div className="grid grid-cols-1 gap-y-2 px-4 py-2 max-lg:line-b sm:px-2 lg:line-b/half">
+          <Eyebrow as="h2" color="fuchsia">
+            Frequently asked questions
+          </Eyebrow>
+          <p className="text-[2.5rem]/none font-medium tracking-tight text-pretty">Everything you need to know.</p>
         </div>
+      </div>
+      <div className="lg:border-l lg:border-gray-950/5 dark:lg:border-white/5">
         <div className="grid grid-cols-1 gap-10">
           <FaqGroup title="General">
             <Faq question="Who can I contact about a sponsorship?">
@@ -637,8 +694,10 @@ function DirectoryItems({ sponsors }: { sponsors: DirectorySponsor[] }) {
           className="col-span-full grid grid-cols-subgrid items-center border-t border-gray-950/5 dark:border-white/10"
         >
           <a
-            href={`/sponsor/${sponsor.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`}
-            className="col-span-full grid grid-cols-subgrid items-center gap-4 py-5 pl-6 pr-4 transition-colors hover:bg-gray-950/2.5 sm:pl-4 sm:pr-2 dark:hover:bg-white/2.5"
+            href={sponsor.sponsorPageUrl ?? sponsor.url}
+            target="_blank"
+            rel="noopener sponsored"
+            className="col-span-full grid grid-cols-subgrid items-center gap-4 py-3 pl-6 pr-4 transition-colors hover:bg-gray-950/2.5 sm:pl-4 sm:pr-2 dark:hover:bg-white/2.5"
           >
             <div className="flex items-center gap-3">
               <sponsor.icon className="size-5 shrink-0 opacity-50 dark:opacity-60" aria-label={`${sponsor.name} logo`} />
@@ -672,19 +731,16 @@ export default async function Sponsor() {
   return (
     <div className="mt-24">
       <Header />
-      <hr className="mt-20 -mx-6 border-gray-950/10 sm:mt-24 lg:-mx-10 lg:mt-28 dark:border-white/10" style={{ marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)" }} />
       <div className="isolate">
+        <FeaturedPartners partners={partners.slice(0, 8)} />
+        <WhyPartner />
+
+        <PartnerPlans />
+        <Faqs />
         <PartnerDirectory>
           <DirectoryItems sponsors={directorySponsors} />
         </PartnerDirectory>
-        <hr className="mt-40 border-gray-950/10 dark:border-white/10" />
-        <WhyPartner />
-        <hr className="mt-40 border-gray-950/10 dark:border-white/10" />
-        <PartnerPlans />
-        <hr className="mt-40 border-gray-950/10 dark:border-white/10" />
-        <Faqs />
-        <hr className="mt-40 border-gray-950/10 dark:border-white/10" style={{ marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)" }} />
-        <FooterMeta />
+        <FooterMeta className="px-4 md:px-6 lg:px-8" />
       </div>
     </div>
   );
