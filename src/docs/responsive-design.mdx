@@ -444,6 +444,23 @@ For complex designs that use multiple nested containers, you can name containers
 
 This makes it possible to style something based on the size of a distant container, rather than just the nearest container.
 
+### Using size containers
+
+Use `@container-size` to mark an element as a size container instead of an inline-size container when you need to use container query length units that depend on the block size, like `cqb`:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code word:@container-size] -->
+<!-- [!code word:h-\[50cqb\]] -->
+<div class="@container-size">
+  <div class="h-[50cqb]">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+You can also name size containers using `@container-size/{name}`.
+
 ### Using custom container sizes
 
 Use the `--container-*` theme variables to customize your container sizes:
