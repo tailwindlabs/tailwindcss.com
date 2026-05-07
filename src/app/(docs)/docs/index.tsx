@@ -219,6 +219,7 @@ export default {
     ["pointer-events", "/docs/pointer-events"],
     ["resize", "/docs/resize"],
     ["scroll-behavior", "/docs/scroll-behavior"],
+    ["scrollbar-gutter", "/docs/scrollbar-gutter"],
     ["scroll-margin", "/docs/scroll-margin"],
     ["scroll-padding", "/docs/scroll-padding"],
     ["scroll-snap-align", "/docs/scroll-snap-align"],
