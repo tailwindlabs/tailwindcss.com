@@ -940,10 +940,9 @@ function DirectoryItems({ sponsors }: { sponsors: DirectorySponsor[] }) {
           className="col-span-full grid grid-cols-subgrid items-center border-t border-gray-950/5 dark:border-white/10"
         >
           <a
-            href={`/sponsor/${sponsor.name
-              .toLowerCase()
-              .replace(/[^a-z0-9]+/g, "-")
-              .replace(/(^-|-$)/g, "")}`}
+            href={sponsor.url}
+            target="_blank"
+            rel="noopener sponsored"
             className="col-span-full grid grid-cols-subgrid items-center gap-4 py-5 pr-4 pl-6 transition-colors hover:bg-gray-950/2.5 sm:pr-2 sm:pl-4 dark:hover:bg-white/2.5"
           >
             <div className="flex items-center gap-3">
