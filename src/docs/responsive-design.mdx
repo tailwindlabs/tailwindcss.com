@@ -383,7 +383,7 @@ Learn more about arbitrary value support in the [arbitrary values](/docs/adding-
 
 ### Basic example
 
-Use the `@container` class to mark an element as a container, then use variants like `@sm` and `@md` to style child elements based on the size of the container:
+Use the `@container` class to mark an element as an inline-size container, then use variants like `@sm` and `@md` to style child elements based on the size of the container:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -508,7 +508,7 @@ Use variants like `@min-[475px]` and `@max-[960px]` for one-off container query 
 
 ### Using container query units
 
-Use [container query length units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries#container_query_length_units) like `cqw` as arbitrary values in other utility classes to reference the container size:
+Use [container query length units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries#container_query_length_units) like `cqw` and `cqi` as arbitrary values in other utility classes to reference the container size:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -519,6 +519,8 @@ Use [container query length units](https://developer.mozilla.org/en-US/docs/Web/
   </div>
 </div>
 ```
+
+For units that need more than the inline size, like `cqb` and `cqh`, use `@container-size` to make the full size of the container available.
 
 ### Container size reference
 
