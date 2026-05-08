@@ -383,13 +383,14 @@ To apply the same styles for multiple variants, separate each variant with a com
 .my-element {
   background: white;
 
-  /* [!code highlight:10] */
+  /* [!code highlight:6] */
   &:hover {
     @media (hover: hover) {
       background: black;
     }
   }
 
+  /* [!code highlight:4] */
   &:focus {
     background: black;
   }
