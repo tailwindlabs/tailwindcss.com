@@ -108,6 +108,7 @@ export default {
     ["text-overflow", "/docs/text-overflow"],
     ["text-wrap", "/docs/text-wrap"],
     ["text-indent", "/docs/text-indent"],
+    ["tab-size", "/docs/tab-size"],
     ["vertical-align", "/docs/vertical-align"],
     ["white-space", "/docs/white-space"],
     ["word-break", "/docs/word-break"],
