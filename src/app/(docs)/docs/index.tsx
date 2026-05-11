@@ -221,6 +221,7 @@ export default {
     ["scroll-behavior", "/docs/scroll-behavior"],
     ["scrollbar-color", "/docs/scrollbar-color"],
     ["scrollbar-width", "/docs/scrollbar-width"],
+    ["scrollbar-gutter", "/docs/scrollbar-gutter"],
     ["scroll-margin", "/docs/scroll-margin"],
     ["scroll-padding", "/docs/scroll-padding"],
     ["scroll-snap-align", "/docs/scroll-snap-align"],
