@@ -586,6 +586,7 @@ Use `--default()` inside `--value()` to support a default value when the utility
 
 ```css
 /* [!code filename:CSS] */
+/* [!code word:--default(4)] */
 @utility tab-* {
   tab-size: --value(integer, --default(4));
 }
@@ -595,6 +596,7 @@ This matches both `tab-2` and `tab-4`, as well as just `tab` which uses the defa
 
 ```css
 /* [!code filename:Compiled CSS] */
+/* [!code highlight:4] */
 .tab {
   tab-size: 4;
 }
@@ -608,6 +610,7 @@ The `--default()` function can also be used inside `--modifier()` to provide a d
 
 ```css
 /* [!code filename:CSS] */
+/* [!code word:--default(1)] */
 @utility tab-* {
   tab-size: --value(integer);
   line-height: --modifier(integer, --default(1));
