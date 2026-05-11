@@ -208,6 +208,7 @@ export default {
     ["transform-origin", "/docs/transform-origin"],
     ["transform-style", "/docs/transform-style"],
     ["translate", "/docs/translate"],
+    ["zoom", "/docs/zoom"],
   ] as const,
   Interactivity: [
     ["accent-color", "/docs/accent-color"],
