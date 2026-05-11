@@ -4,7 +4,7 @@ import { Example } from "@/components/example";
 import { Figure } from "@/components/figure";
 
 export const meta = {
-  title: "Tailwind CSS v4.3: Scrollbars, logical properties, and more",
+  title: "Tailwind CSS v4.3: Scrollbars, new colors, and more",
   description:
     "Tailwind CSS v4.3 is here with first-party scrollbar styling, even more logical property utilities, new zoom and tab-size utilities, better @variant support, and all the v4.2 stuff we shipped while forgetting blogs existed.",
   date: "2026-05-08T20:00:00.000Z",
@@ -19,23 +19,23 @@ export const meta = {
 
 Tailwind CSS v4.3 is here, and because apparently shipping v4.2 was easier than remembering to blog about it, this post is secretly about two releases worth of new stuff.
 
-We've been filling in a bunch of the annoying little gaps in the framework: more logical property utilities, more browser APIs exposed as utilities, a few new color palettes, and some nice improvements for using Tailwind CSS variants directly in CSS.
-
-A lot of the v4.2 improvements, including the new logical property utilities and `font-features-*` support, came out of collaborations with teams at Netflix and Vercel through our [Partners Program](/sponsor#partners). If there are framework improvements like this that would make Tailwind CSS work better for your team, we'd love to help.
-
-Here's all the best stuff we got into v4.2 and v4.3:
+Here's what landed in v4.2:
 
 - [New `mauve`, `olive`, `mist`, and `taupe` palettes](#new-mauve-olive-mist-and-taupe-palettes) — four more neutral-ish palettes for when gray, zinc, neutral, stone, and slate have somehow failed you.
+- [First-class webpack plugin](#first-class-webpack-plugin) — for a huge performance boost in frameworks like Next.js.
 - [More logical property utilities](#more-logical-property-utilities) — including `pbs-*`, `mbs-*`, `inline-*`, `block-*`, and new logical inset utilities.
 - [New `font-features-*` utility](#new-font-features-utility) — control low-level OpenType features without writing custom CSS every time.
+
+…and here's what's new in v4.3:
+
 - [New scrollbar utilities](#new-scrollbar-utilities) — style scrollbars without wondering which half-supported browser API you're supposed to use this week.
 - [New `@container-size` utility](#new-container-size-utility) — create size containers for when your container queries need to care about height too.
 - [New `zoom-*` utilities](#new-zoom-utilities) — use the CSS `zoom` property directly in your markup, now that every browser has finally agreed it exists.
-- [New `tab-*` utilities](#new-tab-utilities) — control the rendered width of tab characters, for the three of you still brave enough to render real tabs.
-- [Better `@variant` support](#better-variant-support) — use stacked and compound variants directly in CSS.
+- [New `tab-*` utilities](#new-tab-utilities) — control the rendered width of tab characters, just please don't make it eight like GitHub used to.
+- [Stacked + compound `@variant` support](#stacked-compound-variant-support) — use stacked and compound variants directly in CSS.
 - [Default values for functional utilities](#default-values-for-functional-utilities) — define utilities that work with or without a value.
 
-That's all the headline stuff, but there are plenty of bug fixes and smaller improvements hiding in the [v4.2](https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.2.0) and [v4.3](https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.3.0) release notes too if you're the sort of person who reads release notes for fun.
+A lot of the v4.2 improvements, including the new logical property utilities and `font-features-*` support, came out of collaborations with teams at Netflix and Vercel through our [Partners Program](/sponsor#partners). If there are framework improvements like this that would make Tailwind CSS work better for your team, we'd love to help.
 
 Upgrade your projects by installing the latest version of `tailwindcss` from npm:
 
@@ -56,6 +56,11 @@ npm install tailwindcss@latest @tailwindcss/vite@latest
 npm install tailwindcss@latest @tailwindcss/postcss@latest
 ```
 
+```sh
+# [!code filename:Using webpack]
+npm install tailwindcss@latest @tailwindcss/webpack@latest
+```
+
 </CodeExampleStack>
 
 ---
@@ -64,7 +69,9 @@ npm install tailwindcss@latest @tailwindcss/postcss@latest
 
 In v4.2 we added four new color palettes to the default theme: `mauve`, `olive`, `mist`, and `taupe`.
 
-They're all in that useful neutral-adjacent category where you want something that still behaves like gray, but has a little more personality than actual gray:
+These originally came out of [Oatmeal](https://tailwindcss.com/plus/changelog#2025-12-18), the multi-theme marketing site kit we released for Tailwind Plus back in December, where we needed a few more neutral-ish palettes that still felt distinct from the grays we already ship.
+
+They're all in that useful neutral-adjacent category where you want something that still behaves like gray, but has a little more personality:
 
 <Figure>
 
@@ -152,7 +159,7 @@ They're all in that useful neutral-adjacent category where you want something th
 
 </Figure>
 
-They're a nice substitute for the existing gray palettes when you want the whole design to lean a little warmer, cooler, greener, or whatever emotional state `mauve` is supposed to represent:
+They're a nice substitute for the existing gray palettes when you want the whole design to lean a little warmer, cooler, greener, or… mauver?
 
 ```html
 <!-- [!code classes:bg-mauve-950,text-mauve-100,bg-olive-100,text-olive-950,border-mist-200,shadow-taupe-950/10] -->
@@ -161,15 +168,69 @@ They're a nice substitute for the existing gray palettes when you want the whole
 <div class="border border-mist-200 shadow-taupe-950/10 ...">Mist and taupe</div>
 ```
 
-It's not exactly going to change the course of human civilization, but it is one of those small additions that makes it easier to get the right neutral without immediately reaching for custom colors.
+Check out the [colors documentation](/docs/colors) for a pretty grid of all the available colors.
 
-Check out the [`colors`](/docs/colors) docs for all the available colors.
+---
+
+## First-class webpack plugin
+
+Tailwind CSS v4.2 added a dedicated `@tailwindcss/webpack` loader for integrating Tailwind CSS in webpack projects.
+
+Before this, webpack projects usually ran Tailwind through `postcss-loader` and `@tailwindcss/postcss`, which works, but means CSS has to take a little detour through PostCSS just so Tailwind can get its hands on a string it already knows how to compile.
+
+The dedicated loader skips that extra work, and we've seen it make Tailwind over 2x faster in large, complicated webpack projects. For example, here's what we saw testing against the tailwindcss.com docs with Next.js and Turbopack:
+
+{
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th className="text-right">@tailwindcss/postcss</th>
+      <th className="text-right">@tailwindcss/webpack</th>
+      <th className="text-right">Improvement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Build time</td>
+      <td className="text-right">931.53ms</td>
+      <td className="text-right">429ms</td>
+      <td className="text-right">2.17x</td>
+    </tr>
+  </tbody>
+</table>
+}
+
+Using it is the same sort of setup you're used to from other webpack loaders:
+
+```js
+// [!code filename:webpack.config.js]
+// [!code word:@tailwindcss/webpack]
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+module.exports = {
+  plugins: [new MiniCssExtractPlugin()],
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "@tailwindcss/webpack"],
+      },
+    ],
+  },
+};
+```
+
+Because Turbopack supports webpack loaders through its compatibility layer, these improvements carry over there too, which is a big deal for frameworks like Next.js where Turbopack is becoming the default.
+
+Check out the [`@tailwindcss/webpack` README](https://github.com/tailwindlabs/tailwindcss/tree/main/packages/%40tailwindcss-webpack) for more details.
 
 ---
 
 ## More logical property utilities
 
-Tailwind CSS v4.2 added a whole bunch of new logical property utilities, making it easier to build layouts that adapt correctly across different writing modes and directions without sprinkling custom CSS everywhere like it's 2017.
+Tailwind CSS v4.2 added a whole bunch of new logical property utilities, making it easier to build layouts that adapt correctly across different writing modes and directions.
 
 For spacing, there are new block-start and block-end utilities for padding, margin, scroll padding, scroll margin, and borders:
 
@@ -272,7 +333,7 @@ Use `scrollbar-auto`, `scrollbar-thin`, and `scrollbar-none` to control `scrollb
 
 <Example>
   {
-    <div className="scrollbar-thin scrollbar-thumb-sky-700 scrollbar-track-sky-100 dark:scrollbar-thumb-sky-400 dark:scrollbar-track-gray-700 mx-auto h-72 max-w-sm overflow-auto rounded-xl bg-white p-6 text-sm/6 text-gray-600 shadow-lg ring-1 ring-black/5 dark:bg-gray-800 dark:text-gray-300">
+    <div className="mx-auto h-72 max-w-sm scrollbar-thin scrollbar-thumb-sky-700 scrollbar-track-sky-100 overflow-auto rounded-xl bg-white p-6 text-sm/6 text-gray-600 shadow-lg ring-1 ring-black/5 dark:scrollbar-thumb-sky-400 dark:scrollbar-track-gray-700 dark:bg-gray-800 dark:text-gray-300">
       <div className="space-y-4">
         <p>
           The Cerulean Archives occupy three narrow floors above the old observatory, each lined with drawers of star
@@ -331,7 +392,7 @@ And for preventing layout shift when scrollbars appear, we've added `scrollbar-g
     <div className="mx-auto grid max-w-xl grid-cols-1 gap-6 text-sm/6 text-gray-600 sm:grid-cols-2 dark:text-gray-300">
       <div>
         <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">scrollbar-gutter-auto</p>
-        <div className="scrollbar-gutter-auto h-40 overflow-auto rounded-lg bg-gray-50 py-4 dark:bg-white/5">
+        <div className="h-40 scrollbar-gutter-auto overflow-auto rounded-lg bg-gray-50 py-4 dark:bg-white/5">
           <p className="text-justify">
             Hey everyone! It's almost 2027 and we still don't know if there are aliens living among us, or do we? Maybe
             the person writing this is an alien. You will never know.
@@ -340,7 +401,7 @@ And for preventing layout shift when scrollbars appear, we've added `scrollbar-g
       </div>
       <div>
         <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">scrollbar-gutter-stable</p>
-        <div className="scrollbar-gutter-stable relative h-40 overflow-auto rounded-lg bg-gray-50 py-4 pr-4 dark:bg-white/5">
+        <div className="relative h-40 scrollbar-gutter-stable overflow-auto rounded-lg bg-gray-50 py-4 pr-4 dark:bg-white/5">
           <p className="text-justify">
             Hey everyone! It's almost 2027 and we still don't know if there are aliens living among us, or do we? Maybe
             the person writing this is an alien. You will never know.
@@ -369,7 +430,7 @@ Check out the [`scrollbar-width`](/docs/scrollbar-width), [`scrollbar-color`](/d
 
 In Tailwind CSS v4.0 we added first-party container query support with the `@container` utility, which creates an inline-size container.
 
-That's what you want most of the time, but container query length units like `cqb` and `cqh` depend on the block size of the container, and inline-size containers don't expose that information because CSS enjoys watching us struggle.
+That's what you want most of the time, but container query length units like `cqb` and `cqh` depend on the block size of the container, and inline-size containers don't expose that information.
 
 So in v4.3 we've added `@container-size`, which creates a size container instead:
 
@@ -416,7 +477,7 @@ Check out the [`zoom`](/docs/zoom) docs for more details.
 
 We've also added `tab-*` utilities for controlling the rendered width of tab characters using `tab-size`.
 
-This is mostly useful for code examples, editors, and any other UI where you're rendering preformatted text that might contain real tab characters, proving once again that the tabs versus spaces debate will outlive us all:
+This is mostly useful for code examples, editors, and any other UI where you're rendering preformatted text that might contain real tab characters:
 
 <Figure>
 
@@ -468,7 +529,7 @@ Check out the [`tab-size`](/docs/tab-size) docs for more details.
 
 ---
 
-## Better `@variant` support
+## Stacked + compound `@variant` support
 
 Tailwind CSS v4.3 makes `@variant` more flexible when you're using variants in CSS instead of directly in your markup.
 
@@ -595,6 +656,32 @@ It's a small thing, but it lets plugin authors and anyone writing custom utiliti
 
 ---
 
-So that's Tailwind CSS v4.3, plus Tailwind CSS v4.2 wearing a fake mustache.
+So that's Tailwind CSS v4.2 and v4.3!
 
-Update to the latest version, try the new stuff, and let us know what you run into. Bonus points if your bug report includes reproduction steps, because our crystal ball is still stuck on npm install.
+Update to the latest version using npm and start playing with it today:
+
+<CodeExampleStack>
+
+```sh
+# [!code filename:Using the Tailwind CLI]
+npm install tailwindcss@latest @tailwindcss/cli@latest
+```
+
+```sh
+# [!code filename:Using Vite]
+npm install tailwindcss@latest @tailwindcss/vite@latest
+```
+
+```sh
+# [!code filename:Using PostCSS]
+npm install tailwindcss@latest @tailwindcss/postcss@latest
+```
+
+```sh
+# [!code filename:Using webpack]
+npm install tailwindcss@latest @tailwindcss/webpack@latest
+```
+
+</CodeExampleStack>
+
+Try the new stuff and let us know what you run into. Just remember a tab size over 4 is a crime and may result in the suspension of your software engineering license.
