@@ -608,7 +608,11 @@ function WhyPartner() {
                         company={feature.testimonial.company}
                         className={clsx(
                           "w-auto",
-                          ["Vercel", "Resend", "CodeRabbit"].includes(feature.testimonial.company) ? "h-5" : "h-7",
+                          ["Vercel", "Resend"].includes(feature.testimonial.company)
+                            ? "h-4.5"
+                            : ["CodeRabbit"].includes(feature.testimonial.company)
+                              ? "h-5"
+                              : "h-7",
                         )}
                       />
                     </footer>
