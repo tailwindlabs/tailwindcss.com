@@ -1,4 +1,4 @@
-import { partners, ambassadors, supporters } from "@/app/sponsor/sponsors";
+import { partners, ambassadors, supporters } from "@/app/partners/sponsors";
 
 export type Sponsor = (typeof partners)[number];
 

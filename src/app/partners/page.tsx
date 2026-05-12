@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     type: "article",
     title: "Sponsor - Tailwind CSS",
     description: "Become a Tailwind CSS partner to support the project and get your brand in front of millions of developers.",
-    url: "https://tailwindcss.com/sponsor",
+    url: "https://tailwindcss.com/partners",
   },
 };
 
@@ -242,7 +242,7 @@ function WhyPartner() {
       icon: MegaphoneIcon,
       name: "Your brand in front of millions of developers",
       description:
-        "With tens of millions of developers and over 10 million monthly site visits, your logo on the homepage and partner directory puts your brand in front of the entire frontend ecosystem.",
+        "A sponsorship puts your brand in front of tens of millions of frontend developers building with Tailwind CSS.",
       testimonial: {
         company: "Resend",
         quote:
@@ -255,7 +255,7 @@ function WhyPartner() {
       icon: UsersIcon,
       name: "Direct access to the Tailwind CSS team",
       description:
-        "Your team gets a direct line to the people who build Tailwind — whether that’s Slack, a call, a prioritized bug fix, or help with a complex implementation.",
+        "Your team gets direct access to the Tailwind CSS team. A Slack channel, a call, a prioritized bug fix, or whatever it takes to unblock your team.",
       testimonial: {
         company: "Vercel",
         quote:
@@ -268,7 +268,7 @@ function WhyPartner() {
       icon: SparklesIcon,
       name: "Tailored partnership opportunities",
       description:
-        "Featured doc placements, co-built integrations, or something entirely new — we’ll work with you to find the right opportunity for your product.",
+        "Every partnership looks different. We'll work with you to find something that actually makes sense for your product.",
       testimonial: {
         company: "CodeRabbit",
         quote:
@@ -301,7 +301,7 @@ function WhyPartner() {
               <a href="#partners">02 / Why become a partner?</a>
             </p>
             <p className="mt-8 text-lg/7 font-medium tracking-tight text-pretty">
-              <strong className="font-medium text-gray-950 dark:text-white">More than a sponsorship — it’s a partnership.</strong>{" "}
+              <strong className="font-medium text-gray-950 dark:text-white">More than a sponsorship.</strong>{" "}
               <span className="text-gray-500 dark:text-gray-400">Get your brand in front of millions of developers, direct access to the team behind Tailwind CSS, and help shape the future of the framework.</span>
             </p>
           </div>
@@ -432,7 +432,7 @@ function PartnerPlans() {
           </p>
           <p className="mt-8 text-lg/7 font-medium tracking-tight text-pretty">
             <strong className="font-medium text-gray-950 dark:text-white">Choose the right plan for your team.</strong>{" "}
-            <span className="text-gray-500 dark:text-gray-400">Whether you're looking for visibility, direct access to the team, or just want to support the project, there's a plan for you.</span>
+            <span className="text-gray-500 dark:text-gray-400">Whether you're looking for visibility, access to the team, or just want to support the project.</span>
           </p>
         </div>
         <div>

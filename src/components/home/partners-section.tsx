@@ -42,7 +42,7 @@ export default function PartnersSection({ sponsors }: { sponsors: Sponsor[] }) {
       <GridContainer className="mt-10">
         <div className="px-2 max-sm:px-4">
           <Link
-            href="/sponsors"
+            href="/partners"
             className="inline-flex items-center justify-center gap-2 rounded-4xl bg-black px-4 py-2 text-sm/6 font-semibold text-white hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600"
           >
             Become a sponsor
