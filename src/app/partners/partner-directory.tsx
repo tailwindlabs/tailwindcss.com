@@ -26,9 +26,9 @@ export function PartnerDirectory({ children }: { children: React.ReactNode }) {
             <a href="#directory">01 / Partner directory</a>
           </p>
           <p className="mt-8 text-lg/7 font-medium tracking-tight text-pretty">
-            <strong className="font-medium text-gray-950 dark:text-white">Companies that support Tailwind CSS.</strong>{" "}
+            <strong className="font-medium text-gray-950 dark:text-white">Tailwind CSS ecosystem.</strong>{" "}
             <span className="text-gray-500 dark:text-gray-400">
-              Discover the companies investing in the future of Tailwind CSS.
+              Browse the companies that make Tailwind CSS possible.
             </span>
           </p>
         </div>
