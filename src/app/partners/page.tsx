@@ -320,7 +320,7 @@ function WhyPartner() {
                         <p className="text-sm/6 font-semibold">{feature.testimonial.name}</p>
                         <p className="text-sm/6 text-gray-500">{feature.testimonial.title}</p>
                       </div>
-                      <TestimonialLogo company={feature.testimonial.company} className={clsx("w-auto", ["Vercel", "Resend", "CodeRabbit"].includes(feature.testimonial.company) ? "h-5" : "h-7")} />
+                      <TestimonialLogo company={feature.testimonial.company} className={clsx("w-auto", ["Vercel", "Resend"].includes(feature.testimonial.company) ? "h-4.5" : ["CodeRabbit"].includes(feature.testimonial.company) ? "h-5" : "h-7")} />
                     </footer>
                   </blockquote>
                 </div>
