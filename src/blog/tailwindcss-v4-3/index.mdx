@@ -1,0 +1,687 @@
+import { adamwathan, robinmalfait } from "@/app/blog/authors";
+import { CodeExampleStack } from "@/components/code-example";
+import { Example } from "@/components/example";
+import { Figure } from "@/components/figure";
+
+export const meta = {
+  title: "Tailwind CSS v4.3: Scrollbars, new colors, and more",
+  description:
+    "Tailwind CSS v4.3 is here with first-party scrollbar styling, even more logical property utilities, new zoom and tab-size utilities, better @variant support, and all the v4.2 stuff we shipped while forgetting blogs existed.",
+  date: "2026-05-08T20:00:00.000Z",
+  authors: [adamwathan, robinmalfait],
+  excerpt: (
+    <>
+      Tailwind CSS v4.3 is here with first-party scrollbar styling, even more logical property utilities, new zoom and
+      tab-size utilities, better @variant support, and all the v4.2 stuff we shipped while forgetting blogs existed.
+    </>
+  ),
+};
+
+Tailwind CSS v4.3 is here, and because apparently shipping v4.2 was easier than remembering to blog about it, this post is secretly about two releases worth of new stuff.
+
+Here's what landed in v4.2:
+
+- [New `mauve`, `olive`, `mist`, and `taupe` palettes](#new-mauve-olive-mist-and-taupe-palettes) — four more neutral-ish palettes for when gray, zinc, neutral, stone, and slate have somehow failed you.
+- [First-class webpack plugin](#first-class-webpack-plugin) — for a huge performance boost in frameworks like Next.js.
+- [More logical property utilities](#more-logical-property-utilities) — including `pbs-*`, `mbs-*`, `inline-*`, `block-*`, and new logical inset utilities.
+- [New `font-features-*` utility](#new-font-features-utility) — control low-level OpenType features without writing custom CSS every time.
+
+…and here's what's new in v4.3:
+
+- [New scrollbar utilities](#new-scrollbar-utilities) — style scrollbars without wondering which half-supported browser API you're supposed to use this week.
+- [New `@container-size` utility](#new-container-size-utility) — create size containers for when your container queries need to care about height too.
+- [New `zoom-*` utilities](#new-zoom-utilities) — use the CSS `zoom` property directly in your markup, now that every browser has finally agreed it exists.
+- [New `tab-*` utilities](#new-tab-utilities) — control the rendered width of tab characters, just please don't make it eight like GitHub used to.
+- [Stacked + compound `@variant` support](#stacked-compound-variant-support) — use stacked and compound variants directly in CSS.
+- [Default values for functional utilities](#default-values-for-functional-utilities) — define utilities that work with or without a value.
+
+A lot of the v4.2 improvements, including the new logical property utilities and `font-features-*` support, came out of collaborations with teams at Netflix and Vercel through our [Partners Program](/sponsor#partners). If there are framework improvements like this that would make Tailwind CSS work better for your team, we'd love to help.
+
+Upgrade your projects by installing the latest version of `tailwindcss` from npm:
+
+<CodeExampleStack>
+
+```sh
+# [!code filename:Using the Tailwind CLI]
+npm install tailwindcss@latest @tailwindcss/cli@latest
+```
+
+```sh
+# [!code filename:Using Vite]
+npm install tailwindcss@latest @tailwindcss/vite@latest
+```
+
+```sh
+# [!code filename:Using PostCSS]
+npm install tailwindcss@latest @tailwindcss/postcss@latest
+```
+
+```sh
+# [!code filename:Using webpack]
+npm install tailwindcss@latest @tailwindcss/webpack@latest
+```
+
+</CodeExampleStack>
+
+---
+
+## New `mauve`, `olive`, `mist`, and `taupe` palettes
+
+In v4.2 we added four new color palettes to the default theme: `mauve`, `olive`, `mist`, and `taupe`.
+
+These originally came out of [Oatmeal](https://tailwindcss.com/plus/changelog#2025-12-18), the multi-theme marketing site kit we released for Tailwind Plus back in December, where we needed a few more neutral-ish palettes that still felt distinct from the grays we already ship.
+
+They're all in that useful neutral-adjacent category where you want something that still behaves like gray, but has a little more personality:
+
+<Figure>
+
+<Example padding={false}>
+  <div className="grid gap-5 p-6 sm:p-8">
+    <div className="grid grid-cols-[auto_1fr] items-center gap-x-5 gap-y-3 text-sm/6 sm:gap-x-6">
+      <div />
+      <div className="grid grid-cols-11 justify-items-center gap-1.5 font-mono text-xs text-gray-500 dark:text-gray-400">
+        <div>50</div>
+        <div>100</div>
+        <div>200</div>
+        <div>300</div>
+        <div>400</div>
+        <div>500</div>
+        <div>600</div>
+        <div>700</div>
+        <div>800</div>
+        <div>900</div>
+        <div>950</div>
+      </div>
+
+      <div className="font-mono font-medium text-gray-950 dark:text-white">mauve</div>
+      <div className="grid grid-cols-11 gap-1.5">
+        <div className="aspect-square rounded bg-mauve-50 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-mauve-100 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-mauve-200 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-mauve-300 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-mauve-400 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-mauve-500 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-mauve-600 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-mauve-700 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-mauve-800 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-mauve-900 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-mauve-950 inset-ring inset-ring-gray-950/5" />
+      </div>
+
+      <div className="font-mono font-medium text-gray-950 dark:text-white">olive</div>
+      <div className="grid grid-cols-11 gap-1.5">
+        <div className="aspect-square rounded bg-olive-50 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-olive-100 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-olive-200 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-olive-300 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-olive-400 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-olive-500 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-olive-600 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-olive-700 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-olive-800 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-olive-900 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-olive-950 inset-ring inset-ring-gray-950/5" />
+      </div>
+
+      <div className="font-mono font-medium text-gray-950 dark:text-white">mist</div>
+      <div className="grid grid-cols-11 gap-1.5">
+        <div className="aspect-square rounded bg-mist-50 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-mist-100 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-mist-200 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-mist-300 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-mist-400 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-mist-500 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-mist-600 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-mist-700 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-mist-800 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-mist-900 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-mist-950 inset-ring inset-ring-gray-950/5" />
+      </div>
+
+      <div className="font-mono font-medium text-gray-950 dark:text-white">taupe</div>
+      <div className="grid grid-cols-11 gap-1.5">
+        <div className="aspect-square rounded bg-taupe-50 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-taupe-100 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-taupe-200 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-taupe-300 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-taupe-400 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-taupe-500 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-taupe-600 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-taupe-700 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-taupe-800 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-taupe-900 inset-ring inset-ring-gray-950/5" />
+        <div className="aspect-square rounded bg-taupe-950 inset-ring inset-ring-gray-950/5" />
+      </div>
+    </div>
+
+  </div>
+</Example>
+
+</Figure>
+
+They're a nice substitute for the existing gray palettes when you want the whole design to lean a little warmer, cooler, greener, or… mauver?
+
+```html
+<!-- [!code classes:bg-mauve-950,text-mauve-100,bg-olive-100,text-olive-950,border-mist-200,shadow-taupe-950/10] -->
+<div class="bg-mauve-950 text-mauve-100 ...">Mauve</div>
+<div class="bg-olive-100 text-olive-950 ...">Olive</div>
+<div class="border border-mist-200 shadow-taupe-950/10 ...">Mist and taupe</div>
+```
+
+Check out the [colors documentation](/docs/colors) for a pretty grid of all the available colors.
+
+---
+
+## First-class webpack plugin
+
+Tailwind CSS v4.2 added a dedicated `@tailwindcss/webpack` loader for integrating Tailwind CSS in webpack projects.
+
+Before this, webpack projects usually ran Tailwind through `postcss-loader` and `@tailwindcss/postcss`, which works, but means CSS has to take a little detour through PostCSS just so Tailwind can get its hands on a string it already knows how to compile.
+
+The dedicated loader skips that extra work, and we've seen it make Tailwind over 2x faster in large, complicated webpack projects. For example, here's what we saw testing against the tailwindcss.com docs with Next.js and Turbopack:
+
+{
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th className="text-right">@tailwindcss/postcss</th>
+      <th className="text-right">@tailwindcss/webpack</th>
+      <th className="text-right">Improvement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Build time</td>
+      <td className="text-right">931.53ms</td>
+      <td className="text-right">429ms</td>
+      <td className="text-right">2.17x</td>
+    </tr>
+  </tbody>
+</table>
+}
+
+Using it is the same sort of setup you're used to from other webpack loaders:
+
+```js
+// [!code filename:webpack.config.js]
+// [!code word:@tailwindcss/webpack]
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+module.exports = {
+  plugins: [new MiniCssExtractPlugin()],
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "@tailwindcss/webpack"],
+      },
+    ],
+  },
+};
+```
+
+Because Turbopack supports webpack loaders through its compatibility layer, these improvements carry over there too, which is a big deal for frameworks like Next.js where Turbopack is becoming the default.
+
+Check out the [`@tailwindcss/webpack` README](https://github.com/tailwindlabs/tailwindcss/tree/main/packages/%40tailwindcss-webpack) for more details.
+
+---
+
+## More logical property utilities
+
+Tailwind CSS v4.2 added a whole bunch of new logical property utilities, making it easier to build layouts that adapt correctly across different writing modes and directions.
+
+For spacing, there are new block-start and block-end utilities for padding, margin, scroll padding, scroll margin, and borders:
+
+```html
+<!-- [!code classes:pbs-4,pbe-8,mbs-6,mbe-2] -->
+<div class="mbs-6 mbe-2 pbs-4 pbe-8 ...">
+  <!-- ... -->
+</div>
+```
+
+```html
+<!-- [!code classes:scroll-pbs-12,scroll-pbe-12,scroll-mbs-4,scroll-mbe-4] -->
+<div class="scroll-mbs-4 scroll-mbe-4 scroll-pbs-12 scroll-pbe-12 ...">
+  <!-- ... -->
+</div>
+```
+
+```html
+<!-- [!code classes:border-bs,border-be-2] -->
+<div class="border-bs border-be-2 ...">
+  <!-- ... -->
+</div>
+```
+
+We've also added logical sizing utilities for `inline-size` and `block-size`, along with min and max variants:
+
+```html
+<!-- [!code classes:inline-full,min-inline-0,max-inline-lg,block-64,min-block-24,max-block-screen] -->
+<div class="block-64 inline-full max-block-screen max-inline-lg min-block-24 min-inline-0 ...">
+  <!-- ... -->
+</div>
+```
+
+And we've added logical inset utilities for positioning elements:
+
+```html
+<!-- [!code classes:inset-s-0,inset-e-4,inset-bs-2,inset-be-8] -->
+<div class="absolute inset-s-0 inset-e-4 inset-bs-2 inset-be-8 ...">
+  <!-- ... -->
+</div>
+```
+
+The existing `start-*` and `end-*` utilities are still available, but they're now deprecated in favor of `inset-s-*` and `inset-e-*` so the whole API lines up with `inset-bs-*` and `inset-be-*`.
+
+Check out the [`padding`](/docs/padding#using-logical-properties), [`margin`](/docs/margin#using-logical-properties), [`scroll-padding`](/docs/scroll-padding#using-logical-properties), [`scroll-margin`](/docs/scroll-margin#using-logical-properties), [`border-width`](/docs/border-width#using-logical-properties), [`inline-size`](/docs/inline-size), [`block-size`](/docs/block-size), and [`top / right / bottom / left`](/docs/top-right-bottom-left#using-logical-properties) docs for more details.
+
+---
+
+## New `font-features-*` utility
+
+We've also added `font-features-*` utilities for controlling `font-feature-settings`:
+
+<Figure>
+
+<Example>
+  <div className="mx-auto grid max-w-xl grid-cols-1 gap-4 font-medium text-gray-700 sm:grid-cols-2 dark:text-gray-300">
+    <div className="rounded-xl bg-gray-50 p-5 ring-1 ring-gray-950/5 dark:bg-white/5 dark:ring-white/10">
+      <p className="font-mono text-xs text-gray-500 dark:text-gray-400">normal</p>
+      <div className="mt-3 grid gap-1 text-3xl tracking-tight">
+        <p>100.00</p>
+        <p>218.40</p>
+        <p>864.12</p>
+      </div>
+    </div>
+    <div className='rounded-xl bg-gray-50 p-5 font-features-["tnum"] ring-1 ring-gray-950/5 dark:bg-white/5 dark:ring-white/10'>
+      <p className="font-mono text-xs text-gray-500 dark:text-gray-400">font-features-[&quot;tnum&quot;]</p>
+      <div className="mt-3 grid gap-1 text-3xl tracking-tight">
+        <p>100.00</p>
+        <p>218.40</p>
+        <p>864.12</p>
+      </div>
+    </div>
+  </div>
+</Example>
+
+```html
+<!-- [!code classes:font-features-["tnum"]] -->
+<div class='font-features-["tnum"] ...'>
+  <!-- ... -->
+</div>
+```
+
+</Figure>
+
+For common cases like tabular numbers, you should still reach for higher-level utilities like `tabular-nums` first, because nobody should have to remember that `"tnum"` is a thing.
+
+But when you need to enable a font-specific stylistic set or some other OpenType feature we don't have a dedicated utility for, `font-features-*` gives you a clean escape hatch.
+
+Check out the [`font-feature-settings`](/docs/font-feature-settings) docs for more details.
+
+---
+
+## New scrollbar utilities
+
+Tailwind CSS v4.3 adds first-party utilities for the CSS scrollbar APIs, so you can finally do the boring-but-useful scrollbar stuff without opening a second tab and remembering which browser supports what.
+
+Use `scrollbar-auto`, `scrollbar-thin`, and `scrollbar-none` to control `scrollbar-width`:
+
+<Figure hint="Scroll vertically">
+
+<Example>
+  {
+    <div className="mx-auto h-72 max-w-sm scrollbar-thin scrollbar-thumb-sky-700 scrollbar-track-sky-100 overflow-auto rounded-xl bg-white p-6 text-sm/6 text-gray-600 shadow-lg ring-1 ring-black/5 dark:scrollbar-thumb-sky-400 dark:scrollbar-track-gray-700 dark:bg-gray-800 dark:text-gray-300">
+      <div className="space-y-4">
+        <p>
+          The Cerulean Archives occupy three narrow floors above the old observatory, each lined with drawers of star
+          maps, expedition notes, and brass instruments cataloged by hand.
+        </p>
+        <p>
+          On winter mornings, the staff rolls ladders between the shelves while pale light cuts through the roof windows
+          and settles on the reading tables.
+        </p>
+        <p>
+          Visitors can request anything from the collection, but most come for the atlases that chart coastlines no
+          longer found on modern maps.
+        </p>
+        <p>
+          Every returned volume is inspected, dusted, and wrapped before being carried back into the stacks for the next
+          researcher.
+        </p>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:scrollbar-thin,scrollbar-thumb-sky-700,scrollbar-track-sky-100] -->
+<div class="scrollbar-thin scrollbar-thumb-sky-700 scrollbar-track-sky-100 overflow-auto ...">
+  <!-- ... -->
+</div>
+```
+
+</Figure>
+
+You can also control scrollbar colors using `scrollbar-thumb-*` and `scrollbar-track-*` utilities:
+
+```html
+<!-- [!code classes:scrollbar-thumb-sky-700,scrollbar-track-sky-100] -->
+<div class="scrollbar-thumb-sky-700 scrollbar-track-sky-100 overflow-auto ...">
+  <!-- ... -->
+</div>
+```
+
+They work with the usual color opacity modifiers too:
+
+```html
+<!-- [!code classes:scrollbar-thumb-slate-900/60,scrollbar-track-slate-900/10] -->
+<div class="scrollbar-thumb-slate-900/60 scrollbar-track-slate-900/10 ...">
+  <!-- ... -->
+</div>
+```
+
+And for preventing layout shift when scrollbars appear, we've added `scrollbar-gutter-auto`, `scrollbar-gutter-stable`, and `scrollbar-gutter-both`:
+
+<Figure>
+
+<Example>
+  {
+    <div className="mx-auto grid max-w-xl grid-cols-1 gap-6 text-sm/6 text-gray-600 sm:grid-cols-2 dark:text-gray-300">
+      <div>
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">scrollbar-gutter-auto</p>
+        <div className="h-40 scrollbar-gutter-auto overflow-auto rounded-lg bg-gray-50 py-4 dark:bg-white/5">
+          <p className="text-justify">
+            Hey everyone! It's almost 2027 and we still don't know if there are aliens living among us, or do we? Maybe
+            the person writing this is an alien. You will never know.
+          </p>
+        </div>
+      </div>
+      <div>
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">scrollbar-gutter-stable</p>
+        <div className="relative h-40 scrollbar-gutter-stable overflow-auto rounded-lg bg-gray-50 py-4 pr-4 dark:bg-white/5">
+          <p className="text-justify">
+            Hey everyone! It's almost 2027 and we still don't know if there are aliens living among us, or do we? Maybe
+            the person writing this is an alien. You will never know.
+          </p>
+          <div className="absolute top-0 right-0 bottom-0 w-4 rounded-r-lg border bg-[image:repeating-linear-gradient(315deg,currentColor_0,currentColor_1px,transparent_0,transparent_50%)] bg-[size:8px_8px] bg-top-left text-black/10 dark:text-white/12.5" />
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:scrollbar-gutter-stable] -->
+<div class="scrollbar-gutter-stable overflow-auto ...">
+  <!-- ... -->
+</div>
+```
+
+</Figure>
+
+Check out the [`scrollbar-width`](/docs/scrollbar-width), [`scrollbar-color`](/docs/scrollbar-color), and [`scrollbar-gutter`](/docs/scrollbar-gutter) docs for more details.
+
+---
+
+## New `@container-size` utility
+
+In Tailwind CSS v4.0 we added first-party container query support with the `@container` utility, which creates an inline-size container.
+
+That's what you want most of the time, but container query length units like `cqb` and `cqh` depend on the block size of the container, and inline-size containers don't expose that information.
+
+So in v4.3 we've added `@container-size`, which creates a size container instead:
+
+```html
+<!-- [!code word:@container-size] -->
+<!-- [!code word:h-\[50cqb\]] -->
+<div class="@container-size">
+  <div class="h-[50cqb]">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+You can name size containers too using `@container-size/{name}`, just like `@container/{name}`.
+
+Check out the [responsive design docs](/docs/responsive-design#using-size-containers) for more details.
+
+---
+
+## New `zoom-*` utilities
+
+Tailwind CSS v4.3 adds `zoom-*` utilities for the CSS `zoom` property, one of those ancient browser features that was supported in Chrome 1 back in 2008, but only became fully supported across all major browsers in 2024 after taking the scenic route through a few long-standing SVG bugs:
+
+```html
+<!-- [!code classes:zoom-75,zoom-100,zoom-125] -->
+<div class="zoom-75 ...">Zoomed out</div>
+<div class="zoom-100 ...">Normal</div>
+<div class="zoom-125 ...">Zoomed in</div>
+```
+
+You can also use arbitrary values and CSS variables:
+
+```html
+<!-- [!code classes:zoom-[1.1],zoom-(--preview-zoom)] -->
+<div class="zoom-[1.1] ...">Zoomed in a little</div>
+<div class="zoom-(--preview-zoom) ...">Zoomed using a variable</div>
+```
+
+Check out the [`zoom`](/docs/zoom) docs for more details.
+
+---
+
+## New `tab-*` utilities
+
+We've also added `tab-*` utilities for controlling the rendered width of tab characters using `tab-size`.
+
+This is mostly useful for code examples, editors, and any other UI where you're rendering preformatted text that might contain real tab characters:
+
+<Figure>
+
+<Example>
+  <div className="grid gap-6 sm:grid-cols-2">
+    <div className="tab-2">
+      <span className="mb-3 block font-mono text-xs font-medium text-gray-500 dark:text-gray-400">tab-2</span>
+
+{/* prettier-ignore */}
+```jsx
+function indent() {
+	return 'tabbed';
+}
+```
+
+    </div>
+    <div className="tab-8">
+      <span className="mb-3 block font-mono text-xs font-medium text-gray-500 dark:text-gray-400">tab-8</span>
+
+{/* prettier-ignore */}
+```jsx
+function indent() {
+	return 'tabbed';
+}
+```
+
+    </div>
+
+  </div>
+</Example>
+
+```html
+<!-- [!code classes:tab-2,tab-8] -->
+<pre class="tab-2 ...">function indent() {&#10;&#9;return 'tabbed'&#10;}</pre>
+<pre class="tab-8 ...">function indent() {&#10;&#9;return 'tabbed'&#10;}</pre>
+```
+
+</Figure>
+
+Arbitrary values and CSS variables work here too:
+
+```html
+<!-- [!code classes:tab-[12px],tab-(--tab-size)] -->
+<pre class="tab-[12px] ...">...</pre>
+<pre class="tab-(--tab-size) ...">...</pre>
+```
+
+Check out the [`tab-size`](/docs/tab-size) docs for more details.
+
+---
+
+## Stacked + compound `@variant` support
+
+Tailwind CSS v4.3 makes `@variant` more flexible when you're using variants in CSS instead of directly in your markup.
+
+You can now use stacked variants:
+
+<CodeExampleStack>
+
+```css
+/* [!code filename:CSS] */
+/* [!code word:hover\:focus] */
+.button {
+  background: var(--color-sky-500);
+
+  @variant hover:focus {
+    background: var(--color-sky-600);
+  }
+}
+```
+
+```css
+/* [!code filename:Compiled CSS] */
+.button {
+  background: var(--color-sky-500);
+
+  /* [!code highlight:8] */
+  &:hover {
+    @media (hover: hover) {
+      &:focus {
+        background: var(--color-sky-600);
+      }
+    }
+  }
+}
+```
+
+</CodeExampleStack>
+
+And you can use compound variants to share the same block of CSS across multiple variants:
+
+<CodeExampleStack>
+
+```css
+/* [!code filename:CSS] */
+/* [!code word:hover, focus] */
+.button {
+  background: var(--color-sky-500);
+
+  @variant hover, focus {
+    background: var(--color-sky-600);
+  }
+}
+```
+
+```css
+/* [!code filename:Compiled CSS] */
+.button {
+  background: var(--color-sky-500);
+
+  /* [!code highlight:6] */
+  &:hover {
+    @media (hover: hover) {
+      background: var(--color-sky-600);
+    }
+  }
+
+  /* [!code highlight:4] */
+  &:focus {
+    background: var(--color-sky-600);
+  }
+}
+```
+
+</CodeExampleStack>
+
+You're usually better off creating a real component and styling it with Tailwind CSS classes directly, but when CSS is the right tool, this makes `@variant` a lot nicer to work with.
+
+Check out the [`@variant`](/docs/adding-custom-styles#adding-custom-variants) docs for more details.
+
+---
+
+## Default values for functional utilities
+
+Tailwind CSS v4.0 introduced functional `@utility` definitions, where you can use `--value(…)` and `--modifier(…)` to define utilities that accept theme values, bare values, arbitrary values, and modifiers.
+
+In v4.3, you can now pass `--default(…)` to `--value(…)` and `--modifier(…)` when a utility should work with or without a value:
+
+```css
+/* [!code filename:CSS] */
+/* [!code word:--default(4)] */
+@utility tab-* {
+  tab-size: --value(integer, --default(4));
+}
+```
+
+Now the bare `tab` utility can fall back to `4`, while `tab-2` still resolves to `2`:
+
+<CodeExampleStack>
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:tab,tab-2] -->
+<pre class="tab ...">...</pre>
+<pre class="tab-2 ...">...</pre>
+```
+
+```css
+/* [!code filename:Generated CSS] */
+.tab {
+  /* [!code word:4] */
+  tab-size: 4;
+}
+
+.tab-2 {
+  /* [!code word:2] */
+  tab-size: 2;
+}
+```
+
+</CodeExampleStack>
+
+That makes it easier to define APIs where the bare utility does the obvious thing, while still supporting explicit values for the same utility family.
+
+It's a small thing, but it lets plugin authors and anyone writing custom utilities create APIs that feel a lot more like the ones we ship in the framework itself.
+
+---
+
+So that's Tailwind CSS v4.2 and v4.3!
+
+Update to the latest version using npm and start playing with it today:
+
+<CodeExampleStack>
+
+```sh
+# [!code filename:Using the Tailwind CLI]
+npm install tailwindcss@latest @tailwindcss/cli@latest
+```
+
+```sh
+# [!code filename:Using Vite]
+npm install tailwindcss@latest @tailwindcss/vite@latest
+```
+
+```sh
+# [!code filename:Using PostCSS]
+npm install tailwindcss@latest @tailwindcss/postcss@latest
+```
+
+```sh
+# [!code filename:Using webpack]
+npm install tailwindcss@latest @tailwindcss/webpack@latest
+```
+
+</CodeExampleStack>
+
+Try the new stuff and let us know what you run into. Just remember a tab size over 4 is a crime and may result in the suspension of your software engineering license.
