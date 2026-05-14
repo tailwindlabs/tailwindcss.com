@@ -9,12 +9,12 @@ import { PartnerDirectory } from "./partner-directory";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Sponsor",
+  title: "Partners",
   description:
     "Become a Tailwind CSS partner to support the project and get your brand in front of millions of developers.",
   openGraph: {
     type: "article",
-    title: "Sponsor - Tailwind CSS",
+    title: "Partners - Tailwind CSS",
     description:
       "Become a Tailwind CSS partner to support the project and get your brand in front of millions of developers.",
     url: "https://tailwindcss.com/partners",
