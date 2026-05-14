@@ -200,8 +200,8 @@ function WhyPartner() {
   ];
 
   return (
-      <div className="mt-40">
     <div id="why" className="scroll-mt-24">
+      <div className="mt-20 sm:mt-40">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[3fr_7fr] lg:items-start lg:gap-20">
           <div>
             <p className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
@@ -218,25 +218,22 @@ function WhyPartner() {
           <div>
             <div className="grid grid-cols-1 gap-2 lg:grid-cols-2">
               {features.map((feature) => (
-                <div
-                  key={feature.name}
-                  className="flex h-112 flex-col bg-white p-8 dark:border-white/10 dark:bg-white/5"
-                >
+                <div key={feature.name} className="flex flex-col bg-white p-8 dark:border-white/10 dark:bg-white/5">
                   <h3
-                    className="text-lg/7 font-semibold text-gray-950 dark:text-white"
+                    className="text-lg/7 font-semibold text-pretty text-gray-950 dark:text-white"
                     style={{ fontVariationSettings: '"opsz" 32' }}
                   >
                     {feature.name}
                   </h3>
                   <p className="mt-2 text-sm/6 text-gray-700 dark:text-gray-400">{feature.description}</p>
-                  <blockquote className="mt-auto">
+                  <blockquote className="mt-auto pt-16 sm:pt-24">
                     <p
                       className="max-w-[65ch] text-sm/6 text-pretty text-gray-500 dark:text-gray-400"
                       style={{ hangingPunctuation: "first last" }}
                     >
                       &ldquo;{feature.testimonial.quote}&rdquo;
                     </p>
-                    <footer className="mt-4 flex items-center justify-between">
+                    <footer className="mt-4 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
                       <div>
                         <p className="text-sm/6 font-semibold">{feature.testimonial.name}</p>
                         <p className="text-sm/6 text-gray-500">{feature.testimonial.title}</p>
@@ -244,7 +241,7 @@ function WhyPartner() {
                       <TestimonialLogo
                         company={feature.testimonial.company}
                         className={clsx(
-                          "w-auto",
+                          "w-auto shrink-0",
                           ["Vercel", "Resend"].includes(feature.testimonial.company)
                             ? "h-4.5"
                             : ["CodeRabbit"].includes(feature.testimonial.company)
@@ -360,7 +357,7 @@ function PartnerPlans() {
   ];
 
   return (
-    <section id="pricing" className="mt-40 scroll-mt-24">
+    <section id="pricing" className="mt-20 scroll-mt-24 sm:mt-40">
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-[3fr_7fr] lg:items-start lg:gap-20">
         <div>
           <p className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
@@ -453,7 +450,7 @@ function Faq({ question, children }: { question: string; children: React.ReactNo
 
 function Faqs() {
   return (
-    <section className="mt-40" id="faqs">
+    <section className="mt-20 sm:mt-40" id="faqs">
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-[3fr_7fr] lg:items-start lg:gap-20">
         <div>
           <p className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
@@ -623,14 +620,14 @@ export default async function Sponsor() {
         <PartnerDirectory>
           <DirectoryItems sponsors={directorySponsors} />
         </PartnerDirectory>
-        <hr className="mt-40 border-gray-950/10 dark:border-white/10" />
+        <hr className="mt-20 border-gray-950/10 sm:mt-40 dark:border-white/10" />
         <WhyPartner />
-        <hr className="mt-40 border-gray-950/10 dark:border-white/10" />
+        <hr className="mt-20 border-gray-950/10 sm:mt-40 dark:border-white/10" />
         <PartnerPlans />
-        <hr className="mt-40 border-gray-950/10 dark:border-white/10" />
+        <hr className="mt-20 border-gray-950/10 sm:mt-40 dark:border-white/10" />
         <Faqs />
         <hr
-          className="mt-40 border-gray-950/10 dark:border-white/10"
+          className="mt-20 border-gray-950/10 sm:mt-40 dark:border-white/10"
           style={{ marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)" }}
         />
         <FooterMeta />
