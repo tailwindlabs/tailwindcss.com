@@ -77,9 +77,9 @@ function Header() {
   return (
     <div className="mt-28 sm:mt-32 lg:mt-40">
       <div>
-        <p className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
+        <h1 className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
           Partners
-        </p>
+        </h1>
         <p className="mt-6 max-w-[40ch] text-[2.5rem]/[2.75rem] tracking-tight text-pretty sm:text-[3.5rem]/[3.75rem]">
           <strong className="font-normal text-gray-950 dark:text-white">Become part of the Tailwind ecosystem.</strong>{" "}
           <span className="text-gray-500 dark:text-gray-400">
@@ -200,13 +200,16 @@ function WhyPartner() {
   ];
 
   return (
-    <div id="why" className="scroll-mt-24">
+    <section id="why" className="scroll-mt-24">
       <div className="mt-20 sm:mt-40">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[3fr_7fr] lg:items-start lg:gap-20">
           <div>
-            <p className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
-              <a href="#why">02 / Why become a partner?</a>
-            </p>
+            <h2 className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
+              <a href="#why">
+                <span aria-hidden="true">02 / </span>
+                Why become a partner?
+              </a>
+            </h2>
             <p className="mt-8 text-lg/7 font-medium tracking-tight text-pretty">
               <strong className="font-medium text-gray-950 dark:text-white">More than a sponsorship.</strong>{" "}
               <span className="text-gray-500 dark:text-gray-400">
@@ -239,6 +242,7 @@ function WhyPartner() {
                         <p className="text-sm/6 text-gray-500">{feature.testimonial.title}</p>
                       </div>
                       <TestimonialLogo
+                        aria-hidden="true"
                         company={feature.testimonial.company}
                         className={clsx(
                           "w-auto shrink-0",
@@ -257,7 +261,7 @@ function WhyPartner() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -360,9 +364,12 @@ function PartnerPlans() {
     <section id="pricing" className="mt-20 scroll-mt-24 sm:mt-40">
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-[3fr_7fr] lg:items-start lg:gap-20">
         <div>
-          <p className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
-            <a href="#pricing">03 / Pricing</a>
-          </p>
+          <h2 className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
+            <a href="#pricing">
+              <span aria-hidden="true">03 / </span>
+              Pricing
+            </a>
+          </h2>
           <p className="mt-8 text-lg/7 font-medium tracking-tight text-pretty">
             <strong className="font-medium text-gray-950 dark:text-white">Choose the right plan for your team.</strong>{" "}
             <span className="text-gray-500 dark:text-gray-400">
@@ -419,7 +426,7 @@ function FaqGroup({ title, children }: { title: string; children: React.ReactNod
   return (
     <div className="group">
       <Eyebrow as="h3">{title}</Eyebrow>
-      <dl className="mt-6">{children}</dl>
+      <div className="mt-6">{children}</div>
     </div>
   );
 }
@@ -439,9 +446,9 @@ function Faq({ question, children }: { question: string; children: React.ReactNo
         id={id}
         className="flex w-full cursor-pointer justify-between gap-4 select-none group-open:text-sky-500 [&::-webkit-details-marker]:hidden"
       >
-        <div className="text-left text-sm/7 font-semibold text-pretty">{question}</div>
-        <PlusIcon className="h-7 w-4 group-open:hidden" />
-        <MinusIcon className="h-7 w-4 not-group-open:hidden" />
+        <span className="block text-left text-sm/7 font-semibold text-pretty">{question}</span>
+        <PlusIcon aria-hidden="true" className="h-7 w-4 group-open:hidden" />
+        <MinusIcon aria-hidden="true" className="h-7 w-4 not-group-open:hidden" />
       </summary>
       <div className="prose mt-4">{children}</div>
     </details>
@@ -453,9 +460,12 @@ function Faqs() {
     <section className="mt-20 sm:mt-40" id="faqs">
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-[3fr_7fr] lg:items-start lg:gap-20">
         <div>
-          <p className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
-            04 / FAQ
-          </p>
+          <h2 className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
+            <a href="#faqs">
+              <span aria-hidden="true">04 / </span>
+              FAQ
+            </a>
+          </h2>
           <p className="mt-8 text-lg/7 font-medium tracking-tight text-pretty">
             <strong className="font-medium text-gray-950 dark:text-white">Everything you need to know.</strong>{" "}
             <span className="text-gray-500 dark:text-gray-400">
@@ -581,10 +591,7 @@ function DirectoryItems({ sponsors }: { sponsors: DirectorySponsor[] }) {
             className="col-span-full grid grid-cols-subgrid items-center gap-4 py-5 pr-4 pl-6 transition-colors hover:bg-gray-950/2.5 sm:pr-2 sm:pl-4 dark:hover:bg-white/2.5"
           >
             <div className="flex items-center gap-3">
-              <sponsor.icon
-                className="size-5 shrink-0 opacity-50 dark:opacity-60"
-                aria-label={`${sponsor.name} logo`}
-              />
+              <sponsor.icon className="size-5 shrink-0 opacity-50 dark:opacity-60" aria-hidden="true" />
               <span className="text-sm/6 font-semibold">{sponsor.name}</span>
             </div>
             <div className="max-sm:hidden">
