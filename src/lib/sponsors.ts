@@ -1,8 +1,12 @@
 import { partners, ambassadors, supporters } from "@/app/partners/sponsors";
 
-export type Sponsor = (typeof partners)[number];
+type PartnerSponsor = (typeof partners)[number];
+type AmbassadorSponsor = (typeof ambassadors)[number];
+type SupporterSponsor = (typeof supporters)[number];
 
-export type DirectorySponsor = Sponsor & {
+export type Sponsor = PartnerSponsor | AmbassadorSponsor;
+
+export type DirectorySponsor = (PartnerSponsor | AmbassadorSponsor | SupporterSponsor) & {
   tier: "partner" | "ambassador" | "supporter";
 };
 
@@ -13,14 +17,6 @@ function shuffle<T>(array: T[]): T[] {
     [result[i], result[j]] = [result[j], result[i]];
   }
   return result;
-}
-
-export function getShuffledSponsors() {
-  return {
-    partners: shuffle(partners),
-    ambassadors: shuffle(ambassadors),
-    supporters: shuffle(supporters),
-  };
 }
 
 export function getHomepageSponsors() {

@@ -4,7 +4,6 @@ export const partners = [
     categories: ["AI Code Editors"],
     directory: true,
     url: "https://cursor.com?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 213 50" {...props}>
@@ -25,7 +24,6 @@ export const partners = [
     categories: ["Commerce"],
     directory: true,
     url: "https://polar.sh/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -75,7 +73,6 @@ export const partners = [
     categories: ["Hosting"],
     directory: true,
     url: "https://namespace.so/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -96,7 +93,6 @@ export const partners = [
     categories: ["Email"],
     directory: true,
     url: "https://go.resend.com/tailwind?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -117,7 +113,6 @@ export const partners = [
     categories: ["CMS & Editors"],
     directory: true,
     url: "https://tiptap.dev/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -138,7 +133,6 @@ export const partners = [
     categories: ["Media APIs"],
     directory: true,
     url: "https://mux.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -159,7 +153,6 @@ export const partners = [
     categories: ["Media APIs"],
     directory: true,
     url: "https://www.nutrient.io/sdk/web?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -180,7 +173,6 @@ export const partners = [
     categories: ["Auth"],
     directory: true,
     url: "https://go.clerk.com/tailwind?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -215,7 +207,6 @@ export const partners = [
     categories: ["AI App Builders"],
     directory: true,
     url: "https://bolt.new/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -247,7 +238,6 @@ export const partners = [
     categories: ["AI Code Review"],
     directory: true,
     url: "https://graphite.dev/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -283,7 +273,6 @@ export const partners = [
     categories: ["Developer Tools"],
     directory: true,
     url: "https://base-ui.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -316,7 +305,6 @@ export const partners = [
     categories: ["Commerce"],
     directory: true,
     url: "https://shopify.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -337,7 +325,6 @@ export const partners = [
     categories: ["AI Code Review"],
     directory: true,
     url: "https://www.coderabbit.ai/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -367,7 +354,6 @@ export const partners = [
     categories: ["AI App Builders"],
     directory: true,
     url: "https://v0.app/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -388,7 +374,6 @@ export const partners = [
     categories: ["AI Code Review"],
     directory: true,
     url: "https://www.greptile.com/?utm_source=tailwind",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -409,7 +394,6 @@ export const partners = [
     categories: ["Commerce"],
     directory: true,
     url: "https://gumroad.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -437,7 +421,6 @@ export const partners = [
     categories: ["Vertical AI"],
     directory: true,
     url: "https://www.tryprofound.com?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -466,7 +449,6 @@ export const partners = [
     categories: ["Documentation"],
     directory: true,
     url: "https://www.mintlify.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg viewBox="0 0 320 96" {...props}>
@@ -521,7 +503,6 @@ export const partners = [
     categories: ["AI App Builders"],
     directory: true,
     url: "https://lovable.dev/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -551,7 +532,6 @@ export const partners = [
     categories: ["Foundation Models"],
     directory: true,
     url: "https://aistudio.google.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -574,7 +554,6 @@ export const partners = [
     categories: ["Other"],
     directory: true,
     url: "https://syntax.fm/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -595,7 +574,6 @@ export const partners = [
     categories: ["Databases"],
     directory: true,
     url: "https://supabase.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -651,7 +629,6 @@ export const partners = [
     categories: ["AI Code Review"],
     directory: true,
     url: "https://macroscope.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -672,7 +649,6 @@ export const partners = [
     categories: ["Vertical AI"],
     directory: true,
     url: "https://momentic.ai/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -693,7 +669,6 @@ export const partners = [
     categories: ["Vertical AI"],
     directory: true,
     url: "https://getunblocked.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -744,7 +719,6 @@ export const partners = [
     categories: ["Email"],
     directory: true,
     url: "https://postmarkapp.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -771,7 +745,6 @@ export const partners = [
     categories: ["Media APIs"],
     directory: true,
     url: "https://imagekit.io/?utm_source=tailwindcss&utm_medium=referral&utm_campaign=logo-homepage",
-    sponsorPageUrl: "https://imagekit.io/?utm_source=tailwindcss&utm_medium=referral&utm_campaign=logo-sponsorspage",
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -798,7 +771,6 @@ export const partners = [
     categories: ["Hosting"],
     directory: true,
     url: "https://vercel.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -825,7 +797,6 @@ export const partners = [
     categories: ["Other"],
     directory: true,
     url: "https://serpapi.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -848,7 +819,6 @@ export const partners = [
     categories: ["Vertical AI"],
     directory: true,
     url: "http://fin.ai/?utm_source=tailwind&utm_medium=mindshare&utm_campaign=20260109-ungated-webpage-finlogo",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -869,7 +839,6 @@ export const partners = [
     categories: ["CMS & Editors"],
     directory: true,
     url: "https://webflow.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -936,7 +905,6 @@ export const partners = [
     categories: ["CMS & Editors"],
     directory: true,
     url: "https://sanity.io/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -959,7 +927,6 @@ export const partners = [
     categories: ["Hosting"],
     directory: true,
     url: "https://railway.com/?utm_medium=sponsor&utm_source=oss&utm_campaign=tailwind",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -982,7 +949,6 @@ export const partners = [
     categories: ["AI Code Editors"],
     directory: true,
     url: "https://kiro.dev/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1038,7 +1004,6 @@ export const ambassadors = [
     categories: ["Monitoring"],
     directory: true,
     url: "https://posthog.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1063,7 +1028,6 @@ export const ambassadors = [
     categories: ["AI Code Editors"],
     directory: true,
     url: "https://cline.bot/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1084,7 +1048,6 @@ export const ambassadors = [
     categories: ["Databases"],
     directory: true,
     url: "https://www.bytebase.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1131,7 +1094,6 @@ export const ambassadors = [
     categories: ["AI App Builders"],
     directory: true,
     url: "https://replit.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1154,7 +1116,6 @@ export const ambassadors = [
     categories: ["AI Platforms"],
     directory: true,
     url: "https://www.braintrust.dev/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1175,7 +1136,6 @@ export const ambassadors = [
     categories: ["Auth"],
     directory: true,
     url: "https://auth0.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1196,7 +1156,6 @@ export const ambassadors = [
     categories: ["Browsers"],
     directory: true,
     url: "https://www.browserbase.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1234,7 +1193,6 @@ export const supporters = [
     categories: ["Developer Tools"],
     directory: true,
     url: "https://laravel.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1255,7 +1213,6 @@ export const supporters = [
     categories: ["Other"],
     directory: true,
     url: "https://scorewarrior.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1276,7 +1233,6 @@ export const supporters = [
     categories: ["Agencies"],
     directory: true,
     url: "https://www.ivegagroup.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1298,7 +1254,6 @@ export const supporters = [
     categories: ["Hosting"],
     directory: true,
     url: "https://zephyr-cloud.io/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1327,7 +1282,6 @@ export const supporters = [
     categories: ["Browsers"],
     directory: true,
     url: "https://www.hyperbrowser.ai/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1350,7 +1304,6 @@ export const supporters = [
     categories: ["AI App Builders"],
     directory: true,
     url: "https://www.magicpatterns.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1371,7 +1324,6 @@ export const supporters = [
     categories: ["Foundation Models"],
     directory: true,
     url: "https://mistral.ai/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1397,7 +1349,6 @@ export const supporters = [
     categories: ["AI Platforms"],
     directory: true,
     url: "https://trigger.dev/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1427,7 +1378,6 @@ export const supporters = [
     categories: ["AI Platforms"],
     directory: true,
     url: "https://www.merge.dev/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1448,7 +1398,6 @@ export const supporters = [
     categories: ["Foundation Models"],
     directory: true,
     url: "https://www.mixlayer.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1474,7 +1423,6 @@ export const supporters = [
     categories: ["Hosting"],
     directory: true,
     url: "https://www.blacksmith.sh/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1511,7 +1459,6 @@ export const supporters = [
     categories: ["Databases"],
     directory: true,
     url: "https://www.convex.dev/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1535,7 +1482,6 @@ export const supporters = [
     categories: ["Commerce"],
     directory: true,
     url: "https://dub.co/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1564,7 +1510,6 @@ export const supporters = [
     categories: ["Vertical AI"],
     directory: true,
     url: "https://orchid.ai/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1599,7 +1544,6 @@ export const supporters = [
     categories: ["Agencies"],
     directory: true,
     url: "https://flxwebsites.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1628,7 +1572,6 @@ export const supporters = [
     categories: ["AI Platforms"],
     directory: true,
     url: "https://www.runtype.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1649,7 +1592,6 @@ export const supporters = [
     categories: ["Developer Tools"],
     directory: true,
     url: "https://github.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1670,7 +1612,6 @@ export const supporters = [
     categories: ["Vertical AI"],
     directory: true,
     url: "https://rootly.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1691,7 +1632,6 @@ export const supporters = [
     categories: ["Browsers"],
     directory: true,
     url: "https://browser.cash/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1742,7 +1682,6 @@ export const supporters = [
     categories: ["Other"],
     directory: true,
     url: "https://automattic.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1765,7 +1704,6 @@ export const supporters = [
     categories: ["Vertical AI"],
     directory: true,
     url: "https://www.firsthand.ai/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1788,7 +1726,6 @@ export const supporters = [
     categories: ["Agencies"],
     directory: true,
     url: "https://meetdomaine.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1809,7 +1746,6 @@ export const supporters = [
     categories: ["Vertical AI"],
     directory: true,
     url: "https://www.harvey.ai/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1830,7 +1766,6 @@ export const supporters = [
     categories: ["AI App Builders"],
     directory: true,
     url: "https://www.anything.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1852,7 +1787,6 @@ export const supporters = [
     categories: ["Monitoring"],
     directory: true,
     url: "https://axiom.co/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1873,7 +1807,6 @@ export const supporters = [
     categories: ["Vertical AI"],
     directory: true,
     url: "https://wrangle.ai/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1912,7 +1845,6 @@ export const supporters = [
     categories: ["Developer Tools"],
     directory: true,
     url: "https://proxyman.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1933,7 +1865,6 @@ export const supporters = [
     categories: ["Agencies"],
     directory: true,
     url: "https://www.landersystems.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1955,7 +1886,6 @@ export const supporters = [
     categories: ["Documentation"],
     directory: true,
     url: "https://www.gitbook.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1976,7 +1906,6 @@ export const supporters = [
     categories: ["AI Platforms"],
     directory: true,
     url: "https://dify.ai/?utm_source=tailwind_web&utm_campaign=sponsor",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1999,7 +1928,6 @@ export const supporters = [
     categories: ["Commerce"],
     directory: true,
     url: "https://linkie.bio/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -2027,7 +1955,6 @@ export const supporters = [
     categories: ["Other"],
     directory: true,
     url: "https://wedgworth.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -2052,7 +1979,6 @@ export const supporters = [
     categories: ["AI Code Editors"],
     directory: true,
     url: "https://zed.dev/?utm_source=tailwind",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -2082,7 +2008,6 @@ export const supporters = [
     categories: ["Agencies"],
     directory: true,
     url: "https://www.webrenew.com/?utm_source=tailwindcss",
-    sponsorPageUrl: null,
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>

@@ -10,7 +10,7 @@ export function PartnerDirectory({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (!listRef.current) return;
-    const items = listRef.current.querySelectorAll<HTMLElement>("li[data-tier]");
+    const items = listRef.current.querySelectorAll<HTMLElement>("li[data-categories]");
     for (const item of items) {
       const categories = item.dataset.categories ?? "";
       const visible = activeCategory === "All" ? true : categories.split(",").includes(activeCategory);
