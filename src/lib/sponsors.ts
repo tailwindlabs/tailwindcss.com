@@ -37,7 +37,28 @@ export function getHomepageSponsors() {
   return [...shuffledPartners, ...shuffledAmbassadors.slice(0, remainingSlots)];
 }
 
-export const directoryCategories = ["Featured", "Developer Tools", "AI", "Infrastructure", "Design", "SaaS"] as const;
+export const directoryCategories = [
+  "All",
+  "AI Code Editors",
+  "AI App Builders",
+  "AI Code Review",
+  "AI Platforms",
+  "Foundation Models",
+  "Vertical AI",
+  "Browsers",
+  "Hosting",
+  "Monitoring",
+  "Databases",
+  "Auth",
+  "Email",
+  "Media APIs",
+  "Developer Tools",
+  "Documentation",
+  "CMS & Editors",
+  "Commerce",
+  "Agencies",
+  "Other",
+] as const;
 
 export function getDirectorySponsors(): DirectorySponsor[] {
   const tierOrder = { partner: 0, ambassador: 1, supporter: 2 };

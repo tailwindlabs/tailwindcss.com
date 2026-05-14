@@ -1,7 +1,7 @@
 export const partners = [
   {
     name: "Cursor",
-    categories: ["Developer Tools", "AI"],
+    categories: ["AI Code Editors"],
     directory: true,
     url: "https://cursor.com?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -22,7 +22,7 @@ export const partners = [
   },
   {
     name: "Polar",
-    categories: ["SaaS"],
+    categories: ["Commerce"],
     directory: true,
     url: "https://polar.sh/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -72,7 +72,7 @@ export const partners = [
   },
   {
     name: "Namespace",
-    categories: ["Developer Tools"],
+    categories: ["Hosting"],
     directory: true,
     url: "https://namespace.so/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -93,7 +93,7 @@ export const partners = [
   },
   {
     name: "Resend",
-    categories: ["Infrastructure"],
+    categories: ["Email"],
     directory: true,
     url: "https://go.resend.com/tailwind?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -114,7 +114,7 @@ export const partners = [
   },
   {
     name: "TipTap",
-    categories: ["Developer Tools"],
+    categories: ["CMS & Editors"],
     directory: true,
     url: "https://tiptap.dev/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -135,7 +135,7 @@ export const partners = [
   },
   {
     name: "Mux",
-    categories: ["Infrastructure"],
+    categories: ["Media APIs"],
     directory: true,
     url: "https://mux.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -156,7 +156,7 @@ export const partners = [
   },
   {
     name: "Nutrient",
-    categories: ["Developer Tools"],
+    categories: ["Media APIs"],
     directory: true,
     url: "https://www.nutrient.io/sdk/web?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -177,7 +177,7 @@ export const partners = [
   },
   {
     name: "Clerk",
-    categories: ["Infrastructure"],
+    categories: ["Auth"],
     directory: true,
     url: "https://go.clerk.com/tailwind?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -212,7 +212,7 @@ export const partners = [
   },
   {
     name: "Bolt",
-    categories: ["AI"],
+    categories: ["AI App Builders"],
     directory: true,
     url: "https://bolt.new/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -244,7 +244,7 @@ export const partners = [
   },
   {
     name: "Graphite",
-    categories: ["Developer Tools"],
+    categories: ["AI Code Review"],
     directory: true,
     url: "https://graphite.dev/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -280,7 +280,7 @@ export const partners = [
   },
   {
     name: "Base UI",
-    categories: ["Design"],
+    categories: ["Developer Tools"],
     directory: true,
     url: "https://base-ui.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -313,7 +313,7 @@ export const partners = [
   },
   {
     name: "Shopify",
-    categories: ["SaaS"],
+    categories: ["Commerce"],
     directory: true,
     url: "https://shopify.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -334,7 +334,7 @@ export const partners = [
   },
   {
     name: "CodeRabbit",
-    categories: ["AI", "Developer Tools"],
+    categories: ["AI Code Review"],
     directory: true,
     url: "https://www.coderabbit.ai/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -364,7 +364,7 @@ export const partners = [
   },
   {
     name: "v0",
-    categories: ["AI", "Design"],
+    categories: ["AI App Builders"],
     directory: true,
     url: "https://v0.app/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -385,7 +385,7 @@ export const partners = [
   },
   {
     name: "Greptile",
-    categories: ["AI", "Developer Tools"],
+    categories: ["AI Code Review"],
     directory: true,
     url: "https://www.greptile.com/?utm_source=tailwind",
     sponsorPageUrl: null,
@@ -406,7 +406,7 @@ export const partners = [
   },
   {
     name: "Gumroad",
-    categories: ["SaaS"],
+    categories: ["Commerce"],
     directory: true,
     url: "https://gumroad.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -434,7 +434,7 @@ export const partners = [
   },
   {
     name: "Profound",
-    categories: ["Design"],
+    categories: ["Vertical AI"],
     directory: true,
     url: "https://www.tryprofound.com?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -463,7 +463,7 @@ export const partners = [
   },
   {
     name: "Mintlify",
-    categories: ["Developer Tools"],
+    categories: ["Documentation"],
     directory: true,
     url: "https://www.mintlify.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -518,7 +518,7 @@ export const partners = [
   },
   {
     name: "Lovable",
-    categories: ["AI", "Design"],
+    categories: ["AI App Builders"],
     directory: true,
     url: "https://lovable.dev/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -548,7 +548,7 @@ export const partners = [
   },
   {
     name: "Google AI Studio",
-    categories: ["AI"],
+    categories: ["Foundation Models"],
     directory: true,
     url: "https://aistudio.google.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -571,7 +571,7 @@ export const partners = [
   },
   {
     name: "Syntax",
-    categories: ["Developer Tools"],
+    categories: ["Other"],
     directory: true,
     url: "https://syntax.fm/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -592,7 +592,7 @@ export const partners = [
   },
   {
     name: "Supabase",
-    categories: ["Infrastructure"],
+    categories: ["Databases"],
     directory: true,
     url: "https://supabase.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -648,7 +648,7 @@ export const partners = [
   },
   {
     name: "Macroscope",
-    categories: ["Developer Tools"],
+    categories: ["AI Code Review"],
     directory: true,
     url: "https://macroscope.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -669,7 +669,7 @@ export const partners = [
   },
   {
     name: "Momentic",
-    categories: ["Developer Tools"],
+    categories: ["Vertical AI"],
     directory: true,
     url: "https://momentic.ai/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -690,7 +690,7 @@ export const partners = [
   },
   {
     name: "Unblocked",
-    categories: ["Developer Tools"],
+    categories: ["Vertical AI"],
     directory: true,
     url: "https://getunblocked.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -741,7 +741,7 @@ export const partners = [
   },
   {
     name: "Postmark",
-    categories: ["Infrastructure"],
+    categories: ["Email"],
     directory: true,
     url: "https://postmarkapp.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -768,7 +768,7 @@ export const partners = [
   },
   {
     name: "ImageKit",
-    categories: ["Infrastructure"],
+    categories: ["Media APIs"],
     directory: true,
     url: "https://imagekit.io/?utm_source=tailwindcss&utm_medium=referral&utm_campaign=logo-homepage",
     sponsorPageUrl: "https://imagekit.io/?utm_source=tailwindcss&utm_medium=referral&utm_campaign=logo-sponsorspage",
@@ -795,7 +795,7 @@ export const partners = [
   },
   {
     name: "Vercel",
-    categories: ["Infrastructure"],
+    categories: ["Hosting"],
     directory: true,
     url: "https://vercel.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -822,7 +822,7 @@ export const partners = [
   },
   {
     name: "SerpApi",
-    categories: ["Developer Tools"],
+    categories: ["Other"],
     directory: true,
     url: "https://serpapi.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -845,7 +845,7 @@ export const partners = [
   },
   {
     name: "Fin",
-    categories: ["AI"],
+    categories: ["Vertical AI"],
     directory: true,
     url: "http://fin.ai/?utm_source=tailwind&utm_medium=mindshare&utm_campaign=20260109-ungated-webpage-finlogo",
     sponsorPageUrl: null,
@@ -866,7 +866,7 @@ export const partners = [
   },
   {
     name: "Webflow",
-    categories: ["Design"],
+    categories: ["CMS & Editors"],
     directory: true,
     url: "https://webflow.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -933,7 +933,7 @@ export const partners = [
   },
   {
     name: "Sanity",
-    categories: ["Infrastructure"],
+    categories: ["CMS & Editors"],
     directory: true,
     url: "https://sanity.io/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -956,7 +956,7 @@ export const partners = [
   },
   {
     name: "Railway",
-    categories: ["Infrastructure"],
+    categories: ["Hosting"],
     directory: true,
     url: "https://railway.com/?utm_medium=sponsor&utm_source=oss&utm_campaign=tailwind",
     sponsorPageUrl: null,
@@ -979,7 +979,7 @@ export const partners = [
   },
   {
     name: "Kiro",
-    categories: ["AI", "Developer Tools"],
+    categories: ["AI Code Editors"],
     directory: true,
     url: "https://kiro.dev/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1035,7 +1035,7 @@ export const partners = [
 export const ambassadors = [
   {
     name: "PostHog",
-    categories: ["SaaS"],
+    categories: ["Monitoring"],
     directory: true,
     url: "https://posthog.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1060,7 +1060,7 @@ export const ambassadors = [
   },
   {
     name: "Braintrust",
-    categories: ["AI"],
+    categories: ["AI Platforms"],
     directory: true,
     url: "https://www.braintrust.dev/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1081,7 +1081,7 @@ export const ambassadors = [
   },
   {
     name: "Auth0",
-    categories: ["Infrastructure"],
+    categories: ["Auth"],
     directory: true,
     url: "https://auth0.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1102,7 +1102,7 @@ export const ambassadors = [
   },
   {
     name: "Browserbase",
-    categories: ["Infrastructure"],
+    categories: ["Browsers"],
     directory: true,
     url: "https://www.browserbase.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1161,7 +1161,7 @@ export const supporters = [
   },
   {
     name: "Scorewarrior",
-    categories: ["SaaS"],
+    categories: ["Other"],
     directory: true,
     url: "https://scorewarrior.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1182,7 +1182,7 @@ export const supporters = [
   },
   {
     name: "iVega",
-    categories: ["SaaS"],
+    categories: ["Agencies"],
     directory: true,
     url: "https://www.ivegagroup.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1204,7 +1204,7 @@ export const supporters = [
   },
   {
     name: "Zephyr Cloud",
-    categories: ["Infrastructure"],
+    categories: ["Hosting"],
     directory: true,
     url: "https://zephyr-cloud.io/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1233,7 +1233,7 @@ export const supporters = [
   },
   {
     name: "Hyperbrowser",
-    categories: ["Infrastructure"],
+    categories: ["Browsers"],
     directory: true,
     url: "https://www.hyperbrowser.ai/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1256,7 +1256,7 @@ export const supporters = [
   },
   {
     name: "Magic Patterns",
-    categories: ["AI", "Design"],
+    categories: ["AI App Builders"],
     directory: true,
     url: "https://www.magicpatterns.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1277,7 +1277,7 @@ export const supporters = [
   },
   {
     name: "Mistral AI",
-    categories: ["AI"],
+    categories: ["Foundation Models"],
     directory: true,
     url: "https://mistral.ai/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1303,7 +1303,7 @@ export const supporters = [
   },
   {
     name: "Trigger.dev",
-    categories: ["Developer Tools"],
+    categories: ["AI Platforms"],
     directory: true,
     url: "https://trigger.dev/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1333,7 +1333,7 @@ export const supporters = [
   },
   {
     name: "Merge",
-    categories: ["SaaS"],
+    categories: ["AI Platforms"],
     directory: true,
     url: "https://www.merge.dev/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1354,7 +1354,7 @@ export const supporters = [
   },
   {
     name: "Mixlayer",
-    categories: ["AI"],
+    categories: ["Foundation Models"],
     directory: true,
     url: "https://www.mixlayer.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1380,7 +1380,7 @@ export const supporters = [
   },
   {
     name: "Blacksmith",
-    categories: ["Infrastructure"],
+    categories: ["Hosting"],
     directory: true,
     url: "https://www.blacksmith.sh/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1417,7 +1417,7 @@ export const supporters = [
   },
   {
     name: "Convex",
-    categories: ["Infrastructure"],
+    categories: ["Databases"],
     directory: true,
     url: "https://www.convex.dev/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1441,7 +1441,7 @@ export const supporters = [
   },
   {
     name: "Dub",
-    categories: ["SaaS"],
+    categories: ["Commerce"],
     directory: true,
     url: "https://dub.co/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1470,7 +1470,7 @@ export const supporters = [
   },
   {
     name: "Orchid",
-    categories: ["SaaS"],
+    categories: ["Vertical AI"],
     directory: true,
     url: "https://orchid.ai/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1505,7 +1505,7 @@ export const supporters = [
   },
   {
     name: "Runtype",
-    categories: ["Developer Tools"],
+    categories: ["AI Platforms"],
     directory: true,
     url: "https://www.runtype.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1547,7 +1547,7 @@ export const supporters = [
   },
   {
     name: "Rootly AI",
-    categories: ["AI"],
+    categories: ["Vertical AI"],
     directory: true,
     url: "https://rootly.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1568,7 +1568,7 @@ export const supporters = [
   },
   {
     name: "Browser Cash",
-    categories: ["SaaS"],
+    categories: ["Browsers"],
     directory: true,
     url: "https://browser.cash/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1619,7 +1619,7 @@ export const supporters = [
   },
   {
     name: "Automattic",
-    categories: ["SaaS"],
+    categories: ["Other"],
     directory: true,
     url: "https://automattic.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1642,7 +1642,7 @@ export const supporters = [
   },
   {
     name: "Firsthand",
-    categories: ["Design"],
+    categories: ["Vertical AI"],
     directory: true,
     url: "https://www.firsthand.ai/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1665,7 +1665,7 @@ export const supporters = [
   },
   {
     name: "Domaine",
-    categories: ["Design"],
+    categories: ["Agencies"],
     directory: true,
     url: "https://meetdomaine.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1686,7 +1686,7 @@ export const supporters = [
   },
   {
     name: "Harvey",
-    categories: ["AI"],
+    categories: ["Vertical AI"],
     directory: true,
     url: "https://www.harvey.ai/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1707,7 +1707,7 @@ export const supporters = [
   },
   {
     name: "Anything",
-    categories: ["SaaS"],
+    categories: ["AI App Builders"],
     directory: true,
     url: "https://www.anything.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1729,7 +1729,7 @@ export const supporters = [
   },
   {
     name: "Axiom",
-    categories: ["Infrastructure"],
+    categories: ["Monitoring"],
     directory: true,
     url: "https://axiom.co/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1750,7 +1750,7 @@ export const supporters = [
   },
   {
     name: "Wrangle",
-    categories: ["SaaS"],
+    categories: ["Vertical AI"],
     directory: true,
     url: "https://wrangle.ai/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1810,7 +1810,7 @@ export const supporters = [
   },
   {
     name: "Lander Systems",
-    categories: ["Design"],
+    categories: ["Agencies"],
     directory: true,
     url: "https://www.landersystems.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1832,7 +1832,7 @@ export const supporters = [
   },
   {
     name: "GitBook",
-    categories: ["Developer Tools"],
+    categories: ["Documentation"],
     directory: true,
     url: "https://www.gitbook.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1853,7 +1853,7 @@ export const supporters = [
   },
   {
     name: "Linkie",
-    categories: ["Developer Tools"],
+    categories: ["Commerce"],
     directory: true,
     url: "https://linkie.bio/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1881,7 +1881,7 @@ export const supporters = [
   },
   {
     name: "Wedgworth",
-    categories: ["Design"],
+    categories: ["Other"],
     directory: true,
     url: "https://wedgworth.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,
@@ -1906,7 +1906,7 @@ export const supporters = [
   },
   {
     name: "Zed",
-    categories: ["Developer Tools"],
+    categories: ["AI Code Editors"],
     directory: true,
     url: "https://zed.dev/?utm_source=tailwind",
     sponsorPageUrl: null,
@@ -1936,7 +1936,7 @@ export const supporters = [
   },
   {
     name: "Webrenew",
-    categories: ["Design"],
+    categories: ["Agencies"],
     directory: true,
     url: "https://www.webrenew.com/?utm_source=tailwindcss",
     sponsorPageUrl: null,

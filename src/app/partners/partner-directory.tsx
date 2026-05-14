@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { directoryCategories } from "@/lib/sponsors";
 
 export function PartnerDirectory({ children }: { children: React.ReactNode }) {
-  const [activeCategory, setActiveCategory] = useState<string>("Featured");
+  const [activeCategory, setActiveCategory] = useState<string>("All");
   const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export function PartnerDirectory({ children }: { children: React.ReactNode }) {
     const items = listRef.current.querySelectorAll<HTMLElement>("li[data-tier]");
     for (const item of items) {
       const categories = item.dataset.categories ?? "";
-      const visible = activeCategory === "Featured" ? true : categories.split(",").includes(activeCategory);
+      const visible = activeCategory === "All" ? true : categories.split(",").includes(activeCategory);
       item.hidden = !visible;
     }
   }, [activeCategory]);
