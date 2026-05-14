@@ -7,10 +7,8 @@ export default async function Layout({ children }: React.PropsWithChildren) {
       <div className="fixed inset-x-0 top-0 z-10 border-b border-black/5 dark:border-white/10">
         <Header />
       </div>
-      <div className="mx-auto w-full max-w-[1536px] px-6 lg:px-10">
-        <div className="text-gray-950 dark:text-white">
-          {children}
-        </div>
+      <div className="mx-auto w-full max-w-384 px-6 lg:px-10">
+        <div className="text-gray-950 dark:text-white">{children}</div>
       </div>
     </div>
   );

@@ -583,7 +583,7 @@ function WhyPartner() {
               {features.map((feature) => (
                 <div
                   key={feature.name}
-                  className="flex h-[448px] flex-col bg-white p-8 dark:border-white/10 dark:bg-white/5"
+                  className="flex h-112 flex-col bg-white p-8 dark:border-white/10 dark:bg-white/5"
                 >
                   <h3
                     className="text-lg/7 font-semibold text-gray-950 dark:text-white"
