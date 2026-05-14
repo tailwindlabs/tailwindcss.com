@@ -89,7 +89,7 @@ function Header() {
         </p>
       </div>
       <div className="mt-14 flex gap-4 whitespace-nowrap max-sm:flex-col">
-        <DarkButtonLink href="#partners" className="inline-flex items-center justify-center gap-2">
+        <DarkButtonLink href="#why" className="inline-flex items-center justify-center gap-2">
           Become a partner
           <svg fill="currentColor" aria-hidden="true" viewBox="0 0 10 10" className="-mr-0.5 w-2.5">
             <path d="M4.85355 0.146423L9.70711 4.99998L4.85355 9.85353L4.14645 9.14642L7.79289 5.49998H0V4.49998H7.79289L4.14645 0.85353L4.85355 0.146423Z"></path>
@@ -200,12 +200,12 @@ function WhyPartner() {
   ];
 
   return (
-    <div id="partners" className="scroll-mt-24">
       <div className="mt-40">
+    <div id="why" className="scroll-mt-24">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[3fr_7fr] lg:items-start lg:gap-20">
           <div>
             <p className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
-              <a href="#partners">02 / Why become a partner?</a>
+              <a href="#why">02 / Why become a partner?</a>
             </p>
             <p className="mt-8 text-lg/7 font-medium tracking-tight text-pretty">
               <strong className="font-medium text-gray-950 dark:text-white">More than a sponsorship.</strong>{" "}
