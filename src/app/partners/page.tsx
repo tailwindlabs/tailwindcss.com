@@ -75,7 +75,7 @@ function Header() {
   return (
     <div className="mt-28 sm:mt-32 lg:mt-40">
       <div>
-        <p className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest uppercase text-gray-950 dark:bg-white/10 dark:text-white">Sponsor</p>
+        <p className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest uppercase text-gray-950 dark:bg-white/10 dark:text-white">Partners</p>
         <p className="mt-6 max-w-[40ch] text-[2.5rem]/[2.75rem] tracking-tight sm:text-[3.5rem]/[3.75rem] text-pretty">
           <strong className="font-normal text-gray-950 dark:text-white">Become part of the Tailwind ecosystem.</strong>{" "}
           <span className="text-gray-500 dark:text-gray-400">Partner with Tailwind CSS to support the project, get your brand in front of millions of developers, and get direct access to the team.</span>
