@@ -4,6 +4,16 @@ export const partners = [
     categories: ["AI Code Editors"],
     directory: true,
     url: "https://cursor.com?utm_source=tailwindcss",
+    detail: {
+      eyebrow: "Partner",
+      title: "Cursor supports Tailwind CSS",
+      summary:
+        "Cursor is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Cursor is an AI-powered code editor built on top of VS Code that helps developers write, edit, and understand code faster. It integrates large language models directly into the editing experience, letting you ask questions about your codebase, generate code from natural language, and refactor existing code with a single command.",
+        "Since its launch, Cursor has quickly become one of the most popular tools in the frontend ecosystem. Thousands of developers use it daily to build with Tailwind CSS, and its deep understanding of utility-first workflows makes it a natural fit for the Tailwind community. By partnering with Tailwind CSS, Cursor is investing in the tools and infrastructure that power modern frontend development.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 213 50" {...props}>

@@ -10,6 +10,17 @@ export type DirectorySponsor = (PartnerSponsor | AmbassadorSponsor | SupporterSp
   tier: "partner" | "ambassador" | "supporter";
 };
 
+export function getSponsorSlug(name: string) {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+export function getPartnerBySlug(slug: string) {
+  return partners.find((partner) => getSponsorSlug(partner.name) === slug);
+}
+
 function shuffle<T>(array: T[]): T[] {
   const result = [...array];
   for (let i = result.length - 1; i > 0; i--) {
