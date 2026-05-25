@@ -1,0 +1,193 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { CustomizingYourThemeColors, ResponsiveDesign, TargetingSpecificStates } from "@/components/content.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import colors from "./utils/colors";
+
+export const title = "scrollbar-color";
+export const description = "Utilities for controlling the color of an element's scrollbar.";
+
+<ApiTable
+  rows={[
+    [
+      "scrollbar-thumb-inherit",
+      "--tw-scrollbar-thumb: inherit;\nscrollbar-color: var(--tw-scrollbar-thumb) var(--tw-scrollbar-track);",
+    ],
+    [
+      "scrollbar-thumb-current",
+      "--tw-scrollbar-thumb: currentColor;\nscrollbar-color: var(--tw-scrollbar-thumb) var(--tw-scrollbar-track);",
+    ],
+    [
+      "scrollbar-thumb-transparent",
+      "--tw-scrollbar-thumb: transparent;\nscrollbar-color: var(--tw-scrollbar-thumb) var(--tw-scrollbar-track);",
+    ],
+    ...Object.entries(colors).map(([name, value]) => [
+      `scrollbar-thumb-${name}`,
+      `--tw-scrollbar-thumb: var(--color-${name}); /* ${value} */\nscrollbar-color: var(--tw-scrollbar-thumb) var(--tw-scrollbar-track);`,
+    ]),
+    [
+      "scrollbar-thumb-(<custom-property>)",
+      "--tw-scrollbar-thumb: var(<custom-property>);\nscrollbar-color: var(--tw-scrollbar-thumb) var(--tw-scrollbar-track);",
+    ],
+    [
+      "scrollbar-thumb-[<value>]",
+      "--tw-scrollbar-thumb: <value>;\nscrollbar-color: var(--tw-scrollbar-thumb) var(--tw-scrollbar-track);",
+    ],
+    [
+      "scrollbar-track-inherit",
+      "--tw-scrollbar-track: inherit;\nscrollbar-color: var(--tw-scrollbar-thumb) var(--tw-scrollbar-track);",
+    ],
+    [
+      "scrollbar-track-current",
+      "--tw-scrollbar-track: currentColor;\nscrollbar-color: var(--tw-scrollbar-thumb) var(--tw-scrollbar-track);",
+    ],
+    [
+      "scrollbar-track-transparent",
+      "--tw-scrollbar-track: transparent;\nscrollbar-color: var(--tw-scrollbar-thumb) var(--tw-scrollbar-track);",
+    ],
+    ...Object.entries(colors).map(([name, value]) => [
+      `scrollbar-track-${name}`,
+      `--tw-scrollbar-track: var(--color-${name}); /* ${value} */\nscrollbar-color: var(--tw-scrollbar-thumb) var(--tw-scrollbar-track);`,
+    ]),
+    [
+      "scrollbar-track-(<custom-property>)",
+      "--tw-scrollbar-track: var(<custom-property>);\nscrollbar-color: var(--tw-scrollbar-thumb) var(--tw-scrollbar-track);",
+    ],
+    [
+      "scrollbar-track-[<value>]",
+      "--tw-scrollbar-track: <value>;\nscrollbar-color: var(--tw-scrollbar-thumb) var(--tw-scrollbar-track);",
+    ],
+  ]}
+/>
+
+## Examples
+
+### Setting the scrollbar color
+
+Use utilities like `scrollbar-thumb-sky-700` and `scrollbar-track-sky-100` to control the colors of a scrollbar:
+
+<Figure hint="Scroll vertically">
+
+<Example>
+  {
+    <div className="mx-auto h-72 max-w-sm scrollbar-thumb-sky-700 scrollbar-track-sky-100 overflow-auto rounded-xl bg-white p-6 text-sm/6 text-gray-600 shadow-lg ring-1 ring-black/5 dark:scrollbar-thumb-sky-400 dark:scrollbar-track-gray-700 dark:bg-gray-800 dark:text-gray-300">
+      <div className="space-y-4">
+        <p>
+          The Cerulean Archives occupy three narrow floors above the old observatory, each lined with drawers of star
+          maps, expedition notes, and brass instruments cataloged by hand.
+        </p>
+        <p>
+          On winter mornings, the staff rolls ladders between the shelves while pale light cuts through the roof windows
+          and settles on the reading tables.
+        </p>
+        <p>
+          Visitors can request anything from the collection, but most come for the atlases that chart coastlines no
+          longer found on modern maps.
+        </p>
+        <p>
+          Every returned volume is inspected, dusted, and wrapped before being carried back into the stacks for the next
+          researcher.
+        </p>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:scrollbar-thumb-sky-700,scrollbar-track-sky-100] -->
+<div class="scrollbar-thumb-sky-700 scrollbar-track-sky-100 overflow-auto ...">
+  <!-- ... -->
+</div>
+```
+
+</Figure>
+
+You can set the thumb and track colors independently. If you set one without the other, the unset color defaults to transparent.
+
+### Changing the opacity
+
+Use the color opacity modifier to control the opacity of an element's scrollbar colors:
+
+<Figure hint="Scroll vertically">
+
+<Example>
+  {
+    <div className="mx-auto h-72 max-w-sm scrollbar-thumb-slate-900/60 scrollbar-track-slate-900/10 overflow-auto rounded-xl bg-white p-6 text-sm/6 text-gray-600 shadow-lg ring-1 ring-black/5 dark:scrollbar-thumb-white/40 dark:scrollbar-track-white/10 dark:bg-gray-800 dark:text-gray-300">
+      <div className="space-y-4">
+        <p>
+          The Cerulean Archives occupy three narrow floors above the old observatory, each lined with drawers of star
+          maps, expedition notes, and brass instruments cataloged by hand.
+        </p>
+        <p>
+          On winter mornings, the staff rolls ladders between the shelves while pale light cuts through the roof windows
+          and settles on the reading tables.
+        </p>
+        <p>
+          Visitors can request anything from the collection, but most come for the atlases that chart coastlines no
+          longer found on modern maps.
+        </p>
+        <p>
+          Every returned volume is inspected, dusted, and wrapped before being carried back into the stacks for the next
+          researcher.
+        </p>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code word:/60] -->
+<!-- [!code word:/10] -->
+<div class="scrollbar-thumb-slate-900/60 scrollbar-track-slate-900/10 ...">
+  <!-- ... -->
+</div>
+```
+
+</Figure>
+
+### Using a custom value
+
+Use utilities like `scrollbar-thumb-[<value>]` and `scrollbar-track-[<value>]` to set scrollbar colors based on
+completely custom values:
+
+```html
+<!-- [!code classes:scrollbar-thumb-[#0f766e],scrollbar-track-[#ccfbf1]] -->
+<div class="scrollbar-thumb-[#0f766e] scrollbar-track-[#ccfbf1] ...">
+  <!-- ... -->
+</div>
+```
+
+For CSS variables, you can also use the `scrollbar-thumb-(<custom-property>)` and
+`scrollbar-track-(<custom-property>)` syntax:
+
+```html
+<!-- [!code classes:scrollbar-thumb-(--my-scrollbar-thumb),scrollbar-track-(--my-scrollbar-track)] -->
+<div class="scrollbar-thumb-(--my-scrollbar-thumb) scrollbar-track-(--my-scrollbar-track) ...">
+  <!-- ... -->
+</div>
+```
+
+### Applying on hover
+
+<TargetingSpecificStates property="scrollbar-color">
+
+```html
+<!-- [!code classes:hover:scrollbar-thumb-sky-500] -->
+<div class="scrollbar-thumb-sky-700 hover:scrollbar-thumb-sky-500 ...">
+  <!-- ... -->
+</div>
+```
+
+</TargetingSpecificStates>
+
+### Responsive design
+
+<ResponsiveDesign
+  property="scrollbar-color"
+  defaultClass="scrollbar-thumb-slate-900 scrollbar-track-slate-200"
+  featuredClass="scrollbar-thumb-sky-700"
+/>
+
+## Customizing your theme
+
+<CustomizingYourThemeColors utilities={["scrollbar-thumb", "scrollbar-track"]} />

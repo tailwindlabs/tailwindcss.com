@@ -441,8 +441,13 @@ const nextConfig = {
 
       // Sponsors
       {
+        source: "/sponsor",
+        destination: "/partners",
+        permanent: false,
+      },
+      {
         source: "/sponsors",
-        destination: "/sponsor",
+        destination: "/partners",
         permanent: false,
       },
 

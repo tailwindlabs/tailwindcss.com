@@ -328,7 +328,7 @@ Use the `@variant` directive to apply a Tailwind variant within custom CSS:
 
 </CodeExampleStack>
 
-If you need to apply multiple variants at the same time, use nesting:
+If you need to apply multiple variants at the same time, stack them using the same syntax you would in HTML:
 
 <CodeExampleStack>
 
@@ -337,11 +337,9 @@ If you need to apply multiple variants at the same time, use nesting:
 .my-element {
   background: white;
 
-  /* [!code highlight:6] */
-  @variant dark {
-    @variant hover {
-      background: black;
-    }
+  /* [!code highlight:4] */
+  @variant hover:focus {
+    background: black;
   }
 }
 ```
@@ -351,13 +349,50 @@ If you need to apply multiple variants at the same time, use nesting:
 .my-element {
   background: white;
 
-  /* [!code highlight:7] */
-  @media (prefers-color-scheme: dark) {
-    &:hover {
-      @media (hover: hover) {
+  /* [!code highlight:8] */
+  &:hover {
+    @media (hover: hover) {
+      &:focus {
         background: black;
       }
     }
+  }
+}
+```
+
+</CodeExampleStack>
+
+To apply the same styles for multiple variants, separate each variant with a comma:
+
+<CodeExampleStack>
+
+```css
+/* [!code filename:app.css] */
+.my-element {
+  background: white;
+
+  /* [!code highlight:4] */
+  @variant hover, focus {
+    background: black;
+  }
+}
+```
+
+```css
+/* [!code filename:Compiled CSS] */
+.my-element {
+  background: white;
+
+  /* [!code highlight:6] */
+  &:hover {
+    @media (hover: hover) {
+      background: black;
+    }
+  }
+
+  /* [!code highlight:4] */
+  &:focus {
+    background: black;
   }
 }
 ```
@@ -544,6 +579,45 @@ The `--value()` function can also take multiple arguments and resolve them left 
   opacity: --value(--opacity-*, [percentage]);
 }
 ```
+
+#### Default values
+
+Use `--default()` inside `--value()` to support a default value when the utility is used without an explicit value:
+
+```css
+/* [!code filename:CSS] */
+/* [!code word:--default(4)] */
+@utility tab-* {
+  tab-size: --value(integer, --default(4));
+}
+```
+
+This matches both `tab-2` and `tab-4`, as well as just `tab` which uses the default value of `4`:
+
+```css
+/* [!code filename:Compiled CSS] */
+/* [!code highlight:4] */
+.tab {
+  tab-size: 4;
+}
+
+.tab-2 {
+  tab-size: 2;
+}
+```
+
+The `--default()` function can also be used inside `--modifier()` to provide a default value when no modifier is present:
+
+```css
+/* [!code filename:CSS] */
+/* [!code word:--default(1)] */
+@utility tab-* {
+  tab-size: --value(integer);
+  line-height: --modifier(integer, --default(1));
+}
+```
+
+This matches `tab-2/3` with a line-height of `3`, and `tab-2` with a line-height of `1`.
 
 #### Negative values
 
