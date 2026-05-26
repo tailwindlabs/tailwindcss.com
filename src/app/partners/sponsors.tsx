@@ -124,6 +124,16 @@ export const partners = [
     categories: ["Media APIs"],
     directory: true,
     url: "https://mux.com/?utm_source=tailwindcss",
+    detail: {
+      eyebrow: "Partner",
+      title: "Mux supports Tailwind CSS",
+      summary:
+        "Mux is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Mux is a video API platform that handles everything from ingesting your files to delivering them to viewers. You upload a video or start a live stream, Mux encodes it, generates renditions from 360p through 4K, and delivers it through a global network. You get a playback URL back. Your viewers get smooth streaming on whatever device and connection they're on.",
+        "You don't have to know the difference between HLS and DASH, or which CDN is fastest in Southeast Asia, or why Safari is doing something weird that Chrome isn't. Mux handles all of that, so you can ship the video feature you've been putting off and get back to building your actual product.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -144,6 +154,16 @@ export const partners = [
     categories: ["Media APIs"],
     directory: true,
     url: "https://www.nutrient.io/sdk/web?utm_source=tailwindcss",
+    detail: {
+      eyebrow: "Partner",
+      title: "Nutrient supports Tailwind CSS",
+      summary:
+        "Nutrient is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Nutrient is a document SDK that drops PDF viewing, annotation, editing, and form filling into your web app. You point it at a file, embed the viewer, and your users get a fast, polished reading experience with tools for highlights, comments, signatures, and redactions — without you having to wrangle PDF.js or build any of it from scratch.",
+        "Beyond the viewer, Nutrient handles the document work that usually turns into its own project: generating PDFs from HTML, converting between formats, running OCR on scanned files, and processing documents on the server. Whether you're shipping a contract workflow, a knowledge base, or a full-blown document editor, you get a single SDK that covers the whole pipeline.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -164,6 +184,16 @@ export const partners = [
     categories: ["Auth"],
     directory: true,
     url: "https://go.clerk.com/tailwind?utm_source=tailwindcss",
+    detail: {
+      eyebrow: "Partner",
+      title: "Clerk supports Tailwind CSS",
+      summary:
+        "Clerk is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Clerk is authentication and user management for your application. Drop in React components for sign-in, sign-up, profile, and organization management, style them to match your brand with any CSS library, and deploy to your own domain. Clerk handles the full session lifecycle, including active device monitoring and session revocation, and gives you the multi-tenancy primitives you need to onboard and manage organizations in a B2B SaaS app.",
+        "Subscription billing works the same way. Add recurring revenue to a B2C or B2B application by dropping in React components, without writing payment code, building custom UI, or wrangling webhooks. The same source of truth that holds your users now holds their subscriptions, so the work you'd usually spread across an auth provider, a billing integration, and a pile of glue code collapses into one set of components.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
