@@ -10,13 +10,13 @@ export const partners = [
       summary:
         "Cursor is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
       body: [
-        "Cursor is an AI-powered code editor built on top of VS Code that helps developers write, edit, and understand code faster. It integrates large language models directly into the editing experience, letting you ask questions about your codebase, generate code from natural language, and refactor existing code with a single command.",
-        "Since its launch, Cursor has quickly become one of the most popular tools in the frontend ecosystem. Thousands of developers use it daily to build with Tailwind CSS, and its deep understanding of utility-first workflows makes it a natural fit for the Tailwind community. By partnering with Tailwind CSS, Cursor is investing in the tools and infrastructure that power modern frontend development.",
+        "Cursor is a unified workspace for building software with agents. It spans the full development lifecycle, from planning to writing to reviewing code, inside a familiar editor. For complex tasks, Cursor asks clarifying questions, builds a plan, then executes in the background, editing files, running terminal commands, and searching the web as it works. The same agents run anywhere you do: desktop, CLI, or from your browser or phone.",
+        "Cursor deeply learns your codebase before writing a single line. A custom embedding model gives agents recall across codebases of any size, and you can teach Cursor your team's conventions and specific architectural decisions so its work matches how you already build. Point it at exactly what matters with @-mentions and image uploads, then roll back to a previous snapshot any time you want to see how the code evolved.",
       ],
     },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
-        <svg fill="currentColor" viewBox="0 0 213 50" {...props}>
+        <svg fill="currentColor" viewBox="-53.5 -23 320 96" {...props}>
           <path d="M43.522 11.8359L23.255 0.277922C22.9343 0.0957656 22.5718 0 22.203 0C21.8342 0 21.4717 0.0957656 21.151 0.277922L0.884998 11.8359C0.616792 11.9872 0.39355 12.207 0.238068 12.4728C0.0825848 12.7387 0.000432977 13.041 0 13.3489V36.6529C0 37.2769 0.337998 37.8539 0.884998 38.1669L21.152 49.7229C21.802 50.0939 22.605 50.0939 23.256 49.7229L43.523 38.1669C44.07 37.8549 44.408 37.2769 44.408 36.6529V13.3489C44.408 12.7249 44.07 12.1469 43.523 11.8349L43.522 11.8359ZM42.249 14.2829L22.684 47.7509C22.552 47.9769 22.203 47.8849 22.203 47.6239V25.7089C22.203 25.2709 21.966 24.8659 21.582 24.6459L2.366 13.6889C2.138 13.5589 2.231 13.2139 2.496 13.2139H41.625C42.18 13.2139 42.528 13.8089 42.25 14.2839M68.736 12.9759H77.36V17.6679H69.028C64.534 17.6679 61.026 20.2309 61.026 25.6439C61.026 31.0569 64.534 33.6199 69.028 33.6199H77.36V38.3119H68.371C60.843 38.3119 55.508 33.9449 55.508 25.6449C55.508 17.3449 61.208 12.9779 68.736 12.9779V12.9759ZM81.745 12.9759H87.08V28.4579C87.08 32.3199 88.87 34.1249 93.073 34.1249C97.276 34.1249 99.066 32.3209 99.066 28.4579V12.9759H104.401V29.5409C104.401 35.1709 100.784 38.7439 93.073 38.7439C85.362 38.7439 81.745 35.1339 81.745 29.5049V12.9759ZM132.281 20.1569C132.281 22.9729 130.637 25.1369 128.444 26.0769V26.1489C130.747 26.4739 131.916 28.0979 131.952 30.2989L132.062 38.3109H126.727L126.617 31.1659C126.581 29.5779 125.631 28.6029 123.731 28.6029H114.851V38.3109H109.516V12.9759H124.243C129.066 12.9759 132.281 15.3939 132.281 20.1579M126.909 20.8809C126.909 18.7159 125.74 17.5239 123.548 17.5239H114.851V24.2359H123.62C125.63 24.2359 126.909 23.0469 126.909 20.8809ZM152.451 30.9119C152.451 29.1079 151.282 28.3499 149.528 28.2059L143.608 27.6649C138.493 27.1949 135.825 25.2099 135.825 20.4099C135.825 15.6099 139.114 12.9749 143.827 12.9749H156.909V17.5229H144.193C142.366 17.5229 141.197 18.4609 141.197 20.2649C141.197 22.0689 142.402 22.9359 144.23 23.0809L150.259 23.5859C154.827 23.9829 157.823 26.0409 157.823 30.8759C157.823 35.7119 154.644 38.3109 150.15 38.3109H136.483V33.7639H149.638C151.355 33.7639 152.451 32.6089 152.451 30.9139V30.9119ZM173.427 12.5429C181.465 12.5429 186.545 17.6309 186.545 25.6069C186.545 33.5839 181.247 38.7439 173.208 38.7439C165.169 38.7439 160.089 33.5839 160.089 25.6069C160.089 17.6309 165.388 12.5429 173.427 12.5429ZM181.027 25.6429C181.027 20.3019 177.884 17.1629 173.316 17.1629C168.748 17.1629 165.606 20.3019 165.606 25.6429C165.606 30.9839 168.748 34.1229 173.316 34.1229C177.884 34.1229 181.027 30.9839 181.027 25.6429ZM213 20.1569C213 22.9729 211.356 25.1369 209.163 26.0769V26.1489C211.465 26.4739 212.635 28.0979 212.671 30.2989L212.78 38.3109H207.446L207.336 31.1659C207.3 29.5779 206.349 28.6029 204.449 28.6029H195.57V38.3109H190.235V12.9759H204.961C209.785 12.9759 213 15.3939 213 20.1579M207.628 20.8809C207.628 18.7159 206.459 17.5239 204.267 17.5239H195.57V24.2359H204.339C206.349 24.2359 207.628 23.0469 207.628 20.8809Z" />
         </svg>
       );
@@ -34,6 +34,16 @@ export const partners = [
     categories: ["Hosting"],
     directory: true,
     url: "https://namespace.so/?utm_source=tailwindcss",
+    detail: {
+      eyebrow: "Partner",
+      title: "Namespace supports Tailwind CSS",
+      summary:
+        "Namespace is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Namespace builds fast cloud computers for development and CI. Devboxes are isolated cloud VMs that boot in seconds with a repository checked out, ready for an engineer or an AI coding agent to start working. The CI runners are a drop-in replacement for GitHub Actions and GitLab, with high-frequency cores, NVMe storage, built-in caching, and full observability. Cache volumes make incremental builds and tests feel like working on a local machine.",
+        "A Devbox runs on the exact same hardware as a CI job. That's not a coincidence. The hardware was tuned for builds and tests, where every second of wait time gets noticed, and it turns out those are also the seconds that make a cloud development environment feel slow.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -54,6 +64,16 @@ export const partners = [
     categories: ["Email"],
     directory: true,
     url: "https://go.resend.com/tailwind?utm_source=tailwindcss",
+    detail: {
+      eyebrow: "Partner",
+      title: "Resend supports Tailwind CSS",
+      summary:
+        "Resend is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Resend is an email API for developers. It handles transactional and marketing email at scale, with SDKs for most languages so sending fits inside the codebase rather than alongside it. Templates are built with react-email (an open source component library) instead of nested <table> HTML, and webhooks deliver real-time events back to your server every time a message is delivered, opened, bounces, or has a link clicked.",
+        "Resend treats email as infrastructure, on the same shelf as water, energy, and transportation (the kind of thing you don't think about until it's not there). That framing sets a different bar for uptime, deliverability, and the surface developers actually touch. Documentation isn't auxiliary to the product, it's part of it: the first thing you read when you integrate, and the thing you keep coming back to as you go deeper.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -74,6 +94,16 @@ export const partners = [
     categories: ["CMS & Editors"],
     directory: true,
     url: "https://tiptap.dev/?utm_source=tailwindcss",
+    detail: {
+      eyebrow: "Partner",
+      title: "Tiptap supports Tailwind CSS",
+      summary:
+        "Tiptap is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Tiptap is a headless rich-text editor framework. You add the extensions you need (bold, links, tables, slash-menus, collaborative cursors) and leave the rest out, so the bundle stays small. It plugs into React, Vue, Svelte, or plain JavaScript, and the core is MIT-licensed on GitHub.",
+        "The AI Toolkit lets you build agents that read and edit the document itself. They can see what the user has selected and where the cursor is, propose changes inline with Accept and Reject options, and stay inside the undo history like any other edit. It works with the Vercel AI SDK, LangChain, and Anthropic, so the AI you're already using can write inside the document instead of beside it.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>

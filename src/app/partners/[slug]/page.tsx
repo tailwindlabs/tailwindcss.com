@@ -85,7 +85,7 @@ export default async function PartnerPage({ params }: PartnerPageProps) {
       <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-[3fr_7fr] lg:items-start lg:gap-20">
         <div>
           <div className="grid aspect-square place-content-center bg-white p-8 dark:bg-white/5">
-            <partner.logo className="h-10 w-auto max-w-48 text-gray-950 dark:text-white" />
+            <partner.logo className="h-20 w-auto max-w-64 text-gray-950 dark:text-white" />
           </div>
           <p className="mt-4 text-lg/7 font-medium tracking-tight text-pretty">
             <strong className="font-medium text-gray-950 dark:text-white">{partner.name}</strong>
