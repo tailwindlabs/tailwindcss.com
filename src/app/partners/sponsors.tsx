@@ -228,6 +228,16 @@ export const partners = [
     categories: ["AI App Builders"],
     directory: true,
     url: "https://bolt.new/?utm_source=tailwindcss",
+    detail: {
+      eyebrow: "Partner",
+      title: "Bolt supports Tailwind CSS",
+      summary:
+        "Bolt is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Bolt is an AI app builder for shipping real products without touching infrastructure. You describe what you want, and Bolt generates the app along with everything it needs to run: databases, hosting, authentication, payments, storage, and SEO. No terminal, no configuration, no separate accounts to set up. You can bring your own design system, sync with GitHub, fork projects, and collaborate with your team in shared workspaces. Buying a domain and going live takes a few clicks.",
+        "A lot of AI builders are fun until you try to scale them. They spin up a frontend in minutes and then fall apart under real traffic. Bolt is built on battle-tested infrastructure, so the app you ship on day one is the same app that handles your millionth user. Signups, logins, password resets, and role-based access work out of the box, and enterprise-grade hosting comes standard with every project.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -294,6 +304,16 @@ export const partners = [
     categories: ["Developer Tools"],
     directory: true,
     url: "https://base-ui.com/?utm_source=tailwindcss",
+    detail: {
+      eyebrow: "Partner",
+      title: "Base UI supports Tailwind CSS",
+      summary:
+        "Base UI is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Base UI is an open-source React component library for building accessible user interfaces. The components are unstyled and ship without any CSS, so the styling layer stays under your control — Tailwind, CSS Modules, plain CSS, CSS-in-JS, or whatever else you reach for. Component APIs are fully open, with direct access to each node, so you can add or remove parts and wrap them however the design needs.",
+        "Accessibility is the primary focus. Components follow WAI-ARIA design patterns and are tested across a wide range of screen readers, browsers, devices, and platforms. Base UI comes from the team behind Radix, Floating UI, and Material UI, with multiple decades of collective experience building component libraries, and the details show it.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -326,6 +346,16 @@ export const partners = [
     categories: ["Commerce"],
     directory: true,
     url: "https://shopify.com/?utm_source=tailwindcss",
+    detail: {
+      eyebrow: "Partner",
+      title: "Shopify supports Tailwind CSS",
+      summary:
+        "Shopify is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Shopify is a complete commerce platform for selling online and in person. You get a storefront and a back office in one place, with prebuilt themes (or AI-assisted design if you want to move faster), inventory and order management, marketing tools, and analytics. The same setup runs across channels, so a product can sell on your own site, in a retail shop through Shopify POS, on social, and through AI agents, with everything staying in sync. The same foundation works for a side hustle and a global brand.",
+        "Shopify Checkout with Shop Pay lifts conversion by up to 50%, and puts your store in front of the hundreds of millions of buyers who already have Shop Pay credentials saved. It's built into every Shopify store rather than something you bolt on.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -346,6 +376,16 @@ export const partners = [
     categories: ["AI Code Review"],
     directory: true,
     url: "https://www.coderabbit.ai/?utm_source=tailwindcss",
+    detail: {
+      eyebrow: "Partner",
+      title: "CodeRabbit supports Tailwind CSS",
+      summary:
+        "CodeRabbit is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        'CodeRabbit is an AI code reviewer that works at the pull request stage, in your IDE, or in the CLI. Reviews come with a summary of changes, a walkthrough, and an architectural diagram, plus line-by-line suggestions and real-time chat. Easy fixes ship with a one-click commit; harder ones get a "Fix with AI" button. 40+ linters and security scanners run alongside the model, with false positives filtered out before anything reaches the PR.',
+        "Context is the lever. CodeRabbit maintains a 1:1 ratio of code-to-context in its prompts, pulling in codebase structure through a codegraph, past PRs, team conventions, and ticket requirements for every line under review. Verification scripts run in a sandbox against each suggested comment and drop low-value feedback before it ships. Set the baseline in a yaml file, then train the agent further through replies.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -375,6 +415,16 @@ export const partners = [
     categories: ["AI App Builders"],
     directory: true,
     url: "https://v0.app/?utm_source=tailwindcss",
+    detail: {
+      eyebrow: "Partner",
+      title: "v0 supports Tailwind CSS",
+      summary:
+        "v0 is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "v0 is an AI app builder for shipping production apps from a prompt. You describe what you want and v0 generates a working app running in a real environment, with UI, logic, and data wired together. You can start from scratch or point v0 at an existing GitHub repo, where it picks up your environment variables and configuration from Vercel and keeps building on what you've already shipped. From there it plans, reasons, and debugs alongside you as the project grows.",
+        "Every prompt creates a branch, opens a PR against main, and deploys on merge. The code lives in your actual repo from the first message, which means product managers, designers, and marketers can ship real features through the same git workflow as engineers, instead of handing prototypes off to be rebuilt.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -395,6 +445,16 @@ export const partners = [
     categories: ["AI Code Review"],
     directory: true,
     url: "https://www.greptile.com/?utm_source=tailwind",
+    detail: {
+      eyebrow: "Partner",
+      title: "Greptile supports Tailwind CSS",
+      summary:
+        "Greptile is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Greptile is an AI code review agent that reviews every pull request. Install the GitHub or GitLab app, pick your repos, and Greptile posts findings as PR comments on every push. Each PR gets a 0–5 confidence score so you can see at a glance how safe it is to merge, along with sequence diagrams and flowcharts for changes that touch a lot of surface area. Every comment has a one-click fix button that hands the issue, with file paths and suggested code, straight to Claude Code, Cursor, Codex, or Devin.",
+        "Greptile builds a graph of your entire codebase (files, functions, dependencies) and reviews each change with that whole-repo context, so it catches the bugs that file-by-file tools and tired human reviewers miss. A swarm of agents assesses how a diff ripples through distant parts of the system, not just the lines that changed.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -415,6 +475,16 @@ export const partners = [
     categories: ["Vertical AI"],
     directory: true,
     url: "https://www.tryprofound.com?utm_source=tailwindcss",
+    detail: {
+      eyebrow: "Partner",
+      title: "Profound supports Tailwind CSS",
+      summary:
+        "Profound is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Profound is an AI visibility platform for brands. It tracks how often you show up in AI answers and how those answers describe you, turning it into a visibility score and a share of voice you can watch over time. You can see the recurring themes AI repeats about your brand, which websites are shaping those answers and how much authority they carry, and how all of it stacks up against the competitors in your space.",
+        "The difference is where the data comes from. Most tools read AI responses through the API, but Profound captures them from the browser, so what you see is what your customers see when they ask. AI answers are never identical twice, so every tracked prompt runs daily and your score reflects the true average across all of them. As people stop searching links and start asking questions, this is how you find out what AI is actually saying about you.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -443,6 +513,16 @@ export const partners = [
     categories: ["Documentation"],
     directory: true,
     url: "https://www.mintlify.com/?utm_source=tailwindcss",
+    detail: {
+      eyebrow: "Partner",
+      title: "Mintlify supports Tailwind CSS",
+      summary:
+        "Mintlify is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Mintlify is a documentation platform for software teams. You write, edit, and maintain your docs with a context-aware AI agent that drafts content from your prompts and keeps it accurate as your product changes, so you ship without piling up documentation debt. The docs are fast and good-looking out of the box, and every visit can turn into a guided conversation where an assistant answers questions in context instead of leaving people to dig through pages.",
+        "What sets Mintlify apart is that it treats documentation as infrastructure, not just content. AI agents don't learn about your product from your marketing site, they learn from your docs, which makes them the system of record agents rely on to understand your company and take action. Mintlify supports llms.txt, MCP, and whatever standard comes next, so your product shows up correctly in the AI workflows your users already depend on.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg viewBox="0 0 320 96" {...props}>
