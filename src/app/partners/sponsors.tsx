@@ -577,6 +577,16 @@ export const partners = [
     categories: ["AI App Builders"],
     directory: true,
     url: "https://lovable.dev/?utm_source=tailwindcss",
+    detail: {
+      eyebrow: "Partner",
+      title: "Lovable supports Tailwind CSS",
+      summary:
+        "Lovable is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Lovable is a full-stack AI platform for building web applications using natural language. You describe what you want to build and Lovable generates a working app — frontend, backend, database, authentication, and the integrations to tie them together — covering the full arc from early prototype to deployed product.",
+        "Everything Lovable builds is real, editable code that you own. Projects sync to GitHub, so engineers can review, extend, and maintain what was generated using the tools they already use. That means Lovable fits into existing workflows instead of replacing them, and the code is yours to take anywhere — no lock-in, no proprietary runtime, no rewrite later if the team grows around it.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -606,6 +616,16 @@ export const partners = [
     categories: ["Foundation Models"],
     directory: true,
     url: "https://aistudio.google.com/?utm_source=tailwindcss",
+    detail: {
+      eyebrow: "Partner",
+      title: "Google AI Studio supports Tailwind CSS",
+      summary:
+        "Google AI Studio is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Google AI Studio is a place to build AI-powered apps from a prompt. You describe what you want and Gemini generates a complete application, with the code and files appearing alongside a live preview as it runs. By default you get a full-stack setup: a React frontend and a Node.js runtime that handles secure API calls, database connections, and npm packages. So you can build a working app with server-side logic, not just a client-side prototype.",
+        "The agent behind Build mode keeps context of your entire project rather than generating code one file at a time. It manages multiple files across your stack and propagates changes correctly as the app grows, so a project can get more complex without falling apart. You start from a single prompt and keep building from there, all the way to something production-ready.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -628,6 +648,16 @@ export const partners = [
     categories: ["Other"],
     directory: true,
     url: "https://syntax.fm/?utm_source=tailwindcss",
+    detail: {
+      eyebrow: "Partner",
+      title: "Syntax supports Tailwind CSS",
+      summary:
+        "Syntax is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Syntax is a podcast about full-stack web development, hosted by Wes Bos and Scott Tolinski. Twice a week they dig into JavaScript, CSS, TypeScript, frameworks, databases, servers, and deployment, working through the practical stuff developers actually run into. Nearly a thousand episodes in, it covers the front end, the back end, and everything in between.",
+        "Wes and Scott are both independent developers who build online training courses, so the show comes from people who teach this for a living. Every episode is built around \"Tasty Treats\" — applicable tips and nuggets you can take straight back to your own work. Syntax is produced by Sentry, the application monitoring platform that millions of developers use to catch and fix errors in their code.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -648,6 +678,16 @@ export const partners = [
     categories: ["Databases"],
     directory: true,
     url: "https://supabase.com/?utm_source=tailwindcss",
+    detail: {
+      eyebrow: "Partner",
+      title: "Supabase supports Tailwind CSS",
+      summary:
+        "Supabase is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Supabase is the Postgres development platform. You sign up and start building without installing anything, and you get a full Postgres database plus the things you'd otherwise wire up yourself: user signups and logins, auto-generated APIs, realtime subscriptions over websockets, file storage, database functions, and a vector toolkit for embeddings. If you've never touched Postgres, you can treat it like a simple table store and grow into the rest. If you're a veteran, the whole database is there with full privileges.",
+        "Every part of Supabase is open source. When a good tool already exists under a permissive license, they use it. When it doesn't, they build it and open source it themselves. They also employ maintainers, sponsor projects, and invest in the businesses behind the tools they rely on. So you can inspect, run, and host every part of the stack yourself.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -703,6 +743,16 @@ export const partners = [
     categories: ["Vertical AI"],
     directory: true,
     url: "https://momentic.ai/?utm_source=tailwindcss",
+    detail: {
+      eyebrow: "Partner",
+      title: "Momentic supports Tailwind CSS",
+      summary:
+        "Momentic is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Momentic is an AI-powered end-to-end testing platform for web, iOS, and Android apps. You describe what a test should do in plain English, and an AI agent turns that into reliable steps, navigating the user flow, interacting with the screen, and validating the result. Tests live in your repo as YAML, run locally or in CI, and surface results in a dashboard. It's CLI-first, with web tests on Chromium browsers, iOS on simulators, and Android on emulators — no real devices required.",
+        "Most tests break the moment your UI changes, because they're tied to fragile DOM selectors. Momentic tracks user intent instead, so when the interface shifts, tests adapt on their own and brittle locators auto-heal. AI coding tools let teams ship code faster, which also means shipping bugs faster, and Momentic is the layer that verifies the code keeps working. No brittle tests, no endless maintenance, just signals you can trust.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
