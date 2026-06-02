@@ -1,36 +1,35 @@
 import { FooterMeta } from "@/components/footer";
-import { getPartnerBySlug, getSponsorSlug } from "@/lib/sponsors";
+import { getSponsorBySlug, getSponsorSlug, hasSponsorDetail } from "@/lib/sponsors";
 import { clsx } from "clsx";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { partners } from "../sponsors";
+import { ambassadors, partners, supporters } from "../sponsors";
 
 type PartnerPageProps = {
   params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
-  return partners
-    .filter((partner) => "detail" in partner && partner.detail != null)
-    .map((partner) => ({ slug: getSponsorSlug(partner.name) }));
+  return [...partners, ...ambassadors, ...supporters]
+    .filter(hasSponsorDetail)
+    .map((sponsor) => ({ slug: getSponsorSlug(sponsor.name) }));
 }
 
 export async function generateMetadata({ params }: PartnerPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const partner = getPartnerBySlug(slug);
-  const detail = partner && "detail" in partner ? partner.detail : null;
+  const sponsor = getSponsorBySlug(slug);
 
-  if (!partner || !detail) {
+  if (!sponsor || !hasSponsorDetail(sponsor)) {
     return {};
   }
 
   return {
-    title: `${partner.name} - Tailwind CSS Partners`,
-    description: detail.summary,
+    title: `${sponsor.name} - Tailwind CSS Partners`,
+    description: sponsor.detail.summary,
     openGraph: {
       type: "article",
-      title: `${partner.name} - Tailwind CSS Partners`,
-      description: detail.summary,
+      title: `${sponsor.name} - Tailwind CSS Partners`,
+      description: sponsor.detail.summary,
       url: `https://tailwindcss.com/partners/${slug}`,
     },
   };
@@ -70,14 +69,15 @@ function ArrowIcon({ className }: { className?: string }) {
 
 export default async function PartnerPage({ params }: PartnerPageProps) {
   const { slug } = await params;
-  const partner = getPartnerBySlug(slug);
-  const detail = partner && "detail" in partner ? partner.detail : null;
+  const sponsor = getSponsorBySlug(slug);
 
-  if (!partner || !detail) {
+  if (!sponsor || !hasSponsorDetail(sponsor)) {
     notFound();
   }
 
-  const careersUrl = "careersUrl" in partner ? partner.careersUrl : undefined;
+  const { detail } = sponsor;
+  const careersUrl =
+    "careersUrl" in sponsor && typeof sponsor.careersUrl === "string" ? sponsor.careersUrl : undefined;
 
   return (
     <div className="mt-28 sm:mt-32 lg:mt-40">
@@ -95,10 +95,10 @@ export default async function PartnerPage({ params }: PartnerPageProps) {
       <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-[3fr_7fr] lg:items-start lg:gap-20">
         <div>
           <div className="grid aspect-square place-content-center bg-white p-8 dark:bg-white/5">
-            <partner.logo className="h-20 w-auto max-w-64 text-gray-950 dark:text-white" />
+            <sponsor.logo className="h-20 w-auto max-w-64 text-gray-950 dark:text-white" />
           </div>
           <p className="mt-4 text-lg/7 font-medium tracking-tight text-pretty">
-            <strong className="font-medium text-gray-950 dark:text-white">{partner.name}</strong>
+            <strong className="font-medium text-gray-950 dark:text-white">{sponsor.name}</strong>
           </p>
           <p className="mt-4 inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
             {detail.eyebrow}
@@ -115,13 +115,13 @@ export default async function PartnerPage({ params }: PartnerPageProps) {
             ))}
           </div>
           <div className="mt-10 flex flex-wrap gap-4">
-            <ButtonLink href={partner.url} target="_blank" rel="noopener sponsored">
-              Visit {partner.name}
+            <ButtonLink href={sponsor.url} target="_blank" rel="noopener sponsored">
+              Visit {sponsor.name}
               <ArrowIcon className="-rotate-45" />
             </ButtonLink>
             {careersUrl && (
               <SecondaryLink href={careersUrl} target="_blank" rel="noopener">
-                Work at {partner.name}
+                Work at {sponsor.name}
                 <ArrowIcon className="-rotate-45" />
               </SecondaryLink>
             )}
