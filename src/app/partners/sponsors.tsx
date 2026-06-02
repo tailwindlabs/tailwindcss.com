@@ -4,6 +4,7 @@ export const partners = [
     categories: ["AI Code Editors"],
     directory: true,
     url: "https://cursor.com?utm_source=tailwindcss",
+    careersUrl: "https://cursor.com/careers",
     detail: {
       eyebrow: "Partner",
       title: "Cursor supports Tailwind CSS",
@@ -34,6 +35,7 @@ export const partners = [
     categories: ["Hosting"],
     directory: true,
     url: "https://namespace.so/?utm_source=tailwindcss",
+    careersUrl: "https://namespace.so/careers",
     detail: {
       eyebrow: "Partner",
       title: "Namespace supports Tailwind CSS",
@@ -64,6 +66,7 @@ export const partners = [
     categories: ["Email"],
     directory: true,
     url: "https://go.resend.com/tailwind?utm_source=tailwindcss",
+    careersUrl: "https://resend.com/careers",
     detail: {
       eyebrow: "Partner",
       title: "Resend supports Tailwind CSS",
@@ -124,6 +127,7 @@ export const partners = [
     categories: ["Media APIs"],
     directory: true,
     url: "https://mux.com/?utm_source=tailwindcss",
+    careersUrl: "https://www.mux.com/jobs",
     detail: {
       eyebrow: "Partner",
       title: "Mux supports Tailwind CSS",
@@ -154,6 +158,7 @@ export const partners = [
     categories: ["Media APIs"],
     directory: true,
     url: "https://www.nutrient.io/sdk/web?utm_source=tailwindcss",
+    careersUrl: "https://www.nutrient.io/company/careers/",
     detail: {
       eyebrow: "Partner",
       title: "Nutrient supports Tailwind CSS",
@@ -184,6 +189,7 @@ export const partners = [
     categories: ["Auth"],
     directory: true,
     url: "https://go.clerk.com/tailwind?utm_source=tailwindcss",
+    careersUrl: "https://clerk.com/careers",
     detail: {
       eyebrow: "Partner",
       title: "Clerk supports Tailwind CSS",
@@ -228,6 +234,7 @@ export const partners = [
     categories: ["AI App Builders"],
     directory: true,
     url: "https://bolt.new/?utm_source=tailwindcss",
+    careersUrl: "https://bolt.new/careers",
     detail: {
       eyebrow: "Partner",
       title: "Bolt supports Tailwind CSS",
@@ -269,6 +276,7 @@ export const partners = [
     categories: ["AI Code Review"],
     directory: true,
     url: "https://graphite.dev/?utm_source=tailwindcss",
+    careersUrl: "https://graphite.dev/careers",
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -304,6 +312,7 @@ export const partners = [
     categories: ["Developer Tools"],
     directory: true,
     url: "https://base-ui.com/?utm_source=tailwindcss",
+    careersUrl: "https://mui.com/careers/",
     detail: {
       eyebrow: "Partner",
       title: "Base UI supports Tailwind CSS",
@@ -346,6 +355,7 @@ export const partners = [
     categories: ["Commerce"],
     directory: true,
     url: "https://shopify.com/?utm_source=tailwindcss",
+    careersUrl: "https://www.shopify.com/careers",
     detail: {
       eyebrow: "Partner",
       title: "Shopify supports Tailwind CSS",
@@ -376,6 +386,7 @@ export const partners = [
     categories: ["AI Code Review"],
     directory: true,
     url: "https://www.coderabbit.ai/?utm_source=tailwindcss",
+    careersUrl: "https://www.coderabbit.ai/careers",
     detail: {
       eyebrow: "Partner",
       title: "CodeRabbit supports Tailwind CSS",
@@ -415,6 +426,7 @@ export const partners = [
     categories: ["AI App Builders"],
     directory: true,
     url: "https://v0.app/?utm_source=tailwindcss",
+    careersUrl: "https://vercel.com/careers",
     detail: {
       eyebrow: "Partner",
       title: "v0 supports Tailwind CSS",
@@ -445,6 +457,7 @@ export const partners = [
     categories: ["AI Code Review"],
     directory: true,
     url: "https://www.greptile.com/?utm_source=tailwind",
+    careersUrl: "https://www.greptile.com/careers",
     detail: {
       eyebrow: "Partner",
       title: "Greptile supports Tailwind CSS",
@@ -475,6 +488,7 @@ export const partners = [
     categories: ["Vertical AI"],
     directory: true,
     url: "https://www.tryprofound.com?utm_source=tailwindcss",
+    careersUrl: "https://www.tryprofound.com/careers",
     detail: {
       eyebrow: "Partner",
       title: "Profound supports Tailwind CSS",
@@ -513,6 +527,7 @@ export const partners = [
     categories: ["Documentation"],
     directory: true,
     url: "https://www.mintlify.com/?utm_source=tailwindcss",
+    careersUrl: "https://www.mintlify.com/careers",
     detail: {
       eyebrow: "Partner",
       title: "Mintlify supports Tailwind CSS",
@@ -577,14 +592,15 @@ export const partners = [
     categories: ["AI App Builders"],
     directory: true,
     url: "https://lovable.dev/?utm_source=tailwindcss",
+    careersUrl: "https://lovable.dev/careers",
     detail: {
       eyebrow: "Partner",
       title: "Lovable supports Tailwind CSS",
       summary:
         "Lovable is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
       body: [
-        "Lovable is a full-stack AI platform for building web applications using natural language. You describe what you want to build and Lovable generates a working app — frontend, backend, database, authentication, and the integrations to tie them together — covering the full arc from early prototype to deployed product.",
-        "Everything Lovable builds is real, editable code that you own. Projects sync to GitHub, so engineers can review, extend, and maintain what was generated using the tools they already use. That means Lovable fits into existing workflows instead of replacing them, and the code is yours to take anywhere — no lock-in, no proprietary runtime, no rewrite later if the team grows around it.",
+        "Lovable is a full-stack AI platform for building web applications using natural language. You describe what you want to build and Lovable generates a working app, complete with frontend, backend, database, authentication, and the integrations to tie them together, covering the full arc from early prototype to deployed product.",
+        "Everything Lovable builds is real, editable code that you own. Projects sync to GitHub, so engineers can review, extend, and maintain what was generated using the tools they already use. That means Lovable fits into existing workflows instead of replacing them, and the code is yours to take anywhere, with no lock-in, no proprietary runtime, and no rewrite later if the team grows around it.",
       ],
     },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
@@ -616,6 +632,7 @@ export const partners = [
     categories: ["Foundation Models"],
     directory: true,
     url: "https://aistudio.google.com/?utm_source=tailwindcss",
+    careersUrl: "https://www.google.com/about/careers/applications/",
     detail: {
       eyebrow: "Partner",
       title: "Google AI Studio supports Tailwind CSS",
@@ -678,6 +695,7 @@ export const partners = [
     categories: ["Databases"],
     directory: true,
     url: "https://supabase.com/?utm_source=tailwindcss",
+    careersUrl: "https://supabase.com/careers",
     detail: {
       eyebrow: "Partner",
       title: "Supabase supports Tailwind CSS",
@@ -773,6 +791,17 @@ export const partners = [
     categories: ["Vertical AI"],
     directory: true,
     url: "https://getunblocked.com/?utm_source=tailwindcss",
+    careersUrl: "https://getunblocked.com/careers/",
+    detail: {
+      eyebrow: "Partner",
+      title: "Unblocked supports Tailwind CSS",
+      summary:
+        "Unblocked is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Unblocked is a context engine for coding agents. It connects to where your team's knowledge lives (the codebase, Jira, Slack, Confluence) and builds a living graph it reasons over all at once, instead of searching each source one at a time. Ask it a question and it returns the single best answer for the task, then runs from prompt to PR: clone a repo, gather context, make the changes, and open a pull request grounded in your code, conversations, docs, and issues.",
+        "One connection replaces the stack of MCP servers that each add context-window overhead before an agent does any real work. Context gets scored, compressed, and assembled server-side, so the agent receives prioritized context instead of a pile of sources to sort through, with fewer wasted tokens and rework loops.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -823,6 +852,17 @@ export const partners = [
     categories: ["Email"],
     directory: true,
     url: "https://postmarkapp.com/?utm_source=tailwindcss",
+    careersUrl: "https://www.activecampaign.com/careers",
+    detail: {
+      eyebrow: "Partner",
+      title: "Postmark supports Tailwind CSS",
+      summary:
+        "Postmark is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Postmark is an email delivery service for developers. It sends the messages your application depends on (password resets, receipts, notifications, newsletters) through an API or SMTP, with libraries for nearly every language so it fits into whatever stack you're already running. The low-level work that decides whether an email reaches the inbox (IP reputation, blocklists, feedback loops, reverse DNS) is handled for you, and you can start sending within minutes.",
+        "Transactional and promotional email never share infrastructure. Postmark routes the two through completely separate sending streams, so a marketing send can't drag down the deliverability of a password reset someone is waiting on right now. Strong deliverability comes standard, without a dedicated IP and without a sales call, and every new sender is vetted so spammers never get a foothold.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -849,6 +889,16 @@ export const partners = [
     categories: ["Media APIs"],
     directory: true,
     url: "https://imagekit.io/?utm_source=tailwindcss&utm_medium=referral&utm_campaign=logo-homepage",
+    detail: {
+      eyebrow: "Partner",
+      title: "ImageKit supports Tailwind CSS",
+      summary:
+        "ImageKit is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "ImageKit is an image and video API with built-in digital asset management. Point it at where your media already lives, change the base URL of your assets or swap a CNAME, and optimization and delivery start working with no code changes. From there, apply 50+ real-time transformations through the asset URL, from resizing and smart crop to text and image overlays. Each request is matched to the viewer's device, so the lightest variant goes out in formats like AVIF, WebP, MP4, or WebM.",
+        "The asset management side runs on an agent you talk to in plain language. Ask it to search your library, tag assets in your own vocabulary, set access rules, or run a bulk operation, and it handles the multi-step workflow from one prompt. Tagging and metadata are LLM-powered, so a growing library stays searchable without manual upkeep.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -875,6 +925,17 @@ export const partners = [
     categories: ["Hosting"],
     directory: true,
     url: "https://vercel.com/?utm_source=tailwindcss",
+    careersUrl: "https://vercel.com/careers",
+    detail: {
+      eyebrow: "Partner",
+      title: "Vercel supports Tailwind CSS",
+      summary:
+        "Vercel is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Vercel is the AI Cloud, a unified platform for building, deploying, and scaling AI-powered applications. Connect a Git repository and every push deploys, with preview environments for testing changes before production. You can ship a static site, a multi-tenant SaaS product, or an agentic workload, and the Marketplace adds integrations for AI providers, databases, CMSs, analytics, and storage.",
+        "Whether you're building a static site or an autonomous agent, the infrastructure comes from your code, not from configuration. Add a route and the function to run it exists. Caching, scaling, and regions are inferred from the app instead of wired up by hand.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -901,6 +962,17 @@ export const partners = [
     categories: ["Other"],
     directory: true,
     url: "https://serpapi.com/?utm_source=tailwindcss",
+    careersUrl: "https://serpapi.com/careers",
+    detail: {
+      eyebrow: "Partner",
+      title: "SerpApi supports Tailwind CSS",
+      summary:
+        "SerpApi is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "SerpApi is a real-time API for Google search results. Each request returns parsed, structured data (links, prices, addresses, thumbnails, ratings, reviews, rich snippets) across organic results, Maps, Local, Shopping, Direct Answer, and Knowledge Graph. Proxies, CAPTCHAs, and HTML parsing are handled for you, so you call the endpoint and get JSON back.",
+        "The results match what a real user would see. Every request runs in a full browser, and the location parameter routes through a proxy near your target market using Google's own encrypted geo params, so results reflect what a local searcher would actually see.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -923,6 +995,17 @@ export const partners = [
     categories: ["Vertical AI"],
     directory: true,
     url: "http://fin.ai/?utm_source=tailwind&utm_medium=mindshare&utm_campaign=20260109-ungated-webpage-finlogo",
+    careersUrl: "https://fin.ai/careers",
+    detail: {
+      eyebrow: "Partner",
+      title: "Fin supports Tailwind CSS",
+      summary:
+        "Fin is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Fin is an AI agent for customer service that resolves complex queries across every channel. It handles multi-step support work like troubleshooting login issues, processing returns, and investigating fraud. When a conversation takes an unexpected turn, like a customer correcting a detail or changing their answer halfway through, Fin jumps back and continues naturally instead of getting stuck in a rigid flow.",
+        "You train Fin like any new teammate. Most support teams already have SOPs written up in Google Docs or Notion. You can paste those in and describe how Fin should act in natural language. From there it follows the procedure carefully while exercising judgment along the way, the way an experienced teammate would.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -943,6 +1026,17 @@ export const partners = [
     categories: ["CMS & Editors"],
     directory: true,
     url: "https://webflow.com/?utm_source=tailwindcss",
+    careersUrl: "https://webflow.com/careers",
+    detail: {
+      eyebrow: "Partner",
+      title: "Webflow supports Tailwind CSS",
+      summary:
+        "Webflow is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Webflow is a visual platform for designers and marketers to build, manage, and optimize websites together. The canvas turns visual design into a live site, with full control over layout, styling, and animation. Pre-made building blocks let marketing teams edit and publish content without engineering involvement, the composable CMS handles content at scale, and built-in tools for SEO, A/B testing, and localization cover the rest of the lifecycle.",
+        "Code components bring React into the canvas. Components built outside Webflow and pushed through the CLI become configurable elements like any other, with native Tailwind CSS support, so a design system built in Tailwind drops in without translation. The same components can be shared across Webflow and non-Webflow sites, so the work doesn't have to be duplicated.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1009,6 +1103,17 @@ export const partners = [
     categories: ["CMS & Editors"],
     directory: true,
     url: "https://sanity.io/?utm_source=tailwindcss",
+    careersUrl: "https://www.sanity.io/careers",
+    detail: {
+      eyebrow: "Partner",
+      title: "Sanity supports Tailwind CSS",
+      summary:
+        "Sanity is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Sanity is a content operating system for all your websites, apps, and AI agents. Underneath is a content-first database with Sanity Studio as its configurable interface. Teams model content as structured JSON, define schemas in Studio configuration rather than database constraints, and power every surface from a single API. Content agents, functions, and agent actions automate work before and after publishing, triggered by any mutation in the dataset.",
+        "Sanity Studio is fully configurable, so teams shape the platform around their workflows rather than the other way around. Content lives as data in a central database, which means the same dataset can feed a marketing site, a product catalog, a learning system, and the agents built on top of it.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1031,6 +1136,17 @@ export const partners = [
     categories: ["Hosting"],
     directory: true,
     url: "https://railway.com/?utm_medium=sponsor&utm_source=oss&utm_campaign=tailwind",
+    careersUrl: "https://railway.com/careers",
+    detail: {
+      eyebrow: "Partner",
+      title: "Railway supports Tailwind CSS",
+      summary:
+        "Railway is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Railway is an all-in-one cloud platform for deploying and running applications. Point it at a Git repository and Railway will build an OCI image and run it with the right start command. Bring a Dockerfile if you already have one, or pull an image directly from Docker Hub, GitHub Container Registry, or another registry. The same project covers local development, deployment, and the instrumentation needed to diagnose what's running.",
+        "Railway is designed to just work, then get out of the way when you want control. Sane defaults handle the first deploy with no configuration; knobs and switches appear when you outgrow the abstraction or need to layer Railway into existing infrastructure. Take what you need, leave what you don't.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
@@ -1053,6 +1169,17 @@ export const partners = [
     categories: ["AI Code Editors"],
     directory: true,
     url: "https://kiro.dev/?utm_source=tailwindcss",
+    careersUrl: "https://www.amazon.jobs/en/search?base_query=kiro",
+    detail: {
+      eyebrow: "Partner",
+      title: "Kiro supports Tailwind CSS",
+      summary:
+        "Kiro is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
+      body: [
+        "Kiro is an AI IDE for taking work from prototype to production. It runs long, multi-step tasks across large codebases, picking up your team's conventions through steering rules. Hooks fire in the background when you save, create, or delete a file, handling things like quality checks, code standards, and boilerplate.",
+        "With specs, Kiro plans the whole feature before writing any code. It unpacks the feature into user stories with acceptance criteria, then a design document with data flow diagrams, TypeScript interfaces, database schemas, and API endpoints, then a sequenced task list with each task tied back to a requirement. The specs stay synced with the codebase as it evolves, so the original intent doesn't drift during implementation.",
+      ],
+    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>

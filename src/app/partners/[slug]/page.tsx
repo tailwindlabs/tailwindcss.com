@@ -53,7 +53,7 @@ function SecondaryLink({ className, ...props }: React.ComponentProps<"a">) {
     <a
       className={clsx(
         className,
-        "rounded-full px-4 py-2 text-center text-sm/6 font-semibold text-gray-950 ring-1 ring-gray-950/10 hover:ring-gray-950/20 dark:text-gray-100 dark:ring-white/15 dark:hover:ring-white/20",
+        "inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-center text-sm/6 font-semibold text-gray-950 ring-1 ring-gray-950/10 hover:ring-gray-950/20 dark:text-gray-100 dark:ring-white/15 dark:hover:ring-white/20",
       )}
       {...props}
     />
@@ -77,11 +77,21 @@ export default async function PartnerPage({ params }: PartnerPageProps) {
     notFound();
   }
 
+  const careersUrl = "careersUrl" in partner ? partner.careersUrl : undefined;
+
   return (
     <div className="mt-28 sm:mt-32 lg:mt-40">
-      <p className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
-        {detail.eyebrow}
-      </p>
+      <div className="grid grid-cols-1 lg:grid-cols-[3fr_7fr] lg:gap-x-20">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+          <a
+            href="/partners"
+            className="flex items-center gap-1.5 text-sm/6 text-gray-600 hover:text-gray-950 dark:text-gray-400 dark:hover:text-white"
+          >
+            <ArrowIcon className="rotate-180" />
+            Back to partners
+          </a>
+        </div>
+      </div>
       <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-[3fr_7fr] lg:items-start lg:gap-20">
         <div>
           <div className="grid aspect-square place-content-center bg-white p-8 dark:bg-white/5">
@@ -90,16 +100,9 @@ export default async function PartnerPage({ params }: PartnerPageProps) {
           <p className="mt-4 text-lg/7 font-medium tracking-tight text-pretty">
             <strong className="font-medium text-gray-950 dark:text-white">{partner.name}</strong>
           </p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {partner.categories.map((category) => (
-              <span
-                key={category}
-                className="rounded-md bg-gray-950/5 px-2 py-0.5 text-xs/5 text-gray-600 dark:bg-white/10 dark:text-gray-400"
-              >
-                {category}
-              </span>
-            ))}
-          </div>
+          <p className="mt-4 inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
+            {detail.eyebrow}
+          </p>
         </div>
         <div>
           <h1 className="max-w-[40ch] text-[2.5rem]/[2.75rem] tracking-tight text-pretty text-gray-950 sm:text-[3.5rem]/[3.75rem] dark:text-white">
@@ -116,7 +119,12 @@ export default async function PartnerPage({ params }: PartnerPageProps) {
               Visit {partner.name}
               <ArrowIcon className="-rotate-45" />
             </ButtonLink>
-            <SecondaryLink href="/partners">Back to partners</SecondaryLink>
+            {careersUrl && (
+              <SecondaryLink href={careersUrl} target="_blank" rel="noopener">
+                Work at {partner.name}
+                <ArrowIcon className="-rotate-45" />
+              </SecondaryLink>
+            )}
           </div>
         </div>
       </div>
