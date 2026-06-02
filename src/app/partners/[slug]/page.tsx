@@ -77,8 +77,7 @@ export default async function PartnerPage({ params }: PartnerPageProps) {
   }
 
   const { detail } = sponsor;
-  const careersUrl =
-    "careersUrl" in sponsor && typeof sponsor.careersUrl === "string" ? sponsor.careersUrl : undefined;
+  const careersUrl = "careersUrl" in sponsor && typeof sponsor.careersUrl === "string" ? sponsor.careersUrl : undefined;
 
   return (
     <div className="mt-28 sm:mt-32 lg:mt-40">

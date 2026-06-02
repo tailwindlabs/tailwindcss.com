@@ -34,7 +34,6 @@ function DarkButtonLink({ className, ...props }: React.ComponentProps<"a">) {
   );
 }
 
-
 function Eyebrow({
   as = "p",
   className,
@@ -246,10 +245,6 @@ function InsiderPerkScreenshots() {
   );
 }
 
-
-
-
-
 function FaqGroup({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="group">
@@ -386,8 +381,8 @@ function Faqs() {
             <Faq question="What happens if my membership ends?">
               <p>
                 If your membership ends, you'll lose access to any perks like the Insiders Discord server,
-                Cursor/Claude/AGENTS.md rules, and pre-release documentation. These are only available while you're
-                an active Insider.
+                Cursor/Claude/AGENTS.md rules, and pre-release documentation. These are only available while you're an
+                active Insider.
               </p>
             </Faq>
             <Faq question="What is your refund policy?">
@@ -400,7 +395,6 @@ function Faqs() {
   );
 }
 
-
 export default async function InsidersPage() {
   return (
     <div className="mt-24">
@@ -412,8 +406,8 @@ export default async function InsidersPage() {
         <div className="@container grid grid-cols-1 grid-rows-[1fr_auto] lg:border-l lg:border-gray-950/5 dark:lg:border-white/10">
           <div className="flex items-center px-4 py-2 max-lg:line-y max-lg:mt-6 sm:px-2">
             <p className="max-w-2xl text-lg/7 font-medium text-pretty text-gray-600 dark:text-gray-400">
-              Join a community of enthusiasts who get early access to new features, insider perks, and direct
-              connection with the team — all while supporting the project you love.
+              Join a community of enthusiasts who get early access to new features, insider perks, and direct connection
+              with the team — all while supporting the project you love.
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-4 px-4 py-2 whitespace-nowrap max-lg:line-t max-lg:mt-6 sm:px-2 lg:border-t lg:border-gray-950/5 dark:lg:border-white/10">

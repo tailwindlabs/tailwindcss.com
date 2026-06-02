@@ -672,7 +672,7 @@ export const partners = [
         "Syntax is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
       body: [
         "Syntax is a podcast about full-stack web development, hosted by Wes Bos and Scott Tolinski. Twice a week they dig into JavaScript, CSS, TypeScript, frameworks, databases, servers, and deployment, working through the practical stuff developers actually run into. Nearly a thousand episodes in, it covers the front end, the back end, and everything in between.",
-        "Wes and Scott are both independent developers who build online training courses, so the show comes from people who teach this for a living. Every episode is built around \"Tasty Treats\" — applicable tips and nuggets you can take straight back to your own work. Syntax is produced by Sentry, the application monitoring platform that millions of developers use to catch and fix errors in their code.",
+        'Wes and Scott are both independent developers who build online training courses, so the show comes from people who teach this for a living. Every episode is built around "Tasty Treats" — applicable tips and nuggets you can take straight back to your own work. Syntax is produced by Sentry, the application monitoring platform that millions of developers use to catch and fix errors in their code.',
       ],
     },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
