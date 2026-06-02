@@ -2,6 +2,7 @@ import { FooterMeta } from "@/components/footer";
 import { MinusIcon, PlusIcon } from "@heroicons/react/16/solid";
 import { clsx } from "clsx";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getDirectorySponsors, getSponsorSlug, type DirectorySponsor } from "@/lib/sponsors";
 
 import { PartnerDirectory } from "./partner-directory";
@@ -580,7 +581,21 @@ function DirectoryItems({ sponsors }: { sponsors: DirectorySponsor[] }) {
     <ul role="list" className="grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_1fr_1fr_auto]">
       {sponsors.map((sponsor) => {
         const hasDetailPage = "detail" in sponsor && sponsor.detail != null;
-        const rowHref = hasDetailPage ? `/partners/${getSponsorSlug(sponsor.name)}` : sponsor.url;
+        const rowClassName = "grid grid-cols-subgrid items-center gap-4 py-5 pl-6 sm:col-span-3 sm:pl-4";
+        const rowContent = (
+          <>
+            <div className="flex items-center gap-3">
+              <sponsor.icon className="size-5 shrink-0 opacity-50 dark:opacity-60" aria-hidden="true" />
+              <span className="text-sm/6 font-semibold">{sponsor.name}</span>
+            </div>
+            <div className="max-sm:hidden">
+              <TierBadge tier={sponsor.tier} />
+            </div>
+            <div className="max-sm:hidden">
+              <span className="text-sm/6 text-gray-500 dark:text-gray-400">{sponsor.categories.join(", ")}</span>
+            </div>
+          </>
+        );
 
         return (
           <li
@@ -588,23 +603,15 @@ function DirectoryItems({ sponsors }: { sponsors: DirectorySponsor[] }) {
             data-categories={sponsor.categories.join(",")}
             className="col-span-full grid grid-cols-subgrid items-center border-t border-gray-950/5 transition-colors hover:bg-gray-950/2.5 dark:border-white/10 dark:hover:bg-white/2.5"
           >
-            <a
-              href={rowHref}
-              target={hasDetailPage ? undefined : "_blank"}
-              rel={hasDetailPage ? undefined : "noopener sponsored"}
-              className="grid grid-cols-subgrid items-center gap-4 py-5 pl-6 sm:col-span-3 sm:pl-4"
-            >
-              <div className="flex items-center gap-3">
-                <sponsor.icon className="size-5 shrink-0 opacity-50 dark:opacity-60" aria-hidden="true" />
-                <span className="text-sm/6 font-semibold">{sponsor.name}</span>
-              </div>
-              <div className="max-sm:hidden">
-                <TierBadge tier={sponsor.tier} />
-              </div>
-              <div className="max-sm:hidden">
-                <span className="text-sm/6 text-gray-500 dark:text-gray-400">{sponsor.categories.join(", ")}</span>
-              </div>
-            </a>
+            {hasDetailPage ? (
+              <Link href={`/partners/${getSponsorSlug(sponsor.name)}`} className={rowClassName}>
+                {rowContent}
+              </Link>
+            ) : (
+              <a href={sponsor.url} target="_blank" rel="noopener sponsored" className={rowClassName}>
+                {rowContent}
+              </a>
+            )}
             <a
               href={sponsor.url}
               target="_blank"

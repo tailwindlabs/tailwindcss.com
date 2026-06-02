@@ -2,6 +2,7 @@ import { FooterMeta } from "@/components/footer";
 import { getSponsorBySlug, getSponsorSlug, hasSponsorDetail } from "@/lib/sponsors";
 import { clsx } from "clsx";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ambassadors, partners, supporters } from "../sponsors";
 
@@ -83,13 +84,13 @@ export default async function PartnerPage({ params }: PartnerPageProps) {
     <div className="mt-28 sm:mt-32 lg:mt-40">
       <div className="grid grid-cols-1 lg:grid-cols-[3fr_7fr] lg:gap-x-20">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <a
+          <Link
             href="/partners"
             className="flex items-center gap-1.5 text-sm/6 text-gray-600 hover:text-gray-950 dark:text-gray-400 dark:hover:text-white"
           >
             <ArrowIcon className="rotate-180" />
             Back to partners
-          </a>
+          </Link>
         </div>
       </div>
       <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-[3fr_7fr] lg:items-start lg:gap-20">
@@ -120,7 +121,7 @@ export default async function PartnerPage({ params }: PartnerPageProps) {
               <ArrowIcon className="-rotate-45" />
             </ButtonLink>
             {careersUrl && (
-              <SecondaryLink href={careersUrl} target="_blank" rel="noopener">
+              <SecondaryLink href={careersUrl} target="_blank" rel="noopener sponsored">
                 Work at {sponsor.name}
                 <ArrowIcon className="-rotate-45" />
               </SecondaryLink>
