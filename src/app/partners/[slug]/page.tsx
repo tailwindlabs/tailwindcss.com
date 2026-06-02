@@ -53,7 +53,7 @@ function SecondaryLink({ className, ...props }: React.ComponentProps<"a">) {
     <a
       className={clsx(
         className,
-        "inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-center text-sm/6 font-semibold text-gray-950 ring-1 ring-gray-950/10 hover:ring-gray-950/20 dark:text-gray-100 dark:ring-white/15 dark:hover:ring-white/20",
+        "inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-center text-sm/6 font-semibold text-gray-950 ring-1 ring-gray-950/10 hover:ring-gray-950/20 dark:bg-white/5 dark:text-gray-100 dark:ring-white/15 dark:hover:ring-white/20",
       )}
       {...props}
     />
