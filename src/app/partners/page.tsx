@@ -2,7 +2,6 @@ import { FooterMeta } from "@/components/footer";
 import { MinusIcon, PlusIcon } from "@heroicons/react/16/solid";
 import { clsx } from "clsx";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { getDirectorySponsors, getSponsorSlug, type DirectorySponsor } from "@/lib/sponsors";
 
 import { PartnerDirectory } from "./partner-directory";
@@ -581,7 +580,8 @@ function DirectoryItems({ sponsors }: { sponsors: DirectorySponsor[] }) {
     <ul role="list" className="grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_1fr_1fr_auto]">
       {sponsors.map((sponsor) => {
         const hasDetailPage = "detail" in sponsor && sponsor.detail != null;
-        const rowClassName = "grid grid-cols-subgrid items-center gap-4 py-5 pl-6 sm:col-span-3 sm:pl-4";
+        const rowClassName =
+          "col-span-full grid grid-cols-subgrid items-center gap-4 py-5 pr-4 pl-6 transition-colors hover:bg-gray-950/2.5 sm:pr-2 sm:pl-4 dark:hover:bg-white/2.5";
         const rowContent = (
           <>
             <div className="flex items-center gap-3">
@@ -594,6 +594,12 @@ function DirectoryItems({ sponsors }: { sponsors: DirectorySponsor[] }) {
             <div className="max-sm:hidden">
               <span className="text-sm/6 text-gray-500 dark:text-gray-400">{sponsor.categories.join(", ")}</span>
             </div>
+            <span className="inline-flex items-center justify-end gap-1.5 text-sm/6 font-medium whitespace-nowrap text-gray-400 dark:text-gray-500">
+              {hasDetailPage ? "Learn more" : "Visit site"}
+              <svg fill="currentColor" aria-hidden="true" viewBox="0 0 10 10" className="-mr-0.5 w-2.5">
+                <path d="M4.85355 0.146423L9.70711 4.99998L4.85355 9.85353L4.14645 9.14642L7.79289 5.49998H0V4.49998H7.79289L4.14645 0.85353L4.85355 0.146423Z" />
+              </svg>
+            </span>
           </>
         );
 
@@ -601,28 +607,17 @@ function DirectoryItems({ sponsors }: { sponsors: DirectorySponsor[] }) {
           <li
             key={sponsor.name}
             data-categories={sponsor.categories.join(",")}
-            className="col-span-full grid grid-cols-subgrid items-center border-t border-gray-950/5 transition-colors hover:bg-gray-950/2.5 dark:border-white/10 dark:hover:bg-white/2.5"
+            className="col-span-full grid grid-cols-subgrid items-center border-t border-gray-950/5 dark:border-white/10"
           >
             {hasDetailPage ? (
-              <Link href={`/partners/${getSponsorSlug(sponsor.name)}`} className={rowClassName}>
+              <a href={`/partners/${getSponsorSlug(sponsor.name)}`} className={rowClassName}>
                 {rowContent}
-              </Link>
+              </a>
             ) : (
               <a href={sponsor.url} target="_blank" rel="noopener sponsored" className={rowClassName}>
                 {rowContent}
               </a>
             )}
-            <a
-              href={sponsor.url}
-              target="_blank"
-              rel="noopener sponsored"
-              className="inline-flex items-center justify-end gap-1.5 py-5 pr-4 text-sm/6 font-medium whitespace-nowrap text-gray-400 sm:pr-2 dark:text-gray-500"
-            >
-              Visit site
-              <svg fill="currentColor" aria-hidden="true" viewBox="0 0 10 10" className="-mr-0.5 w-2.5 -rotate-45">
-                <path d="M4.85355 0.146423L9.70711 4.99998L4.85355 9.85353L4.14645 9.14642L7.79289 5.49998H0V4.49998H7.79289L4.14645 0.85353L4.85355 0.146423Z" />
-              </svg>
-            </a>
           </li>
         );
       })}
