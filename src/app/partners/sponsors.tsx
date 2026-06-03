@@ -165,7 +165,7 @@ export const partners = [
       summary:
         "Nutrient is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
       body: [
-        "Nutrient is a document SDK that drops PDF viewing, annotation, editing, and form filling into your web app. You point it at a file, embed the viewer, and your users get a fast, polished reading experience with tools for highlights, comments, signatures, and redactions — without you having to wrangle PDF.js or build any of it from scratch.",
+        "Nutrient is a document SDK that drops PDF viewing, annotation, editing, and form filling into your web app. You point it at a file, embed the viewer, and your users get a fast, polished reading experience with tools for highlights, comments, signatures, and redactions, without you having to wrangle PDF.js or build any of it from scratch.",
         "Beyond the viewer, Nutrient handles the document work that usually turns into its own project: generating PDFs from HTML, converting between formats, running OCR on scanned files, and processing documents on the server. Whether you're shipping a contract workflow, a knowledge base, or a full-blown document editor, you get a single SDK that covers the whole pipeline.",
       ],
     },
@@ -319,7 +319,7 @@ export const partners = [
       summary:
         "Base UI is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
       body: [
-        "Base UI is an open-source React component library for building accessible user interfaces. The components are unstyled and ship without any CSS, so the styling layer stays under your control — Tailwind, CSS Modules, plain CSS, CSS-in-JS, or whatever else you reach for. Component APIs are fully open, with direct access to each node, so you can add or remove parts and wrap them however the design needs.",
+        "Base UI is an open-source React component library for building accessible user interfaces. The components are unstyled and ship without any CSS, so the styling layer stays under your control, whether you use Tailwind, CSS Modules, plain CSS, CSS-in-JS, or whatever else you reach for. Component APIs are fully open, with direct access to each node, so you can add or remove parts and wrap them however the design needs.",
         "Accessibility is the primary focus. Components follow WAI-ARIA design patterns and are tested across a wide range of screen readers, browsers, devices, and platforms. Base UI comes from the team behind Radix, Floating UI, and Material UI, with multiple decades of collective experience building component libraries, and the details show it.",
       ],
     },
@@ -672,7 +672,7 @@ export const partners = [
         "Syntax is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
       body: [
         "Syntax is a podcast about full-stack web development, hosted by Wes Bos and Scott Tolinski. Twice a week they dig into JavaScript, CSS, TypeScript, frameworks, databases, servers, and deployment, working through the practical stuff developers actually run into. Nearly a thousand episodes in, it covers the front end, the back end, and everything in between.",
-        'Wes and Scott are both independent developers who build online training courses, so the show comes from people who teach this for a living. Every episode is built around "Tasty Treats" — applicable tips and nuggets you can take straight back to your own work. Syntax is produced by Sentry, the application monitoring platform that millions of developers use to catch and fix errors in their code.',
+        'Wes and Scott are both independent developers who build online training courses, so the show comes from people who teach this for a living. Every episode is built around "Tasty Treats", applicable tips and nuggets you can take straight back to your own work. Syntax is produced by Sentry, the application monitoring platform that millions of developers use to catch and fix errors in their code.',
       ],
     },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
@@ -767,7 +767,7 @@ export const partners = [
       summary:
         "Momentic is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
       body: [
-        "Momentic is an AI-powered end-to-end testing platform for web, iOS, and Android apps. You describe what a test should do in plain English, and an AI agent turns that into reliable steps, navigating the user flow, interacting with the screen, and validating the result. Tests live in your repo as YAML, run locally or in CI, and surface results in a dashboard. It's CLI-first, with web tests on Chromium browsers, iOS on simulators, and Android on emulators — no real devices required.",
+        "Momentic is an AI-powered end-to-end testing platform for web, iOS, and Android apps. You describe what a test should do in plain English, and an AI agent turns that into reliable steps, navigating the user flow, interacting with the screen, and validating the result. Tests live in your repo as YAML, run locally or in CI, and surface results in a dashboard. It's CLI-first, with web tests on Chromium browsers, iOS on simulators, and Android on emulators, with no real devices required.",
         "Most tests break the moment your UI changes, because they're tied to fragile DOM selectors. Momentic tracks user intent instead, so when the interface shifts, tests adapt on their own and brittle locators auto-heal. AI coding tools let teams ship code faster, which also means shipping bugs faster, and Momentic is the layer that verifies the code keeps working. No brittle tests, no endless maintenance, just signals you can trust.",
       ],
     },
