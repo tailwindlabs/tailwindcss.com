@@ -10,6 +10,29 @@ export type DirectorySponsor = (PartnerSponsor | AmbassadorSponsor | SupporterSp
   tier: "partner" | "ambassador" | "supporter";
 };
 
+export type SponsorDetail = {
+  eyebrow: string;
+  title: string;
+  summary: string;
+  body: string[];
+};
+
+export function getSponsorSlug(name: string) {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+export function getSponsorBySlug(slug: string) {
+  const all = [...partners, ...ambassadors, ...supporters];
+  return all.find((sponsor) => getSponsorSlug(sponsor.name) === slug);
+}
+
+export function hasSponsorDetail<T extends object>(sponsor: T): sponsor is T & { detail: SponsorDetail } {
+  return "detail" in sponsor && sponsor.detail != null;
+}
+
 function shuffle<T>(array: T[]): T[] {
   const result = [...array];
   for (let i = result.length - 1; i > 0; i--) {
