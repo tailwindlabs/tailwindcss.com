@@ -4,6 +4,8 @@ import { clsx } from "clsx";
 import { useLayoutEffect, useRef, useState } from "react";
 import { directoryCategories } from "@/lib/sponsors";
 
+type DirectoryCategory = (typeof directoryCategories)[number];
+
 const categoryStorageKey = "tailwindcss.com:partners:category";
 const categorySlugByName = new Map(
   directoryCategories.map((category) => [
@@ -17,36 +19,40 @@ const categorySlugByName = new Map(
 const categoryNameBySlug = new Map(Array.from(categorySlugByName, ([category, slug]) => [slug, category]));
 const categoryNames = new Set<string>(directoryCategories);
 
-function getCategoryFromHash(hash: string) {
+function isDirectoryCategory(category: string): category is DirectoryCategory {
+  return categoryNames.has(category);
+}
+
+function getCategoryFromHash(hash: string): DirectoryCategory {
   const slug = hash.replace(/^#/, "");
 
   return categoryNameBySlug.get(slug) ?? "All";
 }
 
-function getHashFromCategory(category: string) {
+function getHashFromCategory(category: DirectoryCategory) {
   if (category === "All") return "";
 
-  return `#${categorySlugByName.get(category)}`;
+  return `#${categorySlugByName.get(category)!}`;
 }
 
-function getStoredCategory() {
+function getStoredCategory(): DirectoryCategory {
   let category: string | null = null;
 
   try {
     category = window.sessionStorage.getItem(categoryStorageKey);
   } catch {}
 
-  return category && categoryNames.has(category) ? category : "All";
+  return category && isDirectoryCategory(category) ? category : "All";
 }
 
-function storeCategory(category: string) {
+function storeCategory(category: DirectoryCategory) {
   try {
     window.sessionStorage.setItem(categoryStorageKey, category);
   } catch {}
 }
 
 export function PartnerDirectory({ children }: { children: React.ReactNode }) {
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<DirectoryCategory | null>(null);
   const controlsRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
 
@@ -86,7 +92,7 @@ export function PartnerDirectory({ children }: { children: React.ReactNode }) {
     listRef.current.classList.remove("invisible");
   }, [activeCategory]);
 
-  function selectCategory(category: string) {
+  function selectCategory(category: DirectoryCategory) {
     const url = `${window.location.pathname}${window.location.search}${getHashFromCategory(category)}`;
 
     setActiveCategory(category);
