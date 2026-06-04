@@ -393,8 +393,8 @@ export const partners = [
       summary:
         "CodeRabbit is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
       body: [
-        'CodeRabbit is an AI code reviewer that works at the pull request stage, in your IDE, or in the CLI. Reviews come with a summary of changes, a walkthrough, and an architectural diagram, plus line-by-line suggestions and real-time chat. Easy fixes ship with a one-click commit; harder ones get a "Fix with AI" button. 40+ linters and security scanners run alongside the model, with false positives filtered out before anything reaches the PR.',
-        "Context is the lever. CodeRabbit maintains a 1:1 ratio of code-to-context in its prompts, pulling in codebase structure through a codegraph, past PRs, team conventions, and ticket requirements for every line under review. Verification scripts run in a sandbox against each suggested comment and drop low-value feedback before it ships. Set the baseline in a yaml file, then train the agent further through replies.",
+        'CodeRabbit is an AI code reviewer that works at the pull request stage, in your IDE, or in the CLI. Reviews come with a summary of changes, a walkthrough, and an architectural diagram, plus line-by-line suggestions and real-time chat. Easy fixes ship with a one-click commit. Harder ones get a "Fix with AI" button. 40+ linters and security scanners run alongside the model, with false positives filtered out before anything reaches the PR.',
+        "CodeRabbit understands the context of your code and maintains a 1:1 ratio of code-to-context in its prompts, pulling in codebase structure through a codegraph, past PRs, team conventions, and ticket requirements for every line under review. Verification scripts run in a sandbox against each suggested comment and drop low-value feedback before it ships. Set the baseline in a yaml file, then train the agent further through replies.",
       ],
     },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
