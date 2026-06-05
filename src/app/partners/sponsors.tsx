@@ -196,7 +196,7 @@ export const partners = [
       summary:
         "Clerk is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
       body: [
-        "Clerk is authentication and user management for your application. Drop in React components for sign-in, sign-up, profile, and organization management, style them to match your brand with any CSS library, and deploy to your own domain. Clerk handles the full session lifecycle, including active device monitoring and session revocation, and gives you the multi-tenancy primitives you need to onboard and manage organizations in a B2B SaaS app.",
+        "Clerk is authentication and user management for your application. Drop in React components for sign-in, sign-up, profile, and organization management, or scaffold the setup from your terminal with clerk init, which detects your framework, installs the SDK, and creates your auth pages, middleware, and providers. Style the components to match your brand with any CSS library, and deploy to your own domain. Clerk handles the full session lifecycle, including active device monitoring and session revocation, and gives you the multi-tenancy primitives you need to onboard and manage organizations in a B2B SaaS app.",
         "Subscription billing works the same way. Add recurring revenue to a B2C or B2B application by dropping in React components, without writing payment code, building custom UI, or wrangling webhooks. The same source of truth that holds your users now holds their subscriptions, so the work you'd usually spread across an auth provider, a billing integration, and a pile of glue code collapses into one set of components.",
       ],
     },
