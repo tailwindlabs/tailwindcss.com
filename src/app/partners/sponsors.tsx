@@ -11,8 +11,7 @@ export const partners = [
       summary:
         "Cursor is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
       body: [
-        "Cursor is a unified workspace for building software with agents. It spans the full development lifecycle, from planning to writing to reviewing code, inside a familiar editor. For complex tasks, Cursor asks clarifying questions, builds a plan, then executes in the background, editing files, running terminal commands, and searching the web as it works. The same agents run anywhere you do: desktop, CLI, or from your browser or phone.",
-        "Cursor deeply learns your codebase before writing a single line. A custom embedding model gives agents recall across codebases of any size, and you can teach Cursor your team's conventions and specific architectural decisions so its work matches how you already build. Point it at exactly what matters with @-mentions and image uploads, then roll back to a previous snapshot any time you want to see how the code evolved.",
+        "Cursor is a coding agent for building ambitious software. It spans the full development lifecycle, from planning to writing to reviewing code. For complex tasks, Cursor asks clarifying questions, builds a plan, then executes in the background, editing files, running terminal commands, and searching the web as it works. The same agents run anywhere you do: desktop, CLI, or from your browser or phone.",
       ],
     },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
@@ -42,8 +41,9 @@ export const partners = [
       summary:
         "Namespace is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
       body: [
-        "Namespace builds fast cloud computers for development and CI. Devboxes are isolated cloud VMs that boot in seconds with a repository checked out, ready for an engineer or an AI coding agent to start working. The CI runners are a drop-in replacement for GitHub Actions and GitLab, with high-frequency cores, NVMe storage, built-in caching, and full observability. Cache volumes make incremental builds and tests feel like working on a local machine.",
-        "A Devbox runs on the exact same hardware as a CI job. That's not a coincidence. The hardware was tuned for builds and tests, where every second of wait time gets noticed, and it turns out those are also the seconds that make a cloud development environment feel slow.",
+        "Namespace offers fast cloud computers purpose-built for developer workflows - CI, builds, tests, and dev environments. Where hyperscalers optimize for production, Namespace optimizes for the bursty, latency-sensitive shape of code: high-frequency cores, NVMe storage, and built-in caching on hardware we own across data centers in the US and Europe.",
+        "Swap one line in your GitHub Actions workflow and your builds can run 2-10x faster on Namespace runner instances. Devboxes give every engineer or AI coding agent an isolated cloud machine that boots in seconds with your repo already checked out. Cache Volumes make incremental builds and tests feel local, even at scale.",
+        "Companies like Ramp, Verkada, Vanta, Framer, and Zed ship on Namespace. Products like Buildkite Hosted Agents and Warp Background Agents build on it too.",
       ],
     },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
