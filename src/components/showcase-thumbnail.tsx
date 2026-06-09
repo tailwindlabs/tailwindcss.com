@@ -82,7 +82,13 @@ export default function ShowcaseThumbnail({ showcase, priority = false }: { show
         hideVideo();
       }}
     >
-      <a href={showcase.url} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-10"></a>
+      <a
+        href={showcase.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute inset-0 z-10"
+        aria-label={showcase.name}
+      ></a>
       <GridContainer className={clsx("p-2", BEFORE_AND_AFTER_ONLY_IN_FIRST_COLUMN_OF_CURRENT_GRID)}>
         <div className="relative aspect-[672/494] overflow-hidden rounded-xl outline outline-gray-950/5">
           <Image
