@@ -49,6 +49,7 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [initialQuery, setInitialQuery] = useState("");
+  const searchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const onOpen = useCallback(() => {
     setIsOpen(true);
@@ -154,6 +155,28 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
                 },
               }}
               hitComponent={Hit}
+              transformSearchClient ={(originalClient) => {
+                return {
+                  ...originalClient,
+                  search(requests){
+                    if(searchTimer.current){
+                      clearTimeout(searchTimer.current);
+                    }
+                    return new Promise((resolve, reject) => {
+                       searchTimer.current = setTimeout(() => {
+                        // try-catch if original search fails synchronously
+                        try{
+                          // resolve handle internal promise
+                          resolve(originalClient.search(requests))
+                        }catch(e){
+                          reject(e)
+                        }
+                      }, 300);
+                    })
+                  }
+                }
+                }
+              }
               transformItems={(items) => {
                 items = items.map((item) => {
                   item.url = rewriteURL(item.url);
