@@ -889,6 +889,7 @@ export const partners = [
     categories: ["Media APIs"],
     directory: true,
     url: "https://imagekit.io/?utm_source=tailwindcss&utm_medium=referral&utm_campaign=logo-homepage",
+    careersUrl: "https://imagekit.io/about/",
     detail: {
       eyebrow: "Partner",
       title: "ImageKit supports Tailwind CSS",
