@@ -1026,7 +1026,7 @@ export const partners = [
     name: "Webflow",
     categories: ["CMS & Editors"],
     directory: true,
-    url: "https://webflow.com/?utm_source=tailwindcss",
+    url: "https://developers.webflow.com/?utm_source=tailwindcss",
     careersUrl: "https://webflow.com/careers",
     detail: {
       eyebrow: "Partner",
@@ -1034,8 +1034,8 @@ export const partners = [
       summary:
         "Webflow is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
       body: [
-        "Webflow is a visual platform for designers and marketers to build, manage, and optimize websites together. The canvas turns visual design into a live site, with full control over layout, styling, and animation. Pre-made building blocks let marketing teams edit and publish content without engineering involvement, the composable CMS handles content at scale, and built-in tools for SEO, A/B testing, and localization cover the rest of the lifecycle.",
-        "Code components bring React into the canvas. Components built outside Webflow and pushed through the CLI become configurable elements like any other, with native Tailwind CSS support, so a design system built in Tailwind drops in without translation. The same components can be shared across Webflow and non-Webflow sites, so the work doesn't have to be duplicated.",
+        "Webflow is an agentic web marketing platform that brings together marketers, designers, and developers in a single governed system. Developers extend the platform through Code Components, Webflow Cloud, the CLI, APIs covering content, design, and user workflows, and an MCP server that connects Webflow to your LLM, IDE, or agent platform of choice.",
+        "AI Code Components and Webflow Cloud apps both support Tailwind CSS. Build Code Components using Tailwind directly, or deploy full Tailwind-based applications on Webflow Cloud without a separate hosting layer.",
       ],
     },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
