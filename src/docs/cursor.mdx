@@ -95,6 +95,353 @@ Use utilities like `cursor-pointer` and `cursor-grab` to control which cursor is
 
 </Figure>
 
+### Interactive cursors
+
+Use utilities like `cursor-pointer`, `cursor-help`, and `cursor-wait` for interactive elements:
+
+<Figure hint="Hover over each box to see the cursor change">
+
+<Example>
+  {
+    <div className="grid grid-cols-2 gap-4 text-center sm:grid-cols-3">
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-pointer</p>
+        <div className="flex h-20 w-full cursor-pointer items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-help</p>
+        <div className="flex h-20 w-full cursor-help items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-context-menu</p>
+        <div className="flex h-20 w-full cursor-context-menu items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-progress</p>
+        <div className="flex h-20 w-full cursor-progress items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-wait</p>
+        <div className="flex h-20 w-full cursor-wait items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:cursor-pointer,cursor-help,cursor-context-menu,cursor-progress,cursor-wait] -->
+<div class="cursor-pointer ...">Hover me</div>
+<div class="cursor-help ...">Hover me</div>
+<div class="cursor-context-menu ...">Hover me</div>
+<div class="cursor-progress ...">Hover me</div>
+<div class="cursor-wait ...">Hover me</div>
+```
+
+</Figure>
+
+### Selection cursors
+
+Use utilities like `cursor-text` and `cursor-crosshair` for text selection and precise positioning:
+
+<Figure hint="Hover over each box to see the cursor change">
+
+<Example>
+  {
+    <div className="grid grid-cols-2 gap-4 text-center sm:grid-cols-3">
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-default</p>
+        <div className="flex h-20 w-full cursor-default items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-text</p>
+        <div className="flex h-20 w-full cursor-text items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-vertical-text</p>
+        <div className="flex h-20 w-full cursor-vertical-text items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-crosshair</p>
+        <div className="flex h-20 w-full cursor-crosshair items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-cell</p>
+        <div className="flex h-20 w-full cursor-cell items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:cursor-default,cursor-text,cursor-vertical-text,cursor-crosshair,cursor-cell] -->
+<div class="cursor-default ...">Hover me</div>
+<div class="cursor-text ...">Hover me</div>
+<div class="cursor-vertical-text ...">Hover me</div>
+<div class="cursor-crosshair ...">Hover me</div>
+<div class="cursor-cell ...">Hover me</div>
+```
+
+</Figure>
+
+### Drag and drop cursors
+
+Use utilities like `cursor-grab` and `cursor-move` for draggable elements:
+
+<Figure hint="Hover over each box to see the cursor change">
+
+<Example>
+  {
+    <div className="grid grid-cols-2 gap-4 text-center sm:grid-cols-3">
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-grab</p>
+        <div className="flex h-20 w-full cursor-grab items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-grabbing</p>
+        <div className="flex h-20 w-full cursor-grabbing items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-move</p>
+        <div className="flex h-20 w-full cursor-move items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-copy</p>
+        <div className="flex h-20 w-full cursor-copy items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-alias</p>
+        <div className="flex h-20 w-full cursor-alias items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-no-drop</p>
+        <div className="flex h-20 w-full cursor-no-drop items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:cursor-grab,cursor-grabbing,cursor-move,cursor-copy,cursor-alias,cursor-no-drop] -->
+<div class="cursor-grab ...">Hover me</div>
+<div class="cursor-grabbing ...">Hover me</div>
+<div class="cursor-move ...">Hover me</div>
+<div class="cursor-copy ...">Hover me</div>
+<div class="cursor-alias ...">Hover me</div>
+<div class="cursor-no-drop ...">Hover me</div>
+```
+
+</Figure>
+
+### Resize cursors
+
+Use resize cursor utilities to indicate which direction an element can be resized:
+
+<Figure hint="Hover over each box to see the cursor change">
+
+<Example>
+  {
+    <div className="grid grid-cols-2 gap-4 text-center sm:grid-cols-4">
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-n-resize</p>
+        <div className="flex h-20 w-full cursor-n-resize items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-e-resize</p>
+        <div className="flex h-20 w-full cursor-e-resize items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-s-resize</p>
+        <div className="flex h-20 w-full cursor-s-resize items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-w-resize</p>
+        <div className="flex h-20 w-full cursor-w-resize items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-ne-resize</p>
+        <div className="flex h-20 w-full cursor-ne-resize items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-nw-resize</p>
+        <div className="flex h-20 w-full cursor-nw-resize items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-se-resize</p>
+        <div className="flex h-20 w-full cursor-se-resize items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-sw-resize</p>
+        <div className="flex h-20 w-full cursor-sw-resize items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-ew-resize</p>
+        <div className="flex h-20 w-full cursor-ew-resize items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-ns-resize</p>
+        <div className="flex h-20 w-full cursor-ns-resize items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-nesw-resize</p>
+        <div className="flex h-20 w-full cursor-nesw-resize items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-nwse-resize</p>
+        <div className="flex h-20 w-full cursor-nwse-resize items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-col-resize</p>
+        <div className="flex h-20 w-full cursor-col-resize items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-row-resize</p>
+        <div className="flex h-20 w-full cursor-row-resize items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-all-scroll</p>
+        <div className="flex h-20 w-full cursor-all-scroll items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:cursor-n-resize,cursor-e-resize,cursor-s-resize,cursor-w-resize,cursor-ne-resize,cursor-nw-resize,cursor-se-resize,cursor-sw-resize,cursor-ew-resize,cursor-ns-resize,cursor-nesw-resize,cursor-nwse-resize,cursor-col-resize,cursor-row-resize,cursor-all-scroll] -->
+<div class="cursor-n-resize ...">Hover me</div>
+<div class="cursor-e-resize ...">Hover me</div>
+<div class="cursor-s-resize ...">Hover me</div>
+<div class="cursor-w-resize ...">Hover me</div>
+<div class="cursor-ne-resize ...">Hover me</div>
+<div class="cursor-nw-resize ...">Hover me</div>
+<div class="cursor-se-resize ...">Hover me</div>
+<div class="cursor-sw-resize ...">Hover me</div>
+<div class="cursor-ew-resize ...">Hover me</div>
+<div class="cursor-ns-resize ...">Hover me</div>
+<div class="cursor-nesw-resize ...">Hover me</div>
+<div class="cursor-nwse-resize ...">Hover me</div>
+<div class="cursor-col-resize ...">Hover me</div>
+<div class="cursor-row-resize ...">Hover me</div>
+<div class="cursor-all-scroll ...">Hover me</div>
+```
+
+</Figure>
+
+### Zoom and state cursors
+
+Use zoom cursor utilities and state indicators:
+
+<Figure hint="Hover over each box to see the cursor change">
+
+<Example>
+  {
+    <div className="grid grid-cols-2 gap-4 text-center sm:grid-cols-3">
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-zoom-in</p>
+        <div className="flex h-20 w-full cursor-zoom-in items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-zoom-out</p>
+        <div className="flex h-20 w-full cursor-zoom-out items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-not-allowed</p>
+        <div className="flex h-20 w-full cursor-not-allowed items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-auto</p>
+        <div className="flex h-20 w-full cursor-auto items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">cursor-none</p>
+        <div className="flex h-20 w-full cursor-none items-center justify-center rounded-md bg-indigo-500 text-sm font-semibold text-white dark:bg-sky-500">
+          Hover me
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:cursor-zoom-in,cursor-zoom-out,cursor-not-allowed,cursor-auto,cursor-none] -->
+<div class="cursor-zoom-in ...">Hover me</div>
+<div class="cursor-zoom-out ...">Hover me</div>
+<div class="cursor-not-allowed ...">Hover me</div>
+<div class="cursor-auto ...">Hover me</div>
+<div class="cursor-none ...">Hover me</div>
+```
+
+</Figure>
+
 ### Using a custom value
 
 <UsingACustomValue element="button" utility="cursor" value="url(hand.cur),_pointer" />
