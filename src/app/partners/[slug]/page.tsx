@@ -4,7 +4,7 @@ import { clsx } from "clsx";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ambassadors, partners, supporters } from "../sponsors";
+import { ambassadors, partners, supporters, type SponsorCtas } from "../sponsors";
 
 type PartnerPageProps = {
   params: Promise<{ slug: string }>;
@@ -68,6 +68,26 @@ function ArrowIcon({ className }: { className?: string }) {
   );
 }
 
+function getSponsorCtas(sponsor: NonNullable<ReturnType<typeof getSponsorBySlug>>) {
+  const careersUrl = "careersUrl" in sponsor && typeof sponsor.careersUrl === "string" ? sponsor.careersUrl : undefined;
+  const customCtas = "ctas" in sponsor ? (sponsor.ctas as SponsorCtas) : undefined;
+
+  return {
+    primary: customCtas?.primary ?? {
+      label: `Visit ${sponsor.name}`,
+      href: sponsor.url,
+    },
+    secondary:
+      customCtas?.secondary ??
+      (careersUrl
+        ? {
+            label: `Work at ${sponsor.name}`,
+            href: careersUrl,
+          }
+        : undefined),
+  };
+}
+
 export default async function PartnerPage({ params }: PartnerPageProps) {
   const { slug } = await params;
   const sponsor = getSponsorBySlug(slug);
@@ -77,7 +97,7 @@ export default async function PartnerPage({ params }: PartnerPageProps) {
   }
 
   const { detail } = sponsor;
-  const careersUrl = "careersUrl" in sponsor && typeof sponsor.careersUrl === "string" ? sponsor.careersUrl : undefined;
+  const ctas = getSponsorCtas(sponsor);
 
   return (
     <div className="mt-28 sm:mt-32 lg:mt-40">
@@ -115,13 +135,13 @@ export default async function PartnerPage({ params }: PartnerPageProps) {
             ))}
           </div>
           <div className="mt-10 flex flex-wrap gap-4">
-            <ButtonLink href={sponsor.url} target="_blank" rel="noopener sponsored">
-              Visit {sponsor.name}
+            <ButtonLink href={ctas.primary.href} target="_blank" rel="noopener sponsored">
+              {ctas.primary.label}
               <ArrowIcon className="-rotate-45" />
             </ButtonLink>
-            {careersUrl && (
-              <SecondaryLink href={careersUrl} target="_blank" rel="noopener sponsored">
-                Work at {sponsor.name}
+            {ctas.secondary && (
+              <SecondaryLink href={ctas.secondary.href} target="_blank" rel="noopener sponsored">
+                {ctas.secondary.label}
                 <ArrowIcon className="-rotate-45" />
               </SecondaryLink>
             )}
