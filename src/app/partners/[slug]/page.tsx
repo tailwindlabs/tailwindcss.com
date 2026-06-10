@@ -1,5 +1,6 @@
 import { FooterMeta } from "@/components/footer";
 import { getSponsorBySlug, getSponsorSlug, hasSponsorDetail } from "@/lib/sponsors";
+import type { SponsorDetailBodyBlock } from "@/lib/sponsors";
 import { clsx } from "clsx";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -88,6 +89,26 @@ function getSponsorCtas(sponsor: NonNullable<ReturnType<typeof getSponsorBySlug>
   };
 }
 
+function SponsorDetailBody({ body }: { body: SponsorDetailBodyBlock[] }) {
+  return (
+    <>
+      {body.map((block, index) => {
+        if (typeof block === "string") {
+          return <p key={block}>{block}</p>;
+        }
+
+        return (
+          <ul key={index} className="list-disc space-y-3 pl-5 marker:text-gray-400 dark:marker:text-gray-500">
+            {block.items.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        );
+      })}
+    </>
+  );
+}
+
 export default async function PartnerPage({ params }: PartnerPageProps) {
   const { slug } = await params;
   const sponsor = getSponsorBySlug(slug);
@@ -130,9 +151,7 @@ export default async function PartnerPage({ params }: PartnerPageProps) {
           </h1>
           <p className="mt-8 max-w-2xl text-lg/7 text-gray-700 dark:text-gray-400">{detail.summary}</p>
           <div className="mt-8 max-w-2xl space-y-6 text-sm/7 text-gray-700 dark:text-gray-400">
-            {detail.body.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
+            <SponsorDetailBody body={detail.body} />
           </div>
           <div className="mt-10 flex flex-wrap gap-4">
             <ButtonLink href={ctas.primary.href} target="_blank" rel="noopener sponsored">

@@ -10,11 +10,18 @@ export type DirectorySponsor = (PartnerSponsor | AmbassadorSponsor | SupporterSp
   tier: "partner" | "ambassador" | "supporter";
 };
 
+export type SponsorDetailBodyBlock =
+  | string
+  | {
+      type: "list";
+      items: string[];
+    };
+
 export type SponsorDetail = {
   eyebrow: string;
   title: string;
   summary: string;
-  body: string[];
+  body: SponsorDetailBodyBlock[];
 };
 
 export function getSponsorSlug(name: string) {

@@ -986,8 +986,17 @@ export const partners = [
       summary:
         "SerpApi is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
       body: [
-        "SerpApi is a real-time API for Google search results. Each request returns parsed, structured data (links, prices, addresses, thumbnails, ratings, reviews, rich snippets) across organic results, Maps, Local, Shopping, Direct Answer, and Knowledge Graph. Proxies, CAPTCHAs, and HTML parsing are handled for you, so you call the endpoint and get JSON back.",
-        "The results match what a real user would see. Every request runs in a full browser, and the location parameter routes through a proxy near your target market using Google's own encrypted geo params, so results reflect what a local searcher would actually see.",
+        "SerpApi is a Web Search API that gives developers real-time, structured data from Google, Bing, Amazon, Maps, Shopping, Flights, Hotels, and 100+ search engines through one simple API.",
+        "No more scraping headaches, so you can focus on building your actual product.",
+        "Top Use Cases for SerpApi:",
+        {
+          type: "list",
+          items: [
+            "AI Grounding: Enhance AI models with real-time search data to improve the relevance and accuracy of generated content and insights.",
+            "SEO Tools: Integrate SERP data into SEO tools for tracking keyword rankings and analyzing search engine visibility.",
+            "Product Research: Gather competitor product listings and market trends to inform product development and pricing strategies.",
+          ],
+        },
       ],
     },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
@@ -1047,11 +1056,11 @@ export const partners = [
     ctas: {
       primary: {
         label: "Visit Webflow",
-        href: "https://developers.webflow.com/",
+        href: "https://developers.webflow.com/?utm_source=tailwindcss",
       },
       secondary: {
         label: "View Docs",
-        href: "https://developers.webflow.com/home",
+        href: "https://developers.webflow.com/home?utm_source=tailwindcss",
       },
     } satisfies SponsorCtas,
     detail: {
