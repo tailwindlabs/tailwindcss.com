@@ -991,9 +991,9 @@ export const partners = [
       summary:
         "SerpApi is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
       body: [
-        "SerpApi is a Web Search API that gives developers real-time, structured data from Google, Bing, Amazon, Maps, Shopping, Flights, Hotels, and 100+ search engines through one simple API.",
+        "SerpApi is a web search API that gives developers real-time, structured data from Google, Bing, Amazon, Maps, Shopping, Flights, Hotels, and 100+ search engines through one simple API.",
         "No more scraping headaches, so you can focus on building your actual product.",
-        "Top Use Cases for SerpApi:",
+        "Top use cases for SerpApi:",
         {
           type: "list",
           items: [
