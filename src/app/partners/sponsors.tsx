@@ -144,8 +144,9 @@ export const partners = [
       summary:
         "Mux is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
       body: [
-        "Mux is a video API platform that handles everything from ingesting your files to delivering them to viewers. You upload a video or start a live stream, Mux encodes it, generates renditions from 360p through 4K, and delivers it through a global network. You get a playback URL back. Your viewers get smooth streaming on whatever device and connection they're on.",
-        "You don't have to know the difference between HLS and DASH, or which CDN is fastest in Southeast Asia, or why Safari is doing something weird that Chrome isn't. Mux handles all of that, so you can ship the video feature you've been putting off and get back to building your actual product.",
+        "Mux is a video API platform that turns your assets into video intelligence. Video files contain a boatload of data and context that most developers never tap. Mux Robots powers AI workflows that run automatically on every upload: summarization, caption translation, content moderation, chapter generation, and more. Configure them once, and every new asset is processed without webhooks or self-hosted glue code.",
+        "And the delivery layer? That's table stakes for Mux. Your assets are ready for playback in seconds. Upload a video or start a live stream, get a playback URL, and your viewers get smooth streaming on any device, without you thinking about transcoding, CDN configuration, or why Safari is doing something Chrome isn't.",
+        "Trusted by Cursor, Shopify, and Synthesia. Start building at Mux.com. Enter TAILWINDCSS at signup for $50 in credits.",
       ],
     },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
