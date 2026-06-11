@@ -562,7 +562,7 @@ If you'd like to continue using `cursor: pointer` by default, add these base sty
 /* [!code filename:CSS] */
 @layer base {
   button:not(:disabled),
-  [role="button"]:not(:disabled) {
+  [role="button"]:not([aria-disabled="true"]) {
     cursor: pointer;
   }
 }
