@@ -137,7 +137,12 @@ export const partners = [
     categories: ["Media APIs"],
     directory: true,
     url: "https://mux.com/?utm_source=tailwindcss",
-    careersUrl: "https://www.mux.com/jobs",
+    ctas: {
+      secondary: {
+        label: "View Docs",
+        href: "https://www.mux.com/docs?utm_source=tailwindcss",
+      },
+    } satisfies SponsorCtas,
     detail: {
       eyebrow: "Partner",
       title: "Mux supports Tailwind CSS",
