@@ -3,8 +3,8 @@ import "./globals.css";
 import localFont from "next/font/local";
 import { SearchProvider } from "@/components/search";
 import { ThemeProvider } from "@/components/theme-toggle";
-import Fathom from "@/components/fathom";
 import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = localFont({
   src: [
@@ -76,7 +76,7 @@ const ubuntuMono = localFont({
 });
 
 const js = String.raw;
-let darkModeScript = js`
+const darkModeScript = js`
   if (!('_updateTheme' in window)) {
     window._updateTheme = function updateTheme(theme) {
       let classList = document.documentElement.classList;
@@ -169,12 +169,12 @@ export default async function RootLayout({
         <Script src={`data:text/javascript;base64,${btoa(darkModeScript)}`} />
       </head>
       <body>
-        <Fathom />
         <SearchProvider>
           <ThemeProvider>
             <div className="isolate">{children}</div>
           </ThemeProvider>
         </SearchProvider>
+        <GoogleAnalytics gaId="G-TMR96VNVMT" />
       </body>
     </html>
   );
