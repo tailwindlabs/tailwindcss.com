@@ -1,5 +1,4 @@
 import { FooterMeta } from "@/components/footer";
-import { MinusIcon, PlusIcon } from "@heroicons/react/16/solid";
 import { clsx } from "clsx";
 import type { Metadata } from "next";
 import { getDirectorySponsors, getSponsorSlug, type DirectorySponsor } from "@/lib/sponsors";
@@ -207,16 +206,24 @@ function WhyPartner() {
             <h2 className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
               <a href="#why">
                 <span aria-hidden="true">02 / </span>
-                Why become a partner?
+                  Partner with us
               </a>
             </h2>
             <p className="mt-8 text-lg/7 font-medium tracking-tight text-pretty">
-              <strong className="font-medium text-gray-950 dark:text-white">More than a sponsorship.</strong>{" "}
+              <strong className="font-medium text-gray-950 dark:text-white">Tell us what you're building.</strong>{" "}
               <span className="text-gray-500 dark:text-gray-400">
-                Get your brand in front of millions of developers, direct access to the team behind Tailwind CSS, and
-                help shape the future of the framework.
+                We'll work with you to find the right partnership for your brand.
               </span>
             </p>
+            <DarkButtonLink
+              href="mailto:partners@tailwindcss.com?subject=Partner inquiry"
+              className="mt-8 inline-flex items-center justify-center gap-2"
+            >
+              Get in touch
+              <svg fill="currentColor" aria-hidden="true" viewBox="0 0 10 10" className="-mr-0.5 w-2.5">
+                <path d="M4.85355 0.146423L9.70711 4.99998L4.85355 9.85353L4.14645 9.14642L7.79289 5.49998H0V4.49998H7.79289L4.14645 0.85353L4.85355 0.146423Z"></path>
+              </svg>
+            </DarkButtonLink>
           </div>
           <div>
             <div className="grid grid-cols-1 gap-2 lg:grid-cols-2">
@@ -259,301 +266,6 @@ function WhyPartner() {
               ))}
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function CheckmarkIcon() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 16 16"
-      fill="currentColor"
-      className="mt-1 size-4 shrink-0 text-gray-950 dark:text-white"
-    >
-      <path
-        fillRule="evenodd"
-        d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"
-        clipRule="evenodd"
-      />
-    </svg>
-  );
-}
-
-function PartnerPlans() {
-  const plans = [
-    {
-      name: "Supporter",
-      price: "$500",
-      url: "https://buy.polar.sh/polar_cl_som3lU3ZaBEFOr4nZlkoAuRBhRbFDMoFzJUC04Jn1Sc",
-      description: "For companies who want to support Tailwind while getting some extra exposure.",
-      features: [
-        { name: "Logo on the sponsors page", description: "your logo proudly displayed on the sponsors page." },
-        { name: "Insiders team access", description: "all the perks of the Insiders tier for everyone in your team." },
-        {
-          name: "Support Tailwind CSS",
-          description: "sleep easy knowing that you’re supporting the development of Tailwind CSS.",
-        },
-      ],
-    },
-    {
-      name: "Ambassador",
-      price: "$2,500",
-      url: "https://buy.polar.sh/polar_cl_TqBd09tnOwN7SQf7YpOcUZnDwxMVQB58Snhas2cdEDL",
-      description: "For companies looking to boost visibility and credibility with the Tailwind community.",
-      features: [
-        {
-          name: "Logo on the Tailwind homepage",
-          description: "your logo displayed in a rotating spot on the homepage.",
-        },
-        { name: "Logo on the sponsors page", description: "your logo proudly displayed on the sponsors page." },
-        { name: "Website in the showcase", description: "a spot on the showcase page for your company’s website." },
-        { name: "Insiders team access", description: "all the perks of the Insiders tier for everyone in your team." },
-        {
-          name: "Tailwind Plus team access",
-          description: "access to the UI Kit, templates, and 500+ components for your team.",
-        },
-        {
-          name: "Access to sponsor Discord",
-          description: "A private Discord channel for sponsors to talk to the Tailwind team.",
-        },
-        {
-          name: "Support Tailwind CSS",
-          description: "sleep easy knowing that you’re supporting the development of Tailwind CSS.",
-        },
-      ],
-    },
-    {
-      name: "Partner",
-      price: "$5,000",
-      url: "https://buy.polar.sh/polar_cl_Ae2EFQATomRTUPq3DVTqzjOCAEsI7m7GNrmoh1n6ZRk",
-      description: "For companies who want increased exposure and easy access to the Tailwind team.",
-      features: [
-        {
-          name: "Permanent logo on the Tailwind homepage",
-          description: "your logo permanently displayed on the homepage.",
-        },
-        {
-          name: "Priority logo placement on sponsors page",
-          description: "your logo will appear at the top of the sponsors page.",
-        },
-        {
-          name: "Featured spot in the showcase",
-          description: "a featured spot on the showcase page for your website.",
-        },
-        {
-          name: "Expedited bug fixes and issue resolution",
-          description: "we’ll address issues you run into on an expedited schedule.",
-        },
-        { name: "Insiders team access", description: "all the perks of the Insiders tier for everyone in your team." },
-        {
-          name: "Tailwind Plus team access",
-          description: "access to the UI Kit, templates, and 500+ components for your team.",
-        },
-        {
-          name: "Support Tailwind CSS",
-          description: "sleep easy knowing that you’re supporting the development of Tailwind CSS.",
-        },
-      ],
-    },
-  ];
-
-  return (
-    <section id="pricing" className="mt-20 scroll-mt-24 sm:mt-40">
-      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[3fr_7fr] lg:items-start lg:gap-20">
-        <div>
-          <h2 className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
-            <a href="#pricing">
-              <span aria-hidden="true">03 / </span>
-              Pricing
-            </a>
-          </h2>
-          <p className="mt-8 text-lg/7 font-medium tracking-tight text-pretty">
-            <strong className="font-medium text-gray-950 dark:text-white">Choose the right plan for your team.</strong>{" "}
-            <span className="text-gray-500 dark:text-gray-400">
-              Whether you&apos;re looking for visibility, access to the team, or just want to support the project.
-            </span>
-          </p>
-        </div>
-        <div>
-          <div className="grid grid-cols-1 gap-2 xl:grid-cols-3">
-            {plans.map((plan) => (
-              <div key={plan.name} className="flex h-full flex-col gap-y-6 bg-white p-8 dark:bg-white/5">
-                <Eyebrow as="h3">{plan.name}</Eyebrow>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-x-4">
-                    <p className="text-5xl font-medium first-letter:font-light">{plan.price}</p>
-                    <div>
-                      <p className="text-sm/6 font-semibold">per month</p>
-                      <p className="text-sm/6 text-gray-600 dark:text-gray-400">plus tax</p>
-                    </div>
-                  </div>
-                  <DarkButtonLink className="max-sm:hidden xl:hidden" href={plan.url}>
-                    {`Become ${plan.name.toLowerCase().match(/^[aeiou]/i) ? "an" : "a"} ${plan.name.toLowerCase()}`}
-                  </DarkButtonLink>
-                </div>
-                <p className="max-w-2xl text-sm/7 text-gray-600 dark:text-gray-400">{plan.description}</p>
-                <hr className="border-gray-950/5 dark:border-white/10" />
-                <ul
-                  role="list"
-                  className="grid grid-cols-1 gap-y-5 text-[0.8125rem]/6 text-gray-600 dark:text-gray-300"
-                >
-                  {plan.features.map((feature) => (
-                    <li key={feature.name} className="grid grid-cols-[auto_1fr] gap-3">
-                      <CheckmarkIcon />
-                      <p className="text-pretty">
-                        <strong className="font-semibold text-gray-950 dark:text-white">{feature.name}</strong> —{" "}
-                        {feature.description}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-                <DarkButtonLink className="mt-auto sm:max-xl:hidden" href={plan.url}>
-                  {`Become ${plan.name.toLowerCase().match(/^[aeiou]/i) ? "an" : "a"} ${plan.name.toLowerCase()}`}
-                </DarkButtonLink>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function FaqGroup({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <div className="group">
-      <Eyebrow as="h3">{title}</Eyebrow>
-      <div className="mt-6">{children}</div>
-    </div>
-  );
-}
-
-function Faq({ question, children }: { question: string; children: React.ReactNode }) {
-  const id =
-    "faq-" +
-    question
-      .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, "")
-      .trim()
-      .replace(/\s+/g, "-");
-
-  return (
-    <details className="group border-t border-gray-950/5 py-3 dark:border-white/5">
-      <summary
-        id={id}
-        className="flex w-full cursor-pointer justify-between gap-4 select-none group-open:text-sky-500 [&::-webkit-details-marker]:hidden"
-      >
-        <span className="block text-left text-sm/7 font-semibold text-pretty">{question}</span>
-        <PlusIcon aria-hidden="true" className="h-7 w-4 group-open:hidden" />
-        <MinusIcon aria-hidden="true" className="h-7 w-4 not-group-open:hidden" />
-      </summary>
-      <div className="prose mt-4">{children}</div>
-    </details>
-  );
-}
-
-function Faqs() {
-  return (
-    <section className="mt-20 sm:mt-40" id="faqs">
-      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[3fr_7fr] lg:items-start lg:gap-20">
-        <div>
-          <h2 className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
-            <a href="#faqs">
-              <span aria-hidden="true">04 / </span>
-              FAQ
-            </a>
-          </h2>
-          <p className="mt-8 text-lg/7 font-medium tracking-tight text-pretty">
-            <strong className="font-medium text-gray-950 dark:text-white">Everything you need to know.</strong>{" "}
-            <span className="text-gray-500 dark:text-gray-400">
-              Common questions about partnering with Tailwind CSS.
-            </span>
-          </p>
-        </div>
-        <div className="grid grid-cols-1 gap-10">
-          <FaqGroup title="General">
-            <Faq question="Who can I contact about a sponsorship?">
-              <p>
-                If you have any questions about sponsoring, reach out to us at{" "}
-                <a href="mailto:support@tailwindcss.com">support@tailwindcss.com</a> and we&apos;ll be happy to help.
-              </p>
-            </Faq>
-            <Faq question="Can any company sponsor?">
-              <p>
-                We’re excited to have support from all kinds of companies who use Tailwind CSS, but we do have a few
-                guidelines:
-              </p>
-              <ul>
-                <li>
-                  <strong>
-                    We typically don’t accept sponsorships from companies that sell commercial Tailwind UI kits,
-                    templates, or component libraries
-                  </strong>
-                  , since that directly overlaps with our own product offerings and can create confusion about what is
-                  officially endorsed.
-                </li>
-                <li>
-                  <strong>
-                    We also reserve the right to decline sponsorships from companies or services that we feel could
-                    reflect poorly on the project
-                  </strong>
-                  , for example products that are low-quality or deceptive.
-                </li>
-              </ul>
-              <p>
-                If you&apos;re unsure whether your company qualifies, feel free to reach out — we&apos;re happy to chat.
-              </p>
-            </Faq>
-            <Faq question="How are the sponsor perks delivered?">
-              <p>
-                After you check out via Polar, you&apos;ll get access to a Polar customer portal where you can manage
-                your sponsorship and access any perks that come with it.
-              </p>
-              <p>
-                If you&apos;re sponsoring as a company, we&apos;ll follow up to coordinate how to feature you on the
-                Tailwind CSS website as well as how to give your team <strong>Tailwind Insider</strong> access.
-              </p>
-            </Faq>
-            <Faq question="How are the sponsor perks licensed?">
-              <p>Sponsor perks are provided under a custom commercial license.</p>
-              <p>
-                They’re licensed for personal or internal use by active Tailwind CSS Insiders sponsors only.
-                Redistribution, sublicensing, or public sharing of the perks — such as the VS Code theme, Raycast
-                extension, or Cursor/Claude/AGENTS.md rules — is not permitted.
-              </p>
-            </Faq>
-          </FaqGroup>
-          <FaqGroup title="Support">
-            <Faq question="Do you offer technical support for sponsor perks?">
-              <p>
-                No — we don&apos;t offer technical support for sponsor perks. These perks are a bonus for supporters who
-                want to give back to the project, but they&apos;re provided as-is.
-              </p>
-              <p>
-                That said, the <strong>Insiders Discord</strong> is a great place to ask for help with anything related
-                to the perks.
-              </p>
-            </Faq>
-            <Faq question="How do I cancel my sponsorship?">
-              <p>
-                You can cancel your sponsorship at any time through the Polar customer portal. Once you cancel, your
-                perks will remain active until the end of your current billing period.
-              </p>
-            </Faq>
-            <Faq question="What happens if I stop sponsoring?">
-              <p>
-                If your sponsorship ends, you&apos;ll lose access to any perks like the Insiders Discord server,
-                Cursor/Claude/AGENTS.md rules, and pre-release documentation. These are only available while you&apos;re
-                actively sponsoring.
-              </p>
-            </Faq>
-            <Faq question="What is your refund policy?">
-              <p>Sponsorships are non-refundable, but of course you can cancel your sponsorship at any time.</p>
-            </Faq>
-          </FaqGroup>
         </div>
       </div>
     </section>
@@ -641,10 +353,6 @@ export default async function Sponsor() {
         </PartnerDirectory>
         <hr className="mt-20 border-gray-950/10 sm:mt-40 dark:border-white/10" />
         <WhyPartner />
-        <hr className="mt-20 border-gray-950/10 sm:mt-40 dark:border-white/10" />
-        <PartnerPlans />
-        <hr className="mt-20 border-gray-950/10 sm:mt-40 dark:border-white/10" />
-        <Faqs />
         <hr
           className="mt-20 border-gray-950/10 sm:mt-40 dark:border-white/10"
           style={{ marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)" }}
