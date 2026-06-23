@@ -195,13 +195,6 @@ const showcase = [
 
   // Ambassadors
   {
-    name: "Braintrust",
-    url: "https://www.braintrust.dev/?utm_source=tailwindcss",
-    thumbnail: require("./img/braintrust.dev.png").default,
-    video: "/showcase-videos/braintrust.dev.mp4",
-    description: "Developer tool website",
-  },
-  {
     name: "Zed",
     url: "https://zed.dev/?utm_source=tailwind",
     thumbnail: require("./img/zed.dev.png").default,
