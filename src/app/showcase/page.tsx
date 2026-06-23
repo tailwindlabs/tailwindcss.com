@@ -186,13 +186,6 @@ const showcase = [
     description: "Developer tool website",
   },
   {
-    name: "Tiptap",
-    url: "https://tiptap.dev?utm_source=tailwindcss",
-    thumbnail: require("./img/tiptap.dev.png").default,
-    video: "/showcase-videos/tiptap.dev.mp4",
-    description: "Developer tool website",
-  },
-  {
     name: "Mux",
     url: "https://mux.com/?utm_source=tailwindcss",
     thumbnail: require("./img/mux.com.png").default,
