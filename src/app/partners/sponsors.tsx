@@ -843,17 +843,6 @@ export const partners = [
     categories: ["Media APIs"],
     directory: true,
     url: "https://imagekit.io/?utm_source=tailwindcss&utm_medium=referral&utm_campaign=logo-homepage",
-    careersUrl: "https://imagekit.io/about/",
-    detail: {
-      eyebrow: "Partner",
-      title: "ImageKit supports Tailwind CSS",
-      summary:
-        "ImageKit is a Tailwind CSS partner, helping ensure the framework millions of developers rely on every day continues to thrive.",
-      body: [
-        "ImageKit is an image and video API with built-in digital asset management. Point it at where your media already lives, change the base URL of your assets or swap a CNAME, and optimization and delivery start working with no code changes. From there, apply 50+ real-time transformations through the asset URL, from resizing and smart crop to text and image overlays. Each request is matched to the viewer's device, so the lightest variant goes out in formats like AVIF, WebP, MP4, or WebM.",
-        "The asset management side runs on an agent you talk to in plain language. Ask it to search your library, tag assets in your own vocabulary, set access rules, or run a bulk operation, and it handles the multi-step workflow from one prompt. Tagging and metadata are LLM-powered, so a growing library stays searchable without manual upkeep.",
-      ],
-    },
     logo: function (props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg fill="currentColor" viewBox="0 0 320 96" {...props}>
