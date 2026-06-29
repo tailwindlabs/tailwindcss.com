@@ -10,6 +10,7 @@ export const description = "Utilities for controlling the size of implicitly-cre
     ["auto-cols-min", "grid-auto-columns: min-content;"],
     ["auto-cols-max", "grid-auto-columns: max-content;"],
     ["auto-cols-fr", "grid-auto-columns: minmax(0, 1fr);"],
+    ["auto-cols-<number>", "grid-auto-columns: calc(var(--spacing) * <number>);"],
     ["auto-cols-(<custom-property>)", "grid-auto-columns: var(<custom-property>);"],
     ["auto-cols-[<value>]", "grid-auto-columns: <value>;"],
   ]}
