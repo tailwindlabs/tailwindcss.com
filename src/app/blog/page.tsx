@@ -49,13 +49,13 @@ export default async function Blog() {
           <Fragment key={slug}>
             <GridContainer className="p col-span-3 grid grid-cols-subgrid divide-x divide-gray-950/5 dark:divide-white/10">
               <div className="px-2 font-mono text-sm/6 font-medium tracking-widest text-gray-500 uppercase max-lg:hidden">
-                {formatDate(meta.date)}
+                <time dateTime={meta.date}>{formatDate(meta.date)}</time>
               </div>
               <div className="max-lg:hidden" />
               <div className="text-md px-2">
                 <div className="max-w-(--container-2xl)">
                   <div className="mb-4 font-mono text-sm/6 font-medium tracking-widest text-gray-500 uppercase lg:hidden">
-                    {formatDate(meta.date)}
+                    <time dateTime={meta.date}>{formatDate(meta.date)}</time>
                   </div>
 
                   <Link href={`/blog/${slug}`} className="font-semibold">
