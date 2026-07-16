@@ -206,7 +206,7 @@ function WhyPartner() {
             <h2 className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
               <a href="#why">
                 <span aria-hidden="true">02 / </span>
-                  Partner with us
+                Partner with us
               </a>
             </h2>
             <p className="mt-8 text-lg/7 font-medium tracking-tight text-pretty">
