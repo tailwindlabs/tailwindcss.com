@@ -11,7 +11,7 @@
   --prose-hr-color: color-mix(in oklab, var(--color-gray-950) 5%, transparent);
   --prose-blockquote-border-color: var(--color-gray-300);
 
-  &:where(.dark, .dark *) {
+  @variant dark {
     --prose-color: var(--color-gray-300);
     --prose-heading-color: var(--color-white);
     --prose-strong-color: var(--color-white);
@@ -23,21 +23,6 @@
     --prose-td-borders: var(--color-gray-700);
     --prose-hr-color: color-mix(in oklab, var(--color-white) 10%, transparent);
     --prose-blockquote-border-color: var(--color-gray-600);
-  }
-  @media (prefers-color-scheme: dark) {
-    &:where(.system, .system *) {
-      --prose-color: var(--color-gray-300);
-      --prose-heading-color: var(--color-white);
-      --prose-strong-color: var(--color-white);
-      --prose-link-color: var(--color-white);
-      --prose-code-color: var(--color-white);
-      --prose-marker-color: color-mix(in oklab, var(--color-gray-300) 35%, transparent);
-      --prose-link-underline-color: var(--color-sky-400);
-      --prose-th-borders: var(--color-gray-600);
-      --prose-td-borders: var(--color-gray-700);
-      --prose-hr-color: color-mix(in oklab, var(--color-white) 10%, transparent);
-      --prose-blockquote-border-color: var(--color-gray-600);
-    }
   }
 
   color: var(--prose-color);
