@@ -126,10 +126,10 @@ function ApiTableRow({
         className,
       )}
     >
-      <td className="px-2 py-2 align-top font-mono text-xs/6 font-medium text-sky-500 dark:text-sky-400">
+      <td className="p-2 align-top font-mono text-xs/6 font-medium text-sky-500 dark:text-sky-400">
         {highlight(utility)}
       </td>
-      <td className="px-2 py-2 align-top font-mono text-xs/6 text-violet-600 dark:text-violet-400">
+      <td className="p-2 align-top font-mono text-xs/6 text-violet-600 dark:text-violet-400">
         {(Array.isArray(styles) ? styles : [styles]).map((style, i) => (
           <div key={i} className="*:whitespace-pre!">
             {highlight(style)}

@@ -18,7 +18,7 @@ export function Steps({ steps }: { steps: Step[] }) {
       {steps.map((step, stepIdx) => (
         <Fragment key={stepIdx}>
           <div data-tabs={step.tabs?.join(" ") ?? null}>
-            <div className="grid size-7 grid-cols-1 grid-rows-1 place-content-center border-1 border-gray-700/50 font-mono text-[10px]/7 font-medium text-gray-950 dark:border-white/50 dark:text-white">
+            <div className="grid size-7 grid-cols-1 grid-rows-1 place-content-center border border-gray-700/50 font-mono text-[10px]/7 font-medium text-gray-950 dark:border-white/50 dark:text-white">
               <div className="col-start-1 row-start-1 grid place-content-center">
                 <div className="h-7 w-5 bg-white dark:bg-gray-950" />
               </div>
@@ -29,12 +29,12 @@ export function Steps({ steps }: { steps: Step[] }) {
           </div>
 
           <div className="col-span-5 xl:col-span-2" data-tabs={step.tabs?.join(" ") ?? null}>
-            <h4 className="mb-2 text-sm leading-6 font-semibold text-slate-900 dark:text-slate-200">{step.title}</h4>
+            <h4 className="mb-2 text-sm/6 font-semibold text-slate-900 dark:text-slate-200">{step.title}</h4>
             <div className="prose">{step.body}</div>
           </div>
 
           <div
-            className="col-span-full mt-6 mb-16 sm:ml-13 xl:col-span-3 xl:m-0 xl:ml-0"
+            className="col-span-full mt-6 mb-16 sm:ml-13 xl:col-span-3 xl:m-0"
             data-tabs={step.tabs?.join(" ") ?? null}
           >
             <CodeExample

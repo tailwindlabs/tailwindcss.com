@@ -70,7 +70,7 @@ export default async function DocPage(props: Props) {
       <div hidden />
 
       <div className="grid grid-cols-1 xl:grid-cols-[22rem_2.5rem_auto] xl:grid-rows-[1fr_auto]">
-        <div className="col-start-2 row-span-2 border-r border-l border-gray-950/5 max-xl:hidden dark:border-white/10"></div>
+        <div className="col-start-2 row-span-2 border-x border-gray-950/5 max-xl:hidden dark:border-white/10"></div>
 
         <div className="max-xl:mx-auto max-xl:w-full max-xl:max-w-(--breakpoint-md)">
           <div className="mt-16 px-4 font-mono text-sm/7 font-medium tracking-widest text-gray-500 uppercase lg:px-2">
@@ -90,7 +90,7 @@ export default async function DocPage(props: Props) {
               <GridContainer
                 direction="to-left"
                 key={author.twitter}
-                className="flex items-center px-4 py-2 font-medium whitespace-nowrap max-xl:before:-left-[100vw]! max-xl:after:-left-[100vw]! xl:px-2 xl:before:hidden"
+                className="flex items-center px-4 py-2 font-medium whitespace-nowrap max-xl:before:left-[-100vw]! max-xl:after:left-[-100vw]! xl:px-2 xl:before:hidden"
               >
                 <Author author={author} />
               </GridContainer>
@@ -105,7 +105,7 @@ export default async function DocPage(props: Props) {
             </article>
           </GridContainer>
 
-          <GridContainer className="mt-16 px-4 py-4 sm:py-2 lg:px-2">
+          <GridContainer className="mt-16 p-4 sm:py-2 lg:px-2">
             <section>
               <h2 className="text-3xl font-medium tracking-tight text-slate-900 dark:text-white">
                 Get all of our updates directly to your&nbsp;inbox.

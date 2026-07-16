@@ -15,7 +15,7 @@ export let page: Page = {
 
   // NOTE: This intro is not used currently but is here for reference as we'll want to bring it back once the rails gem is updated for a stable v4 release.
   intro: (
-    <div className="prose prose-slate dark:prose-dark relative z-10 mb-16 max-w-3xl">
+    <div className="dark:prose-dark prose prose-slate relative z-10 mb-16 max-w-3xl">
       <p>
         The quickest way to start using Tailwind CSS in your Rails project is to use{" "}
         <a href="https://github.com/rails/tailwindcss-rails">Tailwind CSS for Rails</a> by running{" "}

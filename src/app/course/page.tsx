@@ -56,25 +56,25 @@ export default async function Course() {
     <div className="grid md:grid-cols-[1fr_--spacing(6)_1fr_--spacing(6)_1fr] lg:grid-cols-[1fr_--spacing(12)_1fr_--spacing(12)_1fr]">
       <div className="col-start-2 row-span-full row-start-1 grid border-x border-black/5 max-md:hidden dark:border-white/10"></div>
       <GridContainer className="col-span-full col-start-1 row-start-1 mt-12 mb-16 grid md:my-36 md:grid-cols-3 md:gap-x-6 lg:gap-x-12">
-        <div className="grid-span-1 relative grid grid-cols-1 items-center justify-center justify-self-center after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-black/5 max-sm:px-4 sm:grid-cols-[1fr_1fr] sm:pl-16 md:grid-cols-1 md:p-2 md:pl-0 dark:after:bg-white/10">
+        <div className="grid-span-1 relative grid grid-cols-1 items-center justify-center justify-self-center after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-black/5 max-sm:px-4 sm:grid-cols-[1fr_1fr] sm:pl-16 md:grid-cols-1 md:p-2 md:pl-0 dark:after:bg-white/10">
           <DotGridImage
             darkMode={true}
             width={472}
             height={667}
-            className="aspect-[472/667] w-full max-w-[226px] not-dark:hidden"
+            className="aspect-472/667 w-full max-w-[226px] not-dark:hidden"
           />
           <DotGridImage
             darkMode={false}
             width={472}
             height={667}
-            className="aspect-[472/667] w-full max-w-[226px] dark:hidden"
+            className="aspect-472/667 w-full max-w-[226px] dark:hidden"
           />
           <div className="relative font-mono text-xs font-medium text-gray-700 uppercase sm:translate-y-1/2 sm:py-5 md:hidden dark:text-gray-400">
             <p className="max-sm:hidden">
               Adam Wathan, <br />
               Creator of Tailwind CSS
             </p>
-            <Signature className="pointer-events-none absolute -translate-y-3/4 fill-gray-900 max-sm:inset-x-0 max-sm:mx-auto sm:-translate-x-1/4 sm:-translate-y-[110%] dark:fill-gray-200" />
+            <Signature className="pointer-events-none absolute -translate-y-3/4 fill-gray-900 max-sm:inset-x-0 max-sm:mx-auto sm:-translate-x-1/4 sm:translate-y-[-110%] dark:fill-gray-200" />
           </div>
         </div>
         <div className="relative grid content-between border-black/5 max-md:mt-10 max-md:border-t md:col-span-2 dark:border-white/10">
@@ -95,12 +95,12 @@ export default async function Course() {
             </div>
           </div>
         </div>
-        <div className="relative py-5 pl-16 font-mono text-xs font-medium text-gray-700 uppercase after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-gray-950/5 max-md:hidden md:col-span-3 dark:text-gray-400 dark:after:bg-white/10">
+        <div className="relative py-5 pl-16 font-mono text-xs font-medium text-gray-700 uppercase after:absolute after:bottom-0 after:left-[-100vw] after:h-px after:w-[200vw] after:bg-gray-950/5 max-md:hidden md:col-span-3 dark:text-gray-400 dark:after:bg-white/10">
           <p>
             Adam Wathan, <br />
             Creator of Tailwind CSS
           </p>
-          <Signature className="pointer-events-none absolute mx-auto -translate-x-1/4 -translate-y-[110%] fill-gray-900 dark:fill-gray-200" />
+          <Signature className="pointer-events-none absolute mx-auto -translate-x-1/4 translate-y-[-110%] fill-gray-900 dark:fill-gray-200" />
         </div>
         <div className="prose grid max-w-2xl border-black/5 p-2 max-md:mt-10 max-md:border-t max-md:px-4 md:col-span-2 md:col-start-2 dark:border-white/10">
           <p className="text-lg/7">

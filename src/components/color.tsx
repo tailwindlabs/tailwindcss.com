@@ -387,7 +387,7 @@ export function Color({ name, shade, value }: { name: string; shade: string; val
         onClick={copyHexToClipboard}
         style={{ backgroundColor: `var(${colorVariableName})` }}
         className={clsx(
-          "aspect-1/1 w-full rounded-sm outline -outline-offset-1 outline-black/10 sm:rounded-md dark:outline-white/10",
+          "aspect-square w-full rounded-sm outline -outline-offset-1 outline-black/10 sm:rounded-md dark:outline-white/10",
         )}
       />
     </TooltipTrigger>

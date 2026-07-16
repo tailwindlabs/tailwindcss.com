@@ -53,7 +53,7 @@ export default async function Blog() {
               </div>
               <div className="max-lg:hidden" />
               <div className="text-md px-2">
-                <div className="max-w-(--container-2xl)">
+                <div className="max-w-2xl">
                   <div className="mb-4 font-mono text-sm/6 font-medium tracking-widest text-gray-500 uppercase lg:hidden">
                     {formatDate(meta.date)}
                   </div>

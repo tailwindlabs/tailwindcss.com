@@ -27,7 +27,7 @@ export default async function Showcase() {
       </GridContainer>
 
       <GridContainer className="mt-10">
-        <p className="prose mx-2 max-w-(--breakpoint-md) text-lg leading-8 text-gray-600 dark:text-gray-400">
+        <p className="prose mx-2 max-w-(--breakpoint-md) text-lg/8 text-gray-600 dark:text-gray-400">
           Well not quite <em>anything</em>, like you can't build a spaceship with it. But you can definitely build the
           website for the spaceship —{" "}
           <a href="https://www.jpl.nasa.gov/?utm_source=tailwindcss" target="_blank" rel="noopener noreferrer">

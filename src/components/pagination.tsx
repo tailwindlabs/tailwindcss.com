@@ -11,7 +11,7 @@ export default function Pagination({ slug }: { slug: string }) {
   let next = position < flatIndex.length - 1 ? flatIndex[position + 1] : null;
 
   return (
-    <footer className="mt-16 text-sm leading-6">
+    <footer className="mt-16 text-sm/6">
       <div className="flex items-center justify-between gap-2 text-gray-700 dark:text-gray-200">
         {prev ? (
           <Link className="group flex items-center gap-2 hover:text-gray-900 dark:hover:text-white" href={prev[1]}>

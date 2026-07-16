@@ -90,7 +90,7 @@ export default async function Page({ params }: Props) {
 
           {page.notice ? (
             <div className="relative my-4 overflow-hidden rounded-lg bg-gray-200 p-1">
-              <div className="absolute inset-0 bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 dark:[--pattern-fg:var(--color-white)]/10"></div>
+              <div className="absolute inset-0 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 dark:[--pattern-fg:var(--color-white)]/10"></div>
 
               <div className="relative z-10 rounded-md bg-white/75 px-4 py-3 text-sm font-medium text-gray-600 inset-ring-2 inset-ring-gray-700/25">
                 {page.notice}

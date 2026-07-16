@@ -100,7 +100,7 @@ function SponsorDetailBody({ body }: { body: SponsorDetailBodyBlock[] }) {
         return (
           <ul
             key={index}
-            className="list-[square] space-y-3 pl-5 marker:[color:color-mix(in_oklab,var(--color-gray-700)_25%,transparent)] dark:marker:[color:color-mix(in_oklab,var(--color-gray-300)_35%,transparent)]"
+            className="list-[square] space-y-3 pl-5 marker:text-[color-mix(in_oklab,var(--color-gray-700)_25%,transparent)] dark:marker:text-[color-mix(in_oklab,var(--color-gray-300)_35%,transparent)]"
           >
             {block.items.map((item) => (
               <li key={item}>{item}</li>
