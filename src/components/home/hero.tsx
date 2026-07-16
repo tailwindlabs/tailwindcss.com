@@ -106,7 +106,7 @@ const Hero: React.FC = () => {
               />
             </svg>
             Quick search
-            <kbd className="hidden font-sans text-xs/4 text-gray-500 dark:text-gray-400 [.os-macos_&]:block">
+            <kbd className="hidden font-sans text-xs/4 text-gray-500 in-[.os-macos]:block dark:text-gray-400">
               <span className="opacity-60">⌘</span>K
             </kbd>
             <kbd className="hidden font-sans text-xs/4 text-gray-500 not-[.os-macos_&]:block dark:text-gray-400">
@@ -122,7 +122,7 @@ const Hero: React.FC = () => {
               <div
                 className={clsx(
                   "*:flex *:*:max-w-none *:*:shrink-0 *:*:grow *:overflow-auto *:rounded-lg *:bg-white/10! *:p-5 dark:*:bg-white/5!",
-                  "**:[.line]:isolate **:[.line]:block **:[.line]:not-last:min-h-[1lh]",
+                  "**:[.line]:isolate **:[.line]:block **:[.line]:not-last:min-h-lh",
                   "*:inset-ring *:inset-ring-white/10 dark:*:inset-ring-white/5",
                 )}
               >
@@ -353,7 +353,7 @@ const Hero: React.FC = () => {
               </div>
             </Editor>
           </div>
-          <div className="relative border-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 max-lg:h-66 max-lg:border-t lg:border-l dark:[--pattern-fg:var(--color-white)]/10">
+          <div className="relative border-(--pattern-fg) bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 max-lg:h-66 max-lg:border-t lg:border-l dark:[--pattern-fg:var(--color-white)]/10">
             <div className="absolute right-1/2 max-lg:bottom-8 max-md:translate-x-1/2 md:right-16 lg:top-1/2 lg:-translate-y-1/2 2xl:right-1/2 2xl:translate-x-[calc(50%-3rem)]">
               <Example step={step} />
             </div>
@@ -375,7 +375,7 @@ function Example({ step }: { step: number }) {
       transition={TRANSITION}
       className={clsx(
         "@container rounded-3xl bg-black/5 p-2 outline outline-white/15 backdrop-blur-md dark:bg-white/10",
-        step > 7 && step !== 11 ? "w-[584px]" : "w-[262px] xl:ml-[3rem]",
+        step > 7 && step !== 11 ? "w-[584px]" : "w-[262px] xl:ml-12",
       )}
     >
       <motion.div

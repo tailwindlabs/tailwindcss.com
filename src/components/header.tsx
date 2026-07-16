@@ -62,7 +62,7 @@ function VersionPicker() {
       </MenuButton>
       <MenuItems
         anchor="bottom start"
-        className="mt-2 w-28 rounded-xl bg-white p-1 py-1 text-xs/7 font-medium text-gray-950 tabular-nums shadow-sm ring ring-gray-950/5 [--anchor-offset:calc(var(--spacing)*-1)] dark:bg-gray-950 dark:text-white dark:ring-white/10"
+        className="mt-2 w-28 rounded-xl bg-white p-1 text-xs/7 font-medium text-gray-950 tabular-nums shadow-sm ring ring-gray-950/5 [--anchor-offset:--spacing(-1)] dark:bg-gray-950 dark:text-white dark:ring-white/10"
       >
         <MenuItem disabled>
           <div className="flex items-center justify-between gap-2 rounded-lg px-2.5 data-active:bg-gray-950/5 dark:data-active:bg-white/10">
@@ -142,7 +142,7 @@ export function Header(props: React.PropsWithChildren) {
               />
             </svg>
 
-            <kbd className="hidden font-sans text-xs/4 text-gray-500 dark:text-gray-400 [.os-macos_&]:block">⌘K</kbd>
+            <kbd className="hidden font-sans text-xs/4 text-gray-500 in-[.os-macos]:block dark:text-gray-400">⌘K</kbd>
             <kbd className="hidden font-sans text-xs/4 text-gray-500 not-[.os-macos_&]:block dark:text-gray-400">
               Ctrl&nbsp;K
             </kbd>
@@ -223,7 +223,7 @@ export function Header(props: React.PropsWithChildren) {
             className="fixed inset-0 bg-white focus:outline-none md:hidden dark:bg-gray-950"
           >
             <DialogPanel className="size-full overflow-y-auto">
-              <div className="flex h-14 items-center justify-between px-4 py-4 sm:px-6">
+              <div className="flex h-14 items-center justify-between p-4 sm:px-6">
                 <TailwindMark className="h-6" />
                 <IconButton aria-label="Navigation" onClick={() => setNavIsOpen(false)}>
                   <svg viewBox="0 0 16 16" fill="currentColor" className="size-4">

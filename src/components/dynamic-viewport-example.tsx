@@ -74,7 +74,7 @@ export function DynamicViewportExample({
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="h-5 w-5 text-slate-600 dark:text-slate-400"
+                className="size-5 text-slate-600 dark:text-slate-400"
               >
                 <path
                   strokeLinecap="round"
@@ -91,7 +91,7 @@ export function DynamicViewportExample({
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="h-5 w-5 text-slate-600 dark:text-slate-400"
+                className="size-5 text-slate-600 dark:text-slate-400"
               >
                 <path
                   strokeLinecap="round"
@@ -101,7 +101,7 @@ export function DynamicViewportExample({
               </svg>
             </div>
             <motion.div
-              className="pointer-events-none h-full w-full p-[7px]"
+              className="pointer-events-none size-full p-[7px]"
               transition={{
                 ...transition,
                 duration: 0.2,
@@ -121,7 +121,7 @@ export function DynamicViewportExample({
               <div
                 className={clsx(
                   colorStyles,
-                  "grid h-full w-full grid-rows-[1fr_auto_1fr] content-center items-center justify-items-center gap-5 self-center overflow-hidden rounded-md py-4 font-mono font-bold text-slate-50",
+                  "grid size-full grid-rows-[1fr_auto_1fr] content-center items-center justify-items-center gap-5 self-center overflow-hidden rounded-md py-4 font-mono font-bold text-slate-50",
                 )}
               >
                 <div className="grid h-full grid-rows-[1px_1fr] justify-items-center">
@@ -157,13 +157,13 @@ export function DynamicViewportExample({
             animate={hidden ? "hidden" : "visible"}
             // For some reason putting this in a tailwind class doesn't work
             style={{ width: `${viewport.width - 16}px` }}
-            className={clsx(colorStyles, "absolute right-0 left-0 mx-auto rounded-b-md opacity-20")}
+            className={clsx(colorStyles, "absolute inset-x-0 mx-auto rounded-b-md opacity-20")}
           ></motion.div>
         )}{" "}
       </div>
       <div
         style={{ backgroundPosition: "10px 10px" }}
-        className="bg-grid-slate-100 dark:bg-grid-slate-700/25 pointer-events-none absolute inset-0 z-[-1] [mask-image:linear-gradient(0deg,#fff,rgba(255,255,255,0.6))] dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]"
+        className="bg-grid-slate-100 dark:bg-grid-slate-700/25 pointer-events-none absolute inset-0 z-[-1] mask-[linear-gradient(0deg,#fff,rgba(255,255,255,0.6))] dark:mask-[linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]"
       />
       <div className="pointer-events-none absolute inset-0 z-[-1] rounded-xl border border-black/5 dark:border-white/5" />
     </Example>

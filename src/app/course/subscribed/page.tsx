@@ -8,13 +8,8 @@ export default async function Subscribed() {
     <div className="relative grid min-h-dvh grid-cols-1 place-items-center py-8 sm:px-0">
       <GridContainer className="grid gap-6 sm:grid-cols-[auto_1fr] md:gap-10">
         <div className="relative grid border-black/5 p-2 max-sm:justify-center max-sm:px-4 sm:border-r md:border-x dark:border-white/10">
-          <DotGridImage
-            darkMode={true}
-            width={472}
-            height={667}
-            className="aspect-[472/667] h-[320px] not-dark:hidden"
-          />
-          <DotGridImage darkMode={false} width={472} height={667} className="aspect-[472/667] h-[320px] dark:hidden" />
+          <DotGridImage darkMode={true} width={472} height={667} className="aspect-472/667 h-[320px] not-dark:hidden" />
+          <DotGridImage darkMode={false} width={472} height={667} className="aspect-472/667 h-[320px] dark:hidden" />
           <Signature className="pointer-events-none absolute inset-x-0 -bottom-8 mx-auto fill-gray-900 lg:-translate-x-1/5 dark:fill-gray-200" />
         </div>
         <div className="grid content-center border-l border-black/5 md:border-x dark:border-white/10">

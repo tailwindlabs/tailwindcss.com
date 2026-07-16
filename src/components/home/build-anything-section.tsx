@@ -209,7 +209,7 @@ export default function BuildAnythingSection() {
 
 function ExternalLinkLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="absolute top-1/2 left-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 transform flex-row items-center gap-[calc(1rem/16*7)] rounded-full border border-gray-950 bg-gray-950/90 py-0.5 pr-2 pb-1 pl-3 text-center font-mono text-sm/6 font-medium text-white opacity-0 inset-ring inset-ring-white/10 transition-opacity group-hover:flex group-hover:opacity-100">
+    <div className="absolute top-1/2 left-1/2 z-10 hidden -translate-1/2 transform flex-row items-center gap-[calc(1rem/16*7)] rounded-full border border-gray-950 bg-gray-950/90 py-0.5 pr-2 pb-1 pl-3 text-center font-mono text-sm/6 font-medium text-white opacity-0 inset-ring inset-ring-white/10 transition-opacity group-hover:flex group-hover:opacity-100">
       {children}
       <svg viewBox="0 0 16 16" fill="currentColor" className="size-4">
         <path

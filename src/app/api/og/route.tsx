@@ -60,53 +60,51 @@ export async function GET(req: NextRequest) {
   ]);
 
   return new ImageResponse(
-    (
-      <div
-        style={{
-          fontSize: 40,
-          background: `url("${HOST}/og-background.jpg")`,
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          fontFamily: "Inter",
-        }}
-      >
-        <div tw="absolute flex h-full w-full flex-col justify-between p-[32px] pt-[394px] pr-[40px]">
-          <div tw="flex flex-col h-full border-1 border-t border-gray-800 p-8">
-            {section && (
-              <div
-                tw="flex text-[20px] leading-[20px] font-medium tracking-[2px] text-gray-400"
-                style={{
-                  fontFamily: "Geist Mono",
-                }}
-              >
-                {section}
-              </div>
-            )}
+    <div
+      style={{
+        fontSize: 40,
+        background: `url("${HOST}/og-background.jpg")`,
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        fontFamily: "Inter",
+      }}
+    >
+      <div tw="absolute flex h-full w-full flex-col justify-between p-[32px] pt-[394px] pr-[40px]">
+        <div tw="flex flex-col h-full border-1 border-t border-gray-800 p-8">
+          {section && (
             <div
-              tw="mt-4 text-[60px] leading-[60px] font-medium text-white"
+              tw="flex text-[20px] leading-[20px] font-medium tracking-[2px] text-gray-400"
+              style={{
+                fontFamily: "Geist Mono",
+              }}
+            >
+              {section}
+            </div>
+          )}
+          <div
+            tw="mt-4 text-[60px] leading-[60px] font-medium text-white"
+            style={{
+              display: "block",
+              lineClamp: 1,
+            }}
+          >
+            {title}
+          </div>
+          {description && (
+            <div
+              tw="mt-4 text-[24px] leading-[40px] font-medium text-gray-400"
               style={{
                 display: "block",
                 lineClamp: 1,
               }}
             >
-              {title}
+              {description}
             </div>
-            {description && (
-              <div
-                tw="mt-4 text-[24px] leading-[40px] font-medium text-gray-400"
-                style={{
-                  display: "block",
-                  lineClamp: 1,
-                }}
-              >
-                {description}
-              </div>
-            )}
-          </div>
+          )}
         </div>
       </div>
-    ),
+    </div>,
     {
       width: WIDTH,
       height: HEIGHT,

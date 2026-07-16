@@ -24,8 +24,8 @@ export function NavListItems({ children, nested = false }: React.PropsWithChildr
   return (
     <ul
       className={clsx(
-        "flex flex-col gap-2 border-l dark:border-[color-mix(in_oklab,_var(--color-gray-950),white_20%)]",
-        nested ? "border-transparent" : "border-[color-mix(in_oklab,_var(--color-gray-950),white_90%)]",
+        "flex flex-col gap-2 border-l dark:border-[color-mix(in_oklab,var(--color-gray-950),white_20%)]",
+        nested ? "border-transparent" : "border-[color-mix(in_oklab,var(--color-gray-950),white_90%)]",
       )}
     >
       {children}

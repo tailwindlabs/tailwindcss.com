@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 export function TabButtonContainer({ children }: { children: React.ReactNode }) {
   return (
-    <TabList className="grid grid-cols-[repeat(auto-fit,calc(var(--spacing)*42))] overflow-x-auto text-gray-950 dark:text-white">
+    <TabList className="grid grid-cols-[repeat(auto-fit,--spacing(42))] overflow-x-auto text-gray-950 dark:text-white">
       {children}
     </TabList>
   );

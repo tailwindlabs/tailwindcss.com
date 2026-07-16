@@ -200,7 +200,7 @@ function HtmlFile({ className }: { className?: string }) {
       aria-label="editor, readonly, html file"
       className={clsx(
         "*:flex *:*:max-w-none *:*:shrink-0 *:*:grow *:rounded-lg *:px-3 *:py-2",
-        "**:[.line]:isolate **:[.line]:block **:[.line]:not-last:min-h-[1lh]",
+        "**:[.line]:isolate **:[.line]:block **:[.line]:not-last:min-h-lh",
         "**:[code]:pr-4",
         "**:[code]:w-full **:[pre]:w-full **:[pre]:whitespace-pre-wrap",
         "text-[0.8125rem]/[1.5rem]",
@@ -245,7 +245,7 @@ function Terminal() {
     <div
       className={clsx(
         "*:flex *:*:max-w-none *:*:shrink-0 *:*:grow *:rounded-lg *:px-4 *:py-2",
-        "**:[.line]:isolate **:[.line]:block **:[.line]:not-last:min-h-[1lh]",
+        "**:[.line]:isolate **:[.line]:block **:[.line]:not-last:min-h-lh",
         "**:[code]:pr-4",
         "text-[0.8125rem]/[1.5rem]",
       )}
@@ -269,7 +269,7 @@ async function BuiltCss({ className, timeline }: { className?: string; timeline:
       className={clsx(
         "opacity-0 group-data-finished:opacity-100 group-data-running:opacity-100",
         "*:flex *:*:max-w-none *:*:shrink-0 *:*:grow *:rounded-lg *:px-4 *:py-2",
-        "**:[.line]:isolate **:[.line]:block **:[.line]:not-last:min-h-[1lh]",
+        "**:[.line]:isolate **:[.line]:block **:[.line]:not-last:min-h-lh",
         "**:[code]:pr-4",
         "**:[code]:w-full **:[pre]:w-full **:[pre]:whitespace-pre-wrap",
         "text-[0.8125rem]/[1.5rem]",

@@ -12,7 +12,7 @@ const INITIAL = {
 export function Transforms3d() {
   return (
     <div className="grid size-full place-content-center">
-      <div className="-translate-y-4 transition duration-300 perspective-[1200px] perspective-origin-top">
+      <div className="-translate-y-4 transition duration-300 perspective-distant perspective-origin-top">
         <motion.img
           initial={INITIAL}
           whileHover={INITIAL}

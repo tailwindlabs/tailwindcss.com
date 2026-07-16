@@ -27,7 +27,7 @@ export function MultiCursorCode() {
     <HighlightedCode
       className={clsx(
         "*:flex *:*:max-w-none *:*:shrink-0 *:*:grow *:overflow-auto *:rounded-lg *:bg-white/10! *:p-5 *:inset-ring *:inset-ring-white/10 dark:*:bg-white/5! dark:*:inset-ring-white/5",
-        "**:[.line]:isolate **:[.line]:block **:[.line]:not-last:min-h-[1lh]",
+        "**:[.line]:isolate **:[.line]:block **:[.line]:not-last:min-h-lh",
       )}
       example={code}
       transformers={[

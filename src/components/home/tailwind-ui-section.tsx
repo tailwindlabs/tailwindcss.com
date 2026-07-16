@@ -107,7 +107,7 @@ export default function TailwindUiSection() {
       <TabGroup>
         <GridContainer className="mt-16">
           <div className="mt-16 grid w-full overflow-x-hidden">
-            <TabList className="grid grid-cols-[repeat(3,_minmax(125px,_1fr))] divide-x divide-gray-950/10 overflow-x-auto text-gray-950 dark:divide-white/10 dark:text-white">
+            <TabList className="grid grid-cols-[repeat(3,minmax(125px,1fr))] divide-x divide-gray-950/10 overflow-x-auto text-gray-950 dark:divide-white/10 dark:text-white">
               <TabButton className="data-selected:bg-pink-500/5 data-selected:text-pink-600 dark:data-selected:text-pink-500">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -369,7 +369,7 @@ export default function TailwindUiSection() {
           <TabPanels>
             <TabPanel className="bg-gray-950/5 p-2 dark:bg-white/10 dark:opacity-40">
               <BentoItem className="relative isolate h-148 w-full overflow-hidden bg-white/75! p-0! dark:bg-gray-950! dark:ring dark:ring-white/10">
-                <div className="absolute -left-[300%] h-150 w-380 min-[500px]:-left-[250%] sm:-left-[200%] md:-left-[150%] lg:-left-[100%] xl:-left-[80%] 2xl:-left-[65%]">
+                <div className="absolute left-[-300%] h-150 w-380 min-[500px]:left-[-250%] sm:left-[-200%] md:left-[-150%] lg:-left-full xl:left-[-80%] 2xl:left-[-65%]">
                   <div className="grid origin-top-left scale-120 rotate-x-55 rotate-y-0 -rotate-z-45 grid-cols-3 transform-3d">
                     <motion.img
                       initial={{ y: 700 }}
@@ -722,7 +722,7 @@ export default function TailwindUiSection() {
 
             <TabPanel className="bg-gray-950/5 p-2 dark:bg-white/5">
               <BentoItem className="relative isolate h-148 w-full overflow-hidden bg-white/75! p-0! dark:bg-gray-950!">
-                <div className="absolute -left-[300%] h-150 w-380 min-[500px]:-left-[250%] sm:-left-[200%] md:-left-[150%] lg:-left-[100%] xl:-left-[80%] 2xl:-left-[65%]">
+                <div className="absolute left-[-300%] h-150 w-380 min-[500px]:left-[-250%] sm:left-[-200%] md:left-[-150%] lg:-left-full xl:left-[-80%] 2xl:left-[-65%]">
                   <div className="flex origin-top-left scale-100 rotate-x-55 rotate-y-0 -rotate-z-45 grid-cols-3 flex-row gap-4 transform-3d dark:bg-white/5">
                     <motion.img
                       initial={{ y: 700 }}

@@ -67,7 +67,7 @@ export default function ShowcaseThumbnail({ showcase, priority = false }: { show
 
   return (
     <div
-      className="group dark:border-bg-white/10 relative isolate border-x border-gray-950/5 transition-colors hover:bg-gray-950/5 max-sm:border-0 sm:max-lg:nth-[2n]:border-r-transparent sm:max-lg:nth-[2n+1]:border-l-transparent lg:max-xl:nth-[3n]:border-r-transparent lg:max-xl:nth-[3n+1]:border-l-transparent xl:nth-[4n]:border-r-transparent xl:nth-[4n+1]:border-l-transparent dark:border-white/10 dark:hover:bg-white/2.5"
+      className="dark:border-bg-white/10 group relative isolate border-x border-gray-950/5 transition-colors hover:bg-gray-950/5 max-sm:border-0 sm:max-lg:nth-[2n]:border-r-transparent sm:max-lg:nth-[2n+1]:border-l-transparent lg:max-xl:nth-[3n]:border-r-transparent lg:max-xl:nth-[3n+1]:border-l-transparent xl:nth-[4n]:border-r-transparent xl:nth-[4n+1]:border-l-transparent dark:border-white/10 dark:hover:bg-white/2.5"
       onMouseEnter={() => {
         if (state.current === "idle") {
           state.current = "playing";
@@ -84,11 +84,11 @@ export default function ShowcaseThumbnail({ showcase, priority = false }: { show
     >
       <a href={showcase.url} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-10"></a>
       <GridContainer className={clsx("p-2", BEFORE_AND_AFTER_ONLY_IN_FIRST_COLUMN_OF_CURRENT_GRID)}>
-        <div className="relative aspect-[672/494] overflow-hidden rounded-xl outline outline-gray-950/5">
+        <div className="relative aspect-672/494 overflow-hidden rounded-xl outline outline-gray-950/5">
           <Image
             src={showcase.thumbnail}
             alt=""
-            className={clsx("absolute inset-0 h-full w-full", showcase.dark && "dark:hidden")}
+            className={clsx("absolute inset-0 size-full", showcase.dark && "dark:hidden")}
             priority={priority}
             unoptimized
           />
@@ -96,7 +96,7 @@ export default function ShowcaseThumbnail({ showcase, priority = false }: { show
             <Image
               src={showcase.dark.thumbnail}
               alt=""
-              className="absolute inset-0 hidden h-full w-full dark:block"
+              className="absolute inset-0 hidden size-full dark:block"
               priority={priority}
               unoptimized
             />
@@ -122,7 +122,7 @@ export default function ShowcaseThumbnail({ showcase, priority = false }: { show
               muted
               playsInline
               className={clsx(
-                "absolute inset-0 h-full w-full [mask-image:radial-gradient(white,black)]",
+                "absolute inset-0 size-full mask-[radial-gradient(white,black)]",
                 showcase.dark && "dark:hidden",
               )}
               onEnded={onEnded}
@@ -135,7 +135,7 @@ export default function ShowcaseThumbnail({ showcase, priority = false }: { show
                 preload="none"
                 muted
                 playsInline
-                className="absolute inset-0 hidden h-full w-full [mask-image:radial-gradient(white,black)] dark:block"
+                className="absolute inset-0 hidden size-full mask-[radial-gradient(white,black)] dark:block"
                 onEnded={onEnded}
               >
                 <source src={showcase.dark.video} type="video/mp4" />
@@ -150,7 +150,7 @@ export default function ShowcaseThumbnail({ showcase, priority = false }: { show
           {showcase.isTemplate && (
             <p
               aria-label="This site is a Tailwind Plus template"
-              className="ml-2 rounded-full border border-transparent bg-sky-100 px-1.5 text-[0.6875rem] leading-5 font-semibold text-sky-500 dark:bg-gray-600/50 dark:text-gray-200 dark:group-hover:bg-sky-500 dark:group-hover:text-white"
+              className="ml-2 rounded-full border border-transparent bg-sky-100 px-1.5 text-[0.6875rem]/5 font-semibold text-sky-500 dark:bg-gray-600/50 dark:text-gray-200 dark:group-hover:bg-sky-500 dark:group-hover:text-white"
             >
               Template
             </p>

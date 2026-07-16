@@ -53,7 +53,7 @@ export function DarkMode() {
           </motion.div>
         </div>
 
-        <div className="isolate flex h-full w-full items-center justify-center">
+        <div className="isolate flex size-full items-center justify-center">
           <div className="relative grid h-112 w-[375px] grid-cols-1 grid-rows-1 overflow-hidden rounded-t-4xl bg-gray-950/10 outline outline-gray-950/10 dark:outline-white/10">
             <div className="col-start-1 row-start-1">
               <motion.img

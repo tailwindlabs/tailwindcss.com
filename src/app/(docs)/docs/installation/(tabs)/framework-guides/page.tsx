@@ -52,7 +52,7 @@ function GuideTile({ guide }: { guide: Guide }) {
 
   return (
     <li className="relative flex flex-row-reverse">
-      <div className="peer group ml-6 flex-auto">
+      <div className="group peer ml-6 flex-auto">
         <h4 className="mb-2 leading-6 font-semibold text-slate-900 dark:text-slate-200">
           <Link
             href={
@@ -78,9 +78,9 @@ function GuideTile({ guide }: { guide: Guide }) {
             </svg>
           </Link>
         </h4>
-        <p className="text-sm leading-6 text-slate-700 dark:text-slate-400">{guide.tile.description}</p>
+        <p className="text-sm/6 text-slate-700 dark:text-slate-400">{guide.tile.description}</p>
       </div>
-      <div className="dark:highlight-white/5 flex h-14 w-14 flex-none items-center justify-center overflow-hidden rounded-full bg-white shadow ring-1 ring-slate-900/5 dark:bg-slate-800">
+      <div className="dark:highlight-white/5 flex size-14 flex-none items-center justify-center overflow-hidden rounded-full bg-white shadow ring-1 ring-slate-900/5 dark:bg-slate-800">
         {LogoDark ? (
           <>
             <Logo className="block dark:hidden" />
