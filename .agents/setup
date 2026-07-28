@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$repo_root"
+
+echo "Activating the pnpm version pinned by package.json..."
+corepack enable
+corepack prepare pnpm@9.14.0 --activate
+
+echo "Installing dependencies from pnpm-lock.yaml..."
+pnpm install --frozen-lockfile
+
+echo "Orb setup complete."
