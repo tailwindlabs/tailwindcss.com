@@ -34,7 +34,9 @@ export default async function Layout({
         <div className="col-start-2 row-span-5 row-start-1 border-x border-x-(--pattern-fg) bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-gray-950)]/5 max-lg:hidden dark:[--pattern-fg:var(--color-white)]/10"></div>
 
         {/* Main content area */}
-        <div className="relative row-start-1 grid grid-cols-subgrid lg:col-start-3">{children}</div>
+        <div className="relative row-start-1 grid grid-cols-subgrid bg-white lg:col-start-3 dark:bg-gray-950">
+          {children}
+        </div>
 
         {/* Candy cane */}
         <div className="col-start-4 row-span-5 row-start-1 border-x border-x-(--pattern-fg) bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-gray-950)]/5 max-lg:hidden dark:[--pattern-fg:var(--color-white)]/10"></div>
