@@ -91,8 +91,10 @@ export let steps: Step[] = [
     title: "Add the CSS file globally",
     body: (
       <p>
-        Add your newly-created <code>./app/assets/css/main.css</code> to the <code>css</code> array in your{" "}
-        <code>nuxt.config.ts</code> file.
+        Add <code>assets/css/main.css</code> to the <code>css</code> array in your{" "}
+        <code>nuxt.config.ts</code>. See{" "}
+        <a href="https://nuxt.com/docs/4.x/api/nuxt-config#alias">the documentation</a>{" "}
+        for more info on valid config paths.
       </p>
     ),
     code: {
@@ -104,8 +106,9 @@ export let steps: Step[] = [
         export default defineNuxtConfig({
           compatibilityDate: "2025-07-15",
           devtools: { enabled: true },
+          // \`assets\` is an alias to <rootDir>/app/assets
           // [!code highlight:2]
-          css: ['./app/assets/css/main.css'],
+          css: ['assets/css/main.css'],
           vite: {
             plugins: [
               tailwindcss(),
