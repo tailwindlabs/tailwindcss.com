@@ -1,0 +1,87 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+import { safeAreaRows } from "@/docs/utils/safe-area.ts";
+
+export const title = "safe area";
+export const description = "Utilities for accounting for viewport safe areas.";
+
+<ApiTable rows={safeAreaRows} />
+
+## Examples
+
+### Adding safe-area padding
+
+Use utilities like `p-safe`, `pt-safe`, and `pb-safe` to add padding that matches the browser's safe-area inset:
+
+```html
+<!-- [!code classes:pt-safe,pb-safe] -->
+<main class="pt-safe pb-safe">
+  <!-- ... -->
+</main>
+```
+
+Add a spacing value to reserve both the safe area and a normal spacing token:
+
+```html
+<!-- [!code classes:pt-safe-4,pb-safe-6] -->
+<main class="pt-safe-4 pb-safe-6">
+  <!-- ... -->
+</main>
+```
+
+### Positioning around safe areas
+
+Use utilities like `bottom-safe`, `top-safe-4`, and `-left-safe-px` to position elements relative to viewport safe areas:
+
+```html
+<!-- [!code classes:bottom-safe-4,right-safe-4] -->
+<button class="right-safe-4 bottom-safe-4 fixed ...">
+  <!-- ... -->
+</button>
+```
+
+### Resetting safe areas
+
+Safe-area spacing utilities use `env(safe-area-inset-*)` by default, but also read the `--tw-safe-area-*` variables when they are defined.
+Use utilities like `safe`, `safe-none`, and `safe-b-none` to scope or reset those variables for part of the page:
+
+```html
+<!-- [!code classes:safe,pb-safe,safe-b-none] -->
+<div class="safe">
+  <main class="pb-safe">
+    <!-- ... -->
+  </main>
+
+  <footer class="safe-b-none pb-safe">
+    <!-- ... -->
+  </footer>
+</div>
+```
+
+### Viewport height minus safe areas
+
+Use utilities like `h-dvh-safe`, `min-h-screen-safe`, and `max-h-lvh-safe` to set viewport-based heights with the top and bottom safe areas subtracted:
+
+```html
+<!-- [!code classes:min-h-dvh-safe] -->
+<main class="min-h-dvh-safe">
+  <!-- ... -->
+</main>
+```
+
+### Scroll offsets
+
+Use `scroll-m-safe` and `scroll-p-safe` utilities to account for safe areas when scrolling to snap points or anchored content:
+
+```html
+<!-- [!code classes:scroll-pt-safe,scroll-mt-safe-4] -->
+<div class="scroll-pt-safe">
+  <section class="scroll-mt-safe-4">
+    <!-- ... -->
+  </section>
+</div>
+```
+
+### Responsive design
+
+<ResponsiveDesign property="safe area padding" defaultClass="pt-safe" featuredClass="md:pt-safe-8" />

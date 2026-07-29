@@ -35,6 +35,7 @@ export default {
     ["overscroll-behavior", "/docs/overscroll-behavior"],
     ["position", "/docs/position"],
     ["top / right / bottom / left", "/docs/top-right-bottom-left"],
+    ["safe area", "/docs/safe-area"],
     ["visibility", "/docs/visibility"],
     ["z-index", "/docs/z-index"],
   ] as const,
