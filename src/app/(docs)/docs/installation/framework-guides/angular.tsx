@@ -33,19 +33,36 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install Tailwind CSS",
+    title: "Install Tailwind CSS automatically",
     body: (
       <p>
-        Install <code>@tailwindcss/postcss</code> and its peer dependencies via npm.
+        If you're using a recent version of Angular, the easiest way to add Tailwind CSS is with{" "}
+        <code>ng add tailwindcss</code>. This installs Tailwind and updates your project configuration for you. If
+        you're using an older version of Angular or prefer to set things up yourself, skip this step and follow the
+        manual steps below instead.
       </p>
     ),
-
-    // NOTE: The `--force` flag is used to make sure the installation succeeds. Angular has a peer dependency on `tailwindcss` v3 which causes errors when installing `tailwindcss` v4.
     code: {
       name: "Terminal",
       lang: "shell",
       code: shell`
-        npm install tailwindcss @tailwindcss/postcss postcss --force
+        ng add tailwindcss
+      `,
+    },
+  },
+  {
+    title: "Install Tailwind CSS manually",
+    body: (
+      <p>
+        To install Tailwind CSS manually, install <code>@tailwindcss/postcss</code> and its peer dependencies via
+        npm.
+      </p>
+    ),
+    code: {
+      name: "Terminal",
+      lang: "shell",
+      code: shell`
+        npm install tailwindcss @tailwindcss/postcss postcss
       `,
     },
   },
