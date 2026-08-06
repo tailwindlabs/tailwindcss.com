@@ -1,15 +1,15 @@
-import { css, handlebars, js, Page, shell, Step, Tile } from "./utils";
+import { css, html, js, Page, shell, Step, Tile } from "./utils";
 import Logo from "@/docs/img/guides/ember.react.svg";
 
 export let tile: Tile = {
-  title: "Ember.js (without Vite)",
+  title: "Ember.js",
   description: "A JavaScript framework for ambitious web developers.",
   Logo,
 };
 
 export let page: Page = {
-  title: "Install Tailwind CSS with Ember.js (without Vite)",
-  description: "Setting up Tailwind CSS in an Ember.js project that doesn't use Vite. For Ember + Vite, follow the Vite guide.",
+  title: "Install Tailwind CSS with Ember.js",
+  description: "Setting up Tailwind CSS in an Ember.js project.",
 };
 
 export let steps: Step[] = [
@@ -17,21 +17,19 @@ export let steps: Step[] = [
     title: "Create your project",
     body: (
       <p>
-        Start by creating a new Ember.js project if you don't have one set up already. The most common approach is to
-        use{" "}
+        Start by creating a new Ember.js project if you don't have one set up already. The most common approach is
+        outlined in the{" "}
         <a href="https://guides.emberjs.com/release/getting-started/quick-start/#toc_create-a-new-application">
-          Ember CLI
+          Ember.js Quick Start
         </a>
-        .
-
-        (note that newer ember-cli versions will generate a vite project for you by default)
+        . New Ember.js projects use Vite.
       </p>
     ),
     code: {
       name: "Terminal",
       lang: "shell",
       code: shell`
-        npx ember-cli new my-project --embroider --no-welcome
+        npx ember-cli@latest new my-project --no-welcome
         cd my-project
       `,
     },
@@ -40,81 +38,47 @@ export let steps: Step[] = [
     title: "Install Tailwind CSS",
     body: (
       <p>
-        Using npm, install <code>@tailwindcss/postcss</code> and its peer dependencies, as well as{" "}
-        <code>postcss-loader</code>.
+        Install <code>@tailwindcss/vite</code> and its peer dependencies via npm.
       </p>
     ),
     code: {
       name: "Terminal",
       lang: "shell",
       code: shell`
-        npm install tailwindcss @tailwindcss/postcss postcss postcss-loader
+        npm install tailwindcss @tailwindcss/vite
       `,
     },
   },
   {
-    title: "Enable PostCSS support",
+    title: "Configure Vite Plugin",
     body: (
       <p>
-        In your <code>ember-cli-build.js</code> file, configure PostCSS to process your CSS files.
+        Add the <code>@tailwindcss/vite</code> plugin to your Vite configuration.
       </p>
     ),
     code: {
-      name: "ember-cli-build.js",
+      name: "vite.config.mjs",
       lang: "js",
       code: js`
-        'use strict';
+        import { defineConfig } from 'vite';
+        import { extensions, classicEmberSupport, ember } from '@embroider/vite';
+        import { babel } from '@rollup/plugin-babel';
+        // [!code highlight:2]
+        import tailwindcss from '@tailwindcss/vite';
 
-        const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-
-        module.exports = function (defaults) {
-          const app = new EmberApp(defaults, {
-            // Add options here
-          });
-
-          const { Webpack } = require('@embroider/webpack');
-          return require('@embroider/compat').compatBuild(app, Webpack, {
-            skipBabel: [
-              {
-                package: 'qunit',
-              },
-            ],
-            // [!code highlight:22]
-            packagerOptions: {
-              webpackConfig: {
-                module: {
-                  rules: [
-                    {
-                      test: /\.css$/i,
-                      use: ['postcss-loader'],
-                    },
-                  ],
-                },
-              },
-            },
-          });
-        };
-      `,
-    },
-  },
-  {
-    title: "Configure PostCSS Plugins",
-    body: (
-      <p>
-        Create a <code>postcss.config.mjs</code> file in the root of your project and add the{" "}
-        <code>@tailwindcss/postcss</code> plugin to your PostCSS configuration.
-      </p>
-    ),
-    code: {
-      name: "postcss.config.mjs",
-      lang: "js",
-      code: js`
-        export default {
-          plugins: {
+        export default defineConfig({
+          plugins: [
             // [!code highlight:2]
-            "@tailwindcss/postcss": {},
-          },
-        }
+            tailwindcss(),
+            classicEmberSupport(),
+            ember(),
+            // extra plugins here
+            babel({
+              babelHelpers: 'runtime',
+              extensions,
+            }),
+          ],
+        });
       `,
     },
   },
@@ -122,7 +86,7 @@ export let steps: Step[] = [
     title: "Import Tailwind CSS",
     body: (
       <p>
-        Create an <code>./app/app.css</code> file and add an <code>@import</code> for Tailwind CSS.
+        Add an <code>@import</code> to <code>./app/styles/app.css</code> that imports Tailwind CSS.
       </p>
     ),
     code: {
@@ -134,30 +98,26 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import the CSS file",
+    title: "Link the CSS file",
     body: (
       <p>
-        Import the newly-created <code>./app/app.css</code> file in your <code>./app/app.js</code> file.
+        In your <code>./index.html</code> file, replace the <code>@embroider/virtual/app.css</code> stylesheet link with
+        a direct link to <code>./app/styles/app.css</code> so Vite processes it.
       </p>
     ),
     code: {
-      name: "app.js",
-      lang: "js",
-      code: js`
-        import Application from '@ember/application';
-        import Resolver from 'ember-resolver';
-        import loadInitializers from 'ember-load-initializers';
-        import config from 'my-project/config/environment';
-        // [!code highlight:2]
-        import 'my-project/app.css';
+      name: "index.html",
+      lang: "html",
+      code: html`
+        {{content-for "head"}}
 
-        export default class App extends Application {
-          modulePrefix = config.modulePrefix;
-          podModulePrefix = config.podModulePrefix;
-          Resolver = Resolver;
-        }
+        <link integrity="" rel="stylesheet" href="/@embroider/virtual/vendor.css" />
+        <!-- [!code --:2] -->
+        <link integrity="" rel="stylesheet" href="/@embroider/virtual/app.css" />
+        <!-- [!code ++:2] -->
+        <link integrity="" rel="stylesheet" href="/app/styles/app.css" />
 
-        loadInitializers(App, config.modulePrefix);
+        {{content-for "head-footer"}}
       `,
     },
   },
@@ -180,17 +140,21 @@ export let steps: Step[] = [
     title: "Start using Tailwind in your project",
     body: <p>Start using Tailwind's utility classes to style your content.</p>,
     code: {
-      name: "application.hbs",
-      lang: "hbs",
-      code: handlebars`
-        {{page-title "MyProject"}}
+      name: "application.gjs",
+      lang: "gjs",
+      code: js`
+        import { pageTitle } from 'ember-page-title';
 
-        <!-- [!code highlight:4] -->
-        <h1 class="text-3xl font-bold underline">
-          Hello world!
-        </h1>
+        <template>
+          {{pageTitle "MyProject"}}
 
-        {{outlet}}
+          <!-- [!code highlight:4] -->
+          <h1 class="text-3xl font-bold underline">
+            Hello world!
+          </h1>
+
+          {{outlet}}
+        </template>
       `,
     },
   },

@@ -220,6 +220,7 @@ const highlighter = await createHighlighter({
     "css",
     "edge",
     "elixir",
+    "glimmer-js",
     "hbs",
     "html",
     "js",
