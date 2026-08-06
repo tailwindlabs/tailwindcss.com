@@ -141,7 +141,7 @@ export let steps: Step[] = [
     body: <p>Start using Tailwind's utility classes to style your content.</p>,
     code: {
       name: "application.gjs",
-      lang: "gjs",
+      lang: "glimmer-js",
       code: js`
         import { pageTitle } from 'ember-page-title';
 
