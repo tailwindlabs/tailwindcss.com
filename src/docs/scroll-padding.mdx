@@ -22,7 +22,6 @@ export const description = "Utilities for controlling an element's scroll offset
     ["scroll-pl", "scroll-padding-left"],
   ].flatMap(([prefix, property]) => [
     [`${prefix}-<number>`, `${property}: calc(var(--spacing) * <number>);`],
-    [`-${prefix}-<number>`, `${property}: calc(var(--spacing) * -<number>);`],
     [`${prefix}-px`, `${property}: 1px;`],
     [`${prefix}-(<custom-property>)`, `${property}: var(<custom-property>);`],
     [`${prefix}-[<value>]`, `${property}: <value>;`],
