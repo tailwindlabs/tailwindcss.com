@@ -23,6 +23,8 @@ export const description = "Utilities for controlling the scroll offset around i
   ].flatMap(([prefix, property]) => [
     [`${prefix}-<number>`, `${property}: calc(var(--spacing) * <number>);`],
     [`-${prefix}-<number>`, `${property}: calc(var(--spacing) * -<number>);`],
+    [`${prefix}-px`, `${property}: 1px;`],
+    [`-${prefix}-px`, `${property}: -1px;`],
     [`${prefix}-(<custom-property>)`, `${property}: var(<custom-property>);`],
     [`${prefix}-[<value>]`, `${property}: <value>;`],
   ])}
