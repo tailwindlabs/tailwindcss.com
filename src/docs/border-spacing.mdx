@@ -9,12 +9,15 @@ export const description = "Utilities for controlling the spacing between table 
 <ApiTable
   rows={[
     ["border-spacing-<number>", "border-spacing: calc(var(--spacing) * <number>);"],
+    ["border-spacing-px", "border-spacing: 1px;"],
     ["border-spacing-(<custom-property>)", "border-spacing: var(<custom-property>);"],
     ["border-spacing-[<value>]", "border-spacing: <value>;"],
     ["border-spacing-x-<number>", "border-spacing: calc(var(--spacing) * <number>) var(--tw-border-spacing-y);"],
+    ["border-spacing-x-px", "border-spacing: 1px var(--tw-border-spacing-y);"],
     ["border-spacing-x-(<custom-property>)", "border-spacing: var(<custom-property>) var(--tw-border-spacing-y);"],
     ["border-spacing-x-[<value>]", "border-spacing: <value> var(--tw-border-spacing-y);"],
     ["border-spacing-y-<number>", "border-spacing: var(--tw-border-spacing-x) calc(var(--spacing) * <number>);"],
+    ["border-spacing-y-px", "border-spacing: var(--tw-border-spacing-x) 1px;"],
     ["border-spacing-y-(<custom-property>)", "border-spacing: var(--tw-border-spacing-x) var(<custom-property>);"],
     ["border-spacing-y-[<value>]", "border-spacing: var(--tw-border-spacing-x) <value>;"],
   ]}
