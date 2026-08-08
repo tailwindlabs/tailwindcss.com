@@ -173,7 +173,7 @@ function Community() {
           </Link>
         </li>
         <li>
-          <Link href="/partners#insiders" className="hover:underline">
+          <Link href="https://discord.gg/7NF8GNe" className="hover:underline">
             Discord
           </Link>
         </li>
