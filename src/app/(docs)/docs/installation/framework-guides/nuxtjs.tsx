@@ -105,7 +105,7 @@ export let steps: Step[] = [
           compatibilityDate: "2025-07-15",
           devtools: { enabled: true },
           // [!code highlight:2]
-          css: ['./app/assets/css/main.css'],
+          css: ['~/assets/css/main.css'],
           vite: {
             plugins: [
               tailwindcss(),
