@@ -22,7 +22,7 @@ export let steps: Step[] = [
         <a href="https://guides.emberjs.com/release/getting-started/quick-start/#toc_create-a-new-application">
           Ember.js Quick Start
         </a>
-        . New Ember.js projects use Vite.
+        .
       </p>
     ),
     code: {
