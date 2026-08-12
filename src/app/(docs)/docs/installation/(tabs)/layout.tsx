@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 const tabs = {
   "Using Vite": "/docs/installation/using-vite",
   "Using PostCSS": "/docs/installation/using-postcss",
+  "Using webpack": "/docs/installation/using-webpack",
   "Tailwind CLI": "/docs/installation/tailwind-cli",
   "Framework Guides": "/docs/installation/framework-guides",
   "Play CDN": "/docs/installation/play-cdn",
