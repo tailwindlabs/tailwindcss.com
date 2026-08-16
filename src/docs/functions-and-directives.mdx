@@ -18,6 +18,33 @@ Use the `@import` directive to inline import CSS files, including Tailwind itsel
 @import "tailwindcss";
 ```
 
+### `@import` options
+
+When importing Tailwind (or its individual stylesheets), you can pass options after the path:
+
+```css
+/* [!code filename:CSS] */
+@import "tailwindcss" important;
+@import "tailwindcss" prefix(tw);
+@import "tailwindcss" source("../src");
+@import "tailwindcss" theme(reference);
+@import "tailwindcss" reference;
+@import "tailwindcss/utilities.css" layer(utilities);
+```
+
+- Use `important` to mark all utilities as `!important`, or `prefix(…)` to namespace generated utilities and theme CSS variables — see [styling with utility classes](/docs/styling-with-utility-classes#using-the-important-flag).
+- Use `source(…)` to set the base path for automatic source detection, or `source(none)` to disable it — see [detecting classes in source files](/docs/detecting-classes-in-source-files#setting-your-base-path).
+- Use `theme(…)` to control how theme variables are emitted, for example `theme(reference)`, `theme(static)`, or `theme(inline)`.
+- Use `reference` to import styles for reference only without emitting CSS (same idea as [`@reference`](#reference-directive)).
+- Use `layer(…)` to place the imported styles in a [cascade layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@import#layer_name), which is especially useful when [importing Tailwind’s stylesheets individually](/docs/preflight#disabling-preflight).
+
+These options can also be combined on a single import when needed:
+
+```css
+/* [!code filename:CSS] */
+@import "tailwindcss" source(none) prefix(tw);
+```
+
 <h3 id="theme-directive">
   <a href="#theme-directive">@theme</a>
 </h3>
