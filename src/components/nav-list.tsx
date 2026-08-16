@@ -1,10 +1,11 @@
 import { CloseButton } from "@headlessui/react";
 import clsx from "clsx";
+import { forwardRef } from "react";
 import Link from "next/link";
 
-export function NavList({ children, ...rest }: React.PropsWithChildren) {
+export function NavList({ children, className, ...rest }: React.ComponentPropsWithoutRef<"div">) {
   return (
-    <div className="flex flex-col gap-3" {...rest}>
+    <div className={clsx("flex flex-col gap-3", className)} {...rest}>
       {children}
     </div>
   );
@@ -37,15 +38,12 @@ export function NavListItem({ children }: React.PropsWithChildren) {
   return <li className="-ml-px flex flex-col items-start gap-2">{children}</li>;
 }
 
-export function NavListLink({
-  href,
-  children,
-  nested = false,
-  ...props
-}: React.PropsWithChildren<{ href: string; nested?: boolean }>) {
-  return (
+export const NavListLink = forwardRef<HTMLAnchorElement, React.PropsWithChildren<{ href: string; nested?: boolean }>>(
+  function NavListLink({ href, children, nested = false, ...props }, ref) {
+    return (
     <CloseButton
       as={Link}
+      ref={ref}
       className={clsx(
         "inline-block border-l border-transparent text-base/8 text-gray-600 hover:border-gray-950/25 hover:text-gray-950 sm:text-sm/6 dark:text-gray-300 dark:hover:border-white/25 dark:hover:text-white",
         "aria-[current]:border-gray-950 aria-[current]:font-semibold aria-[current]:text-gray-950 dark:aria-[current]:border-white dark:aria-[current]:text-white",
@@ -56,5 +54,6 @@ export function NavListLink({
     >
       {children}
     </CloseButton>
-  );
-}
+    );
+  },
+);
