@@ -45,7 +45,10 @@ export default async function DocPage({ children }: { children: React.ReactNode 
           </div>
         </div>
         <div className="max-xl:hidden">
-          <div className="sticky top-14 max-h-[calc(100svh-3.5rem)] overflow-x-hidden px-6 pt-10 pb-24">
+          <div
+            className="sticky top-14 max-h-[calc(100svh-3.5rem)] overflow-y-auto overflow-x-hidden px-6 pt-10 pb-24"
+            data-toc-scroll-container="true"
+          >
             <TableOfContents tableOfContents={tableOfContents} />
           </div>
         </div>
