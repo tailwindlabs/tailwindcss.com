@@ -150,6 +150,9 @@ export function Header(props: React.PropsWithChildren) {
           <Link href="/docs" className="text-sm/6 text-gray-950 dark:text-white">
             Docs
           </Link>
+          <Link href="https://play.tailwindcss.com/" className="text-sm/6 text-gray-950 dark:text-white">
+            Play
+          </Link>
           <Link href="/blog" className="text-sm/6 text-gray-950 dark:text-white">
             Blog
           </Link>
@@ -237,6 +240,12 @@ export function Header(props: React.PropsWithChildren) {
                   className="rounded-lg px-3 py-2 text-xl/9 font-medium text-gray-950 data-active:bg-gray-950/5 dark:text-white dark:hover:bg-white/10"
                 >
                   Docs
+                </Link>
+                <Link
+                  href="https://play.tailwindcss.com/"
+                  className="rounded-lg px-3 py-2 text-xl/9 font-medium text-gray-950 data-active:bg-gray-950/5 dark:text-white dark:hover:bg-white/10"
+                >
+                  Playground
                 </Link>
                 <a
                   href="/plus/?ref=top"

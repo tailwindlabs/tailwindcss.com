@@ -16,24 +16,18 @@ export function FooterSitemap({ className }: { className?: string }) {
         </div>
         <div className="flex flex-1 flex-col gap-10">
           <div>
-            <TailwindPlus />
-          </div>
-          <div>
             <Community />
           </div>
         </div>
       </div>
       <div
         className={clsx(
-          "mx-auto hidden w-full grid-cols-4 justify-between gap-y-0 md:grid md:grid-cols-4 md:gap-6 md:gap-x-4 lg:gap-8",
+          "mx-auto hidden w-full grid-cols-3 justify-between gap-y-0 md:grid md:grid-cols-3 md:gap-6 md:gap-x-4 lg:gap-8",
           className,
         )}
       >
         <div className="border-x border-b border-gray-950/5 py-10 pl-2 not-md:border-0 md:border-b-0 dark:border-white/10">
           <TailwindCSS />
-        </div>
-        <div className="border-x border-b border-gray-950/5 py-10 pl-2 not-md:border-0 md:border-b-0 dark:border-white/10">
-          <TailwindPlus />
         </div>
         <div className="border-x border-b border-gray-950/5 py-10 pl-2 not-md:border-0 sm:border-b-0 dark:border-white/10">
           <Resources />
@@ -93,40 +87,6 @@ function TailwindCSS() {
             Showcase
           </Link>
         </li>
-        <li>
-          <Link href="/partners" className="hover:underline">
-            Sponsor
-          </Link>
-        </li>
-      </ul>
-    </>
-  );
-}
-
-function TailwindPlus() {
-  return (
-    <>
-      <h3 className="mb-2 font-semibold">
-        <a href="/plus?ref=footer" className="hover:underline">
-          Tailwind Plus
-        </a>
-      </h3>
-      <ul className="mt-4 grid gap-4">
-        <li>
-          <a href="/plus/ui-blocks?ref=footer" className="hover:underline">
-            UI Blocks
-          </a>
-        </li>
-        <li>
-          <a href="/plus/templates?ref=footer" className="hover:underline">
-            Templates
-          </a>
-        </li>
-        <li>
-          <a href="/plus/ui-kit?ref=footer" className="hover:underline">
-            UI Kit
-          </a>
-        </li>
       </ul>
     </>
   );
@@ -170,11 +130,6 @@ function Community() {
         <li>
           <Link href="https://github.com/tailwindlabs/tailwindcss" className="hover:underline">
             GitHub
-          </Link>
-        </li>
-        <li>
-          <Link href="/partners#insiders" className="hover:underline">
-            Discord
           </Link>
         </li>
         <li>

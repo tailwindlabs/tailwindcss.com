@@ -94,17 +94,6 @@ function Header() {
             <path d="M4.85355 0.146423L9.70711 4.99998L4.85355 9.85353L4.14645 9.14642L7.79289 5.49998H0V4.49998H7.79289L4.14645 0.85353L4.85355 0.146423Z"></path>
           </svg>
         </DarkButtonLink>
-        <LightButtonLink href="/insiders" className="inline-flex items-center justify-center gap-2">
-          Support as an individual
-          <svg
-            fill="currentColor"
-            aria-hidden="true"
-            viewBox="0 0 10 10"
-            className="-mr-0.5 w-2.5 fill-gray-600 dark:fill-gray-400"
-          >
-            <path d="M4.85355 0.146423L9.70711 4.99998L4.85355 9.85353L4.14645 9.14642L7.79289 5.49998H0V4.49998H7.79289L4.14645 0.85353L4.85355 0.146423Z"></path>
-          </svg>
-        </LightButtonLink>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import Pagination from "@/components/pagination";
-import { RandomPromo } from "@/components/promos";
+import { BookPromo } from "@/components/promos";
 import TableOfContents from "@/components/table-of-contents";
 import { notFound } from "next/navigation";
 import { Metadata } from "next/types";
@@ -93,7 +93,7 @@ export default async function DocPage(props: Props) {
         <div className="max-xl:hidden">
           <div className="sticky top-14 max-h-[calc(100svh-3.5rem)] overflow-x-hidden px-6 pt-10 pb-24">
             <TableOfContents tableOfContents={tableOfContents} />
-            <RandomPromo />
+            <BookPromo />
           </div>
         </div>
       </div>

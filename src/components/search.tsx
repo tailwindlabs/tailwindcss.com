@@ -11,36 +11,17 @@ const INDEX_NAME = "tailwindcss";
 const API_KEY = "5fc87cef58bb80203d2207578309fab6";
 const APP_ID = "KNPXZI5B0M";
 
-function isTailwindPlusURL(url: string) {
-  return (
-    url.startsWith("https://tailwindui.com") ||
-    url.startsWith("https://tailwindcss.com/plus") ||
-    url.startsWith("/plus")
-  );
+function isDocumentationURL(url: string) {
+  try {
+    const parsed = new URL(url, "https://tailwindcss.com");
+    return parsed.origin === "https://tailwindcss.com" && parsed.pathname.startsWith("/docs/");
+  } catch {
+    return false;
+  }
 }
 
 function isExternalURL(url: string) {
-  if (url.startsWith("https://tailwindui.com")) {
-    return false;
-  }
-
   return /^https?:\/\//.test(url) && !url.startsWith(window.location.origin);
-}
-
-function rewriteURL(url: string) {
-  if (!url.startsWith("https://tailwindui.com")) {
-    return url;
-  }
-
-  url = url.replace("https://tailwindui.com/", "https://tailwindcss.com/plus/");
-  // Temporary thing while `https://tailwindui.com/` is rewritten to /plus
-  url = url.replace("/plus/plus/", "/plus/");
-  url = url.replace("/plus/components", "/plus/ui-blocks");
-  url = url.replace("/plus/templates/catalyst", "/plus/ui-kit");
-  url = url.replace("/plus/all-access", "/plus/#pricing");
-  url = url.replace("/plus/documentation", "/plus/ui-blocks/documentation");
-
-  return url;
 }
 
 const SearchContext = createContext<any>({});
@@ -73,18 +54,17 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
   });
 
   useEffect(() => {
-    // Prepend "Components" to Tailwind UI results that are shown in the "recent" view
+    // Saved searches bypass Algolia's facet filters, so discard non-documentation entries too.
     if (!isOpen) {
-      let key = `__DOCSEARCH_RECENT_SEARCHES__${INDEX_NAME}`;
-      try {
-        let data = JSON.parse(localStorage.getItem(key) as any);
-        for (let item of data) {
-          if (isTailwindPlusURL(item.url) && !item.hierarchy.lvl1.startsWith("Components")) {
-            item.hierarchy.lvl1 = `Components / ${item.hierarchy.lvl1}`;
+      for (const prefix of ["__DOCSEARCH_RECENT_SEARCHES__", "__DOCSEARCH_FAVORITE_SEARCHES__"]) {
+        const key = `${prefix}${INDEX_NAME}`;
+        try {
+          const data = JSON.parse(localStorage.getItem(key) ?? "null");
+          if (Array.isArray(data)) {
+            localStorage.setItem(key, JSON.stringify(data.filter((item) => isDocumentationURL(item?.url))));
           }
-        }
-        localStorage.setItem(key, JSON.stringify(data));
-      } catch {}
+        } catch {}
+      }
     }
   }, [isOpen]);
 
@@ -119,7 +99,7 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
               initialQuery={initialQuery}
               initialScrollY={window.scrollY}
               searchParameters={{
-                facetFilters: [["version:v4", "version:plus"]],
+                facetFilters: ["version:v4"],
                 distinct: 1,
                 attributesToRetrieve: [
                   "hierarchy.lvl0",
@@ -132,8 +112,6 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
                   "content",
                   "type",
                   "url",
-                  "product",
-                  "product_category",
                 ],
               }}
               placeholder="Search documentation"
@@ -146,8 +124,6 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
                   setIsOpen(false);
                   if (isExternalURL(itemUrl)) {
                     window.open(itemUrl, "_blank");
-                  } else if (!isTailwindPlusURL(itemUrl)) {
-                    router.push(itemUrl);
                   } else {
                     router.push(itemUrl);
                   }
@@ -155,21 +131,7 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
               }}
               hitComponent={Hit}
               transformItems={(items) => {
-                items = items.map((item) => {
-                  item.url = rewriteURL(item.url);
-                  return item;
-                });
-
-                // TODO: Remove this once only new stuff is indexed
-                items = items.filter((item) => {
-                  // Remove old prev-Tailwind plus search results
-                  // @ts-ignore
-                  if (item.hierarchy?.lvl0 === "Components") {
-                    return false;
-                  }
-
-                  return true;
-                });
+                items = items.filter((item) => isDocumentationURL(item.url));
 
                 return items.map((item, index) => {
                   // We transform the absolute URL into a relative URL to
@@ -190,27 +152,8 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
                     );
                   }
 
-                  let isTailwindUI = isTailwindPlusURL(item.url);
-
-                  if (isTailwindUI && item.hierarchy.lvl0 === "UI Blocks") {
-                    if (item.hierarchy?.lvl0) {
-                      item.hierarchy.lvl0 = "Components";
-                    }
-
-                    if (item._highlightResult?.hierarchy?.lvl0?.value) {
-                      item._highlightResult.hierarchy.lvl0.value = "Components";
-                    }
-                  }
-
                   return {
                     ...item,
-                    hierarchy: {
-                      ...item.hierarchy,
-                      ...(isTailwindUI
-                        ? // @ts-ignore
-                          { lvl1: `${item.product} / ${item.product_category}` }
-                        : {}),
-                    },
                     url: `${a.pathname}${hash}`,
                     __is_result: () => true,
                     __is_parent: () => item.type === "lvl1" && items.length > 1 && index === 0,
@@ -218,8 +161,6 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
                       item.type !== "lvl1" && items.length > 1 && items[0].type === "lvl1" && index !== 0,
                     __is_first: () => index === 1,
                     __is_last: () => index === items.length - 1 && index !== 0,
-                    __is_tailwindui: () => isTailwindUI,
-                    __is_tailwindcss: () => !isTailwindUI,
                   };
                 });
               }}
@@ -232,24 +173,6 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
 }
 
 function Hit({ hit, children }: { hit: any; children: React.ReactNode }) {
-  if (isTailwindPlusURL(hit.url)) {
-    return (
-      <a
-        href={hit.url}
-        className={clsx({
-          "DocSearch-Hit--Result": hit.__is_result?.(),
-          "DocSearch-Hit--Parent": hit.__is_parent?.(),
-          "DocSearch-Hit--FirstChild": hit.__is_first?.(),
-          "DocSearch-Hit--LastChild": hit.__is_last?.(),
-          "DocSearch-Hit--Child": hit.__is_child?.(),
-          "DocSearch-Hit--TailwindUI": hit.__is_tailwindui?.(),
-        })}
-      >
-        {children}
-      </a>
-    );
-  }
-
   return (
     <Link
       href={hit.url}
@@ -259,7 +182,6 @@ function Hit({ hit, children }: { hit: any; children: React.ReactNode }) {
         "DocSearch-Hit--FirstChild": hit.__is_first?.(),
         "DocSearch-Hit--LastChild": hit.__is_last?.(),
         "DocSearch-Hit--Child": hit.__is_child?.(),
-        "DocSearch-Hit--TailwindUI": hit.__is_tailwindui?.(),
       })}
     >
       {children}
