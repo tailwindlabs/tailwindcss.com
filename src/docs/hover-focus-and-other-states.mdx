@@ -1,3 +1,4 @@
+import spencerSharp from "@/docs/img/spencer-sharp.jpg";
 import dedent from "dedent";
 import { CodeExample, CodeExampleGroup, CodeBlock, svelte, html, css } from "@/components/code-example.tsx";
 import { Example } from "@/components/example.tsx";
@@ -514,11 +515,7 @@ If you need to style an element based on the descendants of a parent element, yo
   {
     <div className="mx-auto grid max-w-md divide-y divide-gray-100 border-x border-x-gray-200 text-gray-700 dark:divide-gray-800 dark:border-x-gray-800 dark:bg-gray-950/10 dark:text-gray-300">
       <div className="group grid grid-cols-[32px_1fr_auto] items-center gap-x-4 px-4 py-4 pt-6">
-        <img
-          className="size-[32px] rounded-full"
-          src="https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Favatar.51a13c67.jpg&w=128&q=80"
-          alt=""
-        />
+        <img className="size-[32px] rounded-full" src={spencerSharp.src} alt="" />
         {/* This is not an h4 because we're converting h4's to links in MDX files */}
         <div className="font-semibold text-gray-900 dark:text-white">Spencer Sharp</div>
         <svg

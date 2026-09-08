@@ -1,3 +1,4 @@
+import spencerSharp from "@/docs/img/spencer-sharp.jpg";
 import { ApiTable } from "@/components/api-table.tsx";
 import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
@@ -238,11 +239,7 @@ Use the `self-baseline-last` utility to align an item along the container's cros
   {
     <div className="mx-auto grid max-w-md divide-y divide-gray-100 border-x border-x-gray-200 text-gray-700 dark:divide-gray-800 dark:border-x-gray-800 dark:bg-gray-950/10 dark:text-gray-300">
       <div className="grid grid-cols-[auto_1fr_auto] gap-x-4 px-4 py-6">
-        <img
-          className="size-8 rounded-full"
-          src="https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Favatar.51a13c67.jpg&w=128&q=80"
-          alt=""
-        />
+        <img className="size-8 rounded-full" src={spencerSharp.src} alt="" />
         <div className="font-semibold text-gray-900 sm:col-start-2 dark:text-white">Spencer Sharp</div>
         <p className="self-baseline-last text-sm sm:col-start-2">
           Working on the future of astronaut recruitment at Space Recruit.
