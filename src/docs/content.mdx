@@ -19,7 +19,7 @@ export const description = "Utilities for controlling the content of the before 
 
 ### Basic example
 
-Use the `content-[<value>]` syntax, along with the `before` and `after` variants, to set the contents of the `::before` and `::after` pseudo-elements:
+Use the `content-[<value>]` syntax, along with the `before` and `after` variants, to set the contents of the `::before` and `::after` pseudo-elements. Optionally add a `/` followed by a description to provide alternate text that screen readers announce in place of the content.
 
 <Figure>
 
@@ -29,7 +29,7 @@ Use the `content-[<value>]` syntax, along with the `before` and `after` variants
       Higher resolution means more than just a better-quality image. With a Retina 6K display,{" "}
       <a
         href="https://www.apple.com/pro-display-xdr/"
-        className="font-medium text-blue-600 after:text-sm after:font-bold after:content-['_↗'] dark:text-sky-400"
+        className="font-medium text-blue-600 after:text-sm after:font-bold after:content-['_↗'/'Opens_in_new_window_or_tab'] dark:text-sky-400"
         target="_blank"
       >
         Pro Display XDR
@@ -40,10 +40,10 @@ Use the `content-[<value>]` syntax, along with the `before` and `after` variants
 </Example>
 
 ```html
-<!-- [!code classes:after:content-['_↗']] -->
+<!-- [!code classes:after:content-['_↗'/'Opens_in_new_window_or_tab']] -->
 <!-- prettier-ignore -->
 <p>Higher resolution means more than just a better-quality image. With a
-Retina 6K display, <a class="text-blue-600 after:content-['_↗']" href="...">
+Retina 6K display, <a class="text-blue-600 after:content-['_↗'/'Opens_in_new_window_or_tab']" href="...">
 Pro Display XDR</a> gives you nearly 40 percent more screen real estate than
 a 5K display.</p>
 ```
