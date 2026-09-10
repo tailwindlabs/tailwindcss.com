@@ -116,4 +116,32 @@ If you're loading a font from a service like [Google Fonts](https://fonts.google
 
 Browsers require that `@import` statements come before any other rules, so URL imports need to be above imports like `@import "tailwindcss"` which are inlined in the compiled CSS.
 
+### The default font family
+
+The above setup still requires you to apply the font-family using a utility class.
+
+To set a font family as the core default without needing to specify it on every element by using a utility class, set the `default-font-family` variable to the font-family of your choice:
+
+```css
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-roboto: "Roboto", sans-serif;
+  --default-font-family: var(--font-roboto); /* [!code highlight] */
+}
+```
+
+Initially, [`default-font-family` is set to `font-sans`](https://github.com/tailwindlabs/tailwindcss/blob/main/packages/tailwindcss/theme.css#L494) in Tailwind CSS, so it may be a good thing to include this value as a fallback in case the new default font fails to load:
+
+```css
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-roboto: "Roboto", sans-serif;
+  --default-font-family: var(--font-roboto, var(--font-sans, initial)); /* [!code highlight] */
+}
+```
+
 </CustomizingYourTheme>
