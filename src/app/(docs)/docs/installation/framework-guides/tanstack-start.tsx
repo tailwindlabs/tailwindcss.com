@@ -60,6 +60,7 @@ export let steps: Step[] = [
       code: js`
         import { tanstackStart } from '@tanstack/react-start/plugin/vite';
         import { defineConfig } from 'vite';
+        import tsConfigPaths from 'vite-tsconfig-paths'
         import viteReact from '@vitejs/plugin-react'
         // [!code highlight:2]
         import tailwindcss from '@tailwindcss/vite'
@@ -67,7 +68,8 @@ export let steps: Step[] = [
         export default defineConfig({
           plugins: [
             // [!code highlight:2]
-            tailwindcss()
+            tailwindcss(),
+            tsConfigPaths(),
             tanstackStart(),
             viteReact(),
           ]
