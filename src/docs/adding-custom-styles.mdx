@@ -484,6 +484,30 @@ Use the `--value(--theme-key-*)` syntax to resolve the utility value against a s
 
 This will match utilities like `tab-2`, `tab-4`, and `tab-github`.
 
+Use `--value(--color-*)` to create utilities that work with your theme colors, including the default color palette and any custom colors:
+
+```css
+/* [!code filename:CSS] */
+@theme {
+  --color-avocado-500: oklch(0.84 0.18 117.33);
+}
+
+@utility glow-* {
+  /* [!code highlight:2] */
+  /* prettier-ignore */
+  box-shadow: 0 0 2rem --value(--color-*);
+}
+```
+
+This will match utilities like `glow-blue-500` from the default palette and `glow-avocado-500` from your custom theme:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:glow-blue-500,glow-avocado-500] -->
+<div class="glow-blue-500 ...">...</div>
+<div class="glow-avocado-500 ...">...</div>
+```
+
 #### Bare values
 
 To resolve the value as a bare value, use the `--value({type})` syntax, where `{type}` is the data type you want to validate the bare value as:
