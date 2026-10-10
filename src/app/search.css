@@ -8,12 +8,16 @@
   left: calc(var(--spacing) * 0);
   z-index: 200;
   display: flex;
-  height: 100vh;
+  height: var(--search-viewport-height, 100dvh);
   width: 100vw;
+  overflow-y: auto;
+  overscroll-behavior: none;
+  scrollbar-width: none;
   cursor: auto;
   flex-direction: column;
   background-color: color-mix(in oklab, var(--color-black) 20%, transparent);
-  padding: calc(var(--spacing) * 4);
+  --search-container-padding: calc(var(--spacing) * 4);
+  padding: var(--search-container-padding);
   --tw-backdrop-blur: blur(var(--blur-sm));
   -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,)
     var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,)
@@ -22,13 +26,28 @@
     var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,)
     var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
   @media (width >= 40rem /* 640px */) {
-    padding: calc(var(--spacing) * 6);
+    --search-container-padding: calc(var(--spacing) * 6);
   }
   @media (width >= 48rem /* 768px */) {
-    padding: 10vh;
+    --search-container-padding: 10vh;
   }
   @media (width >= 64rem /* 1024px */) {
-    padding: 12vh;
+    --search-container-padding: 12vh;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Keeps the container scrollable so iOS never passes touch scrolls to the page behind it. */
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: calc(100% + 1px);
+    pointer-events: none;
   }
 
   .dark & {
@@ -71,6 +90,8 @@
 }
 
 .DocSearch-Modal {
+  position: sticky;
+  top: var(--search-container-padding);
   margin: 0 auto;
   width: 100%;
   max-width: 47.375rem;

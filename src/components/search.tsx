@@ -53,6 +53,8 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
     onClose,
   });
 
+  useLockScrollOnTouchDevices(isOpen);
+
   useEffect(() => {
     // Saved searches bypass Algolia's facet filters, so discard non-documentation entries too.
     if (!isOpen) {
@@ -254,6 +256,34 @@ function useDocSearchKeyboardEvents({
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [isOpen, onOpen, onClose]);
+}
+
+function useLockScrollOnTouchDevices(isOpen: boolean) {
+  useEffect(() => {
+    if (!isOpen) return;
+
+    let root = document.documentElement;
+    let viewport = window.visualViewport;
+
+    function syncHeightToVisualViewport() {
+      if (!viewport) return;
+      root.style.setProperty("--search-viewport-height", `${viewport.height}px`);
+    }
+
+    function preventDocSearchFromBlurringInputOnScroll(event: TouchEvent) {
+      event.stopPropagation();
+    }
+
+    syncHeightToVisualViewport();
+    viewport?.addEventListener("resize", syncHeightToVisualViewport);
+    document.addEventListener("touchmove", preventDocSearchFromBlurringInputOnScroll, { passive: true });
+
+    return () => {
+      viewport?.removeEventListener("resize", syncHeightToVisualViewport);
+      document.removeEventListener("touchmove", preventDocSearchFromBlurringInputOnScroll);
+      root.style.removeProperty("--search-viewport-height");
+    };
+  }, [isOpen]);
 }
 
 // @ts-ignore
