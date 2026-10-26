@@ -55,7 +55,7 @@ Learn more about how theme variables map to different utility classes in the [th
 
 Theme variables aren't _just_ CSS variables — they also instruct Tailwind to create new utility classes that you can use in your HTML.
 
-Since they do more than regular CSS variables, Tailwind uses special syntax so that defining theme variables is always explicit. Theme variables are also required to be defined top-level and not nested under other selectors or media queries, and using a special syntax makes it possible to enforce that.
+Since they do more than regular CSS variables, Tailwind uses special syntax so that defining theme variables is always explicit. Theme variables are also required to be defined top-level and not nested under other selectors or media queries, and using a special syntax makes it possible to enforce that. If you need a theme variable to have a different value in dark mode, see [using different values in dark mode](#using-different-values-in-dark-mode).
 
 Defining regular CSS variables with `:root` can still be useful in Tailwind projects when you want to define a variable that isn't meant to be connected to a utility class. Use `@theme` when you want a design token to map directly to a utility class, and use `:root` for defining regular CSS variables that shouldn't have corresponding utility classes.
 
@@ -514,6 +514,30 @@ For example, this text will fall back to `sans-serif` instead of using `Inter` l
 ```
 
 This happens because `var(--font-sans)` is resolved where `--font-sans` is defined _(on `#parent`)_, and `--font-inter` has no value there since it's not defined until deeper in the tree _(on `#child`)_.
+
+### Using different values in dark mode
+
+Since theme variables can't be nested under selectors, define the values as regular CSS variables, change them under your dark mode selector, and reference them using `@theme inline`:
+
+```css
+/* [!code filename:app.css] */
+@import "tailwindcss";
+
+:root {
+  --acme-canvas-color: oklch(0.967 0.003 264.542);
+}
+
+[data-theme="dark"] {
+  --acme-canvas-color: oklch(0.21 0.034 264.665);
+}
+
+/* [!code highlight:4] */
+@theme inline {
+  --color-canvas: var(--acme-canvas-color);
+}
+```
+
+Using `inline` makes utilities like `bg-canvas` reference `--acme-canvas-color` directly, so they use the dark value wherever that selector applies. This works with whatever selector you use for [toggling dark mode](/docs/dark-mode#toggling-dark-mode-manually), or with a `prefers-color-scheme` media query to follow the system setting.
 
 ### Generating all CSS variables
 
