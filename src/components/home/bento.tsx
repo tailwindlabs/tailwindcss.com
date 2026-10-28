@@ -15,12 +15,7 @@ export function BentoItem({ children, className }: { children: ReactNode; classN
 }
 
 export function BentoHeader({ children }: { children: ReactNode }) {
-  return (
-    <>
-      <div className="flex flex-col gap-6 p-6 @md:flex-row @md:gap-x-8 @md:p-8">{children}</div>
-      <div className="flex-1" />
-    </>
-  );
+  return <div className="flex flex-col gap-6 p-6 @md:flex-row @md:gap-x-8 @md:p-8">{children}</div>;
 }
 
 export function BentoIcon({ children }: { children?: ReactNode }) {
@@ -53,7 +48,7 @@ export function BentoBody({
       className={clsx(
         className,
         padding && "p-4 sm:p-8",
-        "relative overflow-hidden",
+        "relative mt-auto overflow-hidden",
         "rounded-lg bg-gray-950/2.5",
         "after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:inset-ring after:inset-ring-gray-950/5 dark:after:inset-ring-white/10",
         "bg-[radial-gradient(var(--pattern-fg)_1px,transparent_0)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-gray-950)]/5 dark:[--pattern-fg:var(--color-white)]/10",

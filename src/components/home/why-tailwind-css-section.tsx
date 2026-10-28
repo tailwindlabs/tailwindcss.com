@@ -551,7 +551,7 @@ export default function WhyTailwindCssSection() {
               </div>
             </BentoHeader>
             <div className="grid h-112 gap-[inherit]">
-              <BentoBody padding={false}>
+              <BentoBody className="h-full" padding={false}>
                 <TransitionsSection />
               </BentoBody>
             </div>
@@ -734,8 +734,8 @@ export default function WhyTailwindCssSection() {
                 </BentoDescription>
               </div>
             </BentoHeader>
-            <BentoBody className="h-112">
-              <div className="-mt-27 -mr-124 -mb-8 bg-white px-6 py-16 ring ring-gray-950/5 md:px-16 xl:-mr-26 dark:bg-gray-950 dark:ring-white/10">
+            <BentoBody padding={false}>
+              <div className="h-full rounded-lg bg-white px-6 py-10 ring ring-gray-950/5 md:px-10 dark:bg-gray-950 dark:ring-white/10">
                 <div className="flex flex-col gap-2">
                   <span className="text-sm/7 font-medium text-gray-950/75 dark:text-white/75">
                     Power Meets Precision
@@ -794,7 +794,7 @@ export default function WhyTailwindCssSection() {
                 </BentoDescription>
               </div>
             </BentoHeader>
-            <BentoBody className="h-112">
+            <BentoBody className="min-h-112 flex-1">
               <Transforms3d />
             </BentoBody>
           </BentoItem>
